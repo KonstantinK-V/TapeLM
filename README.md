@@ -4,7 +4,7 @@
 
 TapeLM is a research artifact for people who care about **how** knowledge is represented, not only benchmark leaderboard position. The backbone is a **dual-channel character-curve encoder** (fast ink + surprise-gated slow writer). On top of it sits a **zero-train fingerprint stack**: lexicon calibration, episodic slots, one-shot subject writes, and vector hops — without training a separate retriever or re-embedding pipeline.
 
-This is **not** marketed as “we beat RAG on everything.” The honest pitch is a **different contract**: unified fp-space on one encoder, **matched-GPT parity** where we measured, **capability wins** where the substrate matters (noisy/OOV text, slot unlearn), and a **published map of negatives** (generative fingerprints, hybrid heads, internalization 210–212).
+This is **not** marketed as “we beat RAG on everything.” The honest pitch is a **different contract**: unified fp-space on one encoder, **matched-GPT parity** where we measured, **documented wins** (calibration, recall, edit, stream; noise/unlearn vs fair RAG), plus **explicit falsifications** where claims stop (variant B, hybrid head, internalization 210–212).
 
 **Browsing without running code?** Start at [`artifact/README.md`](artifact/README.md) → [`artifact/OVERVIEW.md`](artifact/OVERVIEW.md), then `python artifact/scripts/show_map.py`.
 

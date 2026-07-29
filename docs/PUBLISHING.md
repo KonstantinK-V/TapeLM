@@ -12,8 +12,10 @@ Use this when creating the remote repo or editing **About** settings.
 
 ## Short description (GitHub “About”, ≤ 350 characters)
 
+**Update on github.com** if you still have the old “Full negative-result map” text — it reads like every stage failed.
+
 ```text
-TapeLM: frozen dual-channel curve encoder + zero-train fingerprint memory (calibration, slots, edit, hops) in one fp-space. Honest GPT/RAG parity + noise/unlearn wins. Full negative-result map (Stages 170–212).
+TapeLM: frozen curve encoder + zero-train fp memory (calibration, slots, edit, hops). Documented wins vs GPT; noise/unlearn vs fair RAG. Staged program 170–212 — positives and explicit falsifications.
 ```
 
 *(Character count ~195 — room for your handle or “MIT”.)*
@@ -23,7 +25,7 @@ TapeLM: frozen dual-channel curve encoder + zero-train fingerprint memory (calib
 ## Extended “About” / social preview (optional README excerpt)
 
 ```text
-Alternative LM contract: character-curve substrate, episodic fp slots, vector binding — not “beat RAG on everything.” Reproducible stage decisions, falsified generative fingerprints, closed internalization frontier.
+Alternative LM contract: character-curve + fp slots in one space. Wins on calibration, recall, edit, stream; capability on noisy text and unlearn. GPT/RAG parity where measured; falsified branches labeled (B, 210–212).
 ```
 
 ---
