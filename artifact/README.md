@@ -8,7 +8,7 @@ The full stage tree (`_stage170` … `_stage212`, logs, legacy SOTE) lives at th
 
 ## Path A — read only (no GPU, no checkpoints)
 
-1. **[`OVERVIEW.md`](OVERVIEW.md)** — why the architecture is different from parametric LMs and text RAG; what worked; what we falsified.
+1. **[`OVERVIEW.md`](OVERVIEW.md)** — non-standard architecture; **confirmed wins**; closed branches where claims stop.
 2. **[`decisions/`](decisions/)** — machine-readable `stage*_decision.json` for the main scorecard stages (browse on GitHub).
 3. **[`../results/plan_curve_dynamics.md`](../results/plan_curve_dynamics.md)** — full program narrative and numbers.
 4. **[`../results/pre_publish_frontier.md`](../results/pre_publish_frontier.md)** — closed internalization frontier (210–212).
@@ -60,7 +60,7 @@ python artifact/scripts/sync_decisions.py
 ```
 artifact/
   README.md              ← you are here
-  OVERVIEW.md            thesis + falsification map
+  OVERVIEW.md            wins + boundaries (one page)
   requirements.txt
   decisions/             curated verdict JSON (+ optional mini.md)
   scripts/

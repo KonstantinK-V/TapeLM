@@ -43,13 +43,17 @@ Generation stays pretrained once (Stage 191). Everything else is composition on 
 
 ---
 
-## Confirmed on variant A (short)
+## Variant A — wins (main result)
 
 - **Generation:** parity with matched GPT on P1 scale (191).
-- **FP stack:** lexicon calibration, episodic recall, hop2/binding, edit, stream+budget (192–198).
-- **vs vanilla GPT:** calibration, edit, streaming; **vs fair GPT+RAG:** mostly architectural unification — **capability** wins on **noise/OOV** (204) and **unlearn** (205).
+- **FP stack (zero-train on frozen P1):** lexicon calibration, episodic recall, hop2/binding, edit, stream+budget (192–198).
+- **vs vanilla GPT:** strong on calibration, edit, streaming.
+- **vs fair GPT+RAG:** unified fp-space on one encoder; **capability** wins on **noise/OOV** (204) and **unlearn** (205); structured external hops (203).
+
+## Variant A — boundaries (explicit, smaller set of stages)
+
 - **Variant B** (predict next fingerprint): **falsified** (207, 207-MAX).
-- **Semantic B @ PAWS on 3050:** not confirmed; not a structural block vs GPT (209).
+- **Semantic B @ PAWS on 3050:** not confirmed at this scale; not a structural block vs GPT (209).
 - **Internalization** (hops inside forward, slow tape, instance channel): **THESIS_NO** (210–212).
 
 Details and numbers: preprint draft §4–5 and Stage 196 scorecard.
@@ -73,7 +77,7 @@ Full P1 training: `_stage191_night.py` (long run; see `results/plan_stage191_nig
 
 ## Find this repo (keywords)
 
-If you search for **character-level LM**, **curve / arc encoder**, **dual-channel memory**, **word fingerprint**, **episodic slot memory**, **zero-train retrieval**, **RAG comparison**, **knowledge editing**, **machine unlearning**, **multi-hop binding**, **OOD lexical calibration**, or **reproducible negative results** — this tree is the staged evidence trail.
+If you search for **character-level LM**, **curve / arc encoder**, **dual-channel memory**, **word fingerprint**, **episodic slot memory**, **zero-train retrieval**, **knowledge editing**, **OOD calibration**, **multi-hop binding**, or **staged reproducible benchmarks** — this tree is the evidence trail (wins and closed branches).
 
 Suggested GitHub **Topics** (copy from [`docs/PUBLISHING.md`](docs/PUBLISHING.md)):  
 `language-model` · `character-level` · `episodic-memory` · `retrieval-augmented-generation` · `knowledge-editing` · `machine-unlearning` · `reproducible-research`

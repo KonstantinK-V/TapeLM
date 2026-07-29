@@ -11,7 +11,7 @@ Staged evidence for TapeLM: narratives, preprint draft, and per-stage verdict fi
 | File | Content |
 |------|---------|
 | [`plan_curve_dynamics.md`](plan_curve_dynamics.md) | Full program narrative, scorecard, stage commentary |
-| [`preprint_tapelm_draft.md`](preprint_tapelm_draft.md) | Preprint-shaped prose (abstract, protocol, negatives) |
+| [`preprint_tapelm_draft.md`](preprint_tapelm_draft.md) | Preprint-shaped prose (wins, protocol, limits) |
 | [`pre_publish_frontier.md`](pre_publish_frontier.md) | Closed frontier 210–212 |
 | `stage*_decision.json` | Machine-readable overall verdict per stage |
 | `stage*_mini.md` | One-page stage summaries where present |

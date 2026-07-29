@@ -4,6 +4,7 @@ Active scripts live in the **repo root** (`_stage*.py`). Legacy pre-170 scripts 
 
 **Architecture context:** [`ARCHITECTURE.md`](ARCHITECTURE.md) · **Visitor map:** [`../artifact/OVERVIEW.md`](../artifact/OVERVIEW.md)
 
+TapeLM line: many stages end in **`_YES` / `_WIN` / `_PARTIAL`** (191–205, 203, 204, 205); a **smaller** set closes variant B and internalization (207–212). See `show_map.py` or [`artifact/decisions/`](../artifact/decisions/).
 | Stage | Script | Verdict (see `results/stage*_decision.json`) |
 |-------|--------|-----------------------------------------------|
 | 170 | `_stage170_curve_dynamics.py` | Curve dynamics smoke |

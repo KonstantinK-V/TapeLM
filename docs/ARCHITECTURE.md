@@ -4,6 +4,12 @@ This document is for implementers and paper readers who want the **non-standard 
 
 ---
 
+## Confirmed on frozen P1 (variant A)
+
+Generation parity (191); zero-train fp **calibration**, **recall**, **hop2/bind**, **edit**, **stream** (192–198); external structured hops (203); noise vs fair RAG (204); slot unlearn (205).
+
+---
+
 ## Layer 0 — Curve substrate (frozen after Stage 191)
 
 | Piece | Role |
@@ -53,7 +59,7 @@ Claims are split:
 
 ---
 
-## What we tried and closed (do not re-litigate as “almost there”)
+## Closed research branches (explicit limits)
 
 | Attempt | Result |
 |---------|--------|

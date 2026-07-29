@@ -18,7 +18,7 @@ Most LMs **parametrize** facts in weights. RAG **externalizes** facts as documen
 
 Composition is an **external zero-train fp loop** on P1. That is the architectural bet: operable memory APIs without a second embedding model or fine-tuned reranker.
 
-We compare honestly to **matched GPT** and **fair GPT+RAG** (same surprise gating and retrieval math where applicable). The headline is **contract + map**, not “SOTA on every axis.”
+We compare honestly to **matched GPT** and **fair GPT+RAG** (same surprise gating and retrieval math where applicable). The headline is **a working fp-stack on a non-standard substrate**, with **staged wins and clear boundaries** — not “SOTA on every axis.”
 
 ---
 
@@ -44,9 +44,9 @@ flowchart LR
   fp --> OUT["Query / edit / stream policies"]
 ```
 
-**Works (documented):** P1 generation parity (~0.87 vs ~0.84 matched GPT); fp calibration; fact recall; edit; stream under budget (191–198); structured external hops (203); noise/OOV vs fair RAG (204); slot unlearn (205).
+**Confirmed wins (documented):** P1 generation parity (~0.87 vs ~0.84 matched GPT); fp lexicon **calibration**; **fact recall** and hop2/**binding**; one-shot **edit**; **stream** under memory budget (191–198); structured **external hops** (203); **noise/OOV** vs fair RAG (204); **slot unlearn** without collateral (205).
 
-**Falsified or closed:**
+**Closed branches** (where we stopped claiming — not the main story):
 
 | Line | Verdict | Stages |
 |------|---------|--------|
@@ -61,10 +61,10 @@ flowchart LR
 
 ## Who might care
 
-- **Architecture researchers** — alternative substrate (character curve + slow channel) with a full falsification trail.
+- **Architecture researchers** — character-curve substrate + dual-channel writer; full staged program with wins and labeled dead ends.
 - **Memory / RAG people** — vector-native slots and binding vs chunk retrieval; explicit parity protocol.
-- **Robustness / editing** — character fp degradation under noise; O(1) slot unlearn vs parametric collateral.
-- **Skeptics** — 40+ stage JSON decisions; variant B and internalization attempts reported as failures, not footnotes.
+- **Robustness / editing** — character fp under noise; O(1) slot unlearn vs parametric collateral.
+- **Method-minded readers** — per-stage JSON verdicts (wins such as 192–205 and closed lines such as 207–212).
 
 ---
 
