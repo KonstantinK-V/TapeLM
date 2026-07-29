@@ -58,7 +58,7 @@ Details and numbers: preprint draft §4–5 and Stage 196 scorecard.
 
 ## Reproduce
 
-Python 3.10+, PyTorch, `tokenizers`, `transformers`; GPU recommended. Checkpoints are **not** in git — see [`docs/CHECKPOINTS.md`](docs/CHECKPOINTS.md).
+Python 3.10+, PyTorch, `tokenizers`, `transformers`; GPU recommended. Checkpoints are **not** in git — download from [Hugging Face `Kostya03v/TapeLM-P1`](https://huggingface.co/Kostya03v/TapeLM-P1) or see [`docs/CHECKPOINTS.md`](docs/CHECKPOINTS.md).
 
 ```bash
 pip install -r artifact/requirements.txt

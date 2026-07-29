@@ -2,6 +2,23 @@
 
 Git does **not** store weights (see root `.gitignore`).
 
+## Hugging Face (recommended)
+
+After upload, weights live at:
+
+**https://huggingface.co/Kostya03v/TapeLM-P1**
+
+(Replace with your model id if different.)
+
+```bash
+pip install huggingface_hub
+python artifact/scripts/download_checkpoints.py
+```
+
+Step-by-step upload: [`HUGGINGFACE.md`](HUGGINGFACE.md).
+
+---
+
 ## TapeLM product encoder (required for 192–212 demos)
 
 | File | Role |

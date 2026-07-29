@@ -34,7 +34,7 @@ python artifact/scripts/check_env.py
 
 See **[`../docs/CHECKPOINTS.md`](../docs/CHECKPOINTS.md)**. Minimum artifacts:
 
-- `checkpoints/stage191_p1_curve.pt`
+- `checkpoints/stage191_p1_curve.pt` — [HF Hub](https://huggingface.co/Kostya03v/TapeLM-P1) or `python artifact/scripts/download_checkpoints.py`
 - `checkpoints/stage191_p2_gpt.pt`
 
 From the **repository root**:
