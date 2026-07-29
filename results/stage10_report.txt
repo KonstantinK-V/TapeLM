@@ -1,0 +1,67 @@
+SOTE Stage 10 report (PhraseComposer on morph-aware word_fp)
+timestamp: 2026-07-23T08:47:42.073529+00:00
+device: cuda
+steps: 3500
+word ckpt: word_memory_9_2.pt
+morph ckpt: morph_letter_9f_plusplus_FROZEN.pt
+TRAIN phrases=43 HOLD=16
+Frozen: encoder + WordComposer + MorphMod | Trainable: PhraseComposer + HardSlotProbe
+
+Train phrase acc:   100.0%  trace=1.00 order=100% peel=100%
+HOLD invariants:    trace=0.86 order=100% peel=100%
+Prefix probes:      100%
+Morph-swap HOLD:    moved_off=100% prefer_new=10% (n=10)
+Rel TRAIN / HOLD:   100% / 100%
+
+HOLD phrases:
+  [OK] 'cat to car' tr=1.00 order=Y peel=Y
+  [OK] 'dog to top' tr=1.00 order=Y peel=Y
+  [OK] 'go to cat' tr=1.00 order=Y peel=Y
+  [OK] 'spot on car' tr=1.00 order=Y peel=Y
+  [OK] 'good dog on car' tr=1.00 order=Y peel=Y
+  [OK] 'no good cat' tr=1.00 order=Y peel=Y
+  [OK] 'jumps on top' tr=0.76 order=Y peel=Y
+  [OK] 'walks on car' tr=0.76 order=Y peel=Y
+  [OK] 'cat jumping' tr=0.81 order=Y peel=Y
+  [OK] 'dog walking' tr=0.85 order=Y peel=Y
+  [OK] 'reading on top' tr=0.83 order=Y peel=Y
+  [OK] 'cat writes' tr=0.64 order=Y peel=Y
+  [OK] 'dog jumped' tr=0.78 order=Y peel=Y
+  [OK] 'walked on car' tr=0.79 order=Y peel=Y
+  [OK] 'good jumps' tr=0.68 order=Y peel=Y
+  [OK] 'no walking' tr=0.85 order=Y peel=Y
+
+HOLD morph-swap:
+  OK jumps on top: jumps->jumped moved=True prefer_new=False
+  OK walks on car: walks->walked moved=True prefer_new=True
+  OK cat jumping: jumping->jumped moved=True prefer_new=False
+  OK dog walking: walking->walked moved=True prefer_new=False
+  OK reading on top: reading->readed moved=True prefer_new=False
+  OK cat writes: writes->writed moved=True prefer_new=False
+  OK dog jumped: jumped->jumping moved=True prefer_new=False
+  OK walked on car: walked->walking moved=True prefer_new=False
+  OK good jumps: jumps->jumped moved=True prefer_new=False
+  OK no walking: walking->walked moved=True prefer_new=False
+
+HOLD relational:
+  [OK] fact='cat to car' what -> cat (want cat) p_left=1.00
+  [OK] fact='cat to car' where -> car (want car) p_left=0.00
+  [OK] fact='dog to top' what -> dog (want dog) p_left=1.00
+  [OK] fact='dog to top' where -> top (want top) p_left=0.00
+  [OK] fact='go to cat' what -> go (want go) p_left=1.00
+  [OK] fact='go to cat' where -> cat (want cat) p_left=0.00
+  [OK] fact='spot on car' what -> spot (want spot) p_left=1.00
+  [OK] fact='spot on car' where -> car (want car) p_left=0.00
+  [OK] fact='good dog on car' what -> dog (want dog) p_left=1.00
+  [OK] fact='good dog on car' where -> car (want car) p_left=0.00
+  [OK] fact='jumps on top' what -> jumps (want jumps) p_left=1.00
+  [OK] fact='jumps on top' where -> top (want top) p_left=0.00
+  [OK] fact='walks on car' what -> walks (want walks) p_left=1.00
+  [OK] fact='walks on car' where -> car (want car) p_left=0.00
+  [OK] fact='reading on top' what -> reading (want reading) p_left=1.00
+  [OK] fact='reading on top' where -> top (want top) p_left=0.00
+  [OK] fact='walked on car' what -> walked (want walked) p_left=1.00
+  [OK] fact='walked on car' where -> car (want car) p_left=0.00
+
+=== Verdict ===
+  Stage 10 phrase layer OK on morph-aware word_fp; morph interventions move phrase_fp.

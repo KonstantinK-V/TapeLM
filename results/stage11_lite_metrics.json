@@ -1,0 +1,3019 @@
+{
+  "stage": "11-lite",
+  "timestamp": "2026-07-23T10:09:23.074961+00:00",
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "config": {
+    "dim": 64,
+    "seed": 0,
+    "max_phrase_len": 5
+  },
+  "metrics": {
+    "word_ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\word_memory_9_2.pt",
+    "morph_ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\morph_letter_9f_plusplus_FROZEN.pt",
+    "phrase_ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\phrase_morph_10_plus_FROZEN.pt",
+    "n_codebook": 88,
+    "n_plain": 31,
+    "n_morph": 57,
+    "word_recon": {
+      "n": 88,
+      "acc": 1.0,
+      "morph_acc": 1.0,
+      "plain_acc": 1.0,
+      "mean_sim": 1.0000000101598827,
+      "details": [
+        {
+          "word": "act",
+          "pred": "act",
+          "ok": true,
+          "sim": 1.0,
+          "morph": false
+        },
+        {
+          "word": "acted",
+          "pred": "acted",
+          "ok": true,
+          "sim": 1.0,
+          "morph": true
+        },
+        {
+          "word": "acting",
+          "pred": "acting",
+          "ok": true,
+          "sim": 0.9999999403953552,
+          "morph": true
+        },
+        {
+          "word": "acts",
+          "pred": "acts",
+          "ok": true,
+          "sim": 1.0,
+          "morph": true
+        },
+        {
+          "word": "bird",
+          "pred": "bird",
+          "ok": true,
+          "sim": 1.0,
+          "morph": false
+        },
+        {
+          "word": "book",
+          "pred": "book",
+          "ok": true,
+          "sim": 1.0,
+          "morph": false
+        },
+        {
+          "word": "booked",
+          "pred": "booked",
+          "ok": true,
+          "sim": 1.0,
+          "morph": true
+        },
+        {
+          "word": "booking",
+          "pred": "booking",
+          "ok": true,
+          "sim": 1.0,
+          "morph": true
+        },
+        {
+          "word": "books",
+          "pred": "books",
+          "ok": true,
+          "sim": 1.0,
+          "morph": true
+        },
+        {
+          "word": "car",
+          "pred": "car",
+          "ok": true,
+          "sim": 1.0,
+          "morph": false
+        },
+        {
+          "word": "card",
+          "pred": "card",
+          "ok": true,
+          "sim": 1.0,
+          "morph": false
+        },
+        {
+          "word": "cat",
+          "pred": "cat",
+          "ok": true,
+          "sim": 1.0000001192092896,
+          "morph": false
+        },
+        {
+          "word": "cats",
+          "pred": "cats",
+          "ok": true,
+          "sim": 1.0,
+          "morph": true
+        },
+        {
+          "word": "catted",
+          "pred": "catted",
+          "ok": true,
+          "sim": 1.0,
+          "morph": true
+        },
+        {
+          "word": "catting",
+          "pred": "catting",
+          "ok": true,
+          "sim": 1.0,
+          "morph": true
+        },
+        {
+          "word": "dog",
+          "pred": "dog",
+          "ok": true,
+          "sim": 1.0,
+          "morph": false
+        },
+        {
+          "word": "dogged",
+          "pred": "dogged",
+          "ok": true,
+          "sim": 1.0,
+          "morph": true
+        },
+        {
+          "word": "dogging",
+          "pred": "dogging",
+          "ok": true,
+          "sim": 1.0,
+          "morph": true
+        },
+        {
+          "word": "dogs",
+          "pred": "dogs",
+          "ok": true,
+          "sim": 1.0000001192092896,
+          "morph": true
+        },
+        {
+          "word": "fish",
+          "pred": "fish",
+          "ok": true,
+          "sim": 0.9999999403953552,
+          "morph": false
+        },
+        {
+          "word": "fished",
+          "pred": "fished",
+          "ok": true,
+          "sim": 1.0,
+          "morph": true
+        },
+        {
+          "word": "fishes",
+          "pred": "fishes",
+          "ok": true,
+          "sim": 1.0,
+          "morph": true
+        },
+        {
+          "word": "fishing",
+          "pred": "fishing",
+          "ok": true,
+          "sim": 1.0,
+          "morph": true
+        },
+        {
+          "word": "give",
+          "pred": "give",
+          "ok": true,
+          "sim": 1.0,
+          "morph": false
+        },
+        {
+          "word": "gived",
+          "pred": "gived",
+          "ok": true,
+          "sim": 1.0,
+          "morph": true
+        },
+        {
+          "word": "gives",
+          "pred": "gives",
+          "ok": true,
+          "sim": 1.0,
+          "morph": true
+        },
+        {
+          "word": "giving",
+          "pred": "giving",
+          "ok": true,
+          "sim": 1.0,
+          "morph": true
+        },
+        {
+          "word": "go",
+          "pred": "go",
+          "ok": true,
+          "sim": 1.0,
+          "morph": false
+        },
+        {
+          "word": "goed",
+          "pred": "goed",
+          "ok": true,
+          "sim": 0.9999999403953552,
+          "morph": true
+        },
+        {
+          "word": "goes",
+          "pred": "goes",
+          "ok": true,
+          "sim": 1.0,
+          "morph": true
+        },
+        {
+          "word": "going",
+          "pred": "going",
+          "ok": true,
+          "sim": 1.0,
+          "morph": true
+        },
+        {
+          "word": "good",
+          "pred": "good",
+          "ok": true,
+          "sim": 1.0,
+          "morph": false
+        },
+        {
+          "word": "house",
+          "pred": "house",
+          "ok": true,
+          "sim": 1.0,
+          "morph": false
+        },
+        {
+          "word": "jump",
+          "pred": "jump",
+          "ok": true,
+          "sim": 1.0,
+          "morph": false
+        },
+        {
+          "word": "jumped",
+          "pred": "jumped",
+          "ok": true,
+          "sim": 1.0,
+          "morph": true
+        },
+        {
+          "word": "jumping",
+          "pred": "jumping",
+          "ok": true,
+          "sim": 1.0,
+          "morph": true
+        },
+        {
+          "word": "jumps",
+          "pred": "jumps",
+          "ok": true,
+          "sim": 1.0,
+          "morph": true
+        },
+        {
+          "word": "make",
+          "pred": "make",
+          "ok": true,
+          "sim": 1.0,
+          "morph": false
+        },
+        {
+          "word": "maked",
+          "pred": "maked",
+          "ok": true,
+          "sim": 1.0,
+          "morph": true
+        },
+        {
+          "word": "makes",
+          "pred": "makes",
+          "ok": true,
+          "sim": 1.0,
+          "morph": true
+        },
+        {
+          "word": "making",
+          "pred": "making",
+          "ok": true,
+          "sim": 1.0,
+          "morph": true
+        },
+        {
+          "word": "no",
+          "pred": "no",
+          "ok": true,
+          "sim": 1.0,
+          "morph": false
+        },
+        {
+          "word": "not",
+          "pred": "not",
+          "ok": true,
+          "sim": 1.0000001192092896,
+          "morph": false
+        },
+        {
+          "word": "on",
+          "pred": "on",
+          "ok": true,
+          "sim": 0.9999999403953552,
+          "morph": false
+        },
+        {
+          "word": "play",
+          "pred": "play",
+          "ok": true,
+          "sim": 1.0000001192092896,
+          "morph": false
+        },
+        {
+          "word": "played",
+          "pred": "played",
+          "ok": true,
+          "sim": 1.0,
+          "morph": true
+        },
+        {
+          "word": "playing",
+          "pred": "playing",
+          "ok": true,
+          "sim": 1.0,
+          "morph": true
+        },
+        {
+          "word": "plays",
+          "pred": "plays",
+          "ok": true,
+          "sim": 0.9999999403953552,
+          "morph": true
+        },
+        {
+          "word": "post",
+          "pred": "post",
+          "ok": true,
+          "sim": 1.0,
+          "morph": false
+        },
+        {
+          "word": "posted",
+          "pred": "posted",
+          "ok": true,
+          "sim": 1.0,
+          "morph": true
+        },
+        {
+          "word": "posting",
+          "pred": "posting",
+          "ok": true,
+          "sim": 1.0,
+          "morph": true
+        },
+        {
+          "word": "posts",
+          "pred": "posts",
+          "ok": true,
+          "sim": 1.0,
+          "morph": true
+        },
+        {
+          "word": "pot",
+          "pred": "pot",
+          "ok": true,
+          "sim": 0.9999999403953552,
+          "morph": false
+        },
+        {
+          "word": "read",
+          "pred": "read",
+          "ok": true,
+          "sim": 1.0,
+          "morph": false
+        },
+        {
+          "word": "readed",
+          "pred": "readed",
+          "ok": true,
+          "sim": 1.0000001192092896,
+          "morph": true
+        },
+        {
+          "word": "reading",
+          "pred": "reading",
+          "ok": true,
+          "sim": 1.0000001192092896,
+          "morph": true
+        },
+        {
+          "word": "reads",
+          "pred": "reads",
+          "ok": true,
+          "sim": 1.0000001192092896,
+          "morph": true
+        },
+        {
+          "word": "run",
+          "pred": "run",
+          "ok": true,
+          "sim": 1.0000001192092896,
+          "morph": false
+        },
+        {
+          "word": "runned",
+          "pred": "runned",
+          "ok": true,
+          "sim": 1.0000001192092896,
+          "morph": true
+        },
+        {
+          "word": "running",
+          "pred": "running",
+          "ok": true,
+          "sim": 1.0,
+          "morph": true
+        },
+        {
+          "word": "runs",
+          "pred": "runs",
+          "ok": true,
+          "sim": 1.0,
+          "morph": true
+        },
+        {
+          "word": "spot",
+          "pred": "spot",
+          "ok": true,
+          "sim": 1.0000001192092896,
+          "morph": false
+        },
+        {
+          "word": "spots",
+          "pred": "spots",
+          "ok": true,
+          "sim": 1.0,
+          "morph": true
+        },
+        {
+          "word": "spotted",
+          "pred": "spotted",
+          "ok": true,
+          "sim": 1.0,
+          "morph": true
+        },
+        {
+          "word": "spotting",
+          "pred": "spotting",
+          "ok": true,
+          "sim": 1.0,
+          "morph": true
+        },
+        {
+          "word": "stop",
+          "pred": "stop",
+          "ok": true,
+          "sim": 1.0,
+          "morph": false
+        },
+        {
+          "word": "stopped",
+          "pred": "stopped",
+          "ok": true,
+          "sim": 0.9999999403953552,
+          "morph": true
+        },
+        {
+          "word": "stopping",
+          "pred": "stopping",
+          "ok": true,
+          "sim": 1.0,
+          "morph": true
+        },
+        {
+          "word": "stops",
+          "pred": "stops",
+          "ok": true,
+          "sim": 1.0,
+          "morph": true
+        },
+        {
+          "word": "take",
+          "pred": "take",
+          "ok": true,
+          "sim": 1.0,
+          "morph": false
+        },
+        {
+          "word": "taked",
+          "pred": "taked",
+          "ok": true,
+          "sim": 0.9999999403953552,
+          "morph": true
+        },
+        {
+          "word": "takes",
+          "pred": "takes",
+          "ok": true,
+          "sim": 1.0,
+          "morph": true
+        },
+        {
+          "word": "taking",
+          "pred": "taking",
+          "ok": true,
+          "sim": 1.0000001192092896,
+          "morph": true
+        },
+        {
+          "word": "to",
+          "pred": "to",
+          "ok": true,
+          "sim": 1.0,
+          "morph": false
+        },
+        {
+          "word": "top",
+          "pred": "top",
+          "ok": true,
+          "sim": 1.0000001192092896,
+          "morph": false
+        },
+        {
+          "word": "topped",
+          "pred": "topped",
+          "ok": true,
+          "sim": 1.0,
+          "morph": true
+        },
+        {
+          "word": "topping",
+          "pred": "topping",
+          "ok": true,
+          "sim": 0.9999999403953552,
+          "morph": true
+        },
+        {
+          "word": "tops",
+          "pred": "tops",
+          "ok": true,
+          "sim": 1.0,
+          "morph": true
+        },
+        {
+          "word": "tree",
+          "pred": "tree",
+          "ok": true,
+          "sim": 1.0,
+          "morph": false
+        },
+        {
+          "word": "walk",
+          "pred": "walk",
+          "ok": true,
+          "sim": 1.0,
+          "morph": false
+        },
+        {
+          "word": "walked",
+          "pred": "walked",
+          "ok": true,
+          "sim": 1.0,
+          "morph": true
+        },
+        {
+          "word": "walking",
+          "pred": "walking",
+          "ok": true,
+          "sim": 0.9999999403953552,
+          "morph": true
+        },
+        {
+          "word": "walks",
+          "pred": "walks",
+          "ok": true,
+          "sim": 1.0,
+          "morph": true
+        },
+        {
+          "word": "water",
+          "pred": "water",
+          "ok": true,
+          "sim": 1.0,
+          "morph": false
+        },
+        {
+          "word": "write",
+          "pred": "write",
+          "ok": true,
+          "sim": 1.0,
+          "morph": false
+        },
+        {
+          "word": "writed",
+          "pred": "writed",
+          "ok": true,
+          "sim": 1.0000001192092896,
+          "morph": true
+        },
+        {
+          "word": "writes",
+          "pred": "writes",
+          "ok": true,
+          "sim": 1.0,
+          "morph": true
+        },
+        {
+          "word": "writing",
+          "pred": "writing",
+          "ok": true,
+          "sim": 0.9999999403953552,
+          "morph": true
+        }
+      ]
+    },
+    "phrase_train": {
+      "n": 12,
+      "exact_acc": 1.0,
+      "mean_token_acc": 1.0,
+      "details": [
+        {
+          "phrase": "cat on top",
+          "pred": "cat on top",
+          "ok": true,
+          "token_acc": 1.0,
+          "sims": [
+            1.0000001192092896,
+            0.9999999403953552,
+            1.0000001192092896
+          ]
+        },
+        {
+          "phrase": "dog on car",
+          "pred": "dog on car",
+          "ok": true,
+          "token_acc": 1.0,
+          "sims": [
+            1.0,
+            0.9999999403953552,
+            1.0
+          ]
+        },
+        {
+          "phrase": "go to car",
+          "pred": "go to car",
+          "ok": true,
+          "token_acc": 1.0,
+          "sims": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "phrase": "good dog on top",
+          "pred": "good dog on top",
+          "ok": true,
+          "token_acc": 1.0,
+          "sims": [
+            1.0,
+            1.0,
+            0.9999999403953552,
+            1.0000001192092896
+          ]
+        },
+        {
+          "phrase": "cat plays",
+          "pred": "cat plays",
+          "ok": true,
+          "token_acc": 1.0,
+          "sims": [
+            1.0000001192092896,
+            0.9999999403953552
+          ]
+        },
+        {
+          "phrase": "dog runs",
+          "pred": "dog runs",
+          "ok": true,
+          "token_acc": 1.0,
+          "sims": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "phrase": "going to car",
+          "pred": "going to car",
+          "ok": true,
+          "token_acc": 1.0,
+          "sims": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "phrase": "stopped on top",
+          "pred": "stopped on top",
+          "ok": true,
+          "token_acc": 1.0,
+          "sims": [
+            0.9999999403953552,
+            0.9999999403953552,
+            1.0000001192092896
+          ]
+        },
+        {
+          "phrase": "cats on top",
+          "pred": "cats on top",
+          "ok": true,
+          "token_acc": 1.0,
+          "sims": [
+            1.0,
+            0.9999999403953552,
+            1.0000001192092896
+          ]
+        },
+        {
+          "phrase": "books on top",
+          "pred": "books on top",
+          "ok": true,
+          "token_acc": 1.0,
+          "sims": [
+            1.0,
+            0.9999999403953552,
+            1.0000001192092896
+          ]
+        },
+        {
+          "phrase": "spot on car",
+          "pred": "spot on car",
+          "ok": true,
+          "token_acc": 1.0,
+          "sims": [
+            1.0000001192092896,
+            0.9999999403953552,
+            1.0
+          ]
+        },
+        {
+          "phrase": "not to go",
+          "pred": "not to go",
+          "ok": true,
+          "token_acc": 1.0,
+          "sims": [
+            1.0000001192092896,
+            1.0,
+            1.0
+          ]
+        }
+      ]
+    },
+    "phrase_hold": {
+      "n": 11,
+      "exact_acc": 1.0,
+      "mean_token_acc": 1.0,
+      "details": [
+        {
+          "phrase": "cat to car",
+          "pred": "cat to car",
+          "ok": true,
+          "token_acc": 1.0,
+          "sims": [
+            1.0000001192092896,
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "phrase": "dog to top",
+          "pred": "dog to top",
+          "ok": true,
+          "token_acc": 1.0,
+          "sims": [
+            1.0,
+            1.0,
+            1.0000001192092896
+          ]
+        },
+        {
+          "phrase": "go to cat",
+          "pred": "go to cat",
+          "ok": true,
+          "token_acc": 1.0,
+          "sims": [
+            1.0,
+            1.0,
+            1.0000001192092896
+          ]
+        },
+        {
+          "phrase": "jumps on top",
+          "pred": "jumps on top",
+          "ok": true,
+          "token_acc": 1.0,
+          "sims": [
+            1.0,
+            0.9999999403953552,
+            1.0000001192092896
+          ]
+        },
+        {
+          "phrase": "walks on car",
+          "pred": "walks on car",
+          "ok": true,
+          "token_acc": 1.0,
+          "sims": [
+            1.0,
+            0.9999999403953552,
+            1.0
+          ]
+        },
+        {
+          "phrase": "cat jumping",
+          "pred": "cat jumping",
+          "ok": true,
+          "token_acc": 1.0,
+          "sims": [
+            1.0000001192092896,
+            1.0
+          ]
+        },
+        {
+          "phrase": "dog walking",
+          "pred": "dog walking",
+          "ok": true,
+          "token_acc": 1.0,
+          "sims": [
+            1.0,
+            0.9999999403953552
+          ]
+        },
+        {
+          "phrase": "reading on top",
+          "pred": "reading on top",
+          "ok": true,
+          "token_acc": 1.0,
+          "sims": [
+            1.0000001192092896,
+            0.9999999403953552,
+            1.0000001192092896
+          ]
+        },
+        {
+          "phrase": "cat writes",
+          "pred": "cat writes",
+          "ok": true,
+          "token_acc": 1.0,
+          "sims": [
+            1.0000001192092896,
+            1.0
+          ]
+        },
+        {
+          "phrase": "good jumps",
+          "pred": "good jumps",
+          "ok": true,
+          "token_acc": 1.0,
+          "sims": [
+            1.0,
+            1.0
+          ]
+        },
+        {
+          "phrase": "no walking",
+          "pred": "no walking",
+          "ok": true,
+          "token_acc": 1.0,
+          "sims": [
+            1.0,
+            0.9999999403953552
+          ]
+        }
+      ]
+    },
+    "morph": {
+      "identity": {
+        "n": 57,
+        "acc": 1.0,
+        "details": [
+          {
+            "stem": "play",
+            "affix": "ing",
+            "form": "playing",
+            "pred": "playing",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "play",
+            "affix": "ed",
+            "form": "played",
+            "pred": "played",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "play",
+            "affix": "s",
+            "form": "plays",
+            "pred": "plays",
+            "ok": true,
+            "sim": 0.9999999403953552
+          },
+          {
+            "stem": "go",
+            "affix": "ing",
+            "form": "going",
+            "pred": "going",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "go",
+            "affix": "ed",
+            "form": "goed",
+            "pred": "goed",
+            "ok": true,
+            "sim": 0.9999999403953552
+          },
+          {
+            "stem": "go",
+            "affix": "s",
+            "form": "goes",
+            "pred": "goes",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "act",
+            "affix": "ing",
+            "form": "acting",
+            "pred": "acting",
+            "ok": true,
+            "sim": 0.9999999403953552
+          },
+          {
+            "stem": "act",
+            "affix": "ed",
+            "form": "acted",
+            "pred": "acted",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "act",
+            "affix": "s",
+            "form": "acts",
+            "pred": "acts",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "fish",
+            "affix": "ing",
+            "form": "fishing",
+            "pred": "fishing",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "fish",
+            "affix": "ed",
+            "form": "fished",
+            "pred": "fished",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "fish",
+            "affix": "s",
+            "form": "fishes",
+            "pred": "fishes",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "post",
+            "affix": "ing",
+            "form": "posting",
+            "pred": "posting",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "post",
+            "affix": "ed",
+            "form": "posted",
+            "pred": "posted",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "post",
+            "affix": "s",
+            "form": "posts",
+            "pred": "posts",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "book",
+            "affix": "ing",
+            "form": "booking",
+            "pred": "booking",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "book",
+            "affix": "ed",
+            "form": "booked",
+            "pred": "booked",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "book",
+            "affix": "s",
+            "form": "books",
+            "pred": "books",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "make",
+            "affix": "ing",
+            "form": "making",
+            "pred": "making",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "make",
+            "affix": "ed",
+            "form": "maked",
+            "pred": "maked",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "make",
+            "affix": "s",
+            "form": "makes",
+            "pred": "makes",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "take",
+            "affix": "ing",
+            "form": "taking",
+            "pred": "taking",
+            "ok": true,
+            "sim": 1.0000001192092896
+          },
+          {
+            "stem": "take",
+            "affix": "ed",
+            "form": "taked",
+            "pred": "taked",
+            "ok": true,
+            "sim": 0.9999999403953552
+          },
+          {
+            "stem": "take",
+            "affix": "s",
+            "form": "takes",
+            "pred": "takes",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "give",
+            "affix": "ing",
+            "form": "giving",
+            "pred": "giving",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "give",
+            "affix": "ed",
+            "form": "gived",
+            "pred": "gived",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "give",
+            "affix": "s",
+            "form": "gives",
+            "pred": "gives",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "run",
+            "affix": "ing",
+            "form": "running",
+            "pred": "running",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "run",
+            "affix": "ed",
+            "form": "runned",
+            "pred": "runned",
+            "ok": true,
+            "sim": 1.0000001192092896
+          },
+          {
+            "stem": "run",
+            "affix": "s",
+            "form": "runs",
+            "pred": "runs",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "stop",
+            "affix": "ing",
+            "form": "stopping",
+            "pred": "stopping",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "stop",
+            "affix": "ed",
+            "form": "stopped",
+            "pred": "stopped",
+            "ok": true,
+            "sim": 0.9999999403953552
+          },
+          {
+            "stem": "stop",
+            "affix": "s",
+            "form": "stops",
+            "pred": "stops",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "spot",
+            "affix": "ing",
+            "form": "spotting",
+            "pred": "spotting",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "spot",
+            "affix": "ed",
+            "form": "spotted",
+            "pred": "spotted",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "spot",
+            "affix": "s",
+            "form": "spots",
+            "pred": "spots",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "top",
+            "affix": "ing",
+            "form": "topping",
+            "pred": "topping",
+            "ok": true,
+            "sim": 0.9999999403953552
+          },
+          {
+            "stem": "top",
+            "affix": "ed",
+            "form": "topped",
+            "pred": "topped",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "top",
+            "affix": "s",
+            "form": "tops",
+            "pred": "tops",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "cat",
+            "affix": "ing",
+            "form": "catting",
+            "pred": "catting",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "cat",
+            "affix": "ed",
+            "form": "catted",
+            "pred": "catted",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "cat",
+            "affix": "s",
+            "form": "cats",
+            "pred": "cats",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "dog",
+            "affix": "ing",
+            "form": "dogging",
+            "pred": "dogging",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "dog",
+            "affix": "ed",
+            "form": "dogged",
+            "pred": "dogged",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "dog",
+            "affix": "s",
+            "form": "dogs",
+            "pred": "dogs",
+            "ok": true,
+            "sim": 1.0000001192092896
+          },
+          {
+            "stem": "jump",
+            "affix": "ing",
+            "form": "jumping",
+            "pred": "jumping",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "jump",
+            "affix": "ed",
+            "form": "jumped",
+            "pred": "jumped",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "jump",
+            "affix": "s",
+            "form": "jumps",
+            "pred": "jumps",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "read",
+            "affix": "ing",
+            "form": "reading",
+            "pred": "reading",
+            "ok": true,
+            "sim": 1.0000001192092896
+          },
+          {
+            "stem": "read",
+            "affix": "ed",
+            "form": "readed",
+            "pred": "readed",
+            "ok": true,
+            "sim": 1.0000001192092896
+          },
+          {
+            "stem": "read",
+            "affix": "s",
+            "form": "reads",
+            "pred": "reads",
+            "ok": true,
+            "sim": 1.0000001192092896
+          },
+          {
+            "stem": "walk",
+            "affix": "ing",
+            "form": "walking",
+            "pred": "walking",
+            "ok": true,
+            "sim": 0.9999999403953552
+          },
+          {
+            "stem": "walk",
+            "affix": "ed",
+            "form": "walked",
+            "pred": "walked",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "walk",
+            "affix": "s",
+            "form": "walks",
+            "pred": "walks",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "write",
+            "affix": "ing",
+            "form": "writing",
+            "pred": "writing",
+            "ok": true,
+            "sim": 0.9999999403953552
+          },
+          {
+            "stem": "write",
+            "affix": "ed",
+            "form": "writed",
+            "pred": "writed",
+            "ok": true,
+            "sim": 1.0000001192092896
+          },
+          {
+            "stem": "write",
+            "affix": "s",
+            "form": "writes",
+            "pred": "writes",
+            "ok": true,
+            "sim": 1.0
+          }
+        ]
+      },
+      "swap_changed": {
+        "n": 57,
+        "acc": 1.0,
+        "details": [
+          {
+            "stem": "play",
+            "from": "playing",
+            "to_want": "played",
+            "pred_alt": "played",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "play",
+            "from": "played",
+            "to_want": "playing",
+            "pred_alt": "playing",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "play",
+            "from": "plays",
+            "to_want": "played",
+            "pred_alt": "played",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "go",
+            "from": "going",
+            "to_want": "goed",
+            "pred_alt": "goed",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 0.9999999403953552
+          },
+          {
+            "stem": "go",
+            "from": "goed",
+            "to_want": "going",
+            "pred_alt": "going",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "go",
+            "from": "goes",
+            "to_want": "goed",
+            "pred_alt": "goed",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 0.9999999403953552
+          },
+          {
+            "stem": "act",
+            "from": "acting",
+            "to_want": "acted",
+            "pred_alt": "acted",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "act",
+            "from": "acted",
+            "to_want": "acting",
+            "pred_alt": "acting",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 0.9999999403953552
+          },
+          {
+            "stem": "act",
+            "from": "acts",
+            "to_want": "acted",
+            "pred_alt": "acted",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "fish",
+            "from": "fishing",
+            "to_want": "fished",
+            "pred_alt": "fished",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "fish",
+            "from": "fished",
+            "to_want": "fishing",
+            "pred_alt": "fishing",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "fish",
+            "from": "fishes",
+            "to_want": "fished",
+            "pred_alt": "fished",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "post",
+            "from": "posting",
+            "to_want": "posted",
+            "pred_alt": "posted",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "post",
+            "from": "posted",
+            "to_want": "posting",
+            "pred_alt": "posting",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "post",
+            "from": "posts",
+            "to_want": "posted",
+            "pred_alt": "posted",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "book",
+            "from": "booking",
+            "to_want": "booked",
+            "pred_alt": "booked",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "book",
+            "from": "booked",
+            "to_want": "booking",
+            "pred_alt": "booking",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "book",
+            "from": "books",
+            "to_want": "booked",
+            "pred_alt": "booked",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "make",
+            "from": "making",
+            "to_want": "maked",
+            "pred_alt": "maked",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "make",
+            "from": "maked",
+            "to_want": "making",
+            "pred_alt": "making",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "make",
+            "from": "makes",
+            "to_want": "maked",
+            "pred_alt": "maked",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "take",
+            "from": "taking",
+            "to_want": "taked",
+            "pred_alt": "taked",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 0.9999999403953552
+          },
+          {
+            "stem": "take",
+            "from": "taked",
+            "to_want": "taking",
+            "pred_alt": "taking",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0000001192092896
+          },
+          {
+            "stem": "take",
+            "from": "takes",
+            "to_want": "taked",
+            "pred_alt": "taked",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 0.9999999403953552
+          },
+          {
+            "stem": "give",
+            "from": "giving",
+            "to_want": "gived",
+            "pred_alt": "gived",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "give",
+            "from": "gived",
+            "to_want": "giving",
+            "pred_alt": "giving",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "give",
+            "from": "gives",
+            "to_want": "gived",
+            "pred_alt": "gived",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "run",
+            "from": "running",
+            "to_want": "runned",
+            "pred_alt": "runned",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0000001192092896
+          },
+          {
+            "stem": "run",
+            "from": "runned",
+            "to_want": "running",
+            "pred_alt": "running",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "run",
+            "from": "runs",
+            "to_want": "runned",
+            "pred_alt": "runned",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0000001192092896
+          },
+          {
+            "stem": "stop",
+            "from": "stopping",
+            "to_want": "stopped",
+            "pred_alt": "stopped",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 0.9999999403953552
+          },
+          {
+            "stem": "stop",
+            "from": "stopped",
+            "to_want": "stopping",
+            "pred_alt": "stopping",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "stop",
+            "from": "stops",
+            "to_want": "stopped",
+            "pred_alt": "stopped",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 0.9999999403953552
+          },
+          {
+            "stem": "spot",
+            "from": "spotting",
+            "to_want": "spotted",
+            "pred_alt": "spotted",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "spot",
+            "from": "spotted",
+            "to_want": "spotting",
+            "pred_alt": "spotting",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "spot",
+            "from": "spots",
+            "to_want": "spotted",
+            "pred_alt": "spotted",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "top",
+            "from": "topping",
+            "to_want": "topped",
+            "pred_alt": "topped",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "top",
+            "from": "topped",
+            "to_want": "topping",
+            "pred_alt": "topping",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 0.9999999403953552
+          },
+          {
+            "stem": "top",
+            "from": "tops",
+            "to_want": "topped",
+            "pred_alt": "topped",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "cat",
+            "from": "catting",
+            "to_want": "catted",
+            "pred_alt": "catted",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "cat",
+            "from": "catted",
+            "to_want": "catting",
+            "pred_alt": "catting",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "cat",
+            "from": "cats",
+            "to_want": "catted",
+            "pred_alt": "catted",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "dog",
+            "from": "dogging",
+            "to_want": "dogged",
+            "pred_alt": "dogged",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "dog",
+            "from": "dogged",
+            "to_want": "dogging",
+            "pred_alt": "dogging",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "dog",
+            "from": "dogs",
+            "to_want": "dogged",
+            "pred_alt": "dogged",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "jump",
+            "from": "jumping",
+            "to_want": "jumped",
+            "pred_alt": "jumped",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "jump",
+            "from": "jumped",
+            "to_want": "jumping",
+            "pred_alt": "jumping",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "jump",
+            "from": "jumps",
+            "to_want": "jumped",
+            "pred_alt": "jumped",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "read",
+            "from": "reading",
+            "to_want": "readed",
+            "pred_alt": "readed",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0000001192092896
+          },
+          {
+            "stem": "read",
+            "from": "readed",
+            "to_want": "reading",
+            "pred_alt": "reading",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0000001192092896
+          },
+          {
+            "stem": "read",
+            "from": "reads",
+            "to_want": "readed",
+            "pred_alt": "readed",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0000001192092896
+          },
+          {
+            "stem": "walk",
+            "from": "walking",
+            "to_want": "walked",
+            "pred_alt": "walked",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "walk",
+            "from": "walked",
+            "to_want": "walking",
+            "pred_alt": "walking",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 0.9999999403953552
+          },
+          {
+            "stem": "walk",
+            "from": "walks",
+            "to_want": "walked",
+            "pred_alt": "walked",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "write",
+            "from": "writing",
+            "to_want": "writed",
+            "pred_alt": "writed",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0000001192092896
+          },
+          {
+            "stem": "write",
+            "from": "writed",
+            "to_want": "writing",
+            "pred_alt": "writing",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 0.9999999403953552
+          },
+          {
+            "stem": "write",
+            "from": "writes",
+            "to_want": "writed",
+            "pred_alt": "writed",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0000001192092896
+          }
+        ]
+      },
+      "swap_correct": {
+        "n": 57,
+        "acc": 1.0,
+        "details": [
+          {
+            "stem": "play",
+            "from": "playing",
+            "to_want": "played",
+            "pred_alt": "played",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "play",
+            "from": "played",
+            "to_want": "playing",
+            "pred_alt": "playing",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "play",
+            "from": "plays",
+            "to_want": "played",
+            "pred_alt": "played",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "go",
+            "from": "going",
+            "to_want": "goed",
+            "pred_alt": "goed",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 0.9999999403953552
+          },
+          {
+            "stem": "go",
+            "from": "goed",
+            "to_want": "going",
+            "pred_alt": "going",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "go",
+            "from": "goes",
+            "to_want": "goed",
+            "pred_alt": "goed",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 0.9999999403953552
+          },
+          {
+            "stem": "act",
+            "from": "acting",
+            "to_want": "acted",
+            "pred_alt": "acted",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "act",
+            "from": "acted",
+            "to_want": "acting",
+            "pred_alt": "acting",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 0.9999999403953552
+          },
+          {
+            "stem": "act",
+            "from": "acts",
+            "to_want": "acted",
+            "pred_alt": "acted",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "fish",
+            "from": "fishing",
+            "to_want": "fished",
+            "pred_alt": "fished",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "fish",
+            "from": "fished",
+            "to_want": "fishing",
+            "pred_alt": "fishing",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "fish",
+            "from": "fishes",
+            "to_want": "fished",
+            "pred_alt": "fished",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "post",
+            "from": "posting",
+            "to_want": "posted",
+            "pred_alt": "posted",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "post",
+            "from": "posted",
+            "to_want": "posting",
+            "pred_alt": "posting",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "post",
+            "from": "posts",
+            "to_want": "posted",
+            "pred_alt": "posted",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "book",
+            "from": "booking",
+            "to_want": "booked",
+            "pred_alt": "booked",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "book",
+            "from": "booked",
+            "to_want": "booking",
+            "pred_alt": "booking",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "book",
+            "from": "books",
+            "to_want": "booked",
+            "pred_alt": "booked",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "make",
+            "from": "making",
+            "to_want": "maked",
+            "pred_alt": "maked",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "make",
+            "from": "maked",
+            "to_want": "making",
+            "pred_alt": "making",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "make",
+            "from": "makes",
+            "to_want": "maked",
+            "pred_alt": "maked",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "take",
+            "from": "taking",
+            "to_want": "taked",
+            "pred_alt": "taked",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 0.9999999403953552
+          },
+          {
+            "stem": "take",
+            "from": "taked",
+            "to_want": "taking",
+            "pred_alt": "taking",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0000001192092896
+          },
+          {
+            "stem": "take",
+            "from": "takes",
+            "to_want": "taked",
+            "pred_alt": "taked",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 0.9999999403953552
+          },
+          {
+            "stem": "give",
+            "from": "giving",
+            "to_want": "gived",
+            "pred_alt": "gived",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "give",
+            "from": "gived",
+            "to_want": "giving",
+            "pred_alt": "giving",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "give",
+            "from": "gives",
+            "to_want": "gived",
+            "pred_alt": "gived",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "run",
+            "from": "running",
+            "to_want": "runned",
+            "pred_alt": "runned",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0000001192092896
+          },
+          {
+            "stem": "run",
+            "from": "runned",
+            "to_want": "running",
+            "pred_alt": "running",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "run",
+            "from": "runs",
+            "to_want": "runned",
+            "pred_alt": "runned",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0000001192092896
+          },
+          {
+            "stem": "stop",
+            "from": "stopping",
+            "to_want": "stopped",
+            "pred_alt": "stopped",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 0.9999999403953552
+          },
+          {
+            "stem": "stop",
+            "from": "stopped",
+            "to_want": "stopping",
+            "pred_alt": "stopping",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "stop",
+            "from": "stops",
+            "to_want": "stopped",
+            "pred_alt": "stopped",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 0.9999999403953552
+          },
+          {
+            "stem": "spot",
+            "from": "spotting",
+            "to_want": "spotted",
+            "pred_alt": "spotted",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "spot",
+            "from": "spotted",
+            "to_want": "spotting",
+            "pred_alt": "spotting",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "spot",
+            "from": "spots",
+            "to_want": "spotted",
+            "pred_alt": "spotted",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "top",
+            "from": "topping",
+            "to_want": "topped",
+            "pred_alt": "topped",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "top",
+            "from": "topped",
+            "to_want": "topping",
+            "pred_alt": "topping",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 0.9999999403953552
+          },
+          {
+            "stem": "top",
+            "from": "tops",
+            "to_want": "topped",
+            "pred_alt": "topped",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "cat",
+            "from": "catting",
+            "to_want": "catted",
+            "pred_alt": "catted",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "cat",
+            "from": "catted",
+            "to_want": "catting",
+            "pred_alt": "catting",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "cat",
+            "from": "cats",
+            "to_want": "catted",
+            "pred_alt": "catted",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "dog",
+            "from": "dogging",
+            "to_want": "dogged",
+            "pred_alt": "dogged",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "dog",
+            "from": "dogged",
+            "to_want": "dogging",
+            "pred_alt": "dogging",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "dog",
+            "from": "dogs",
+            "to_want": "dogged",
+            "pred_alt": "dogged",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "jump",
+            "from": "jumping",
+            "to_want": "jumped",
+            "pred_alt": "jumped",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "jump",
+            "from": "jumped",
+            "to_want": "jumping",
+            "pred_alt": "jumping",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "jump",
+            "from": "jumps",
+            "to_want": "jumped",
+            "pred_alt": "jumped",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "read",
+            "from": "reading",
+            "to_want": "readed",
+            "pred_alt": "readed",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0000001192092896
+          },
+          {
+            "stem": "read",
+            "from": "readed",
+            "to_want": "reading",
+            "pred_alt": "reading",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0000001192092896
+          },
+          {
+            "stem": "read",
+            "from": "reads",
+            "to_want": "readed",
+            "pred_alt": "readed",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0000001192092896
+          },
+          {
+            "stem": "walk",
+            "from": "walking",
+            "to_want": "walked",
+            "pred_alt": "walked",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "walk",
+            "from": "walked",
+            "to_want": "walking",
+            "pred_alt": "walking",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 0.9999999403953552
+          },
+          {
+            "stem": "walk",
+            "from": "walks",
+            "to_want": "walked",
+            "pred_alt": "walked",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0
+          },
+          {
+            "stem": "write",
+            "from": "writing",
+            "to_want": "writed",
+            "pred_alt": "writed",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0000001192092896
+          },
+          {
+            "stem": "write",
+            "from": "writed",
+            "to_want": "writing",
+            "pred_alt": "writing",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 0.9999999403953552
+          },
+          {
+            "stem": "write",
+            "from": "writes",
+            "to_want": "writed",
+            "pred_alt": "writed",
+            "changed": true,
+            "correct_alt": true,
+            "sim": 1.0000001192092896
+          }
+        ]
+      },
+      "peel_stem": {
+        "n": 57,
+        "acc": 0.9649122807017544,
+        "details": [
+          {
+            "form": "playing",
+            "prefix": "play",
+            "stem": "play",
+            "pred": "play",
+            "ok": true,
+            "sim": 1.0000001192092896
+          },
+          {
+            "form": "played",
+            "prefix": "play",
+            "stem": "play",
+            "pred": "play",
+            "ok": true,
+            "sim": 1.0000001192092896
+          },
+          {
+            "form": "plays",
+            "prefix": "play",
+            "stem": "play",
+            "pred": "play",
+            "ok": true,
+            "sim": 1.0000001192092896
+          },
+          {
+            "form": "going",
+            "prefix": "go",
+            "stem": "go",
+            "pred": "go",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "form": "goed",
+            "prefix": "go",
+            "stem": "go",
+            "pred": "go",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "form": "goes",
+            "prefix": "go",
+            "stem": "go",
+            "pred": "go",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "form": "acting",
+            "prefix": "act",
+            "stem": "act",
+            "pred": "act",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "form": "acted",
+            "prefix": "act",
+            "stem": "act",
+            "pred": "act",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "form": "acts",
+            "prefix": "act",
+            "stem": "act",
+            "pred": "act",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "form": "fishing",
+            "prefix": "fish",
+            "stem": "fish",
+            "pred": "fish",
+            "ok": true,
+            "sim": 0.9999999403953552
+          },
+          {
+            "form": "fished",
+            "prefix": "fish",
+            "stem": "fish",
+            "pred": "fish",
+            "ok": true,
+            "sim": 0.9999999403953552
+          },
+          {
+            "form": "fishes",
+            "prefix": "fish",
+            "stem": "fish",
+            "pred": "fish",
+            "ok": true,
+            "sim": 0.9999999403953552
+          },
+          {
+            "form": "posting",
+            "prefix": "post",
+            "stem": "post",
+            "pred": "post",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "form": "posted",
+            "prefix": "post",
+            "stem": "post",
+            "pred": "post",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "form": "posts",
+            "prefix": "post",
+            "stem": "post",
+            "pred": "post",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "form": "booking",
+            "prefix": "book",
+            "stem": "book",
+            "pred": "book",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "form": "booked",
+            "prefix": "book",
+            "stem": "book",
+            "pred": "book",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "form": "books",
+            "prefix": "book",
+            "stem": "book",
+            "pred": "book",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "form": "making",
+            "prefix": "mak",
+            "stem": "make",
+            "pred": "make",
+            "ok": true,
+            "sim": 0.8910952806472778
+          },
+          {
+            "form": "maked",
+            "prefix": "mak",
+            "stem": "make",
+            "pred": "make",
+            "ok": true,
+            "sim": 0.8910952806472778
+          },
+          {
+            "form": "makes",
+            "prefix": "make",
+            "stem": "make",
+            "pred": "make",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "form": "taking",
+            "prefix": "tak",
+            "stem": "take",
+            "pred": "take",
+            "ok": true,
+            "sim": 0.8749246001243591
+          },
+          {
+            "form": "taked",
+            "prefix": "tak",
+            "stem": "take",
+            "pred": "take",
+            "ok": true,
+            "sim": 0.8749246001243591
+          },
+          {
+            "form": "takes",
+            "prefix": "take",
+            "stem": "take",
+            "pred": "take",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "form": "giving",
+            "prefix": "giv",
+            "stem": "give",
+            "pred": "give",
+            "ok": true,
+            "sim": 0.8830105066299438
+          },
+          {
+            "form": "gived",
+            "prefix": "giv",
+            "stem": "give",
+            "pred": "give",
+            "ok": true,
+            "sim": 0.8830105066299438
+          },
+          {
+            "form": "gives",
+            "prefix": "give",
+            "stem": "give",
+            "pred": "give",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "form": "running",
+            "prefix": "runn",
+            "stem": "run",
+            "pred": "run",
+            "ok": true,
+            "sim": 0.5564597249031067
+          },
+          {
+            "form": "runned",
+            "prefix": "runn",
+            "stem": "run",
+            "pred": "run",
+            "ok": true,
+            "sim": 0.5564597249031067
+          },
+          {
+            "form": "runs",
+            "prefix": "run",
+            "stem": "run",
+            "pred": "run",
+            "ok": true,
+            "sim": 1.0000001192092896
+          },
+          {
+            "form": "stopping",
+            "prefix": "stopp",
+            "stem": "stop",
+            "pred": "stopped",
+            "ok": false,
+            "sim": 0.887770414352417
+          },
+          {
+            "form": "stopped",
+            "prefix": "stopp",
+            "stem": "stop",
+            "pred": "stopped",
+            "ok": false,
+            "sim": 0.887770414352417
+          },
+          {
+            "form": "stops",
+            "prefix": "stop",
+            "stem": "stop",
+            "pred": "stop",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "form": "spotting",
+            "prefix": "spott",
+            "stem": "spot",
+            "pred": "spot",
+            "ok": true,
+            "sim": 0.8475083112716675
+          },
+          {
+            "form": "spotted",
+            "prefix": "spott",
+            "stem": "spot",
+            "pred": "spot",
+            "ok": true,
+            "sim": 0.8475083112716675
+          },
+          {
+            "form": "spots",
+            "prefix": "spot",
+            "stem": "spot",
+            "pred": "spot",
+            "ok": true,
+            "sim": 1.0000001192092896
+          },
+          {
+            "form": "topping",
+            "prefix": "topp",
+            "stem": "top",
+            "pred": "top",
+            "ok": true,
+            "sim": 0.8638277649879456
+          },
+          {
+            "form": "topped",
+            "prefix": "topp",
+            "stem": "top",
+            "pred": "top",
+            "ok": true,
+            "sim": 0.8638277649879456
+          },
+          {
+            "form": "tops",
+            "prefix": "top",
+            "stem": "top",
+            "pred": "top",
+            "ok": true,
+            "sim": 1.0000001192092896
+          },
+          {
+            "form": "catting",
+            "prefix": "catt",
+            "stem": "cat",
+            "pred": "cat",
+            "ok": true,
+            "sim": 0.915095865726471
+          },
+          {
+            "form": "catted",
+            "prefix": "catt",
+            "stem": "cat",
+            "pred": "cat",
+            "ok": true,
+            "sim": 0.915095865726471
+          },
+          {
+            "form": "cats",
+            "prefix": "cat",
+            "stem": "cat",
+            "pred": "cat",
+            "ok": true,
+            "sim": 1.0000001192092896
+          },
+          {
+            "form": "dogging",
+            "prefix": "dogg",
+            "stem": "dog",
+            "pred": "dog",
+            "ok": true,
+            "sim": 0.9838270545005798
+          },
+          {
+            "form": "dogged",
+            "prefix": "dogg",
+            "stem": "dog",
+            "pred": "dog",
+            "ok": true,
+            "sim": 0.9838270545005798
+          },
+          {
+            "form": "dogs",
+            "prefix": "dog",
+            "stem": "dog",
+            "pred": "dog",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "form": "jumping",
+            "prefix": "jump",
+            "stem": "jump",
+            "pred": "jump",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "form": "jumped",
+            "prefix": "jump",
+            "stem": "jump",
+            "pred": "jump",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "form": "jumps",
+            "prefix": "jump",
+            "stem": "jump",
+            "pred": "jump",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "form": "reading",
+            "prefix": "read",
+            "stem": "read",
+            "pred": "read",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "form": "readed",
+            "prefix": "read",
+            "stem": "read",
+            "pred": "read",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "form": "reads",
+            "prefix": "read",
+            "stem": "read",
+            "pred": "read",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "form": "walking",
+            "prefix": "walk",
+            "stem": "walk",
+            "pred": "walk",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "form": "walked",
+            "prefix": "walk",
+            "stem": "walk",
+            "pred": "walk",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "form": "walks",
+            "prefix": "walk",
+            "stem": "walk",
+            "pred": "walk",
+            "ok": true,
+            "sim": 1.0
+          },
+          {
+            "form": "writing",
+            "prefix": "writ",
+            "stem": "write",
+            "pred": "write",
+            "ok": true,
+            "sim": 0.8052386045455933
+          },
+          {
+            "form": "writed",
+            "prefix": "writ",
+            "stem": "write",
+            "pred": "write",
+            "ok": true,
+            "sim": 0.8052386045455933
+          },
+          {
+            "form": "writes",
+            "prefix": "write",
+            "stem": "write",
+            "pred": "write",
+            "ok": true,
+            "sim": 1.0
+          }
+        ]
+      }
+    },
+    "phrase_fp_train": {
+      "n": 12,
+      "acc": 1.0,
+      "details": [
+        {
+          "phrase": "cat on top",
+          "pred": "cat on top",
+          "ok": true,
+          "sim": 1.0000001192092896
+        },
+        {
+          "phrase": "dog on car",
+          "pred": "dog on car",
+          "ok": true,
+          "sim": 1.0
+        },
+        {
+          "phrase": "go to car",
+          "pred": "go to car",
+          "ok": true,
+          "sim": 1.0
+        },
+        {
+          "phrase": "good dog on top",
+          "pred": "good dog on top",
+          "ok": true,
+          "sim": 1.0
+        },
+        {
+          "phrase": "cat plays",
+          "pred": "cat plays",
+          "ok": true,
+          "sim": 0.9999999403953552
+        },
+        {
+          "phrase": "dog runs",
+          "pred": "dog runs",
+          "ok": true,
+          "sim": 1.0
+        },
+        {
+          "phrase": "going to car",
+          "pred": "going to car",
+          "ok": true,
+          "sim": 1.0
+        },
+        {
+          "phrase": "stopped on top",
+          "pred": "stopped on top",
+          "ok": true,
+          "sim": 1.0
+        },
+        {
+          "phrase": "cats on top",
+          "pred": "cats on top",
+          "ok": true,
+          "sim": 1.0
+        },
+        {
+          "phrase": "books on top",
+          "pred": "books on top",
+          "ok": true,
+          "sim": 1.0
+        },
+        {
+          "phrase": "spot on car",
+          "pred": "spot on car",
+          "ok": true,
+          "sim": 1.0
+        },
+        {
+          "phrase": "not to go",
+          "pred": "not to go",
+          "ok": true,
+          "sim": 1.0
+        }
+      ]
+    },
+    "phrase_fp_hold": {
+      "n": 11,
+      "acc": 1.0,
+      "details": [
+        {
+          "phrase": "cat to car",
+          "pred": "cat to car",
+          "ok": true,
+          "sim": 1.0
+        },
+        {
+          "phrase": "dog to top",
+          "pred": "dog to top",
+          "ok": true,
+          "sim": 0.9999998807907104
+        },
+        {
+          "phrase": "go to cat",
+          "pred": "go to cat",
+          "ok": true,
+          "sim": 1.0000001192092896
+        },
+        {
+          "phrase": "jumps on top",
+          "pred": "jumps on top",
+          "ok": true,
+          "sim": 1.0
+        },
+        {
+          "phrase": "walks on car",
+          "pred": "walks on car",
+          "ok": true,
+          "sim": 1.0
+        },
+        {
+          "phrase": "cat jumping",
+          "pred": "cat jumping",
+          "ok": true,
+          "sim": 1.0
+        },
+        {
+          "phrase": "dog walking",
+          "pred": "dog walking",
+          "ok": true,
+          "sim": 1.0
+        },
+        {
+          "phrase": "reading on top",
+          "pred": "reading on top",
+          "ok": true,
+          "sim": 1.0
+        },
+        {
+          "phrase": "cat writes",
+          "pred": "cat writes",
+          "ok": true,
+          "sim": 1.0
+        },
+        {
+          "phrase": "good jumps",
+          "pred": "good jumps",
+          "ok": true,
+          "sim": 1.0
+        },
+        {
+          "phrase": "no walking",
+          "pred": "no walking",
+          "ok": true,
+          "sim": 1.0
+        }
+      ]
+    }
+  }
+}

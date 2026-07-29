@@ -1,0 +1,27 @@
+SOTE Stage 20 report (slot-chain smoke + word SSM bootstrap)
+timestamp: 2026-07-23T14:04:57.603694+00:00
+device: cuda
+contract: bridge_qa_binder_16_FROZEN.pt (PhraseComposer FROZEN)
+baselines: Stage17=32.4%  Stage18=28.4%
+slot_k=2  ssm_state=96  steps=2000
+
+path               TRAIN    HOLD    SHUF      GAP     vs17  PASS
+----------------------------------------------------------------
+SlotChain          81.5%   37.8%   29.7%    +8.1pp    +5.4pp    no
+WordSSM            83.1%   36.5%   29.7%    +6.8pp    +4.1pp    no
+
+=== Design ===
+  SlotChain: last-k PhraseComposer word slots -> next word_fp (pooled phrase unused)
+  WordSSM:   diagonal linear state over word_fp seq -> next (no phrase at all)
+
+=== Best HOLD: SlotChain (37.8%) ===
+  [MISS] 'cat' -> on (want to) cos=0.25
+  [MISS] 'cat to' -> dog (want car) cos=0.15
+  [MISS] 'dog' -> on (want to) cos=0.33
+  [MISS] 'dog to' -> cat (want top) cos=0.18
+  [OK] 'go' -> to (want to) cos=0.75
+  [MISS] 'go to' -> car (want cat) cos=0.25
+
+=== Verdict ===
+  Neither fully PASS vs gates.
+  Partial: SlotChain beats Stage17 with order gap — keep as dynamics seed.

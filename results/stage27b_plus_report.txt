@@ -1,0 +1,35 @@
+SOTE Stage 27b+ report (stabilize hop1-partial + bridge align)
+timestamp: 2026-07-23T18:10:39.347719+00:00
+device: cuda
+parents: thought_scratch_26_FROZEN.pt + hop_bank_25.pt
+CueBinder FROZEN; ADD Hop1PartialBinder; hop2 FULL from scratch.bridge_entity only
+knobs: steps=2800 lr=0.0015 teach_w=0.9 bridge_w=0.45 bridge_mix=0.4
+HOLD pairs=24 episodes=80
+
+mode                      H1      H2    JOINT   depth
+------------------------------------------------------
+full_full              82.5%   66.2%    58.8%    5.99
+hop1_partial_raw       47.5%   58.8%    35.0%    6.81
+hop1_partial_probe     62.5%   60.0%    42.5%   11.85
+hop1_partial_bind      75.0%   62.5%    52.5%    6.96
+
+samples:
+  [first] dog to cob => cob on rim  full=1 raw=0 probe=1 bind=1
+  [second] bird to peg => peg on rim  full=1 raw=1 probe=1 bind=1
+  [first] bird to peg => peg on rim  full=0 raw=0 probe=0 bind=0
+  [second] go to cob => cob on zip  full=1 raw=1 probe=1 bind=1
+  [first] washed to zip => zip on yap  full=1 raw=1 probe=1 bind=1
+  [second] pushes to web => web on cob  full=0 raw=0 probe=0 bind=0
+
+=== Seed verdict ===
+  PASS seed: hop1 PartialBinder + mandatory bridge hits joint/lift gates.
+  joint full=58.8% raw=35.0% probe=42.5% bind=52.5% lift_vs_raw=+17.5pp  near_ceiling=False
+
+=== Multi-seed ===
+  seed 272: PASS  bind_joint=51.2% full=58.8% lift=+16.2pp  H1=73.8%
+  seed 273: PASS  bind_joint=52.5% full=58.8% lift=+17.5pp  H1=75.0%
+  seed 274: PASS  bind_joint=51.2% full=58.8% lift=+16.2pp  H1=73.8%
+  aggregate: 3/3 seeds pass; mean_joint=51.7% mean_lift=+16.7pp (need >=2)
+
+=== Verdict ===
+  PASS: 27b+ stable on multi-seed — ready for 27c both-partial.

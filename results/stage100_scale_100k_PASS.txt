@@ -1,0 +1,30 @@
+SOTE Stage 100 — scale atom ~100k TinyStories (recipe98 hparams)
+timestamp: 2026-07-24T20:38:01.116379+00:00
+device: cuda
+foundation: stage85_foundation_FROZEN.pt dim=256
+corpus: external_tinystories_100k_85.txt n_phrases=97693 meta={'source': 'external_tinystories_100k_85.txt', 'n': 97693, 'reused': True}
+mix: {'n_story_train': 41520, 'n_story_hold': 7326, 'n_fat_triples': 200, 'fat_copies': 40, 'n_train': 47920, 'n_hold_seen': 1600, 'n_hold_rare': 160, 'n_path_triples_avail': 11380}
+V=5489 params=2989056
+train: batch=8 steps=50000 warmup=200 lr=0.001 fat_frac=0.75 emb=x1 (Stage98 recipe)
+NO overwrite of F85 dual-channel FROZEN. NO soft@5.
+
+=== Final ===
+  best_step(during)=44000
+  SEEN  obj=42.6% rel=95.8% ALL=69.2% head=69.2%
+  RARE  obj=11.7%
+  STORY ALL=19.6% obj=19.9% rel=71.3%
+
+=== vs Stage98 mini ===
+  SEEN obj 42.6% vs 41.3%
+  SEEN rel 95.8% vs 96.0%
+  STORY ALL 19.6% vs 9.2% (lift +10.4pp)
+  RARE obj 11.7% vs 13.3%
+
+=== Adequacy ===
+  Ask: was Stage98 STORY soft-ceiling from mini data?
+  PASS if STORY ALL lift >= 8pp with SEEN held.
+  CEILING if SEEN held and STORY flat (|lift|<3pp).
+
+=== Verdict: PASS ===
+  SEEN freq model/bigram:
+    head21p  n= 2400  model= 69.2%  bigram= 55.0%

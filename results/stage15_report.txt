@@ -1,0 +1,38 @@
+SOTE Stage 15 report (richer QA / multi-fact memory)
+timestamp: 2026-07-23T11:50:14.818557+00:00
+device: cuda
+contract: scale_hold_13_FROZEN.pt
+HOLD rel facts=31 episodes/k=40 K=[2, 3, 4]
+interference packs=6
+
+Identity path (retrieve fact_fp among K, then hard-slot):
+  overall joint:     100.0%  (ret 100.0% / ans 100.0%)
+  wrong-fact reject: 100.0%
+  K=2: joint 100.0%  ret 100.0%  amb 0.0%
+  K=3: joint 100.0%  ret 100.0%  amb 0.0%
+  K=4: joint 100.0%  ret 100.0%  amb 1.2%
+
+Cue path (compose short cue -> retrieve -> answer):
+  overall joint:     75.6%  (ret 75.6% / ans 76.4%)
+  K=2: joint 86.9%  ret 86.9%
+  K=3: joint 72.9%  ret 72.9%
+  K=4: joint 71.9%  ret 71.9%
+
+Interference packs (shared left/right):
+  identity joint:    100.0%  (ret 100.0%)
+  cue joint:         63.2%  (ret 63.2%)
+
+Samples (identity interference):
+  [OK] [shared_right] cat to car what ret=cat to car -> cat (want cat)
+  [OK] [shared_right] cat to car where ret=cat to car -> car (want car)
+  [OK] [shared_right] spot on car what ret=spot on car -> spot (want spot)
+  [OK] [shared_right] spot on car where ret=spot on car -> car (want car)
+  [OK] [shared_right] good dog on car what ret=good dog on car -> dog (want dog)
+  [OK] [shared_right] good dog on car where ret=good dog on car -> car (want car)
+  [OK] [shared_right] ball on car what ret=ball on car -> ball (want ball)
+  [OK] [shared_right] ball on car where ret=ball on car -> car (want car)
+
+=== Verdict ===
+  PASS: multi-fact memory keeps identity retrieve+answer under interference.
+  Cue-retrieve usable (76%).
+  Next: optional cue-binder, or freeze bridge+QA contract.

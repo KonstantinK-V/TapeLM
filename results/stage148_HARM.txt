@@ -1,0 +1,213 @@
+{
+  "timestamp": "2026-07-26T04:42:48.002225+00:00",
+  "protocol": "alphabet_bpe_merges_letter_fp_emb_word_confirm",
+  "not_tested_as": [
+    "112_whitespace_bpe_random_emb",
+    "138_morph_piece_ce",
+    "143_raw_char_stream"
+  ],
+  "word": {
+    "arm": "word",
+    "V": 5489,
+    "params": 2989056,
+    "seen_obj": 0.39875,
+    "seen_rel": 0.9125,
+    "story_all": 0.18039443155452436,
+    "story_obj": 0.13846153846153847,
+    "curve": [
+      {
+        "step": 0,
+        "obj": 0.0,
+        "rel": 0.0,
+        "story_all": 0.0004861448711716091
+      },
+      {
+        "step": 2000,
+        "obj": 0.06,
+        "rel": 0.0,
+        "story_all": 0.012153621779290228
+      },
+      {
+        "step": 4000,
+        "obj": 0.26,
+        "rel": 0.0,
+        "story_all": 0.02771025765678172
+      },
+      {
+        "step": 6000,
+        "obj": 0.2375,
+        "rel": 0.58,
+        "story_all": 0.07097715119105494
+      },
+      {
+        "step": 8000,
+        "obj": 0.2875,
+        "rel": 0.8825,
+        "story_all": 0.08410306271268839
+      },
+      {
+        "step": 10000,
+        "obj": 0.3575,
+        "rel": 0.835,
+        "story_all": 0.09236752552260574
+      },
+      {
+        "step": 12000,
+        "obj": 0.35,
+        "rel": 0.955,
+        "story_all": 0.1011181332036947
+      },
+      {
+        "step": 14000,
+        "obj": 0.3875,
+        "rel": 0.94,
+        "story_all": 0.1225085075352455
+      },
+      {
+        "step": 16000,
+        "obj": 0.43,
+        "rel": 0.9575,
+        "story_all": 0.12493923189110355
+      },
+      {
+        "step": 18000,
+        "obj": 0.415,
+        "rel": 0.9125,
+        "story_all": 0.1278561011181332
+      },
+      {
+        "step": 20000,
+        "obj": 0.3675,
+        "rel": 0.94,
+        "story_all": 0.1317452600875061
+      },
+      {
+        "step": 22000,
+        "obj": 0.445,
+        "rel": 0.9575,
+        "story_all": 0.1487603305785124
+      },
+      {
+        "step": 24000,
+        "obj": 0.4225,
+        "rel": 0.9625,
+        "story_all": 0.1443850267379679
+      },
+      {
+        "step": 26000,
+        "obj": 0.405,
+        "rel": 0.9575,
+        "story_all": 0.14584346135148274
+      },
+      {
+        "step": 28000,
+        "obj": 0.405,
+        "rel": 0.9125,
+        "story_all": 0.13563441905687895
+      },
+      {
+        "step": 30000,
+        "obj": 0.4275,
+        "rel": 0.94,
+        "story_all": 0.16383082158483228
+      },
+      {
+        "step": 32000,
+        "obj": 0.39,
+        "rel": 0.94,
+        "story_all": 0.1536217792902285
+      },
+      {
+        "step": 34000,
+        "obj": 0.42,
+        "rel": 0.935,
+        "story_all": 0.16383082158483228
+      },
+      {
+        "step": 36000,
+        "obj": 0.4075,
+        "rel": 0.9575,
+        "story_all": 0.16431696645600388
+      },
+      {
+        "step": 38000,
+        "obj": 0.395,
+        "rel": 0.9525,
+        "story_all": 0.16383082158483228
+      },
+      {
+        "step": 40000,
+        "obj": 0.3875,
+        "rel": 0.93,
+        "story_all": 0.1750121536217793
+      }
+    ]
+  },
+  "alphabet_bpe": {
+    "arm": "alphabet_bpe_fp",
+    "V": 41,
+    "params": 3186432,
+    "mean_pieces_per_word": 4.6076538527840025,
+    "seen_obj": 0.025,
+    "story_all": 0.018384131591678763,
+    "story_obj": 0.004807692307692308,
+    "curve": [
+      {
+        "step": 0,
+        "obj": 0.0,
+        "story_all": 0.0
+      },
+      {
+        "step": 5000,
+        "obj": 0.0,
+        "story_all": 0.015670910871694418
+      },
+      {
+        "step": 10000,
+        "obj": 0.005,
+        "story_all": 0.013712047012732615
+      },
+      {
+        "step": 15000,
+        "obj": 0.04,
+        "story_all": 0.011753183153770812
+      },
+      {
+        "step": 20000,
+        "obj": 0.035,
+        "story_all": 0.01665034280117532
+      },
+      {
+        "step": 25000,
+        "obj": 0.025,
+        "story_all": 0.012732615083251714
+      },
+      {
+        "step": 30000,
+        "obj": 0.035,
+        "story_all": 0.02056807051909892
+      },
+      {
+        "step": 35000,
+        "obj": 0.025,
+        "story_all": 0.015670910871694418
+      },
+      {
+        "step": 40000,
+        "obj": 0.035,
+        "story_all": 0.014691478942213516
+      }
+    ],
+    "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage148_alphabet_bpe_fp.pt"
+  },
+  "story_lift_pp": -0.1620102999628456,
+  "seen_obj_delta_pp": -0.37374999999999997,
+  "ref100": {
+    "obj": 0.426,
+    "rel": 0.958,
+    "story_all": 0.196,
+    "rare_obj": 0.117
+  },
+  "verdict": "HARM",
+  "note": "True BPE merge over a-z0-9+space (char pretok). Piece rows initialized from F85 letter compose, then FT. Word exact@1 via greedy decode to whitespace."
+}

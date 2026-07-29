@@ -1,0 +1,26 @@
+{
+  "timestamp": "2026-07-26T15:01:00.656521+00:00",
+  "protocol": "clean_compare_150_155",
+  "plan": "C:\\Users\\Kostya\\sote-letter-assembly\\results\\plan_150_plus_clean_compare.md",
+  "upstream_149_verdict": "MATCHED_TABLE",
+  "stages": {
+    "150": "DUAL_TRUNK_TABLE",
+    "151": "ONE_FACTOR_TABLE",
+    "152": "CONTEXT_BUDGET_TABLE",
+    "153": "SCALE_BATCH_TABLE",
+    "154": "CAPACITY_DATA_TABLE",
+    "155": "EVAL_NOTE"
+  },
+  "default_primary_trunk": "S",
+  "headroom_delta_100k": -0.038995081204912824,
+  "capacity_premature_close": false,
+  "verdict": "PIPELINE_DONE",
+  "decisions": [
+    "stage150_dual_trunk_decision.json",
+    "stage151_one_factor_decision.json",
+    "stage152_context_budget_decision.json",
+    "stage153_scale_batch_decision.json",
+    "stage154_capacity_data_decision.json",
+    "stage155_eval_surface_decision.json"
+  ]
+}

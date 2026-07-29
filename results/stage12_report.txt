@@ -1,0 +1,52 @@
+SOTE Stage 12 report (relational mini on morph-aware memory)
+timestamp: 2026-07-23T10:51:20.914913+00:00
+device: cuda
+steps: 2000
+frozen: word_9_2 + morph_9f++ + phrase_memory_11
+trainable: HardSlotProbe only
+TRAIN rel phrases=26 HOLD=9 morph-HOLD QA=8
+
+Train QA acc:            100.0%
+HOLD QA acc:             100.0%
+HOLD morph-only QA:      100.0%
+Shuffle control:         0.0%   gap=+100.0pp
+Swap L/R control:        0.0%   gap=+100.0pp
+Morph-swap invariance:   100.0%  (n=8)
+Memory fewshot retrieve: 100.0%  (slots=16)
+Memory+QA HOLD:          100.0%
+
+HOLD by kind:
+  what_on    100%
+  what_to    100%
+  where_on   100%
+  where_to   100%
+
+HOLD sample:
+  [OK] fact='cat to car' what -> cat (want cat) p_left=1.00
+  [OK] fact='cat to car' where -> car (want car) p_left=0.00
+  [OK] fact='dog to top' what -> dog (want dog) p_left=1.00
+  [OK] fact='dog to top' where -> top (want top) p_left=0.00
+  [OK] fact='go to cat' what -> go (want go) p_left=1.00
+  [OK] fact='go to cat' where -> cat (want cat) p_left=0.00
+  [OK] fact='spot on car' what -> spot (want spot) p_left=1.00
+  [OK] fact='spot on car' where -> car (want car) p_left=0.00
+  [OK] fact='good dog on car' what -> dog (want dog) p_left=1.00
+  [OK] fact='good dog on car' where -> car (want car) p_left=0.00
+  [OK] fact='jumps on top' what -> jumps (want jumps) p_left=1.00
+  [OK] fact='jumps on top' where -> top (want top) p_left=0.00
+
+Morph-swap sample:
+  [OK] jumps on top | jumps->jumped what -> jumped (want jumped)
+  [OK] jumps on top | jumps->jumped where -> top (want top)
+  [OK] walks on car | walks->walked what -> walked (want walked)
+  [OK] walks on car | walks->walked where -> car (want car)
+  [OK] reading on top | reading->readed what -> readed (want readed)
+  [OK] reading on top | reading->readed where -> top (want top)
+  [OK] walked on car | walked->walking what -> walking (want walking)
+  [OK] walked on car | walked->walking where -> car (want car)
+
+=== Verdict ===
+  PASS: roles hold on morph-aware stack; controls hurt; morph-swap OK.
+  Next: scale HOLD/lexicon, OR memory-gate polish (soft-create + retrieve margin).
+
+Backlog (deferred): soft-create on novelty; retrieve margin; no key-by-compose yet.

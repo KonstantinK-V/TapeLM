@@ -1,0 +1,24 @@
+{
+  "timestamp": "2026-07-29T05:18:01.776216+00:00",
+  "protocol": "paws_finetune_202b",
+  "overall": "SEM_B_CAP_NO",
+  "gates": {
+    "g_paws": false,
+    "g_inversion": false,
+    "g_parity": true
+  },
+  "curve": {
+    "paws_acc": 0.704625,
+    "para": 0.8058729410171509,
+    "hard": 0.9411821588873863,
+    "inversion": false,
+    "next_tok_copy": 0.55
+  },
+  "gpt": {
+    "paws_acc": 0.700625,
+    "para": 0.5474635100364685,
+    "hard": 0.7459445297718048,
+    "inversion": false
+  },
+  "note": "encoder fine-tuned end-to-end on PAWS (copy; product P1 frozen); decisive B-capability test"
+}

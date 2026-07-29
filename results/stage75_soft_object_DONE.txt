@@ -1,0 +1,16 @@
+SOTE Stage 75 soft object / hops — PASS hops-side
+timestamp: 2026-07-24T13:25:00+00:00
+report: stage75_soft_object_report.txt
+
+=== READ (BPE-honest) ===
+  Exact next object: still wall (~6-12%).
+  Trained shortlist InfoNCE: still ~chance among 8 rights (FAIL soft).
+  Hops what_tail retrieve on dense verb phrases: **81%** PASS.
+
+=== POLICY UPDATE ===
+  Do not require exact/soft next for verb_ing object on this stack.
+  Prefer retrieval/hops for that slot (facts channel) — LM-style volume/soft not helping here.
+  Semi-cognitive gap closes by routing object to hops, not by holding forever.
+
+=== NEXT ===
+  Stage 76: fold verb_ing atoms into hop bank carefully (small), measure hop2 with noun/polarity protect.

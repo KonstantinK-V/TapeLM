@@ -1,0 +1,810 @@
+{
+  "stage": "67",
+  "verdict": "PARTIAL lift",
+  "note": "Still residual abs 24.4%, but \u2265+5pp vs opaque (18.3%). Surface idea helps a bit.",
+  "did_ft": true,
+  "zs_opaque": {
+    "verb_ing": {
+      "acc": 0.18253968253968253,
+      "gap": 0.1349206349206349,
+      "n": 126,
+      "order_drop": 0.10317460317460317,
+      "cos": 0.3648262554040504
+    },
+    "noun_rel": {
+      "acc": 0.2927400468384075,
+      "gap": 0.15925058548009366,
+      "n": 427,
+      "order_drop": 0.1451990632318501,
+      "cos": 0.45269538151575756
+    },
+    "polarity": {
+      "acc": 0.35365853658536583,
+      "gap": 0.24390243902439024,
+      "n": 82,
+      "order_drop": 0.15853658536585363,
+      "cos": 0.4980147751502511
+    }
+  },
+  "zs_split": {
+    "verb_ing": {
+      "acc": 0.08294930875576037,
+      "gap": 0.004608294930875584,
+      "n": 217,
+      "order_drop": -0.02764976958525346,
+      "cos": 0.15160825815103296
+    },
+    "noun_rel": {
+      "acc": 0.2927400468384075,
+      "gap": 0.15925058548009366,
+      "n": 427,
+      "order_drop": 0.1451990632318501,
+      "cos": 0.45269538151575756
+    },
+    "polarity": {
+      "acc": 0.35365853658536583,
+      "gap": 0.24390243902439024,
+      "n": 82,
+      "order_drop": 0.15853658536585363,
+      "cos": 0.4980147751502511
+    }
+  },
+  "zs_all": {
+    "acc": 0.2369146005509642,
+    "gap": 0.14049586776859505,
+    "n": 726,
+    "order_drop": 0.0881542699724518,
+    "cos": 0.367819740342043
+  },
+  "zs_ing_token": {
+    "acc": 0.0,
+    "shuffle_tgt": 0.0,
+    "gap": 0.0,
+    "cos": 0.22531785953094016,
+    "n": 91
+  },
+  "final": {
+    "verb_ing": {
+      "acc": 0.24423963133640553,
+      "gap": 0.1152073732718894,
+      "n": 217,
+      "order_drop": 0.05529953917050692,
+      "cos": 0.4765171282044891
+    },
+    "noun_rel": {
+      "acc": 0.26229508196721313,
+      "gap": 0.0655737704918033,
+      "n": 427,
+      "order_drop": 0.05152224824355972,
+      "cos": 0.34529362465811136
+    },
+    "polarity": {
+      "acc": 0.3170731707317073,
+      "gap": 0.0975609756097561,
+      "n": 82,
+      "order_drop": 0.04878048780487804,
+      "cos": 0.41101645326196423
+    }
+  },
+  "final_all": {
+    "acc": 0.2630853994490358,
+    "gap": 0.07713498622589532,
+    "n": 726,
+    "order_drop": 0.0537190082644628,
+    "cos": 0.39193931641441976
+  },
+  "protect_ok": true,
+  "protect_drops": {
+    "noun_rel": 0.030444964871194358,
+    "polarity": 0.036585365853658514
+  },
+  "counts_hold": {
+    "noun_rel": 168,
+    "verb_ing": 91,
+    "polarity": 41
+  },
+  "n_train_verb_ing": 216,
+  "n_remapped": 307,
+  "example": {
+    "orig": "big looking to look",
+    "split": "big look ing to look"
+  },
+  "ft_best_step": 500,
+  "ft_curve": [
+    {
+      "step": 0,
+      "verb_ing": {
+        "acc": 0.08294930875576037,
+        "gap": 0.004608294930875584,
+        "n": 217,
+        "order_drop": -0.02764976958525346,
+        "cos": 0.15160825815103296
+      },
+      "noun_rel": {
+        "acc": 0.2927400468384075,
+        "gap": 0.15925058548009366,
+        "n": 427,
+        "order_drop": 0.1451990632318501,
+        "cos": 0.45269538151575756
+      },
+      "polarity": {
+        "acc": 0.35365853658536583,
+        "gap": 0.24390243902439024,
+        "n": 82,
+        "order_drop": 0.15853658536585363,
+        "cos": 0.4980147751502511
+      },
+      "protect_ok": true,
+      "soft": false
+    },
+    {
+      "step": 100,
+      "verb_ing": {
+        "acc": 0.21658986175115208,
+        "gap": 0.08294930875576037,
+        "n": 217,
+        "order_drop": -0.013824884792626724,
+        "cos": 0.3966769430065347
+      },
+      "noun_rel": {
+        "acc": 0.2810304449648712,
+        "gap": 0.09836065573770489,
+        "n": 427,
+        "order_drop": 0.06791569086651053,
+        "cos": 0.4326698276927516
+      },
+      "polarity": {
+        "acc": 0.2926829268292683,
+        "gap": 0.15853658536585363,
+        "n": 82,
+        "order_drop": 0.04878048780487804,
+        "cos": 0.4385417123302454
+      },
+      "protect_ok": false,
+      "soft": false
+    },
+    {
+      "step": 200,
+      "verb_ing": {
+        "acc": 0.1935483870967742,
+        "gap": 0.06451612903225806,
+        "n": 217,
+        "order_drop": -0.004608294930875584,
+        "cos": 0.4315833523311579
+      },
+      "noun_rel": {
+        "acc": 0.2786885245901639,
+        "gap": 0.07494145199063229,
+        "n": 427,
+        "order_drop": 0.063231850117096,
+        "cos": 0.40426854809759233
+      },
+      "polarity": {
+        "acc": 0.3048780487804878,
+        "gap": 0.07317073170731705,
+        "n": 82,
+        "order_drop": 0.012195121951219523,
+        "cos": 0.43790451459950064
+      },
+      "protect_ok": true,
+      "soft": false
+    },
+    {
+      "step": 300,
+      "verb_ing": {
+        "acc": 0.1889400921658986,
+        "gap": 0.055299539170506895,
+        "n": 217,
+        "order_drop": 0.013824884792626724,
+        "cos": 0.4430522197162226
+      },
+      "noun_rel": {
+        "acc": 0.27634660421545665,
+        "gap": 0.09836065573770489,
+        "n": 427,
+        "order_drop": 0.05854800936768148,
+        "cos": 0.3997794643210234
+      },
+      "polarity": {
+        "acc": 0.32926829268292684,
+        "gap": 0.13414634146341464,
+        "n": 82,
+        "order_drop": 0.024390243902439046,
+        "cos": 0.4419372604205841
+      },
+      "protect_ok": true,
+      "soft": false
+    },
+    {
+      "step": 400,
+      "verb_ing": {
+        "acc": 0.17972350230414746,
+        "gap": 0.05069124423963134,
+        "n": 217,
+        "order_drop": -0.02304147465437789,
+        "cos": 0.4596223566372136
+      },
+      "noun_rel": {
+        "acc": 0.25995316159250587,
+        "gap": 0.056206088992974246,
+        "n": 427,
+        "order_drop": 0.03278688524590165,
+        "cos": 0.36341097341104467
+      },
+      "polarity": {
+        "acc": 0.2804878048780488,
+        "gap": 0.06097560975609759,
+        "n": 82,
+        "order_drop": -0.012195121951219468,
+        "cos": 0.40821613712099997
+      },
+      "protect_ok": false,
+      "soft": false
+    },
+    {
+      "step": 500,
+      "verb_ing": {
+        "acc": 0.24423963133640553,
+        "gap": 0.1152073732718894,
+        "n": 217,
+        "order_drop": 0.05529953917050692,
+        "cos": 0.4765171282044891
+      },
+      "noun_rel": {
+        "acc": 0.26229508196721313,
+        "gap": 0.0655737704918033,
+        "n": 427,
+        "order_drop": 0.05152224824355972,
+        "cos": 0.34529362465811136
+      },
+      "polarity": {
+        "acc": 0.3170731707317073,
+        "gap": 0.0975609756097561,
+        "n": 82,
+        "order_drop": 0.04878048780487804,
+        "cos": 0.41101645326196423
+      },
+      "protect_ok": true,
+      "soft": false
+    },
+    {
+      "step": 600,
+      "verb_ing": {
+        "acc": 0.25806451612903225,
+        "gap": 0.12903225806451613,
+        "n": 217,
+        "order_drop": 0.05069124423963134,
+        "cos": 0.4879049322984186
+      },
+      "noun_rel": {
+        "acc": 0.18969555035128804,
+        "gap": 0.03512880562060888,
+        "n": 427,
+        "order_drop": 0.021077283372365335,
+        "cos": 0.3363537126388706
+      },
+      "polarity": {
+        "acc": 0.2926829268292683,
+        "gap": 0.08536585365853658,
+        "n": 82,
+        "order_drop": 0.04878048780487804,
+        "cos": 0.4249505834063379
+      },
+      "protect_ok": false,
+      "soft": true
+    },
+    {
+      "step": 700,
+      "verb_ing": {
+        "acc": 0.35023041474654376,
+        "gap": 0.2304147465437788,
+        "n": 217,
+        "order_drop": 0.13364055299539168,
+        "cos": 0.5061585489265655
+      },
+      "noun_rel": {
+        "acc": 0.0936768149882904,
+        "gap": -0.011709601873536299,
+        "n": 427,
+        "order_drop": 0.007025761124121788,
+        "cos": 0.26056723526964704
+      },
+      "polarity": {
+        "acc": 0.24390243902439024,
+        "gap": 0.04878048780487804,
+        "n": 82,
+        "order_drop": 0.06097560975609756,
+        "cos": 0.39625492260405204
+      },
+      "protect_ok": false,
+      "soft": true
+    },
+    {
+      "step": 800,
+      "verb_ing": {
+        "acc": 0.3686635944700461,
+        "gap": 0.2534562211981567,
+        "n": 217,
+        "order_drop": 0.15207373271889402,
+        "cos": 0.5116552331652234
+      },
+      "noun_rel": {
+        "acc": 0.0702576112412178,
+        "gap": 0.007025761124121774,
+        "n": 427,
+        "order_drop": -0.011709601873536299,
+        "cos": 0.2573346981966314
+      },
+      "polarity": {
+        "acc": 0.25609756097560976,
+        "gap": 0.10975609756097562,
+        "n": 82,
+        "order_drop": 0.07317073170731708,
+        "cos": 0.4086316375561604
+      },
+      "protect_ok": false,
+      "soft": true
+    },
+    {
+      "step": 900,
+      "verb_ing": {
+        "acc": 0.3686635944700461,
+        "gap": 0.26267281105990786,
+        "n": 217,
+        "order_drop": 0.12903225806451615,
+        "cos": 0.5214143399029009
+      },
+      "noun_rel": {
+        "acc": 0.0585480093676815,
+        "gap": -0.007025761124121781,
+        "n": 427,
+        "order_drop": -0.009367681498829043,
+        "cos": 0.21226191908487532
+      },
+      "polarity": {
+        "acc": 0.2073170731707317,
+        "gap": 0.1097560975609756,
+        "n": 82,
+        "order_drop": 0.09756097560975609,
+        "cos": 0.3862558466087027
+      },
+      "protect_ok": false,
+      "soft": true
+    },
+    {
+      "step": 1000,
+      "verb_ing": {
+        "acc": 0.3640552995391705,
+        "gap": 0.24884792626728108,
+        "n": 217,
+        "order_drop": 0.13824884792626727,
+        "cos": 0.5319813287083043
+      },
+      "noun_rel": {
+        "acc": 0.06791569086651054,
+        "gap": -0.021077283372365335,
+        "n": 427,
+        "order_drop": -0.0023419203747072487,
+        "cos": 0.22154444419022049
+      },
+      "polarity": {
+        "acc": 0.18292682926829268,
+        "gap": 0.08536585365853658,
+        "n": 82,
+        "order_drop": 0.08536585365853658,
+        "cos": 0.36635073887683994
+      },
+      "protect_ok": false,
+      "soft": true
+    },
+    {
+      "step": 1100,
+      "verb_ing": {
+        "acc": 0.3870967741935484,
+        "gap": 0.271889400921659,
+        "n": 217,
+        "order_drop": 0.13364055299539168,
+        "cos": 0.5262895690466058
+      },
+      "noun_rel": {
+        "acc": 0.06323185011709602,
+        "gap": -0.018735362997658073,
+        "n": 427,
+        "order_drop": 0.021077283372365342,
+        "cos": 0.180684216146028
+      },
+      "polarity": {
+        "acc": 0.14634146341463414,
+        "gap": 0.060975609756097546,
+        "n": 82,
+        "order_drop": 0.08536585365853658,
+        "cos": 0.30694257513415524
+      },
+      "protect_ok": false,
+      "soft": true
+    },
+    {
+      "step": 1200,
+      "verb_ing": {
+        "acc": 0.3778801843317972,
+        "gap": 0.25345622119815664,
+        "n": 217,
+        "order_drop": 0.13364055299539168,
+        "cos": 0.5360421909122355
+      },
+      "noun_rel": {
+        "acc": 0.06791569086651054,
+        "gap": -0.032786885245901634,
+        "n": 427,
+        "order_drop": 0.004683840749414525,
+        "cos": 0.19474537649673934
+      },
+      "polarity": {
+        "acc": 0.17073170731707318,
+        "gap": 0.09756097560975611,
+        "n": 82,
+        "order_drop": 0.08536585365853659,
+        "cos": 0.3356967791006332
+      },
+      "protect_ok": false,
+      "soft": true
+    },
+    {
+      "step": 1300,
+      "verb_ing": {
+        "acc": 0.3778801843317972,
+        "gap": 0.25806451612903225,
+        "n": 217,
+        "order_drop": 0.13364055299539168,
+        "cos": 0.534595453107412
+      },
+      "noun_rel": {
+        "acc": 0.05620608899297424,
+        "gap": 0.0,
+        "n": 427,
+        "order_drop": -0.004683840749414518,
+        "cos": 0.1899893408558338
+      },
+      "polarity": {
+        "acc": 0.18292682926829268,
+        "gap": 0.12195121951219512,
+        "n": 82,
+        "order_drop": 0.09756097560975609,
+        "cos": 0.37066847790123486
+      },
+      "protect_ok": false,
+      "soft": true
+    },
+    {
+      "step": 1400,
+      "verb_ing": {
+        "acc": 0.3778801843317972,
+        "gap": 0.26728110599078336,
+        "n": 217,
+        "order_drop": 0.12442396313364051,
+        "cos": 0.5371601908351831
+      },
+      "noun_rel": {
+        "acc": 0.0702576112412178,
+        "gap": -0.02576112412177986,
+        "n": 427,
+        "order_drop": 0.007025761124121774,
+        "cos": 0.1915189527821415
+      },
+      "polarity": {
+        "acc": 0.14634146341463414,
+        "gap": 0.060975609756097546,
+        "n": 82,
+        "order_drop": 0.060975609756097546,
+        "cos": 0.3474540714992256
+      },
+      "protect_ok": false,
+      "soft": true
+    },
+    {
+      "step": 1500,
+      "verb_ing": {
+        "acc": 0.3640552995391705,
+        "gap": 0.24884792626728108,
+        "n": 217,
+        "order_drop": 0.12442396313364054,
+        "cos": 0.5396110170224707
+      },
+      "noun_rel": {
+        "acc": 0.06557377049180328,
+        "gap": -0.023419203747072598,
+        "n": 427,
+        "order_drop": 0.01873536299765808,
+        "cos": 0.18396860957189312
+      },
+      "polarity": {
+        "acc": 0.15853658536585366,
+        "gap": 0.0975609756097561,
+        "n": 82,
+        "order_drop": 0.0975609756097561,
+        "cos": 0.31630077167618564
+      },
+      "protect_ok": false,
+      "soft": true
+    }
+  ],
+  "surfaces": [
+    "cat",
+    "on",
+    "top",
+    "dog",
+    "car",
+    "go",
+    "to",
+    "no",
+    "good",
+    "not",
+    "stop",
+    "spot",
+    "post",
+    "act",
+    "bird",
+    "fish",
+    "ball",
+    "land",
+    "ship",
+    "rock",
+    "road",
+    "shop",
+    "big",
+    "red",
+    "old",
+    "new",
+    "book",
+    "hand",
+    "door",
+    "sand",
+    "playing",
+    "played",
+    "plays",
+    "running",
+    "runned",
+    "runs",
+    "making",
+    "maked",
+    "makes",
+    "taking",
+    "taked",
+    "takes",
+    "looking",
+    "looked",
+    "looks",
+    "talking",
+    "talked",
+    "talks",
+    "openning",
+    "openned",
+    "opens",
+    "helping",
+    "helped",
+    "helps",
+    "moving",
+    "moved",
+    "moves",
+    "calling",
+    "called",
+    "calls",
+    "working",
+    "worked",
+    "works",
+    "stopping",
+    "stopped",
+    "stops",
+    "box",
+    "mat",
+    "lid",
+    "bag",
+    "cap",
+    "log",
+    "mug",
+    "bin",
+    "pen",
+    "pad",
+    "water",
+    "jumps",
+    "jumping",
+    "jumped",
+    "walks",
+    "walking",
+    "walked",
+    "reading",
+    "readed",
+    "writes",
+    "writing",
+    "writed",
+    "living",
+    "lived",
+    "pulls",
+    "pulling",
+    "pulled",
+    "pushes",
+    "pushing",
+    "pushed",
+    "washes",
+    "washing",
+    "washed",
+    "hut",
+    "rim",
+    "peg",
+    "cob",
+    "nib",
+    "web",
+    "yap",
+    "zip",
+    "bell",
+    "bed",
+    "hill",
+    "yard",
+    "cup",
+    "pan",
+    "jar",
+    "fox",
+    "park",
+    "well",
+    "hat",
+    "map",
+    "rug",
+    "net",
+    "key",
+    "pin",
+    "call",
+    "mill",
+    "help",
+    "jump",
+    "look",
+    "move",
+    "play",
+    "pull",
+    "push",
+    "walk",
+    "wash",
+    "work",
+    "ing",
+    "read",
+    "run"
+  ],
+  "parent": "stage57_rehearsal_FROZEN.pt",
+  "config": {
+    "dim": 64,
+    "seed": 272,
+    "episode_k": 3,
+    "episode_k_dense": 7,
+    "n_hold_episodes": 80,
+    "n_dense_episodes": 64,
+    "create_below": 0.55,
+    "stabilize_lo": 0.55,
+    "lock_above": 0.92,
+    "ema": 0.85,
+    "retrieve_margin": 0.05,
+    "max_phrase_len": 5,
+    "max_word_len": 11,
+    "disambig_topk": 5,
+    "disambig_gap": 0.12,
+    "edge_w": 0.5,
+    "where_w": 0.3,
+    "bind_w": 0.2,
+    "dense_joint_min": 0.7,
+    "dense_h1_min": 0.9,
+    "dense_h2_given_h1_min": 0.85,
+    "dense_h3_given_h2_min": 0.85,
+    "dirty_bind_min": 0.55,
+    "dirty_bind_within_clean_pp": 0.25,
+    "dirty_hard_min": 0.5,
+    "ctrl_joint_min": 0.85,
+    "pass_seeds_min": 2,
+    "hubby_sample": true,
+    "dirty_both_min": 0.4,
+    "h1_cue_mode": "what_tail",
+    "use_left_instance": true,
+    "hub2_h1_min": 0.85,
+    "k9_joint_min": 0.65,
+    "native_joint_min": 0.55,
+    "lexicon_min": 0.99,
+    "encode_recon_min": 0.95,
+    "text_qa_joint_floor": 0.55,
+    "text_qa_within_ctrl_pp": 0.2,
+    "projector_steps": 2500,
+    "projector_lr": 0.001,
+    "word_decode_min": 0.95,
+    "phrase_decode_min": 0.95,
+    "answer_text_min": 0.7,
+    "answer_text_stress_min": 0.55,
+    "answer_text_within_bal_pp": 0.2,
+    "holdout_decode_floor": 0.0,
+    "n_dense_episodes_stress": 48,
+    "next_fp_steps": 2500,
+    "next_fp_lr": 0.001,
+    "next_fp_gap_min": 0.1,
+    "next_fp_abs_min": 0.25,
+    "next_fp_batch": 64,
+    "shortlist_gap_min": 0.12,
+    "shortlist_abs_min": 0.35,
+    "shortlist_ft_steps": 1500,
+    "shortlist_min_cands": 2,
+    "char_steps": 3000,
+    "char_lr": 0.001,
+    "char_batch": 64,
+    "char_acc_gap_min": 0.2,
+    "char_exact_floor": 0.05,
+    "long_prefix_max": 8,
+    "mask_steps": 2500,
+    "mask_batch": 64,
+    "seq_steps": 3000,
+    "seq_batch": 32,
+    "seq_layers": 2,
+    "seq_l2_gap_min": 0.1,
+    "seq_l1_abs_min": 0.25,
+    "seq_order_drop_min": 0.05,
+    "order_steps": 3500,
+    "order_margin": 0.15,
+    "order_drop_gate": 0.1,
+    "order_n_perm": 2,
+    "beyond_steps": 5000,
+    "beyond_sample_frac": 0.8,
+    "beyond_l2_gap_min": 0.1,
+    "beyond_l2_abs_min": 0.25,
+    "path_l2_floor": 0.28,
+    "ext_ft_steps": 1500,
+    "ext_hold_frac": 0.4,
+    "ext_l2_gap_min": 0.1,
+    "ext_l2_abs_min": 0.25,
+    "ext_d_min": 0.95,
+    "mid_ft_steps": 3000,
+    "mid_hold_frac": 0.35,
+    "mid_ft_lr": 0.001,
+    "mid_ft_eval_every": 150,
+    "mid_ft_lrs": [
+      0.001,
+      0.0005
+    ],
+    "mid_order_n_perm": 2,
+    "mid_order_margin": 0.15,
+    "mid_order_weight": 1.0,
+    "mid_order_drop_gate": 0.1,
+    "mid_order_l2_floor": 0.28,
+    "mid_order_l2_soft": 0.25,
+    "mid_rehearse_frac": 0.55,
+    "mid_tiny_repeat": 6,
+    "mid_ft_lrs_57": [
+      0.0005,
+      0.001
+    ],
+    "mid_rehearse_from_55": true,
+    "mid_l1_frac": 0.65,
+    "mid_l1_abs_min": 0.15,
+    "mid_l1_stretch": 0.2,
+    "mid_l1_steps": 3000,
+    "mid_l1_lrs": [
+      0.0005,
+      0.001
+    ],
+    "mid_l1_protect_w": 0.5,
+    "scale_ft_steps": 3500,
+    "scale_hold_frac": 0.3,
+    "scale_ft_lrs": [
+      0.0005,
+      0.001
+    ],
+    "scale_rehearse_frac": 0.5,
+    "scale_l2_abs_min": 0.25,
+    "scale_l2_gap_min": 0.1,
+    "ext_hop_joint_min": 0.55,
+    "ext_hop_joint_stretch": 0.7,
+    "ext_hop_n_eps": 96,
+    "ext_hop_episode_k": 7,
+    "ext_fact_cap": 120,
+    "ext_fact_cap_exp": 0,
+    "verb_ing_ft_steps": 1500,
+    "verb_ing_ft_lr": 0.0005,
+    "verb_ing_eval_every": 100,
+    "verb_ing_protect_pp": 0.05,
+    "ing_ft_steps": 1500,
+    "ing_ft_lr": 0.0005,
+    "ing_eval_every": 100
+  }
+}

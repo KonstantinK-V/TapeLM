@@ -1,0 +1,691 @@
+{
+  "stage": "66",
+  "verdict": "RESIDUAL",
+  "note": "verb_ing gap OK (+14.3pp) but abs 17.5% <25%. Honest residual \u2014 not hop surface.",
+  "did_ft": true,
+  "zs": {
+    "verb_ing": {
+      "acc": 0.18253968253968253,
+      "gap": 0.1349206349206349,
+      "n": 126,
+      "order_drop": 0.10317460317460317,
+      "cos": 0.3648262554040504
+    },
+    "noun_rel": {
+      "acc": 0.2927400468384075,
+      "gap": 0.15925058548009366,
+      "n": 427,
+      "order_drop": 0.1451990632318501,
+      "cos": 0.45269538151575756
+    },
+    "polarity": {
+      "acc": 0.35365853658536583,
+      "gap": 0.24390243902439024,
+      "n": 82,
+      "order_drop": 0.15853658536585363,
+      "cos": 0.4980147751502511
+    }
+  },
+  "zs_all": {
+    "acc": 0.27874015748031494,
+    "gap": 0.19842519685039367,
+    "n": 635,
+    "order_drop": 0.14015748031496061,
+    "cos": 0.4411122010243455
+  },
+  "final": {
+    "verb_ing": {
+      "acc": 0.1746031746031746,
+      "gap": 0.14285714285714285,
+      "n": 126,
+      "order_drop": 0.07936507936507936,
+      "cos": 0.3692996800241489
+    },
+    "noun_rel": {
+      "acc": 0.28805620608899296,
+      "gap": 0.16159250585480092,
+      "n": 427,
+      "order_drop": 0.1569086651053864,
+      "cos": 0.4497172287937943
+    },
+    "polarity": {
+      "acc": 0.36585365853658536,
+      "gap": 0.2682926829268293,
+      "n": 82,
+      "order_drop": 0.17073170731707316,
+      "cos": 0.4956869424616055
+    }
+  },
+  "final_all": {
+    "acc": 0.2755905511811024,
+    "gap": 0.1952755905511811,
+    "n": 635,
+    "order_drop": 0.16062992125984255,
+    "cos": 0.43969660733833793
+  },
+  "protect_ok": true,
+  "protect_drops": {
+    "noun_rel": 0.004683840749414525,
+    "polarity": -0.012195121951219523
+  },
+  "counts_hold": {
+    "noun_rel": 168,
+    "verb_ing": 91,
+    "polarity": 41
+  },
+  "n_train_verb_ing": 216,
+  "ft_best_step": 100,
+  "ft_curve": [
+    {
+      "step": 0,
+      "verb_ing": {
+        "acc": 0.18253968253968253,
+        "gap": 0.1349206349206349,
+        "n": 126,
+        "order_drop": 0.10317460317460317,
+        "cos": 0.3648262554040504
+      },
+      "noun_rel": {
+        "acc": 0.2927400468384075,
+        "gap": 0.15925058548009366,
+        "n": 427,
+        "order_drop": 0.1451990632318501,
+        "cos": 0.45269538151575756
+      },
+      "polarity": {
+        "acc": 0.35365853658536583,
+        "gap": 0.24390243902439024,
+        "n": 82,
+        "order_drop": 0.15853658536585363,
+        "cos": 0.4980147751502511
+      },
+      "protect_ok": true,
+      "soft": false
+    },
+    {
+      "step": 100,
+      "verb_ing": {
+        "acc": 0.1746031746031746,
+        "gap": 0.14285714285714285,
+        "n": 126,
+        "order_drop": 0.07936507936507936,
+        "cos": 0.3692996800241489
+      },
+      "noun_rel": {
+        "acc": 0.28805620608899296,
+        "gap": 0.16159250585480092,
+        "n": 427,
+        "order_drop": 0.1569086651053864,
+        "cos": 0.4497172287937943
+      },
+      "polarity": {
+        "acc": 0.36585365853658536,
+        "gap": 0.2682926829268293,
+        "n": 82,
+        "order_drop": 0.17073170731707316,
+        "cos": 0.4956869424616055
+      },
+      "protect_ok": true,
+      "soft": false
+    },
+    {
+      "step": 200,
+      "verb_ing": {
+        "acc": 0.1746031746031746,
+        "gap": 0.14285714285714285,
+        "n": 126,
+        "order_drop": 0.06349206349206349,
+        "cos": 0.3543229021486782
+      },
+      "noun_rel": {
+        "acc": 0.28337236533957844,
+        "gap": 0.15925058548009366,
+        "n": 427,
+        "order_drop": 0.1569086651053864,
+        "cos": 0.4357692172502187
+      },
+      "polarity": {
+        "acc": 0.34146341463414637,
+        "gap": 0.21951219512195125,
+        "n": 82,
+        "order_drop": 0.1829268292682927,
+        "cos": 0.5053995573075443
+      },
+      "protect_ok": true,
+      "soft": false
+    },
+    {
+      "step": 300,
+      "verb_ing": {
+        "acc": 0.14285714285714285,
+        "gap": 0.1111111111111111,
+        "n": 126,
+        "order_drop": 0.05555555555555555,
+        "cos": 0.34653454179328586
+      },
+      "noun_rel": {
+        "acc": 0.25995316159250587,
+        "gap": 0.13817330210772835,
+        "n": 427,
+        "order_drop": 0.14285714285714285,
+        "cos": 0.45019975896549586
+      },
+      "polarity": {
+        "acc": 0.32926829268292684,
+        "gap": 0.20731707317073172,
+        "n": 82,
+        "order_drop": 0.13414634146341464,
+        "cos": 0.49445471891043025
+      },
+      "protect_ok": true,
+      "soft": false
+    },
+    {
+      "step": 400,
+      "verb_ing": {
+        "acc": 0.15079365079365079,
+        "gap": 0.11904761904761904,
+        "n": 126,
+        "order_drop": 0.07142857142857142,
+        "cos": 0.34834913162898923
+      },
+      "noun_rel": {
+        "acc": 0.2716627634660422,
+        "gap": 0.1475409836065574,
+        "n": 427,
+        "order_drop": 0.17096018735363,
+        "cos": 0.42300874489060747
+      },
+      "polarity": {
+        "acc": 0.3170731707317073,
+        "gap": 0.17073170731707318,
+        "n": 82,
+        "order_drop": 0.17073170731707318,
+        "cos": 0.5013031716935519
+      },
+      "protect_ok": true,
+      "soft": false
+    },
+    {
+      "step": 500,
+      "verb_ing": {
+        "acc": 0.15079365079365079,
+        "gap": 0.1111111111111111,
+        "n": 126,
+        "order_drop": 0.06349206349206349,
+        "cos": 0.3370952692902869
+      },
+      "noun_rel": {
+        "acc": 0.2857142857142857,
+        "gap": 0.16393442622950818,
+        "n": 427,
+        "order_drop": 0.15456674473067913,
+        "cos": 0.4305560026455243
+      },
+      "polarity": {
+        "acc": 0.3048780487804878,
+        "gap": 0.13414634146341461,
+        "n": 82,
+        "order_drop": 0.13414634146341461,
+        "cos": 0.5009207956084027
+      },
+      "protect_ok": true,
+      "soft": false
+    },
+    {
+      "step": 600,
+      "verb_ing": {
+        "acc": 0.1746031746031746,
+        "gap": 0.1349206349206349,
+        "n": 126,
+        "order_drop": 0.07936507936507936,
+        "cos": 0.3470206179670871
+      },
+      "noun_rel": {
+        "acc": 0.2857142857142857,
+        "gap": 0.16627634660421545,
+        "n": 427,
+        "order_drop": 0.1569086651053864,
+        "cos": 0.4339020923347119
+      },
+      "polarity": {
+        "acc": 0.3048780487804878,
+        "gap": 0.15853658536585366,
+        "n": 82,
+        "order_drop": 0.14634146341463414,
+        "cos": 0.49771654951136285
+      },
+      "protect_ok": true,
+      "soft": false
+    },
+    {
+      "step": 700,
+      "verb_ing": {
+        "acc": 0.15873015873015872,
+        "gap": 0.12698412698412698,
+        "n": 126,
+        "order_drop": 0.05555555555555555,
+        "cos": 0.34198067739369375
+      },
+      "noun_rel": {
+        "acc": 0.2459016393442623,
+        "gap": 0.12646370023419204,
+        "n": 427,
+        "order_drop": 0.1592505854800937,
+        "cos": 0.4165792983304491
+      },
+      "polarity": {
+        "acc": 0.34146341463414637,
+        "gap": 0.21951219512195125,
+        "n": 82,
+        "order_drop": 0.1829268292682927,
+        "cos": 0.4686726709237186
+      },
+      "protect_ok": true,
+      "soft": false
+    },
+    {
+      "step": 800,
+      "verb_ing": {
+        "acc": 0.14285714285714285,
+        "gap": 0.1111111111111111,
+        "n": 126,
+        "order_drop": 0.07142857142857142,
+        "cos": 0.3361616101677692
+      },
+      "noun_rel": {
+        "acc": 0.26229508196721313,
+        "gap": 0.14285714285714288,
+        "n": 427,
+        "order_drop": 0.1639344262295082,
+        "cos": 0.4094169795931921
+      },
+      "polarity": {
+        "acc": 0.3048780487804878,
+        "gap": 0.14634146341463414,
+        "n": 82,
+        "order_drop": 0.15853658536585366,
+        "cos": 0.48159452545933606
+      },
+      "protect_ok": true,
+      "soft": false
+    },
+    {
+      "step": 900,
+      "verb_ing": {
+        "acc": 0.15079365079365079,
+        "gap": 0.11904761904761904,
+        "n": 126,
+        "order_drop": 0.047619047619047616,
+        "cos": 0.33792712243776474
+      },
+      "noun_rel": {
+        "acc": 0.27400468384074944,
+        "gap": 0.14051522248243561,
+        "n": 427,
+        "order_drop": 0.16627634660421547,
+        "cos": 0.4181718857221707
+      },
+      "polarity": {
+        "acc": 0.34146341463414637,
+        "gap": 0.20731707317073172,
+        "n": 82,
+        "order_drop": 0.17073170731707318,
+        "cos": 0.4891409246796152
+      },
+      "protect_ok": true,
+      "soft": false
+    },
+    {
+      "step": 1000,
+      "verb_ing": {
+        "acc": 0.15079365079365079,
+        "gap": 0.1111111111111111,
+        "n": 126,
+        "order_drop": 0.047619047619047616,
+        "cos": 0.34690927449495546
+      },
+      "noun_rel": {
+        "acc": 0.27400468384074944,
+        "gap": 0.13583138173302112,
+        "n": 427,
+        "order_drop": 0.1545667447306792,
+        "cos": 0.42448429073876676
+      },
+      "polarity": {
+        "acc": 0.32926829268292684,
+        "gap": 0.1951219512195122,
+        "n": 82,
+        "order_drop": 0.15853658536585366,
+        "cos": 0.49267414259928755
+      },
+      "protect_ok": true,
+      "soft": false
+    },
+    {
+      "step": 1100,
+      "verb_ing": {
+        "acc": 0.15079365079365079,
+        "gap": 0.11904761904761904,
+        "n": 126,
+        "order_drop": 0.07142857142857142,
+        "cos": 0.34362897782453466
+      },
+      "noun_rel": {
+        "acc": 0.26697892271662765,
+        "gap": 0.14519906323185014,
+        "n": 427,
+        "order_drop": 0.16627634660421547,
+        "cos": 0.42651306520231436
+      },
+      "polarity": {
+        "acc": 0.3048780487804878,
+        "gap": 0.13414634146341461,
+        "n": 82,
+        "order_drop": 0.17073170731707316,
+        "cos": 0.49668561265145134
+      },
+      "protect_ok": true,
+      "soft": false
+    },
+    {
+      "step": 1200,
+      "verb_ing": {
+        "acc": 0.15079365079365079,
+        "gap": 0.1111111111111111,
+        "n": 126,
+        "order_drop": 0.07142857142857142,
+        "cos": 0.3160511108765763
+      },
+      "noun_rel": {
+        "acc": 0.25995316159250587,
+        "gap": 0.13348946135831383,
+        "n": 427,
+        "order_drop": 0.15690866510538642,
+        "cos": 0.37869300958493274
+      },
+      "polarity": {
+        "acc": 0.2926829268292683,
+        "gap": 0.08536585365853658,
+        "n": 82,
+        "order_drop": 0.14634146341463414,
+        "cos": 0.4718179872214067
+      },
+      "protect_ok": false,
+      "soft": false
+    }
+  ],
+  "surfaces": [
+    "cat",
+    "on",
+    "top",
+    "dog",
+    "car",
+    "go",
+    "to",
+    "no",
+    "good",
+    "not",
+    "stop",
+    "spot",
+    "post",
+    "act",
+    "bird",
+    "fish",
+    "ball",
+    "land",
+    "ship",
+    "rock",
+    "road",
+    "shop",
+    "big",
+    "red",
+    "old",
+    "new",
+    "book",
+    "hand",
+    "door",
+    "sand",
+    "playing",
+    "played",
+    "plays",
+    "running",
+    "runned",
+    "runs",
+    "making",
+    "maked",
+    "makes",
+    "taking",
+    "taked",
+    "takes",
+    "looking",
+    "looked",
+    "looks",
+    "talking",
+    "talked",
+    "talks",
+    "openning",
+    "openned",
+    "opens",
+    "helping",
+    "helped",
+    "helps",
+    "moving",
+    "moved",
+    "moves",
+    "calling",
+    "called",
+    "calls",
+    "working",
+    "worked",
+    "works",
+    "stopping",
+    "stopped",
+    "stops",
+    "box",
+    "mat",
+    "lid",
+    "bag",
+    "cap",
+    "log",
+    "mug",
+    "bin",
+    "pen",
+    "pad",
+    "water",
+    "jumps",
+    "jumping",
+    "jumped",
+    "walks",
+    "walking",
+    "walked",
+    "reading",
+    "readed",
+    "writes",
+    "writing",
+    "writed",
+    "living",
+    "lived",
+    "pulls",
+    "pulling",
+    "pulled",
+    "pushes",
+    "pushing",
+    "pushed",
+    "washes",
+    "washing",
+    "washed",
+    "hut",
+    "rim",
+    "peg",
+    "cob",
+    "nib",
+    "web",
+    "yap",
+    "zip",
+    "bell",
+    "bed",
+    "hill",
+    "yard",
+    "cup",
+    "pan",
+    "jar",
+    "fox",
+    "park",
+    "well",
+    "hat",
+    "map",
+    "rug",
+    "net",
+    "key",
+    "pin",
+    "call",
+    "mill",
+    "help",
+    "jump",
+    "look",
+    "move",
+    "play",
+    "pull",
+    "push",
+    "walk",
+    "wash",
+    "work"
+  ],
+  "parent": "stage57_rehearsal_FROZEN.pt",
+  "config": {
+    "dim": 64,
+    "seed": 272,
+    "episode_k": 3,
+    "episode_k_dense": 7,
+    "n_hold_episodes": 80,
+    "n_dense_episodes": 64,
+    "create_below": 0.55,
+    "stabilize_lo": 0.55,
+    "lock_above": 0.92,
+    "ema": 0.85,
+    "retrieve_margin": 0.05,
+    "max_phrase_len": 5,
+    "max_word_len": 11,
+    "disambig_topk": 5,
+    "disambig_gap": 0.12,
+    "edge_w": 0.5,
+    "where_w": 0.3,
+    "bind_w": 0.2,
+    "dense_joint_min": 0.7,
+    "dense_h1_min": 0.9,
+    "dense_h2_given_h1_min": 0.85,
+    "dense_h3_given_h2_min": 0.85,
+    "dirty_bind_min": 0.55,
+    "dirty_bind_within_clean_pp": 0.25,
+    "dirty_hard_min": 0.5,
+    "ctrl_joint_min": 0.85,
+    "pass_seeds_min": 2,
+    "hubby_sample": true,
+    "dirty_both_min": 0.4,
+    "h1_cue_mode": "what_tail",
+    "use_left_instance": true,
+    "hub2_h1_min": 0.85,
+    "k9_joint_min": 0.65,
+    "native_joint_min": 0.55,
+    "lexicon_min": 0.99,
+    "encode_recon_min": 0.95,
+    "text_qa_joint_floor": 0.55,
+    "text_qa_within_ctrl_pp": 0.2,
+    "projector_steps": 2500,
+    "projector_lr": 0.001,
+    "word_decode_min": 0.95,
+    "phrase_decode_min": 0.95,
+    "answer_text_min": 0.7,
+    "answer_text_stress_min": 0.55,
+    "answer_text_within_bal_pp": 0.2,
+    "holdout_decode_floor": 0.0,
+    "n_dense_episodes_stress": 48,
+    "next_fp_steps": 2500,
+    "next_fp_lr": 0.001,
+    "next_fp_gap_min": 0.1,
+    "next_fp_abs_min": 0.25,
+    "next_fp_batch": 64,
+    "shortlist_gap_min": 0.12,
+    "shortlist_abs_min": 0.35,
+    "shortlist_ft_steps": 1500,
+    "shortlist_min_cands": 2,
+    "char_steps": 3000,
+    "char_lr": 0.001,
+    "char_batch": 64,
+    "char_acc_gap_min": 0.2,
+    "char_exact_floor": 0.05,
+    "long_prefix_max": 8,
+    "mask_steps": 2500,
+    "mask_batch": 64,
+    "seq_steps": 3000,
+    "seq_batch": 32,
+    "seq_layers": 2,
+    "seq_l2_gap_min": 0.1,
+    "seq_l1_abs_min": 0.25,
+    "seq_order_drop_min": 0.05,
+    "order_steps": 3500,
+    "order_margin": 0.15,
+    "order_drop_gate": 0.1,
+    "order_n_perm": 2,
+    "beyond_steps": 5000,
+    "beyond_sample_frac": 0.8,
+    "beyond_l2_gap_min": 0.1,
+    "beyond_l2_abs_min": 0.25,
+    "path_l2_floor": 0.28,
+    "ext_ft_steps": 1500,
+    "ext_hold_frac": 0.4,
+    "ext_l2_gap_min": 0.1,
+    "ext_l2_abs_min": 0.25,
+    "ext_d_min": 0.95,
+    "mid_ft_steps": 3000,
+    "mid_hold_frac": 0.35,
+    "mid_ft_lr": 0.001,
+    "mid_ft_eval_every": 150,
+    "mid_ft_lrs": [
+      0.001,
+      0.0005
+    ],
+    "mid_order_n_perm": 2,
+    "mid_order_margin": 0.15,
+    "mid_order_weight": 1.0,
+    "mid_order_drop_gate": 0.1,
+    "mid_order_l2_floor": 0.28,
+    "mid_order_l2_soft": 0.25,
+    "mid_rehearse_frac": 0.55,
+    "mid_tiny_repeat": 6,
+    "mid_ft_lrs_57": [
+      0.0005,
+      0.001
+    ],
+    "mid_rehearse_from_55": true,
+    "mid_l1_frac": 0.65,
+    "mid_l1_abs_min": 0.15,
+    "mid_l1_stretch": 0.2,
+    "mid_l1_steps": 3000,
+    "mid_l1_lrs": [
+      0.0005,
+      0.001
+    ],
+    "mid_l1_protect_w": 0.5,
+    "scale_ft_steps": 3500,
+    "scale_hold_frac": 0.3,
+    "scale_ft_lrs": [
+      0.0005,
+      0.001
+    ],
+    "scale_rehearse_frac": 0.5,
+    "scale_l2_abs_min": 0.25,
+    "scale_l2_gap_min": 0.1,
+    "ext_hop_joint_min": 0.55,
+    "ext_hop_joint_stretch": 0.7,
+    "ext_hop_n_eps": 96,
+    "ext_hop_episode_k": 7,
+    "ext_fact_cap": 120,
+    "ext_fact_cap_exp": 0,
+    "verb_ing_ft_steps": 1200,
+    "verb_ing_ft_lr": 0.0005,
+    "verb_ing_eval_every": 100,
+    "verb_ing_protect_pp": 0.05
+  }
+}

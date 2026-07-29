@@ -1,0 +1,545 @@
+{
+  "stage": "68",
+  "verdict": "ERROR MAP",
+  "note": "See role/confusion tables; morph coverage secondary.",
+  "zs_vi": {
+    "acc": 0.18253968253968253,
+    "gap": 0.1349206349206349,
+    "n": 126,
+    "order_drop": 0.10317460317460317,
+    "cos": 0.3648262554040504
+  },
+  "role_acc": {
+    "rel": 0.4857142857142857,
+    "right": 0.056818181818181816,
+    "other": 0.3333333333333333
+  },
+  "role_n": {
+    "rel": 35,
+    "right": 88,
+    "other": 3
+  },
+  "pref_acc": {
+    "2": 0.2087912087912088,
+    "3": 0.11428571428571428
+  },
+  "top_confusions": [
+    [
+      [
+        "to",
+        "on"
+      ],
+      9
+    ],
+    [
+      [
+        "on",
+        "to"
+      ],
+      9
+    ],
+    [
+      [
+        "bed",
+        "hand"
+      ],
+      3
+    ],
+    [
+      [
+        "ball",
+        "hand"
+      ],
+      2
+    ],
+    [
+      [
+        "map",
+        "cap"
+      ],
+      2
+    ],
+    [
+      [
+        "car",
+        "land"
+      ],
+      2
+    ],
+    [
+      [
+        "door",
+        "land"
+      ],
+      2
+    ],
+    [
+      [
+        "hill",
+        "land"
+      ],
+      2
+    ],
+    [
+      [
+        "park",
+        "land"
+      ],
+      2
+    ],
+    [
+      [
+        "hut",
+        "cap"
+      ],
+      2
+    ],
+    [
+      [
+        "shop",
+        "land"
+      ],
+      2
+    ],
+    [
+      [
+        "look",
+        "bed"
+      ],
+      1
+    ],
+    [
+      [
+        "bed",
+        "land"
+      ],
+      1
+    ],
+    [
+      [
+        "hut",
+        "bed"
+      ],
+      1
+    ],
+    [
+      [
+        "door",
+        "walked"
+      ],
+      1
+    ]
+  ],
+  "examples": [
+    {
+      "line": "big looking to look",
+      "prefix": "big looking",
+      "gold": "to",
+      "pred": "on",
+      "role": "rel",
+      "sim": 0.871
+    },
+    {
+      "line": "big looking to look",
+      "prefix": "big looking to",
+      "gold": "look",
+      "pred": "bed",
+      "role": "right",
+      "sim": 0.677
+    },
+    {
+      "line": "big moving on bed",
+      "prefix": "big moving on",
+      "gold": "bed",
+      "pred": "land",
+      "role": "right",
+      "sim": 0.587
+    },
+    {
+      "line": "big playing on hut",
+      "prefix": "big playing on",
+      "gold": "hut",
+      "pred": "bed",
+      "role": "right",
+      "sim": 0.522
+    },
+    {
+      "line": "big pulling to door",
+      "prefix": "big pulling",
+      "gold": "to",
+      "pred": "on",
+      "role": "rel",
+      "sim": 0.862
+    },
+    {
+      "line": "big pulling to door",
+      "prefix": "big pulling to",
+      "gold": "door",
+      "pred": "walked",
+      "role": "right",
+      "sim": 0.475
+    },
+    {
+      "line": "big pushing to shop",
+      "prefix": "big pushing",
+      "gold": "to",
+      "pred": "on",
+      "role": "rel",
+      "sim": 0.855
+    },
+    {
+      "line": "big pushing to shop",
+      "prefix": "big pushing to",
+      "gold": "shop",
+      "pred": "bed",
+      "role": "right",
+      "sim": 0.635
+    },
+    {
+      "line": "big running on ball",
+      "prefix": "big running on",
+      "gold": "ball",
+      "pred": "hand",
+      "role": "right",
+      "sim": 0.553
+    },
+    {
+      "line": "calling on bag",
+      "prefix": "calling on",
+      "gold": "bag",
+      "pred": "hand",
+      "role": "right",
+      "sim": 0.573
+    },
+    {
+      "line": "calling to map",
+      "prefix": "calling to",
+      "gold": "map",
+      "pred": "cap",
+      "role": "right",
+      "sim": 0.619
+    },
+    {
+      "line": "good calling on nib",
+      "prefix": "good calling on",
+      "gold": "nib",
+      "pred": "land",
+      "role": "right",
+      "sim": 0.607
+    }
+  ],
+  "rel_after_ing": {
+    "n": 38,
+    "ok": 18,
+    "pred": {
+      "on": 18,
+      "to": 17,
+      "played": 1,
+      "walked": 1,
+      "readed": 1
+    }
+  },
+  "align_rows": [
+    {
+      "word": "calling",
+      "stem": "call",
+      "how": "morph_lex",
+      "in_codebook": true,
+      "stem_in_codebook": true,
+      "cos_morph_plain": 0.9967,
+      "cos_morph_stack_w": 1.0,
+      "decode_morph": "calling",
+      "decode_plain": "calling"
+    },
+    {
+      "word": "helping",
+      "stem": "help",
+      "how": "morph_lex",
+      "in_codebook": true,
+      "stem_in_codebook": true,
+      "cos_morph_plain": 0.9971,
+      "cos_morph_stack_w": 1.0,
+      "decode_morph": "helping",
+      "decode_plain": "helping"
+    },
+    {
+      "word": "jumping",
+      "stem": "jump",
+      "how": "morph_lex",
+      "in_codebook": true,
+      "stem_in_codebook": true,
+      "cos_morph_plain": 0.9983,
+      "cos_morph_stack_w": 1.0,
+      "decode_morph": "jumping",
+      "decode_plain": "jumping"
+    },
+    {
+      "word": "looking",
+      "stem": "look",
+      "how": "morph_lex",
+      "in_codebook": true,
+      "stem_in_codebook": true,
+      "cos_morph_plain": 0.9911,
+      "cos_morph_stack_w": 1.0,
+      "decode_morph": "looking",
+      "decode_plain": "looking"
+    },
+    {
+      "word": "moving",
+      "stem": "move",
+      "how": "morph_lex",
+      "in_codebook": true,
+      "stem_in_codebook": true,
+      "cos_morph_plain": 0.9949,
+      "cos_morph_stack_w": 1.0,
+      "decode_morph": "moving",
+      "decode_plain": "moving"
+    },
+    {
+      "word": "playing",
+      "stem": "play",
+      "how": "morph_lex",
+      "in_codebook": true,
+      "stem_in_codebook": true,
+      "cos_morph_plain": 0.9986,
+      "cos_morph_stack_w": 1.0,
+      "decode_morph": "playing",
+      "decode_plain": "playing"
+    },
+    {
+      "word": "pulling",
+      "stem": "pull",
+      "how": "morph_lex",
+      "in_codebook": true,
+      "stem_in_codebook": true,
+      "cos_morph_plain": 0.9974,
+      "cos_morph_stack_w": 1.0,
+      "decode_morph": "pulling",
+      "decode_plain": "pulling"
+    },
+    {
+      "word": "pushing",
+      "stem": "push",
+      "how": "morph_lex",
+      "in_codebook": true,
+      "stem_in_codebook": true,
+      "cos_morph_plain": 0.9968,
+      "cos_morph_stack_w": 1.0,
+      "decode_morph": "pushing",
+      "decode_plain": "pushing"
+    },
+    {
+      "word": "reading",
+      "stem": "read",
+      "how": "morph_lex",
+      "in_codebook": true,
+      "stem_in_codebook": false,
+      "cos_morph_plain": 0.9977,
+      "cos_morph_stack_w": 1.0,
+      "decode_morph": "reading",
+      "decode_plain": "reading"
+    },
+    {
+      "word": "running",
+      "stem": "run",
+      "how": "morph_lex",
+      "in_codebook": true,
+      "stem_in_codebook": false,
+      "cos_morph_plain": 0.9982,
+      "cos_morph_stack_w": 1.0,
+      "decode_morph": "running",
+      "decode_plain": "running"
+    },
+    {
+      "word": "stopping",
+      "stem": "stop",
+      "how": "morph_lex",
+      "in_codebook": true,
+      "stem_in_codebook": true,
+      "cos_morph_plain": 0.9996,
+      "cos_morph_stack_w": 1.0,
+      "decode_morph": "stopping",
+      "decode_plain": "stopping"
+    },
+    {
+      "word": "walking",
+      "stem": "walk",
+      "how": "morph_lex",
+      "in_codebook": true,
+      "stem_in_codebook": true,
+      "cos_morph_plain": 0.9996,
+      "cos_morph_stack_w": 1.0,
+      "decode_morph": "walking",
+      "decode_plain": "walking"
+    },
+    {
+      "word": "washing",
+      "stem": "wash",
+      "how": "morph_lex",
+      "in_codebook": true,
+      "stem_in_codebook": true,
+      "cos_morph_plain": 0.9959,
+      "cos_morph_stack_w": 1.0,
+      "decode_morph": "washing",
+      "decode_plain": "washing"
+    },
+    {
+      "word": "working",
+      "stem": "work",
+      "how": "morph_lex",
+      "in_codebook": true,
+      "stem_in_codebook": true,
+      "cos_morph_plain": 0.9978,
+      "cos_morph_stack_w": 1.0,
+      "decode_morph": "working",
+      "decode_plain": "working"
+    }
+  ],
+  "known_morph": 14,
+  "n_ing_types": 14,
+  "mean_cos_morph_plain": 0.9971252083778381,
+  "pred_stem_for_ing": 0,
+  "gold_ing_n": 0,
+  "weak_roles": [
+    "right"
+  ],
+  "parent": "stage57_rehearsal_FROZEN.pt",
+  "config": {
+    "dim": 64,
+    "seed": 272,
+    "episode_k": 3,
+    "episode_k_dense": 7,
+    "n_hold_episodes": 80,
+    "n_dense_episodes": 64,
+    "create_below": 0.55,
+    "stabilize_lo": 0.55,
+    "lock_above": 0.92,
+    "ema": 0.85,
+    "retrieve_margin": 0.05,
+    "max_phrase_len": 5,
+    "max_word_len": 11,
+    "disambig_topk": 5,
+    "disambig_gap": 0.12,
+    "edge_w": 0.5,
+    "where_w": 0.3,
+    "bind_w": 0.2,
+    "dense_joint_min": 0.7,
+    "dense_h1_min": 0.9,
+    "dense_h2_given_h1_min": 0.85,
+    "dense_h3_given_h2_min": 0.85,
+    "dirty_bind_min": 0.55,
+    "dirty_bind_within_clean_pp": 0.25,
+    "dirty_hard_min": 0.5,
+    "ctrl_joint_min": 0.85,
+    "pass_seeds_min": 2,
+    "hubby_sample": true,
+    "dirty_both_min": 0.4,
+    "h1_cue_mode": "what_tail",
+    "use_left_instance": true,
+    "hub2_h1_min": 0.85,
+    "k9_joint_min": 0.65,
+    "native_joint_min": 0.55,
+    "lexicon_min": 0.99,
+    "encode_recon_min": 0.95,
+    "text_qa_joint_floor": 0.55,
+    "text_qa_within_ctrl_pp": 0.2,
+    "projector_steps": 2500,
+    "projector_lr": 0.001,
+    "word_decode_min": 0.95,
+    "phrase_decode_min": 0.95,
+    "answer_text_min": 0.7,
+    "answer_text_stress_min": 0.55,
+    "answer_text_within_bal_pp": 0.2,
+    "holdout_decode_floor": 0.0,
+    "n_dense_episodes_stress": 48,
+    "next_fp_steps": 2500,
+    "next_fp_lr": 0.001,
+    "next_fp_gap_min": 0.1,
+    "next_fp_abs_min": 0.25,
+    "next_fp_batch": 64,
+    "shortlist_gap_min": 0.12,
+    "shortlist_abs_min": 0.35,
+    "shortlist_ft_steps": 1500,
+    "shortlist_min_cands": 2,
+    "char_steps": 3000,
+    "char_lr": 0.001,
+    "char_batch": 64,
+    "char_acc_gap_min": 0.2,
+    "char_exact_floor": 0.05,
+    "long_prefix_max": 8,
+    "mask_steps": 2500,
+    "mask_batch": 64,
+    "seq_steps": 3000,
+    "seq_batch": 32,
+    "seq_layers": 2,
+    "seq_l2_gap_min": 0.1,
+    "seq_l1_abs_min": 0.25,
+    "seq_order_drop_min": 0.05,
+    "order_steps": 3500,
+    "order_margin": 0.15,
+    "order_drop_gate": 0.1,
+    "order_n_perm": 2,
+    "beyond_steps": 5000,
+    "beyond_sample_frac": 0.8,
+    "beyond_l2_gap_min": 0.1,
+    "beyond_l2_abs_min": 0.25,
+    "path_l2_floor": 0.28,
+    "ext_ft_steps": 1500,
+    "ext_hold_frac": 0.4,
+    "ext_l2_gap_min": 0.1,
+    "ext_l2_abs_min": 0.25,
+    "ext_d_min": 0.95,
+    "mid_ft_steps": 3000,
+    "mid_hold_frac": 0.35,
+    "mid_ft_lr": 0.001,
+    "mid_ft_eval_every": 150,
+    "mid_ft_lrs": [
+      0.001,
+      0.0005
+    ],
+    "mid_order_n_perm": 2,
+    "mid_order_margin": 0.15,
+    "mid_order_weight": 1.0,
+    "mid_order_drop_gate": 0.1,
+    "mid_order_l2_floor": 0.28,
+    "mid_order_l2_soft": 0.25,
+    "mid_rehearse_frac": 0.55,
+    "mid_tiny_repeat": 6,
+    "mid_ft_lrs_57": [
+      0.0005,
+      0.001
+    ],
+    "mid_rehearse_from_55": true,
+    "mid_l1_frac": 0.65,
+    "mid_l1_abs_min": 0.15,
+    "mid_l1_stretch": 0.2,
+    "mid_l1_steps": 3000,
+    "mid_l1_lrs": [
+      0.0005,
+      0.001
+    ],
+    "mid_l1_protect_w": 0.5,
+    "scale_ft_steps": 3500,
+    "scale_hold_frac": 0.3,
+    "scale_ft_lrs": [
+      0.0005,
+      0.001
+    ],
+    "scale_rehearse_frac": 0.5,
+    "scale_l2_abs_min": 0.25,
+    "scale_l2_gap_min": 0.1,
+    "ext_hop_joint_min": 0.55,
+    "ext_hop_joint_stretch": 0.7,
+    "ext_hop_n_eps": 96,
+    "ext_hop_episode_k": 7,
+    "ext_fact_cap": 120,
+    "ext_fact_cap_exp": 0,
+    "verb_ing_ft_steps": 1200,
+    "verb_ing_ft_lr": 0.0005,
+    "verb_ing_eval_every": 100,
+    "verb_ing_protect_pp": 0.05,
+    "ing_ft_steps": 1500,
+    "ing_ft_lr": 0.0005,
+    "ing_eval_every": 100
+  }
+}

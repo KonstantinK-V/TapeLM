@@ -1,0 +1,18 @@
+SOTE Stage 57 — PASS (rehearsal recovered hard gate)
+timestamp: 2026-07-24T10:26:42+00:00
+data: data/external_mid.txt + tiny rehearsal
+parent: stage55_ft_curve.pt
+checkpoint: stage57_rehearsal.pt
+
+=== RESULT ===
+  first try (parent56, path≈all mid): PARTIAL only
+  fix: short path (len 3–5 on/to) + tiny×6, parent55, frac=0.55
+  BEST lr=1e-3 @3000 tier=3:
+    L2 29.5% / +17.3pp
+    order_drop +12.9pp  (gate≥10; stretch 15 not met)
+  L1 8.8% diagnostic
+
+=== READ ===
+  Hard PASS reachable with proper rehearsal mix (not broad on/to).
+  Next plan: L1 dig (separate), then ~1k scale with peak-restore.
+  No hops-external.

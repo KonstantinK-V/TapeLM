@@ -1,0 +1,286 @@
+{
+  "stage": "9b",
+  "timestamp": "2026-07-22T20:04:34.753173+00:00",
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "config": {
+    "dim": 64,
+    "lr": 0.002,
+    "steps": 2500,
+    "batch_pairs": 4,
+    "seed": 0,
+    "temperature": 0.07,
+    "subword_momentum": 0.92,
+    "morph_ce_weight": 1.0,
+    "morph_cos_weight": 0.8,
+    "morph_residual_weight": 0.55,
+    "morph_ablate_weight": 0.35,
+    "basin_align_weight": 0.4,
+    "margin": 0.12,
+    "trace_margin": 0.12
+  },
+  "metrics": {
+    "word_ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\word_memory_9_2.pt",
+    "ing_basin_count": 6750,
+    "hold_cold": {
+      "trace_acc": 0.8823529411764706,
+      "perm_acc": 0.8823529411764706,
+      "path_acc": 1.0,
+      "stabilize_acc": 1.0,
+      "details": [
+        {
+          "word": "cards",
+          "min_trace": 0.12128084152936935,
+          "trace_ok": true,
+          "perm_ok": true,
+          "path_agree": 0.9847866892814636,
+          "path_ok": true,
+          "stab_ok": true
+        },
+        {
+          "word": "bookshelves",
+          "min_trace": 0.12725526094436646,
+          "trace_ok": true,
+          "perm_ok": true,
+          "path_agree": 0.98714280128479,
+          "path_ok": true,
+          "stab_ok": true
+        },
+        {
+          "word": "jumping",
+          "min_trace": 0.126389741897583,
+          "trace_ok": true,
+          "perm_ok": true,
+          "path_agree": 0.9397668838500977,
+          "path_ok": true,
+          "stab_ok": true
+        },
+        {
+          "word": "walking",
+          "min_trace": 0.12027298659086227,
+          "trace_ok": true,
+          "perm_ok": true,
+          "path_agree": 0.9446187019348145,
+          "path_ok": true,
+          "stab_ok": true
+        },
+        {
+          "word": "reading",
+          "min_trace": 0.12584300339221954,
+          "trace_ok": true,
+          "perm_ok": true,
+          "path_agree": 0.9511170387268066,
+          "path_ok": true,
+          "stab_ok": true
+        },
+        {
+          "word": "writing",
+          "min_trace": 0.11466340720653534,
+          "trace_ok": false,
+          "perm_ok": true,
+          "path_agree": 0.9466829299926758,
+          "path_ok": true,
+          "stab_ok": true
+        },
+        {
+          "word": "friendship",
+          "min_trace": 0.12044388055801392,
+          "trace_ok": true,
+          "perm_ok": true,
+          "path_agree": 0.9639484882354736,
+          "path_ok": true,
+          "stab_ok": true
+        },
+        {
+          "word": "sunshine",
+          "min_trace": 0.12326379120349884,
+          "trace_ok": true,
+          "perm_ok": false,
+          "path_agree": 0.9702417254447937,
+          "path_ok": true,
+          "stab_ok": true
+        },
+        {
+          "word": "moonlight",
+          "min_trace": 0.12949620187282562,
+          "trace_ok": true,
+          "perm_ok": true,
+          "path_agree": 0.9036741256713867,
+          "path_ok": true,
+          "stab_ok": true
+        },
+        {
+          "word": "playground",
+          "min_trace": 0.12359336763620377,
+          "trace_ok": true,
+          "perm_ok": true,
+          "path_agree": 0.9396544694900513,
+          "path_ok": true,
+          "stab_ok": true
+        },
+        {
+          "word": "applesauce",
+          "min_trace": 0.11932694166898727,
+          "trace_ok": false,
+          "perm_ok": true,
+          "path_agree": 0.9695844054222107,
+          "path_ok": true,
+          "stab_ok": true
+        },
+        {
+          "word": "birdhouse",
+          "min_trace": 0.12814703583717346,
+          "trace_ok": true,
+          "perm_ok": true,
+          "path_agree": 0.9930325746536255,
+          "path_ok": true,
+          "stab_ok": true
+        },
+        {
+          "word": "notebook",
+          "min_trace": 0.12269305437803268,
+          "trace_ok": true,
+          "perm_ok": true,
+          "path_agree": 0.839326024055481,
+          "path_ok": true,
+          "stab_ok": true
+        },
+        {
+          "word": "backpack",
+          "min_trace": 0.14678537845611572,
+          "trace_ok": true,
+          "perm_ok": false,
+          "path_agree": 0.9560593962669373,
+          "path_ok": true,
+          "stab_ok": true
+        },
+        {
+          "word": "quickly",
+          "min_trace": 0.14034417271614075,
+          "trace_ok": true,
+          "perm_ok": true,
+          "path_agree": 0.8575646877288818,
+          "path_ok": true,
+          "stab_ok": true
+        },
+        {
+          "word": "slowly",
+          "min_trace": 0.12287245690822601,
+          "trace_ok": true,
+          "perm_ok": true,
+          "path_agree": 0.956193208694458,
+          "path_ok": true,
+          "stab_ok": true
+        },
+        {
+          "word": "happily",
+          "min_trace": 0.1391684114933014,
+          "trace_ok": true,
+          "perm_ok": true,
+          "path_agree": 0.8960551619529724,
+          "path_ok": true,
+          "stab_ok": true
+        }
+      ]
+    },
+    "morph_loo": {
+      "split": "loo",
+      "acc": 1.0,
+      "add_acc": 1.0,
+      "stem_acc": 0.0,
+      "agree_acc": 1.0,
+      "details": [
+        {
+          "stem": "jump",
+          "form": "jumping",
+          "pred": "jumping",
+          "score": 0.9995431900024414,
+          "add_pred": "jumping",
+          "stem_pred": "jump",
+          "agree_compose": 0.9995430707931519,
+          "ok": true
+        },
+        {
+          "stem": "walk",
+          "form": "walking",
+          "pred": "walking",
+          "score": 0.9996484518051147,
+          "add_pred": "walking",
+          "stem_pred": "walk",
+          "agree_compose": 0.9996484518051147,
+          "ok": true
+        },
+        {
+          "stem": "read",
+          "form": "reading",
+          "pred": "reading",
+          "score": 0.999782383441925,
+          "add_pred": "reading",
+          "stem_pred": "read",
+          "agree_compose": 0.9997823238372803,
+          "ok": true
+        },
+        {
+          "stem": "write",
+          "form": "writing",
+          "pred": "writing",
+          "score": 0.9999333024024963,
+          "add_pred": "writing",
+          "stem_pred": "write",
+          "agree_compose": 0.9999332427978516,
+          "ok": true
+        }
+      ]
+    },
+    "morph_hold": {
+      "split": "hold",
+      "acc": 1.0,
+      "add_acc": 1.0,
+      "stem_acc": 0.0,
+      "agree_acc": 1.0,
+      "details": [
+        {
+          "stem": "jump",
+          "form": "jumping",
+          "pred": "jumping",
+          "score": 0.9995431900024414,
+          "add_pred": "jumping",
+          "stem_pred": "jump",
+          "agree_compose": 0.9995430707931519,
+          "ok": true
+        },
+        {
+          "stem": "walk",
+          "form": "walking",
+          "pred": "walking",
+          "score": 0.9996484518051147,
+          "add_pred": "walking",
+          "stem_pred": "walk",
+          "agree_compose": 0.9996484518051147,
+          "ok": true
+        },
+        {
+          "stem": "read",
+          "form": "reading",
+          "pred": "reading",
+          "score": 0.999782383441925,
+          "add_pred": "reading",
+          "stem_pred": "read",
+          "agree_compose": 0.9997823238372803,
+          "ok": true
+        },
+        {
+          "stem": "write",
+          "form": "writing",
+          "pred": "writing",
+          "score": 0.9999333024024963,
+          "add_pred": "writing",
+          "stem_pred": "write",
+          "agree_compose": 0.9999332427978516,
+          "ok": true
+        }
+      ]
+    },
+    "baseline_78e_hold_cold_trace": 0.88
+  }
+}

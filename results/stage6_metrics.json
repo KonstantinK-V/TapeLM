@@ -1,0 +1,1062 @@
+{
+  "stage": 6,
+  "timestamp": "2026-07-22T09:56:52.273281+00:00",
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "config": {
+    "dim": 64,
+    "lr": 0.003,
+    "steps": 2500,
+    "batch_words": 16,
+    "batch_phrases": 8,
+    "batch_visual": 16,
+    "seed": 0,
+    "temperature": 0.07,
+    "letter_temperature": 0.07,
+    "partial_weight": 0.2,
+    "stability_weight": 0.12,
+    "separability_weight": 0.08,
+    "letter_trace_weight": 0.35,
+    "quality_weight": 0.25,
+    "letter_weight": 0.25,
+    "letter_ctx_weight": 0.2,
+    "visual_weight": 0.25,
+    "visual_stability_weight": 0.15,
+    "phrase_weight": 0.45,
+    "phrase_prefix_weight": 0.3,
+    "phrase_order_weight": 0.2,
+    "noise_std": 0.12,
+    "quality_threshold": 0.5,
+    "letter_trace_margin": 0.15
+  },
+  "phrases": [
+    "cat on top",
+    "dog on top",
+    "go to car",
+    "go to dog",
+    "cat on car",
+    "dog on car",
+    "no good dog",
+    "not good cat",
+    "stop on top",
+    "spot on top",
+    "post to top",
+    "go on top",
+    "cat to dog",
+    "dog to cat",
+    "no cat on top",
+    "not on top",
+    "good dog on top",
+    "good cat on car",
+    "go to top",
+    "act on top",
+    "pot on top",
+    "card on top",
+    "no dog on car",
+    "not to go"
+  ],
+  "metrics": {
+    "word_acc": 1.0,
+    "phrase_acc": 1.0,
+    "anagram_acc": 1.0,
+    "letter_trace_acc": 0.9454545454545454,
+    "phrase_order_acc": 1.0,
+    "phrase_prefix_acc": 1.0,
+    "visual_acc": 1.0,
+    "words": [
+      {
+        "word": "cat",
+        "pred": "cat",
+        "score": 0.7149408459663391,
+        "q": 0.9999686479568481,
+        "ok": true,
+        "top3": [
+          [
+            "cat",
+            0.7149408459663391
+          ],
+          [
+            "pot",
+            0.1530093550682068
+          ],
+          [
+            "stop",
+            0.14369267225265503
+          ]
+        ]
+      },
+      {
+        "word": "act",
+        "pred": "act",
+        "score": 0.6157335042953491,
+        "q": 0.9996145963668823,
+        "ok": true,
+        "top3": [
+          [
+            "act",
+            0.6157335042953491
+          ],
+          [
+            "cat",
+            0.09971737861633301
+          ],
+          [
+            "dog",
+            0.08096735179424286
+          ]
+        ]
+      },
+      {
+        "word": "car",
+        "pred": "car",
+        "score": 0.669968843460083,
+        "q": 0.9997099041938782,
+        "ok": true,
+        "top3": [
+          [
+            "car",
+            0.669968843460083
+          ],
+          [
+            "card",
+            0.09350880980491638
+          ],
+          [
+            "pot",
+            0.05176125466823578
+          ]
+        ]
+      },
+      {
+        "word": "card",
+        "pred": "card",
+        "score": 0.7143664956092834,
+        "q": 0.9997904896736145,
+        "ok": true,
+        "top3": [
+          [
+            "card",
+            0.7143664956092834
+          ],
+          [
+            "dog",
+            0.11921326071023941
+          ],
+          [
+            "ton",
+            0.09280607849359512
+          ]
+        ]
+      },
+      {
+        "word": "dog",
+        "pred": "dog",
+        "score": 0.522587776184082,
+        "q": 0.9993165731430054,
+        "ok": true,
+        "top3": [
+          [
+            "dog",
+            0.522587776184082
+          ],
+          [
+            "god",
+            0.07637587189674377
+          ],
+          [
+            "good",
+            0.0468805655837059
+          ]
+        ]
+      },
+      {
+        "word": "god",
+        "pred": "god",
+        "score": 0.7762225866317749,
+        "q": 0.9998965263366699,
+        "ok": true,
+        "top3": [
+          [
+            "god",
+            0.7762225866317749
+          ],
+          [
+            "go",
+            0.18195050954818726
+          ],
+          [
+            "on",
+            0.13921883702278137
+          ]
+        ]
+      },
+      {
+        "word": "good",
+        "pred": "good",
+        "score": 0.6360175609588623,
+        "q": 0.9988492727279663,
+        "ok": true,
+        "top3": [
+          [
+            "good",
+            0.6360175609588623
+          ],
+          [
+            "dog",
+            0.11719822883605957
+          ],
+          [
+            "car",
+            0.06305988132953644
+          ]
+        ]
+      },
+      {
+        "word": "go",
+        "pred": "go",
+        "score": 0.5156908631324768,
+        "q": 0.9999895095825195,
+        "ok": true,
+        "top3": [
+          [
+            "go",
+            0.5156908631324768
+          ],
+          [
+            "car",
+            0.10468433797359467
+          ],
+          [
+            "spot",
+            0.06587372720241547
+          ]
+        ]
+      },
+      {
+        "word": "on",
+        "pred": "on",
+        "score": 0.7777086496353149,
+        "q": 0.9999980926513672,
+        "ok": true,
+        "top3": [
+          [
+            "on",
+            0.7777086496353149
+          ],
+          [
+            "god",
+            0.12066973000764847
+          ],
+          [
+            "good",
+            0.08514635264873505
+          ]
+        ]
+      },
+      {
+        "word": "no",
+        "pred": "no",
+        "score": 0.5667747259140015,
+        "q": 0.9999619722366333,
+        "ok": true,
+        "top3": [
+          [
+            "no",
+            0.5667747259140015
+          ],
+          [
+            "ton",
+            0.08227679133415222
+          ],
+          [
+            "card",
+            0.038796812295913696
+          ]
+        ]
+      },
+      {
+        "word": "not",
+        "pred": "not",
+        "score": 0.6374260187149048,
+        "q": 0.9999278783798218,
+        "ok": true,
+        "top3": [
+          [
+            "not",
+            0.6374260187149048
+          ],
+          [
+            "top",
+            0.10535655915737152
+          ],
+          [
+            "spot",
+            0.08000349253416061
+          ]
+        ]
+      },
+      {
+        "word": "ton",
+        "pred": "ton",
+        "score": 0.761582612991333,
+        "q": 0.9999995231628418,
+        "ok": true,
+        "top3": [
+          [
+            "ton",
+            0.761582612991333
+          ],
+          [
+            "dog",
+            0.14829613268375397
+          ],
+          [
+            "card",
+            0.12311103940010071
+          ]
+        ]
+      },
+      {
+        "word": "to",
+        "pred": "to",
+        "score": 0.7798138856887817,
+        "q": 0.9999984502792358,
+        "ok": true,
+        "top3": [
+          [
+            "to",
+            0.7798138856887817
+          ],
+          [
+            "top",
+            0.18248701095581055
+          ],
+          [
+            "ton",
+            0.12478996813297272
+          ]
+        ]
+      },
+      {
+        "word": "top",
+        "pred": "top",
+        "score": 0.7673619985580444,
+        "q": 0.9999996423721313,
+        "ok": true,
+        "top3": [
+          [
+            "top",
+            0.7673619985580444
+          ],
+          [
+            "to",
+            0.1324252486228943
+          ],
+          [
+            "act",
+            0.12697936594486237
+          ]
+        ]
+      },
+      {
+        "word": "pot",
+        "pred": "pot",
+        "score": 0.6340651512145996,
+        "q": 0.9998237490653992,
+        "ok": true,
+        "top3": [
+          [
+            "pot",
+            0.6340651512145996
+          ],
+          [
+            "stop",
+            0.08170069754123688
+          ],
+          [
+            "act",
+            0.07862736284732819
+          ]
+        ]
+      },
+      {
+        "word": "stop",
+        "pred": "stop",
+        "score": 0.7233754992485046,
+        "q": 0.9997497200965881,
+        "ok": true,
+        "top3": [
+          [
+            "stop",
+            0.7233754992485046
+          ],
+          [
+            "not",
+            0.136555016040802
+          ],
+          [
+            "good",
+            0.13245034217834473
+          ]
+        ]
+      },
+      {
+        "word": "spot",
+        "pred": "spot",
+        "score": 0.6526616215705872,
+        "q": 0.9998843669891357,
+        "ok": true,
+        "top3": [
+          [
+            "spot",
+            0.6526616215705872
+          ],
+          [
+            "dog",
+            0.08337882161140442
+          ],
+          [
+            "go",
+            0.01794373244047165
+          ]
+        ]
+      },
+      {
+        "word": "post",
+        "pred": "post",
+        "score": 0.7158260345458984,
+        "q": 0.9999312162399292,
+        "ok": true,
+        "top3": [
+          [
+            "post",
+            0.7158260345458984
+          ],
+          [
+            "to",
+            0.17997200787067413
+          ],
+          [
+            "act",
+            0.14129406213760376
+          ]
+        ]
+      }
+    ],
+    "phrases": [
+      {
+        "phrase": "cat on top",
+        "pred": "cat on top",
+        "score": 0.6270197629928589,
+        "q": 0.999924898147583,
+        "ok": true,
+        "top3": [
+          [
+            "cat on top",
+            0.6270197629928589
+          ],
+          [
+            "cat to dog",
+            0.1399196833372116
+          ],
+          [
+            "stop on top",
+            0.113666832447052
+          ]
+        ]
+      },
+      {
+        "phrase": "dog on top",
+        "pred": "dog on top",
+        "score": 0.5610430240631104,
+        "q": 0.9999978542327881,
+        "ok": true,
+        "top3": [
+          [
+            "dog on top",
+            0.5610430240631104
+          ],
+          [
+            "dog on car",
+            0.16064147651195526
+          ],
+          [
+            "good cat on car",
+            0.08203025162220001
+          ]
+        ]
+      },
+      {
+        "phrase": "go to car",
+        "pred": "go to car",
+        "score": 0.6283316016197205,
+        "q": 0.9999991655349731,
+        "ok": true,
+        "top3": [
+          [
+            "go to car",
+            0.6283316016197205
+          ],
+          [
+            "go to dog",
+            0.14724978804588318
+          ],
+          [
+            "go to top",
+            0.14370733499526978
+          ]
+        ]
+      },
+      {
+        "phrase": "go to dog",
+        "pred": "go to dog",
+        "score": 0.594130277633667,
+        "q": 0.9999556541442871,
+        "ok": true,
+        "top3": [
+          [
+            "go to dog",
+            0.594130277633667
+          ],
+          [
+            "stop on top",
+            0.13368260860443115
+          ],
+          [
+            "go to top",
+            0.12529635429382324
+          ]
+        ]
+      },
+      {
+        "phrase": "cat on car",
+        "pred": "cat on car",
+        "score": 0.6599329710006714,
+        "q": 0.9999796152114868,
+        "ok": true,
+        "top3": [
+          [
+            "cat on car",
+            0.6599329710006714
+          ],
+          [
+            "go to car",
+            0.20165155827999115
+          ],
+          [
+            "stop on top",
+            0.18660569190979004
+          ]
+        ]
+      },
+      {
+        "phrase": "dog on car",
+        "pred": "dog on car",
+        "score": 0.6725170612335205,
+        "q": 0.9998338222503662,
+        "ok": true,
+        "top3": [
+          [
+            "dog on car",
+            0.6725170612335205
+          ],
+          [
+            "dog on top",
+            0.20768232643604279
+          ],
+          [
+            "go to car",
+            0.19409242272377014
+          ]
+        ]
+      },
+      {
+        "phrase": "no good dog",
+        "pred": "no good dog",
+        "score": 0.6492400169372559,
+        "q": 0.9998306035995483,
+        "ok": true,
+        "top3": [
+          [
+            "no good dog",
+            0.6492400169372559
+          ],
+          [
+            "good cat on car",
+            0.14849412441253662
+          ],
+          [
+            "spot on top",
+            0.14051339030265808
+          ]
+        ]
+      },
+      {
+        "phrase": "not good cat",
+        "pred": "not good cat",
+        "score": 0.6979382038116455,
+        "q": 0.9999779462814331,
+        "ok": true,
+        "top3": [
+          [
+            "not good cat",
+            0.6979382038116455
+          ],
+          [
+            "cat on top",
+            0.2145216464996338
+          ],
+          [
+            "go to car",
+            0.20499776303768158
+          ]
+        ]
+      },
+      {
+        "phrase": "stop on top",
+        "pred": "stop on top",
+        "score": 0.6115130186080933,
+        "q": 0.9997178912162781,
+        "ok": true,
+        "top3": [
+          [
+            "stop on top",
+            0.6115130186080933
+          ],
+          [
+            "not to go",
+            0.09935551881790161
+          ],
+          [
+            "spot on top",
+            0.06563907861709595
+          ]
+        ]
+      },
+      {
+        "phrase": "spot on top",
+        "pred": "spot on top",
+        "score": 0.6820026636123657,
+        "q": 0.999944806098938,
+        "ok": true,
+        "top3": [
+          [
+            "spot on top",
+            0.6820026636123657
+          ],
+          [
+            "go to dog",
+            0.1287899762392044
+          ],
+          [
+            "dog on car",
+            0.1028556078672409
+          ]
+        ]
+      },
+      {
+        "phrase": "post to top",
+        "pred": "post to top",
+        "score": 0.6568045020103455,
+        "q": 0.9999599456787109,
+        "ok": true,
+        "top3": [
+          [
+            "post to top",
+            0.6568045020103455
+          ],
+          [
+            "cat to dog",
+            0.12609128654003143
+          ],
+          [
+            "good dog on top",
+            0.12141937762498856
+          ]
+        ]
+      },
+      {
+        "phrase": "go on top",
+        "pred": "go on top",
+        "score": 0.6214441061019897,
+        "q": 0.9999994039535522,
+        "ok": true,
+        "top3": [
+          [
+            "go on top",
+            0.6214441061019897
+          ],
+          [
+            "card on top",
+            0.1359415501356125
+          ],
+          [
+            "cat to dog",
+            0.13262833654880524
+          ]
+        ]
+      },
+      {
+        "phrase": "cat to dog",
+        "pred": "cat to dog",
+        "score": 0.5773838758468628,
+        "q": 0.9999858140945435,
+        "ok": true,
+        "top3": [
+          [
+            "cat to dog",
+            0.5773838758468628
+          ],
+          [
+            "go on top",
+            0.0603199377655983
+          ],
+          [
+            "post to top",
+            0.04133516550064087
+          ]
+        ]
+      },
+      {
+        "phrase": "dog to cat",
+        "pred": "dog to cat",
+        "score": 0.5806248188018799,
+        "q": 0.999861478805542,
+        "ok": true,
+        "top3": [
+          [
+            "dog to cat",
+            0.5806248188018799
+          ],
+          [
+            "cat on top",
+            0.10058531910181046
+          ],
+          [
+            "cat to dog",
+            0.07574604451656342
+          ]
+        ]
+      },
+      {
+        "phrase": "no cat on top",
+        "pred": "no cat on top",
+        "score": 0.6594905853271484,
+        "q": 0.9999961853027344,
+        "ok": true,
+        "top3": [
+          [
+            "no cat on top",
+            0.6594905853271484
+          ],
+          [
+            "go to top",
+            0.11705334484577179
+          ],
+          [
+            "good dog on top",
+            0.10354121774435043
+          ]
+        ]
+      },
+      {
+        "phrase": "not on top",
+        "pred": "not on top",
+        "score": 0.6307852864265442,
+        "q": 0.999854326248169,
+        "ok": true,
+        "top3": [
+          [
+            "not on top",
+            0.6307852864265442
+          ],
+          [
+            "not to go",
+            0.13243846595287323
+          ],
+          [
+            "spot on top",
+            0.07501960545778275
+          ]
+        ]
+      },
+      {
+        "phrase": "good dog on top",
+        "pred": "good dog on top",
+        "score": 0.6345540881156921,
+        "q": 0.9999825954437256,
+        "ok": true,
+        "top3": [
+          [
+            "good dog on top",
+            0.6345540881156921
+          ],
+          [
+            "no dog on car",
+            0.04932555928826332
+          ],
+          [
+            "post to top",
+            0.0450553372502327
+          ]
+        ]
+      },
+      {
+        "phrase": "good cat on car",
+        "pred": "good cat on car",
+        "score": 0.6570330858230591,
+        "q": 0.9991567134857178,
+        "ok": true,
+        "top3": [
+          [
+            "good cat on car",
+            0.6570330858230591
+          ],
+          [
+            "act on top",
+            0.21358472108840942
+          ],
+          [
+            "no good dog",
+            0.20331056416034698
+          ]
+        ]
+      },
+      {
+        "phrase": "go to top",
+        "pred": "go to top",
+        "score": 0.6071724891662598,
+        "q": 0.9999977350234985,
+        "ok": true,
+        "top3": [
+          [
+            "go to top",
+            0.6071724891662598
+          ],
+          [
+            "go to dog",
+            0.15595386922359467
+          ],
+          [
+            "not to go",
+            0.07890717685222626
+          ]
+        ]
+      },
+      {
+        "phrase": "act on top",
+        "pred": "act on top",
+        "score": 0.5982317328453064,
+        "q": 0.999998927116394,
+        "ok": true,
+        "top3": [
+          [
+            "act on top",
+            0.5982317328453064
+          ],
+          [
+            "good cat on car",
+            0.12929534912109375
+          ],
+          [
+            "not to go",
+            0.06539800018072128
+          ]
+        ]
+      },
+      {
+        "phrase": "pot on top",
+        "pred": "pot on top",
+        "score": 0.5976304411888123,
+        "q": 0.999963641166687,
+        "ok": true,
+        "top3": [
+          [
+            "pot on top",
+            0.5976304411888123
+          ],
+          [
+            "dog on top",
+            0.061119794845581055
+          ],
+          [
+            "cat on car",
+            0.03856879100203514
+          ]
+        ]
+      },
+      {
+        "phrase": "card on top",
+        "pred": "card on top",
+        "score": 0.6363340616226196,
+        "q": 0.9999856948852539,
+        "ok": true,
+        "top3": [
+          [
+            "card on top",
+            0.6363340616226196
+          ],
+          [
+            "not to go",
+            0.13363155722618103
+          ],
+          [
+            "stop on top",
+            0.08679411560297012
+          ]
+        ]
+      },
+      {
+        "phrase": "no dog on car",
+        "pred": "no dog on car",
+        "score": 0.6868648529052734,
+        "q": 0.9997697472572327,
+        "ok": true,
+        "top3": [
+          [
+            "no dog on car",
+            0.6868648529052734
+          ],
+          [
+            "good dog on top",
+            0.20977237820625305
+          ],
+          [
+            "dog on top",
+            0.19057804346084595
+          ]
+        ]
+      },
+      {
+        "phrase": "not to go",
+        "pred": "not to go",
+        "score": 0.6551635265350342,
+        "q": 0.9999843835830688,
+        "ok": true,
+        "top3": [
+          [
+            "not to go",
+            0.6551635265350342
+          ],
+          [
+            "good cat on car",
+            0.16732186079025269
+          ],
+          [
+            "go on top",
+            0.1556943953037262
+          ]
+        ]
+      }
+    ],
+    "anagrams": [
+      {
+        "a": "cat",
+        "pa": "cat",
+        "b": "act",
+        "pb": "act",
+        "ok": true
+      },
+      {
+        "a": "dog",
+        "pa": "dog",
+        "b": "god",
+        "pb": "god",
+        "ok": true
+      },
+      {
+        "a": "on",
+        "pa": "on",
+        "b": "no",
+        "pb": "no",
+        "ok": true
+      },
+      {
+        "a": "top",
+        "pa": "top",
+        "b": "pot",
+        "pb": "pot",
+        "ok": true
+      }
+    ],
+    "order": [
+      {
+        "a": "cat on top",
+        "b": "top on cat",
+        "sim": -0.0039731040596961975,
+        "ok": true
+      },
+      {
+        "a": "go to dog",
+        "b": "dog to go",
+        "sim": 0.0310942605137825,
+        "ok": true
+      },
+      {
+        "a": "cat to dog",
+        "b": "dog to cat",
+        "sim": 0.028496846556663513,
+        "ok": true
+      },
+      {
+        "a": "no good dog",
+        "b": "dog good no",
+        "sim": 0.21220336854457855,
+        "ok": true
+      }
+    ],
+    "prefixes": [
+      {
+        "prefix": "cat on",
+        "family": [
+          "cat on top",
+          "cat on car"
+        ],
+        "family_sim": 0.4820072650909424,
+        "other_sim": 0.10457088053226471,
+        "ok": true
+      },
+      {
+        "prefix": "go to",
+        "family": [
+          "go to car",
+          "go to dog",
+          "go to top"
+        ],
+        "family_sim": 0.3374485969543457,
+        "other_sim": 0.03582562133669853,
+        "ok": true
+      },
+      {
+        "prefix": "no",
+        "family": [
+          "no good dog",
+          "no cat on top",
+          "no dog on car"
+        ],
+        "family_sim": 0.4250592589378357,
+        "other_sim": 0.1563960611820221,
+        "ok": true
+      },
+      {
+        "prefix": "good dog",
+        "family": [
+          "good dog on top"
+        ],
+        "family_sim": 0.6268018484115601,
+        "other_sim": 0.18541984260082245,
+        "ok": true
+      },
+      {
+        "prefix": "not on",
+        "family": [
+          "not on top"
+        ],
+        "family_sim": 0.6167621612548828,
+        "other_sim": 0.17532530426979065,
+        "ok": true
+      }
+    ],
+    "alphabet_path": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\alphabet_frozen.pt"
+  }
+}

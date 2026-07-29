@@ -1,0 +1,149 @@
+SOTE POST-120 VERDICT A–D
+timestamp: 2026-07-25T12:57:24.257877+00:00
+
+=== A. Phrase-memory gain (Stage120) ===
+  STORY_LOCAL=20.8%  STORY_MEM=21.3%  gain=+0.5pp  verdict120=NULL_MEM
+  SEEN obj=28.8% rel=75.8%
+  Signal: NULL  (LIVE if gain>=3pp)
+
+=== B. Speed edge (Stage119a) ===
+  {
+  "sote": {
+    "ms_per_step": 10.291707500000484,
+    "tok_per_s": 4010.9962316746814,
+    "params": 2989056,
+    "unit": "word_positions_in_batch"
+  },
+  "bpe": {
+    "available": true,
+    "ms_per_step": 15.715824000071734,
+    "tok_per_s": 4669.179293409309,
+    "params": 5223936
+  },
+  "ratio_ms_sote_over_bpe": 0.6548627357975954,
+  "verdict": "SPEED"
+}
+  Signal: LIVE
+
+=== C. BPE toks / word (same windows) ===
+  {
+  "available": true,
+  "n_windows": 2000,
+  "mean_toks_per_word": 1.0005096190597529,
+  "median_toks_per_word": 1.0,
+  "p90": 1.0,
+  "signal": "WEAK"
+}
+  Signal: WEAK  (LIVE if mean>=2.0)
+
+=== D. Rare buckets word-level SOTE vs BPE ===
+  SOTE: {
+  "head21p": {
+    "n": 5073,
+    "model": 0.21407451212300413,
+    "bigram": 0.25133057362507394
+  },
+  "low2_5": {
+    "n": 82,
+    "model": 0.0,
+    "bigram": 0.0
+  },
+  "rare1": {
+    "n": 34,
+    "model": 0.0,
+    "bigram": 0.0
+  },
+  "mid6_20": {
+    "n": 272,
+    "model": 0.0,
+    "bigram": 0.011029411764705883
+  }
+}
+  BPE:  {
+  "head21p": {
+    "n": 2555,
+    "model": 0.34598825831702545
+  },
+  "ALL": {
+    "n": 2741,
+    "model": 0.3272528274352426
+  },
+  "low2_5": {
+    "n": 38,
+    "model": 0.05263157894736842
+  },
+  "rare1": {
+    "n": 15,
+    "model": 0.0
+  },
+  "mid6_20": {
+    "n": 133,
+    "model": 0.08270676691729323
+  }
+}
+  cmp:  {
+  "rare1": {
+    "sote": 0.0,
+    "bpe": 0.0,
+    "delta_pp": 0.0
+  },
+  "low2_5": {
+    "sote": 0.0,
+    "bpe": 0.05263157894736842,
+    "delta_pp": 0.05263157894736842
+  },
+  "mid6_20": {
+    "sote": 0.0,
+    "bpe": 0.08270676691729323,
+    "delta_pp": 0.08270676691729323
+  },
+  "head21p": {
+    "sote": 0.21407451212300413,
+    "bpe": 0.34598825831702545,
+    "delta_pp": 0.13191374619402133
+  }
+}
+  Signal: NULL  (LIVE if BPE-SOTE rare delta>=8pp)
+
+=== Next digs (queued H → E→F→G′) ===
+  H soft top-5 + morph@1 diag (NOT gate)
+  E who/where slots — strongest if A LIVE/WEAK
+  F fp projection adapter — if geometry/adapt angle still open
+  G′ morph-root denser positions — strongest if C/D LIVE
+
+=== One-liner ===
+  A=NULL B=LIVE C=WEAK D=NULL
+
+=== H soft top-5 / morph diag (NOT gate) ===
+{
+  "verdict": "NEAR_MISS_LIVE",
+  "sote_story_ALL": {
+    "n": 4111,
+    "hit1": 0.20287034784723912,
+    "hit5": 0.380442714667964,
+    "morph_in_top5": 0.3819022135733398,
+    "hit5_minus_hit1_pp": 0.1775723668207249
+  },
+  "sote_story_obj": {
+    "n": 407,
+    "hit1": 0.20884520884520885,
+    "hit5": 0.39803439803439805,
+    "morph_in_top5": 0.39803439803439805,
+    "hit5_minus_hit1_pp": 0.1891891891891892
+  },
+  "bpe_story": {
+    "available": true,
+    "n": 2061,
+    "hit1": 0.3056768558951965,
+    "hit5": 0.5832120329936924,
+    "morph_in_beam5": 0.5851528384279476,
+    "hit5_minus_hit1_pp": 0.2775351770984959,
+    "note": "word-level beam@5 first words; STORY hold"
+  }
+}
+
+=== E/F/G results ===
+H NEAR_MISS_LIVE (diag; gate=exact@1)
+E PARTIAL gain=+2.1pp
+F PARITY STORY=9.5% lift=-10.1pp
+G PARITY STORY~16.7% lift=-2.9pp

@@ -1,0 +1,316 @@
+{
+  "stage": "76a",
+  "results": {
+    "noun_rel": {
+      "overall": {
+        "hit@1": 0.2927400468384075,
+        "hit@5": 0.477751756440281,
+        "n": 427,
+        "mrr": 0.3977873618730663,
+        "chance5": 0.037037037037037035,
+        "V": 135
+      },
+      "by_role": {
+        "rel": {
+          "hit@1": 0.539906103286385,
+          "hit@5": 0.8450704225352113,
+          "n": 213,
+          "mrr": 0.6945052422485967,
+          "chance5": 0.037037037037037035,
+          "V": 135
+        },
+        "right": {
+          "hit@1": 0.04225352112676056,
+          "hit@5": 0.107981220657277,
+          "n": 213,
+          "mrr": 0.09824219211665855,
+          "chance5": 0.037037037037037035,
+          "V": 135
+        },
+        "other": {
+          "hit@1": 1.0,
+          "hit@5": 1.0,
+          "n": 1,
+          "mrr": 1.0,
+          "chance5": 0.037037037037037035,
+          "V": 135
+        }
+      }
+    },
+    "polarity": {
+      "overall": {
+        "hit@1": 0.35365853658536583,
+        "hit@5": 0.5975609756097561,
+        "n": 82,
+        "mrr": 0.4748772405639942,
+        "chance5": 0.037037037037037035,
+        "V": 135
+      },
+      "by_role": {
+        "rel": {
+          "hit@1": 0.5853658536585366,
+          "hit@5": 1.0,
+          "n": 41,
+          "mrr": 0.7682926829268291,
+          "chance5": 0.037037037037037035,
+          "V": 135
+        },
+        "right": {
+          "hit@1": 0.12195121951219512,
+          "hit@5": 0.1951219512195122,
+          "n": 41,
+          "mrr": 0.1814617982011589,
+          "chance5": 0.037037037037037035,
+          "V": 135
+        },
+        "other": {
+          "hit@1": 0.0,
+          "hit@5": 0.0,
+          "n": 0,
+          "chance5": 0.0,
+          "mrr": 0.0
+        }
+      }
+    },
+    "verb_ing": {
+      "overall": {
+        "hit@1": 0.18253968253968253,
+        "hit@5": 0.3888888888888889,
+        "n": 126,
+        "mrr": 0.29462123891559994,
+        "chance5": 0.037037037037037035,
+        "V": 135
+      },
+      "by_role": {
+        "rel": {
+          "hit@1": 0.4857142857142857,
+          "hit@5": 0.9714285714285714,
+          "n": 35,
+          "mrr": 0.7235714285714285,
+          "chance5": 0.037037037037037035,
+          "V": 135
+        },
+        "right": {
+          "hit@1": 0.056818181818181816,
+          "hit@5": 0.1590909090909091,
+          "n": 88,
+          "mrr": 0.12131292014694095,
+          "chance5": 0.037037037037037035,
+          "V": 135
+        },
+        "other": {
+          "hit@1": 0.3333333333333333,
+          "hit@5": 0.3333333333333333,
+          "n": 3,
+          "mrr": 0.37391304347826093,
+          "chance5": 0.037037037037037035,
+          "V": 135
+        }
+      }
+    },
+    "ALL": {
+      "overall": {
+        "hit@1": 0.27874015748031494,
+        "hit@5": 0.4755905511811024,
+        "n": 635,
+        "mrr": 0.3872715170856887,
+        "chance5": 0.037037037037037035,
+        "V": 135
+      },
+      "by_role": {
+        "rel": {
+          "hit@1": 0.5397923875432526,
+          "hit@5": 0.8823529411764706,
+          "n": 289,
+          "mrr": 0.7084934830413532,
+          "chance5": 0.037037037037037035,
+          "V": 135
+        },
+        "right": {
+          "hit@1": 0.05555555555555555,
+          "hit@5": 0.13157894736842105,
+          "n": 342,
+          "mrr": 0.1141551392398439,
+          "chance5": 0.037037037037037035,
+          "V": 135
+        },
+        "other": {
+          "hit@1": 0.5,
+          "hit@5": 0.5,
+          "n": 4,
+          "mrr": 0.5304347826086957,
+          "chance5": 0.037037037037037035,
+          "V": 135
+        }
+      }
+    },
+    "dense_object": {
+      "hit@1": 0.0625,
+      "hit@5": 0.18948412698412698,
+      "n": 1008,
+      "mrr": 0.14054625960645534,
+      "chance5": 0.037037037037037035,
+      "V": 135
+    }
+  },
+  "read": "object mixed \u2014 keep @1 claim for path; @5 diagnostic for verb right",
+  "path_ok": true,
+  "parent": "stage57_rehearsal_FROZEN.pt",
+  "config": {
+    "dim": 64,
+    "seed": 272,
+    "episode_k": 3,
+    "episode_k_dense": 7,
+    "n_hold_episodes": 80,
+    "n_dense_episodes": 64,
+    "create_below": 0.55,
+    "stabilize_lo": 0.55,
+    "lock_above": 0.92,
+    "ema": 0.85,
+    "retrieve_margin": 0.05,
+    "max_phrase_len": 5,
+    "max_word_len": 11,
+    "disambig_topk": 5,
+    "disambig_gap": 0.12,
+    "edge_w": 0.5,
+    "where_w": 0.3,
+    "bind_w": 0.2,
+    "dense_joint_min": 0.7,
+    "dense_h1_min": 0.9,
+    "dense_h2_given_h1_min": 0.85,
+    "dense_h3_given_h2_min": 0.85,
+    "dirty_bind_min": 0.55,
+    "dirty_bind_within_clean_pp": 0.25,
+    "dirty_hard_min": 0.5,
+    "ctrl_joint_min": 0.85,
+    "pass_seeds_min": 2,
+    "hubby_sample": true,
+    "dirty_both_min": 0.4,
+    "h1_cue_mode": "what_tail",
+    "use_left_instance": true,
+    "hub2_h1_min": 0.85,
+    "k9_joint_min": 0.65,
+    "native_joint_min": 0.55,
+    "lexicon_min": 0.99,
+    "encode_recon_min": 0.95,
+    "text_qa_joint_floor": 0.55,
+    "text_qa_within_ctrl_pp": 0.2,
+    "projector_steps": 2500,
+    "projector_lr": 0.001,
+    "word_decode_min": 0.95,
+    "phrase_decode_min": 0.95,
+    "answer_text_min": 0.7,
+    "answer_text_stress_min": 0.55,
+    "answer_text_within_bal_pp": 0.2,
+    "holdout_decode_floor": 0.0,
+    "n_dense_episodes_stress": 48,
+    "next_fp_steps": 2500,
+    "next_fp_lr": 0.001,
+    "next_fp_gap_min": 0.1,
+    "next_fp_abs_min": 0.25,
+    "next_fp_batch": 64,
+    "shortlist_gap_min": 0.12,
+    "shortlist_abs_min": 0.35,
+    "shortlist_ft_steps": 1500,
+    "shortlist_min_cands": 2,
+    "char_steps": 3000,
+    "char_lr": 0.001,
+    "char_batch": 64,
+    "char_acc_gap_min": 0.2,
+    "char_exact_floor": 0.05,
+    "long_prefix_max": 8,
+    "mask_steps": 2500,
+    "mask_batch": 64,
+    "seq_steps": 3000,
+    "seq_batch": 32,
+    "seq_layers": 2,
+    "seq_l2_gap_min": 0.1,
+    "seq_l1_abs_min": 0.25,
+    "seq_order_drop_min": 0.05,
+    "order_steps": 3500,
+    "order_margin": 0.15,
+    "order_drop_gate": 0.1,
+    "order_n_perm": 2,
+    "beyond_steps": 5000,
+    "beyond_sample_frac": 0.8,
+    "beyond_l2_gap_min": 0.1,
+    "beyond_l2_abs_min": 0.25,
+    "path_l2_floor": 0.28,
+    "ext_ft_steps": 1500,
+    "ext_hold_frac": 0.4,
+    "ext_l2_gap_min": 0.1,
+    "ext_l2_abs_min": 0.25,
+    "ext_d_min": 0.95,
+    "mid_ft_steps": 3000,
+    "mid_hold_frac": 0.35,
+    "mid_ft_lr": 0.001,
+    "mid_ft_eval_every": 150,
+    "mid_ft_lrs": [
+      0.001,
+      0.0005
+    ],
+    "mid_order_n_perm": 2,
+    "mid_order_margin": 0.15,
+    "mid_order_weight": 1.0,
+    "mid_order_drop_gate": 0.1,
+    "mid_order_l2_floor": 0.28,
+    "mid_order_l2_soft": 0.25,
+    "mid_rehearse_frac": 0.55,
+    "mid_tiny_repeat": 6,
+    "mid_ft_lrs_57": [
+      0.0005,
+      0.001
+    ],
+    "mid_rehearse_from_55": true,
+    "mid_l1_frac": 0.65,
+    "mid_l1_abs_min": 0.15,
+    "mid_l1_stretch": 0.2,
+    "mid_l1_steps": 3000,
+    "mid_l1_lrs": [
+      0.0005,
+      0.001
+    ],
+    "mid_l1_protect_w": 0.5,
+    "scale_ft_steps": 3500,
+    "scale_hold_frac": 0.3,
+    "scale_ft_lrs": [
+      0.0005,
+      0.001
+    ],
+    "scale_rehearse_frac": 0.5,
+    "scale_l2_abs_min": 0.25,
+    "scale_l2_gap_min": 0.1,
+    "ext_hop_joint_min": 0.55,
+    "ext_hop_joint_stretch": 0.7,
+    "ext_hop_n_eps": 96,
+    "ext_hop_episode_k": 7,
+    "ext_fact_cap": 120,
+    "ext_fact_cap_exp": 0,
+    "verb_ing_ft_steps": 1200,
+    "verb_ing_ft_lr": 0.0005,
+    "verb_ing_eval_every": 100,
+    "verb_ing_protect_pp": 0.05,
+    "ing_ft_steps": 1500,
+    "ing_ft_lr": 0.0005,
+    "ing_eval_every": 100,
+    "ing_rehearse_frac": 0.45,
+    "ing_rehearse_steps": 2000,
+    "side_hint_steps": 1500,
+    "side_hint_lr": 0.001,
+    "shortlist_min_cands_obj": 2,
+    "dense_ft_steps": 2500,
+    "dense_ft_lr": 0.0005,
+    "dense_eval_every": 100,
+    "dense_hold_frac": 0.25,
+    "dense_triple_hold_frac": 0.2,
+    "dense_obj_abs_min": 0.25,
+    "dense_obj_gap_min": 0.1,
+    "dense_rehearse_1k_frac": 0.25,
+    "soft_obj_steps": 2000,
+    "soft_obj_lr": 0.0005,
+    "soft_obj_eval_every": 100,
+    "soft_obj_gap_min": 0.12,
+    "soft_obj_abs_min": 0.35,
+    "soft_obj_abs_soft": 0.25
+  }
+}

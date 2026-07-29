@@ -1,0 +1,167 @@
+{
+  "pass": true,
+  "flags": {
+    "balanced": {
+      "ok": true,
+      "detail": {
+        "word": true,
+        "phrase": true,
+        "slot": true,
+        "text": true
+      }
+    },
+    "native": {
+      "ok": true,
+      "detail": {
+        "word": true,
+        "phrase": true,
+        "slot": true,
+        "text": true
+      }
+    },
+    "wider": {
+      "ok": true,
+      "detail": {
+        "word": true,
+        "phrase": true,
+        "slot": true,
+        "text": true
+      }
+    }
+  },
+  "rows": [
+    {
+      "label": "balanced",
+      "meta": {
+        "facts": 82,
+        "triples": 240,
+        "phrases": 82,
+        "words": 48
+      },
+      "word": {
+        "exact": 1.0,
+        "n": 48
+      },
+      "phrase": {
+        "exact": 1.0,
+        "token": 1.0,
+        "n": 82
+      },
+      "holdout": {
+        "exact": 0.0,
+        "n_hold": 20,
+        "n_train": 62,
+        "note": "NN codebook cannot emit held-out strings; low exact is expected"
+      },
+      "mean_joint3": 0.8541666666666666,
+      "mean_answer_text": 0.9375,
+      "mean_text_given_ok3": 1.0,
+      "mean_slot_to_key": 1.0
+    },
+    {
+      "label": "native",
+      "meta": {
+        "facts": 89,
+        "triples": 513,
+        "phrases": 89,
+        "words": 48
+      },
+      "word": {
+        "exact": 1.0,
+        "n": 48
+      },
+      "phrase": {
+        "exact": 1.0,
+        "token": 1.0,
+        "n": 89
+      },
+      "holdout": {
+        "exact": 0.0,
+        "n_hold": 22,
+        "n_train": 67,
+        "note": "NN codebook cannot emit held-out strings; low exact is expected"
+      },
+      "mean_joint3": 0.888888888888889,
+      "mean_answer_text": 0.9097222222222222,
+      "mean_text_given_ok3": 1.0,
+      "mean_slot_to_key": 1.0
+    },
+    {
+      "label": "wider",
+      "meta": {
+        "facts": 194,
+        "triples": 918,
+        "phrases": 194,
+        "words": 90
+      },
+      "word": {
+        "exact": 1.0,
+        "n": 90
+      },
+      "phrase": {
+        "exact": 1.0,
+        "token": 1.0,
+        "n": 194
+      },
+      "holdout": {
+        "exact": 0.0,
+        "n_hold": 48,
+        "n_train": 146,
+        "note": "NN codebook cannot emit held-out strings; low exact is expected"
+      },
+      "mean_joint3": 0.9305555555555555,
+      "mean_answer_text": 0.9930555555555555,
+      "mean_text_given_ok3": 1.0,
+      "mean_slot_to_key": 1.0
+    }
+  ],
+  "config": {
+    "dim": 64,
+    "seed": 272,
+    "episode_k": 3,
+    "episode_k_dense": 7,
+    "n_hold_episodes": 80,
+    "n_dense_episodes": 64,
+    "create_below": 0.55,
+    "stabilize_lo": 0.55,
+    "lock_above": 0.92,
+    "ema": 0.85,
+    "retrieve_margin": 0.05,
+    "max_phrase_len": 5,
+    "max_word_len": 11,
+    "disambig_topk": 5,
+    "disambig_gap": 0.12,
+    "edge_w": 0.5,
+    "where_w": 0.3,
+    "bind_w": 0.2,
+    "dense_joint_min": 0.7,
+    "dense_h1_min": 0.9,
+    "dense_h2_given_h1_min": 0.85,
+    "dense_h3_given_h2_min": 0.85,
+    "dirty_bind_min": 0.55,
+    "dirty_bind_within_clean_pp": 0.25,
+    "dirty_hard_min": 0.5,
+    "ctrl_joint_min": 0.85,
+    "pass_seeds_min": 2,
+    "hubby_sample": true,
+    "dirty_both_min": 0.4,
+    "h1_cue_mode": "what_tail",
+    "use_left_instance": true,
+    "hub2_h1_min": 0.85,
+    "k9_joint_min": 0.65,
+    "native_joint_min": 0.55,
+    "lexicon_min": 0.99,
+    "encode_recon_min": 0.95,
+    "text_qa_joint_floor": 0.55,
+    "text_qa_within_ctrl_pp": 0.2,
+    "projector_steps": 2500,
+    "projector_lr": 0.001,
+    "word_decode_min": 0.95,
+    "phrase_decode_min": 0.95,
+    "answer_text_min": 0.7,
+    "answer_text_stress_min": 0.55,
+    "answer_text_within_bal_pp": 0.2,
+    "holdout_decode_floor": 0.0,
+    "n_dense_episodes_stress": 48
+  }
+}

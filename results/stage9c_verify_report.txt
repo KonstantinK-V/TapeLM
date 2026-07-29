@@ -1,0 +1,82 @@
+SOTE Stage 9c-verify report
+timestamp: 2026-07-22T20:32:23.987665+00:00
+device: cuda
+morph ckpt: morph_channel_9c.pt
+word ckpt: word_memory_9_2.pt
+
+=== Verdict keys ===
+If morph operator > spelling+compose:
+  - suffix >> random-basin, prefix, zero-mod gap should exist
+  - foil: pred prefers making > makeing beyond naive
+If only orthography+compose:
+  - suffix ≈ zero-mod ≈ random-basin HIT@1
+  - foil margins ≈ naive margins
+
+=== HOLD (n=4) ===
+codebook |N|=128 chance=0.78% | foil|N|=350 chance=0.29%
+binomial P(HIT>=4 | n=4, p=1/128) = 3.725e-09
+
+Condition                         HIT@1   MRR    margin  agree  mean_rank
+  suffix (trained)                 100.0%  1.000  +0.4202  0.997  1.00
+  zero-mod / naive compose         100.0%  1.000  +0.4181  1.000  1.00
+  prefix morph (ablation)          100.0%  1.000  +0.3940  0.979  1.00
+  literal stem+ing (bad ortho)     100.0%  1.000  +0.3671  0.933  1.00
+  random basin (mean)               98.4%      —       —  0.960  —  (std HIT 6.1%)
+  suffix @ foil codebook           100.0%  1.000  +0.0458  0.997  1.00
+  zero-mod @ foil codebook         100.0%  1.000  +0.0490  1.000  1.00
+
+Foil orthography preference (true vs literal *ing), n=1:
+  pred prefers true:  100%  mean margin +0.3112
+  naive prefers true: 100%  mean margin +0.2967
+  delta (pred-naive prefer): +0pp
+
+HOLD/TRAIN per-stem (suffix vs zero-mod hit, margin):
+    jump -> jumping    suf_hit=1 zero_hit=1 suf_m=+0.4104 zero_m=+0.3870 other=jumps
+    walk -> walking    suf_hit=1 zero_hit=1 suf_m=+0.4157 zero_m=+0.4149 other=walks
+    read -> reading    suf_hit=1 zero_hit=1 suf_m=+0.4407 zero_m=+0.4370 other=moonlight
+   write -> writing    suf_hit=1 zero_hit=1 suf_m=+0.4142 zero_m=+0.4334 other=birding
+
+=== TRAIN (n=17) ===
+codebook |N|=128 chance=0.78% | foil|N|=350 chance=0.29%
+binomial P(HIT>=17 | n=17, p=1/128) = 1.505e-36
+
+Condition                         HIT@1   MRR    margin  agree  mean_rank
+  suffix (trained)                 100.0%  1.000  +0.3279  0.993  1.00
+  zero-mod / naive compose         100.0%  1.000  +0.3370  1.000  1.00
+  prefix morph (ablation)          100.0%  1.000  +0.2942  0.958  1.00
+  literal stem+ing (bad ortho)      70.6%  0.806  +0.1805  0.834  1.76
+  random basin (mean)               99.1%      —       —  0.945  —  (std HIT 3.3%)
+  suffix @ foil codebook           100.0%  1.000  +0.0907  0.993  1.00
+  zero-mod @ foil codebook         100.0%  1.000  +0.0892  1.000  1.00
+
+Foil orthography preference (true vs literal *ing), n=7:
+  pred prefers true:  100%  mean margin +0.3527
+  naive prefers true: 100%  mean margin +0.3962
+  delta (pred-naive prefer): +0pp
+
+HOLD/TRAIN per-stem (suffix vs zero-mod hit, margin):
+    play -> playing    suf_hit=1 zero_hit=1 suf_m=+0.2036 zero_m=+0.1994 other=play
+      go -> going      suf_hit=1 zero_hit=1 suf_m=+0.1733 zero_m=+0.1407 other=go
+     act -> acting     suf_hit=1 zero_hit=1 suf_m=+0.4597 zero_m=+0.4798 other=act
+    fish -> fishing    suf_hit=1 zero_hit=1 suf_m=+0.3486 zero_m=+0.4153 other=fish
+    post -> posting    suf_hit=1 zero_hit=1 suf_m=+0.3537 zero_m=+0.3764 other=posts
+    book -> booking    suf_hit=1 zero_hit=1 suf_m=+0.3272 zero_m=+0.3368 other=stopping
+   light -> lighting   suf_hit=1 zero_hit=1 suf_m=+0.3212 zero_m=+0.3457 other=running
+    bird -> birding    suf_hit=1 zero_hit=1 suf_m=+0.3843 zero_m=+0.3780 other=birdhouse
+   green -> greening   suf_hit=1 zero_hit=1 suf_m=+0.4515 zero_m=+0.5128 other=green
+    slow -> slowing    suf_hit=1 zero_hit=1 suf_m=+0.3743 zero_m=+0.3698 other=stopping
+    make -> making     suf_hit=1 zero_hit=1 suf_m=+0.3027 zero_m=+0.2469 other=taking
+    take -> taking     suf_hit=1 zero_hit=1 suf_m=+0.2739 zero_m=+0.2469 other=making
+    give -> giving     suf_hit=1 zero_hit=1 suf_m=+0.4277 zero_m=+0.4859 other=give
+     run -> running    suf_hit=1 zero_hit=1 suf_m=+0.3048 zero_m=+0.2799 other=runs
+    stop -> stopping   suf_hit=1 zero_hit=1 suf_m=+0.3205 zero_m=+0.3048 other=moonlight
+    spot -> spotting   suf_hit=1 zero_hit=1 suf_m=+0.3037 zero_m=+0.3614 other=spots
+     top -> topping    suf_hit=1 zero_hit=1 suf_m=+0.2434 zero_m=+0.2480 other=top
+
+=== Auto verdict ===
+  [chance] suffix HIT@1 100% >> chance 0.78% (binom p=3.73e-09)
+  [vs_naive] suffix ≈ zero-mod (HIT and margin). Morph modulation not needed for retrieval — spelling+compose explains the win.
+  [basin] trained basin HIT≈random (98%). Basin content unused / washed out.
+  [position] prefix morph HIT >= suffix — position-awareness not uniquely causal
+  [foil] pred-naive foil prefer Δ +0pp, margin Δ +0.0145
+  [overall] NO strong evidence for morph attractor beyond orthography+compose. 9c retrieval win is mostly surface spelling through frozen WordComposer.

@@ -1,0 +1,41 @@
+SOTE Stage 34 report (hop3 on strict+chain-link, balanced bank)
+timestamp: 2026-07-24T06:26:12.088078+00:00
+device: cuda
+parent: stage33_stress_FROZEN.pt
+primary_k=7 stratify_hub=True
+Contract: observe_strict + chain-link + honest bridges. No gold fallback. No FT.
+Bank: resampled balanced {'facts': 82, 'triples': 240, 'hub_triples': {'hub1': 33, 'hub2': 49, 'hub3p': 158}, 'resample': {'hub1': 17, 'hub2': 26, 'hub3p': 78}}
+
+gates: joint3>=35% H2|H1>=85% H3|H2>=50% dirty_bind>=25% dirty_hard>=20% ctrl2>=85%
+
+=== Primary hop3 clean_bind (best seed) ===
+  H1=78.1%  H2=84.4%  H3=81.2%
+  H2|H1=94.0%  H3|H2=96.3%  H3|(H1∧H2)=95.7%
+  joint2=73.4%  joint3=70.3%
+
+=== Hub strata hop3 clean @ k=7 (best seed; first bridge) ===
+triple hub counts: {'hub1': 33, 'hub2': 49, 'hub3p': 158}
+hub          n      H1    H2|H1    H3|H2   JOINT3
+--------------------------------------------------
+hub1        22   68.2%   100.0%    93.8%    63.6%
+hub2        21   90.5%   100.0%    95.0%    85.7%
+hub3p       21   76.2%    81.2%   100.0%    61.9%
+
+=== Modes @ k=7 (best seed) ===
+mode                H1    H2|H1    H3|H2   JOINT3
+------------------------------------------------
+clean_bind       78.1%    94.0%    96.3%    70.3%
+dirty_bind       78.1%    94.0%    96.3%    70.3%
+dirty_hard       73.4%    93.6%    96.2%    65.6%
+
+=== Multi-seed ===
+  seed 272: PASS joint3=70.3% H2|H1=94.0% H3|H2=96.3% ctrl2=95.0%
+    strata j3: hub1=64%/n22 hub2=86%/n21 hub3p=62%/n21
+  seed 273: PASS joint3=70.3% H2|H1=94.0% H3|H2=96.3% ctrl2=95.0%
+    strata j3: hub1=64%/n22 hub2=86%/n21 hub3p=62%/n21
+  seed 274: PASS joint3=68.8% H2|H1=93.9% H3|H2=96.3% ctrl2=95.0%
+    strata j3: hub1=59%/n22 hub2=86%/n21 hub3p=62%/n21
+  aggregate: 3/3 pass; mean_j3=69.8% mean_H2|H1=94.0% mean_H3|H2=96.3%
+
+=== Verdict ===
+  PASS: hop3 on strict+chain-link readable (joint3~70%).

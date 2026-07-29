@@ -1,0 +1,24 @@
+SOTE Stage 39 report (D decode stress: balanced / native / wider)
+timestamp: 2026-07-24T07:37:03.485820+00:00
+device: cuda
+parent: stage38_decode_FROZEN.pt
+Contract: freeze38 NN decode. Soft stress — D must not go red.
+
+=== Bank: balanced {'facts': 82, 'triples': 240, 'phrases': 82, 'words': 48} ===
+  word exact=100.0%  phrase=100.0%  holdout=0.0%
+  mean j3=85.4% text_exact=93.8% text|ok3=100.0% slot→key=100.0%
+  gate: PASS {'word': True, 'phrase': True, 'slot': True, 'text': True}
+
+=== Bank: native {'facts': 89, 'triples': 513, 'phrases': 89, 'words': 48} ===
+  word exact=100.0%  phrase=100.0%  holdout=0.0%
+  mean j3=88.9% text_exact=91.0% text|ok3=100.0% slot→key=100.0%
+  gate: PASS {'word': True, 'phrase': True, 'slot': True, 'text': True}
+
+=== Bank: wider {'facts': 194, 'triples': 918, 'phrases': 194, 'words': 90} ===
+  word exact=100.0%  phrase=100.0%  holdout=0.0%
+  mean j3=93.1% text_exact=99.3% text|ok3=100.0% slot→key=100.0%
+  gate: PASS {'word': True, 'phrase': True, 'slot': True, 'text': True}
+
+=== Verdict ===
+  PASS: D stays green on balanced/native/wider (bal text~94%, nat~91%, wide~99%).
+  Next: Stage 40 E next-fp (soft: acc vs chance, not GPT).

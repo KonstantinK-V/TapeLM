@@ -1,0 +1,63 @@
+SOTE Stage 7 report (soft word composition from letter fingerprints)
+timestamp: 2026-07-22T10:30:50.874814+00:00
+device: cuda
+gpu: NVIDIA GeForce RTX 3050 Laptop GPU
+steps: 2500
+alphabet: C:\Users\Kostya\sote-letter-assembly\checkpoints\alphabet_frozen.pt
+
+Compose accuracy:         100.0%
+Stream accuracy:          100.0%
+Compose~Stream agree:     100.0% (cos>=0.7)
+Letter-trace in compose:  96.3%
+Permutation probes:       100.0%
+Shared-letter traces:     75.0%
+Text/visual path acc:     16.7%
+Text/visual path agree:   16.7% (cos>=0.6)
+Prefix probes:            20.0%
+
+Permutation probes:
+  [OK] cat vs act: sim=0.18, pred=cat/act
+  [OK] dog vs god: sim=-0.10, pred=dog/god
+  [OK] on vs no: sim=0.22, pred=on/no
+  [OK] top vs pot: sim=-0.07, pred=top/pot
+  [OK] stop vs spot: sim=0.22, pred=stop/spot
+  [OK] post vs spot: sim=0.33, pred=post/spot
+
+Shared-letter traces:
+  [FAIL] cat/car keep 'c': 0.16, 0.14
+  [OK] dog/good keep 'd': 0.17, 0.20
+  [OK] top/pot keep 't': 0.19, 0.34
+  [OK] stop/post keep 's': 0.18, 0.15
+
+Prefix probes:
+  [FAIL] 'ca' family=0.05 other=0.38
+  [FAIL] 'do' family=-0.01 other=0.47
+  [FAIL] 'sto' family=-0.23 other=0.26
+  [OK] 'go' family=0.65 other=0.06
+  [FAIL] 'po' family=0.13 other=0.49
+
+Text vs visual paths:
+  [FAIL] cat  text=cat  vis=top  agree=0.17
+  [FAIL] act  text=act  vis=top  agree=0.18
+  [FAIL] car  text=car  vis=top  agree=0.36
+  [OK] card text=card vis=card agree=-0.09
+  [FAIL] dog  text=dog  vis=top  agree=0.11
+  [FAIL] god  text=god  vis=top  agree=0.12
+  [FAIL] good text=good vis=card agree=0.20
+  [FAIL] go   text=go   vis=on   agree=0.66
+  [OK] on   text=on   vis=on   agree=0.66
+  [FAIL] no   text=no   vis=on   agree=0.67
+  [FAIL] not  text=not  vis=top  agree=0.17
+  [FAIL] ton  text=ton  vis=top  agree=0.19
+  [FAIL] to   text=to   vis=on   agree=0.50
+  [OK] top  text=top  vis=top  agree=0.13
+  [FAIL] pot  text=pot  vis=top  agree=0.18
+  [FAIL] stop text=stop vis=card agree=0.46
+  [FAIL] spot text=spot vis=card agree=0.50
+  [FAIL] post text=post vis=card agree=0.53
+
+How to read:
+- Compose: explicit positional binding of letter fingerprints.
+- Stream: online GRU assembly from the same letter fingerprints.
+- Agree metrics: both paths should implement the same soft word pattern.
+- Permutation/shared/prefix: soft invariants of the composition rule.

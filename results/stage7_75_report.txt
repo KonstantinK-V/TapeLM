@@ -1,0 +1,65 @@
+SOTE Stage 7.75 report (expanded lexicon + forms + OOV compose)
+timestamp: 2026-07-22T11:45:39.501055+00:00
+device: cuda
+gpu: NVIDIA GeForce RTX 3050 Laptop GPU
+steps: 4000
+alphabet: C:\Users\Kostya\sote-letter-assembly\checkpoints\alphabet_frozen.pt
+train words: 57 | hold-out words: 16
+
+Train compose acc:        100.0%
+Train stream acc:         100.0%
+Compose~stream agree:     100.0%
+Related-form probes:      96.4%
+Prefix probes:            100.0%
+Train soft (trace/perm/path): 38/93/10%
+HOLD soft (trace/perm/path):  0/62/6%
+OOV nearest related-form: 45.5%
+
+Hold-out soft details:
+  [WEAK] cards      min_trace=-0.07 perm=Y path=0.50
+  [WEAK] gods       min_trace=-0.03 perm=Y path=-0.43
+  [WEAK] naps       min_trace=-0.06 perm=N path=-0.28
+  [WEAK] sands      min_trace=-0.02 perm=Y path=0.36
+  [WEAK] stands     min_trace=-0.11 perm=N path=0.02
+  [WEAK] coats      min_trace=0.09 perm=Y path=0.65
+  [WEAK] goats      min_trace=0.08 perm=Y path=0.49
+  [WEAK] toasts     min_trace=-0.03 perm=Y path=-0.08
+  [WEAK] scraps     min_trace=-0.02 perm=N path=0.10
+  [WEAK] sports     min_trace=-0.04 perm=Y path=0.24
+  [WEAK] starts     min_trace=-0.12 perm=N path=0.00
+  [WEAK] grants     min_trace=-0.09 perm=N path=0.10
+  [WEAK] ponds      min_trace=-0.16 perm=Y path=0.48
+  [WEAK] postcard   min_trace=-0.16 perm=Y path=-0.84
+  [WEAK] catnap     min_trace=0.03 perm=N path=0.00
+  [WEAK] strong     min_trace=-0.32 perm=Y path=0.15
+
+OOV nearest train neighbor:
+  [oth] cards      -> nap        (0.46)
+  [oth] gods       -> gap        (0.37)
+  [REL] naps       -> nap        (0.46)
+  [REL] sands      -> sand       (0.50)
+  [n/a] stands     -> god        (0.31)
+  [oth] coats      -> coast      (0.39)
+  [REL] goats      -> goat       (0.44)
+  [REL] toasts     -> toast      (0.53)
+  [n/a] scraps     -> across     (0.35)
+  [oth] sports     -> across     (0.27)
+  [REL] starts     -> start      (0.34)
+  [oth] grants     -> on         (0.30)
+  [oth] ponds      -> posts      (0.34)
+  [n/a] postcard   -> nap        (0.40)
+  [n/a] catnap     -> nap        (0.39)
+  [n/a] strong     -> on         (0.39)
+
+Prefix probes:
+  [OK] 'ca' family=0.29 other=0.28
+  [OK] 'do' family=0.61 other=0.22
+  [OK] 'sto' family=0.57 other=0.23
+  [OK] 'go' family=0.55 other=0.15
+  [OK] 'to' family=0.54 other=0.17
+  [OK] 'co' family=0.41 other=0.11
+
+How to read:
+- Hold-out words never got word-class CE; soft metrics test the general rule.
+- Related-form: cat~cats should beat cat~unrelated.
+- This is the path toward a freezable word algorithm, not a closed word list.

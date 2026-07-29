@@ -1,0 +1,20 @@
+SOTE Stage 42 char readout — PARTIAL (probe, not freeze)
+timestamp: 2026-07-24T08:00:20+00:00
+checkpoint: stage42_char_readout.pt
+parent: stage39_decode_stress_FROZEN.pt
+
+=== CLAIM ===
+  Thin GRU can read letters from fp above chance — orthography channel exists.
+  Not a replacement for D NN; not open-text LM.
+
+=== METRICS ===
+  D NN hold: word/phrase 100%
+  Word HOLD:  tf 59.9% exact 43.8% gap +56pp vs 1/27
+  Phrase HOLD: tf 58.9% exact 0.0%  gap +55pp (plausible junk: 'ball on car'→'log on pad')
+
+=== READ ===
+  Char head beats chance on TF; free-run phrase exact dies (sibling/bag collisions).
+  Same subplot as phrase-next: continuous signal ≠ closed generative decode.
+  Keep hops → D NN as answer path. Char readout = optional diagnostic / word-level aid.
+
+=== STATUS: PARTIAL probe ===

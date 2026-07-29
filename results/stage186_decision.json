@@ -1,0 +1,59 @@
+{
+  "timestamp": "2026-07-28T19:01:56.776433+00:00",
+  "protocol": "exam_v2_freq_matched_186",
+  "overall": "EXAM2_OK",
+  "chance": 0.25,
+  "gates": {
+    "unigram<=chance+0.10": true,
+    "gpt>=chance+0.20": true
+  },
+  "counts": {
+    "next_tok": 150,
+    "entity": 100,
+    "ood": 60
+  },
+  "results": {
+    "unigram": {
+      "next_tok_acc": 0.25333333333333335,
+      "next_tok_n": 150,
+      "entity_acc": 0.12,
+      "entity_n": 100,
+      "ood_acc": 0.3,
+      "ood_n": 60
+    },
+    "random": {
+      "next_tok_acc": 0.17333333333333334,
+      "next_tok_n": 150,
+      "entity_acc": 0.22,
+      "entity_n": 100,
+      "ood_acc": 0.25,
+      "ood_n": 60
+    },
+    "ce_gpt_181": {
+      "next_tok_acc": 0.7266666666666667,
+      "next_tok_n": 150,
+      "entity_acc": 0.21,
+      "entity_n": 100,
+      "ood_acc": 0.3,
+      "ood_n": 60
+    },
+    "endpoint_185": {
+      "next_tok_acc": 0.7066666666666667,
+      "next_tok_n": 150,
+      "entity_acc": 0.14,
+      "entity_n": 100,
+      "ood_acc": 0.2833333333333333,
+      "ood_n": 60
+    },
+    "tape_185": {
+      "next_tok_acc": 0.7533333333333333,
+      "next_tok_n": 150,
+      "entity_acc": 0.15,
+      "entity_n": 100,
+      "ood_acc": 0.18333333333333332,
+      "ood_n": 60,
+      "next_tok_shuffled": 0.7466666666666667
+    }
+  },
+  "note": "context credit is now score minus chance (unigram shortcut removed)"
+}

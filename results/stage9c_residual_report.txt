@@ -1,0 +1,63 @@
+SOTE Stage 9c-residual probe (A vs B vs C, no training)
+timestamp: 2026-07-22T20:38:44.823726+00:00
+device: cuda
+word ckpt: word_memory_9_2.pt
+TRAIN pairs: 17 | HOLD: 4
+
+Basin definitions:
+  A = mean(form_fp - stem_fp)
+  B = mean(residual_span(form_fp, stem_letters))
+  C = soft EMA -ing from word ckpt (fallback A if missing)
+
+Basin cosine sims: {'A_vs_B': 0.8573278188705444, 'A_vs_C': 0.5346864461898804, 'B_vs_C': 0.5301821827888489}
+Mean per-pair cos(A,B) on TRAIN: 0.4738
+TRAIN letter∩ing>0 fraction: 0.41
+
+=== HOLD add / peel / foil ===
+basin    add naive foilCB  cos+f   peel   Δpeel  m_ing  lit%
+A        100   100     75  0.691  0.579  +0.067  0.199     0
+B        100   100     75  0.696  0.568  +0.055  0.138     0
+C        100   100    100  0.999  0.999  +0.487  0.447   100
+
+HOLD per-stem (add pred):
+  jump+ing -> jumping | A:Y/jumping | B:Y/jumping | C:Y/jumping
+  walk+ing -> walking | A:Y/walking | B:Y/walking | C:Y/walking
+  read+ing -> reading | A:Y/reading | B:Y/reading | C:Y/reading
+  write+ing -> writing | A:Y/writing | B:Y/writing | C:Y/writing
+
+=== TRAIN add / peel / foil ===
+basin    add naive foilCB  cos+f   peel   Δpeel  m_ing  lit%
+A         29   100     24  0.667  0.476  -0.052  0.078    29
+B         12   100     12  0.675  0.388  -0.140  0.061    43
+C         12   100     12  0.565  0.380  -0.148  0.041    29
+
+TRAIN per-stem (add pred):
+  play+ing -> playing | A:Y/playing | B:N/play | C:Y/playing
+  go+ing -> going | A:N/go | B:N/go | C:N/go
+  act+ing -> acting | A:N/act | B:N/act | C:N/act
+  fish+ing -> fishing | A:N/fish | B:N/fish | C:N/fish
+  post+ing -> posting | A:N/post | B:N/post | C:N/post
+  book+ing -> booking | A:N/book | B:N/book | C:N/book
+  light+ing -> lighting | A:Y/lighting | B:N/light | C:N/light
+  bird+ing -> birding | A:N/bird | B:N/bird | C:N/bird
+  green+ing -> greening | A:Y/greening | B:Y/greening | C:N/green
+  slow+ing -> slowing | A:N/slowly | B:N/slowly | C:Y/slowing
+  make+ing -> making | A:Y/making | B:N/make | C:N/make
+  take+ing -> taking | A:N/take | B:N/take | C:N/take
+  give+ing -> giving | A:Y/giving | B:Y/giving | C:N/give
+  run+ing -> running | A:N/run | B:N/run | C:N/run
+  stop+ing -> stopping | A:N/stop | B:N/stop | C:N/stop
+  spot+ing -> spotting | A:N/spot | B:N/spot | C:N/spot
+  top+ing -> topping | A:N/top | B:N/top | C:N/top
+
+=== TRAIN leave-one-out (basin from other TRAIN only) ===
+  LOO-A: acc 12%  mean cos(add,form) 0.612
+  LOO-B: acc 6%  mean cos(add,form) 0.626
+
+=== Auto verdict ===
+  [hold_add] best HOLD add = A (100%) | A=100%, B=100%, C=100%
+  [vs_naive] add HIT == naive HIT (100%). Retrieval does not prove basin > spelling+compose.
+  [peel] best peel gain = C (+0.487) | A=+0.067, B=+0.055, C=+0.487 — residual carries stem-orthogonal morph signal
+  [B_vs_A] A ≈ B on HOLD (add Δ+0pp, peel Δ-0.012, cosAB=0.857)
+  [loo] LOO-A 12% / LOO-B 6%
+  [overall] Peel supports a residual morph direction (C), but HOLD add ≤ naive compose — use residual as basin/peel target, not as proof of retrieval morph operator.

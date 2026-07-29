@@ -1,0 +1,166 @@
+{
+  "timestamp": "2026-07-28T16:51:39.052599+00:00",
+  "protocol": "ce_transformer_control_181",
+  "overall": "CE_CONTROL_CONTEXT_SIGNAL_YES",
+  "matched": {
+    "tokenizer": "results\\stage177_curve_bpe_tokenizer.json",
+    "corpus_chars": 20000000,
+    "d": 128,
+    "layers": 4,
+    "heads": 4,
+    "seq": 64,
+    "steps": 10000,
+    "objective": "GPT2 next-token CE"
+  },
+  "init_A": {
+    "verdict": "A_PASS_PREFIX_VISIBLE",
+    "mean_cos_same_last_piece": 0.4974999662488699,
+    "mean_cos_diff_last_piece": 0.23349728442262857,
+    "n_same": 80,
+    "n_diff": 80
+  },
+  "init_B": {
+    "verdict": "B_MICRO_MIXED",
+    "mean_cos_paraphrase": 0.7056729257106781,
+    "mean_cos_random": 0.6076208168268203,
+    "mean_cos_hard_spelling": 0.8991837725043297,
+    "gap_hard_minus_para": 0.1935108467936516,
+    "lift_vs_random": 0.09805210888385774,
+    "n_para": 25
+  },
+  "init_ablation": {
+    "mean_ce_natural": 8.336586928367614,
+    "mean_ce_prefix_shuffled": 8.328084874153138,
+    "delta_shuf_minus_nat": -0.008502054214476473,
+    "n": 40,
+    "note": "positive delta => model used prefix (context helps CE)"
+  },
+  "final_A": {
+    "verdict": "A_WEAK_PARTIAL",
+    "mean_cos_same_last_piece": 0.7811923801898957,
+    "mean_cos_diff_last_piece": 0.12522890887921675,
+    "n_same": 80,
+    "n_diff": 80
+  },
+  "final_B": {
+    "verdict": "B_MICRO_MIXED",
+    "mean_cos_paraphrase": 0.7869266581535339,
+    "mean_cos_random": 0.5967174381017685,
+    "mean_cos_hard_spelling": 0.9452585130929947,
+    "gap_hard_minus_para": 0.15833185493946078,
+    "lift_vs_random": 0.19020922005176544,
+    "n_para": 25
+  },
+  "final_ablation": {
+    "mean_ce_natural": 6.608915978670121,
+    "mean_ce_prefix_shuffled": 10.374578380584717,
+    "delta_shuf_minus_nat": 3.7656624019145966,
+    "n": 40,
+    "note": "positive delta => model used prefix (context helps CE)"
+  },
+  "b_micro": {
+    "para_delta_first_to_last_eval": -0.13198430180549625,
+    "gap_delta_first_to_last_eval": 0.10315318495035175
+  },
+  "history": [
+    {
+      "step": 1500,
+      "ce": 4.567752553645161,
+      "A_same": 0.9031311441212893,
+      "A": "A_WEAK_PARTIAL",
+      "para": 0.9189109599590302,
+      "hard": 0.9740896299481392,
+      "gap": 0.05517866998910903,
+      "lift_r": 0.07278878897428509,
+      "B": "B_MICRO_MIXED",
+      "ablation_delta": 2.0637135267257696
+    },
+    {
+      "step": 3000,
+      "ce": 3.868038370101031,
+      "A_same": 0.8635379143059254,
+      "A": "A_WEAK_PARTIAL",
+      "para": 0.8556711840629577,
+      "hard": 0.9559126645326614,
+      "gap": 0.10024148046970371,
+      "lift_r": 0.11615045234560961,
+      "B": "B_MICRO_MIXED",
+      "ablation_delta": 2.7931148469448095
+    },
+    {
+      "step": 4500,
+      "ce": 3.3985850680615033,
+      "A_same": 0.8356350217014551,
+      "A": "A_WEAK_PARTIAL",
+      "para": 0.8155501174926758,
+      "hard": 0.954479306936264,
+      "gap": 0.13892918944358823,
+      "lift_r": 0.13794196397066116,
+      "B": "B_MICRO_MIXED",
+      "ablation_delta": 2.9000126361846927
+    },
+    {
+      "step": 6000,
+      "ce": 3.050708255921078,
+      "A_same": 0.813553573563695,
+      "A": "A_WEAK_PARTIAL",
+      "para": 0.7870479798316956,
+      "hard": 0.9498152062296867,
+      "gap": 0.16276722639799113,
+      "lift_r": 0.1278008753061295,
+      "B": "B_MICRO_MIXED",
+      "ablation_delta": 3.3560995280742647
+    },
+    {
+      "step": 7500,
+      "ce": 2.811643061680565,
+      "A_same": 0.8030220612883567,
+      "A": "A_WEAK_PARTIAL",
+      "para": 0.7587382340431214,
+      "hard": 0.9435754865407944,
+      "gap": 0.18483725249767302,
+      "lift_r": 0.15274428382515903,
+      "B": "B_MICRO_MIXED",
+      "ablation_delta": 3.3912724494934086
+    },
+    {
+      "step": 9000,
+      "ce": 2.5877846816006578,
+      "A_same": 0.7913304310292005,
+      "A": "A_WEAK_PARTIAL",
+      "para": 0.7792851376533508,
+      "hard": 0.9446724131703377,
+      "gap": 0.16538727551698684,
+      "lift_r": 0.18581440120935444,
+      "B": "B_MICRO_MIXED",
+      "ablation_delta": 3.4985661625862123
+    },
+    {
+      "step": 10000,
+      "ce": 2.4266617985428125,
+      "A_same": 0.7811923801898957,
+      "A": "A_WEAK_PARTIAL",
+      "para": 0.7869266581535339,
+      "hard": 0.9452585130929947,
+      "gap": 0.15833185493946078,
+      "lift_r": 0.19020922005176544,
+      "B": "B_MICRO_MIXED",
+      "ablation_delta": 3.7656624019145966
+    }
+  ],
+  "vs_180": {
+    "curve_peak_para": 0.878,
+    "curve_peak_gap": 0.092,
+    "curve_A_slow_best": 0.055,
+    "ce_final_para": 0.7869266581535339,
+    "ce_final_gap": 0.15833185493946078,
+    "ce_final_A": 0.7811923801898957,
+    "ce_ablation_delta": 3.7656624019145966
+  },
+  "interpretation": {
+    "FLAT": "this dataset+scale barely teaches context even for CE — don't wall the curve",
+    "A_ONLY": "prefix lives in state; meaning micro weak — same regime as curve",
+    "CONTEXT_SIGNAL_YES": "data supports context under CE — curve should chase this ceiling"
+  },
+  "next": "Use CE control as ceiling. If FLAT/A_ONLY: scale data before blaming curve. If YES: put semantic pressure on slow channel."
+}

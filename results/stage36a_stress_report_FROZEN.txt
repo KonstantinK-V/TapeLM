@@ -1,0 +1,42 @@
+SOTE Stage 36a report (stress plateau on 35b freeze)
+timestamp: 2026-07-24T07:03:48.711305+00:00
+device: cuda
+parent: stage35b_left_instance_FROZEN.pt
+Contract: observe_strict + chain-link + what_tail + left_instance. No FT.
+balanced: {'facts': 82, 'triples': 240, 'hub': {'hub1': 33, 'hub2': 49, 'hub3p': 158}}
+native: {'facts': 89, 'triples': 513, 'hub': {'hub1': 0, 'hub2': 0, 'hub3p': 513}}
+
+gates: k7 j3>=70% H1>=90% k9 j3>=65% native j3>=55% dirty_hard>=50% ctrl2>=85%
+
+=== k-sweep balanced clean (best seed) ===
+   k      H1    H2|H1    H3|H2   JOINT3
+----------------------------------------
+   7   96.9%    98.4%    95.2%    90.6%
+   9   93.8%    95.0%    95.1%    85.9%
+
+=== Native bank @ k=7 clean (best seed) ===
+  hub_triples={'hub1': 0, 'hub2': 0, 'hub3p': 513}
+  H1=95.3% H2|H1=95.1% joint3=89.1%
+  hub1: n=0 H1=0.0% j3=0.0%
+  hub2: n=0 H1=0.0% j3=0.0%
+  hub3p: n=64 H1=95.3% j3=89.1%
+
+=== Dirty @ k=7 balanced (best seed) ===
+  clean_bind: H1=96.9% joint3=90.6%
+  dirty_bind: H1=96.9% joint3=90.6%
+  dirty_hard: H1=96.9% joint3=90.6%
+
+=== Hub strata balanced k=7 (best seed) ===
+  hub1: n=22 H1=100.0% H2|H1=100.0% j3=95.5%
+  hub2: n=21 H1=90.5% H2|H1=94.7% j3=76.2%
+  hub3p: n=21 H1=100.0% H2|H1=100.0% j3=100.0%
+
+=== Multi-seed ===
+  seed 272: PASS k7_j3=87.5% k9_j3=85.9% nat_j3=85.9% hub2_H2|H1=94.7% ctrl2=95.0%
+  seed 273: PASS k7_j3=87.5% k9_j3=85.9% nat_j3=85.9% hub2_H2|H1=94.7% ctrl2=95.0%
+  seed 274: PASS k7_j3=90.6% k9_j3=85.9% nat_j3=89.1% hub2_H2|H1=94.7% ctrl2=95.0%
+  aggregate: 3/3 pass; mean k7_j3=88.5% k9_j3=85.9% nat_j3=87.0% (vs 35b j3~94.3%: -5.8pp); hub2 H2|H1=94.7%
+
+=== Verdict 36a ===
+  PASS: 35b holds under k9/dirty/native stress (k7_j3~89%, k9~86%, nat~87%).
+  note: residual H2 on hub2 (H2|H1~95%) → Stage 36b.

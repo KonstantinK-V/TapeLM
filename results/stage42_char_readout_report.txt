@@ -1,0 +1,30 @@
+SOTE Stage 42 report (char readout fp→letters, soft vs chance)
+timestamp: 2026-07-24T08:00:20.704515+00:00
+device: cuda
+parent: stage39_decode_stress_FROZEN.pt
+Probe only — not a generative LM freeze. D NN remains primary decode.
+
+=== D NN baseline (closed-set) ===
+  word exact=100.0%  phrase exact=100.0%
+
+=== Word fp → chars ===
+  TRAIN tf=100.0% exact=100.0% ol=100.0% gap=+96.3pp
+  HOLD  tf=59.9% exact=43.8% ol=43.8% gap=+56.2pp (chance=3.7%)
+
+=== Phrase fp → chars ===
+  TRAIN tf=100.0% exact=100.0% ol=100.0% gap=+96.3pp
+  HOLD  tf=58.9% exact=0.0% ol=0.0% gap=+55.2pp (chance=3.7%)
+
+=== HOLD samples (phrase) ===
+  [MISS] 'ball on car' -> 'log on pad' (ol='log on pad')
+  [MISS] 'ball to rim' -> 'working on car' (ol='working on')
+  [MISS] 'ball to zip' -> 'ball to pad' (ol='ball to pad')
+  [MISS] 'big cat on car' -> 'book to mat' (ol='book to mat on')
+  [MISS] 'bird to nib' -> 'bird on top' (ol='bird on top')
+  [MISS] 'bird to peg' -> 'bird on top' (ol='bird on top')
+  [MISS] 'bird to top' -> 'talking to bin' (ol='talking to')
+  [MISS] 'cat to car' -> 'cat to mat' (ol='cat to mat')
+
+=== Verdict ===
+  PARTIAL: word char readout above chance (gap +56pp); phrase TF gap +55pp exact=0.0%. D NN stays primary decode.
+  Reminder: this is not open-text LM; hops+D remain the answer path.

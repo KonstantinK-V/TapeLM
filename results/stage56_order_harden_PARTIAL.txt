@@ -1,0 +1,15 @@
+SOTE Stage 56 — PARTIAL (order vs L2 tradeoff)
+timestamp: 2026-07-24T10:12:24+00:00
+data: data/external_mid.txt (618)  parent: stage55_ft_curve.pt
+checkpoint: stage56_order_harden.pt
+
+=== RESULT ===
+  parent: L2 28.3% order_drop +3.2pp
+  hard PASS (L2≥28 ∧ drop≥10): empty on curve
+  best: lr=5e-4 @1500  L2 26.0%/+14pp  order_drop +10.8pp  (tier soft+order)
+  L1 ~10% diagnostic
+
+=== READ ===
+  Order gate reachable only by dipping below 28% L2.
+  PARTIAL accepts soft L2≥25%+order≥10. Full PASS needs rehearsal/path mix.
+  No scale yet. No hops-external.

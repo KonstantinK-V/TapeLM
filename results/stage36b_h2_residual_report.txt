@@ -1,0 +1,14 @@
+SOTE Stage 36b report (residual H2 on hub2 after 35b/36a)
+timestamp: 2026-07-24T07:03:58.045998+00:00
+parent: stage35b_left_instance_FROZEN.pt
+Fix: hop2 multi-link left-instance rank (mirror of 35b H1 channel).
+dig_fail: {'ok12': 53, 'h1_miss': 8, 'multi_link_pick_wrong': 2}
+
+=== Ablate hub2 H2|H1 / joint3 ===
+  seed 272: base H2|H1=94.7% j3=87.5% -> h2inst H2|H1=100.0% j3=89.1%
+  seed 273: base H2|H1=94.7% j3=87.5% -> h2inst H2|H1=100.0% j3=89.1%
+  seed 274: base H2|H1=94.7% j3=90.6% -> h2inst H2|H1=100.0% j3=92.2%
+  mean: hub2 H2|H1 94.7% -> 100.0% (+5.3pp); j3 88.5% -> 90.1% (+1.6pp)
+
+=== Verdict 36b ===
+  PASS/PARTIAL: h2 left-instance helps (hub2 H2|H1~100%).

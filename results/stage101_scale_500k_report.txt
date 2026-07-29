@@ -1,0 +1,20 @@
+SOTE Stage 101 — scale_500k
+timestamp: 2026-07-24T21:12:43.281024+00:00
+device: cuda
+foundation: stage85_foundation_FROZEN.pt
+n_phrases=460421 V=7063 params=3392000
+arch: d=256 L=2 H=4
+train: batch=8 steps=80000 warmup=200 lr=0.001 fat_frac=0.75
+mix: {'n_story_train': 162068, 'n_story_hold': 22100, 'n_fat_triples': 200, 'fat_copies': 40, 'n_train': 168468, 'n_hold_seen': 1600, 'n_hold_rare': 160, 'n_path_triples_avail': 30196}
+NO soft@5. F85 FROZEN not overwritten.
+
+=== Final ===
+  best_step=64000
+  SEEN  obj=40.7% rel=97.1% ALL=68.9%
+  RARE  obj=13.8%
+  STORY ALL=20.6% obj=16.5%
+
+=== vs ref {'obj': 0.426, 'rel': 0.958, 'story_all': 0.196, 'rare_obj': 0.117} ===
+  STORY lift +1.0pp  seen_held=True
+
+=== Verdict: CEILING ===

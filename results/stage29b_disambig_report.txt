@@ -1,0 +1,44 @@
+SOTE Stage 29b report (hop1 disambiguation + dense hard-neg FT)
+timestamp: 2026-07-23T19:58:03.752170+00:00
+device: cuda
+parents: stage28_plus_dirty_ft.pt + hop_bank_25.pt
+knobs: steps=900 topk=5 disambig_gap=0.12
+controlled pairs=24 eps=80 | dense pairs=180 eps=64
+
+=== CONTROLLED ===
+mode                    H1      H2    JOINT
+--------------------------------------------
+clean_bind           80.0%   78.8%    63.7%
+dirty_raw            26.2%   38.8%    15.0%
+dirty_bind           83.8%   78.8%    66.2%
+dirty_both_bind      83.8%   70.0%    57.5%
+
+=== DENSE ===
+mode                    H1      H2    JOINT
+--------------------------------------------
+clean_bind           40.6%   51.6%    15.6%
+dirty_raw            18.8%   34.4%     4.7%
+dirty_bind           40.6%   51.6%    15.6%
+dirty_both_bind      40.6%   48.4%    12.5%
+
+vs Stage29a dense:
+  clean_bind         14.1% -> 15.6%  (+1.6pp)
+  dense H1           21.9% -> 40.6%
+  dirty_bind         14.1% -> 15.6%  (+1.6pp)
+
+dense samples:
+  [first] go on rim => rim on hut  rim->im[drop]  clean=0 raw=0 bind=0 both=0
+  [second] cob on rim => rim on peg  on->no[swap]  clean=0 raw=0 bind=0 both=0
+  [first] yap on peg => peg on rim  peg->pge[swap]  clean=0 raw=0 bind=0 both=0
+  [second] rim on zip => zip on yap  on->no[swap]  clean=0 raw=0 bind=0 both=0
+  [first] washed to zip => zip on yap  zip->zpi[swap]  clean=0 raw=0 bind=0 both=0
+  [second] peg on yap => yap on web  on->no[swap]  clean=0 raw=0 bind=0 both=0
+
+=== Multi-seed ===
+  seed 272: MISS  dense_clean=15.6% dense_H1=40.6% ctrl_clean=63.7% lift=+10.9pp
+  seed 273: MISS  dense_clean=15.6% dense_H1=40.6% ctrl_clean=62.5% lift=+10.9pp
+  seed 274: MISS  dense_clean=14.1% dense_H1=40.6% ctrl_clean=62.5% lift=+9.4pp
+  aggregate: 0/3 pass; mean_dense_clean=15.1% mean_dense_H1=40.6% mean_ctrl=62.9%
+
+=== Verdict ===
+  FAIL: disambiguation insufficient — need stronger cue redesign.

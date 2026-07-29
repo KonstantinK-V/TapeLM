@@ -1,0 +1,47 @@
+{
+  "locked_at": "2026-07-28",
+  "name": "curve_dynamics_contract",
+  "one_line": "Text draws a continuous curve; train only on curve motion; decode later.",
+  "curve": {
+    "time_step": "character",
+    "point": "z_t in R^d",
+    "d_smoke": 96,
+    "d_range": [64, 256],
+    "made_of": "causal latent states after consuming char stream via pen",
+    "not_made_of": ["word ids", "BPE ids", "discrete CE targets"]
+  },
+  "pen": {
+    "role": "ink only — maps chars into the curve",
+    "smoke": "Embedding(char) -> GRU -> LayerNorm -> z_t",
+    "next": "freeze pen (or frozen SOTE letter stack as pen); train dynamics only"
+  },
+  "delta": {
+    "definition": "Delta_t = z_{t+1} - z_t",
+    "extensions": ["multi-step z_{t+k}-z_t", "arc contrastive"]
+  },
+  "train": {
+    "allowed_loss": ["cosine_z", "cosine_delta", "mse_delta", "contrastive_arc", "noncollapse_energy"],
+    "forbidden_main_loss": ["char_CE", "word_CE", "BPE_CE"]
+  },
+  "eval": {
+    "primary_baselines": ["zero_delta", "mean_delta", "copy_delta"],
+    "smoke_verdict": "CURVE_DYN_SMOKE_YES",
+    "hardened_required": ["frozen_pen", "multi_step_or_contrastive"]
+  },
+  "decoder": {
+    "status": "locked_out_until_171_pass",
+    "role": "readout_only_never_main_teacher"
+  },
+  "forbidden": [
+    "revive_169_battery_majority_as_north_star",
+    "fix_failed_curve_gate_with_text_CE",
+    "claim_understanding_from_cos_delta_alone"
+  ],
+  "stages": {
+    "170": "smoke joint pen+dyn — DONE YES",
+    "171": "frozen pen + multi-step/contrastive — DONE YES",
+    "172": "scale + stronger dyn + weak readout probe",
+    "173+": "longer soak / transfer only if 172 holds"
+  },
+  "prior_frozen": "stage169_word_CE"
+}

@@ -1,0 +1,975 @@
+{
+  "pass": true,
+  "best_seed": 272,
+  "seeds": [
+    {
+      "seed": 272,
+      "ok": true,
+      "primary_joint": 0.203125,
+      "primary_h1": 0.40625,
+      "primary_h2gh1": 0.5,
+      "primary_ctrl": 0.6375,
+      "dense": {
+        "base": {
+          "clean_bind": {
+            "hop1": 0.40625,
+            "hop2": 0.515625,
+            "hop2_legacy": 0.515625,
+            "joint": 0.15625,
+            "h2_given_h1": 0.38461538461538464,
+            "n_h1_ok": 26,
+            "mean_depth": 6.703125
+          },
+          "dirty_raw": {
+            "hop1": 0.1875,
+            "hop2": 0.234375,
+            "hop2_legacy": 0.34375,
+            "joint": 0.046875,
+            "h2_given_h1": 0.25,
+            "n_h1_ok": 12,
+            "mean_depth": 5.625
+          },
+          "dirty_bind": {
+            "hop1": 0.40625,
+            "hop2": 0.515625,
+            "hop2_legacy": 0.515625,
+            "joint": 0.15625,
+            "h2_given_h1": 0.38461538461538464,
+            "n_h1_ok": 26,
+            "mean_depth": 7.890625
+          },
+          "dirty_both_bind": {
+            "hop1": 0.40625,
+            "hop2": 0.484375,
+            "hop2_legacy": 0.484375,
+            "joint": 0.125,
+            "h2_given_h1": 0.3076923076923077,
+            "n_h1_ok": 26,
+            "mean_depth": 8.890625
+          }
+        },
+        "h2_disambig": {
+          "clean_bind": {
+            "hop1": 0.40625,
+            "hop2": 0.5625,
+            "hop2_legacy": 0.5625,
+            "joint": 0.203125,
+            "h2_given_h1": 0.5,
+            "n_h1_ok": 26,
+            "mean_depth": 6.859375
+          },
+          "dirty_raw": {
+            "hop1": 0.1875,
+            "hop2": 0.234375,
+            "hop2_legacy": 0.34375,
+            "joint": 0.046875,
+            "h2_given_h1": 0.25,
+            "n_h1_ok": 12,
+            "mean_depth": 5.625
+          },
+          "dirty_bind": {
+            "hop1": 0.40625,
+            "hop2": 0.5625,
+            "hop2_legacy": 0.5625,
+            "joint": 0.203125,
+            "h2_given_h1": 0.5,
+            "n_h1_ok": 26,
+            "mean_depth": 8.046875
+          },
+          "dirty_both_bind": {
+            "hop1": 0.40625,
+            "hop2": 0.5625,
+            "hop2_legacy": 0.5625,
+            "joint": 0.203125,
+            "h2_given_h1": 0.5,
+            "n_h1_ok": 26,
+            "mean_depth": 9.0625
+          }
+        },
+        "role_partial": {
+          "clean_bind": {
+            "hop1": 0.40625,
+            "hop2": 0.5,
+            "hop2_legacy": 0.515625,
+            "joint": 0.15625,
+            "h2_given_h1": 0.38461538461538464,
+            "n_h1_ok": 26,
+            "mean_depth": 6.75
+          },
+          "dirty_raw": {
+            "hop1": 0.21875,
+            "hop2": 0.203125,
+            "hop2_legacy": 0.34375,
+            "joint": 0.078125,
+            "h2_given_h1": 0.35714285714285715,
+            "n_h1_ok": 14,
+            "mean_depth": 5.578125
+          },
+          "dirty_bind": {
+            "hop1": 0.390625,
+            "hop2": 0.484375,
+            "hop2_legacy": 0.515625,
+            "joint": 0.140625,
+            "h2_given_h1": 0.36,
+            "n_h1_ok": 25,
+            "mean_depth": 7.8125
+          },
+          "dirty_both_bind": {
+            "hop1": 0.390625,
+            "hop2": 0.453125,
+            "hop2_legacy": 0.484375,
+            "joint": 0.109375,
+            "h2_given_h1": 0.28,
+            "n_h1_ok": 25,
+            "mean_depth": 8.8125
+          }
+        },
+        "both": {
+          "clean_bind": {
+            "hop1": 0.40625,
+            "hop2": 0.546875,
+            "hop2_legacy": 0.5625,
+            "joint": 0.203125,
+            "h2_given_h1": 0.5,
+            "n_h1_ok": 26,
+            "mean_depth": 6.90625
+          },
+          "dirty_raw": {
+            "hop1": 0.21875,
+            "hop2": 0.203125,
+            "hop2_legacy": 0.34375,
+            "joint": 0.078125,
+            "h2_given_h1": 0.35714285714285715,
+            "n_h1_ok": 14,
+            "mean_depth": 5.578125
+          },
+          "dirty_bind": {
+            "hop1": 0.390625,
+            "hop2": 0.53125,
+            "hop2_legacy": 0.5625,
+            "joint": 0.1875,
+            "h2_given_h1": 0.48,
+            "n_h1_ok": 25,
+            "mean_depth": 7.96875
+          },
+          "dirty_both_bind": {
+            "hop1": 0.390625,
+            "hop2": 0.53125,
+            "hop2_legacy": 0.5625,
+            "joint": 0.1875,
+            "h2_given_h1": 0.48,
+            "n_h1_ok": 25,
+            "mean_depth": 9.046875
+          }
+        }
+      },
+      "ctrl": {
+        "base": {
+          "clean_bind": {
+            "hop1": 0.8,
+            "hop2": 0.7875,
+            "hop2_legacy": 0.7875,
+            "joint": 0.6375,
+            "h2_given_h1": 0.796875,
+            "n_h1_ok": 64,
+            "mean_depth": 6.5375
+          },
+          "dirty_raw": {
+            "hop1": 0.2625,
+            "hop2": 0.375,
+            "hop2_legacy": 0.3875,
+            "joint": 0.15,
+            "h2_given_h1": 0.5714285714285714,
+            "n_h1_ok": 21,
+            "mean_depth": 5.7875
+          },
+          "dirty_bind": {
+            "hop1": 0.8375,
+            "hop2": 0.7875,
+            "hop2_legacy": 0.7875,
+            "joint": 0.6625,
+            "h2_given_h1": 0.7910447761194029,
+            "n_h1_ok": 67,
+            "mean_depth": 7.9375
+          },
+          "dirty_both_bind": {
+            "hop1": 0.8375,
+            "hop2": 0.7,
+            "hop2_legacy": 0.7,
+            "joint": 0.575,
+            "h2_given_h1": 0.6865671641791045,
+            "n_h1_ok": 67,
+            "mean_depth": 8.8875
+          }
+        },
+        "h2_disambig": {
+          "clean_bind": {
+            "hop1": 0.8,
+            "hop2": 0.7875,
+            "hop2_legacy": 0.7875,
+            "joint": 0.6375,
+            "h2_given_h1": 0.796875,
+            "n_h1_ok": 64,
+            "mean_depth": 6.7875
+          },
+          "dirty_raw": {
+            "hop1": 0.2625,
+            "hop2": 0.375,
+            "hop2_legacy": 0.3875,
+            "joint": 0.15,
+            "h2_given_h1": 0.5714285714285714,
+            "n_h1_ok": 21,
+            "mean_depth": 5.7875
+          },
+          "dirty_bind": {
+            "hop1": 0.8375,
+            "hop2": 0.7875,
+            "hop2_legacy": 0.7875,
+            "joint": 0.6625,
+            "h2_given_h1": 0.7910447761194029,
+            "n_h1_ok": 67,
+            "mean_depth": 8.1875
+          },
+          "dirty_both_bind": {
+            "hop1": 0.8375,
+            "hop2": 0.7875,
+            "hop2_legacy": 0.7875,
+            "joint": 0.6625,
+            "h2_given_h1": 0.7910447761194029,
+            "n_h1_ok": 67,
+            "mean_depth": 9.1875
+          }
+        },
+        "role_partial": {
+          "clean_bind": {
+            "hop1": 0.8,
+            "hop2": 0.775,
+            "hop2_legacy": 0.7875,
+            "joint": 0.6375,
+            "h2_given_h1": 0.796875,
+            "n_h1_ok": 64,
+            "mean_depth": 6.65
+          },
+          "dirty_raw": {
+            "hop1": 0.2375,
+            "hop2": 0.2875,
+            "hop2_legacy": 0.375,
+            "joint": 0.1375,
+            "h2_given_h1": 0.5789473684210527,
+            "n_h1_ok": 19,
+            "mean_depth": 5.6625
+          },
+          "dirty_bind": {
+            "hop1": 0.8125,
+            "hop2": 0.775,
+            "hop2_legacy": 0.7875,
+            "joint": 0.65,
+            "h2_given_h1": 0.8,
+            "n_h1_ok": 65,
+            "mean_depth": 7.6
+          },
+          "dirty_both_bind": {
+            "hop1": 0.8125,
+            "hop2": 0.6875,
+            "hop2_legacy": 0.7,
+            "joint": 0.575,
+            "h2_given_h1": 0.7076923076923077,
+            "n_h1_ok": 65,
+            "mean_depth": 8.55
+          }
+        },
+        "both": {
+          "clean_bind": {
+            "hop1": 0.8,
+            "hop2": 0.775,
+            "hop2_legacy": 0.7875,
+            "joint": 0.6375,
+            "h2_given_h1": 0.796875,
+            "n_h1_ok": 64,
+            "mean_depth": 6.9
+          },
+          "dirty_raw": {
+            "hop1": 0.2375,
+            "hop2": 0.2875,
+            "hop2_legacy": 0.375,
+            "joint": 0.1375,
+            "h2_given_h1": 0.5789473684210527,
+            "n_h1_ok": 19,
+            "mean_depth": 5.6625
+          },
+          "dirty_bind": {
+            "hop1": 0.8125,
+            "hop2": 0.775,
+            "hop2_legacy": 0.7875,
+            "joint": 0.65,
+            "h2_given_h1": 0.8,
+            "n_h1_ok": 65,
+            "mean_depth": 7.85
+          },
+          "dirty_both_bind": {
+            "hop1": 0.8125,
+            "hop2": 0.7625,
+            "hop2_legacy": 0.775,
+            "joint": 0.65,
+            "h2_given_h1": 0.8,
+            "n_h1_ok": 65,
+            "mean_depth": 8.8125
+          }
+        }
+      }
+    },
+    {
+      "seed": 273,
+      "ok": true,
+      "primary_joint": 0.203125,
+      "primary_h1": 0.40625,
+      "primary_h2gh1": 0.5,
+      "primary_ctrl": 0.625,
+      "dense": {
+        "base": {
+          "clean_bind": {
+            "hop1": 0.40625,
+            "hop2": 0.515625,
+            "hop2_legacy": 0.515625,
+            "joint": 0.15625,
+            "h2_given_h1": 0.38461538461538464,
+            "n_h1_ok": 26,
+            "mean_depth": 6.703125
+          },
+          "dirty_raw": {
+            "hop1": 0.1875,
+            "hop2": 0.234375,
+            "hop2_legacy": 0.34375,
+            "joint": 0.046875,
+            "h2_given_h1": 0.25,
+            "n_h1_ok": 12,
+            "mean_depth": 5.625
+          },
+          "dirty_bind": {
+            "hop1": 0.40625,
+            "hop2": 0.484375,
+            "hop2_legacy": 0.5,
+            "joint": 0.15625,
+            "h2_given_h1": 0.38461538461538464,
+            "n_h1_ok": 26,
+            "mean_depth": 7.78125
+          },
+          "dirty_both_bind": {
+            "hop1": 0.40625,
+            "hop2": 0.46875,
+            "hop2_legacy": 0.484375,
+            "joint": 0.125,
+            "h2_given_h1": 0.3076923076923077,
+            "n_h1_ok": 26,
+            "mean_depth": 8.796875
+          }
+        },
+        "h2_disambig": {
+          "clean_bind": {
+            "hop1": 0.40625,
+            "hop2": 0.5625,
+            "hop2_legacy": 0.5625,
+            "joint": 0.203125,
+            "h2_given_h1": 0.5,
+            "n_h1_ok": 26,
+            "mean_depth": 6.84375
+          },
+          "dirty_raw": {
+            "hop1": 0.1875,
+            "hop2": 0.234375,
+            "hop2_legacy": 0.34375,
+            "joint": 0.046875,
+            "h2_given_h1": 0.25,
+            "n_h1_ok": 12,
+            "mean_depth": 5.625
+          },
+          "dirty_bind": {
+            "hop1": 0.40625,
+            "hop2": 0.53125,
+            "hop2_legacy": 0.546875,
+            "joint": 0.203125,
+            "h2_given_h1": 0.5,
+            "n_h1_ok": 26,
+            "mean_depth": 7.953125
+          },
+          "dirty_both_bind": {
+            "hop1": 0.40625,
+            "hop2": 0.546875,
+            "hop2_legacy": 0.5625,
+            "joint": 0.203125,
+            "h2_given_h1": 0.5,
+            "n_h1_ok": 26,
+            "mean_depth": 8.96875
+          }
+        },
+        "role_partial": {
+          "clean_bind": {
+            "hop1": 0.4375,
+            "hop2": 0.5,
+            "hop2_legacy": 0.515625,
+            "joint": 0.171875,
+            "h2_given_h1": 0.39285714285714285,
+            "n_h1_ok": 28,
+            "mean_depth": 6.71875
+          },
+          "dirty_raw": {
+            "hop1": 0.21875,
+            "hop2": 0.203125,
+            "hop2_legacy": 0.34375,
+            "joint": 0.078125,
+            "h2_given_h1": 0.35714285714285715,
+            "n_h1_ok": 14,
+            "mean_depth": 5.578125
+          },
+          "dirty_bind": {
+            "hop1": 0.4375,
+            "hop2": 0.515625,
+            "hop2_legacy": 0.515625,
+            "joint": 0.171875,
+            "h2_given_h1": 0.39285714285714285,
+            "n_h1_ok": 28,
+            "mean_depth": 7.796875
+          },
+          "dirty_both_bind": {
+            "hop1": 0.4375,
+            "hop2": 0.484375,
+            "hop2_legacy": 0.484375,
+            "joint": 0.140625,
+            "h2_given_h1": 0.32142857142857145,
+            "n_h1_ok": 28,
+            "mean_depth": 8.796875
+          }
+        },
+        "both": {
+          "clean_bind": {
+            "hop1": 0.4375,
+            "hop2": 0.5625,
+            "hop2_legacy": 0.578125,
+            "joint": 0.234375,
+            "h2_given_h1": 0.5357142857142857,
+            "n_h1_ok": 28,
+            "mean_depth": 6.890625
+          },
+          "dirty_raw": {
+            "hop1": 0.21875,
+            "hop2": 0.203125,
+            "hop2_legacy": 0.34375,
+            "joint": 0.078125,
+            "h2_given_h1": 0.35714285714285715,
+            "n_h1_ok": 14,
+            "mean_depth": 5.578125
+          },
+          "dirty_bind": {
+            "hop1": 0.4375,
+            "hop2": 0.578125,
+            "hop2_legacy": 0.578125,
+            "joint": 0.234375,
+            "h2_given_h1": 0.5357142857142857,
+            "n_h1_ok": 28,
+            "mean_depth": 7.96875
+          },
+          "dirty_both_bind": {
+            "hop1": 0.4375,
+            "hop2": 0.578125,
+            "hop2_legacy": 0.578125,
+            "joint": 0.234375,
+            "h2_given_h1": 0.5357142857142857,
+            "n_h1_ok": 28,
+            "mean_depth": 9.0
+          }
+        }
+      },
+      "ctrl": {
+        "base": {
+          "clean_bind": {
+            "hop1": 0.7875,
+            "hop2": 0.7875,
+            "hop2_legacy": 0.7875,
+            "joint": 0.625,
+            "h2_given_h1": 0.7936507936507936,
+            "n_h1_ok": 63,
+            "mean_depth": 6.6125
+          },
+          "dirty_raw": {
+            "hop1": 0.2625,
+            "hop2": 0.375,
+            "hop2_legacy": 0.3875,
+            "joint": 0.15,
+            "h2_given_h1": 0.5714285714285714,
+            "n_h1_ok": 21,
+            "mean_depth": 5.7875
+          },
+          "dirty_bind": {
+            "hop1": 0.8125,
+            "hop2": 0.7875,
+            "hop2_legacy": 0.7875,
+            "joint": 0.6375,
+            "h2_given_h1": 0.7846153846153846,
+            "n_h1_ok": 65,
+            "mean_depth": 7.9375
+          },
+          "dirty_both_bind": {
+            "hop1": 0.8125,
+            "hop2": 0.7125,
+            "hop2_legacy": 0.7125,
+            "joint": 0.5625,
+            "h2_given_h1": 0.6923076923076923,
+            "n_h1_ok": 65,
+            "mean_depth": 8.8875
+          }
+        },
+        "h2_disambig": {
+          "clean_bind": {
+            "hop1": 0.7875,
+            "hop2": 0.7875,
+            "hop2_legacy": 0.7875,
+            "joint": 0.625,
+            "h2_given_h1": 0.7936507936507936,
+            "n_h1_ok": 63,
+            "mean_depth": 6.8125
+          },
+          "dirty_raw": {
+            "hop1": 0.2625,
+            "hop2": 0.375,
+            "hop2_legacy": 0.3875,
+            "joint": 0.15,
+            "h2_given_h1": 0.5714285714285714,
+            "n_h1_ok": 21,
+            "mean_depth": 5.7875
+          },
+          "dirty_bind": {
+            "hop1": 0.8125,
+            "hop2": 0.7875,
+            "hop2_legacy": 0.7875,
+            "joint": 0.6375,
+            "h2_given_h1": 0.7846153846153846,
+            "n_h1_ok": 65,
+            "mean_depth": 8.1375
+          },
+          "dirty_both_bind": {
+            "hop1": 0.8125,
+            "hop2": 0.7875,
+            "hop2_legacy": 0.7875,
+            "joint": 0.6375,
+            "h2_given_h1": 0.7846153846153846,
+            "n_h1_ok": 65,
+            "mean_depth": 9.1625
+          }
+        },
+        "role_partial": {
+          "clean_bind": {
+            "hop1": 0.7875,
+            "hop2": 0.7875,
+            "hop2_legacy": 0.7875,
+            "joint": 0.625,
+            "h2_given_h1": 0.7936507936507936,
+            "n_h1_ok": 63,
+            "mean_depth": 6.6625
+          },
+          "dirty_raw": {
+            "hop1": 0.2375,
+            "hop2": 0.2875,
+            "hop2_legacy": 0.375,
+            "joint": 0.1375,
+            "h2_given_h1": 0.5789473684210527,
+            "n_h1_ok": 19,
+            "mean_depth": 5.6625
+          },
+          "dirty_bind": {
+            "hop1": 0.8,
+            "hop2": 0.7875,
+            "hop2_legacy": 0.7875,
+            "joint": 0.6375,
+            "h2_given_h1": 0.796875,
+            "n_h1_ok": 64,
+            "mean_depth": 7.6625
+          },
+          "dirty_both_bind": {
+            "hop1": 0.8,
+            "hop2": 0.7125,
+            "hop2_legacy": 0.7125,
+            "joint": 0.5625,
+            "h2_given_h1": 0.703125,
+            "n_h1_ok": 64,
+            "mean_depth": 8.6125
+          }
+        },
+        "both": {
+          "clean_bind": {
+            "hop1": 0.7875,
+            "hop2": 0.7875,
+            "hop2_legacy": 0.7875,
+            "joint": 0.625,
+            "h2_given_h1": 0.7936507936507936,
+            "n_h1_ok": 63,
+            "mean_depth": 6.8625
+          },
+          "dirty_raw": {
+            "hop1": 0.2375,
+            "hop2": 0.2875,
+            "hop2_legacy": 0.375,
+            "joint": 0.1375,
+            "h2_given_h1": 0.5789473684210527,
+            "n_h1_ok": 19,
+            "mean_depth": 5.6625
+          },
+          "dirty_bind": {
+            "hop1": 0.8,
+            "hop2": 0.7875,
+            "hop2_legacy": 0.7875,
+            "joint": 0.6375,
+            "h2_given_h1": 0.796875,
+            "n_h1_ok": 64,
+            "mean_depth": 7.8625
+          },
+          "dirty_both_bind": {
+            "hop1": 0.8,
+            "hop2": 0.7875,
+            "hop2_legacy": 0.7875,
+            "joint": 0.6375,
+            "h2_given_h1": 0.796875,
+            "n_h1_ok": 64,
+            "mean_depth": 8.8875
+          }
+        }
+      }
+    },
+    {
+      "seed": 274,
+      "ok": true,
+      "primary_joint": 0.203125,
+      "primary_h1": 0.40625,
+      "primary_h2gh1": 0.5,
+      "primary_ctrl": 0.625,
+      "dense": {
+        "base": {
+          "clean_bind": {
+            "hop1": 0.40625,
+            "hop2": 0.5,
+            "hop2_legacy": 0.5,
+            "joint": 0.140625,
+            "h2_given_h1": 0.34615384615384615,
+            "n_h1_ok": 26,
+            "mean_depth": 6.765625
+          },
+          "dirty_raw": {
+            "hop1": 0.1875,
+            "hop2": 0.234375,
+            "hop2_legacy": 0.34375,
+            "joint": 0.046875,
+            "h2_given_h1": 0.25,
+            "n_h1_ok": 12,
+            "mean_depth": 5.625
+          },
+          "dirty_bind": {
+            "hop1": 0.40625,
+            "hop2": 0.5,
+            "hop2_legacy": 0.5,
+            "joint": 0.140625,
+            "h2_given_h1": 0.34615384615384615,
+            "n_h1_ok": 26,
+            "mean_depth": 7.875
+          },
+          "dirty_both_bind": {
+            "hop1": 0.40625,
+            "hop2": 0.484375,
+            "hop2_legacy": 0.484375,
+            "joint": 0.125,
+            "h2_given_h1": 0.3076923076923077,
+            "n_h1_ok": 26,
+            "mean_depth": 8.875
+          }
+        },
+        "h2_disambig": {
+          "clean_bind": {
+            "hop1": 0.40625,
+            "hop2": 0.5625,
+            "hop2_legacy": 0.5625,
+            "joint": 0.203125,
+            "h2_given_h1": 0.5,
+            "n_h1_ok": 26,
+            "mean_depth": 6.9375
+          },
+          "dirty_raw": {
+            "hop1": 0.1875,
+            "hop2": 0.234375,
+            "hop2_legacy": 0.34375,
+            "joint": 0.046875,
+            "h2_given_h1": 0.25,
+            "n_h1_ok": 12,
+            "mean_depth": 5.625
+          },
+          "dirty_bind": {
+            "hop1": 0.40625,
+            "hop2": 0.5625,
+            "hop2_legacy": 0.5625,
+            "joint": 0.203125,
+            "h2_given_h1": 0.5,
+            "n_h1_ok": 26,
+            "mean_depth": 8.078125
+          },
+          "dirty_both_bind": {
+            "hop1": 0.40625,
+            "hop2": 0.5625,
+            "hop2_legacy": 0.5625,
+            "joint": 0.203125,
+            "h2_given_h1": 0.5,
+            "n_h1_ok": 26,
+            "mean_depth": 9.046875
+          }
+        },
+        "role_partial": {
+          "clean_bind": {
+            "hop1": 0.40625,
+            "hop2": 0.484375,
+            "hop2_legacy": 0.5,
+            "joint": 0.140625,
+            "h2_given_h1": 0.34615384615384615,
+            "n_h1_ok": 26,
+            "mean_depth": 6.765625
+          },
+          "dirty_raw": {
+            "hop1": 0.21875,
+            "hop2": 0.203125,
+            "hop2_legacy": 0.34375,
+            "joint": 0.078125,
+            "h2_given_h1": 0.35714285714285715,
+            "n_h1_ok": 14,
+            "mean_depth": 5.578125
+          },
+          "dirty_bind": {
+            "hop1": 0.421875,
+            "hop2": 0.5,
+            "hop2_legacy": 0.5,
+            "joint": 0.15625,
+            "h2_given_h1": 0.37037037037037035,
+            "n_h1_ok": 27,
+            "mean_depth": 7.8125
+          },
+          "dirty_both_bind": {
+            "hop1": 0.421875,
+            "hop2": 0.484375,
+            "hop2_legacy": 0.484375,
+            "joint": 0.140625,
+            "h2_given_h1": 0.3333333333333333,
+            "n_h1_ok": 27,
+            "mean_depth": 8.8125
+          }
+        },
+        "both": {
+          "clean_bind": {
+            "hop1": 0.40625,
+            "hop2": 0.546875,
+            "hop2_legacy": 0.5625,
+            "joint": 0.203125,
+            "h2_given_h1": 0.5,
+            "n_h1_ok": 26,
+            "mean_depth": 6.9375
+          },
+          "dirty_raw": {
+            "hop1": 0.21875,
+            "hop2": 0.203125,
+            "hop2_legacy": 0.34375,
+            "joint": 0.078125,
+            "h2_given_h1": 0.35714285714285715,
+            "n_h1_ok": 14,
+            "mean_depth": 5.578125
+          },
+          "dirty_bind": {
+            "hop1": 0.421875,
+            "hop2": 0.5625,
+            "hop2_legacy": 0.5625,
+            "joint": 0.21875,
+            "h2_given_h1": 0.5185185185185185,
+            "n_h1_ok": 27,
+            "mean_depth": 8.015625
+          },
+          "dirty_both_bind": {
+            "hop1": 0.421875,
+            "hop2": 0.5625,
+            "hop2_legacy": 0.5625,
+            "joint": 0.21875,
+            "h2_given_h1": 0.5185185185185185,
+            "n_h1_ok": 27,
+            "mean_depth": 8.984375
+          }
+        }
+      },
+      "ctrl": {
+        "base": {
+          "clean_bind": {
+            "hop1": 0.7875,
+            "hop2": 0.7875,
+            "hop2_legacy": 0.7875,
+            "joint": 0.625,
+            "h2_given_h1": 0.7936507936507936,
+            "n_h1_ok": 63,
+            "mean_depth": 6.6125
+          },
+          "dirty_raw": {
+            "hop1": 0.2625,
+            "hop2": 0.375,
+            "hop2_legacy": 0.3875,
+            "joint": 0.15,
+            "h2_given_h1": 0.5714285714285714,
+            "n_h1_ok": 21,
+            "mean_depth": 5.7875
+          },
+          "dirty_bind": {
+            "hop1": 0.8125,
+            "hop2": 0.8,
+            "hop2_legacy": 0.8,
+            "joint": 0.65,
+            "h2_given_h1": 0.8,
+            "n_h1_ok": 65,
+            "mean_depth": 7.95
+          },
+          "dirty_both_bind": {
+            "hop1": 0.8125,
+            "hop2": 0.7125,
+            "hop2_legacy": 0.7125,
+            "joint": 0.575,
+            "h2_given_h1": 0.7076923076923077,
+            "n_h1_ok": 65,
+            "mean_depth": 8.875
+          }
+        },
+        "h2_disambig": {
+          "clean_bind": {
+            "hop1": 0.7875,
+            "hop2": 0.7875,
+            "hop2_legacy": 0.7875,
+            "joint": 0.625,
+            "h2_given_h1": 0.7936507936507936,
+            "n_h1_ok": 63,
+            "mean_depth": 6.7125
+          },
+          "dirty_raw": {
+            "hop1": 0.2625,
+            "hop2": 0.375,
+            "hop2_legacy": 0.3875,
+            "joint": 0.15,
+            "h2_given_h1": 0.5714285714285714,
+            "n_h1_ok": 21,
+            "mean_depth": 5.7875
+          },
+          "dirty_bind": {
+            "hop1": 0.8125,
+            "hop2": 0.8,
+            "hop2_legacy": 0.8,
+            "joint": 0.65,
+            "h2_given_h1": 0.8,
+            "n_h1_ok": 65,
+            "mean_depth": 8.05
+          },
+          "dirty_both_bind": {
+            "hop1": 0.8125,
+            "hop2": 0.7875,
+            "hop2_legacy": 0.7875,
+            "joint": 0.65,
+            "h2_given_h1": 0.8,
+            "n_h1_ok": 65,
+            "mean_depth": 9.1875
+          }
+        },
+        "role_partial": {
+          "clean_bind": {
+            "hop1": 0.7875,
+            "hop2": 0.775,
+            "hop2_legacy": 0.7875,
+            "joint": 0.625,
+            "h2_given_h1": 0.7936507936507936,
+            "n_h1_ok": 63,
+            "mean_depth": 6.625
+          },
+          "dirty_raw": {
+            "hop1": 0.2375,
+            "hop2": 0.2875,
+            "hop2_legacy": 0.375,
+            "joint": 0.1375,
+            "h2_given_h1": 0.5789473684210527,
+            "n_h1_ok": 19,
+            "mean_depth": 5.6625
+          },
+          "dirty_bind": {
+            "hop1": 0.8125,
+            "hop2": 0.775,
+            "hop2_legacy": 0.7875,
+            "joint": 0.65,
+            "h2_given_h1": 0.8,
+            "n_h1_ok": 65,
+            "mean_depth": 7.575
+          },
+          "dirty_both_bind": {
+            "hop1": 0.8125,
+            "hop2": 0.7,
+            "hop2_legacy": 0.7125,
+            "joint": 0.5875,
+            "h2_given_h1": 0.7230769230769231,
+            "n_h1_ok": 65,
+            "mean_depth": 8.5125
+          }
+        },
+        "both": {
+          "clean_bind": {
+            "hop1": 0.7875,
+            "hop2": 0.775,
+            "hop2_legacy": 0.7875,
+            "joint": 0.625,
+            "h2_given_h1": 0.7936507936507936,
+            "n_h1_ok": 63,
+            "mean_depth": 6.725
+          },
+          "dirty_raw": {
+            "hop1": 0.2375,
+            "hop2": 0.2875,
+            "hop2_legacy": 0.375,
+            "joint": 0.1375,
+            "h2_given_h1": 0.5789473684210527,
+            "n_h1_ok": 19,
+            "mean_depth": 5.6625
+          },
+          "dirty_bind": {
+            "hop1": 0.8125,
+            "hop2": 0.775,
+            "hop2_legacy": 0.7875,
+            "joint": 0.65,
+            "h2_given_h1": 0.8,
+            "n_h1_ok": 65,
+            "mean_depth": 7.675
+          },
+          "dirty_both_bind": {
+            "hop1": 0.8125,
+            "hop2": 0.7625,
+            "hop2_legacy": 0.775,
+            "joint": 0.65,
+            "h2_given_h1": 0.8,
+            "n_h1_ok": 65,
+            "mean_depth": 8.7875
+          }
+        }
+      }
+    }
+  ],
+  "config": {
+    "dim": 64,
+    "seed": 272,
+    "episode_k": 3,
+    "episode_k_dense": 5,
+    "n_hold_episodes": 80,
+    "n_dense_episodes": 64,
+    "create_below": 0.55,
+    "stabilize_lo": 0.55,
+    "lock_above": 0.92,
+    "ema": 0.85,
+    "retrieve_margin": 0.05,
+    "max_phrase_len": 5,
+    "max_word_len": 11,
+    "disambig_topk": 5,
+    "disambig_gap": 0.12,
+    "dense_joint_min": 0.22,
+    "dense_h2_given_h1_min": 0.45,
+    "ctrl_clean_min": 0.5,
+    "pass_seeds_min": 2
+  }
+}

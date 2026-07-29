@@ -1,0 +1,51 @@
+SOTE Stage 9.2 report (selection under morphology / composition)
+timestamp: 2026-07-22T19:46:19.965664+00:00
+device: cuda
+gpu: NVIDIA GeForce RTX 3050 Laptop GPU
+steps: 2500
+alphabet: C:\Users\Kostya\sote-letter-assembly\checkpoints\alphabet_full_frozen.pt
+train words: 94 | hold-out: 17
+memory size during training: 104
+gate create/stabilize/skip/lock/mutate/die: 2/87/119911/0/218/156
+population words/mean_cands/locked/total: 104/1.60/0/166
+soft -ing basin updates: 4250
+ING proto leave-one-out: 100%
+baseline 7.8e HOLD COLD trace: 88%
+
+Train compose/stream:     100.0% / 100.0%
+Related-form probes:      100.0%
+Train soft trace/mem/perm/path/stab: 46/33/100/100/100%
+HOLD COLD  trace/mem/perm/path/stab: 88/88/94/100/100%
+HOLD fewshot trace/mem/perm/path/stab: 88/88/76/100/100%
+
+HOLD COLD details (no memory):
+  [OK] cards        tr=0.12 path=0.97 stab=1.00
+  [OK] bookshelves  tr=0.13 path=0.96 stab=1.00
+  [OK] jumping      tr=0.13 path=0.91 stab=1.00
+  [OK] walking      tr=0.12 path=0.93 stab=1.00
+  [OK] reading      tr=0.13 path=0.98 stab=1.00
+  [WEAK] writing      tr=0.11 path=0.95 stab=1.00
+  [OK] friendship   tr=0.12 path=0.93 stab=1.00
+  [OK] sunshine     tr=0.12 path=0.98 stab=1.00
+  [OK] moonlight    tr=0.13 path=0.93 stab=1.00
+  [OK] playground   tr=0.12 path=0.87 stab=1.00
+  [WEAK] applesauce   tr=0.12 path=0.97 stab=1.00
+  [OK] birdhouse    tr=0.13 path=0.96 stab=1.00
+  [OK] notebook     tr=0.12 path=0.90 stab=1.00
+  [OK] backpack     tr=0.15 path=0.90 stab=1.00
+  [OK] quickly      tr=0.14 path=0.98 stab=1.00
+  [OK] slowly       tr=0.12 path=0.98 stab=1.00
+  [OK] happily      tr=0.14 path=0.92 stab=1.00
+
+ING proto details:
+  [OK] jump    +ing -> pred=jumping      (want jumping) score=1.00
+  [OK] walk    +ing -> pred=walking      (want walking) score=1.00
+  [OK] read    +ing -> pred=reading      (want reading) score=1.00
+  [OK] write   +ing -> pred=writing      (want writing) score=1.00
+
+How to read:
+- GOAL: morphology / composition / letter-trace (not max mutate)
+- Darwinism is a tool: avoid collapse, keep morph basins, then LOCK
+- success: COLD ~7.8e (88%) + lock>0 + moderate mutate/die
+- 9.1 failure mode: eternal churn, COLD 71%, lock=0
+- this run baseline target COLD trace: 88%

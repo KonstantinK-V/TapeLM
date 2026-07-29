@@ -1,0 +1,26 @@
+{
+  "timestamp": "2026-07-29T05:02:35.782366+00:00",
+  "protocol": "semantic_paws_202",
+  "overall": "SEM_B_NO",
+  "gates": {
+    "g_paws": false,
+    "g_inversion": false,
+    "g_vs_gpt": true
+  },
+  "curve": {
+    "paws_acc": 0.643625,
+    "thr": 0.9110169491525424,
+    "para": 0.3588101803511381,
+    "hard": 0.7579376213252544,
+    "inversion": false
+  },
+  "gpt_baseline": {
+    "paws_acc": 0.655125,
+    "thr": 0.8720338983050846,
+    "para": 0.40108544066548346,
+    "hard": 0.7275890745222569,
+    "inversion": false
+  },
+  "lexical_overlap_test_acc": 0.558,
+  "note": "FROZEN P1 encoder + attention-pool semantic head trained on PAWS; non-destructive (generation/memory/calibration untouched); tests B CAPABILITY, not free emergence"
+}

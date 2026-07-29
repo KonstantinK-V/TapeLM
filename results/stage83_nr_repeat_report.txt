@@ -1,0 +1,24 @@
+SOTE Stage 83 — noun_rel LARGE repeat corpus (scale thesis)
+timestamp: 2026-07-24T14:57:24.574748+00:00
+device: cuda
+corpus: external_noun_rel_repeat.txt
+meta: {'n_fat_triples': 120, 'n_rare_triples': 60, 'fat_copies': 30, 'rare_copies': 3, 'n_train': 2880, 'n_hold_seen': 720, 'n_hold_rare': 180, 'n_nouns': 86}
+parent: stage57_rehearsal_FROZEN.pt
+NO soft@5. NO verb_ing. Simple left rel right lines.
+
+=== ZS ===
+  SEEN right@1=3.3% rel=4.2% ALL=3.8%
+  RARE right@1=1.7% rel=3.3%
+
+=== FT best/final ===
+  best step=4000 seen right@1=25.0% rel=75.0% rare right=1.7% protect=True
+  final SEEN right@1=25.0% (dZS +21.7pp) rel=75.0% ALL=50.0%
+  final RARE right@1=1.7% rel=45.0%
+  SEEN confusion={'right_correct': 180, 'other_rightish': 498, 'rel': 0, 'left': 0, 'other': 42}
+  RARE confusion={'right_correct': 3, 'other_rightish': 75, 'rel': 0, 'left': 0, 'other': 102}
+
+=== Verdict: PARTIAL ===
+  gates: PARTIAL seen right>=25% LIVE>=50% + rel protect
+  read: SCALE_HELPS_SEEN; RARE_STILL_HARD
+  If SEEN lifts and RARE stays low => density/repeats matter (LM-scale thesis).
+  If SEEN also stuck => not just data volume; cue/hops still primary.

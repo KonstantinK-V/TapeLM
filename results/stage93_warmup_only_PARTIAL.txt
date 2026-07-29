@@ -1,0 +1,21 @@
+SOTE Stage 93 — warmup-only @1e-3 (isolate vs 90/92)
+timestamp: 2026-07-24T18:29:11.701843+00:00
+device: cuda
+foundation: stage85_foundation.pt dim=256
+train: batch=32 steps=8000 peak_lr=0.001 warmup=200 then CONSTANT; emb=full
+ablate: ONLY short warmup vs Stage90; no cosine / no emb slowdown (those killed SEEN in 92)
+ref Stage90: obj=28% rel=86% swing~28pp
+ref Stage92: obj~0.7% (schedule FAIL)
+
+=== FT best ===
+  step=8000
+  SEEN  obj=33.3% rel=74.0% ALL=53.7% head=53.7%
+  RARE  obj=13.3%
+  STORY obj=13.8% ALL=10.5%
+  swing=33.3pp [STILL_SWINGY] late_obj_drop=0.0pp (final obj=33.3%)
+
+=== vs 90 === TF@93 obj=33.3% rel=74.0% | 90 obj=28% rel=86%
+
+=== Verdict: PARTIAL ===
+  stability: STILL_SWINGY
+  next lever if ok: emb_lr_mult alone; if fail: batch {8,16,64} @ constant 1e-3

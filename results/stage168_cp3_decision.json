@@ -1,0 +1,11 @@
+﻿{
+    "verdict":  "ABORTED_USER",
+    "timestamp":  "2026-07-27T06:00:35.4123649Z",
+    "note":  "Stopped mid-run (~40k/80k). Small-regime understand path closed. Next: plan_sote_context_0p5b_1b.md (0.5B-1B + capacity).",
+    "upstream":  {
+                     "cp1":  "CP1_MIXED",
+                     "cp2":  "CP2_LOSS_NULL"
+                 },
+    "last_log":  "step 40000 bat~5.2% lift_maj~-33.3pp",
+    "cp":  3
+}

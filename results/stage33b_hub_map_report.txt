@@ -1,0 +1,52 @@
+SOTE Stage 33b report (hub-bank resample + strata map)
+timestamp: 2026-07-24T06:15:48.238423+00:00
+device: cuda
+parent: stage33_stress_FROZEN.pt
+primary_k=7 stratify_hub=True
+Contract: observe_strict + chain-link + honest metrics. No hop3. No FT.
+
+=== Native bank (before resample) ===
+  facts=89 left_deg_hist={1: 16, 2: 4, 3: 15, 4: 1, 5: 1, 11: 1}
+  pair_hub_counts={'hub1': 3, 'hub2': 0, 'hub3p': 177}
+  hub2_lefts_n=4 hub2_also_rights=[]
+  bridgeable_deg_hist={1: 1, 3: 9} n_bridgeable=10
+  note: native hub2 lefts never appear as rights → pair-sampling alone cannot fill hub2
+
+=== Resample (one shot) ===
+  meta={'resample_ok': True, 'n_facts_raw': 89, 'n_facts_resampled': 82, 'n_pairs_resampled': 121, 'assign_n': {'hub1': 3, 'hub2': 3, 'hub3p': 3}, 'controlled_deg': {'rim': 3, 'cob': 3, 'nib': 3, 'zip': 2, 'yap': 2, 'cat': 2, 'web': 1, 'door': 1, 'peg': 1}, 'pair_hub_counts': {'hub1': 17, 'hub2': 26, 'hub3p': 78}, 'hub2_sufficient': True}
+
+=== Native structural (resolved by subset) ===
+  Native bank: hub2 bank structural, not sampling (mid-hub lefts never bridges).
+  One-shot subset created mid-hub on real bridges — curve below is from resampled bank.
+
+=== Hub strata DENSE clean @ k=7 (best seed; resampled bank) ===
+bank pair counts: {'hub1': 17, 'hub2': 26, 'hub3p': 78}
+hub          n      H1    H2|H1    JOINT
+----------------------------------------
+hub1        22   72.7%   100.0%    72.7%
+hub2        21   76.2%   100.0%    76.2%
+hub3p       21   81.0%    94.1%    76.2%
+
+=== Hub curve (best seed) ===
+  Δ hub1→hub2 = +3.5pp
+  Δ hub2→hub3p = +0.0pp
+  shape: smooth
+
+=== Modes @ k=7 (best seed) ===
+mode                H1    H2|H1    JOINT
+----------------------------------------
+clean_bind       76.6%    98.0%    75.0%
+dirty_bind       79.7%    98.0%    78.1%
+dirty_hard       73.4%    97.9%    71.9%
+
+=== Multi-seed ===
+  seed 272: PASS clean_j=75.0% H2|H1=98.0% ctrl=95.0%
+    strata: hub1=73%/n22 hub2=76%/n21 hub3p=76%/n21
+  seed 273: PASS clean_j=75.0% H2|H1=98.0% ctrl=95.0%
+    strata: hub1=73%/n22 hub2=76%/n21 hub3p=76%/n21
+  seed 274: PASS clean_j=75.0% H2|H1=98.0% ctrl=95.0%
+    strata: hub1=73%/n22 hub2=76%/n21 hub3p=76%/n21
+  aggregate: 3/3 pass; mean_clean_j=75.0% (vs freeze33 84.4%: -9.4pp)
+
+=== Verdict ===
+  PASS/MAP: hub curve readable (1→2 +3pp, 2→3+ +0pp).

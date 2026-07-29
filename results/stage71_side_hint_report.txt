@@ -1,0 +1,7 @@
+SOTE Stage 71 report (side hint phrase_fp(prefix) on object slot)
+timestamp: 2026-07-24T12:51:02.442389+00:00
+TinySeq frozen; train SideHintFusion only. Hint=phrase_fp(prefix) includes on|to, not gold object.
+hold object n=88
+baseline TinySeq: 5.7%/+4.5pp n=88
+best step=500 hint: 2.3%/+-1.1pp  Δbase=-3.4pp
+=== Verdict: FAIL ===

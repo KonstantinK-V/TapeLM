@@ -1,0 +1,17 @@
+{
+  "timestamp": "2026-07-28T17:27:00+00:00",
+  "protocol": "slow_ce_dual_tape_182",
+  "overall": "SLOW_CE_STOPPED_EARLY_BEHIND_GPT",
+  "stopped_at_step": 3000,
+  "reason": "CE~6.6 vs GPT~3.9@3k; ablΔ~0 vs GPT~+2.8; low EV soak — go dataset-answer exam",
+  "at_3000": {
+    "ce": 6.588,
+    "A_same": 0.374,
+    "para": 0.850,
+    "hard": 0.922,
+    "gap": 0.072,
+    "ablation_delta": 0.0042
+  },
+  "vs_181_at_3000": {"gpt_ce": 3.868, "gpt_abl": 2.793},
+  "next": "Stage183 dataset-answer exam (fast)"
+}

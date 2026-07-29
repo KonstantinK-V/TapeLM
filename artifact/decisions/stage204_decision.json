@@ -1,0 +1,81 @@
+{
+  "timestamp": "2026-07-29T06:08:19.343860+00:00",
+  "protocol": "noise_oov_robustness_204",
+  "overall": "NOISE_ROBUST_WIN",
+  "A_identity_retrieval": {
+    "curve_seen": {
+      "0.0": 1.0,
+      "0.1": 0.8828571428571429,
+      "0.2": 0.8414285714285714,
+      "0.3": 0.8014285714285714
+    },
+    "gpt_seen": {
+      "0.0": 1.0,
+      "0.1": 0.5485714285714286,
+      "0.2": 0.5071428571428571,
+      "0.3": 0.40285714285714286
+    },
+    "curve_oov": {
+      "0.0": 1.0,
+      "0.1": 0.93,
+      "0.2": 0.89,
+      "0.3": 0.86
+    },
+    "gpt_oov": {
+      "0.0": 1.0,
+      "0.1": 0.7466666666666667,
+      "0.2": 0.7066666666666667,
+      "0.3": 0.5666666666666667
+    }
+  },
+  "B_fact_recall_noisy_query": {
+    "curve": {
+      "0.0": 1.0,
+      "0.1": 1.0,
+      "0.2": 0.9933333333333333,
+      "0.3": 1.0
+    },
+    "rag": {
+      "0.0": 1.0,
+      "0.1": 0.9333333333333333,
+      "0.2": 0.8866666666666667,
+      "0.3": 0.88
+    }
+  },
+  "B_relative_drop_p0_to_p03": {
+    "curve": 0.0,
+    "rag": 0.12
+  },
+  "B2_hardened_noisy_corpus_and_query_8way": {
+    "curve": {
+      "0.0": 1.0,
+      "0.2": 0.9466666666666667,
+      "0.3": 0.9133333333333333
+    },
+    "rag": {
+      "0.0": 0.9933333333333333,
+      "0.2": 0.7333333333333333,
+      "0.3": 0.6266666666666667
+    }
+  },
+  "C_bpe_pieces_per_word": {
+    "0.0": 3.926,
+    "0.1": 4.489,
+    "0.2": 4.589,
+    "0.3": 4.762
+  },
+  "gates": {
+    "g_id_seen": true,
+    "g_id_oov": true,
+    "g_fact": true,
+    "g_degrade": true,
+    "g_hard_B2": true
+  },
+  "pool": {
+    "seen": 700,
+    "oov": 300
+  },
+  "slots": 547,
+  "chance_B": 0.25,
+  "note": "rank-based metrics only (no cross-space cosine comparison); GPT+RAG uses the identical subject-anchored key/query recipe, only the encoder differs"
+}

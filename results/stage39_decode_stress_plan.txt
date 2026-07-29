@@ -1,0 +1,28 @@
+SOTE Stage 39 plan — D decode stress (native + wider phrase set)
+
+Parent: stage38_decode_FROZEN.
+Goal: D must not go red when bank is native or slightly wider.
+Do not start E until this is green.
+
+Banks
+  1. balanced — same resample hub bank as Stage 38 (baseline)
+  2. native — raw hold_phrases (no resample; hub2 may be structural-empty)
+  3. wider — hold_phrases ∪ train_phrases (parseable on/to rels only)
+
+Per bank
+  - Word/phrase NN closed-set decode
+  - Answer-as-text hop3 (decode C slot)
+  - Holdout phrase decode diagnostic (expect ~0)
+
+Gates (soft, not GPT)
+  word/phrase exact >= 0.95 on every bank
+  slot→key | key3 >= 0.95
+  balanced answer_text >= 0.70
+  native/wider answer_text >= 0.55 (or within 20pp of balanced)
+
+Out
+  results/stage39_decode_stress_report.txt
+  results/stage39_decode_stress_metrics.json
+  checkpoints/stage39_decode_stress.pt
+
+Next if PASS: Stage 40 E next-fp (context fps → next fp → NN decode; acc vs chance).

@@ -1,0 +1,20 @@
+SOTE Stage 98 — atom swing reduction (fat_frac + patience)
+timestamp: 2026-07-24T19:48:58.570543+00:00
+device: cuda
+foundation: stage85_foundation.pt dim=256
+train: batch=8 warmup=200 lr=0.001 fat_frac=0.75 patience=8 eval_every=250 stop_step=8000
+ref Stage95: obj=40% rel=95% swing~38pp
+
+=== FT best (joint-aware) ===
+  step=7750
+  SEEN  obj=41.3% rel=96.0% ALL=68.7% head=68.7%
+  RARE  obj=13.3%
+  STORY obj=12.0% ALL=9.2%
+  swing_all=41.3pp  swing_when_rel>=50%=13.3pp (target<30pp; ref95~38pp)
+
+=== vs 95 === obj=41.3% rel=96.0% | 95 obj=40% rel=95%
+  swing_joint 13.3pp vs 95 ~38pp (delta=24.7pp)
+
+=== Verdict: STABLER_PARTIAL ===
+  knobs: oversample fat pairs + early stop on joint plateau
+  next if stabler: freeze atom, dirty-hop FT; else try fat_frac 0.9 / patience 4

@@ -1,0 +1,10 @@
+SOTE Stage 112 — bpe_baseline (corpus BPE + GPT2 mini)
+timestamp: 2026-07-25T06:46:40.848306+00:00
+V_bpe=8000 params=5223936 steps=50000 batch=16
+best_step=40000
+SEEN obj=41.3% rel=92.0%
+STORY ALL=34.0%
+RARE obj=13.3%
+vs100 SOTE: obj -1.3pp story +14.4pp
+Verdict: BPE_HIGHER
+CEILING_LIKE => data/task soft ceiling; BPE_HIGHER => SOTE-specific headroom.

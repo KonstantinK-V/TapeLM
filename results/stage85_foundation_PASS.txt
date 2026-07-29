@@ -1,0 +1,30 @@
+SOTE Stage 85 — foundation digits + dim256 + max_word_len24 — PASS
+timestamp: 2026-07-24T16:02:38+00:00
+
+=== CHANGE ===
+  charset: a-z + 0-9 + space (n=37)  — no a-z-only filter required for digits
+  dim: 64 -> 256
+  max_word_len: 11 -> 24
+  New lineage: checkpoints/stage85_foundation.pt
+  V1/V2 dim64 FROZEN: untouched / incompatible (do not load)
+
+=== GATES ===
+  word codebook exact 100% (n=800)
+  digitish exact 100% (n=208)
+  morph -ing NN 100%
+  encode_B recon 100%
+  Verdict: **PASS**
+
+=== NON-GOALS (this stage) ===
+  object-FT, TinySeq path at dim256, hops rebind, TinyStories capacity dig
+
+=== NEXT ===
+  Capacity dig: TinyStories without digit strip / path next on stage85 foundation
+  Then see if dim256 closes OOV/story capacity; still no object-FT first
+
+=== ARTIFACTS ===
+  checkpoints/stage85_foundation.pt
+  results/stage85_foundation_report.txt
+  results/stage85_foundation_metrics.json
+
+=== FREEZE_READY: True (foundation PASS; new branch) ===

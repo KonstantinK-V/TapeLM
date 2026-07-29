@@ -1,0 +1,11 @@
+SOTE Stage 109 — slot_dyn_obj
+timestamp: 2026-07-25T05:44:23.337367+00:00
+sote_init=True slot_dynamic=True
+w_rel0=0.25 w_obj0=2.0 final_w_rel=0.088 final_w_obj=3.174
+params=2989056 V=5489 steps=50000
+best_step=44000
+SEEN obj=42.2% rel=88.6%
+STORY ALL=16.2% obj=19.7%
+RARE obj=11.2%
+vs100: obj -0.4pp story -3.4pp
+Verdict: PARITY

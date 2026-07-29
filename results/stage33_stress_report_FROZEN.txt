@@ -1,0 +1,50 @@
+SOTE Stage 33 report (stress+ on stage32 dense multi-hop contract)
+timestamp: 2026-07-24T06:04:05.888063+00:00
+device: cuda
+parent: stage32_dense_multihop_FROZEN.pt
+primary_k=7 sweep=[5, 7, 9] stratify_hub=True
+gates: clean_j>=70% H2|H1>=90% dirty_bind>=55%|within20% dirty_both>=40% dirty_hard>=35% ctrl>=85%
+
+Contract: observe_strict + chain-link + honest metrics. No hop3.
+
+=== k-sweep DENSE clean_bind (best seed) ===
+   k      H1    H2|H1    JOINT
+--------------------------------
+   5   85.9%   100.0%    85.9%
+   7   85.9%    98.2%    84.4%
+   9   78.1%    96.0%    75.0%
+
+=== Hub strata DENSE clean @ k=7 (best seed) ===
+bank pair counts: {'hub1': 3, 'hub2': 0, 'hub3p': 177}
+hub          n      H1    H2|H1    JOINT
+----------------------------------------
+hub1        32   96.9%   100.0%    96.9%
+hub2         0    0.0%     0.0%     0.0%
+hub3p       32   75.0%    95.8%    71.9%
+
+=== Dirty modes DENSE @ k=7 (best seed; columns separate) ===
+mode                    H1    H2|H1    JOINT
+--------------------------------------------
+clean_bind           85.9%    98.2%    84.4%
+dirty_raw            82.8%    98.1%    81.2%
+dirty_bind           85.9%    98.2%    84.4%
+dirty_both_bind      85.9%    98.2%    84.4%
+dirty_hard           85.9%    98.2%    84.4%
+
+=== Soft-merge guard @ k=7 (best seed) ===
+  strict joint=84.4%  soft-merge joint=48.4%  delta=-35.9pp (soft must not beat strict)
+
+=== vs Stage32 freeze @ k=5 (mean over seeds) ===
+  freeze32 joint~84.4% -> k5 joint=85.9% (+1.6pp)
+
+=== Multi-seed (primary k=7) ===
+  seed 272: PASS  clean_j=84.4% H2|H1=98.2% dirty_bind=84.4% both=84.4% hard=84.4% ctrl=95.0%
+    strata: hub1=97%/n32 hub2=0%/n0 hub3p=72%/n32
+  seed 273: PASS  clean_j=84.4% H2|H1=98.2% dirty_bind=84.4% both=84.4% hard=84.4% ctrl=95.0%
+    strata: hub1=97%/n32 hub2=0%/n0 hub3p=72%/n32
+  seed 274: PASS  clean_j=84.4% H2|H1=98.2% dirty_bind=84.4% both=84.4% hard=84.4% ctrl=95.0%
+    strata: hub1=97%/n32 hub2=0%/n0 hub3p=72%/n32
+  aggregate: 3/3 pass; mean_clean_j=84.4% mean_H2|H1=98.2% soft_merge_guard=OK
+
+=== Verdict ===
+  PASS: stage32 contract holds under denser-k / hub / dirty_hard stress.

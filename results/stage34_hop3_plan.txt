@@ -1,0 +1,30 @@
+SOTE Stage 34 plan — hop3 on stage32/33 contract + balanced bank
+
+Parent: checkpoints/stage33_stress_FROZEN.pt
+Contract: observe_strict + chain-link + honest metrics (no gold bridge fallback)
+Bank: one-shot resample_hub_balanced_bank from 33b (readable hub1/2/3+)
+
+=== Protocol ===
+  Gold triple A->B->C where A.right==B.left and B.right==C.left
+  hop1: partial cue -> A (prefer chain-sourced with depth>=2)
+  hop2: follow forward_link[key1] filtered by bridge=right(key1)
+  hop3: follow forward_link[key2] filtered by bridge=right(key2)
+  Same Hop2LeftBinder for hop2 and hop3 cues (left_only / where)
+
+=== Metrics ===
+  H1, H2, H3
+  H2|H1, H3|H2, H3|(H1&H2), joint3 = H1∧H2∧H3
+  hub strata on first bridge (A.right) fan-in
+  ctrl: keep 2-hop clean as regression
+
+=== Gates (soft, first hop3) ===
+  clean joint3 >= 35%
+  H2|H1 >= 85%
+  H3|H2 >= 50%
+  ctrl 2-hop joint >= 85%
+  all hub strata n>0
+
+=== OUT ===
+  results/stage34_hop3_report.txt
+  results/stage34_hop3_metrics.json
+  checkpoints/stage34_hop3.pt

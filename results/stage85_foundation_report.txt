@@ -1,0 +1,21 @@
+SOTE Stage 85 — foundation digits + dim256 + max_word_len24
+timestamp: 2026-07-24T16:02:38.672539+00:00
+device: cuda
+charset: n=37 (abcdefghijklmnopqrstuvwxyz0123456789 + space)
+dim=256 max_word_len=24 max_phrase_len=5
+NO object-FT. V1/V2 dim64 FROZEN untouched (incompatible).
+
+lexicon: words=2528 digitish=208 phrases=96
+word train best step=5000 exact~100.0%
+morph best step=2000 cos~100.0%
+phrase best step=2500 recon~100.0%
+
+=== Gates ===
+  word codebook exact=100.0% (need >=95%)
+  digitish exact=100.0% (need >=90%)
+  morph -ing NN=100.0%
+  encode_B recon=100.0% (need >=95%)
+
+=== Verdict: PASS ===
+  Next if PASS: capacity dig (TinyStories without a-z strip) / path next at dim256.
+  Still no object-FT until foundation green.

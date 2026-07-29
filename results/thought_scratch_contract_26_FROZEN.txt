@@ -1,0 +1,32 @@
+SOTE thought-scratch contract 26 FROZEN (partial-cue addendum)
+timestamp: 2026-07-23T15:51:53.716687+00:00
+checkpoint: thought_scratch_26_FROZEN.pt
+parent: thought_scratch_24_FROZEN.pt  (+ bridge_qa_binder_16_FROZEN.pt)
+sources: stage26_partial_cue.pt, hop_bank_25.pt
+
+Inherits thought_scratch_24:
+  facts=SoftPhraseMemory | thought=ThoughtScratch private
+  single-hop + multi-hop bridge protocols
+
+ADDENDUM — partial cue protocol:
+  MEM_WRITE -> SCRATCH partial -> binder completion probes -> SCRATCH complete -> MEM_READ -> ANSWER
+  cells: partial_cue, complete_cue (+ existing cue/attended/bridge cells)
+  partial types: obj_only / rel_only / left_only
+
+Metrics at freeze (Stage26 HOLD controlled curriculum):
+  full ans=68.8%
+  partial_raw ans=51.0%
+  partial_scratch ans=63.5%
+  lift vs raw=+12.5pp
+  drop vs full=+5.2pp
+
+Rules:
+  - Keep facts/thought split (no thought::* in fact retrieve).
+  - Partial must go through scratch before completion probes.
+  - Use hop_bank_25 controlled pairs for hop/partial curriculum.
+
+Deferred next:
+  - multi-hop + partial
+  - dirty partial stress
+
+=== FREEZE_READY: True ===

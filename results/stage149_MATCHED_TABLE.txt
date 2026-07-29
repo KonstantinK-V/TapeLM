@@ -1,0 +1,399 @@
+{
+  "timestamp": "2026-07-26T06:35:33.220463+00:00",
+  "protocol": "hparam_matched_unit_compare_plus_131_gpt",
+  "locked_hparams": {
+    "batch": 16,
+    "lr": 0.0003,
+    "optimizer": "AdamW",
+    "weight_decay": 0.01,
+    "d_model": 256,
+    "n_layer": 4,
+    "n_head": 4,
+    "ft_steps": 40000,
+    "warmup": 200,
+    "func_steps": 25000
+  },
+  "upstream_148": {
+    "verdict": "HARM",
+    "abpe_V": 41,
+    "note": "148 char-pretok failed merges (V~41); 149 uses ws-BPE+fp instead"
+  },
+  "word_fp": {
+    "arm": "word_fp",
+    "V": 5489,
+    "params": 4568576,
+    "seen_obj": 0.4125,
+    "seen_rel": 0.965,
+    "story_all": 0.19413813116656994,
+    "story_obj": 0.1797752808988764,
+    "curve": [
+      {
+        "step": 0,
+        "obj": 0.0,
+        "rel": 0.0,
+        "story_all": 0.0
+      },
+      {
+        "step": 2000,
+        "obj": 0.195,
+        "rel": 0.0425,
+        "story_all": 0.061105722599418044
+      },
+      {
+        "step": 4000,
+        "obj": 0.2175,
+        "rel": 0.1675,
+        "story_all": 0.08729388942774007
+      },
+      {
+        "step": 6000,
+        "obj": 0.1875,
+        "rel": 0.56,
+        "story_all": 0.0892337536372454
+      },
+      {
+        "step": 8000,
+        "obj": 0.34,
+        "rel": 0.4825,
+        "story_all": 0.11445198836081474
+      },
+      {
+        "step": 10000,
+        "obj": 0.3825,
+        "rel": 0.94,
+        "story_all": 0.13191076624636275
+      },
+      {
+        "step": 12000,
+        "obj": 0.38,
+        "rel": 0.95,
+        "story_all": 0.1367604267701261
+      },
+      {
+        "step": 14000,
+        "obj": 0.39,
+        "rel": 0.93,
+        "story_all": 0.15179437439379243
+      },
+      {
+        "step": 16000,
+        "obj": 0.45,
+        "rel": 0.955,
+        "story_all": 0.14936954413191075
+      },
+      {
+        "step": 18000,
+        "obj": 0.435,
+        "rel": 0.9425,
+        "story_all": 0.15761396702230843
+      },
+      {
+        "step": 20000,
+        "obj": 0.405,
+        "rel": 0.955,
+        "story_all": 0.17361784675072744
+      },
+      {
+        "step": 22000,
+        "obj": 0.41,
+        "rel": 0.95,
+        "story_all": 0.1556741028128031
+      },
+      {
+        "step": 24000,
+        "obj": 0.435,
+        "rel": 0.945,
+        "story_all": 0.19107662463627545
+      },
+      {
+        "step": 26000,
+        "obj": 0.4175,
+        "rel": 0.955,
+        "story_all": 0.1871968962172648
+      },
+      {
+        "step": 28000,
+        "obj": 0.4,
+        "rel": 0.9525,
+        "story_all": 0.2002909796314258
+      },
+      {
+        "step": 30000,
+        "obj": 0.415,
+        "rel": 0.95,
+        "story_all": 0.21241513094083414
+      },
+      {
+        "step": 32000,
+        "obj": 0.42,
+        "rel": 0.95,
+        "story_all": 0.1973811833171678
+      },
+      {
+        "step": 34000,
+        "obj": 0.4425,
+        "rel": 0.95,
+        "story_all": 0.2133850630455868
+      },
+      {
+        "step": 36000,
+        "obj": 0.405,
+        "rel": 0.9525,
+        "story_all": 0.2046556741028128
+      },
+      {
+        "step": 38000,
+        "obj": 0.3875,
+        "rel": 0.95,
+        "story_all": 0.2090203685741998
+      },
+      {
+        "step": 40000,
+        "obj": 0.3925,
+        "rel": 0.955,
+        "story_all": 0.20999030067895247
+      }
+    ],
+    "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage149_word_matched.pt"
+  },
+  "ws_bpe_rand": {
+    "arm": "ws_bpe_rand",
+    "emb_mode": "rand",
+    "V": 8000,
+    "params": 5223936,
+    "seen_obj": 0.4025,
+    "story_all": 0.3241943241943242,
+    "story_obj": 0.24519230769230768,
+    "curve": [
+      {
+        "step": 0,
+        "obj": 0.0,
+        "story_all": 0.0
+      },
+      {
+        "step": 5000,
+        "obj": 0.38,
+        "story_all": 0.2688588007736944
+      },
+      {
+        "step": 10000,
+        "obj": 0.35,
+        "story_all": 0.28916827852998067
+      },
+      {
+        "step": 15000,
+        "obj": 0.4,
+        "story_all": 0.30174081237911027
+      },
+      {
+        "step": 20000,
+        "obj": 0.375,
+        "story_all": 0.327852998065764
+      },
+      {
+        "step": 25000,
+        "obj": 0.365,
+        "story_all": 0.316247582205029
+      },
+      {
+        "step": 30000,
+        "obj": 0.36,
+        "story_all": 0.32205029013539654
+      },
+      {
+        "step": 35000,
+        "obj": 0.395,
+        "story_all": 0.33268858800773693
+      },
+      {
+        "step": 40000,
+        "obj": 0.33,
+        "story_all": 0.327852998065764
+      }
+    ],
+    "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage149_ws_bpe_rand.pt"
+  },
+  "ws_bpe_fp": {
+    "arm": "ws_bpe_fp",
+    "emb_mode": "fp",
+    "V": 8000,
+    "params": 5223936,
+    "seen_obj": 0.405,
+    "story_all": 0.3362193362193362,
+    "story_obj": 0.23557692307692307,
+    "curve": [
+      {
+        "step": 0,
+        "obj": 0.0,
+        "story_all": 0.0
+      },
+      {
+        "step": 5000,
+        "obj": 0.4,
+        "story_all": 0.27176015473887816
+      },
+      {
+        "step": 10000,
+        "obj": 0.365,
+        "story_all": 0.3152804642166344
+      },
+      {
+        "step": 15000,
+        "obj": 0.405,
+        "story_all": 0.2988394584139265
+      },
+      {
+        "step": 20000,
+        "obj": 0.345,
+        "story_all": 0.32978723404255317
+      },
+      {
+        "step": 25000,
+        "obj": 0.38,
+        "story_all": 0.32688588007736946
+      },
+      {
+        "step": 30000,
+        "obj": 0.38,
+        "story_all": 0.3346228239845261
+      },
+      {
+        "step": 35000,
+        "obj": 0.41,
+        "story_all": 0.3413926499032882
+      },
+      {
+        "step": 40000,
+        "obj": 0.355,
+        "story_all": 0.3529980657640232
+      }
+    ],
+    "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage149_ws_bpe_fp.pt"
+  },
+  "func_bias_gpt": {
+    "arm": "func_bias_gpt",
+    "protocol": "131_func_penalty_under_GPT_hparams",
+    "seen_obj": 0.41375,
+    "seen_rel": 0.94,
+    "story_all": 0.22925130586186884,
+    "story_obj": 0.1853932584269663,
+    "curve": [
+      {
+        "step": 0,
+        "obj": 0.4425,
+        "rel": 0.95,
+        "story_all": 0.2133850630455868,
+        "func_top5": 0.547236180904523
+      },
+      {
+        "step": 2000,
+        "obj": 0.4225,
+        "rel": 0.955,
+        "story_all": 0.2162948593598448,
+        "func_top5": 0.5005025125628136
+      },
+      {
+        "step": 4000,
+        "obj": 0.395,
+        "rel": 0.95,
+        "story_all": 0.22259941804073716,
+        "func_top5": 0.5798994974874375
+      },
+      {
+        "step": 6000,
+        "obj": 0.42,
+        "rel": 0.95,
+        "story_all": 0.22017458777885549,
+        "func_top5": 0.5718592964824121
+      },
+      {
+        "step": 8000,
+        "obj": 0.405,
+        "rel": 0.9475,
+        "story_all": 0.22696411251212414,
+        "func_top5": 0.5778894472361809
+      },
+      {
+        "step": 10000,
+        "obj": 0.4025,
+        "rel": 0.95,
+        "story_all": 0.22744907856450047,
+        "func_top5": 0.5160804020100502
+      },
+      {
+        "step": 12000,
+        "obj": 0.4375,
+        "rel": 0.95,
+        "story_all": 0.2361784675072745,
+        "func_top5": 0.5547738693467337
+      },
+      {
+        "step": 14000,
+        "obj": 0.4225,
+        "rel": 0.95,
+        "story_all": 0.2405431619786615,
+        "func_top5": 0.551758793969849
+      },
+      {
+        "step": 16000,
+        "obj": 0.3975,
+        "rel": 0.95,
+        "story_all": 0.22938894277400582,
+        "func_top5": 0.5170854271356785
+      },
+      {
+        "step": 18000,
+        "obj": 0.39,
+        "rel": 0.95,
+        "story_all": 0.22793404461687683,
+        "func_top5": 0.516582914572864
+      },
+      {
+        "step": 20000,
+        "obj": 0.385,
+        "rel": 0.9325,
+        "story_all": 0.2492725509214355,
+        "func_top5": 0.49045226130653263
+      },
+      {
+        "step": 22000,
+        "obj": 0.435,
+        "rel": 0.9525,
+        "story_all": 0.24393792434529582,
+        "func_top5": 0.5160804020100506
+      },
+      {
+        "step": 24000,
+        "obj": 0.4,
+        "rel": 0.9475,
+        "story_all": 0.2434529582929195,
+        "func_top5": 0.5542713567839198
+      },
+      {
+        "step": 25000,
+        "obj": 0.4025,
+        "rel": 0.9575,
+        "story_all": 0.2478176527643065,
+        "func_top5": 0.48944723618090413
+      }
+    ],
+    "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage149_func_bias_gpt.pt",
+    "ref131_story": 0.2446
+  },
+  "gaps_story": {
+    "bpe_rand_minus_word": 0.13005619302775426,
+    "bpe_fp_minus_word": 0.14208120505276625,
+    "bpe_fp_minus_bpe_rand": 0.012025012025011994,
+    "func_minus_word": 0.0351131746952989
+  },
+  "ref100": {
+    "obj": 0.426,
+    "rel": 0.958,
+    "story_all": 0.196,
+    "rare_obj": 0.117
+  },
+  "ref112_unmatched_gap": 0.1435,
+  "ref131_story": 0.2446,
+  "verdict": "MATCHED_TABLE",
+  "note": "All A/B/C share identical batch/lr/opt/depth/steps. D = 131 func-bias continued from A under same GPT hparams."
+}

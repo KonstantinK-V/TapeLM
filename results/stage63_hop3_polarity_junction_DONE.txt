@@ -1,0 +1,20 @@
+SOTE Stage 63 — hop3 PASS, polarity PASS, junction chance
+timestamp: 2026-07-24T11:42:28+00:00
+bank: external_facts_live_exp_FROZEN.txt (818)
+
+=== A hop3 stress ===
+  joint3 85.9%  h2inst 87.5%  PASS ≥70%
+
+=== B polarity (no/not) ===
+  n_facts=143 pairs=334  — ENOUGH for stress slice
+  hop2 93.8% vs noun_rel 95.3% (Δ +1.6pp)  PASS
+  cross pol↔noun hop2 93.8%
+  Read: negation stress meaningful; hops hold. Not logical NOT.
+
+=== C junction ===
+  rel-shortlist 44% ~ chance 50% — separate channels; not a gate.
+
+=== Negation Q ===
+  Yes, stress-by-polarity makes sense: data not thin (143).
+  Result: no material drop vs noun_rel on hop retrieval.
+  Do not claim NLI/logic negation from this.

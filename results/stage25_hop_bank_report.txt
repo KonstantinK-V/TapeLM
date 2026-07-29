@@ -1,0 +1,47 @@
+SOTE Stage 25 report (hop-bank expand, eval-first)
+timestamp: 2026-07-23T15:38:39.185671+00:00
+device: cuda
+parent contracts: bridge_qa_binder_16_FROZEN.pt + thought_scratch_24_FROZEN.pt
+no training; ThoughtScratch protocol unchanged
+
+=== Bank sizes ===
+                phrases    rel  chains  shared_obj
+base HOLD            38     31       5           4
+exp  HOLD            96     89     180          12
+ctrl pairs HOLD       24
+base TRAIN           68     54      46           7
+exp  TRAIN          119    105     165          17
+
+Controlled HOLD chain examples:
+  go to hut  =>  hut on rim
+  spot to hut  =>  hut on peg
+  bird to peg  =>  peg on rim
+  fish to peg  =>  peg on hut
+  ball to rim  =>  rim on peg
+  ship to rim  =>  rim on hut
+  dog to cob  =>  cob on rim
+  cat to cob  =>  cob on peg
+
+=== Multi-hop eval: BASE contract bank (pair/chains=5, eps=48) ===
+mode            H1      H2    JOINT
+scratch      81.2%   93.8%    77.1%
+oracle2      81.2%   95.8%    77.1%
+polluted      0.0%   52.1%     0.0%
+
+=== Multi-hop eval: CONTROLLED new pairs (primary) (pair/chains=24, eps=80) ===
+mode            H1      H2    JOINT
+scratch      78.8%   63.7%    53.8%
+oracle2      78.8%   82.5%    61.3%
+polluted     10.0%   55.0%     6.2%
+
+=== Multi-hop eval: FULL expanded bank stress (pair/chains=180, eps=48) ===
+mode            H1      H2    JOINT
+scratch      39.6%   56.2%    10.4%
+oracle2      39.6%   68.8%    12.5%
+polluted      2.1%   52.1%     0.0%
+
+=== Verdict ===
+  PASS: controlled HOLD pairs=24 (>= 20); scratch joint=53.8%.
+  Stress note: full expanded joint=10.4% (cue collisions under dense fan-out) — use controlled bank for curriculum.
+  Next: Stage partial-cue -> scratch -> CueBinder on controlled hop bank.
+  vs base: ctrl joint=-23.3pp  full-stress joint=-66.7pp

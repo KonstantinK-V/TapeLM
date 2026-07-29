@@ -1,0 +1,3190 @@
+{
+  "stage": "9f+",
+  "timestamp": "2026-07-23T07:31:57.063438+00:00",
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "config": {
+    "dim": 64,
+    "lr": 0.003,
+    "steps": 4500,
+    "seed": 0,
+    "temperature": 0.07,
+    "contrast_temp": 0.1,
+    "batch_pairs": 24,
+    "max_suffix": 4,
+    "w_realize_ce": 1.0,
+    "w_realize_cos": 1.0,
+    "w_cycle": 1.0,
+    "w_swap_affix": 0.85,
+    "w_swap_shuffle": 0.65,
+    "w_contrast": 0.75,
+    "w_delta": 0.06,
+    "w_basin_sep": 0.12,
+    "margin": 0.1,
+    "warm_b_blend": 0.25,
+    "g_realize": 0.95,
+    "g_peel": 0.95,
+    "g_cycle": 0.95,
+    "g_aff_win": 0.95,
+    "g_shuf_win": 0.75
+  },
+  "metrics": {
+    "word_ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\word_memory_9_2.pt",
+    "n_train": 38,
+    "n_hold": 12,
+    "basin_sims": {
+      "ing_ed": 0.002673201262950897,
+      "ing_s": -0.00016943737864494324,
+      "ed_s": 0.001208726316690445
+    },
+    "train_pairs": [
+      [
+        "play",
+        "ing",
+        "playing"
+      ],
+      [
+        "go",
+        "ing",
+        "going"
+      ],
+      [
+        "act",
+        "ing",
+        "acting"
+      ],
+      [
+        "fish",
+        "ing",
+        "fishing"
+      ],
+      [
+        "post",
+        "ing",
+        "posting"
+      ],
+      [
+        "book",
+        "ing",
+        "booking"
+      ],
+      [
+        "light",
+        "ing",
+        "lighting"
+      ],
+      [
+        "make",
+        "ing",
+        "making"
+      ],
+      [
+        "take",
+        "ing",
+        "taking"
+      ],
+      [
+        "give",
+        "ing",
+        "giving"
+      ],
+      [
+        "run",
+        "ing",
+        "running"
+      ],
+      [
+        "stop",
+        "ing",
+        "stopping"
+      ],
+      [
+        "spot",
+        "ing",
+        "spotting"
+      ],
+      [
+        "top",
+        "ing",
+        "topping"
+      ],
+      [
+        "play",
+        "ed",
+        "played"
+      ],
+      [
+        "stop",
+        "ed",
+        "stopped"
+      ],
+      [
+        "post",
+        "ed",
+        "posted"
+      ],
+      [
+        "act",
+        "ed",
+        "acted"
+      ],
+      [
+        "fish",
+        "ed",
+        "fished"
+      ],
+      [
+        "book",
+        "ed",
+        "booked"
+      ],
+      [
+        "top",
+        "ed",
+        "topped"
+      ],
+      [
+        "spot",
+        "ed",
+        "spotted"
+      ],
+      [
+        "light",
+        "ed",
+        "lighted"
+      ],
+      [
+        "water",
+        "ed",
+        "watered"
+      ],
+      [
+        "play",
+        "s",
+        "plays"
+      ],
+      [
+        "run",
+        "s",
+        "runs"
+      ],
+      [
+        "make",
+        "s",
+        "makes"
+      ],
+      [
+        "take",
+        "s",
+        "takes"
+      ],
+      [
+        "give",
+        "s",
+        "gives"
+      ],
+      [
+        "cat",
+        "s",
+        "cats"
+      ],
+      [
+        "dog",
+        "s",
+        "dogs"
+      ],
+      [
+        "book",
+        "s",
+        "books"
+      ],
+      [
+        "act",
+        "s",
+        "acts"
+      ],
+      [
+        "post",
+        "s",
+        "posts"
+      ],
+      [
+        "go",
+        "s",
+        "goes"
+      ],
+      [
+        "fish",
+        "s",
+        "fishes"
+      ],
+      [
+        "top",
+        "s",
+        "tops"
+      ],
+      [
+        "spot",
+        "s",
+        "spots"
+      ]
+    ],
+    "hold_pairs": [
+      [
+        "jump",
+        "ing",
+        "jumping"
+      ],
+      [
+        "walk",
+        "ing",
+        "walking"
+      ],
+      [
+        "read",
+        "ing",
+        "reading"
+      ],
+      [
+        "write",
+        "ing",
+        "writing"
+      ],
+      [
+        "jump",
+        "ed",
+        "jumped"
+      ],
+      [
+        "walk",
+        "ed",
+        "walked"
+      ],
+      [
+        "read",
+        "ed",
+        "readed"
+      ],
+      [
+        "write",
+        "ed",
+        "writed"
+      ],
+      [
+        "jump",
+        "s",
+        "jumps"
+      ],
+      [
+        "walk",
+        "s",
+        "walks"
+      ],
+      [
+        "read",
+        "s",
+        "reads"
+      ],
+      [
+        "write",
+        "s",
+        "writes"
+      ]
+    ],
+    "api": {
+      "peel": "compose(orth_prefix(form, affix))",
+      "reattach": "compose(prefix_letters + MorphModPlus(suffix_letters, affix))",
+      "cycle": "reattach(peel(form), affix) -> form"
+    },
+    "hold": {
+      "realize": {
+        "n": 12,
+        "acc": 1.0,
+        "mean_agree": 0.9981067925691605,
+        "details": [
+          {
+            "stem": "jump",
+            "affix": "ing",
+            "form": "jumping",
+            "pred": "jumping",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.9990702867507935,
+            "margin_aff": 0.39548951387405396,
+            "margin_shuf": 0.04435110092163086
+          },
+          {
+            "stem": "walk",
+            "affix": "ing",
+            "form": "walking",
+            "pred": "walking",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.9995735883712769,
+            "margin_aff": 0.4196332097053528,
+            "margin_shuf": 0.08909273147583008
+          },
+          {
+            "stem": "read",
+            "affix": "ing",
+            "form": "reading",
+            "pred": "reading",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.9987103939056396,
+            "margin_aff": 0.4590359330177307,
+            "margin_shuf": 0.27313917875289917
+          },
+          {
+            "stem": "write",
+            "affix": "ing",
+            "form": "writing",
+            "pred": "writing",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.998586893081665,
+            "margin_aff": 0.6260529160499573,
+            "margin_shuf": 0.21998894214630127
+          },
+          {
+            "stem": "jump",
+            "affix": "ed",
+            "form": "jumped",
+            "pred": "jumped",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.9956976175308228,
+            "margin_aff": 0.7264513969421387,
+            "margin_shuf": 0.3138927221298218
+          },
+          {
+            "stem": "walk",
+            "affix": "ed",
+            "form": "walked",
+            "pred": "walked",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.9995748400688171,
+            "margin_aff": 0.5149813294410706,
+            "margin_shuf": 0.40927356481552124
+          },
+          {
+            "stem": "read",
+            "affix": "ed",
+            "form": "readed",
+            "pred": "readed",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.9975827932357788,
+            "margin_aff": 0.7279336452484131,
+            "margin_shuf": 0.4494699239730835
+          },
+          {
+            "stem": "write",
+            "affix": "ed",
+            "form": "writed",
+            "pred": "writed",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.9918384552001953,
+            "margin_aff": 0.5486529767513275,
+            "margin_shuf": 0.4605454206466675
+          },
+          {
+            "stem": "jump",
+            "affix": "s",
+            "form": "jumps",
+            "pred": "jumps",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.9990513324737549,
+            "margin_aff": 0.40245521068573,
+            "margin_shuf": 0.0
+          },
+          {
+            "stem": "walk",
+            "affix": "s",
+            "form": "walks",
+            "pred": "walks",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.9996846914291382,
+            "margin_aff": 0.4173436760902405,
+            "margin_shuf": 0.0
+          },
+          {
+            "stem": "read",
+            "affix": "s",
+            "form": "reads",
+            "pred": "reads",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.9989597797393799,
+            "margin_aff": 0.43342065811157227,
+            "margin_shuf": 0.0
+          },
+          {
+            "stem": "write",
+            "affix": "s",
+            "form": "writes",
+            "pred": "writes",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.9989508390426636,
+            "margin_aff": 0.6072866022586823,
+            "margin_shuf": 0.5242618918418884
+          }
+        ],
+        "naive_acc": 1.0,
+        "aff_win": 1.0,
+        "mean_margin_aff": 0.5232280890146891,
+        "shuf_win": 0.75,
+        "mean_margin_shuf": 0.23200128972530365
+      },
+      "peel": {
+        "n": 12,
+        "acc": 1.0,
+        "mean_agree": 0.9513096213340759,
+        "details": [
+          {
+            "stem": "jump",
+            "affix": "ing",
+            "prefix": "jump",
+            "pred": "jump",
+            "ok": true,
+            "agree": 1.0
+          },
+          {
+            "stem": "walk",
+            "affix": "ing",
+            "prefix": "walk",
+            "pred": "walk",
+            "ok": true,
+            "agree": 1.0
+          },
+          {
+            "stem": "read",
+            "affix": "ing",
+            "prefix": "read",
+            "pred": "read",
+            "ok": true,
+            "agree": 1.0
+          },
+          {
+            "stem": "write",
+            "affix": "ing",
+            "prefix": "writ",
+            "pred": "write",
+            "ok": true,
+            "agree": 0.8052384853363037
+          },
+          {
+            "stem": "jump",
+            "affix": "ed",
+            "prefix": "jump",
+            "pred": "jump",
+            "ok": true,
+            "agree": 1.0
+          },
+          {
+            "stem": "walk",
+            "affix": "ed",
+            "prefix": "walk",
+            "pred": "walk",
+            "ok": true,
+            "agree": 1.0
+          },
+          {
+            "stem": "read",
+            "affix": "ed",
+            "prefix": "read",
+            "pred": "read",
+            "ok": true,
+            "agree": 1.0
+          },
+          {
+            "stem": "write",
+            "affix": "ed",
+            "prefix": "writ",
+            "pred": "write",
+            "ok": true,
+            "agree": 0.8052384853363037
+          },
+          {
+            "stem": "jump",
+            "affix": "s",
+            "prefix": "jump",
+            "pred": "jump",
+            "ok": true,
+            "agree": 1.0
+          },
+          {
+            "stem": "walk",
+            "affix": "s",
+            "prefix": "walk",
+            "pred": "walk",
+            "ok": true,
+            "agree": 1.0
+          },
+          {
+            "stem": "read",
+            "affix": "s",
+            "prefix": "read",
+            "pred": "read",
+            "ok": true,
+            "agree": 1.0
+          },
+          {
+            "stem": "write",
+            "affix": "s",
+            "prefix": "writ",
+            "pred": "write",
+            "ok": true,
+            "agree": 0.8052384853363037
+          }
+        ]
+      },
+      "cycle": {
+        "n": 12,
+        "acc": 1.0,
+        "mean_agree": 0.9981067925691605,
+        "details": [
+          {
+            "stem": "jump",
+            "affix": "ing",
+            "pred": "jumping",
+            "ok": true,
+            "agree": 0.9990702867507935
+          },
+          {
+            "stem": "walk",
+            "affix": "ing",
+            "pred": "walking",
+            "ok": true,
+            "agree": 0.9995735883712769
+          },
+          {
+            "stem": "read",
+            "affix": "ing",
+            "pred": "reading",
+            "ok": true,
+            "agree": 0.9987103939056396
+          },
+          {
+            "stem": "write",
+            "affix": "ing",
+            "pred": "writing",
+            "ok": true,
+            "agree": 0.998586893081665
+          },
+          {
+            "stem": "jump",
+            "affix": "ed",
+            "pred": "jumped",
+            "ok": true,
+            "agree": 0.9956976175308228
+          },
+          {
+            "stem": "walk",
+            "affix": "ed",
+            "pred": "walked",
+            "ok": true,
+            "agree": 0.9995748400688171
+          },
+          {
+            "stem": "read",
+            "affix": "ed",
+            "pred": "readed",
+            "ok": true,
+            "agree": 0.9975827932357788
+          },
+          {
+            "stem": "write",
+            "affix": "ed",
+            "pred": "writed",
+            "ok": true,
+            "agree": 0.9918384552001953
+          },
+          {
+            "stem": "jump",
+            "affix": "s",
+            "pred": "jumps",
+            "ok": true,
+            "agree": 0.9990513324737549
+          },
+          {
+            "stem": "walk",
+            "affix": "s",
+            "pred": "walks",
+            "ok": true,
+            "agree": 0.9996846914291382
+          },
+          {
+            "stem": "read",
+            "affix": "s",
+            "pred": "reads",
+            "ok": true,
+            "agree": 0.9989597797393799
+          },
+          {
+            "stem": "write",
+            "affix": "s",
+            "pred": "writes",
+            "ok": true,
+            "agree": 0.9989508390426636
+          }
+        ]
+      },
+      "by_affix": {
+        "ing": {
+          "realize": {
+            "n": 4,
+            "acc": 1.0,
+            "mean_agree": 0.9989852905273438,
+            "details": [
+              {
+                "stem": "jump",
+                "affix": "ing",
+                "form": "jumping",
+                "pred": "jumping",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.9990702867507935,
+                "margin_aff": 0.39548951387405396,
+                "margin_shuf": 0.04435110092163086
+              },
+              {
+                "stem": "walk",
+                "affix": "ing",
+                "form": "walking",
+                "pred": "walking",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.9995735883712769,
+                "margin_aff": 0.4196332097053528,
+                "margin_shuf": 0.08909273147583008
+              },
+              {
+                "stem": "read",
+                "affix": "ing",
+                "form": "reading",
+                "pred": "reading",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.9987103939056396,
+                "margin_aff": 0.4590359330177307,
+                "margin_shuf": 0.27313917875289917
+              },
+              {
+                "stem": "write",
+                "affix": "ing",
+                "form": "writing",
+                "pred": "writing",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.998586893081665,
+                "margin_aff": 0.6260529160499573,
+                "margin_shuf": 0.21998894214630127
+              }
+            ],
+            "naive_acc": 1.0,
+            "aff_win": 1.0,
+            "mean_margin_aff": 0.4750528931617737,
+            "shuf_win": 1.0,
+            "mean_margin_shuf": 0.15664298832416534
+          },
+          "peel": {
+            "n": 4,
+            "acc": 1.0,
+            "mean_agree": 0.9513096213340759,
+            "details": [
+              {
+                "stem": "jump",
+                "affix": "ing",
+                "prefix": "jump",
+                "pred": "jump",
+                "ok": true,
+                "agree": 1.0
+              },
+              {
+                "stem": "walk",
+                "affix": "ing",
+                "prefix": "walk",
+                "pred": "walk",
+                "ok": true,
+                "agree": 1.0
+              },
+              {
+                "stem": "read",
+                "affix": "ing",
+                "prefix": "read",
+                "pred": "read",
+                "ok": true,
+                "agree": 1.0
+              },
+              {
+                "stem": "write",
+                "affix": "ing",
+                "prefix": "writ",
+                "pred": "write",
+                "ok": true,
+                "agree": 0.8052384853363037
+              }
+            ]
+          },
+          "cycle": {
+            "n": 4,
+            "acc": 1.0,
+            "mean_agree": 0.9989852905273438,
+            "details": [
+              {
+                "stem": "jump",
+                "affix": "ing",
+                "pred": "jumping",
+                "ok": true,
+                "agree": 0.9990702867507935
+              },
+              {
+                "stem": "walk",
+                "affix": "ing",
+                "pred": "walking",
+                "ok": true,
+                "agree": 0.9995735883712769
+              },
+              {
+                "stem": "read",
+                "affix": "ing",
+                "pred": "reading",
+                "ok": true,
+                "agree": 0.9987103939056396
+              },
+              {
+                "stem": "write",
+                "affix": "ing",
+                "pred": "writing",
+                "ok": true,
+                "agree": 0.998586893081665
+              }
+            ]
+          }
+        },
+        "ed": {
+          "realize": {
+            "n": 4,
+            "acc": 1.0,
+            "mean_agree": 0.9961734265089035,
+            "details": [
+              {
+                "stem": "jump",
+                "affix": "ed",
+                "form": "jumped",
+                "pred": "jumped",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.9956976175308228,
+                "margin_aff": 0.7264513969421387,
+                "margin_shuf": 0.3138927221298218
+              },
+              {
+                "stem": "walk",
+                "affix": "ed",
+                "form": "walked",
+                "pred": "walked",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.9995748400688171,
+                "margin_aff": 0.5149813294410706,
+                "margin_shuf": 0.40927356481552124
+              },
+              {
+                "stem": "read",
+                "affix": "ed",
+                "form": "readed",
+                "pred": "readed",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.9975827932357788,
+                "margin_aff": 0.7279336452484131,
+                "margin_shuf": 0.4494699239730835
+              },
+              {
+                "stem": "write",
+                "affix": "ed",
+                "form": "writed",
+                "pred": "writed",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.9918384552001953,
+                "margin_aff": 0.5486529767513275,
+                "margin_shuf": 0.4605454206466675
+              }
+            ],
+            "naive_acc": 1.0,
+            "aff_win": 1.0,
+            "mean_margin_aff": 0.6295048370957375,
+            "shuf_win": 1.0,
+            "mean_margin_shuf": 0.4082954078912735
+          },
+          "peel": {
+            "n": 4,
+            "acc": 1.0,
+            "mean_agree": 0.9513096213340759,
+            "details": [
+              {
+                "stem": "jump",
+                "affix": "ed",
+                "prefix": "jump",
+                "pred": "jump",
+                "ok": true,
+                "agree": 1.0
+              },
+              {
+                "stem": "walk",
+                "affix": "ed",
+                "prefix": "walk",
+                "pred": "walk",
+                "ok": true,
+                "agree": 1.0
+              },
+              {
+                "stem": "read",
+                "affix": "ed",
+                "prefix": "read",
+                "pred": "read",
+                "ok": true,
+                "agree": 1.0
+              },
+              {
+                "stem": "write",
+                "affix": "ed",
+                "prefix": "writ",
+                "pred": "write",
+                "ok": true,
+                "agree": 0.8052384853363037
+              }
+            ]
+          },
+          "cycle": {
+            "n": 4,
+            "acc": 1.0,
+            "mean_agree": 0.9961734265089035,
+            "details": [
+              {
+                "stem": "jump",
+                "affix": "ed",
+                "pred": "jumped",
+                "ok": true,
+                "agree": 0.9956976175308228
+              },
+              {
+                "stem": "walk",
+                "affix": "ed",
+                "pred": "walked",
+                "ok": true,
+                "agree": 0.9995748400688171
+              },
+              {
+                "stem": "read",
+                "affix": "ed",
+                "pred": "readed",
+                "ok": true,
+                "agree": 0.9975827932357788
+              },
+              {
+                "stem": "write",
+                "affix": "ed",
+                "pred": "writed",
+                "ok": true,
+                "agree": 0.9918384552001953
+              }
+            ]
+          }
+        },
+        "s": {
+          "realize": {
+            "n": 4,
+            "acc": 1.0,
+            "mean_agree": 0.9991616606712341,
+            "details": [
+              {
+                "stem": "jump",
+                "affix": "s",
+                "form": "jumps",
+                "pred": "jumps",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.9990513324737549,
+                "margin_aff": 0.40245521068573,
+                "margin_shuf": 0.0
+              },
+              {
+                "stem": "walk",
+                "affix": "s",
+                "form": "walks",
+                "pred": "walks",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.9996846914291382,
+                "margin_aff": 0.4173436760902405,
+                "margin_shuf": 0.0
+              },
+              {
+                "stem": "read",
+                "affix": "s",
+                "form": "reads",
+                "pred": "reads",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.9989597797393799,
+                "margin_aff": 0.43342065811157227,
+                "margin_shuf": 0.0
+              },
+              {
+                "stem": "write",
+                "affix": "s",
+                "form": "writes",
+                "pred": "writes",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.9989508390426636,
+                "margin_aff": 0.6072866022586823,
+                "margin_shuf": 0.5242618918418884
+              }
+            ],
+            "naive_acc": 1.0,
+            "aff_win": 1.0,
+            "mean_margin_aff": 0.46512653678655624,
+            "shuf_win": 0.25,
+            "mean_margin_shuf": 0.1310654729604721
+          },
+          "peel": {
+            "n": 4,
+            "acc": 1.0,
+            "mean_agree": 0.9513096213340759,
+            "details": [
+              {
+                "stem": "jump",
+                "affix": "s",
+                "prefix": "jump",
+                "pred": "jump",
+                "ok": true,
+                "agree": 1.0
+              },
+              {
+                "stem": "walk",
+                "affix": "s",
+                "prefix": "walk",
+                "pred": "walk",
+                "ok": true,
+                "agree": 1.0
+              },
+              {
+                "stem": "read",
+                "affix": "s",
+                "prefix": "read",
+                "pred": "read",
+                "ok": true,
+                "agree": 1.0
+              },
+              {
+                "stem": "write",
+                "affix": "s",
+                "prefix": "writ",
+                "pred": "write",
+                "ok": true,
+                "agree": 0.8052384853363037
+              }
+            ]
+          },
+          "cycle": {
+            "n": 4,
+            "acc": 1.0,
+            "mean_agree": 0.9991616606712341,
+            "details": [
+              {
+                "stem": "jump",
+                "affix": "s",
+                "pred": "jumps",
+                "ok": true,
+                "agree": 0.9990513324737549
+              },
+              {
+                "stem": "walk",
+                "affix": "s",
+                "pred": "walks",
+                "ok": true,
+                "agree": 0.9996846914291382
+              },
+              {
+                "stem": "read",
+                "affix": "s",
+                "pred": "reads",
+                "ok": true,
+                "agree": 0.9989597797393799
+              },
+              {
+                "stem": "write",
+                "affix": "s",
+                "pred": "writes",
+                "ok": true,
+                "agree": 0.9989508390426636
+              }
+            ]
+          }
+        }
+      }
+    },
+    "train": {
+      "realize": {
+        "n": 38,
+        "acc": 1.0,
+        "mean_agree": 0.9979496111995295,
+        "details": [
+          {
+            "stem": "play",
+            "affix": "ing",
+            "form": "playing",
+            "pred": "playing",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.9992331862449646,
+            "margin_aff": 0.33473891019821167,
+            "margin_shuf": 0.21935898065567017
+          },
+          {
+            "stem": "go",
+            "affix": "ing",
+            "form": "going",
+            "pred": "going",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.9899270534515381,
+            "margin_aff": 0.31045401096343994,
+            "margin_shuf": 0.35053110122680664
+          },
+          {
+            "stem": "act",
+            "affix": "ing",
+            "form": "acting",
+            "pred": "acting",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.9986251592636108,
+            "margin_aff": 0.5596365630626678,
+            "margin_shuf": 0.3133465051651001
+          },
+          {
+            "stem": "fish",
+            "affix": "ing",
+            "form": "fishing",
+            "pred": "fishing",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.9987032413482666,
+            "margin_aff": 0.42882686853408813,
+            "margin_shuf": 0.25711357593536377
+          },
+          {
+            "stem": "post",
+            "affix": "ing",
+            "form": "posting",
+            "pred": "posting",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.998774528503418,
+            "margin_aff": 0.38628995418548584,
+            "margin_shuf": 0.3674125075340271
+          },
+          {
+            "stem": "book",
+            "affix": "ing",
+            "form": "booking",
+            "pred": "booking",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.9983599185943604,
+            "margin_aff": 0.5467640161514282,
+            "margin_shuf": 0.5707462430000305
+          },
+          {
+            "stem": "light",
+            "affix": "ing",
+            "form": "lighting",
+            "pred": "lighting",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.9972173571586609,
+            "margin_aff": 0.3305767774581909,
+            "margin_shuf": 0.2831194996833801
+          },
+          {
+            "stem": "make",
+            "affix": "ing",
+            "form": "making",
+            "pred": "making",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.9986152052879333,
+            "margin_aff": 0.5379852056503296,
+            "margin_shuf": 0.334528386592865
+          },
+          {
+            "stem": "take",
+            "affix": "ing",
+            "form": "taking",
+            "pred": "taking",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.9984956383705139,
+            "margin_aff": 0.6863871514797211,
+            "margin_shuf": 0.12863308191299438
+          },
+          {
+            "stem": "give",
+            "affix": "ing",
+            "form": "giving",
+            "pred": "giving",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.9983381628990173,
+            "margin_aff": 0.5520594120025635,
+            "margin_shuf": 0.46214669942855835
+          },
+          {
+            "stem": "run",
+            "affix": "ing",
+            "form": "running",
+            "pred": "running",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.9989922046661377,
+            "margin_aff": 0.28393399715423584,
+            "margin_shuf": 0.3225942850112915
+          },
+          {
+            "stem": "stop",
+            "affix": "ing",
+            "form": "stopping",
+            "pred": "stopping",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.9995816349983215,
+            "margin_aff": 0.668886661529541,
+            "margin_shuf": 0.36736422777175903
+          },
+          {
+            "stem": "spot",
+            "affix": "ing",
+            "form": "spotting",
+            "pred": "spotting",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.9988750219345093,
+            "margin_aff": 0.3630977272987366,
+            "margin_shuf": 0.27381986379623413
+          },
+          {
+            "stem": "top",
+            "affix": "ing",
+            "form": "topping",
+            "pred": "topping",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.9988120794296265,
+            "margin_aff": 0.313127338886261,
+            "margin_shuf": 0.5309496223926544
+          },
+          {
+            "stem": "play",
+            "affix": "ed",
+            "form": "played",
+            "pred": "played",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.993071436882019,
+            "margin_aff": 0.312136709690094,
+            "margin_shuf": 0.15774667263031006
+          },
+          {
+            "stem": "stop",
+            "affix": "ed",
+            "form": "stopped",
+            "pred": "stopped",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.9923036098480225,
+            "margin_aff": 0.4498640298843384,
+            "margin_shuf": 0.5937922596931458
+          },
+          {
+            "stem": "post",
+            "affix": "ed",
+            "form": "posted",
+            "pred": "posted",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.9934097528457642,
+            "margin_aff": 0.5045909285545349,
+            "margin_shuf": 0.2301340103149414
+          },
+          {
+            "stem": "act",
+            "affix": "ed",
+            "form": "acted",
+            "pred": "acted",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.997201681137085,
+            "margin_aff": 0.4000556468963623,
+            "margin_shuf": 0.4324146509170532
+          },
+          {
+            "stem": "fish",
+            "affix": "ed",
+            "form": "fished",
+            "pred": "fished",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.9989743828773499,
+            "margin_aff": 0.5376496016979218,
+            "margin_shuf": 0.23191314935684204
+          },
+          {
+            "stem": "book",
+            "affix": "ed",
+            "form": "booked",
+            "pred": "booked",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.9965370893478394,
+            "margin_aff": 0.7972705811262131,
+            "margin_shuf": 0.3735811710357666
+          },
+          {
+            "stem": "top",
+            "affix": "ed",
+            "form": "topped",
+            "pred": "topped",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.9954745769500732,
+            "margin_aff": 0.525964617729187,
+            "margin_shuf": 0.5578566193580627
+          },
+          {
+            "stem": "spot",
+            "affix": "ed",
+            "form": "spotted",
+            "pred": "spotted",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.9964795708656311,
+            "margin_aff": 0.33011525869369507,
+            "margin_shuf": 0.4013408422470093
+          },
+          {
+            "stem": "light",
+            "affix": "ed",
+            "form": "lighted",
+            "pred": "lighted",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.9986534118652344,
+            "margin_aff": 0.33381545543670654,
+            "margin_shuf": 0.40594029426574707
+          },
+          {
+            "stem": "water",
+            "affix": "ed",
+            "form": "watered",
+            "pred": "watered",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.9966722726821899,
+            "margin_aff": 0.36843013763427734,
+            "margin_shuf": 0.43588733673095703
+          },
+          {
+            "stem": "play",
+            "affix": "s",
+            "form": "plays",
+            "pred": "plays",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.9996511340141296,
+            "margin_aff": 0.3521868586540222,
+            "margin_shuf": 0.0
+          },
+          {
+            "stem": "run",
+            "affix": "s",
+            "form": "runs",
+            "pred": "runs",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.9997496604919434,
+            "margin_aff": 0.2880852222442627,
+            "margin_shuf": 0.0
+          },
+          {
+            "stem": "make",
+            "affix": "s",
+            "form": "makes",
+            "pred": "makes",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.999893069267273,
+            "margin_aff": 0.4762152433395386,
+            "margin_shuf": 0.6689849495887756
+          },
+          {
+            "stem": "take",
+            "affix": "s",
+            "form": "takes",
+            "pred": "takes",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.999879002571106,
+            "margin_aff": 0.5316755771636963,
+            "margin_shuf": 0.6832039952278137
+          },
+          {
+            "stem": "give",
+            "affix": "s",
+            "form": "gives",
+            "pred": "gives",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.9998921155929565,
+            "margin_aff": 0.4161958694458008,
+            "margin_shuf": 0.7766879796981812
+          },
+          {
+            "stem": "cat",
+            "affix": "s",
+            "form": "cats",
+            "pred": "cats",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.9990329742431641,
+            "margin_aff": 0.4017704129219055,
+            "margin_shuf": 0.0
+          },
+          {
+            "stem": "dog",
+            "affix": "s",
+            "form": "dogs",
+            "pred": "dogs",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.9993494749069214,
+            "margin_aff": 0.4224732518196106,
+            "margin_shuf": 0.0
+          },
+          {
+            "stem": "book",
+            "affix": "s",
+            "form": "books",
+            "pred": "books",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.9975255727767944,
+            "margin_aff": 0.5274621248245239,
+            "margin_shuf": 0.0
+          },
+          {
+            "stem": "act",
+            "affix": "s",
+            "form": "acts",
+            "pred": "acts",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.9997122883796692,
+            "margin_aff": 0.40509504079818726,
+            "margin_shuf": 0.0
+          },
+          {
+            "stem": "post",
+            "affix": "s",
+            "form": "posts",
+            "pred": "posts",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.9992319941520691,
+            "margin_aff": 0.38823503255844116,
+            "margin_shuf": 0.0
+          },
+          {
+            "stem": "go",
+            "affix": "s",
+            "form": "goes",
+            "pred": "goes",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.9983991980552673,
+            "margin_aff": 0.42481833696365356,
+            "margin_shuf": 0.714264303445816
+          },
+          {
+            "stem": "fish",
+            "affix": "s",
+            "form": "fishes",
+            "pred": "fishes",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.999152660369873,
+            "margin_aff": 0.42057985067367554,
+            "margin_shuf": 0.16396582126617432
+          },
+          {
+            "stem": "top",
+            "affix": "s",
+            "form": "tops",
+            "pred": "tops",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.9995149374008179,
+            "margin_aff": 0.311970591545105,
+            "margin_shuf": 0.0
+          },
+          {
+            "stem": "spot",
+            "affix": "s",
+            "form": "spots",
+            "pred": "spots",
+            "ok": true,
+            "naive_ok": true,
+            "agree": 0.9997729659080505,
+            "margin_aff": 0.3744179606437683,
+            "margin_shuf": 0.0
+          }
+        ],
+        "naive_acc": 1.0,
+        "aff_win": 1.0,
+        "mean_margin_aff": 0.4369431298814322,
+        "shuf_win": 0.7631578947368421,
+        "mean_margin_shuf": 0.30550996410219294
+      },
+      "peel": {
+        "n": 38,
+        "acc": 1.0,
+        "mean_agree": 0.9482422549473611,
+        "details": [
+          {
+            "stem": "play",
+            "affix": "ing",
+            "prefix": "play",
+            "pred": "play",
+            "ok": true,
+            "agree": 1.0000001192092896
+          },
+          {
+            "stem": "go",
+            "affix": "ing",
+            "prefix": "go",
+            "pred": "go",
+            "ok": true,
+            "agree": 0.9999998807907104
+          },
+          {
+            "stem": "act",
+            "affix": "ing",
+            "prefix": "act",
+            "pred": "act",
+            "ok": true,
+            "agree": 1.0
+          },
+          {
+            "stem": "fish",
+            "affix": "ing",
+            "prefix": "fish",
+            "pred": "fish",
+            "ok": true,
+            "agree": 0.9999998807907104
+          },
+          {
+            "stem": "post",
+            "affix": "ing",
+            "prefix": "post",
+            "pred": "post",
+            "ok": true,
+            "agree": 1.0
+          },
+          {
+            "stem": "book",
+            "affix": "ing",
+            "prefix": "book",
+            "pred": "book",
+            "ok": true,
+            "agree": 1.0
+          },
+          {
+            "stem": "light",
+            "affix": "ing",
+            "prefix": "light",
+            "pred": "light",
+            "ok": true,
+            "agree": 0.9999998807907104
+          },
+          {
+            "stem": "make",
+            "affix": "ing",
+            "prefix": "mak",
+            "pred": "make",
+            "ok": true,
+            "agree": 0.8910952806472778
+          },
+          {
+            "stem": "take",
+            "affix": "ing",
+            "prefix": "tak",
+            "pred": "take",
+            "ok": true,
+            "agree": 0.8749245405197144
+          },
+          {
+            "stem": "give",
+            "affix": "ing",
+            "prefix": "giv",
+            "pred": "give",
+            "ok": true,
+            "agree": 0.8830105066299438
+          },
+          {
+            "stem": "run",
+            "affix": "ing",
+            "prefix": "runn",
+            "pred": "run",
+            "ok": true,
+            "agree": 0.5564597249031067
+          },
+          {
+            "stem": "stop",
+            "affix": "ing",
+            "prefix": "stopp",
+            "pred": "stop",
+            "ok": true,
+            "agree": 0.8780064582824707
+          },
+          {
+            "stem": "spot",
+            "affix": "ing",
+            "prefix": "spott",
+            "pred": "spot",
+            "ok": true,
+            "agree": 0.8475083112716675
+          },
+          {
+            "stem": "top",
+            "affix": "ing",
+            "prefix": "topp",
+            "pred": "top",
+            "ok": true,
+            "agree": 0.8638278245925903
+          },
+          {
+            "stem": "play",
+            "affix": "ed",
+            "prefix": "play",
+            "pred": "play",
+            "ok": true,
+            "agree": 1.0000001192092896
+          },
+          {
+            "stem": "stop",
+            "affix": "ed",
+            "prefix": "stopp",
+            "pred": "stop",
+            "ok": true,
+            "agree": 0.8780064582824707
+          },
+          {
+            "stem": "post",
+            "affix": "ed",
+            "prefix": "post",
+            "pred": "post",
+            "ok": true,
+            "agree": 1.0
+          },
+          {
+            "stem": "act",
+            "affix": "ed",
+            "prefix": "act",
+            "pred": "act",
+            "ok": true,
+            "agree": 1.0
+          },
+          {
+            "stem": "fish",
+            "affix": "ed",
+            "prefix": "fish",
+            "pred": "fish",
+            "ok": true,
+            "agree": 0.9999998807907104
+          },
+          {
+            "stem": "book",
+            "affix": "ed",
+            "prefix": "book",
+            "pred": "book",
+            "ok": true,
+            "agree": 1.0
+          },
+          {
+            "stem": "top",
+            "affix": "ed",
+            "prefix": "topp",
+            "pred": "top",
+            "ok": true,
+            "agree": 0.8638278245925903
+          },
+          {
+            "stem": "spot",
+            "affix": "ed",
+            "prefix": "spott",
+            "pred": "spot",
+            "ok": true,
+            "agree": 0.8475083112716675
+          },
+          {
+            "stem": "light",
+            "affix": "ed",
+            "prefix": "light",
+            "pred": "light",
+            "ok": true,
+            "agree": 0.9999998807907104
+          },
+          {
+            "stem": "water",
+            "affix": "ed",
+            "prefix": "water",
+            "pred": "water",
+            "ok": true,
+            "agree": 1.0
+          },
+          {
+            "stem": "play",
+            "affix": "s",
+            "prefix": "play",
+            "pred": "play",
+            "ok": true,
+            "agree": 1.0000001192092896
+          },
+          {
+            "stem": "run",
+            "affix": "s",
+            "prefix": "run",
+            "pred": "run",
+            "ok": true,
+            "agree": 1.0
+          },
+          {
+            "stem": "make",
+            "affix": "s",
+            "prefix": "mak",
+            "pred": "make",
+            "ok": true,
+            "agree": 0.8910952806472778
+          },
+          {
+            "stem": "take",
+            "affix": "s",
+            "prefix": "tak",
+            "pred": "take",
+            "ok": true,
+            "agree": 0.8749245405197144
+          },
+          {
+            "stem": "give",
+            "affix": "s",
+            "prefix": "giv",
+            "pred": "give",
+            "ok": true,
+            "agree": 0.8830105066299438
+          },
+          {
+            "stem": "cat",
+            "affix": "s",
+            "prefix": "cat",
+            "pred": "cat",
+            "ok": true,
+            "agree": 1.0000001192092896
+          },
+          {
+            "stem": "dog",
+            "affix": "s",
+            "prefix": "dog",
+            "pred": "dog",
+            "ok": true,
+            "agree": 1.000000238418579
+          },
+          {
+            "stem": "book",
+            "affix": "s",
+            "prefix": "book",
+            "pred": "book",
+            "ok": true,
+            "agree": 1.0
+          },
+          {
+            "stem": "act",
+            "affix": "s",
+            "prefix": "act",
+            "pred": "act",
+            "ok": true,
+            "agree": 1.0
+          },
+          {
+            "stem": "post",
+            "affix": "s",
+            "prefix": "post",
+            "pred": "post",
+            "ok": true,
+            "agree": 1.0
+          },
+          {
+            "stem": "go",
+            "affix": "s",
+            "prefix": "go",
+            "pred": "go",
+            "ok": true,
+            "agree": 0.9999998807907104
+          },
+          {
+            "stem": "fish",
+            "affix": "s",
+            "prefix": "fish",
+            "pred": "fish",
+            "ok": true,
+            "agree": 0.9999998807907104
+          },
+          {
+            "stem": "top",
+            "affix": "s",
+            "prefix": "top",
+            "pred": "top",
+            "ok": true,
+            "agree": 1.0000001192092896
+          },
+          {
+            "stem": "spot",
+            "affix": "s",
+            "prefix": "spot",
+            "pred": "spot",
+            "ok": true,
+            "agree": 1.0000001192092896
+          }
+        ]
+      },
+      "cycle": {
+        "n": 38,
+        "acc": 1.0,
+        "mean_agree": 0.9979496111995295,
+        "details": [
+          {
+            "stem": "play",
+            "affix": "ing",
+            "pred": "playing",
+            "ok": true,
+            "agree": 0.9992331862449646
+          },
+          {
+            "stem": "go",
+            "affix": "ing",
+            "pred": "going",
+            "ok": true,
+            "agree": 0.9899270534515381
+          },
+          {
+            "stem": "act",
+            "affix": "ing",
+            "pred": "acting",
+            "ok": true,
+            "agree": 0.9986251592636108
+          },
+          {
+            "stem": "fish",
+            "affix": "ing",
+            "pred": "fishing",
+            "ok": true,
+            "agree": 0.9987032413482666
+          },
+          {
+            "stem": "post",
+            "affix": "ing",
+            "pred": "posting",
+            "ok": true,
+            "agree": 0.998774528503418
+          },
+          {
+            "stem": "book",
+            "affix": "ing",
+            "pred": "booking",
+            "ok": true,
+            "agree": 0.9983599185943604
+          },
+          {
+            "stem": "light",
+            "affix": "ing",
+            "pred": "lighting",
+            "ok": true,
+            "agree": 0.9972173571586609
+          },
+          {
+            "stem": "make",
+            "affix": "ing",
+            "pred": "making",
+            "ok": true,
+            "agree": 0.9986152052879333
+          },
+          {
+            "stem": "take",
+            "affix": "ing",
+            "pred": "taking",
+            "ok": true,
+            "agree": 0.9984956383705139
+          },
+          {
+            "stem": "give",
+            "affix": "ing",
+            "pred": "giving",
+            "ok": true,
+            "agree": 0.9983381628990173
+          },
+          {
+            "stem": "run",
+            "affix": "ing",
+            "pred": "running",
+            "ok": true,
+            "agree": 0.9989922046661377
+          },
+          {
+            "stem": "stop",
+            "affix": "ing",
+            "pred": "stopping",
+            "ok": true,
+            "agree": 0.9995816349983215
+          },
+          {
+            "stem": "spot",
+            "affix": "ing",
+            "pred": "spotting",
+            "ok": true,
+            "agree": 0.9988750219345093
+          },
+          {
+            "stem": "top",
+            "affix": "ing",
+            "pred": "topping",
+            "ok": true,
+            "agree": 0.9988120794296265
+          },
+          {
+            "stem": "play",
+            "affix": "ed",
+            "pred": "played",
+            "ok": true,
+            "agree": 0.993071436882019
+          },
+          {
+            "stem": "stop",
+            "affix": "ed",
+            "pred": "stopped",
+            "ok": true,
+            "agree": 0.9923036098480225
+          },
+          {
+            "stem": "post",
+            "affix": "ed",
+            "pred": "posted",
+            "ok": true,
+            "agree": 0.9934097528457642
+          },
+          {
+            "stem": "act",
+            "affix": "ed",
+            "pred": "acted",
+            "ok": true,
+            "agree": 0.997201681137085
+          },
+          {
+            "stem": "fish",
+            "affix": "ed",
+            "pred": "fished",
+            "ok": true,
+            "agree": 0.9989743828773499
+          },
+          {
+            "stem": "book",
+            "affix": "ed",
+            "pred": "booked",
+            "ok": true,
+            "agree": 0.9965370893478394
+          },
+          {
+            "stem": "top",
+            "affix": "ed",
+            "pred": "topped",
+            "ok": true,
+            "agree": 0.9954745769500732
+          },
+          {
+            "stem": "spot",
+            "affix": "ed",
+            "pred": "spotted",
+            "ok": true,
+            "agree": 0.9964795708656311
+          },
+          {
+            "stem": "light",
+            "affix": "ed",
+            "pred": "lighted",
+            "ok": true,
+            "agree": 0.9986534118652344
+          },
+          {
+            "stem": "water",
+            "affix": "ed",
+            "pred": "watered",
+            "ok": true,
+            "agree": 0.9966722726821899
+          },
+          {
+            "stem": "play",
+            "affix": "s",
+            "pred": "plays",
+            "ok": true,
+            "agree": 0.9996511340141296
+          },
+          {
+            "stem": "run",
+            "affix": "s",
+            "pred": "runs",
+            "ok": true,
+            "agree": 0.9997496604919434
+          },
+          {
+            "stem": "make",
+            "affix": "s",
+            "pred": "makes",
+            "ok": true,
+            "agree": 0.999893069267273
+          },
+          {
+            "stem": "take",
+            "affix": "s",
+            "pred": "takes",
+            "ok": true,
+            "agree": 0.999879002571106
+          },
+          {
+            "stem": "give",
+            "affix": "s",
+            "pred": "gives",
+            "ok": true,
+            "agree": 0.9998921155929565
+          },
+          {
+            "stem": "cat",
+            "affix": "s",
+            "pred": "cats",
+            "ok": true,
+            "agree": 0.9990329742431641
+          },
+          {
+            "stem": "dog",
+            "affix": "s",
+            "pred": "dogs",
+            "ok": true,
+            "agree": 0.9993494749069214
+          },
+          {
+            "stem": "book",
+            "affix": "s",
+            "pred": "books",
+            "ok": true,
+            "agree": 0.9975255727767944
+          },
+          {
+            "stem": "act",
+            "affix": "s",
+            "pred": "acts",
+            "ok": true,
+            "agree": 0.9997122883796692
+          },
+          {
+            "stem": "post",
+            "affix": "s",
+            "pred": "posts",
+            "ok": true,
+            "agree": 0.9992319941520691
+          },
+          {
+            "stem": "go",
+            "affix": "s",
+            "pred": "goes",
+            "ok": true,
+            "agree": 0.9983991980552673
+          },
+          {
+            "stem": "fish",
+            "affix": "s",
+            "pred": "fishes",
+            "ok": true,
+            "agree": 0.999152660369873
+          },
+          {
+            "stem": "top",
+            "affix": "s",
+            "pred": "tops",
+            "ok": true,
+            "agree": 0.9995149374008179
+          },
+          {
+            "stem": "spot",
+            "affix": "s",
+            "pred": "spots",
+            "ok": true,
+            "agree": 0.9997729659080505
+          }
+        ]
+      },
+      "by_affix": {
+        "ing": {
+          "realize": {
+            "n": 14,
+            "acc": 1.0,
+            "mean_agree": 0.9980393137250628,
+            "details": [
+              {
+                "stem": "play",
+                "affix": "ing",
+                "form": "playing",
+                "pred": "playing",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.9992331862449646,
+                "margin_aff": 0.33473891019821167,
+                "margin_shuf": 0.21935898065567017
+              },
+              {
+                "stem": "go",
+                "affix": "ing",
+                "form": "going",
+                "pred": "going",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.9899270534515381,
+                "margin_aff": 0.31045401096343994,
+                "margin_shuf": 0.35053110122680664
+              },
+              {
+                "stem": "act",
+                "affix": "ing",
+                "form": "acting",
+                "pred": "acting",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.9986251592636108,
+                "margin_aff": 0.5596365630626678,
+                "margin_shuf": 0.3133465051651001
+              },
+              {
+                "stem": "fish",
+                "affix": "ing",
+                "form": "fishing",
+                "pred": "fishing",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.9987032413482666,
+                "margin_aff": 0.42882686853408813,
+                "margin_shuf": 0.25711357593536377
+              },
+              {
+                "stem": "post",
+                "affix": "ing",
+                "form": "posting",
+                "pred": "posting",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.998774528503418,
+                "margin_aff": 0.38628995418548584,
+                "margin_shuf": 0.3674125075340271
+              },
+              {
+                "stem": "book",
+                "affix": "ing",
+                "form": "booking",
+                "pred": "booking",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.9983599185943604,
+                "margin_aff": 0.5467640161514282,
+                "margin_shuf": 0.5707462430000305
+              },
+              {
+                "stem": "light",
+                "affix": "ing",
+                "form": "lighting",
+                "pred": "lighting",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.9972173571586609,
+                "margin_aff": 0.3305767774581909,
+                "margin_shuf": 0.2831194996833801
+              },
+              {
+                "stem": "make",
+                "affix": "ing",
+                "form": "making",
+                "pred": "making",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.9986152052879333,
+                "margin_aff": 0.5379852056503296,
+                "margin_shuf": 0.334528386592865
+              },
+              {
+                "stem": "take",
+                "affix": "ing",
+                "form": "taking",
+                "pred": "taking",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.9984956383705139,
+                "margin_aff": 0.6863871514797211,
+                "margin_shuf": 0.12863308191299438
+              },
+              {
+                "stem": "give",
+                "affix": "ing",
+                "form": "giving",
+                "pred": "giving",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.9983381628990173,
+                "margin_aff": 0.5520594120025635,
+                "margin_shuf": 0.46214669942855835
+              },
+              {
+                "stem": "run",
+                "affix": "ing",
+                "form": "running",
+                "pred": "running",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.9989922046661377,
+                "margin_aff": 0.28393399715423584,
+                "margin_shuf": 0.3225942850112915
+              },
+              {
+                "stem": "stop",
+                "affix": "ing",
+                "form": "stopping",
+                "pred": "stopping",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.9995816349983215,
+                "margin_aff": 0.668886661529541,
+                "margin_shuf": 0.36736422777175903
+              },
+              {
+                "stem": "spot",
+                "affix": "ing",
+                "form": "spotting",
+                "pred": "spotting",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.9988750219345093,
+                "margin_aff": 0.3630977272987366,
+                "margin_shuf": 0.27381986379623413
+              },
+              {
+                "stem": "top",
+                "affix": "ing",
+                "form": "topping",
+                "pred": "topping",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.9988120794296265,
+                "margin_aff": 0.313127338886261,
+                "margin_shuf": 0.5309496223926544
+              }
+            ],
+            "naive_acc": 1.0,
+            "aff_win": 1.0,
+            "mean_margin_aff": 0.4501974710396358,
+            "shuf_win": 1.0,
+            "mean_margin_shuf": 0.3415474700076239
+          },
+          "peel": {
+            "n": 14,
+            "acc": 1.0,
+            "mean_agree": 0.9139166006020137,
+            "details": [
+              {
+                "stem": "play",
+                "affix": "ing",
+                "prefix": "play",
+                "pred": "play",
+                "ok": true,
+                "agree": 1.0000001192092896
+              },
+              {
+                "stem": "go",
+                "affix": "ing",
+                "prefix": "go",
+                "pred": "go",
+                "ok": true,
+                "agree": 0.9999998807907104
+              },
+              {
+                "stem": "act",
+                "affix": "ing",
+                "prefix": "act",
+                "pred": "act",
+                "ok": true,
+                "agree": 1.0
+              },
+              {
+                "stem": "fish",
+                "affix": "ing",
+                "prefix": "fish",
+                "pred": "fish",
+                "ok": true,
+                "agree": 0.9999998807907104
+              },
+              {
+                "stem": "post",
+                "affix": "ing",
+                "prefix": "post",
+                "pred": "post",
+                "ok": true,
+                "agree": 1.0
+              },
+              {
+                "stem": "book",
+                "affix": "ing",
+                "prefix": "book",
+                "pred": "book",
+                "ok": true,
+                "agree": 1.0
+              },
+              {
+                "stem": "light",
+                "affix": "ing",
+                "prefix": "light",
+                "pred": "light",
+                "ok": true,
+                "agree": 0.9999998807907104
+              },
+              {
+                "stem": "make",
+                "affix": "ing",
+                "prefix": "mak",
+                "pred": "make",
+                "ok": true,
+                "agree": 0.8910952806472778
+              },
+              {
+                "stem": "take",
+                "affix": "ing",
+                "prefix": "tak",
+                "pred": "take",
+                "ok": true,
+                "agree": 0.8749245405197144
+              },
+              {
+                "stem": "give",
+                "affix": "ing",
+                "prefix": "giv",
+                "pred": "give",
+                "ok": true,
+                "agree": 0.8830105066299438
+              },
+              {
+                "stem": "run",
+                "affix": "ing",
+                "prefix": "runn",
+                "pred": "run",
+                "ok": true,
+                "agree": 0.5564597249031067
+              },
+              {
+                "stem": "stop",
+                "affix": "ing",
+                "prefix": "stopp",
+                "pred": "stop",
+                "ok": true,
+                "agree": 0.8780064582824707
+              },
+              {
+                "stem": "spot",
+                "affix": "ing",
+                "prefix": "spott",
+                "pred": "spot",
+                "ok": true,
+                "agree": 0.8475083112716675
+              },
+              {
+                "stem": "top",
+                "affix": "ing",
+                "prefix": "topp",
+                "pred": "top",
+                "ok": true,
+                "agree": 0.8638278245925903
+              }
+            ]
+          },
+          "cycle": {
+            "n": 14,
+            "acc": 1.0,
+            "mean_agree": 0.9980393137250628,
+            "details": [
+              {
+                "stem": "play",
+                "affix": "ing",
+                "pred": "playing",
+                "ok": true,
+                "agree": 0.9992331862449646
+              },
+              {
+                "stem": "go",
+                "affix": "ing",
+                "pred": "going",
+                "ok": true,
+                "agree": 0.9899270534515381
+              },
+              {
+                "stem": "act",
+                "affix": "ing",
+                "pred": "acting",
+                "ok": true,
+                "agree": 0.9986251592636108
+              },
+              {
+                "stem": "fish",
+                "affix": "ing",
+                "pred": "fishing",
+                "ok": true,
+                "agree": 0.9987032413482666
+              },
+              {
+                "stem": "post",
+                "affix": "ing",
+                "pred": "posting",
+                "ok": true,
+                "agree": 0.998774528503418
+              },
+              {
+                "stem": "book",
+                "affix": "ing",
+                "pred": "booking",
+                "ok": true,
+                "agree": 0.9983599185943604
+              },
+              {
+                "stem": "light",
+                "affix": "ing",
+                "pred": "lighting",
+                "ok": true,
+                "agree": 0.9972173571586609
+              },
+              {
+                "stem": "make",
+                "affix": "ing",
+                "pred": "making",
+                "ok": true,
+                "agree": 0.9986152052879333
+              },
+              {
+                "stem": "take",
+                "affix": "ing",
+                "pred": "taking",
+                "ok": true,
+                "agree": 0.9984956383705139
+              },
+              {
+                "stem": "give",
+                "affix": "ing",
+                "pred": "giving",
+                "ok": true,
+                "agree": 0.9983381628990173
+              },
+              {
+                "stem": "run",
+                "affix": "ing",
+                "pred": "running",
+                "ok": true,
+                "agree": 0.9989922046661377
+              },
+              {
+                "stem": "stop",
+                "affix": "ing",
+                "pred": "stopping",
+                "ok": true,
+                "agree": 0.9995816349983215
+              },
+              {
+                "stem": "spot",
+                "affix": "ing",
+                "pred": "spotting",
+                "ok": true,
+                "agree": 0.9988750219345093
+              },
+              {
+                "stem": "top",
+                "affix": "ing",
+                "pred": "topping",
+                "ok": true,
+                "agree": 0.9988120794296265
+              }
+            ]
+          }
+        },
+        "ed": {
+          "realize": {
+            "n": 10,
+            "acc": 1.0,
+            "mean_agree": 0.9958777785301208,
+            "details": [
+              {
+                "stem": "play",
+                "affix": "ed",
+                "form": "played",
+                "pred": "played",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.993071436882019,
+                "margin_aff": 0.312136709690094,
+                "margin_shuf": 0.15774667263031006
+              },
+              {
+                "stem": "stop",
+                "affix": "ed",
+                "form": "stopped",
+                "pred": "stopped",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.9923036098480225,
+                "margin_aff": 0.4498640298843384,
+                "margin_shuf": 0.5937922596931458
+              },
+              {
+                "stem": "post",
+                "affix": "ed",
+                "form": "posted",
+                "pred": "posted",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.9934097528457642,
+                "margin_aff": 0.5045909285545349,
+                "margin_shuf": 0.2301340103149414
+              },
+              {
+                "stem": "act",
+                "affix": "ed",
+                "form": "acted",
+                "pred": "acted",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.997201681137085,
+                "margin_aff": 0.4000556468963623,
+                "margin_shuf": 0.4324146509170532
+              },
+              {
+                "stem": "fish",
+                "affix": "ed",
+                "form": "fished",
+                "pred": "fished",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.9989743828773499,
+                "margin_aff": 0.5376496016979218,
+                "margin_shuf": 0.23191314935684204
+              },
+              {
+                "stem": "book",
+                "affix": "ed",
+                "form": "booked",
+                "pred": "booked",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.9965370893478394,
+                "margin_aff": 0.7972705811262131,
+                "margin_shuf": 0.3735811710357666
+              },
+              {
+                "stem": "top",
+                "affix": "ed",
+                "form": "topped",
+                "pred": "topped",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.9954745769500732,
+                "margin_aff": 0.525964617729187,
+                "margin_shuf": 0.5578566193580627
+              },
+              {
+                "stem": "spot",
+                "affix": "ed",
+                "form": "spotted",
+                "pred": "spotted",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.9964795708656311,
+                "margin_aff": 0.33011525869369507,
+                "margin_shuf": 0.4013408422470093
+              },
+              {
+                "stem": "light",
+                "affix": "ed",
+                "form": "lighted",
+                "pred": "lighted",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.9986534118652344,
+                "margin_aff": 0.33381545543670654,
+                "margin_shuf": 0.40594029426574707
+              },
+              {
+                "stem": "water",
+                "affix": "ed",
+                "form": "watered",
+                "pred": "watered",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.9966722726821899,
+                "margin_aff": 0.36843013763427734,
+                "margin_shuf": 0.43588733673095703
+              }
+            ],
+            "naive_acc": 1.0,
+            "aff_win": 1.0,
+            "mean_margin_aff": 0.455989296734333,
+            "shuf_win": 1.0,
+            "mean_margin_shuf": 0.38206070065498354
+          },
+          "peel": {
+            "n": 10,
+            "acc": 1.0,
+            "mean_agree": 0.9589342474937439,
+            "details": [
+              {
+                "stem": "play",
+                "affix": "ed",
+                "prefix": "play",
+                "pred": "play",
+                "ok": true,
+                "agree": 1.0000001192092896
+              },
+              {
+                "stem": "stop",
+                "affix": "ed",
+                "prefix": "stopp",
+                "pred": "stop",
+                "ok": true,
+                "agree": 0.8780064582824707
+              },
+              {
+                "stem": "post",
+                "affix": "ed",
+                "prefix": "post",
+                "pred": "post",
+                "ok": true,
+                "agree": 1.0
+              },
+              {
+                "stem": "act",
+                "affix": "ed",
+                "prefix": "act",
+                "pred": "act",
+                "ok": true,
+                "agree": 1.0
+              },
+              {
+                "stem": "fish",
+                "affix": "ed",
+                "prefix": "fish",
+                "pred": "fish",
+                "ok": true,
+                "agree": 0.9999998807907104
+              },
+              {
+                "stem": "book",
+                "affix": "ed",
+                "prefix": "book",
+                "pred": "book",
+                "ok": true,
+                "agree": 1.0
+              },
+              {
+                "stem": "top",
+                "affix": "ed",
+                "prefix": "topp",
+                "pred": "top",
+                "ok": true,
+                "agree": 0.8638278245925903
+              },
+              {
+                "stem": "spot",
+                "affix": "ed",
+                "prefix": "spott",
+                "pred": "spot",
+                "ok": true,
+                "agree": 0.8475083112716675
+              },
+              {
+                "stem": "light",
+                "affix": "ed",
+                "prefix": "light",
+                "pred": "light",
+                "ok": true,
+                "agree": 0.9999998807907104
+              },
+              {
+                "stem": "water",
+                "affix": "ed",
+                "prefix": "water",
+                "pred": "water",
+                "ok": true,
+                "agree": 1.0
+              }
+            ]
+          },
+          "cycle": {
+            "n": 10,
+            "acc": 1.0,
+            "mean_agree": 0.9958777785301208,
+            "details": [
+              {
+                "stem": "play",
+                "affix": "ed",
+                "pred": "played",
+                "ok": true,
+                "agree": 0.993071436882019
+              },
+              {
+                "stem": "stop",
+                "affix": "ed",
+                "pred": "stopped",
+                "ok": true,
+                "agree": 0.9923036098480225
+              },
+              {
+                "stem": "post",
+                "affix": "ed",
+                "pred": "posted",
+                "ok": true,
+                "agree": 0.9934097528457642
+              },
+              {
+                "stem": "act",
+                "affix": "ed",
+                "pred": "acted",
+                "ok": true,
+                "agree": 0.997201681137085
+              },
+              {
+                "stem": "fish",
+                "affix": "ed",
+                "pred": "fished",
+                "ok": true,
+                "agree": 0.9989743828773499
+              },
+              {
+                "stem": "book",
+                "affix": "ed",
+                "pred": "booked",
+                "ok": true,
+                "agree": 0.9965370893478394
+              },
+              {
+                "stem": "top",
+                "affix": "ed",
+                "pred": "topped",
+                "ok": true,
+                "agree": 0.9954745769500732
+              },
+              {
+                "stem": "spot",
+                "affix": "ed",
+                "pred": "spotted",
+                "ok": true,
+                "agree": 0.9964795708656311
+              },
+              {
+                "stem": "light",
+                "affix": "ed",
+                "pred": "lighted",
+                "ok": true,
+                "agree": 0.9986534118652344
+              },
+              {
+                "stem": "water",
+                "affix": "ed",
+                "pred": "watered",
+                "ok": true,
+                "agree": 0.9966722726821899
+              }
+            ]
+          }
+        },
+        "s": {
+          "realize": {
+            "n": 14,
+            "acc": 1.0,
+            "mean_agree": 0.9993397891521454,
+            "details": [
+              {
+                "stem": "play",
+                "affix": "s",
+                "form": "plays",
+                "pred": "plays",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.9996511340141296,
+                "margin_aff": 0.3521868586540222,
+                "margin_shuf": 0.0
+              },
+              {
+                "stem": "run",
+                "affix": "s",
+                "form": "runs",
+                "pred": "runs",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.9997496604919434,
+                "margin_aff": 0.2880852222442627,
+                "margin_shuf": 0.0
+              },
+              {
+                "stem": "make",
+                "affix": "s",
+                "form": "makes",
+                "pred": "makes",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.999893069267273,
+                "margin_aff": 0.4762152433395386,
+                "margin_shuf": 0.6689849495887756
+              },
+              {
+                "stem": "take",
+                "affix": "s",
+                "form": "takes",
+                "pred": "takes",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.999879002571106,
+                "margin_aff": 0.5316755771636963,
+                "margin_shuf": 0.6832039952278137
+              },
+              {
+                "stem": "give",
+                "affix": "s",
+                "form": "gives",
+                "pred": "gives",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.9998921155929565,
+                "margin_aff": 0.4161958694458008,
+                "margin_shuf": 0.7766879796981812
+              },
+              {
+                "stem": "cat",
+                "affix": "s",
+                "form": "cats",
+                "pred": "cats",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.9990329742431641,
+                "margin_aff": 0.4017704129219055,
+                "margin_shuf": 0.0
+              },
+              {
+                "stem": "dog",
+                "affix": "s",
+                "form": "dogs",
+                "pred": "dogs",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.9993494749069214,
+                "margin_aff": 0.4224732518196106,
+                "margin_shuf": 0.0
+              },
+              {
+                "stem": "book",
+                "affix": "s",
+                "form": "books",
+                "pred": "books",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.9975255727767944,
+                "margin_aff": 0.5274621248245239,
+                "margin_shuf": 0.0
+              },
+              {
+                "stem": "act",
+                "affix": "s",
+                "form": "acts",
+                "pred": "acts",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.9997122883796692,
+                "margin_aff": 0.40509504079818726,
+                "margin_shuf": 0.0
+              },
+              {
+                "stem": "post",
+                "affix": "s",
+                "form": "posts",
+                "pred": "posts",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.9992319941520691,
+                "margin_aff": 0.38823503255844116,
+                "margin_shuf": 0.0
+              },
+              {
+                "stem": "go",
+                "affix": "s",
+                "form": "goes",
+                "pred": "goes",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.9983991980552673,
+                "margin_aff": 0.42481833696365356,
+                "margin_shuf": 0.714264303445816
+              },
+              {
+                "stem": "fish",
+                "affix": "s",
+                "form": "fishes",
+                "pred": "fishes",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.999152660369873,
+                "margin_aff": 0.42057985067367554,
+                "margin_shuf": 0.16396582126617432
+              },
+              {
+                "stem": "top",
+                "affix": "s",
+                "form": "tops",
+                "pred": "tops",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.9995149374008179,
+                "margin_aff": 0.311970591545105,
+                "margin_shuf": 0.0
+              },
+              {
+                "stem": "spot",
+                "affix": "s",
+                "form": "spots",
+                "pred": "spots",
+                "ok": true,
+                "naive_ok": true,
+                "agree": 0.9997729659080505,
+                "margin_aff": 0.3744179606437683,
+                "margin_shuf": 0.0
+              }
+            ],
+            "naive_acc": 1.0,
+            "aff_win": 1.0,
+            "mean_margin_aff": 0.41008438382829937,
+            "shuf_win": 0.35714285714285715,
+            "mean_margin_shuf": 0.21479336065905436
+          },
+          "peel": {
+            "n": 14,
+            "acc": 1.0,
+            "mean_agree": 0.9749307717595782,
+            "details": [
+              {
+                "stem": "play",
+                "affix": "s",
+                "prefix": "play",
+                "pred": "play",
+                "ok": true,
+                "agree": 1.0000001192092896
+              },
+              {
+                "stem": "run",
+                "affix": "s",
+                "prefix": "run",
+                "pred": "run",
+                "ok": true,
+                "agree": 1.0
+              },
+              {
+                "stem": "make",
+                "affix": "s",
+                "prefix": "mak",
+                "pred": "make",
+                "ok": true,
+                "agree": 0.8910952806472778
+              },
+              {
+                "stem": "take",
+                "affix": "s",
+                "prefix": "tak",
+                "pred": "take",
+                "ok": true,
+                "agree": 0.8749245405197144
+              },
+              {
+                "stem": "give",
+                "affix": "s",
+                "prefix": "giv",
+                "pred": "give",
+                "ok": true,
+                "agree": 0.8830105066299438
+              },
+              {
+                "stem": "cat",
+                "affix": "s",
+                "prefix": "cat",
+                "pred": "cat",
+                "ok": true,
+                "agree": 1.0000001192092896
+              },
+              {
+                "stem": "dog",
+                "affix": "s",
+                "prefix": "dog",
+                "pred": "dog",
+                "ok": true,
+                "agree": 1.000000238418579
+              },
+              {
+                "stem": "book",
+                "affix": "s",
+                "prefix": "book",
+                "pred": "book",
+                "ok": true,
+                "agree": 1.0
+              },
+              {
+                "stem": "act",
+                "affix": "s",
+                "prefix": "act",
+                "pred": "act",
+                "ok": true,
+                "agree": 1.0
+              },
+              {
+                "stem": "post",
+                "affix": "s",
+                "prefix": "post",
+                "pred": "post",
+                "ok": true,
+                "agree": 1.0
+              },
+              {
+                "stem": "go",
+                "affix": "s",
+                "prefix": "go",
+                "pred": "go",
+                "ok": true,
+                "agree": 0.9999998807907104
+              },
+              {
+                "stem": "fish",
+                "affix": "s",
+                "prefix": "fish",
+                "pred": "fish",
+                "ok": true,
+                "agree": 0.9999998807907104
+              },
+              {
+                "stem": "top",
+                "affix": "s",
+                "prefix": "top",
+                "pred": "top",
+                "ok": true,
+                "agree": 1.0000001192092896
+              },
+              {
+                "stem": "spot",
+                "affix": "s",
+                "prefix": "spot",
+                "pred": "spot",
+                "ok": true,
+                "agree": 1.0000001192092896
+              }
+            ]
+          },
+          "cycle": {
+            "n": 14,
+            "acc": 1.0,
+            "mean_agree": 0.9993397891521454,
+            "details": [
+              {
+                "stem": "play",
+                "affix": "s",
+                "pred": "plays",
+                "ok": true,
+                "agree": 0.9996511340141296
+              },
+              {
+                "stem": "run",
+                "affix": "s",
+                "pred": "runs",
+                "ok": true,
+                "agree": 0.9997496604919434
+              },
+              {
+                "stem": "make",
+                "affix": "s",
+                "pred": "makes",
+                "ok": true,
+                "agree": 0.999893069267273
+              },
+              {
+                "stem": "take",
+                "affix": "s",
+                "pred": "takes",
+                "ok": true,
+                "agree": 0.999879002571106
+              },
+              {
+                "stem": "give",
+                "affix": "s",
+                "pred": "gives",
+                "ok": true,
+                "agree": 0.9998921155929565
+              },
+              {
+                "stem": "cat",
+                "affix": "s",
+                "pred": "cats",
+                "ok": true,
+                "agree": 0.9990329742431641
+              },
+              {
+                "stem": "dog",
+                "affix": "s",
+                "pred": "dogs",
+                "ok": true,
+                "agree": 0.9993494749069214
+              },
+              {
+                "stem": "book",
+                "affix": "s",
+                "pred": "books",
+                "ok": true,
+                "agree": 0.9975255727767944
+              },
+              {
+                "stem": "act",
+                "affix": "s",
+                "pred": "acts",
+                "ok": true,
+                "agree": 0.9997122883796692
+              },
+              {
+                "stem": "post",
+                "affix": "s",
+                "pred": "posts",
+                "ok": true,
+                "agree": 0.9992319941520691
+              },
+              {
+                "stem": "go",
+                "affix": "s",
+                "pred": "goes",
+                "ok": true,
+                "agree": 0.9983991980552673
+              },
+              {
+                "stem": "fish",
+                "affix": "s",
+                "pred": "fishes",
+                "ok": true,
+                "agree": 0.999152660369873
+              },
+              {
+                "stem": "top",
+                "affix": "s",
+                "pred": "tops",
+                "ok": true,
+                "agree": 0.9995149374008179
+              },
+              {
+                "stem": "spot",
+                "affix": "s",
+                "pred": "spots",
+                "ok": true,
+                "agree": 0.9997729659080505
+              }
+            ]
+          }
+        }
+      }
+    },
+    "guardrails": {
+      "freeze_ready": false,
+      "per_affix": {
+        "ing": {
+          "ok": true,
+          "checks": {
+            "realize": true,
+            "peel": true,
+            "cycle": true,
+            "aff_win": true,
+            "shuf_win": true
+          },
+          "values": {
+            "realize": 1.0,
+            "peel": 1.0,
+            "cycle": 1.0,
+            "aff_win": 1.0,
+            "shuf_win": 1.0,
+            "margin_aff": 0.4750528931617737,
+            "margin_shuf": 0.15664298832416534
+          }
+        },
+        "ed": {
+          "ok": true,
+          "checks": {
+            "realize": true,
+            "peel": true,
+            "cycle": true,
+            "aff_win": true,
+            "shuf_win": true
+          },
+          "values": {
+            "realize": 1.0,
+            "peel": 1.0,
+            "cycle": 1.0,
+            "aff_win": 1.0,
+            "shuf_win": 1.0,
+            "margin_aff": 0.6295048370957375,
+            "margin_shuf": 0.4082954078912735
+          }
+        },
+        "s": {
+          "ok": false,
+          "checks": {
+            "realize": true,
+            "peel": true,
+            "cycle": true,
+            "aff_win": true,
+            "shuf_win": false
+          },
+          "values": {
+            "realize": 1.0,
+            "peel": 1.0,
+            "cycle": 1.0,
+            "aff_win": 1.0,
+            "shuf_win": 0.25,
+            "margin_aff": 0.46512653678655624,
+            "margin_shuf": 0.1310654729604721
+          }
+        }
+      }
+    }
+  }
+}

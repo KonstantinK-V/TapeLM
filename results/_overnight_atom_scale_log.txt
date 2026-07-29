@@ -1,0 +1,566 @@
+Overnight atom scale start 2026-07-24T20:49:08.578447+00:00
+[data] HTTP GET TinyStoriesV2-GPT4-train.txt -> _tinystories_raw_scale.txt budget=120000000
+  wrote 20971520
+  wrote 41943040
+  wrote 62914560
+  wrote 83886080
+  wrote 104857600
+[data] raw ready size=120586240
+[data] filter _tinystories_raw_scale.txt -> external_tinystories_500k_85.txt max_lines=500000
+[data] filtered n=460421 meta={'source': '_tinystories_raw_scale.txt', 'n_pathish': 350000, 'n_other': 150000, 'n_out': 460421, 'min_words': 3, 'max_words': 8, 'digits_kept': True, 'max_word_len': 24, 'pool_path': 700000, 'pool_other': 300000}
+
+======== Stage 101 scale_500k ========
+device=cuda foundation=stage85_foundation_FROZEN.pt dim_fp=256
+arch d=256 L=2 H=4 steps=80000 batch=8 lr=0.001 warmup=200 fat_frac=0.75 n_phrases=460421
+mix={'n_story_train': 162068, 'n_story_hold': 22100, 'n_fat_triples': 200, 'fat_copies': 40, 'n_train': 168468, 'n_hold_seen': 1600, 'n_hold_rare': 160, 'n_path_triples_avail': 30196}
+building fps V=7063 ...
+fat_pairs=12800 story_pairs=409923 (story_cap=60000)
+params=3.39M
+=== FT ===
+  step     0: SEEN obj=0.0% rel=0.0% | STORY ALL=0.0% obj=0.0% | RARE obj=0.0%
+  step  2000: SEEN obj=16.7% rel=33.5% | STORY ALL=7.4% obj=4.3% | RARE obj=5.0%
+  step  4000: SEEN obj=25.8% rel=27.2% | STORY ALL=8.6% obj=13.2% | RARE obj=10.8%
+  step  6000: SEEN obj=26.5% rel=93.8% | STORY ALL=9.8% obj=12.9% | RARE obj=12.5%
+  step  8000: SEEN obj=24.7% rel=73.3% | STORY ALL=8.5% obj=10.0% | RARE obj=5.8%
+  step 10000: SEEN obj=28.8% rel=93.3% | STORY ALL=11.8% obj=16.4% | RARE obj=10.8%
+  step 12000: SEEN obj=37.3% rel=85.5% | STORY ALL=13.8% obj=16.4% | RARE obj=14.2%
+  step 14000: SEEN obj=37.7% rel=95.5% | STORY ALL=12.3% obj=15.4% | RARE obj=14.2%
+  step 16000: SEEN obj=33.7% rel=96.3% | STORY ALL=13.7% obj=14.6% | RARE obj=10.0%
+  step 18000: SEEN obj=37.5% rel=96.7% | STORY ALL=15.6% obj=17.5% | RARE obj=10.0%
+  step 20000: SEEN obj=40.7% rel=96.7% | STORY ALL=14.4% obj=18.6% | RARE obj=12.5%
+  step 22000: SEEN obj=38.0% rel=96.5% | STORY ALL=14.1% obj=12.9% | RARE obj=12.5%
+  step 24000: SEEN obj=37.8% rel=89.3% | STORY ALL=14.9% obj=16.8% | RARE obj=15.0%
+  step 26000: SEEN obj=38.8% rel=95.0% | STORY ALL=16.4% obj=12.1% | RARE obj=12.5%
+  step 28000: SEEN obj=40.8% rel=96.7% | STORY ALL=17.9% obj=18.9% | RARE obj=12.5%
+  step 30000: SEEN obj=38.8% rel=96.3% | STORY ALL=17.2% obj=14.6% | RARE obj=15.8%
+  step 32000: SEEN obj=39.0% rel=96.7% | STORY ALL=19.4% obj=18.6% | RARE obj=14.2%
+  step 34000: SEEN obj=38.8% rel=96.7% | STORY ALL=18.0% obj=17.1% | RARE obj=15.8%
+  step 36000: SEEN obj=38.7% rel=96.2% | STORY ALL=19.2% obj=18.9% | RARE obj=16.7%
+  step 38000: SEEN obj=38.8% rel=96.7% | STORY ALL=17.8% obj=17.1% | RARE obj=15.8%
+  step 40000: SEEN obj=37.2% rel=95.7% | STORY ALL=19.0% obj=20.0% | RARE obj=14.2%
+  step 42000: SEEN obj=39.7% rel=96.2% | STORY ALL=19.6% obj=17.5% | RARE obj=15.8%
+  step 44000: SEEN obj=39.7% rel=96.2% | STORY ALL=19.6% obj=18.9% | RARE obj=15.8%
+  step 46000: SEEN obj=40.0% rel=96.2% | STORY ALL=21.2% obj=21.1% | RARE obj=11.7%
+  step 48000: SEEN obj=40.3% rel=96.3% | STORY ALL=17.8% obj=14.3% | RARE obj=11.7%
+  step 50000: SEEN obj=38.7% rel=96.7% | STORY ALL=20.3% obj=19.3% | RARE obj=13.3%
+  step 52000: SEEN obj=36.5% rel=96.5% | STORY ALL=19.6% obj=18.6% | RARE obj=16.7%
+  step 54000: SEEN obj=39.5% rel=95.7% | STORY ALL=19.9% obj=14.3% | RARE obj=15.8%
+  step 56000: SEEN obj=40.5% rel=96.7% | STORY ALL=19.3% obj=16.4% | RARE obj=15.8%
+  step 58000: SEEN obj=39.0% rel=96.7% | STORY ALL=20.9% obj=18.2% | RARE obj=12.5%
+  step 60000: SEEN obj=39.2% rel=96.3% | STORY ALL=19.5% obj=19.6% | RARE obj=16.7%
+  step 62000: SEEN obj=39.2% rel=96.7% | STORY ALL=21.3% obj=21.4% | RARE obj=13.3%
+  step 64000: SEEN obj=38.7% rel=96.3% | STORY ALL=21.5% obj=19.3% | RARE obj=13.3%
+  step 66000: SEEN obj=38.7% rel=96.7% | STORY ALL=20.8% obj=18.6% | RARE obj=20.8%
+  step 68000: SEEN obj=41.8% rel=86.0% | STORY ALL=19.1% obj=15.7% | RARE obj=9.2%
+  step 70000: SEEN obj=39.3% rel=97.0% | STORY ALL=21.2% obj=17.5% | RARE obj=15.0%
+  step 72000: SEEN obj=40.3% rel=96.0% | STORY ALL=20.1% obj=15.0% | RARE obj=18.3%
+  step 74000: SEEN obj=40.0% rel=96.2% | STORY ALL=20.5% obj=18.9% | RARE obj=21.7%
+  step 76000: SEEN obj=37.8% rel=96.3% | STORY ALL=20.0% obj=16.4% | RARE obj=18.3%
+  step 78000: SEEN obj=40.2% rel=96.2% | STORY ALL=20.1% obj=21.1% | RARE obj=19.2%
+  step 80000: SEEN obj=39.2% rel=97.0% | STORY ALL=20.4% obj=13.9% | RARE obj=15.8%
+
+SOTE Stage 101 — scale_500k
+timestamp: 2026-07-24T21:12:43.281024+00:00
+device: cuda
+foundation: stage85_foundation_FROZEN.pt
+n_phrases=460421 V=7063 params=3392000
+arch: d=256 L=2 H=4
+train: batch=8 steps=80000 warmup=200 lr=0.001 fat_frac=0.75
+mix: {'n_story_train': 162068, 'n_story_hold': 22100, 'n_fat_triples': 200, 'fat_copies': 40, 'n_train': 168468, 'n_hold_seen': 1600, 'n_hold_rare': 160, 'n_path_triples_avail': 30196}
+NO soft@5. F85 FROZEN not overwritten.
+
+=== Final ===
+  best_step=64000
+  SEEN  obj=40.7% rel=97.1% ALL=68.9%
+  RARE  obj=13.8%
+  STORY ALL=20.6% obj=16.5%
+
+=== vs ref {'obj': 0.426, 'rel': 0.958, 'story_all': 0.196, 'rare_obj': 0.117} ===
+  STORY lift +1.0pp  seen_held=True
+
+=== Verdict: CEILING ===
+Saved C:\Users\Kostya\sote-letter-assembly\checkpoints\stage101_scale_500k.pt
+
+[decision] after 101: branch=capacity lift=+1.0pp seen_held=True verdict=CEILING
+
+======== Stage 102 capacity_4L8H ========
+device=cuda foundation=stage85_foundation_FROZEN.pt dim_fp=256
+arch d=256 L=4 H=8 steps=80000 batch=8 lr=0.001 warmup=200 fat_frac=0.75 n_phrases=460421
+mix={'n_story_train': 162068, 'n_story_hold': 22100, 'n_fat_triples': 200, 'fat_copies': 40, 'n_train': 168468, 'n_hold_seen': 1600, 'n_hold_rare': 160, 'n_path_triples_avail': 30196}
+building fps V=7063 ...
+fat_pairs=12800 story_pairs=409923 (story_cap=60000)
+params=4.97M
+=== FT ===
+  step     0: SEEN obj=0.0% rel=0.0% | STORY ALL=0.0% obj=0.0% | RARE obj=0.0%
+  step  2000: SEEN obj=2.3% rel=86.8% | STORY ALL=5.1% obj=0.0% | RARE obj=0.0%
+  step  4000: SEEN obj=28.2% rel=72.3% | STORY ALL=6.3% obj=10.7% | RARE obj=10.8%
+  step  6000: SEEN obj=23.2% rel=86.8% | STORY ALL=7.0% obj=5.0% | RARE obj=12.5%
+  step  8000: SEEN obj=22.8% rel=90.3% | STORY ALL=8.0% obj=5.0% | RARE obj=10.8%
+  step 10000: SEEN obj=27.0% rel=90.3% | STORY ALL=9.8% obj=9.6% | RARE obj=10.8%
+  step 12000: SEEN obj=28.7% rel=95.0% | STORY ALL=11.3% obj=13.6% | RARE obj=10.0%
+  step 14000: SEEN obj=29.0% rel=96.2% | STORY ALL=11.8% obj=11.8% | RARE obj=8.3%
+  step 16000: SEEN obj=29.3% rel=96.7% | STORY ALL=11.7% obj=13.2% | RARE obj=10.8%
+  step 18000: SEEN obj=35.0% rel=96.7% | STORY ALL=12.3% obj=16.4% | RARE obj=8.3%
+  step 20000: SEEN obj=35.0% rel=96.7% | STORY ALL=11.7% obj=17.1% | RARE obj=13.3%
+  step 22000: SEEN obj=35.8% rel=96.3% | STORY ALL=12.0% obj=14.3% | RARE obj=9.2%
+  step 24000: SEEN obj=38.7% rel=84.3% | STORY ALL=12.6% obj=12.9% | RARE obj=14.2%
+  step 26000: SEEN obj=37.8% rel=96.2% | STORY ALL=12.9% obj=15.0% | RARE obj=15.8%
+  step 28000: SEEN obj=42.0% rel=96.7% | STORY ALL=16.8% obj=16.4% | RARE obj=15.0%
+  step 30000: SEEN obj=37.2% rel=96.3% | STORY ALL=14.8% obj=13.9% | RARE obj=13.3%
+  step 32000: SEEN obj=40.7% rel=96.7% | STORY ALL=16.5% obj=12.9% | RARE obj=11.7%
+  step 34000: SEEN obj=38.5% rel=96.7% | STORY ALL=15.8% obj=13.9% | RARE obj=8.3%
+  step 36000: SEEN obj=38.3% rel=96.7% | STORY ALL=16.9% obj=15.0% | RARE obj=11.7%
+  step 38000: SEEN obj=39.3% rel=96.7% | STORY ALL=16.1% obj=16.1% | RARE obj=13.3%
+  step 40000: SEEN obj=38.0% rel=96.2% | STORY ALL=17.6% obj=16.1% | RARE obj=10.8%
+Followups start 2026-07-24T21:31:52.851455+00:00
+[wait] for C:\Users\Kostya\sote-letter-assembly\results\overnight_atom_scale_decision.json ...
+  step 42000: SEEN obj=41.2% rel=95.7% | STORY ALL=18.9% obj=19.3% | RARE obj=10.8%
+  step 44000: SEEN obj=40.2% rel=95.8% | STORY ALL=18.1% obj=18.6% | RARE obj=13.3%
+Followups start 2026-07-24T21:33:38.768531+00:00
+[wait] for C:\Users\Kostya\sote-letter-assembly\results\overnight_atom_scale_decision.json ...
+  step 46000: SEEN obj=40.8% rel=96.7% | STORY ALL=18.6% obj=17.9% | RARE obj=15.8%
+  step 48000: SEEN obj=41.2% rel=96.3% | STORY ALL=18.5% obj=17.9% | RARE obj=12.5%
+  step 50000: SEEN obj=39.2% rel=95.5% | STORY ALL=18.8% obj=18.6% | RARE obj=12.5%
+  step 52000: SEEN obj=38.3% rel=96.7% | STORY ALL=19.2% obj=20.4% | RARE obj=14.2%
+  step 54000: SEEN obj=40.0% rel=95.7% | STORY ALL=19.9% obj=16.4% | RARE obj=12.5%
+  step 56000: SEEN obj=41.0% rel=92.8% | STORY ALL=18.6% obj=15.0% | RARE obj=12.5%
+[wait] still ... 300s
+  step 58000: SEEN obj=41.3% rel=96.3% | STORY ALL=17.8% obj=15.4% | RARE obj=11.7%
+  step 60000: SEEN obj=41.5% rel=96.3% | STORY ALL=18.7% obj=18.2% | RARE obj=10.0%
+  step 62000: SEEN obj=38.8% rel=96.7% | STORY ALL=19.1% obj=19.3% | RARE obj=14.2%
+  step 64000: SEEN obj=41.0% rel=96.3% | STORY ALL=18.5% obj=17.9% | RARE obj=9.2%
+  step 66000: SEEN obj=38.5% rel=96.2% | STORY ALL=20.1% obj=19.6% | RARE obj=15.0%
+[wait] still ... 600s
+  step 68000: SEEN obj=40.3% rel=96.3% | STORY ALL=19.3% obj=19.3% | RARE obj=10.8%
+  step 70000: SEEN obj=39.3% rel=92.8% | STORY ALL=20.1% obj=17.9% | RARE obj=10.8%
+  step 72000: SEEN obj=39.5% rel=96.2% | STORY ALL=20.3% obj=16.8% | RARE obj=11.7%
+  step 74000: SEEN obj=38.5% rel=96.7% | STORY ALL=19.5% obj=19.3% | RARE obj=13.3%
+  step 76000: SEEN obj=38.7% rel=96.7% | STORY ALL=18.6% obj=16.8% | RARE obj=16.7%
+  step 78000: SEEN obj=39.5% rel=94.3% | STORY ALL=19.6% obj=20.4% | RARE obj=16.7%
+[wait] still ... 900s
+  step 80000: SEEN obj=40.8% rel=97.0% | STORY ALL=19.6% obj=15.7% | RARE obj=9.2%
+
+SOTE Stage 102 — capacity_4L8H
+timestamp: 2026-07-24T21:49:35.780298+00:00
+device: cuda
+foundation: stage85_foundation_FROZEN.pt
+n_phrases=460421 V=7063 params=4971520
+arch: d=256 L=4 H=8
+train: batch=8 steps=80000 warmup=200 lr=0.001 fat_frac=0.75
+mix: {'n_story_train': 162068, 'n_story_hold': 22100, 'n_fat_triples': 200, 'fat_copies': 40, 'n_train': 168468, 'n_hold_seen': 1600, 'n_hold_rare': 160, 'n_path_triples_avail': 30196}
+NO soft@5. F85 FROZEN not overwritten.
+
+=== Final ===
+  best_step=72000
+  SEEN  obj=41.6% rel=96.3% ALL=69.0%
+  RARE  obj=11.2%
+  STORY ALL=20.7% obj=17.8%
+
+=== vs ref {'obj': 0.4066666666666667, 'rel': 0.9708333333333333, 'story_all': 0.20646221248630886, 'rare_obj': 0.1375} ===
+  STORY lift +0.1pp  seen_held=True
+
+=== Verdict: CEILING ===
+Saved C:\Users\Kostya\sote-letter-assembly\checkpoints\stage102_capacity_4L8H.pt
+
+DONE branch=capacity
+{
+  "timestamp": "2026-07-24T21:49:36.013447+00:00",
+  "ref100": {
+    "obj": 0.426,
+    "rel": 0.958,
+    "story_all": 0.196,
+    "rare_obj": 0.117
+  },
+  "stage101": {
+    "verdict": "CEILING",
+    "story_all": 0.20646221248630886,
+    "lift_vs_100": 0.010462212486308853,
+    "seen": {
+      "obj": 0.4066666666666667,
+      "rel": 0.9708333333333333,
+      "all": 0.68875
+    },
+    "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage101_scale_500k.pt"
+  },
+  "branch": "capacity",
+  "stage102": {
+    "verdict": "CEILING",
+    "tag": "capacity_4L8H",
+    "story_all": 0.20700985761226726,
+    "lift_vs_ref": 0.0005476451259583959,
+    "seen": {
+      "obj": 0.41583333333333333,
+      "rel": 0.9633333333333334,
+      "all": 0.6895833333333333
+    },
+    "arch": {
+      "d_model": 256,
+      "n_layers": 4,
+      "n_heads": 8
+    },
+    "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage102_capacity_4L8H.pt"
+  }
+}
+[wait] overnight done branch=capacity
+[data] reuse corpus external_tinystories_500k_85.txt n=460421
+
+======== Stage 103 fat90_obj ========
+device=cuda foundation=stage85_foundation_FROZEN.pt dim_fp=256
+arch d=256 L=2 H=4 steps=60000 batch=8 lr=0.001 warmup=200 fat_frac=0.9 n_phrases=460421
+mix={'n_story_train': 162068, 'n_story_hold': 22100, 'n_fat_triples': 200, 'fat_copies': 40, 'n_train': 168468, 'n_hold_seen': 1600, 'n_hold_rare': 160, 'n_path_triples_avail': 30196}
+building fps V=7063 ...
+fat_pairs=12800 story_pairs=409923 (story_cap=60000)
+params=3.39M
+=== FT ===
+  step     0: SEEN obj=0.0% rel=0.0% | STORY ALL=0.0% obj=0.0% | RARE obj=0.0%
+  step  2000: SEEN obj=26.2% rel=0.0% | STORY ALL=5.0% obj=5.4% | RARE obj=12.5%
+  step  4000: SEEN obj=29.8% rel=94.3% | STORY ALL=5.6% obj=9.3% | RARE obj=10.8%
+  step  6000: SEEN obj=28.8% rel=82.5% | STORY ALL=4.5% obj=1.4% | RARE obj=6.7%
+  step  8000: SEEN obj=34.0% rel=16.5% | STORY ALL=2.1% obj=2.9% | RARE obj=3.3%
+  step 10000: SEEN obj=37.7% rel=75.7% | STORY ALL=6.6% obj=5.4% | RARE obj=10.8%
+  step 12000: SEEN obj=37.5% rel=73.3% | STORY ALL=9.8% obj=7.1% | RARE obj=10.8%
+  step 14000: SEEN obj=39.2% rel=95.8% | STORY ALL=8.8% obj=11.1% | RARE obj=10.8%
+  step 16000: SEEN obj=37.5% rel=64.7% | STORY ALL=6.9% obj=9.6% | RARE obj=9.2%
+  step 18000: SEEN obj=38.5% rel=96.0% | STORY ALL=9.8% obj=12.9% | RARE obj=10.8%
+  step 20000: SEEN obj=39.2% rel=56.8% | STORY ALL=10.2% obj=11.4% | RARE obj=15.0%
+  step 22000: SEEN obj=38.7% rel=96.7% | STORY ALL=10.6% obj=14.3% | RARE obj=12.5%
+  step 24000: SEEN obj=39.5% rel=93.2% | STORY ALL=12.4% obj=19.6% | RARE obj=12.5%
+  step 26000: SEEN obj=37.8% rel=96.0% | STORY ALL=13.8% obj=19.6% | RARE obj=12.5%
+  step 28000: SEEN obj=40.7% rel=96.7% | STORY ALL=13.1% obj=20.0% | RARE obj=14.2%
+  step 30000: SEEN obj=40.0% rel=91.8% | STORY ALL=12.1% obj=14.3% | RARE obj=9.2%
+  step 32000: SEEN obj=38.2% rel=90.2% | STORY ALL=16.5% obj=18.6% | RARE obj=16.7%
+  step 34000: SEEN obj=40.3% rel=95.8% | STORY ALL=15.5% obj=19.3% | RARE obj=12.5%
+  step 36000: SEEN obj=38.7% rel=96.7% | STORY ALL=15.2% obj=16.1% | RARE obj=9.2%
+  step 38000: SEEN obj=40.3% rel=96.7% | STORY ALL=17.1% obj=19.3% | RARE obj=11.7%
+  step 40000: SEEN obj=39.5% rel=95.0% | STORY ALL=16.0% obj=17.1% | RARE obj=12.5%
+  step 42000: SEEN obj=39.2% rel=96.3% | STORY ALL=15.4% obj=15.4% | RARE obj=11.7%
+  step 44000: SEEN obj=40.8% rel=92.2% | STORY ALL=16.9% obj=16.4% | RARE obj=15.8%
+  step 46000: SEEN obj=41.3% rel=92.8% | STORY ALL=16.9% obj=17.9% | RARE obj=9.2%
+  step 48000: SEEN obj=38.8% rel=96.7% | STORY ALL=14.7% obj=11.4% | RARE obj=13.3%
+  step 50000: SEEN obj=39.2% rel=85.7% | STORY ALL=17.4% obj=18.2% | RARE obj=10.0%
+  step 52000: SEEN obj=37.3% rel=91.5% | STORY ALL=16.3% obj=18.6% | RARE obj=15.8%
+  step 54000: SEEN obj=40.5% rel=67.2% | STORY ALL=16.0% obj=16.8% | RARE obj=15.0%
+  step 56000: SEEN obj=39.3% rel=96.5% | STORY ALL=17.2% obj=19.3% | RARE obj=13.3%
+  step 58000: SEEN obj=41.2% rel=96.2% | STORY ALL=18.2% obj=18.2% | RARE obj=10.8%
+  step 60000: SEEN obj=40.7% rel=96.7% | STORY ALL=16.8% obj=17.9% | RARE obj=10.0%
+
+SOTE Stage 103 — fat90_obj
+timestamp: 2026-07-24T22:07:13.034943+00:00
+device: cuda
+foundation: stage85_foundation_FROZEN.pt
+n_phrases=460421 V=7063 params=3392000
+arch: d=256 L=2 H=4
+train: batch=8 steps=60000 warmup=200 lr=0.001 fat_frac=0.9
+mix: {'n_story_train': 162068, 'n_story_hold': 22100, 'n_fat_triples': 200, 'fat_copies': 40, 'n_train': 168468, 'n_hold_seen': 1600, 'n_hold_rare': 160, 'n_path_triples_avail': 30196}
+NO soft@5. F85 FROZEN not overwritten.
+
+=== Final ===
+  best_step=58000
+  SEEN  obj=40.5% rel=96.2% ALL=68.4%
+  RARE  obj=11.2%
+  STORY ALL=19.4% obj=19.6%
+
+=== vs ref {'obj': 0.4066666666666667, 'rel': 0.9708333333333333, 'story_all': 0.20646221248630886, 'rare_obj': 0.138} ===
+  STORY lift -1.3pp  seen_held=True
+
+=== Verdict: CEILING ===
+Saved C:\Users\Kostya\sote-letter-assembly\checkpoints\stage103_fat90_obj.pt
+[103] obj_lift=-0.2pp verdict→PARITY_OBJ
+
+======== Stage 104 fat_dense400 ========
+device=cuda foundation=stage85_foundation_FROZEN.pt dim_fp=256
+arch d=256 L=2 H=4 steps=60000 batch=8 lr=0.001 warmup=200 fat_frac=0.85 n_phrases=460421
+mix={'n_story_train': 162068, 'n_story_hold': 22100, 'n_fat_triples': 400, 'fat_copies': 60, 'n_train': 181268, 'n_hold_seen': 4800, 'n_hold_rare': 160, 'n_path_triples_avail': 30196}
+building fps V=7063 ...
+fat_pairs=38400 story_pairs=410088 (story_cap=60000)
+params=3.39M
+=== FT ===
+  step     0: SEEN obj=0.0% rel=0.0% | STORY ALL=0.0% obj=0.0% | RARE obj=0.0%
+  step  2000: SEEN obj=21.3% rel=90.7% | STORY ALL=4.2% obj=1.8% | RARE obj=15.0%
+  step  4000: SEEN obj=22.8% rel=92.7% | STORY ALL=5.5% obj=14.5% | RARE obj=11.7%
+  step  6000: SEEN obj=20.7% rel=15.0% | STORY ALL=3.8% obj=1.4% | RARE obj=1.7%
+  step  8000: SEEN obj=28.2% rel=79.0% | STORY ALL=5.8% obj=4.3% | RARE obj=11.7%
+  step 10000: SEEN obj=28.8% rel=51.8% | STORY ALL=5.4% obj=6.7% | RARE obj=8.3%
+  step 12000: SEEN obj=36.8% rel=93.5% | STORY ALL=5.9% obj=4.3% | RARE obj=8.3%
+  step 14000: SEEN obj=35.5% rel=87.0% | STORY ALL=11.7% obj=12.8% | RARE obj=9.2%
+  step 16000: SEEN obj=34.8% rel=93.0% | STORY ALL=9.0% obj=13.8% | RARE obj=7.5%
+  step 18000: SEEN obj=37.2% rel=95.0% | STORY ALL=11.2% obj=15.6% | RARE obj=7.5%
+  step 20000: SEEN obj=37.2% rel=92.2% | STORY ALL=10.3% obj=12.8% | RARE obj=10.0%
+  step 22000: SEEN obj=37.7% rel=94.3% | STORY ALL=12.3% obj=16.7% | RARE obj=11.7%
+  step 24000: SEEN obj=38.8% rel=90.3% | STORY ALL=14.4% obj=15.2% | RARE obj=12.5%
+  step 26000: SEEN obj=35.3% rel=94.2% | STORY ALL=15.6% obj=22.0% | RARE obj=10.0%
+  step 28000: SEEN obj=37.8% rel=94.5% | STORY ALL=15.3% obj=20.2% | RARE obj=13.3%
+  step 30000: SEEN obj=37.5% rel=91.2% | STORY ALL=15.8% obj=20.2% | RARE obj=10.8%
+  step 32000: SEEN obj=35.2% rel=93.8% | STORY ALL=16.2% obj=17.0% | RARE obj=10.8%
+  step 34000: SEEN obj=36.5% rel=94.2% | STORY ALL=16.4% obj=23.8% | RARE obj=10.8%
+  step 36000: SEEN obj=35.5% rel=93.3% | STORY ALL=17.2% obj=19.1% | RARE obj=8.3%
+  step 38000: SEEN obj=35.8% rel=94.2% | STORY ALL=16.1% obj=15.6% | RARE obj=9.2%
+  step 40000: SEEN obj=36.7% rel=95.0% | STORY ALL=17.8% obj=20.9% | RARE obj=7.5%
+  step 42000: SEEN obj=37.5% rel=94.5% | STORY ALL=17.9% obj=20.2% | RARE obj=10.8%
+  step 44000: SEEN obj=37.2% rel=90.3% | STORY ALL=16.8% obj=19.1% | RARE obj=10.0%
+  step 46000: SEEN obj=36.5% rel=82.0% | STORY ALL=13.7% obj=18.1% | RARE obj=10.0%
+  step 48000: SEEN obj=37.5% rel=92.3% | STORY ALL=17.8% obj=21.6% | RARE obj=10.0%
+  step 50000: SEEN obj=37.5% rel=88.8% | STORY ALL=18.0% obj=22.7% | RARE obj=14.2%
+  step 52000: SEEN obj=36.8% rel=94.2% | STORY ALL=18.8% obj=20.9% | RARE obj=8.3%
+  step 54000: SEEN obj=38.3% rel=95.2% | STORY ALL=18.1% obj=18.8% | RARE obj=8.3%
+  step 56000: SEEN obj=37.0% rel=93.8% | STORY ALL=18.8% obj=18.8% | RARE obj=12.5%
+  step 58000: SEEN obj=37.0% rel=94.5% | STORY ALL=16.8% obj=20.9% | RARE obj=15.0%
+  step 60000: SEEN obj=36.5% rel=88.0% | STORY ALL=19.6% obj=22.0% | RARE obj=11.7%
+
+SOTE Stage 104 — fat_dense400
+timestamp: 2026-07-24T22:24:55.596405+00:00
+device: cuda
+foundation: stage85_foundation_FROZEN.pt
+n_phrases=460421 V=7063 params=3392000
+arch: d=256 L=2 H=4
+train: batch=8 steps=60000 warmup=200 lr=0.001 fat_frac=0.85
+mix: {'n_story_train': 162068, 'n_story_hold': 22100, 'n_fat_triples': 400, 'fat_copies': 60, 'n_train': 181268, 'n_hold_seen': 4800, 'n_hold_rare': 160, 'n_path_triples_avail': 30196}
+NO soft@5. F85 FROZEN not overwritten.
+
+=== Final ===
+  best_step=60000
+  SEEN  obj=33.2% rel=90.2% ALL=61.8%
+  RARE  obj=11.2%
+  STORY ALL=20.0% obj=18.5%
+
+=== vs ref {'obj': 0.4066666666666667, 'rel': 0.9708333333333333, 'story_all': 0.20646221248630886, 'rare_obj': 0.138} ===
+  STORY lift -0.7pp  seen_held=True
+
+=== Verdict: CEILING ===
+Saved C:\Users\Kostya\sote-letter-assembly\checkpoints\stage104_fat_dense400.pt
+[104] obj_lift=-7.4pp verdict→CEILING
+
+======== Stage 105 fat95_push ========
+device=cuda foundation=stage85_foundation_FROZEN.pt dim_fp=256
+arch d=256 L=2 H=4 steps=40000 batch=8 lr=0.001 warmup=200 fat_frac=0.95 n_phrases=460421
+mix={'n_story_train': 162068, 'n_story_hold': 22100, 'n_fat_triples': 300, 'fat_copies': 50, 'n_train': 174068, 'n_hold_seen': 3000, 'n_hold_rare': 160, 'n_path_triples_avail': 30196}
+building fps V=7063 ...
+fat_pairs=24000 story_pairs=410023 (story_cap=60000)
+params=3.39M
+=== FT ===
+  step     0: SEEN obj=0.0% rel=0.0% | STORY ALL=0.0% obj=0.0% | RARE obj=0.0%
+  step  2000: SEEN obj=31.5% rel=89.0% | STORY ALL=2.7% obj=2.5% | RARE obj=8.3%
+  step  4000: SEEN obj=34.8% rel=94.2% | STORY ALL=2.4% obj=1.8% | RARE obj=10.0%
+  step  6000: SEEN obj=34.0% rel=96.0% | STORY ALL=7.2% obj=1.8% | RARE obj=10.0%
+  step  8000: SEEN obj=34.3% rel=96.3% | STORY ALL=7.1% obj=2.1% | RARE obj=8.3%
+  step 10000: SEEN obj=37.2% rel=90.7% | STORY ALL=7.6% obj=2.9% | RARE obj=8.3%
+  step 12000: SEEN obj=32.8% rel=88.2% | STORY ALL=5.9% obj=2.1% | RARE obj=8.3%
+  step 14000: SEEN obj=36.5% rel=96.5% | STORY ALL=4.5% obj=2.5% | RARE obj=8.3%
+  step 16000: SEEN obj=36.2% rel=96.5% | STORY ALL=8.8% obj=3.6% | RARE obj=8.3%
+  step 18000: SEEN obj=36.8% rel=96.5% | STORY ALL=6.5% obj=2.5% | RARE obj=8.3%
+  step 20000: SEEN obj=35.5% rel=96.3% | STORY ALL=7.9% obj=2.9% | RARE obj=8.3%
+  step 22000: SEEN obj=37.2% rel=96.0% | STORY ALL=7.9% obj=2.1% | RARE obj=8.3%
+  step 24000: SEEN obj=35.7% rel=96.5% | STORY ALL=7.8% obj=2.1% | RARE obj=10.0%
+  step 26000: SEEN obj=36.5% rel=91.2% | STORY ALL=7.4% obj=2.1% | RARE obj=8.3%
+  step 28000: SEEN obj=36.2% rel=86.3% | STORY ALL=7.6% obj=1.4% | RARE obj=10.0%
+  step 30000: SEEN obj=35.8% rel=92.3% | STORY ALL=7.8% obj=2.5% | RARE obj=8.3%
+  step 32000: SEEN obj=36.7% rel=91.0% | STORY ALL=8.1% obj=3.2% | RARE obj=8.3%
+  step 34000: SEEN obj=36.3% rel=96.5% | STORY ALL=8.2% obj=2.1% | RARE obj=8.3%
+  step 36000: SEEN obj=35.7% rel=96.7% | STORY ALL=8.3% obj=2.1% | RARE obj=8.3%
+  step 38000: SEEN obj=35.2% rel=93.0% | STORY ALL=6.7% obj=2.5% | RARE obj=8.3%
+  step 40000: SEEN obj=37.0% rel=88.3% | STORY ALL=7.0% obj=1.8% | RARE obj=8.3%
+
+SOTE Stage 105 — fat95_push
+timestamp: 2026-07-24T22:37:09.798063+00:00
+device: cuda
+foundation: stage85_foundation_FROZEN.pt
+n_phrases=460421 V=7063 params=3392000
+arch: d=256 L=2 H=4
+train: batch=8 steps=40000 warmup=200 lr=0.001 fat_frac=0.95
+mix: {'n_story_train': 162068, 'n_story_hold': 22100, 'n_fat_triples': 300, 'fat_copies': 50, 'n_train': 174068, 'n_hold_seen': 3000, 'n_hold_rare': 160, 'n_path_triples_avail': 30196}
+NO soft@5. F85 FROZEN not overwritten.
+
+=== Final ===
+  best_step=16000
+  SEEN  obj=38.4% rel=95.2% ALL=66.8%
+  RARE  obj=10.0%
+  STORY ALL=8.2% obj=3.7%
+
+=== vs ref {'obj': 0.4066666666666667, 'rel': 0.9708333333333333, 'story_all': 0.20646221248630886, 'rare_obj': 0.138} ===
+  STORY lift -12.5pp  seen_held=True
+
+=== Verdict: PARITY ===
+Saved C:\Users\Kostya\sote-letter-assembly\checkpoints\stage105_fat95_push.pt
+[105] obj_lift=-2.3pp verdict→PARITY
+[106] ensure larger raw for ~1M windows ...
+[data] HTTP GET TinyStoriesV2-GPT4-train.txt -> _tinystories_raw_scale.txt budget=220000000
+  wrote 20971520
+  wrote 41943040
+  wrote 62914560
+  wrote 83886080
+  wrote 104857600
+  wrote 125829120
+  wrote 146800640
+  wrote 167772160
+  wrote 188743680
+  wrote 209715200
+[data] raw ready size=220200960
+[data] filter _tinystories_raw_scale.txt -> external_tinystories_1m_85.txt max_lines=1000000
+[data] filtered n=897769 meta={'source': '_tinystories_raw_scale.txt', 'n_pathish': 700000, 'n_other': 300000, 'n_out': 897769, 'min_words': 3, 'max_words': 8, 'digits_kept': True, 'max_word_len': 24, 'pool_path': 1400000, 'pool_other': 600000}
+
+======== Stage 106 scale_1m_4L8H ========
+device=cuda foundation=stage85_foundation_FROZEN.pt dim_fp=256
+arch d=256 L=4 H=8 steps=100000 batch=8 lr=0.001 warmup=200 fat_frac=0.75 n_phrases=897769
+mix={'n_story_train': 276513, 'n_story_hold': 37706, 'n_fat_triples': 200, 'fat_copies': 40, 'n_train': 282913, 'n_hold_seen': 1600, 'n_hold_rare': 160, 'n_path_triples_avail': 45860}
+building fps V=8363 ...
+fat_pairs=12800 story_pairs=478692 (story_cap=70000)
+params=5.30M
+=== FT ===
+  step     0: SEEN obj=0.0% rel=0.0% | STORY ALL=0.0% obj=0.0% | RARE obj=0.0%
+  step  2500: SEEN obj=21.0% rel=84.0% | STORY ALL=2.3% obj=2.2% | RARE obj=10.8%
+  step  5000: SEEN obj=26.2% rel=93.8% | STORY ALL=8.5% obj=14.0% | RARE obj=10.8%
+  step  7500: SEEN obj=16.8% rel=85.7% | STORY ALL=11.2% obj=13.6% | RARE obj=19.2%
+  step 10000: SEEN obj=29.3% rel=82.8% | STORY ALL=10.1% obj=17.3% | RARE obj=10.0%
+  step 12500: SEEN obj=25.3% rel=89.8% | STORY ALL=11.5% obj=20.2% | RARE obj=10.8%
+  step 15000: SEEN obj=28.2% rel=95.3% | STORY ALL=11.3% obj=18.0% | RARE obj=10.8%
+  step 17500: SEEN obj=31.2% rel=93.8% | STORY ALL=9.9% obj=13.2% | RARE obj=10.0%
+  step 20000: SEEN obj=35.0% rel=86.5% | STORY ALL=13.4% obj=16.9% | RARE obj=15.8%
+  step 22500: SEEN obj=35.2% rel=96.3% | STORY ALL=13.4% obj=15.1% | RARE obj=15.0%
+  step 25000: SEEN obj=34.5% rel=93.7% | STORY ALL=13.1% obj=18.4% | RARE obj=14.2%
+  step 27500: SEEN obj=35.5% rel=95.8% | STORY ALL=13.1% obj=17.3% | RARE obj=10.0%
+  step 30000: SEEN obj=35.8% rel=95.0% | STORY ALL=14.6% obj=18.0% | RARE obj=13.3%
+  step 32500: SEEN obj=36.2% rel=96.8% | STORY ALL=15.2% obj=18.0% | RARE obj=18.3%
+  step 35000: SEEN obj=36.0% rel=96.3% | STORY ALL=16.6% obj=18.0% | RARE obj=16.7%
+  step 37500: SEEN obj=37.8% rel=96.3% | STORY ALL=17.3% obj=20.2% | RARE obj=10.8%
+  step 40000: SEEN obj=38.8% rel=97.0% | STORY ALL=16.9% obj=18.0% | RARE obj=10.8%
+  step 42500: SEEN obj=35.3% rel=95.5% | STORY ALL=16.0% obj=16.9% | RARE obj=10.8%
+  step 45000: SEEN obj=38.3% rel=95.7% | STORY ALL=16.4% obj=22.1% | RARE obj=4.2%
+  step 47500: SEEN obj=34.7% rel=96.8% | STORY ALL=17.0% obj=18.4% | RARE obj=7.5%
+  step 50000: SEEN obj=36.7% rel=96.2% | STORY ALL=18.0% obj=20.6% | RARE obj=10.0%
+  step 52500: SEEN obj=36.2% rel=96.8% | STORY ALL=17.5% obj=19.5% | RARE obj=8.3%
+  step 55000: SEEN obj=36.2% rel=95.5% | STORY ALL=18.5% obj=19.9% | RARE obj=14.2%
+  step 57500: SEEN obj=37.7% rel=96.3% | STORY ALL=17.7% obj=18.8% | RARE obj=9.2%
+  step 60000: SEEN obj=36.8% rel=97.0% | STORY ALL=18.8% obj=14.7% | RARE obj=10.0%
+  step 62500: SEEN obj=38.0% rel=95.5% | STORY ALL=19.2% obj=20.6% | RARE obj=14.2%
+  step 65000: SEEN obj=37.5% rel=95.0% | STORY ALL=17.9% obj=22.1% | RARE obj=13.3%
+  step 67500: SEEN obj=37.0% rel=95.5% | STORY ALL=19.0% obj=20.2% | RARE obj=10.0%
+  step 70000: SEEN obj=37.0% rel=95.7% | STORY ALL=18.9% obj=19.9% | RARE obj=13.3%
+  step 72500: SEEN obj=36.3% rel=96.8% | STORY ALL=19.7% obj=18.0% | RARE obj=10.0%
+  step 75000: SEEN obj=37.7% rel=95.8% | STORY ALL=19.7% obj=18.8% | RARE obj=16.7%
+  step 77500: SEEN obj=37.5% rel=90.8% | STORY ALL=19.5% obj=19.1% | RARE obj=10.8%
+  step 80000: SEEN obj=37.3% rel=95.3% | STORY ALL=19.1% obj=18.0% | RARE obj=10.8%
+  step 82500: SEEN obj=36.7% rel=97.0% | STORY ALL=18.6% obj=16.2% | RARE obj=8.3%
+  step 85000: SEEN obj=36.3% rel=95.8% | STORY ALL=19.3% obj=19.1% | RARE obj=14.2%
+  step 87500: SEEN obj=37.3% rel=95.2% | STORY ALL=20.3% obj=19.9% | RARE obj=10.0%
+  step 90000: SEEN obj=37.7% rel=95.5% | STORY ALL=19.0% obj=19.9% | RARE obj=10.0%
+  step 92500: SEEN obj=36.0% rel=96.3% | STORY ALL=19.9% obj=20.6% | RARE obj=15.0%
+  step 95000: SEEN obj=36.7% rel=95.0% | STORY ALL=20.3% obj=16.9% | RARE obj=10.0%
+  step 97500: SEEN obj=36.7% rel=95.3% | STORY ALL=19.8% obj=21.7% | RARE obj=10.8%
+  step 100000: SEEN obj=37.7% rel=95.8% | STORY ALL=19.9% obj=18.4% | RARE obj=14.2%
+
+SOTE Stage 106 — scale_1m_4L8H
+timestamp: 2026-07-24T23:19:47.679086+00:00
+device: cuda
+foundation: stage85_foundation_FROZEN.pt
+n_phrases=897769 V=8363 params=5304320
+arch: d=256 L=4 H=8
+train: batch=8 steps=100000 warmup=200 lr=0.001 fat_frac=0.75
+mix: {'n_story_train': 276513, 'n_story_hold': 37706, 'n_fat_triples': 200, 'fat_copies': 40, 'n_train': 282913, 'n_hold_seen': 1600, 'n_hold_rare': 160, 'n_path_triples_avail': 45860}
+NO soft@5. F85 FROZEN not overwritten.
+
+=== Final ===
+  best_step=87500
+  SEEN  obj=38.6% rel=95.5% ALL=67.0%
+  RARE  obj=12.5%
+  STORY ALL=20.5% obj=19.0%
+
+=== vs ref {'obj': 0.41583333333333333, 'rel': 0.9633333333333334, 'story_all': 0.20700985761226726, 'rare_obj': 0.138} ===
+  STORY lift -0.2pp  seen_held=True
+
+=== Verdict: CEILING ===
+Saved C:\Users\Kostya\sote-letter-assembly\checkpoints\stage106_scale_1m_4L8H.pt
+[106] STORY=20.5% SEEN obj=38.6% verdict=CEILING
+DONE best_obj_stage=101 obj=40.7%
+{
+  "timestamp": "2026-07-24T23:19:48.007228+00:00",
+  "overnight_branch": "capacity",
+  "stage102": {
+    "verdict": "CEILING",
+    "tag": "capacity_4L8H",
+    "story_all": 0.20700985761226726,
+    "lift_vs_ref": 0.0005476451259583959,
+    "seen": {
+      "obj": 0.41583333333333333,
+      "rel": 0.9633333333333334,
+      "all": 0.6895833333333333
+    },
+    "arch": {
+      "d_model": 256,
+      "n_layers": 4,
+      "n_heads": 8
+    },
+    "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage102_capacity_4L8H.pt"
+  },
+  "ref101_obj": 0.4066666666666667,
+  "stage103": {
+    "verdict": "PARITY_OBJ",
+    "seen": {
+      "obj": 0.405,
+      "rel": 0.9625,
+      "all": 0.68375
+    },
+    "story": {
+      "all": 0.19350127783862722,
+      "obj": 0.1963302752293578
+    },
+    "obj_lift_pp": -0.0016666666666666496,
+    "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage103_fat90_obj.pt"
+  },
+  "stage104": {
+    "verdict": "CEILING",
+    "seen": {
+      "obj": 0.3325,
+      "rel": 0.9025,
+      "all": 0.6175
+    },
+    "story": {
+      "all": 0.19978066167062694,
+      "obj": 0.18470149253731344
+    },
+    "obj_lift_pp": -0.07416666666666666,
+    "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage104_fat_dense400.pt"
+  },
+  "stage105": {
+    "verdict": "PARITY",
+    "seen": {
+      "obj": 0.38416666666666666,
+      "rel": 0.9525,
+      "all": 0.6683333333333333
+    },
+    "story": {
+      "all": 0.08157653528872594,
+      "obj": 0.03684210526315789
+    },
+    "obj_lift_pp": -0.02250000000000002,
+    "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage105_fat95_push.pt"
+  },
+  "stage106": {
+    "verdict": "CEILING",
+    "tag": "scale_1m_4L8H",
+    "n_phrases": 897769,
+    "params": 5304320,
+    "arch": {
+      "d_model": 256,
+      "n_layers": 4,
+      "n_heads": 8
+    },
+    "seen": {
+      "obj": 0.3858333333333333,
+      "rel": 0.955,
+      "all": 0.6704166666666667
+    },
+    "story": {
+      "all": 0.20541926034419628,
+      "obj": 0.19005328596802842
+    },
+    "lift_story_pp": -0.0015905972680709812,
+    "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage106_scale_1m_4L8H.pt"
+  },
+  "best_seen_obj": {
+    "stage": "101",
+    "obj": 0.4066666666666667
+  },
+  "note": "103-105 obj digs (fatter SEEN); 106 = 1M \u00d7 4L8H capacity"
+}
+[data] reuse corpus external_tinystories_500k_85.txt n=460421
+[data] reuse corpus external_tinystories_500k_85.txt n=460421

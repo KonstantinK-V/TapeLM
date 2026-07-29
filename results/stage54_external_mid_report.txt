@@ -1,0 +1,25 @@
+SOTE Stage 54 report (mid external scale — same pipeline as 53)
+timestamp: 2026-07-24T09:38:55.445590+00:00
+device: cuda
+parent: stage53_external_FROZEN.pt  data: data\external_mid.txt
+lines=618 train/hold=402/216 pairs=1231/650 V=135 new=28
+ref53 tiny: L2+~46%/+32pp on 34 lines
+
+=== D grown exact=100.0% ===
+
+=== Zero-shot HOLD ===
+  L1  12.5%/+7.9pp n=216
+  L2+ 27.6%/+16.6pp n=434
+  L3+ 10.1%/+8.3pp n=218
+
+=== FT steps=3000 → HOLD ===
+  L1  7.4%/+3.7pp n=216
+  L2+ 24.2%/+12.0pp n=434
+  L3+ 6.0%/+5.0pp n=218
+  order_drop=+9.0pp
+
+=== Walls hit: ['FT_L2_soft'] ===
+
+=== Verdict ===
+  FAIL at scale: FT L≥2 24%/+12pp (tiny was ~46%/+32pp). Walls=['FT_L2_soft']. Stop scale; dig wall before hops-external.
+  No phrase/char trunk.

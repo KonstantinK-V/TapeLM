@@ -1,0 +1,43 @@
+{
+  "timestamp": "2026-07-29T08:47:32.454905+00:00",
+  "protocol": "curve_as_thinking_207_max",
+  "overall": "CURVE_THINKING_NO",
+  "gates_passed": "1/4",
+  "G1_quality_invocab": {
+    "curve": 0.58125,
+    "ce": 0.93375,
+    "n": 800,
+    "pass": false
+  },
+  "G3_open_vocab_oov": {
+    "curve": 0.35375,
+    "ce": 0.24625,
+    "n": 800,
+    "chance": 0.25,
+    "pass": false
+  },
+  "G2_drift": {
+    "raw_first10": 0.8864369347691536,
+    "raw_last10": 0.7755217209458352,
+    "snap_repetition": 0.5510204081632653,
+    "pass": true
+  },
+  "G4_unified_memory": {
+    "recall": 0.25,
+    "pass": false
+  },
+  "config": {
+    "wiki_bytes": 539209157,
+    "train_tokens": 72342992,
+    "eval_tokens": 8038111,
+    "n_distinct": 212920,
+    "V_CE": 8000,
+    "V_LEX": 80000,
+    "STEPS": 20000,
+    "BATCH": 48,
+    "params_each_M": 3.3
+  },
+  "compare_baseline_207_smoke": {
+    "note": "207 used 25M chars / 3500 steps / V_LEX 40k; this run is full wiki stream"
+  }
+}

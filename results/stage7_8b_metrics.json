@@ -1,0 +1,1176 @@
+{
+  "stage": "7.8b",
+  "timestamp": "2026-07-22T12:16:55.522572+00:00",
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "config": {
+    "dim": 64,
+    "lr": 0.003,
+    "steps": 4000,
+    "batch_words": 40,
+    "batch_visual_words": 8,
+    "visual_every": 4,
+    "seed": 0,
+    "temperature": 0.07,
+    "letter_temperature": 0.07,
+    "word_weight": 1.0,
+    "consistency_weight": 0.7,
+    "trace_weight": 0.5,
+    "perm_weight": 0.35,
+    "prefix_weight": 0.5,
+    "growth_weight": 0.3,
+    "related_weight": 0.45,
+    "path_agree_weight": 0.45,
+    "letter_weight": 0.25,
+    "visual_letter_weight": 0.35,
+    "stability_weight": 0.15,
+    "algorithm_weight": 0.45,
+    "noise_std": 0.12,
+    "trace_margin": 0.1,
+    "perm_margin": 0.35,
+    "growth_gap": 0.05,
+    "related_margin": 0.08
+  },
+  "train_words": [
+    "cat",
+    "act",
+    "car",
+    "card",
+    "dog",
+    "god",
+    "good",
+    "go",
+    "on",
+    "no",
+    "not",
+    "ton",
+    "to",
+    "top",
+    "pot",
+    "stop",
+    "spot",
+    "post",
+    "cats",
+    "acts",
+    "cars",
+    "dogs",
+    "tops",
+    "pots",
+    "stops",
+    "spots",
+    "posts",
+    "book",
+    "books",
+    "tree",
+    "trees",
+    "fish",
+    "bird",
+    "birds",
+    "walk",
+    "walks",
+    "run",
+    "runs",
+    "jump",
+    "jumps",
+    "make",
+    "makes",
+    "take",
+    "takes",
+    "give",
+    "gives",
+    "house",
+    "houses",
+    "water",
+    "light",
+    "night",
+    "morning",
+    "small",
+    "large",
+    "quick",
+    "slow",
+    "happy",
+    "apple",
+    "apples",
+    "bread",
+    "milk",
+    "table",
+    "tables",
+    "window",
+    "windows",
+    "friend",
+    "friends",
+    "school",
+    "write",
+    "writes",
+    "read",
+    "reads",
+    "play",
+    "plays",
+    "green",
+    "blue",
+    "black",
+    "white",
+    "yellow",
+    "under",
+    "over",
+    "after",
+    "before",
+    "again",
+    "child",
+    "children",
+    "man",
+    "men",
+    "woman",
+    "women",
+    "mouse",
+    "mice",
+    "leaf",
+    "leaves"
+  ],
+  "hold_words": [
+    "cards",
+    "bookshelves",
+    "jumping",
+    "walking",
+    "reading",
+    "writing",
+    "friendship",
+    "sunshine",
+    "moonlight",
+    "playground",
+    "applesauce",
+    "birdhouse",
+    "notebook",
+    "backpack",
+    "quickly",
+    "slowly",
+    "happily"
+  ],
+  "metrics": {
+    "n_train": 94,
+    "n_hold": 17,
+    "compose_acc": 1.0,
+    "stream_acc": 1.0,
+    "compose_stream_agree": 1.0,
+    "related_acc": 0.96,
+    "prefix_acc": 1.0,
+    "train_soft": {
+      "trace_acc": 0.15625,
+      "perm_acc": 0.84375,
+      "path_acc": 1.0,
+      "details": [
+        {
+          "word": "cat",
+          "trace_ok": true,
+          "min_trace": 0.11982835829257965,
+          "perm_ok": true,
+          "path_agree": 0.9940121173858643,
+          "path_ok": true
+        },
+        {
+          "word": "card",
+          "trace_ok": false,
+          "min_trace": 0.08583086729049683,
+          "perm_ok": true,
+          "path_agree": 0.9853228330612183,
+          "path_ok": true
+        },
+        {
+          "word": "good",
+          "trace_ok": true,
+          "min_trace": 0.10082568973302841,
+          "perm_ok": true,
+          "path_agree": 0.8182904720306396,
+          "path_ok": true
+        },
+        {
+          "word": "no",
+          "trace_ok": false,
+          "min_trace": 0.07872222363948822,
+          "perm_ok": true,
+          "path_agree": 0.9107666015625,
+          "path_ok": true
+        },
+        {
+          "word": "to",
+          "trace_ok": true,
+          "min_trace": 0.19348424673080444,
+          "perm_ok": true,
+          "path_agree": 0.9888127446174622,
+          "path_ok": true
+        },
+        {
+          "word": "stop",
+          "trace_ok": false,
+          "min_trace": 0.06974001973867416,
+          "perm_ok": true,
+          "path_agree": 0.9612464904785156,
+          "path_ok": true
+        },
+        {
+          "word": "cats",
+          "trace_ok": true,
+          "min_trace": 0.1254163682460785,
+          "perm_ok": true,
+          "path_agree": 0.9766332507133484,
+          "path_ok": true
+        },
+        {
+          "word": "dogs",
+          "trace_ok": false,
+          "min_trace": 0.08689912408590317,
+          "perm_ok": true,
+          "path_agree": 0.9410395622253418,
+          "path_ok": true
+        },
+        {
+          "word": "stops",
+          "trace_ok": false,
+          "min_trace": 0.07994353026151657,
+          "perm_ok": true,
+          "path_agree": 0.956588864326477,
+          "path_ok": true
+        },
+        {
+          "word": "book",
+          "trace_ok": false,
+          "min_trace": 0.0994444340467453,
+          "perm_ok": true,
+          "path_agree": 0.8766705989837646,
+          "path_ok": true
+        },
+        {
+          "word": "trees",
+          "trace_ok": false,
+          "min_trace": 0.07874032109975815,
+          "perm_ok": true,
+          "path_agree": 0.9735236167907715,
+          "path_ok": true
+        },
+        {
+          "word": "birds",
+          "trace_ok": false,
+          "min_trace": 0.06520676612854004,
+          "perm_ok": true,
+          "path_agree": 0.8422752618789673,
+          "path_ok": true
+        },
+        {
+          "word": "run",
+          "trace_ok": false,
+          "min_trace": 0.08953732997179031,
+          "perm_ok": true,
+          "path_agree": 0.9772225022315979,
+          "path_ok": true
+        },
+        {
+          "word": "jumps",
+          "trace_ok": false,
+          "min_trace": 0.08536802232265472,
+          "perm_ok": false,
+          "path_agree": 0.9199740886688232,
+          "path_ok": true
+        },
+        {
+          "word": "take",
+          "trace_ok": false,
+          "min_trace": -0.005841288715600967,
+          "perm_ok": true,
+          "path_agree": 0.9349856376647949,
+          "path_ok": true
+        },
+        {
+          "word": "gives",
+          "trace_ok": false,
+          "min_trace": 0.06855691969394684,
+          "perm_ok": true,
+          "path_agree": 0.9737037420272827,
+          "path_ok": true
+        },
+        {
+          "word": "water",
+          "trace_ok": false,
+          "min_trace": 0.09430105984210968,
+          "perm_ok": false,
+          "path_agree": 0.965094804763794,
+          "path_ok": true
+        },
+        {
+          "word": "morning",
+          "trace_ok": false,
+          "min_trace": -0.006332211196422577,
+          "perm_ok": true,
+          "path_agree": 0.8777275681495667,
+          "path_ok": true
+        },
+        {
+          "word": "quick",
+          "trace_ok": false,
+          "min_trace": 0.09568943828344345,
+          "perm_ok": true,
+          "path_agree": 0.9723219275474548,
+          "path_ok": true
+        },
+        {
+          "word": "apple",
+          "trace_ok": false,
+          "min_trace": -0.05366966873407364,
+          "perm_ok": false,
+          "path_agree": 0.9472865462303162,
+          "path_ok": true
+        },
+        {
+          "word": "milk",
+          "trace_ok": false,
+          "min_trace": -0.0004362240433692932,
+          "perm_ok": true,
+          "path_agree": 0.92462557554245,
+          "path_ok": true
+        },
+        {
+          "word": "window",
+          "trace_ok": true,
+          "min_trace": 0.10998331755399704,
+          "perm_ok": true,
+          "path_agree": 0.8924545645713806,
+          "path_ok": true
+        },
+        {
+          "word": "friends",
+          "trace_ok": false,
+          "min_trace": 0.05100226774811745,
+          "perm_ok": false,
+          "path_agree": 0.9144909381866455,
+          "path_ok": true
+        },
+        {
+          "word": "writes",
+          "trace_ok": false,
+          "min_trace": 0.0704612210392952,
+          "perm_ok": true,
+          "path_agree": 0.9462631344795227,
+          "path_ok": true
+        },
+        {
+          "word": "play",
+          "trace_ok": false,
+          "min_trace": -0.013522622175514698,
+          "perm_ok": true,
+          "path_agree": 0.9459632635116577,
+          "path_ok": true
+        },
+        {
+          "word": "blue",
+          "trace_ok": false,
+          "min_trace": 0.04095616936683655,
+          "perm_ok": true,
+          "path_agree": 0.8521605730056763,
+          "path_ok": true
+        },
+        {
+          "word": "yellow",
+          "trace_ok": false,
+          "min_trace": 0.08688846230506897,
+          "perm_ok": true,
+          "path_agree": 0.6678236722946167,
+          "path_ok": true
+        },
+        {
+          "word": "after",
+          "trace_ok": false,
+          "min_trace": 0.07853992283344269,
+          "perm_ok": true,
+          "path_agree": 0.7823730707168579,
+          "path_ok": true
+        },
+        {
+          "word": "child",
+          "trace_ok": false,
+          "min_trace": -0.1522364616394043,
+          "perm_ok": true,
+          "path_agree": 0.9655121564865112,
+          "path_ok": true
+        },
+        {
+          "word": "men",
+          "trace_ok": false,
+          "min_trace": 0.09125715494155884,
+          "perm_ok": true,
+          "path_agree": 0.9185690879821777,
+          "path_ok": true
+        },
+        {
+          "word": "mouse",
+          "trace_ok": false,
+          "min_trace": -0.02537687122821808,
+          "perm_ok": true,
+          "path_agree": 0.9667438268661499,
+          "path_ok": true
+        },
+        {
+          "word": "leaves",
+          "trace_ok": false,
+          "min_trace": 0.08691498637199402,
+          "perm_ok": false,
+          "path_agree": 0.8114207983016968,
+          "path_ok": true
+        }
+      ]
+    },
+    "hold_soft": {
+      "trace_acc": 0.058823529411764705,
+      "perm_acc": 0.8235294117647058,
+      "path_acc": 0.9411764705882353,
+      "details": [
+        {
+          "word": "cards",
+          "trace_ok": true,
+          "min_trace": 0.10831299424171448,
+          "perm_ok": false,
+          "path_agree": 0.9590969681739807,
+          "path_ok": true
+        },
+        {
+          "word": "bookshelves",
+          "trace_ok": false,
+          "min_trace": -0.22387096285820007,
+          "perm_ok": true,
+          "path_agree": 0.9465572834014893,
+          "path_ok": true
+        },
+        {
+          "word": "jumping",
+          "trace_ok": false,
+          "min_trace": -0.19294211268424988,
+          "perm_ok": true,
+          "path_agree": 0.7424172163009644,
+          "path_ok": true
+        },
+        {
+          "word": "walking",
+          "trace_ok": false,
+          "min_trace": -0.09701866656541824,
+          "perm_ok": true,
+          "path_agree": 0.8625375032424927,
+          "path_ok": true
+        },
+        {
+          "word": "reading",
+          "trace_ok": false,
+          "min_trace": -0.16738225519657135,
+          "perm_ok": true,
+          "path_agree": 0.9388349652290344,
+          "path_ok": true
+        },
+        {
+          "word": "writing",
+          "trace_ok": false,
+          "min_trace": -0.20410004258155823,
+          "perm_ok": true,
+          "path_agree": 0.5791599750518799,
+          "path_ok": true
+        },
+        {
+          "word": "friendship",
+          "trace_ok": false,
+          "min_trace": -0.042753517627716064,
+          "perm_ok": true,
+          "path_agree": 0.8819235563278198,
+          "path_ok": true
+        },
+        {
+          "word": "sunshine",
+          "trace_ok": false,
+          "min_trace": -0.0610504150390625,
+          "perm_ok": true,
+          "path_agree": 0.8658860921859741,
+          "path_ok": true
+        },
+        {
+          "word": "moonlight",
+          "trace_ok": false,
+          "min_trace": -0.13851398229599,
+          "perm_ok": true,
+          "path_agree": 0.9334688782691956,
+          "path_ok": true
+        },
+        {
+          "word": "playground",
+          "trace_ok": false,
+          "min_trace": -0.12018057703971863,
+          "perm_ok": true,
+          "path_agree": 0.691577672958374,
+          "path_ok": true
+        },
+        {
+          "word": "applesauce",
+          "trace_ok": false,
+          "min_trace": -0.043060995638370514,
+          "perm_ok": true,
+          "path_agree": 0.9764215350151062,
+          "path_ok": true
+        },
+        {
+          "word": "birdhouse",
+          "trace_ok": false,
+          "min_trace": -0.1276489794254303,
+          "perm_ok": true,
+          "path_agree": 0.5221558809280396,
+          "path_ok": false
+        },
+        {
+          "word": "notebook",
+          "trace_ok": false,
+          "min_trace": -0.24230562150478363,
+          "perm_ok": false,
+          "path_agree": 0.9520188570022583,
+          "path_ok": true
+        },
+        {
+          "word": "backpack",
+          "trace_ok": false,
+          "min_trace": -0.03973263502120972,
+          "perm_ok": false,
+          "path_agree": 0.7755038142204285,
+          "path_ok": true
+        },
+        {
+          "word": "quickly",
+          "trace_ok": false,
+          "min_trace": 0.0012648627161979675,
+          "perm_ok": true,
+          "path_agree": 0.942770779132843,
+          "path_ok": true
+        },
+        {
+          "word": "slowly",
+          "trace_ok": false,
+          "min_trace": 0.04430247098207474,
+          "perm_ok": true,
+          "path_agree": 0.8289206027984619,
+          "path_ok": true
+        },
+        {
+          "word": "happily",
+          "trace_ok": false,
+          "min_trace": 0.005497874692082405,
+          "perm_ok": true,
+          "path_agree": 0.8913514018058777,
+          "path_ok": true
+        }
+      ]
+    },
+    "oov_related_acc": 0.0,
+    "oov_neighbor": [
+      {
+        "word": "cards",
+        "nearest_train": "cars",
+        "score": 0.42532825469970703,
+        "related_hit": false,
+        "top3": [
+          [
+            "cars",
+            0.42532825469970703
+          ],
+          [
+            "acts",
+            0.30567851662635803
+          ],
+          [
+            "mice",
+            0.2706822156906128
+          ]
+        ]
+      },
+      {
+        "word": "bookshelves",
+        "nearest_train": "books",
+        "score": 0.4993935823440552,
+        "related_hit": null,
+        "top3": [
+          [
+            "books",
+            0.4993935823440552
+          ],
+          [
+            "tree",
+            0.32128411531448364
+          ],
+          [
+            "car",
+            0.3026142120361328
+          ]
+        ]
+      },
+      {
+        "word": "jumping",
+        "nearest_train": "jumps",
+        "score": 0.6849610805511475,
+        "related_hit": null,
+        "top3": [
+          [
+            "jumps",
+            0.6849610805511475
+          ],
+          [
+            "jump",
+            0.484498530626297
+          ],
+          [
+            "takes",
+            0.38072848320007324
+          ]
+        ]
+      },
+      {
+        "word": "walking",
+        "nearest_train": "walk",
+        "score": 0.5035431981086731,
+        "related_hit": null,
+        "top3": [
+          [
+            "walk",
+            0.5035431981086731
+          ],
+          [
+            "walks",
+            0.43427759408950806
+          ],
+          [
+            "large",
+            0.29083895683288574
+          ]
+        ]
+      },
+      {
+        "word": "reading",
+        "nearest_train": "school",
+        "score": 0.49987444281578064,
+        "related_hit": null,
+        "top3": [
+          [
+            "school",
+            0.49987444281578064
+          ],
+          [
+            "read",
+            0.4971616864204407
+          ],
+          [
+            "reads",
+            0.4064980149269104
+          ]
+        ]
+      },
+      {
+        "word": "writing",
+        "nearest_train": "writes",
+        "score": 0.693695068359375,
+        "related_hit": null,
+        "top3": [
+          [
+            "writes",
+            0.693695068359375
+          ],
+          [
+            "write",
+            0.47612065076828003
+          ],
+          [
+            "walk",
+            0.3050147593021393
+          ]
+        ]
+      },
+      {
+        "word": "friendship",
+        "nearest_train": "friends",
+        "score": 0.6340923309326172,
+        "related_hit": null,
+        "top3": [
+          [
+            "friends",
+            0.6340923309326172
+          ],
+          [
+            "quick",
+            0.23560169339179993
+          ],
+          [
+            "tops",
+            0.2009412944316864
+          ]
+        ]
+      },
+      {
+        "word": "sunshine",
+        "nearest_train": "houses",
+        "score": 0.3544353246688843,
+        "related_hit": null,
+        "top3": [
+          [
+            "houses",
+            0.3544353246688843
+          ],
+          [
+            "card",
+            0.3029813766479492
+          ],
+          [
+            "over",
+            0.3010883927345276
+          ]
+        ]
+      },
+      {
+        "word": "moonlight",
+        "nearest_train": "books",
+        "score": 0.36585426330566406,
+        "related_hit": null,
+        "top3": [
+          [
+            "books",
+            0.36585426330566406
+          ],
+          [
+            "morning",
+            0.3635936975479126
+          ],
+          [
+            "stop",
+            0.32553255558013916
+          ]
+        ]
+      },
+      {
+        "word": "playground",
+        "nearest_train": "play",
+        "score": 0.4023265838623047,
+        "related_hit": null,
+        "top3": [
+          [
+            "play",
+            0.4023265838623047
+          ],
+          [
+            "plays",
+            0.3358681797981262
+          ],
+          [
+            "large",
+            0.3068288564682007
+          ]
+        ]
+      },
+      {
+        "word": "applesauce",
+        "nearest_train": "apples",
+        "score": 0.4539819657802582,
+        "related_hit": null,
+        "top3": [
+          [
+            "apples",
+            0.4539819657802582
+          ],
+          [
+            "black",
+            0.4530262351036072
+          ],
+          [
+            "apple",
+            0.27269595861434937
+          ]
+        ]
+      },
+      {
+        "word": "birdhouse",
+        "nearest_train": "black",
+        "score": 0.32795190811157227,
+        "related_hit": null,
+        "top3": [
+          [
+            "black",
+            0.32795190811157227
+          ],
+          [
+            "morning",
+            0.32751208543777466
+          ],
+          [
+            "book",
+            0.3042287230491638
+          ]
+        ]
+      },
+      {
+        "word": "notebook",
+        "nearest_train": "morning",
+        "score": 0.3588561415672302,
+        "related_hit": null,
+        "top3": [
+          [
+            "morning",
+            0.3588561415672302
+          ],
+          [
+            "women",
+            0.3400077819824219
+          ],
+          [
+            "make",
+            0.2849149703979492
+          ]
+        ]
+      },
+      {
+        "word": "backpack",
+        "nearest_train": "black",
+        "score": 0.42134952545166016,
+        "related_hit": null,
+        "top3": [
+          [
+            "black",
+            0.42134952545166016
+          ],
+          [
+            "tops",
+            0.36018696427345276
+          ],
+          [
+            "before",
+            0.34937167167663574
+          ]
+        ]
+      },
+      {
+        "word": "quickly",
+        "nearest_train": "quick",
+        "score": 0.6864949464797974,
+        "related_hit": null,
+        "top3": [
+          [
+            "quick",
+            0.6864949464797974
+          ],
+          [
+            "runs",
+            0.29636454582214355
+          ],
+          [
+            "not",
+            0.2859196364879608
+          ]
+        ]
+      },
+      {
+        "word": "slowly",
+        "nearest_train": "slow",
+        "score": 0.6895421743392944,
+        "related_hit": null,
+        "top3": [
+          [
+            "slow",
+            0.6895421743392944
+          ],
+          [
+            "stops",
+            0.24490439891815186
+          ],
+          [
+            "over",
+            0.22358854115009308
+          ]
+        ]
+      },
+      {
+        "word": "happily",
+        "nearest_train": "happy",
+        "score": 0.6264823079109192,
+        "related_hit": null,
+        "top3": [
+          [
+            "happy",
+            0.6264823079109192
+          ],
+          [
+            "jumps",
+            0.3120528757572174
+          ],
+          [
+            "small",
+            0.23765887320041656
+          ]
+        ]
+      }
+    ],
+    "related": [
+      {
+        "a": "cat",
+        "b": "cats",
+        "unrelated": "pots",
+        "sim_rel": 0.5992950201034546,
+        "sim_un": -0.07208791375160217,
+        "ok": true
+      },
+      {
+        "a": "dog",
+        "b": "dogs",
+        "unrelated": "run",
+        "sim_rel": 0.6814461946487427,
+        "sim_un": 0.013723757117986679,
+        "ok": true
+      },
+      {
+        "a": "book",
+        "b": "books",
+        "unrelated": "quick",
+        "sim_rel": 0.6425889730453491,
+        "sim_un": 0.24190762639045715,
+        "ok": true
+      },
+      {
+        "a": "tree",
+        "b": "trees",
+        "unrelated": "birds",
+        "sim_rel": 0.7276036739349365,
+        "sim_un": -0.07771483063697815,
+        "ok": true
+      },
+      {
+        "a": "bird",
+        "b": "birds",
+        "unrelated": "white",
+        "sim_rel": 0.661429762840271,
+        "sim_un": -0.1419305056333542,
+        "ok": true
+      },
+      {
+        "a": "walk",
+        "b": "walks",
+        "unrelated": "writes",
+        "sim_rel": 0.6424998044967651,
+        "sim_un": 0.17902089655399323,
+        "ok": true
+      },
+      {
+        "a": "run",
+        "b": "runs",
+        "unrelated": "again",
+        "sim_rel": 0.6832242608070374,
+        "sim_un": 0.055468786507844925,
+        "ok": true
+      },
+      {
+        "a": "jump",
+        "b": "jumps",
+        "unrelated": "mice",
+        "sim_rel": 0.7358754873275757,
+        "sim_un": -0.08605490624904633,
+        "ok": true
+      },
+      {
+        "a": "make",
+        "b": "makes",
+        "unrelated": "spot",
+        "sim_rel": 0.6584102511405945,
+        "sim_un": -0.3391624391078949,
+        "ok": true
+      },
+      {
+        "a": "take",
+        "b": "takes",
+        "unrelated": "apple",
+        "sim_rel": 0.6588074564933777,
+        "sim_un": -0.10621102154254913,
+        "ok": true
+      },
+      {
+        "a": "give",
+        "b": "gives",
+        "unrelated": "mice",
+        "sim_rel": 0.7330623269081116,
+        "sim_un": -0.014386855065822601,
+        "ok": true
+      },
+      {
+        "a": "house",
+        "b": "houses",
+        "unrelated": "books",
+        "sim_rel": 0.6545417308807373,
+        "sim_un": -0.10714942216873169,
+        "ok": true
+      },
+      {
+        "a": "apple",
+        "b": "apples",
+        "unrelated": "give",
+        "sim_rel": 0.6922577619552612,
+        "sim_un": 0.02468103915452957,
+        "ok": true
+      },
+      {
+        "a": "table",
+        "b": "tables",
+        "unrelated": "not",
+        "sim_rel": 0.6690775156021118,
+        "sim_un": 0.08536441624164581,
+        "ok": true
+      },
+      {
+        "a": "window",
+        "b": "windows",
+        "unrelated": "bird",
+        "sim_rel": 0.6571820974349976,
+        "sim_un": 0.15738753974437714,
+        "ok": true
+      },
+      {
+        "a": "friend",
+        "b": "friends",
+        "unrelated": "leaf",
+        "sim_rel": 0.6954890489578247,
+        "sim_un": 0.10792410373687744,
+        "ok": true
+      },
+      {
+        "a": "write",
+        "b": "writes",
+        "unrelated": "write",
+        "sim_rel": 0.5929871797561646,
+        "sim_un": 0.9999998807907104,
+        "ok": false
+      },
+      {
+        "a": "read",
+        "b": "reads",
+        "unrelated": "friend",
+        "sim_rel": 0.6725221276283264,
+        "sim_un": 0.04920089617371559,
+        "ok": true
+      },
+      {
+        "a": "play",
+        "b": "plays",
+        "unrelated": "child",
+        "sim_rel": 0.6614519357681274,
+        "sim_un": 0.06203590705990791,
+        "ok": true
+      },
+      {
+        "a": "card",
+        "b": "cards",
+        "unrelated": "morning",
+        "sim_rel": 0.37951260805130005,
+        "sim_un": 0.21224451065063477,
+        "ok": true
+      },
+      {
+        "a": "leaf",
+        "b": "leaves",
+        "unrelated": "god",
+        "sim_rel": 0.4859852194786072,
+        "sim_un": 0.15451209247112274,
+        "ok": true
+      },
+      {
+        "a": "mouse",
+        "b": "mice",
+        "unrelated": "water",
+        "sim_rel": 0.32031458616256714,
+        "sim_un": -0.4782463610172272,
+        "ok": true
+      },
+      {
+        "a": "man",
+        "b": "men",
+        "unrelated": "jump",
+        "sim_rel": 0.26778900623321533,
+        "sim_un": -0.16469526290893555,
+        "ok": true
+      },
+      {
+        "a": "woman",
+        "b": "women",
+        "unrelated": "yellow",
+        "sim_rel": 0.5421958565711975,
+        "sim_un": -0.05986284464597702,
+        "ok": true
+      },
+      {
+        "a": "child",
+        "b": "children",
+        "unrelated": "card",
+        "sim_rel": 0.6880976557731628,
+        "sim_un": 0.09635604172945023,
+        "ok": true
+      }
+    ],
+    "prefixes": [
+      {
+        "prefix": "ca",
+        "family": [
+          "cat",
+          "cats",
+          "car",
+          "cars",
+          "card"
+        ],
+        "family_sim": 0.4097374975681305,
+        "other_sim": 0.18494278192520142,
+        "ok": true
+      },
+      {
+        "prefix": "bo",
+        "family": [
+          "book",
+          "books"
+        ],
+        "family_sim": 0.5631071329116821,
+        "other_sim": 0.30782610177993774,
+        "ok": true
+      },
+      {
+        "prefix": "wa",
+        "family": [
+          "walk",
+          "walks",
+          "water"
+        ],
+        "family_sim": 0.49813905358314514,
+        "other_sim": 0.18591217696666718,
+        "ok": true
+      },
+      {
+        "prefix": "fr",
+        "family": [
+          "friend",
+          "friends"
+        ],
+        "family_sim": 0.5998431444168091,
+        "other_sim": 0.272590696811676,
+        "ok": true
+      },
+      {
+        "prefix": "re",
+        "family": [
+          "read",
+          "reads"
+        ],
+        "family_sim": 0.6025835275650024,
+        "other_sim": 0.2581055462360382,
+        "ok": true
+      },
+      {
+        "prefix": "pl",
+        "family": [
+          "play",
+          "plays"
+        ],
+        "family_sim": 0.6194814443588257,
+        "other_sim": 0.30029296875,
+        "ok": true
+      }
+    ],
+    "alphabet_path": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\alphabet_full_frozen.pt"
+  }
+}

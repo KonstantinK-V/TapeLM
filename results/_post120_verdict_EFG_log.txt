@@ -1,0 +1,208 @@
+Post120 verdict+EFG start 2026-07-25T12:00:31.945452+00:00
+[wait] for C:\Users\Kostya\sote-letter-assembly\results\stage120_decision.json ...
+[wait] still ... 315s
+[wait] still ... 630s
+[wait] still ... 900s
+[wait] still ... 1215s
+[wait] still ... 1530s
+[wait] still ... 1800s
+[wait] still ... 2115s
+[wait] still ... 2430s
+[wait] still ... 2700s
+[wait] still ... 3015s
+[wait] still ... 3330s
+[wait] 120 done
+[C] toks/word ...
+[D] rare SOTE ...
+[D] rare BPE ...
+
+SOTE POST-120 VERDICT A–D
+timestamp: 2026-07-25T12:57:24.257877+00:00
+
+=== A. Phrase-memory gain (Stage120) ===
+  STORY_LOCAL=20.8%  STORY_MEM=21.3%  gain=+0.5pp  verdict120=NULL_MEM
+  SEEN obj=28.8% rel=75.8%
+  Signal: NULL  (LIVE if gain>=3pp)
+
+=== B. Speed edge (Stage119a) ===
+  {
+  "sote": {
+    "ms_per_step": 10.291707500000484,
+    "tok_per_s": 4010.9962316746814,
+    "params": 2989056,
+    "unit": "word_positions_in_batch"
+  },
+  "bpe": {
+    "available": true,
+    "ms_per_step": 15.715824000071734,
+    "tok_per_s": 4669.179293409309,
+    "params": 5223936
+  },
+  "ratio_ms_sote_over_bpe": 0.6548627357975954,
+  "verdict": "SPEED"
+}
+  Signal: LIVE
+
+=== C. BPE toks / word (same windows) ===
+  {
+  "available": true,
+  "n_windows": 2000,
+  "mean_toks_per_word": 1.0005096190597529,
+  "median_toks_per_word": 1.0,
+  "p90": 1.0,
+  "signal": "WEAK"
+}
+  Signal: WEAK  (LIVE if mean>=2.0)
+
+=== D. Rare buckets word-level SOTE vs BPE ===
+  SOTE: {
+  "head21p": {
+    "n": 5073,
+    "model": 0.21407451212300413,
+    "bigram": 0.25133057362507394
+  },
+  "low2_5": {
+    "n": 82,
+    "model": 0.0,
+    "bigram": 0.0
+  },
+  "rare1": {
+    "n": 34,
+    "model": 0.0,
+    "bigram": 0.0
+  },
+  "mid6_20": {
+    "n": 272,
+    "model": 0.0,
+    "bigram": 0.011029411764705883
+  }
+}
+  BPE:  {
+  "head21p": {
+    "n": 2555,
+    "model": 0.34598825831702545
+  },
+  "ALL": {
+    "n": 2741,
+    "model": 0.3272528274352426
+  },
+  "low2_5": {
+    "n": 38,
+    "model": 0.05263157894736842
+  },
+  "rare1": {
+    "n": 15,
+    "model": 0.0
+  },
+  "mid6_20": {
+    "n": 133,
+    "model": 0.08270676691729323
+  }
+}
+  cmp:  {
+  "rare1": {
+    "sote": 0.0,
+    "bpe": 0.0,
+    "delta_pp": 0.0
+  },
+  "low2_5": {
+    "sote": 0.0,
+    "bpe": 0.05263157894736842,
+    "delta_pp": 0.05263157894736842
+  },
+  "mid6_20": {
+    "sote": 0.0,
+    "bpe": 0.08270676691729323,
+    "delta_pp": 0.08270676691729323
+  },
+  "head21p": {
+    "sote": 0.21407451212300413,
+    "bpe": 0.34598825831702545,
+    "delta_pp": 0.13191374619402133
+  }
+}
+  Signal: NULL  (LIVE if BPE-SOTE rare delta>=8pp)
+
+=== Next digs (queued H → E→F→G′) ===
+  H soft top-5 + morph@1 diag (NOT gate)
+  E who/where slots — strongest if A LIVE/WEAK
+  F fp projection adapter — if geometry/adapt angle still open
+  G′ morph-root denser positions — strongest if C/D LIVE
+
+=== One-liner ===
+  A=NULL B=LIVE C=WEAK D=NULL
+Traceback (most recent call last):
+  File "C:\Users\Kostya\sote-letter-assembly\_post120_verdict_EFG.py", line 728, in main
+    ids, mask, tgt = packed
+         ^^^^^^^^^^^^^^^^^^^
+NameError: name 'dig_H_top5_soft_diag' is not defined
+Post120 verdict+EFG start 2026-07-25T12:58:39.609119+00:00 resume=True
+[resume] skip wait/A–D — load signals; run H→E→F→G
+Traceback (most recent call last):
+  File "C:\Users\Kostya\sote-letter-assembly\_post120_verdict_EFG.py", line 944, in main
+    signals = json.loads(SIGNALS.read_text(encoding="utf-8"))
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kostya\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 335, in loads
+    raise JSONDecodeError("Unexpected UTF-8 BOM (decode using utf-8-sig)",
+json.decoder.JSONDecodeError: Unexpected UTF-8 BOM (decode using utf-8-sig): line 1 column 1 (char 0)
+Post120 verdict+EFG start 2026-07-25T12:59:16.116780+00:00 resume=True
+[resume] skip wait/A–D — load signals; run H→E→F→G
+
+======== DIG H soft top-5 + morph diag (NOT gate) ========
+  [H/SEEN] ALL hit1=69.7% hit5=91.7% (+22.0pp) morph@top5=91.7% | obj hit1=43.7% hit5=83.3%
+  [H/STORY] ALL hit1=20.3% hit5=38.0% (+17.8pp) morph@top5=38.2% | obj hit1=20.9% hit5=39.8%
+  [H/BPE STORY] hit1=30.6% hit5=58.3% (+27.8pp) morph_beam=58.5%
+[H] NEAR_MISS_LIVE STORY hit5-hit1=+17.8pp (diag only)
+
+======== DIG E who/where entity slots ========
+  [E] step 2000: LOCAL=0.8% ENT=2.2% gain=+1.4pp
+  [E] step 4000: LOCAL=1.5% ENT=2.5% gain=+1.1pp
+  [E] step 6000: LOCAL=0.2% ENT=0.9% gain=+0.7pp
+  [E] step 8000: LOCAL=0.1% ENT=2.2% gain=+2.1pp
+  [E] step 10000: LOCAL=2.6% ENT=2.5% gain=-0.1pp
+  [E] step 12000: LOCAL=0.8% ENT=2.2% gain=+1.4pp
+  [E] step 14000: LOCAL=7.8% ENT=3.9% gain=-3.9pp
+  [E] step 16000: LOCAL=3.8% ENT=2.9% gain=-0.9pp
+  [E] step 18000: LOCAL=5.8% ENT=4.6% gain=-1.2pp
+  [E] step 20000: LOCAL=8.0% ENT=4.6% gain=-3.4pp
+  [E] step 22000: LOCAL=9.5% ENT=5.5% gain=-4.0pp
+  [E] step 24000: LOCAL=8.5% ENT=5.2% gain=-3.3pp
+  [E] step 25000: LOCAL=9.9% ENT=6.3% gain=-3.5pp
+[E] PARTIAL gain=+2.1pp
+
+======== DIG F fp projection adapter ========
+  [F] step 2000: obj=0.5% rel=83.3% STORY=5.3%
+  [F] step 4000: obj=7.0% rel=83.3% STORY=6.3%
+  [F] step 6000: obj=8.2% rel=78.8% STORY=3.8%
+  [F] step 8000: obj=14.3% rel=73.8% STORY=7.8%
+  [F] step 10000: obj=19.3% rel=51.7% STORY=6.0%
+  [F] step 12000: obj=13.2% rel=43.8% STORY=8.1%
+  [F] step 14000: obj=20.3% rel=92.8% STORY=8.3%
+  [F] step 16000: obj=10.2% rel=80.0% STORY=8.4%
+  [F] step 18000: obj=24.3% rel=71.0% STORY=9.9%
+  [F] step 20000: obj=16.0% rel=74.5% STORY=7.5%
+  [F] step 22000: obj=15.7% rel=89.8% STORY=8.9%
+  [F] step 24000: obj=27.7% rel=90.8% STORY=10.7%
+  [F] step 26000: obj=24.7% rel=86.5% STORY=10.6%
+  [F] step 28000: obj=34.7% rel=93.3% STORY=9.5%
+  [F] step 30000: obj=32.5% rel=89.0% STORY=10.5%
+[F] PARITY STORY=9.5%
+
+======== DIG G denser attn steps (char pieces) ========
+  [G] step 2000: STORY_ALL~4.4% SEEN_ALL~20.9%
+  [G] step 4000: STORY_ALL~9.2% SEEN_ALL~62.6%
+  [G] step 6000: STORY_ALL~7.5% SEEN_ALL~64.0%
+  [G] step 8000: STORY_ALL~9.7% SEEN_ALL~61.5%
+  [G] step 10000: STORY_ALL~9.9% SEEN_ALL~63.7%
+  [G] step 12000: STORY_ALL~10.2% SEEN_ALL~61.1%
+  [G] step 14000: STORY_ALL~12.0% SEEN_ALL~68.8%
+  [G] step 16000: STORY_ALL~13.0% SEEN_ALL~68.2%
+  [G] step 18000: STORY_ALL~13.8% SEEN_ALL~65.0%
+  [G] step 20000: STORY_ALL~13.0% SEEN_ALL~69.0%
+  [G] step 22000: STORY_ALL~14.7% SEEN_ALL~68.2%
+  [G] step 24000: STORY_ALL~16.7% SEEN_ALL~69.4%
+  [G] step 26000: STORY_ALL~15.7% SEEN_ALL~65.4%
+  [G] step 28000: STORY_ALL~16.7% SEEN_ALL~64.6%
+  [G] step 30000: STORY_ALL~14.9% SEEN_ALL~67.9%
+[G] PARITY STORY~16.7%
+DONE verdict+H+EFG

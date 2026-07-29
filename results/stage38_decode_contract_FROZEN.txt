@@ -1,0 +1,28 @@
+SOTE Stage 38 D decode contract FROZEN (fp → text NN codebook)
+timestamp: 2026-07-24T07:28:19+00:00
+checkpoint: stage38_decode_FROZEN.pt
+codebooks: stage38_codebooks.pt
+parent: stage37_text_bridge_FROZEN.pt
+report: stage38_decode_report_FROZEN.txt
+metrics: stage38_decode_metrics.json
+
+=== CLAIM ===
+  Closed-set NN decode works: word/phrase fp → exact string 100%.
+  Answer-as-text: hop3 slot.fp → phrase text; text|ok3 100%; mean text_exact~95%.
+  Holdout OOV exact 0% — honest NN limit (no invented labels).
+
+=== CONTRACT ===
+  Core (36): observe_strict + chain-link + what_tail + left_instance
+  Encode (37): A lexicon + B encode-only (primary); C ablate only
+  Decode (38): Word/Phrase NN codebooks; answer = decode(slot.fp)
+  No new LM / generative decoder in this freeze
+
+NOT frozen here: E next-fp / mini-seq
+
+=== METRICS ===
+  word exact 100%; phrase exact/token 100%; holdout 0%
+  mean j3~90.1%; text_exact~94.8%; text|ok3 100%; slot→key 100%
+  pass: True
+
+=== FREEZE_READY: True ===
+Next: Stage 39 E next-fp only if D stays green under richer banks.

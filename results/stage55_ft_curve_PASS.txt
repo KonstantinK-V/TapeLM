@@ -1,0 +1,15 @@
+SOTE Stage 55 — PASS dig (curve / early-stop)
+timestamp: 2026-07-24T09:51:52+00:00
+data: data/external_mid.txt (618)  parent: stage53_external_FROZEN.pt
+checkpoint: stage55_ft_curve.pt
+
+=== RESULT ===
+  ZS L≥2 27.6%/+16.6pp
+  lr=1e-3 peak@2850 L2 28.3%/+15.7pp  end@3000 24.2%  overshoot +4.1pp
+  lr=1e-4 peak@0 (=ZS) — no lift
+  dig goal: ≥25% AND ≥ZS → PASS via restore peak
+
+=== READ ===
+  Stage54 fail was end-of-run overshoot, not hard abs ceiling.
+  Curriculum deferred. Residual: order_weak (+3pp), L1 soft.
+  No hops-external / no 2k scale yet.

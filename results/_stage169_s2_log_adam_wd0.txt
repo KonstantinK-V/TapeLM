@@ -1,0 +1,54 @@
+﻿
+S2 start 2026-07-27T10:42:08.919798+00:00
+[s2] warm-start from S1
+##### S2 full primary 4L d256 seq=512 micro=8 steps=300000 #####
+  [s2_primary] step 0: hold@last=14.0% bat=27.6% lift_maj=-9.4pp lossв‰€0.000
+  [s2_primary] step 10000: hold@last=19.3% bat=28.5% lift_maj=-8.5pp lossв‰€5.238
+  [s2_primary] ckpt stage169_s2_primary.pt @ 10000
+  [s2_primary] step 20000: hold@last=20.0% bat=29.3% lift_maj=-7.7pp lossв‰€4.976
+  [s2_primary] ckpt stage169_s2_primary.pt @ 20000
+  [s2_primary] step 30000: hold@last=19.3% bat=29.7% lift_maj=-7.3pp lossв‰€4.870
+  [s2_primary] ckpt stage169_s2_primary.pt @ 30000
+  [s2_primary] step 40000: hold@last=21.3% bat=30.3% lift_maj=-6.7pp lossв‰€4.807
+  [s2_primary] ckpt stage169_s2_primary.pt @ 40000
+  [s2_primary] step 50000: hold@last=26.0% bat=31.1% lift_maj=-5.8pp lossв‰€4.725
+  [s2_primary] ckpt stage169_s2_primary.pt @ 50000
+  [s2_primary] step 60000: hold@last=20.0% bat=29.3% lift_maj=-7.7pp lossв‰€4.728
+  [s2_primary] ckpt stage169_s2_primary.pt @ 60000
+  [s2_primary] step 70000: hold@last=26.7% bat=31.6% lift_maj=-5.3pp lossв‰€4.682
+  [s2_primary] ckpt stage169_s2_primary.pt @ 70000
+  [s2_primary] step 80000: hold@last=22.7% bat=31.9% lift_maj=-5.1pp lossв‰€4.618
+  [s2_primary] ckpt stage169_s2_primary.pt @ 80000
+  [s2_primary] step 90000: hold@last=26.7% bat=30.6% lift_maj=-6.5pp lossв‰€4.643
+  [s2_primary] ckpt stage169_s2_primary.pt @ 90000
+  [s2_primary] step 100000: hold@last=22.7% bat=31.9% lift_maj=-5.1pp lossв‰€4.557
+  [s2_primary] ckpt stage169_s2_primary.pt @ 100000
+  [s2_primary] step 110000: hold@last=27.3% bat=31.1% lift_maj=-5.8pp lossв‰€4.591
+  [s2_primary] ckpt stage169_s2_primary.pt @ 110000
+  [s2_primary] step 120000: hold@last=32.0% bat=31.9% lift_maj=-5.1pp lossв‰€4.593
+  [s2_primary] ckpt stage169_s2_primary.pt @ 120000
+S2 start 2026-07-27T15:26:24.042506+00:00
+[s2] resume from stage169_s2_primary.pt @ step=120000
+##### S2 full primary 4L d256 seq=512 micro=8 steps=300000 opt=Adam wd=0.0 schedule=warmup_constant resume=120000 #####
+  [s2_primary] opt=Adam wd=0.0 lr=0.001->0.001 schedule=warmup_constant warmup=3000 steps=300000 resume_from=120000
+  [s2_primary] resume: skip step0 eval, continue from 120001
+  [s2_primary] step 130000: hold@last=26.0% bat=31.9% lift_maj=-5.0pp loss~4.573 lr=1.00e-03
+  [s2_primary] ckpt stage169_s2_primary.pt @ 130000
+  [s2_primary] step 140000: hold@last=24.0% bat=33.0% lift_maj=-4.0pp loss~4.548 lr=1.00e-03
+  [s2_primary] ckpt stage169_s2_primary.pt @ 140000
+  [s2_primary] step 150000: hold@last=27.3% bat=32.2% lift_maj=-4.8pp loss~4.526 lr=1.00e-03
+  [s2_primary] ckpt stage169_s2_primary.pt @ 150000
+  [s2_primary] step 160000: hold@last=22.7% bat=33.1% lift_maj=-3.9pp loss~4.528 lr=1.00e-03
+  [s2_primary] ckpt stage169_s2_primary.pt @ 160000
+  [s2_primary] step 170000: hold@last=26.7% bat=32.6% lift_maj=-4.4pp loss~4.508 lr=1.00e-03
+  [s2_primary] ckpt stage169_s2_primary.pt @ 170000
+  [s2_primary] step 180000: hold@last=31.3% bat=31.6% lift_maj=-5.4pp loss~4.511 lr=1.00e-03
+  [s2_primary] ckpt stage169_s2_primary.pt @ 180000
+  [s2_primary] step 190000: hold@last=27.3% bat=31.8% lift_maj=-5.2pp loss~4.467 lr=1.00e-03
+  [s2_primary] ckpt stage169_s2_primary.pt @ 190000
+  [s2_primary] step 200000: hold@last=25.3% bat=32.6% lift_maj=-4.4pp loss~4.508 lr=1.00e-03
+  [s2_primary] ckpt stage169_s2_primary.pt @ 200000
+  [s2_primary] step 210000: hold@last=31.3% bat=33.6% lift_maj=-3.4pp loss~4.507 lr=1.00e-03
+  [s2_primary] ckpt stage169_s2_primary.pt @ 210000
+  [s2_primary] step 220000: hold@last=16.7% bat=33.1% lift_maj=-3.8pp loss~4.514 lr=1.00e-03
+  [s2_primary] ckpt stage169_s2_primary.pt @ 220000

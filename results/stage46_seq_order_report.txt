@@ -1,0 +1,28 @@
+SOTE Stage 46 report (tiny seq LM + per-pos next; order/context)
+timestamp: 2026-07-24T08:41:44.234898+00:00
+device: cuda
+corpus: fp_language_corpus.pt  layers=2 max_len=8
+meta: {'vocab': 107, 'pairs_train': 232, 'pairs_hold': 190, 'hold_L1': 96, 'hold_L2p': 94, 'hold_L3p': 4, 'seq_train': 119}
+Focus: use order — not lexicon growth.
+
+=== D regression word=100.0% ===
+
+=== TinySeq (GRU) HOLD by prefix length ===
+  all  acc=31.1% gap=+18.4pp cos=0.421 n=190
+  L1   acc=54.2% gap=+5.2pp cos=0.690 n=96
+  L2p  acc=7.4% gap=+3.2pp cos=0.147 n=94
+  L3p  acc=25.0% gap=-25.0pp cos=0.195 n=4
+
+=== LastOnly ablation HOLD ===
+  all  acc=34.2% gap=+17.9pp n=190
+  L1   acc=53.1% gap=-1.0pp n=96
+  L2p  acc=14.9% gap=+8.5pp n=94
+
+=== Order control (L≥2): clean vs shuffled prefix ===
+  clean acc=7.4%  shuffled_prefix acc=3.2%  drop=+4.3pp
+
+=== Verdict ===
+  FAIL L≥2 (acc 7% gap +3pp): after seq-model still ~chance → likely data (short template world), not dead fp-language.
+  L=1 abs held 54% (not collapsed); L≥3 n=4 ignore.
+  Order drop +4pp weak. LastOnly L≥2 15%/+9pp — still below gate.
+  Deferred: phrase-next, big softmax, char-LM trunk. Next: longer/diverse seq in same lexicon.

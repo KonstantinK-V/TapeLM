@@ -1,0 +1,23 @@
+SOTE Stage 64 dirty hop stress — FROZEN
+timestamp: 2026-07-24T11:55:21+00:00
+checkpoint: stage64_dirty_hop_FROZEN.pt
+bank: data/external_facts_live_exp_FROZEN.txt
+report: stage64_dirty_hop_report_FROZEN.txt
+metrics: stage64_dirty_hop_metrics_FROZEN.json
+binders: stage28_plus_dirty_ft.pt seed=272
+
+=== CLAIM ===
+  Expanded LIVE hops (noun_rel|polarity) survive dirty_bind and dirty_hard
+  at soft gates; clean still holds. No FT.
+
+=== METRICS (n_eps=96) ===
+  hop2 clean_bind 84.4%  dirty_bind 86.5%  dirty_hard 78.1%
+  hop3 clean_bind 92.7%  dirty_bind 92.7%  dirty_hard 91.7%
+  walls: none  verdict: PASS full dirty
+
+=== GATES ===
+  dirty_bind ≥55% OR within 25pp of clean
+  dirty_hard ≥50%; clean hop2≥70% hop3≥70%
+
+=== FREEZE_READY: True ===
+Not claimed: verb_ing hops, NLI / true logical negation, junction gate.

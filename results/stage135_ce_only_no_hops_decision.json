@@ -1,0 +1,129 @@
+{
+  "timestamp": "2026-07-25T17:46:26.500785+00:00",
+  "protocol": "ce_only_hops_completely_out",
+  "atom_ckpt": "stage125_same_role_rank.pt",
+  "hops_in_train": false,
+  "hops_in_eval": false,
+  "seen": {
+    "all": 0.68,
+    "obj": 0.3983333333333333,
+    "rel": 0.9616666666666667,
+    "roles": {
+      "rel": {
+        "n": 600,
+        "hit1": 0.9616666666666667
+      },
+      "ALL": {
+        "n": 1200,
+        "hit1": 0.68
+      },
+      "right": {
+        "n": 599,
+        "hit1": 0.3989983305509182
+      },
+      "verb_ing": {
+        "n": 1,
+        "hit1": 0.0
+      }
+    }
+  },
+  "story": {
+    "all": 0.15931461903025884,
+    "obj": 0.2235294117647059,
+    "rel": 0.5094339622641509,
+    "roles": {
+      "other": {
+        "n": 2134,
+        "hit1": 0.11199625117150891
+      },
+      "ALL": {
+        "n": 2743,
+        "hit1": 0.15931461903025884
+      },
+      "rel": {
+        "n": 265,
+        "hit1": 0.5094339622641509
+      },
+      "right": {
+        "n": 250,
+        "hit1": 0.228
+      },
+      "leftish": {
+        "n": 25,
+        "hit1": 0.24
+      },
+      "verb_ing": {
+        "n": 69,
+        "hit1": 0.0
+      }
+    }
+  },
+  "rare": {
+    "all": 0.51875,
+    "obj": 0.1875,
+    "rel": 0.85,
+    "roles": {
+      "rel": {
+        "n": 160,
+        "hit1": 0.85
+      },
+      "ALL": {
+        "n": 320,
+        "hit1": 0.51875
+      },
+      "right": {
+        "n": 160,
+        "hit1": 0.1875
+      }
+    }
+  },
+  "ref100": {
+    "obj": 0.426,
+    "rel": 0.958,
+    "story_all": 0.196,
+    "rare_obj": 0.117
+  },
+  "bpe112_ref": {
+    "verdict": "BPE_HIGHER",
+    "seen_obj": 0.41333333333333333,
+    "seen_rel": 0.92,
+    "story_all": 0.33953318745441285,
+    "story_obj": 0.2830188679245283,
+    "V_bpe": 8000,
+    "params": 5223936
+  },
+  "story_gap_vs_bpe_pp": 0.180218568424154,
+  "verdict": "POLICY_OK",
+  "why_not_gpt": {
+    "same_axis": "context \u2192 next-atom CE \u2192 decode (shared with GPT-style LMs)",
+    "not_close_because": [
+      {
+        "axis": "atom_unit",
+        "here": "whole-word codebook (~5k surfaces)",
+        "gpt_like": "BPE/subword (Stage112 V=8k on same windows \u2192 STORY~34%)",
+        "evidence_pp_story": 0.180218568424154
+      },
+      {
+        "axis": "scale",
+        "here": "2L/4H d=256, ~50k\u2013100k TinyStories windows",
+        "gpt_like": "orders of magnitude more params + data"
+      },
+      {
+        "axis": "objective_surface",
+        "here": "exact@1 on short windows / roles",
+        "gpt_like": "token CE at web scale + long context KV"
+      },
+      {
+        "axis": "encode",
+        "here": "frozen letter\u2192word_fp foundation + word-id head",
+        "gpt_like": "end-to-end learned token emb from scratch"
+      },
+      {
+        "axis": "memory",
+        "here": "hops OUT of train (this stage); optional separate API",
+        "gpt_like": "facts mostly absorbed into weights/KV of same trunk"
+      }
+    ],
+    "punchline": "Leaving hops out of training makes SOTE's LM trunk more GPT-like in training recipe, but atom=word + tiny scale + TinyStories keep it far from GPT performance \u2014 Stage112 already showed BPE alone lifts STORY ~+14pp on the same task."
+  }
+}

@@ -1,0 +1,1001 @@
+# External ~1k lines for Stage59 scale. a-z spaces. Includes mid+tiny seed + template expand.
+bag bell on peg
+ball cap on wash
+big bag to top
+big bed on top on hill
+big bin to car to dog
+big book to yard on fish
+big box on book
+big box on fish
+big box to cup
+big calling to peg
+big calling to rock
+big cap to pan
+big car on jump
+big car on mat
+big car to log
+big cat on wash
+big cob to top to jar
+big dog to road on mat
+big dog to rug
+big door on rim
+big door to water
+big fish on ball
+big fish to work to box
+big fox on mat
+big fox on mat to bed
+big fox on web to park
+big fox to lid to car
+big hand on ball
+big hand to well
+big hat on bed to ship
+big hat to bell
+big hat to land
+big hat to top
+big hill on move
+big hill on top
+big hut on bin
+big jar on land on map
+big jar to yard
+big land on dog
+big lid on walk on nib
+big looking on log
+big looking to look
+big map on nib
+big mat on hill
+big mat on jar on well
+big moved on hat
+big moved on mat
+big moved to wash on pan
+big moving on bed
+big moving on fish
+big moving on water
+big moving to mug
+big mug on door
+big mug on rug
+big net to bin on key
+big net to rim on walk
+big nib on pan
+big nib on pin
+big nib on well
+big nib to hand
+big nib to hill
+big nib to land on pad
+big pad on cat
+big pad on mat on fox
+big pan on dog
+big peg on ball on fox
+big peg on hut to bird
+big peg on water
+big pen on cob
+big pen to cup
+big pen to peg
+big pin on ball
+big playing on hut
+big playing on mat
+big playing to cob
+big playing to wash
+big pull on land on cup
+big pulling on road
+big pulling to door
+big pushing to shop
+big reading on bird
+big reading on hut
+big reading to bed
+big rim to help to well
+big rock on road
+big rock to yard
+big rug on peg
+big rug to hand
+big rug to water
+big running on ball
+big running on fox
+big running on hand
+big running on key
+big running on log
+big sand on key
+big sand to bell
+big ship on book
+big ship on jar on bed
+big ship to peg
+big shop to box on pad
+big stop to jump
+big stopping on ball
+big stopping on bed
+big top on door on cup
+big top on hill
+big wash to cat to ship
+big washing on key
+big washing on lid
+big web on help
+big web to road
+big well on key
+big yard on pad on cap
+bin help to pin
+bin pin on pad
+bin sand to car
+bird door to key
+bird net to ball
+book top to pan
+book wash on mill
+box cup on book
+box hut on bin
+box road on web
+call calling called
+call rim on fox
+call rug on cap
+calling on bag
+calling on ball
+calling on dog
+calling on door
+calling on land
+calling on peg
+calling on top
+calling on yard
+calling to door
+calling to hand
+calling to map
+car road to bell
+cat dog fox to bed
+cat fish to bed
+cat mat on rim
+cob box on cap
+cob hill on net
+cob nib to book
+cup cap to peg
+cup work on bag
+dog cap to lid
+door cap on bin
+door peg to top
+door pin to shop
+fox box on fish
+fox hat bird on mat
+good bag on cob
+good bag on fish
+good bag to road
+good ball on bag
+good ball to fox
+good bell on cap on pad
+good bell to fish
+good bin on hat
+good bin on jar
+good bird on rim
+good bird on rim to peg
+good bird to bin to sand
+good book on fish
+good book on hat
+good book to cup
+good book to fox
+good book to log to book
+good box on pad
+good box on pin on look
+good box to bell
+good box to pen
+good call on cup
+good call on hut on cat
+good calling on nib
+good calling on top
+good cap on bell
+good cap on box
+good cap on net
+good cap to door
+good car to bag on map
+good car to door to pan
+good cat on fish
+good cat on jump to moved
+good cob on box on pad
+good cob on cat to mat
+good cup on bird on land
+good dog to peg
+good fish on bag
+good fish on pen
+good fish to web
+good fox on rug
+good fox to cob to pen
+good fox to mat to key
+good hand to bag
+good hat to work
+good help to ship
+good helping on mug
+good helping on road
+good helping to cap
+good hill on pen
+good hill to ship
+good hut to book
+good hut to mug
+good hut to sand on jar
+good jar on key
+good jar on map to cat
+good jar to log
+good jump on pan
+good jump to help
+good jumping on box
+good jumping on nib
+good key on bird
+good land on jump
+good land to top
+good lid on hat
+good lid to cap
+good lid to mat
+good log to jar to rock
+good log to net
+good looking to bag
+good map on cat
+good mill on hut
+good mill to bird
+good nib on book
+good pad on hill
+good pan on cat on mill
+good pan to hand on car
+good pan to park
+good park to bin
+good park to mug to nib
+good park to shop
+good peg on bin
+good pin to pen
+good play on look
+good playing on call
+good playing on cob
+good pull to cob
+good push on box
+good push to pull
+good pushing on yard
+good pushing to pad
+good reading to key
+good reading to well
+good rim to rock to bag
+good road on bed
+good road on net
+good road to top
+good rock on nib
+good rug to car
+good rug to cup on pull
+good sand to pin on pad
+good ship on hut
+good ship to top
+good shop on hut on door
+good shop on rug
+good top on bag
+good top on mill
+good walk to moved
+good walking on road
+good walking to door
+good walking to hill
+good wash to car
+good washing to book
+good washing to pen
+good water on rim
+good water to bin on jar
+good web to well
+good well to web
+good well to work
+good yard on fish
+good yard on land
+hand walk on jar
+hat bin to mug
+hat cat to car
+hat cup on hill
+hat hand to cob
+hat hill on ball
+help ball on net
+help call on book
+help helping helped
+helping on book
+helping on park
+helping on shop
+helping to bird
+helping to cob
+helping to fish
+helping to hand
+helping to hut
+helping to mill
+helping to net
+hill bag on door
+hill cat on cob
+hut cap to web
+jump jumping jumped
+jump work on hill
+jumping on car
+jumping on cup
+jumping on door
+jumping on hat
+jumping on hill
+jumping on log
+jumping on mat
+jumping on park
+jumping on peg
+jumping to bin
+jumping to cob
+jumping to door
+jumping to hut
+jumping to lid
+jumping to pen
+jumping to rug
+key cat to nib
+key shop on bag
+lid ball to bell
+lid dog to bed
+lid top to hand
+log nib to land
+look looking looked
+looking on bell
+looking on fish
+looking on log
+looking on park
+looking on web
+looking on well
+looking to bag
+looking to bin
+looking to book
+looking to box
+looking to car
+looking to fox
+looking to hand
+looking to hut
+looking to jar
+looking to look
+map box on bell
+map mill to rug
+map top to map
+mat bird to road
+mat dog on peg
+mat land to ship
+mat rim to dog
+mill bird to rug
+mill jar to fish
+move moving moved
+moved park to call
+moving on fish
+moving on fox
+moving on hut
+moving on rock
+moving on water
+moving to ball
+moving to cob
+moving to door
+moving to jar
+moving to lid
+moving to mat
+moving to mug
+moving to ship
+moving to walk
+mug bag to road
+mug rock to park
+mug ship to park
+net ball to pen
+net car on jar
+new bag to pen
+new bag to water
+new ball on book
+new ball to dog
+new ball to pan on book
+new bin on ball
+new bin on map
+new bin to nib
+new bird to pan
+new book on work
+new book on yard
+new book to rug to bird
+new box on bell on jump
+new box on peg
+new box to bird
+new calling on cap
+new car on hut
+new car to cat
+new cat on bin on net
+new cat on door on lid
+new cat on web
+new cat to hut
+new cat to hut on sand
+new cob on mug
+new cob to hat
+new cob to shop
+new cup on bell on bin
+new cup on nib
+new dog to wash
+new fish on car
+new fish on mill
+new fish on shop on jar
+new fox on hill
+new hand to bird
+new help on fox
+new help to net
+new hill to lid
+new hut on look
+new hut to bed to car
+new hut to well
+new jar on well
+new jar to top
+new jump to moved on lid
+new jumping on cat
+new jumping on door
+new jumping on land
+new jumping to top
+new key on net
+new key on ship on road
+new key to pan
+new lid to box
+new lid to hand to book
+new lid to pen
+new log to door
+new looking on bell
+new looking on pin
+new looking to cat
+new looking to log
+new mat to rug
+new mill to bed
+new mill to map
+new move on dog
+new move to nib
+new moving on mug
+new moving to fox
+new moving to shop
+new mug to key
+new mug to log
+new pad on ship
+new pad to ball
+new pan on map
+new park on bin
+new park on lid to mat
+new park to dog
+new peg on hat to book
+new peg on road to water
+new peg to top
+new pen on call
+new pin on mat
+new pin to car
+new pin to hill
+new pin to yard to ball
+new playing to land
+new playing to ship
+new pulling on dog
+new pulling to road
+new push on road
+new push to hand on water
+new pushing on fox
+new pushing to park
+new pushing to shop
+new reading on rug
+new reading on shop
+new reading on web
+new reading to door
+new rim on moved
+new rim to walk on bag
+new road on book to fish
+new road to bird to hat
+new rock on rug to sand
+new rug to help to look
+new shop to land
+new stop on bin
+new stopping on look
+new stopping to road
+new top on hat
+new top on pan
+new top on yard
+new top to hat on shop
+new top to hill
+new top to net
+new walk on bin to walk
+new walking to hill
+new walking to lid
+new washing to rim
+new water to bed
+new work to bin
+new working on road
+new working on yard
+nib mug to bag
+no bag on door
+no ball to bird
+no ball to net
+no bell to yard
+no bird on rim
+no book on pan
+no book on rock
+no box on help
+no box to web
+no car on mug
+no cat on mill
+no cat to log
+no cat to sand
+no cob on key
+no cob on rug
+no dog on fish
+no door on well
+no door to hut
+no fish on ship
+no fish on web
+no fox on mat
+no hand to door
+no hat on ship
+no hat to hut
+no hut to mug
+no jar to fish
+no jump to bird
+no key on well
+no land on sand
+no land to map
+no lid on road
+no look on web
+no map on moved
+no map on pull
+no map to rim
+no mat to door
+no mat to pin
+no mat to well
+no net on cob
+no net on pin
+no net to cat
+no nib on land
+no nib on net
+no pad to pull
+no pan on cob
+no pan to hill
+no park on bin
+no park on box
+no park on dog
+no park to mill
+no peg to stop
+no pen on lid
+no pull to land
+no road on jar
+no road to pan
+no road to pen
+no rock on dog
+no rock on sand
+no rug on well
+no rug to rim
+no sand on box
+no sand on pen
+no ship to hand
+no ship to hut
+no ship to land
+no shop on box
+no shop to road
+no top on bell
+no water to pan
+no web to pin
+no work to fox
+no yard to fox
+not bag on water
+not bag to top
+not ball on sand
+not bell on rug
+not bird on box
+not bird on cup
+not bird on fish
+not book to key
+not book to log
+not book to map
+not call on bag
+not cap to lid
+not cat to net
+not cup on pad
+not dog to bed
+not dog to peg
+not fish on door
+not fox on call
+not hand on cup
+not hat to box
+not hat to rock
+not hill on fox
+not hill to help
+not hut to cap
+not hut to map
+not jar on work
+not jar to bell
+not key on lid
+not key on yard
+not key to park
+not land on key
+not land on water
+not lid to hat
+not log on land
+not log to fish
+not log to mug
+not log to pin
+not look on top
+not look to mug
+not map to dog
+not mat to mill
+not mill to walk
+not move to yard
+not mug on rock
+not mug on web
+not net on land
+not net to cat
+not nib to help
+not pad on lid
+not pan to rug
+not pan to ship
+not park to yard
+not peg on nib
+not peg to cap
+not peg to rim
+not pen on rock
+not pen to bed
+not play on pen
+not play on stop
+not pull to wash
+not rim on moved
+not rock to log
+not rock to pin
+not sand to bed
+not ship on sand
+not shop to key
+not top on map
+not walk to pen
+not well on park
+not work to top
+not yard to hand
+old bag on net to peg
+old ball on cat
+old ball to jar on net
+old bin on land
+old bin on yard to hut
+old bin to pad to fox
+old bin to pen on pin
+old bird on bin
+old book on bell
+old cap on pull on dog
+old cap to key
+old car to pad to bird
+old cat on ship on yard
+old cob to bird on pan
+old cob to land
+old cup on nib to bird
+old dog on bed
+old dog on bed to car
+old dog on pan
+old dog to park on fox
+old door on look
+old door to pin on bed
+old fish on cup
+old fish on pen
+old fox on jar on mill
+old fox on pin on fish
+old fox to pad
+old hand on cup to water
+old hand on door
+old hand to ship
+old hat to mill
+old help on nib
+old help to walk
+old helping to nib
+old hill on hat
+old hut to cat
+old hut to cob
+old jump to key on rug
+old jumping on bed
+old jumping on park
+old jumping on road
+old jumping to door
+old jumping to hut
+old key on door
+old key on nib on bin
+old land on road
+old land to ship on pad
+old lid on jar
+old lid on shop
+old log on well to top
+old looking on bell
+old looking to bed
+old map on hand
+old map on rock
+old map to box
+old map to web
+old mat on yard on jar
+old mill on pen to key
+old move on mat to sand
+old moved on look
+old moved on moved on bell
+old net on bag
+old nib on move
+old pad on cup
+old pad to cob on yard
+old pad to peg
+old park on look
+old peg on mat
+old peg on rug
+old pen to map on pan
+old play on cob
+old pull to mill
+old pulling on top
+old pulling to dog
+old pulling to push
+old push to nib on help
+old reading on mug
+old reading to bed
+old reading to book
+old rim to box on road
+old rim to fish
+old road on pen to bed
+old road on pin on fish
+old road to push to wash
+old road to well
+old rock to mug
+old running on bed
+old running on move
+old running on nib
+old running on park
+old running on rock
+old running to bell
+old sand on jar
+old sand to mill
+old ship on bed on fox
+old ship on sand on door
+old shop to look to pin
+old stop to stop to bed
+old top on rug to ship
+old top to bag
+old walk to fish
+old walk to hut on rock
+old walking on bird
+old washing to stop
+old web on land
+old web to cat
+old well on net on nib
+old work on jar
+old working on pen
+old working to door
+old yard on pan
+old yard to bin
+pad rim on land
+pan bag on hill
+pan park on rug
+peg mill on door
+pen work to mug
+pin yard to jar
+play playing played
+playing on bell
+playing on call
+playing on dog
+playing on hut
+playing on log
+playing on pan
+playing on sand
+playing on ship
+playing to box
+playing to cap
+playing to hill
+playing to pad
+playing to peg
+playing to road
+playing to ship
+playing to wash
+playing to well
+pull lid on key
+pull pulling pulled
+pulling on dog
+pulling on hut
+pulling on key
+pulling on top
+pulling on web
+pulling to car
+pulling to cat
+pulling to map
+pulling to push
+pulling to wash
+pulling to well
+push mug on pull
+push pushing pushed
+pushing on cup
+pushing on door
+pushing on net
+pushing on pad
+pushing on road
+pushing on rug
+pushing on sand
+pushing on yard
+pushing to bin
+pushing to cat
+pushing to web
+reading on bird
+reading on fox
+reading on land
+reading on mat
+reading on rug
+reading on top
+reading on web
+reading to book
+reading to box
+reading to hut
+reading to mug
+reading to well
+reading to work
+red bag on mug
+red ball to map
+red ball to pen
+red bed on bell
+red bell on bird on mat
+red bin to bird
+red bin to pan on call
+red bin to yard
+red bird to pan
+red book to shop
+red box on shop on car
+red box to bell
+red box to hat
+red box to pad
+red call to cup to cob
+red cap on sand
+red cap on well
+red cap to well
+red cap to yard
+red cat on bed
+red cat to top
+red cup on mill
+red cup on move on mill
+red dog on peg
+red dog to mat to cob
+red door on book to car
+red door on cat on bird
+red fish on bag
+red fish on fox
+red fish on well
+red fox on book
+red hat on web
+red hat to box
+red hat to box on land
+red hat to rug
+red help on car to pull
+red helping on pad
+red helping on shop
+red helping to top
+red hill to peg
+red hut on water
+red hut to book
+red hut to peg
+red jar on ball on mat
+red jumping on peg
+red jumping to box
+red key to fox
+red key to lid to fish
+red key to play
+red land on jar to mat
+red land on lid
+red land on yard
+red land to bell
+red land to pull
+red lid to hand
+red log on fish
+red log to box
+red map on cup
+red map to pad
+red mat to fox on net
+red mat to key
+red mug to mill
+red mug to ship
+red net on door to call
+red net on sand to call
+red nib to mug
+red pad on bell
+red pad on web
+red park on cat to water
+red peg on pin
+red peg on walk on moved
+red peg to bin
+red peg to key
+red pen on web on road
+red pen to car
+red pin on park
+red pin on shop
+red play to yard
+red playing on fish
+red playing to bag
+red playing to nib
+red playing to road
+red pull to land
+red pulling to land
+red pushing on water
+red pushing to bird
+red pushing to net
+red rim on ball
+red road to pen
+red rock on pin
+red rock to bag
+red rock to help
+red rug on key
+red rug to lid
+red rug to pin
+red running to cob
+red ship to pan
+red shop to top
+red stop to moved
+red stopping on stop
+red stopping to rock
+red top to lid
+red top to sand
+red wash to bag
+red washing on car
+red washing on stop
+red web on mug
+red well to bell
+red well to dog
+red well to hut
+red well to key
+red working on pad
+red yard on hut
+red yard on mug
+red yard on nib on rug
+red yard to nib on mat
+red yard to pin on hill
+rim net to rug
+road mill to box
+road web on bird
+rock log on top
+rock mat to rim
+rock yard on top
+rug bell to ball
+running on fish
+running on look
+running on move
+running on pin
+running on rock
+running to box
+running to cob
+running to hut
+sand bird to rim
+sand cup to nib
+ship pad to pen
+ship rock road on land
+shop hut to ball
+shop jar to mat
+stop land to rim
+stop stopping stopped
+stopping on bird
+stopping on book
+stopping on hill
+stopping on lid
+stopping on look
+stopping on mat
+stopping on stop
+stopping to bell
+stopping to box
+stopping to mug
+stopping to road
+top ship to sand
+walk walking walked
+walking on bird
+walking on box
+walking on cap
+walking on door
+walking on hat
+walking on log
+walking on mill
+walking on net
+walking on road
+walking on web
+walking to bag
+walking to bin
+walking to cat
+walking to cob
+walking to hill
+walking to stop
+wash washing washed
+washing on nib
+washing on stop
+washing to ball
+washing to book
+washing to door
+washing to hut
+washing to moved
+washing to pen
+washing to rock
+washing to rug
+washing to sand
+washing to stop
+water ball on stop
+water shop to cob
+web nib to yard
+web road to park
+work working worked
+working on door
+working on mug
+working on pen
+working on yard
+working to cat
+working to dog
+working to fish
+working to hill
+working to hut
+working to nib

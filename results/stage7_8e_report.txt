@@ -1,0 +1,69 @@
+SOTE Stage 7.8e report (7.8d + weak context alpha<=0.25)
+timestamp: 2026-07-22T16:26:20.275833+00:00
+device: cuda
+gpu: NVIDIA GeForce RTX 3050 Laptop GPU
+steps: 2500
+alphabet: C:\Users\Kostya\sote-letter-assembly\checkpoints\alphabet_full_frozen.pt
+train words: 94 | hold-out: 17
+memory size during training: 102
+gate create/stabilize/skip/lock: 102/105/15916/103877
+soft -ing basin updates: 3000
+ING proto leave-one-out: 100%
+context alpha: 0.25
+
+Train compose/stream:     100.0% / 100.0%
+Related-form probes:      100.0%
+Train soft trace/mem/perm/path/stab: 46/29/100/100/100%
+HOLD COLD  trace/mem/perm/path/stab: 88/88/71/100/100%
+HOLD fewshot trace/mem/perm/path/stab: 88/88/71/100/100%
+HOLD CTX self/trace/prefer: 100/18/100% (mean_self=0.971, d_tr=-0.029)
+
+HOLD COLD details (no memory):
+  [OK] cards        tr=0.13 path=0.99 stab=1.00
+  [OK] bookshelves  tr=0.12 path=0.93 stab=1.00
+  [OK] jumping      tr=0.12 path=0.97 stab=1.00
+  [OK] walking      tr=0.13 path=0.98 stab=1.00
+  [WEAK] reading      tr=0.12 path=0.99 stab=1.00
+  [OK] writing      tr=0.12 path=0.67 stab=1.00
+  [OK] friendship   tr=0.13 path=0.95 stab=1.00
+  [OK] sunshine     tr=0.14 path=0.99 stab=1.00
+  [OK] moonlight    tr=0.15 path=0.94 stab=1.00
+  [WEAK] playground   tr=0.12 path=0.97 stab=1.00
+  [OK] applesauce   tr=0.13 path=0.98 stab=1.00
+  [OK] birdhouse    tr=0.12 path=0.98 stab=1.00
+  [OK] notebook     tr=0.13 path=0.88 stab=1.00
+  [OK] backpack     tr=0.13 path=0.95 stab=1.00
+  [OK] quickly      tr=0.13 path=0.99 stab=1.00
+  [OK] slowly       tr=0.13 path=0.96 stab=1.00
+  [OK] happily      tr=0.13 path=0.83 stab=1.00
+
+HOLD CTX details (alpha=0.25, random prev train word):
+  [OK] cards        prev=blue       self=0.97 tr=0.13 d_tr=-0.00
+  [WEAK] bookshelves  prev=give       self=0.97 tr=0.09 d_tr=-0.03
+  [WEAK] jumping      prev=cars       self=0.97 tr=0.08 d_tr=-0.04
+  [WEAK] walking      prev=trees      self=0.97 tr=0.10 d_tr=-0.02
+  [WEAK] reading      prev=green      self=0.97 tr=0.11 d_tr=-0.01
+  [WEAK] writing      prev=man        self=0.97 tr=0.11 d_tr=-0.01
+  [OK] friendship   prev=act        self=0.97 tr=0.14 d_tr=+0.01
+  [WEAK] sunshine     prev=child      self=0.97 tr=0.12 d_tr=-0.03
+  [WEAK] moonlight    prev=jumps      self=0.97 tr=0.10 d_tr=-0.05
+  [WEAK] playground   prev=spots      self=0.98 tr=0.09 d_tr=-0.03
+  [WEAK] applesauce   prev=cat        self=0.97 tr=0.05 d_tr=-0.09
+  [WEAK] birdhouse    prev=quick      self=0.97 tr=0.09 d_tr=-0.03
+  [OK] notebook     prev=cars       self=0.97 tr=0.12 d_tr=-0.01
+  [WEAK] backpack     prev=fish       self=0.97 tr=0.10 d_tr=-0.03
+  [WEAK] quickly      prev=car        self=0.97 tr=0.07 d_tr=-0.06
+  [WEAK] slowly       prev=spot       self=0.97 tr=0.12 d_tr=-0.01
+  [WEAK] happily      prev=under      self=0.97 tr=0.11 d_tr=-0.03
+
+ING proto details:
+  [OK] jump    +ing -> pred=jumping      (want jumping) score=1.00
+  [OK] walk    +ing -> pred=walking      (want walking) score=1.00
+  [OK] read    +ing -> pred=reading      (want reading) score=1.00
+  [OK] write   +ing -> pred=writing      (want writing) score=1.00
+
+How to read:
+- COLD must stay near 7.8d (context must not destroy bare compose)
+- CTX: imprint=compose+alpha*prev; self_cos>=0.90 and traces survive
+- prefer_self: imprint closer to current word than to prev
+- still no phrase layer; Stage 8 freezes word contract next

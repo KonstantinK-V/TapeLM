@@ -1,0 +1,26 @@
+SOTE Stage 83b — denser noun_rel repeats (push SEEN right LIVE)
+timestamp: 2026-07-24T15:05:07.078757+00:00
+device: cuda
+corpus: external_noun_rel_repeat_83b.txt
+meta: {'n_fat_triples': 120, 'n_rare_triples': 60, 'fat_copies': 80, 'rare_copies': 3, 'n_train': 7680, 'n_hold_seen': 1920, 'n_hold_rare': 180, 'n_nouns': 86}
+parent: stage57_rehearsal_FROZEN.pt
+ref 83a: 120x30 copies, 4k steps -> SEEN right 25% PARTIAL
+83b: copies=80 steps=8000 lr=0.001
+NO soft@5. NO verb_ing.
+
+=== ZS ===
+  SEEN right@1=3.3% rel=4.2% ALL=3.8%
+  RARE right@1=1.7% rel=3.3%
+
+=== FT best/final ===
+  best step=7600 seen right@1=50.8% rel=78.3% rare right=0.0% protect=True
+  final SEEN right@1=50.8% (dZS +47.5pp) rel=78.3% ALL=64.6%
+  final RARE right@1=0.0% rel=45.0%
+  vs 83a SEEN right: 50.8% vs 25.0% (d +25.8pp)
+  SEEN confusion={'right_correct': 976, 'other_rightish': 912, 'rel': 0, 'left': 0, 'other': 32}
+  RARE confusion={'right_correct': 0, 'other_rightish': 105, 'rel': 0, 'left': 3, 'other': 72}
+
+=== Verdict: PASS ===
+  gates: PARTIAL seen right>=25% LIVE>=50% + rel protect
+  read: SCALE_HELPS_SEEN; RARE_STILL_HARD
+  LIVE = SEEN right>=50%. If PARTIAL only: more density or model ceiling.

@@ -1,0 +1,23 @@
+SOTE verb_ing dig series — RESIDUAL LOCK (2026-07-24)
+
+=== LOCKED READ ===
+  overall vi next: PARTIAL (~23.5%/+10.6pp Stage70 ing-atom+rehearse, protect OK)
+  object-after-rel: WALL (~5.7% full-vocab / shortlist; Stage68/71/72)
+  Opaque word-vi residual ~18% (Stage66) still better than phrase-tail (69 FAIL)
+
+=== REMOVED HYPOTHESES ===
+  69 tail phrase_fp atom — FAIL
+  71 side-hint phrase_fp(prefix) — FAIL (hurt)
+  72 wide object shortlist — FAIL (|cands|~43)
+
+=== POLICY ===
+  Hops: noun_rel | polarity only (62–64 band). No verb_ing in hop bank.
+  Object-after-rel: only revisit with new data (repeatable verb,rel,right patterns),
+    not the same sparse 1k.
+  Trunk 57/59 + 62–64: do not touch for verb_ing.
+
+=== AXIS ===
+  Dual path (next-atom) + hops unchanged. verb_ing object = data/protocol ceiling,
+  not a reason to break the working axis.
+
+=== FREEZE_READY: True (residual lock, not LIVE claim) ===

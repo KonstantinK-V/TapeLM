@@ -1,0 +1,626 @@
+{
+  "stage": "8a",
+  "timestamp": "2026-07-22T16:39:24.291708+00:00",
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "config": {
+    "dim": 64,
+    "lr": 0.003,
+    "steps": 3000,
+    "batch_size": 16,
+    "seed": 0,
+    "temperature": 0.07,
+    "phrase_weight": 1.0,
+    "stream_weight": 0.55,
+    "consistency_weight": 0.5,
+    "word_trace_weight": 0.7,
+    "order_weight": 0.45,
+    "prefix_weight": 0.4,
+    "end_weight": 0.25,
+    "word_trace_margin": 0.2,
+    "order_margin": 0.35,
+    "hold_trace_every": 2
+  },
+  "train_phrases": [
+    "cat on top",
+    "dog on top",
+    "cat on car",
+    "dog on car",
+    "go to car",
+    "go to dog",
+    "go to top",
+    "go on top",
+    "cat to dog",
+    "dog to cat",
+    "no good dog",
+    "not good cat",
+    "stop on top",
+    "spot on top",
+    "post to top",
+    "act on top",
+    "pot on top",
+    "card on top",
+    "not on top",
+    "not to go",
+    "no cat on top",
+    "no dog on car",
+    "good dog on top",
+    "good cat on car"
+  ],
+  "hold_phrases": [
+    "cat to car",
+    "dog to top",
+    "go to cat",
+    "spot on car",
+    "good dog on car",
+    "no good cat"
+  ],
+  "metrics": {
+    "n_train": 24,
+    "n_hold": 6,
+    "train": {
+      "acc": 1.0,
+      "trace_acc": 0.9166666666666666,
+      "order_acc": 1.0,
+      "details": [
+        {
+          "phrase": "cat on top",
+          "pred": "cat on top",
+          "sim": 0.8812364339828491,
+          "hit": true,
+          "min_word_trace": 0.20129209756851196,
+          "word_traces": {
+            "cat": 0.20129209756851196,
+            "on": 0.3298734426498413,
+            "top": 0.2602831721305847
+          },
+          "trace_ok": true,
+          "order_ok": true,
+          "stream_agree": 0.9997951984405518
+        },
+        {
+          "phrase": "dog on top",
+          "pred": "dog on top",
+          "sim": 0.8138742446899414,
+          "hit": true,
+          "min_word_trace": 0.21132218837738037,
+          "word_traces": {
+            "dog": 0.21132218837738037,
+            "on": 0.2144949585199356,
+            "top": 0.28060367703437805
+          },
+          "trace_ok": true,
+          "order_ok": true,
+          "stream_agree": 0.9998002052307129
+        },
+        {
+          "phrase": "cat on car",
+          "pred": "cat on car",
+          "sim": 0.8147739768028259,
+          "hit": true,
+          "min_word_trace": 0.2075757533311844,
+          "word_traces": {
+            "cat": 0.2113378942012787,
+            "on": 0.2075757533311844,
+            "car": 0.20931707322597504
+          },
+          "trace_ok": true,
+          "order_ok": true,
+          "stream_agree": 0.9997096061706543
+        },
+        {
+          "phrase": "dog on car",
+          "pred": "dog on car",
+          "sim": 0.7518531084060669,
+          "hit": true,
+          "min_word_trace": 0.22628752887248993,
+          "word_traces": {
+            "dog": 0.22708730399608612,
+            "on": 0.22628752887248993,
+            "car": 0.23989814519882202
+          },
+          "trace_ok": true,
+          "order_ok": true,
+          "stream_agree": 0.9994518160820007
+        },
+        {
+          "phrase": "go to car",
+          "pred": "go to car",
+          "sim": 0.7562085390090942,
+          "hit": true,
+          "min_word_trace": 0.2023974508047104,
+          "word_traces": {
+            "go": 0.2023974508047104,
+            "to": 0.21559752523899078,
+            "car": 0.24007070064544678
+          },
+          "trace_ok": true,
+          "order_ok": true,
+          "stream_agree": 0.9993007183074951
+        },
+        {
+          "phrase": "go to dog",
+          "pred": "go to dog",
+          "sim": 0.7962982654571533,
+          "hit": true,
+          "min_word_trace": 0.21048638224601746,
+          "word_traces": {
+            "go": 0.21048638224601746,
+            "to": 0.21577009558677673,
+            "dog": 0.2235284298658371
+          },
+          "trace_ok": true,
+          "order_ok": true,
+          "stream_agree": 0.9993237257003784
+        },
+        {
+          "phrase": "go to top",
+          "pred": "go to top",
+          "sim": 0.7800206542015076,
+          "hit": true,
+          "min_word_trace": 0.21382836997509003,
+          "word_traces": {
+            "go": 0.2652481496334076,
+            "to": 0.2376965433359146,
+            "top": 0.21382836997509003
+          },
+          "trace_ok": true,
+          "order_ok": true,
+          "stream_agree": 0.9995260238647461
+        },
+        {
+          "phrase": "go on top",
+          "pred": "go on top",
+          "sim": 0.8120065927505493,
+          "hit": true,
+          "min_word_trace": 0.19975948333740234,
+          "word_traces": {
+            "go": 0.21702437102794647,
+            "on": 0.2038957178592682,
+            "top": 0.19975948333740234
+          },
+          "trace_ok": false,
+          "order_ok": true,
+          "stream_agree": 0.9996939301490784
+        },
+        {
+          "phrase": "cat to dog",
+          "pred": "cat to dog",
+          "sim": 0.8328638076782227,
+          "hit": true,
+          "min_word_trace": 0.2028222382068634,
+          "word_traces": {
+            "cat": 0.22153839468955994,
+            "to": 0.2028222382068634,
+            "dog": 0.21408578753471375
+          },
+          "trace_ok": true,
+          "order_ok": true,
+          "stream_agree": 0.9998437166213989
+        },
+        {
+          "phrase": "dog to cat",
+          "pred": "dog to cat",
+          "sim": 0.7937972545623779,
+          "hit": true,
+          "min_word_trace": 0.2069578915834427,
+          "word_traces": {
+            "dog": 0.21794983744621277,
+            "to": 0.2069578915834427,
+            "cat": 0.22546812891960144
+          },
+          "trace_ok": true,
+          "order_ok": true,
+          "stream_agree": 0.9996472597122192
+        },
+        {
+          "phrase": "no good dog",
+          "pred": "no good dog",
+          "sim": 0.7431780695915222,
+          "hit": true,
+          "min_word_trace": 0.20306886732578278,
+          "word_traces": {
+            "no": 0.20730823278427124,
+            "good": 0.20306886732578278,
+            "dog": 0.21211853623390198
+          },
+          "trace_ok": true,
+          "order_ok": true,
+          "stream_agree": 0.9991276264190674
+        },
+        {
+          "phrase": "not good cat",
+          "pred": "not good cat",
+          "sim": 0.8309279680252075,
+          "hit": true,
+          "min_word_trace": 0.20430412888526917,
+          "word_traces": {
+            "not": 0.2366926521062851,
+            "good": 0.2082432508468628,
+            "cat": 0.20430412888526917
+          },
+          "trace_ok": true,
+          "order_ok": true,
+          "stream_agree": 0.9995625019073486
+        },
+        {
+          "phrase": "stop on top",
+          "pred": "stop on top",
+          "sim": 0.8691370487213135,
+          "hit": true,
+          "min_word_trace": 0.2122955024242401,
+          "word_traces": {
+            "stop": 0.24671444296836853,
+            "on": 0.2122955024242401,
+            "top": 0.21551793813705444
+          },
+          "trace_ok": true,
+          "order_ok": true,
+          "stream_agree": 0.9998239874839783
+        },
+        {
+          "phrase": "spot on top",
+          "pred": "spot on top",
+          "sim": 0.8206288814544678,
+          "hit": true,
+          "min_word_trace": 0.20224961638450623,
+          "word_traces": {
+            "spot": 0.20808660984039307,
+            "on": 0.2267579436302185,
+            "top": 0.20224961638450623
+          },
+          "trace_ok": true,
+          "order_ok": true,
+          "stream_agree": 0.9991158246994019
+        },
+        {
+          "phrase": "post to top",
+          "pred": "post to top",
+          "sim": 0.8072264194488525,
+          "hit": true,
+          "min_word_trace": 0.20965243875980377,
+          "word_traces": {
+            "post": 0.20965243875980377,
+            "to": 0.22804902493953705,
+            "top": 0.23414790630340576
+          },
+          "trace_ok": true,
+          "order_ok": true,
+          "stream_agree": 0.9997158646583557
+        },
+        {
+          "phrase": "act on top",
+          "pred": "act on top",
+          "sim": 0.8141766786575317,
+          "hit": true,
+          "min_word_trace": 0.20402871072292328,
+          "word_traces": {
+            "act": 0.21610108017921448,
+            "on": 0.21419137716293335,
+            "top": 0.20402871072292328
+          },
+          "trace_ok": true,
+          "order_ok": true,
+          "stream_agree": 0.9998291730880737
+        },
+        {
+          "phrase": "pot on top",
+          "pred": "pot on top",
+          "sim": 0.8227289915084839,
+          "hit": true,
+          "min_word_trace": 0.21186688542366028,
+          "word_traces": {
+            "pot": 0.2130434364080429,
+            "on": 0.21186688542366028,
+            "top": 0.23236429691314697
+          },
+          "trace_ok": true,
+          "order_ok": true,
+          "stream_agree": 0.9998457431793213
+        },
+        {
+          "phrase": "card on top",
+          "pred": "card on top",
+          "sim": 0.8569018244743347,
+          "hit": true,
+          "min_word_trace": 0.1996072232723236,
+          "word_traces": {
+            "card": 0.1996072232723236,
+            "on": 0.20140621066093445,
+            "top": 0.21144598722457886
+          },
+          "trace_ok": false,
+          "order_ok": true,
+          "stream_agree": 0.9997987747192383
+        },
+        {
+          "phrase": "not on top",
+          "pred": "not on top",
+          "sim": 0.8407981395721436,
+          "hit": true,
+          "min_word_trace": 0.21924173831939697,
+          "word_traces": {
+            "not": 0.22883307933807373,
+            "on": 0.21924173831939697,
+            "top": 0.22812685370445251
+          },
+          "trace_ok": true,
+          "order_ok": true,
+          "stream_agree": 0.9998289942741394
+        },
+        {
+          "phrase": "not to go",
+          "pred": "not to go",
+          "sim": 0.8308954238891602,
+          "hit": true,
+          "min_word_trace": 0.20856693387031555,
+          "word_traces": {
+            "not": 0.20972909033298492,
+            "to": 0.20856693387031555,
+            "go": 0.21180090308189392
+          },
+          "trace_ok": true,
+          "order_ok": true,
+          "stream_agree": 0.9999072551727295
+        },
+        {
+          "phrase": "no cat on top",
+          "pred": "no cat on top",
+          "sim": 0.8646568059921265,
+          "hit": true,
+          "min_word_trace": 0.21754002571105957,
+          "word_traces": {
+            "no": 0.29824671149253845,
+            "cat": 0.23155507445335388,
+            "on": 0.2368670403957367,
+            "top": 0.21754002571105957
+          },
+          "trace_ok": true,
+          "order_ok": true,
+          "stream_agree": 0.9998072385787964
+        },
+        {
+          "phrase": "no dog on car",
+          "pred": "no dog on car",
+          "sim": 0.802944540977478,
+          "hit": true,
+          "min_word_trace": 0.21008723974227905,
+          "word_traces": {
+            "no": 0.21008723974227905,
+            "dog": 0.22476328909397125,
+            "on": 0.2253349870443344,
+            "car": 0.28433310985565186
+          },
+          "trace_ok": true,
+          "order_ok": true,
+          "stream_agree": 0.9996731281280518
+        },
+        {
+          "phrase": "good dog on top",
+          "pred": "good dog on top",
+          "sim": 0.83906090259552,
+          "hit": true,
+          "min_word_trace": 0.20531941950321198,
+          "word_traces": {
+            "good": 0.213443323969841,
+            "dog": 0.20625194907188416,
+            "on": 0.21265782415866852,
+            "top": 0.20531941950321198
+          },
+          "trace_ok": true,
+          "order_ok": true,
+          "stream_agree": 0.9997413754463196
+        },
+        {
+          "phrase": "good cat on car",
+          "pred": "good cat on car",
+          "sim": 0.8343476057052612,
+          "hit": true,
+          "min_word_trace": 0.20834529399871826,
+          "word_traces": {
+            "good": 0.20923879742622375,
+            "cat": 0.28064459562301636,
+            "on": 0.20834529399871826,
+            "car": 0.22710296511650085
+          },
+          "trace_ok": true,
+          "order_ok": true,
+          "stream_agree": 0.9997085332870483
+        }
+      ]
+    },
+    "hold": {
+      "acc": null,
+      "trace_acc": 1.0,
+      "order_acc": 1.0,
+      "details": [
+        {
+          "phrase": "cat to car",
+          "pred": null,
+          "sim": 0.8489251136779785,
+          "hit": false,
+          "min_word_trace": 0.23040835559368134,
+          "word_traces": {
+            "cat": 0.3069911003112793,
+            "to": 0.23040835559368134,
+            "car": 0.23168829083442688
+          },
+          "trace_ok": true,
+          "order_ok": true,
+          "stream_agree": 0.8489251136779785
+        },
+        {
+          "phrase": "dog to top",
+          "pred": null,
+          "sim": 0.7212268114089966,
+          "hit": false,
+          "min_word_trace": 0.2252652645111084,
+          "word_traces": {
+            "dog": 0.2252652645111084,
+            "to": 0.23181100189685822,
+            "top": 0.2623937129974365
+          },
+          "trace_ok": true,
+          "order_ok": true,
+          "stream_agree": 0.7212268114089966
+        },
+        {
+          "phrase": "go to cat",
+          "pred": null,
+          "sim": 0.6691123843193054,
+          "hit": false,
+          "min_word_trace": 0.2326832264661789,
+          "word_traces": {
+            "go": 0.2534012496471405,
+            "to": 0.2326832264661789,
+            "cat": 0.2699647545814514
+          },
+          "trace_ok": true,
+          "order_ok": true,
+          "stream_agree": 0.6691123843193054
+        },
+        {
+          "phrase": "spot on car",
+          "pred": null,
+          "sim": 0.8073275089263916,
+          "hit": false,
+          "min_word_trace": 0.2291606366634369,
+          "word_traces": {
+            "spot": 0.242976114153862,
+            "on": 0.3336604833602905,
+            "car": 0.2291606366634369
+          },
+          "trace_ok": true,
+          "order_ok": true,
+          "stream_agree": 0.8073275089263916
+        },
+        {
+          "phrase": "good dog on car",
+          "pred": null,
+          "sim": 0.8732320070266724,
+          "hit": false,
+          "min_word_trace": 0.21222969889640808,
+          "word_traces": {
+            "good": 0.21222969889640808,
+            "dog": 0.22148510813713074,
+            "on": 0.2596125602722168,
+            "car": 0.2723201811313629
+          },
+          "trace_ok": true,
+          "order_ok": true,
+          "stream_agree": 0.8732320070266724
+        },
+        {
+          "phrase": "no good cat",
+          "pred": null,
+          "sim": 0.6811717748641968,
+          "hit": false,
+          "min_word_trace": 0.24551838636398315,
+          "word_traces": {
+            "no": 0.265153706073761,
+            "good": 0.24551838636398315,
+            "cat": 0.25295528769493103
+          },
+          "trace_ok": true,
+          "order_ok": true,
+          "stream_agree": 0.6811717748641968
+        }
+      ]
+    },
+    "prefix": {
+      "acc": 1.0,
+      "details": [
+        {
+          "prefix": "go",
+          "family_mean": 0.42569369077682495,
+          "other_mean": -0.07422470301389694,
+          "ok": true,
+          "family": [
+            "go to car",
+            "go to dog",
+            "go to top",
+            "go on top"
+          ]
+        },
+        {
+          "prefix": "go to",
+          "family_mean": 0.49043601751327515,
+          "other_mean": -0.06685368716716766,
+          "ok": true,
+          "family": [
+            "go to car",
+            "go to dog",
+            "go to top"
+          ]
+        },
+        {
+          "prefix": "cat",
+          "family_mean": 0.5488139390945435,
+          "other_mean": -0.04445691034197807,
+          "ok": true,
+          "family": [
+            "cat on top",
+            "cat on car",
+            "cat to dog"
+          ]
+        },
+        {
+          "prefix": "dog",
+          "family_mean": 0.46154332160949707,
+          "other_mean": -0.053886085748672485,
+          "ok": true,
+          "family": [
+            "dog on top",
+            "dog on car",
+            "dog to cat"
+          ]
+        },
+        {
+          "prefix": "no",
+          "family_mean": 0.47799915075302124,
+          "other_mean": -0.02573351189494133,
+          "ok": true,
+          "family": [
+            "no good dog",
+            "no cat on top",
+            "no dog on car"
+          ]
+        },
+        {
+          "prefix": "not",
+          "family_mean": 0.4974451959133148,
+          "other_mean": -0.06691502779722214,
+          "ok": true,
+          "family": [
+            "not good cat",
+            "not on top",
+            "not to go"
+          ]
+        },
+        {
+          "prefix": "cat on",
+          "family_mean": 0.687373161315918,
+          "other_mean": -0.024567848071455956,
+          "ok": true,
+          "family": [
+            "cat on top",
+            "cat on car"
+          ]
+        },
+        {
+          "prefix": "dog on",
+          "family_mean": 0.5738745331764221,
+          "other_mean": -0.047788362950086594,
+          "ok": true,
+          "family": [
+            "dog on top",
+            "dog on car"
+          ]
+        }
+      ]
+    },
+    "mean_stream_agree": 0.9996490925550461,
+    "alphabet_path": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\alphabet_full_frozen.pt",
+    "word_ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\word_memory_78e.pt"
+  }
+}

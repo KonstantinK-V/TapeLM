@@ -1,0 +1,21 @@
+SOTE Stage 69 verb_ing tail atom — FAIL
+timestamp: 2026-07-24T12:38:57+00:00
+checkpoint: stage69_tail_atom.pt
+report: stage69_tail_atom_report.txt
+
+=== SETUP ===
+  Remap only verb_ing: on|to + object → one surface (phrase_fp).
+  Example atoms: big | looking | to look  (string looks same when joined).
+
+=== METRICS ===
+  Opaque verb_ing L2 18.3%/+13.5pp n=126
+  Remap ZS / FT-best  2.6%/+2.6pp n=38
+  tail-target         0.0% n=35
+  FT never lifted (best=step0); protect trivial.
+
+=== READ ===
+  Merging the Stage68 object ask into one phrase atom does NOT help next.
+  Same family as Stage40/41 phrase-next: phrase_fp targets cold / colliding under NN.
+  Word-level residual (18%) still better than tail-atom (0–3%).
+
+=== FREEZE_READY: dig FAIL; do not adopt tail atoms for verb_ing next ===

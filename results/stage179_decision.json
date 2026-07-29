@@ -1,0 +1,18 @@
+{
+  "timestamp": "2026-07-28T15:12:00+00:00",
+  "protocol": "curve_harden_B_179",
+  "overall": "HARDEN_A_YES_B_FAIL",
+  "interrupted": true,
+  "reason": "Stopped mid-run to free GPU for Stage180 dual-channel; B already clear FAIL_FORM",
+  "steps_seen": 1500,
+  "init_A_same": 0.625,
+  "at_1500": {
+    "A_same": 0.609,
+    "A": "A_PASS_PREFIX_VISIBLE",
+    "B": "B_FAIL_FORM_NOT_MEANING",
+    "para": 0.664,
+    "rand": 0.589,
+    "hard": 0.869
+  },
+  "note": "Retention holds A; paraphrase << hard spelling — meaning not in state. Next was architectural dual-channel (180)."
+}

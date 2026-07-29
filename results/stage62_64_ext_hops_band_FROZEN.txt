@@ -1,0 +1,29 @@
+SOTE Stages 62–64 external hops band — FROZEN
+timestamp: 2026-07-24T11:56:00+00:00
+
+=== BUNDLE ===
+  bank:   data/external_facts_live_exp_FROZEN.txt (818 LIVE atoms)
+  expand: stage62_ext_hop_expand_FROZEN.pt
+          stage62_ext_hop_expand_contract_FROZEN.txt
+  stress: stage63_hop3_polarity_junction_FROZEN.pt
+          stage63_hop3_polarity_junction_contract_FROZEN.txt
+  dirty:  stage64_dirty_hop_FROZEN.pt
+          stage64_dirty_hop_contract_FROZEN.txt
+  atom:   stage57_rehearsal_FROZEN.pt (unchanged)
+  scale:  stage59_scale_1k_FROZEN.pt (unchanged)
+
+=== FROZEN CLAIMS ===
+  1. Expanded noun_rel|polarity bank: hop2 ~84%, atom L2 ~28%
+  2. Hop3 stress joint3 ~86% on that bank
+  3. Polarity no/not hop2 ~94% ≈ noun_rel (data enough; not logical NOT)
+  4. Junction near chance — dual channels stay separate
+  5. Dirty: hop2/3 dirty_bind+hard green (db2~86% dh2~78% db3~93% dh3~92%)
+
+=== NOT CLAIMED ===
+  verb_ing, NLI / true-neg, forced junction, phrase/char trunk, FT-on-1k
+
+=== FREEZE_READY: True ===
+Stage 65 true-neg dig DONE (wall): conflict what_tail ≈ coin; baselines 99%.
+verb_ing: RESIDUAL LOCK (70 PARTIAL ~23%; object-after-rel WALL ~6%).
+Hops stay noun_rel|polarity. Trunk 57/59/62–64 untouched.
+Next options: hold / other axis — not verb_ing FT on same 1k.

@@ -1,0 +1,95 @@
+SOTE residual audit (compose minus letter basins)
+timestamp: 2026-07-22T13:57:41.744914+00:00
+checkpoint: C:\Users\Kostya\sote-letter-assembly\checkpoints\word_memory_78c.pt
+
+How to read:
+- proj_cos ~1  => word fp lives mostly in letter-basin span (little residual)
+- proj_cos low => residual carries order/morphology (interesting)
+- delta_cluster high within tag, low across tags => morphology pattern discovered
+
+Train mean proj_cos: 0.282
+HOLD  mean proj_cos: 0.481
+Train R_span self-sim (sample): 0.013
+HOLD  R_span self-sim (sample): 0.123
+
+Morphology delta clusters (compose(form)-compose(stem)):
+  [s       ] n=20  delta_cluster=0.075  rspan_delta=0.046
+  [ing     ] n= 4  delta_cluster=0.403  rspan_delta=0.318
+  [ly      ] n= 3  delta_cluster=0.136  rspan_delta=0.119
+  [~an+en  ] n= 2  delta_cluster=0.247  rspan_delta=0.190
+  [ren     ] n= 1  delta_cluster=n/a  rspan_delta=n/a
+  [ship    ] n= 1  delta_cluster=n/a  rspan_delta=n/a
+  [~f+ves  ] n= 1  delta_cluster=n/a  rspan_delta=n/a
+  [~ouse+ice] n= 1  delta_cluster=n/a  rspan_delta=n/a
+
+Top cross-tag delta similarity (want LOW if tags are distinct):
+  ing      vs ly        mean_cos=0.173
+  ~an+en   vs ly        mean_cos=0.087
+  s        vs ly        mean_cos=0.065
+  s        vs ing       mean_cos=0.064
+  s        vs ~an+en    mean_cos=-0.007
+  ~an+en   vs ing       mean_cos=-0.088
+
+Pair details (stem -> form):
+  [H] jump      ->jumping      tag=ing    cos=0.49 d|=1.01 Rcos=0.50 tr=-0.14/0.15
+  [H] read      ->reading      tag=ing    cos=0.41 d|=1.08 Rcos=0.36 tr=0.07/0.15
+  [H] walk      ->walking      tag=ing    cos=0.55 d|=0.94 Rcos=0.57 tr=0.09/0.11
+  [H] write     ->writing      tag=ing    cos=0.65 d|=0.84 Rcos=0.70 tr=0.06/0.12
+  [H] happy     ->happily      tag=ly     cos=0.71 d|=0.76 Rcos=0.71 tr=0.12/0.15
+  [H] quick     ->quickly      tag=ly     cos=0.91 d|=0.42 Rcos=0.84 tr=0.08/0.13
+  [H] slow      ->slowly       tag=ly     cos=0.94 d|=0.33 Rcos=0.92 tr=0.11/0.13
+  [T] child     ->children     tag=ren    cos=0.61 d|=0.88 Rcos=0.64 tr=-0.17/-0.05
+  [T] apple     ->apples       tag=s      cos=0.66 d|=0.82 Rcos=0.67 tr=-0.07/-0.05
+  [T] bird      ->birds        tag=s      cos=0.65 d|=0.83 Rcos=0.61 tr=0.09/0.09
+  [T] book      ->books        tag=s      cos=0.61 d|=0.88 Rcos=0.58 tr=0.09/0.08
+  [H] card      ->cards        tag=s      cos=0.53 d|=0.96 Rcos=0.56 tr=0.11/0.13
+  [T] cat       ->cats         tag=s      cos=0.66 d|=0.82 Rcos=0.67 tr=0.10/0.09
+  [T] dog       ->dogs         tag=s      cos=0.58 d|=0.91 Rcos=0.59 tr=0.13/0.06
+  [T] friend    ->friends      tag=s      cos=0.68 d|=0.80 Rcos=0.63 tr=0.07/0.09
+  [T] give      ->gives        tag=s      cos=0.68 d|=0.80 Rcos=0.65 tr=0.05/0.09
+  [T] house     ->houses       tag=s      cos=0.62 d|=0.87 Rcos=0.59 tr=0.08/0.09
+  [T] jump      ->jumps        tag=s      cos=0.65 d|=0.84 Rcos=0.66 tr=-0.14/0.09
+  [T] make      ->makes        tag=s      cos=0.68 d|=0.80 Rcos=0.67 tr=0.08/0.08
+  [T] play      ->plays        tag=s      cos=0.59 d|=0.90 Rcos=0.57 tr=-0.03/0.06
+  [T] read      ->reads        tag=s      cos=0.55 d|=0.95 Rcos=0.57 tr=0.07/0.10
+  [T] run       ->runs         tag=s      cos=0.63 d|=0.86 Rcos=0.63 tr=0.05/0.12
+  [T] table     ->tables       tag=s      cos=0.64 d|=0.85 Rcos=0.63 tr=-0.03/-0.05
+  [T] take      ->takes        tag=s      cos=0.73 d|=0.73 Rcos=0.71 tr=0.00/0.13
+  [T] tree      ->trees        tag=s      cos=0.63 d|=0.86 Rcos=0.61 tr=0.10/-0.02
+  [T] walk      ->walks        tag=s      cos=0.62 d|=0.87 Rcos=0.60 tr=0.09/0.09
+  [T] window    ->windows      tag=s      cos=0.60 d|=0.89 Rcos=0.53 tr=0.08/0.05
+  [T] write     ->writes       tag=s      cos=0.61 d|=0.89 Rcos=0.60 tr=0.06/0.09
+  [H] friend    ->friendship   tag=ship   cos=0.42 d|=1.08 Rcos=0.26 tr=0.07/0.13
+  [T] man       ->men          tag=~an+en cos=0.33 d|=1.15 Rcos=0.31 tr=0.10/0.08
+  [T] woman     ->women        tag=~an+en cos=0.54 d|=0.96 Rcos=0.54 tr=0.03/0.10
+  [T] leaf      ->leaves       tag=~f+ves cos=0.36 d|=1.13 Rcos=0.31 tr=0.08/0.07
+  [T] mouse     ->mice         tag=~ouse+ice cos=0.24 d|=1.23 Rcos=0.24 tr=-0.02/0.08
+
+Compound probes (whole vs parts):
+  friendship   = friend+ship*         mean=0.25 sum=0.25 proj=0.56 tr=0.13
+  sunshine     = sun*+shine*          mean=0.50 sum=0.50 proj=0.37 tr=0.12
+  moonlight    = moon*+light          mean=0.41 sum=0.41 proj=0.55 tr=0.11
+  playground   = play+ground*         mean=0.20 sum=0.20 proj=0.55 tr=0.12
+  applesauce   = apple+sauce*         mean=0.33 sum=0.33 proj=0.52 tr=0.14
+  birdhouse    = bird+house           mean=0.30 sum=0.30 proj=0.56 tr=0.13
+  notebook     = note*+book           mean=0.72 sum=0.72 proj=0.43 tr=0.13
+  backpack     = back*+pack*          mean=0.17 sum=0.17 proj=0.36 tr=0.14
+
+HOLD word residuals:
+  cards        proj=0.42 mean=0.41 tr=0.13 |r|=0.91 mem_n=7539
+  bookshelves  proj=0.53 mean=0.46 tr=0.11 |r|=0.85 mem_n=7284
+  jumping      proj=0.48 mean=0.48 tr=0.15 |r|=0.88 mem_n=7392
+  walking      proj=0.47 mean=0.46 tr=0.11 |r|=0.88 mem_n=7458
+  reading      proj=0.56 mean=0.54 tr=0.15 |r|=0.83 mem_n=7380
+  writing      proj=0.43 mean=0.39 tr=0.12 |r|=0.90 mem_n=7542
+  friendship   proj=0.56 mean=0.50 tr=0.13 |r|=0.83 mem_n=7371
+  sunshine     proj=0.37 mean=0.37 tr=0.12 |r|=0.93 mem_n=7530
+  moonlight    proj=0.55 mean=0.47 tr=0.11 |r|=0.84 mem_n=7383
+  playground   proj=0.55 mean=0.52 tr=0.12 |r|=0.84 mem_n=7560
+  applesauce   proj=0.52 mean=0.49 tr=0.14 |r|=0.85 mem_n=7338
+  birdhouse    proj=0.56 mean=0.52 tr=0.13 |r|=0.83 mem_n=7605
+  notebook     proj=0.43 mean=0.36 tr=0.13 |r|=0.90 mem_n=7404
+  backpack     proj=0.36 mean=0.32 tr=0.14 |r|=0.93 mem_n=7239
+  quickly      proj=0.55 mean=0.54 tr=0.13 |r|=0.83 mem_n=7335
+  slowly       proj=0.37 mean=0.34 tr=0.13 |r|=0.93 mem_n=7332
+  happily      proj=0.48 mean=0.44 tr=0.15 |r|=0.88 mem_n=7308

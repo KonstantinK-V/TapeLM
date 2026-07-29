@@ -1,0 +1,25 @@
+SOTE Stage 59 ~1k scale ZS — FROZEN
+timestamp: 2026-07-24T10:42:01+00:00
+checkpoint: stage59_scale_1k_FROZEN.pt  (weights = stage57 parent; pass_mode=zero_shot)
+parent: stage57_rehearsal_FROZEN.pt
+data: data/external_1k.txt
+report: stage59_scale_1k_report_FROZEN.txt
+pass_note: stage59_scale_1k_PASS.txt
+
+=== CLAIM ===
+  Parent-57 zero-shots to ~1k external HOLD at soft L2 ≥25% with live order.
+  Scale claim does NOT depend on fragile FT (FT diluted L2 vs ZS).
+
+=== METRICS (HOLD 1k, parent57 ZS) ===
+  lines 1000 (train 700 / hold 300); V=135
+  L2+ **27.9% / +19.8pp**  ← frozen soft-green
+  order_drop **+14.0pp**
+  L1 ~11% residual (not claimed)
+
+=== CONTRACT ===
+  Peak-restore / ZS parent for scale; do not force FT when ZS already green
+  Mid joint PASS (57) + 1k ZS (59) = frozen external transfer band
+  No phrase/char trunk; no hops-external yet
+
+=== FREEZE_READY: True ===
+Next: Stage 60 kinds dig (path-like vs tail on same 1k HOLD) → then hops-on-external.

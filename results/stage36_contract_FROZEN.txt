@@ -1,0 +1,52 @@
+SOTE Stage 36a+36b contract FROZEN
+timestamp: 2026-07-24T07:10:00+00:00
+
+checkpoint_36a: stage36a_stress_FROZEN.pt
+checkpoint_36b: stage36b_h2_residual_FROZEN.pt
+parent: stage35b_left_instance_FROZEN.pt
+bank: hop_bank_25.pt (+ resample_hub_balanced_bank for readable hubs)
+reports:
+  stage36a_stress_report_FROZEN.txt
+  stage36b_h2_residual_report_FROZEN.txt
+
+=== CLAIM ===
+  "35b plateau + H2 multi-link instance" —
+  observe_strict + chain-link hop3 + what_tail H1 + left_instance
+  survives k9 / dirty / native stress; hop2 multi-link left-instance
+  closes residual hub2 H2|H1 without FT / without planner.
+
+=== CONTRACT (do not regress) ===
+
+MEM_WRITE: observe_strict (+ left_fp on slot); never soft-merge
+
+Hop1:
+  what_tail = '{rel} {right}' via CueBinder WHAT
+  when |same_tail|>1: chain-source prefer + left-ink rank
+    sim(bound, normalize(phrase_fp * left_fp))
+
+Hop2 / Hop3 chain-link:
+  follow forward_link[key] filtered by honest bridge=right(key)
+  when |link targets|>1: same left-ink rank on hop2 (36b)
+  hop3 reuses chain follow; no gold bridge fallback
+
+Eval surfaces frozen here:
+  36a: k in {7,9}, dirty_bind/hard, native bank (hub2 may be structural-empty)
+  36b: hub2 multi-link H2 residual closed by left-instance
+
+NOT in this freeze:
+  binder FT, planner, soft-merge writes, hop4, external text bridge
+
+=== METRICS AT FREEZE ===
+  36a (3/3 PASS):
+    mean k7 joint3 ~88.5%; k9 ~85.9%; native ~87.0%
+    dirty_* hold; ctrl2 ~95%
+    native hub2=0 noted: bank structural, not sampling
+  36b (PASS/PARTIAL):
+    hub2 H2|H1 94.7% -> 100% (+5.3pp)
+    joint3 88.5% -> 90.1% (+1.6pp)
+  pass: True
+
+=== FREEZE_READY: True ===
+
+Next (dangerous, optional): text bridge + small QA/next on external text.
+If it holds under this contract, mini-LM odds rise sharply.

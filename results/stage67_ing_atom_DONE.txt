@@ -1,0 +1,17 @@
+SOTE Stage 67 -ing as atom — DONE (PARTIAL lift)
+timestamp: 2026-07-24T12:22:33+00:00
+checkpoint: stage67_ing_atom.pt
+parent: stage57_rehearsal_FROZEN.pt
+report: stage67_ing_atom_report.txt
+
+=== CLAIM ===
+  Remap walking→walk ing helps after light FT vs opaque residual,
+  but abs still <25% under protect. Not hop-ready.
+
+=== METRICS ===
+  Opaque ZS verb_ing: 18.3%/+13.5pp
+  Split ZS:            8.3%/+0.5pp (cold on new atom layout)
+  FT best protect:    24.4%/+11.5pp (step 500)  — PARTIAL vs opaque (+6pp)
+  Unprotected peaks ~37% but crush noun/polarity
+
+=== FREEZE_READY: dig only ===

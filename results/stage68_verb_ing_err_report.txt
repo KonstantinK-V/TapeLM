@@ -1,0 +1,68 @@
+SOTE Stage 68 report (verb_ing error dig + morph -ing align)
+timestamp: 2026-07-24T12:31:58.199306+00:00
+device: cuda
+parent: stage57_rehearsal_FROZEN.pt  data: data\external_1k.txt
+hold verb_ing lines=91  L2 pairs n=126 L2=18.3%/+13.5pp
+No FT. No hop bank.
+
+=== Errors by gold role (L≥2) ===
+  right      acc=5.7%  n=88
+  rel        acc=48.6%  n=35
+  other      acc=33.3%  n=3
+  by prefix_len: L2=21%(91), L3=11%(35)
+  after *ing→next: acc=47.4% n=38 preds={'on': 18, 'to': 17, 'played': 1, 'walked': 1, 'readed': 1}
+
+=== Top confusions (gold → pred) ===
+  to           → on            x9
+  on           → to            x9
+  bed          → hand          x3
+  ball         → hand          x2
+  map          → cap           x2
+  car          → land          x2
+  door         → land          x2
+  hill         → land          x2
+  park         → land          x2
+  hut          → cap           x2
+  shop         → land          x2
+  look         → bed           x1
+  bed          → land          x1
+  hut          → bed           x1
+  door         → walked        x1
+
+=== Example misses ===
+  [rel] big looking … gold=to pred=on sim=0.871
+  [right] big looking to … gold=look pred=bed sim=0.677
+  [right] big moving on … gold=bed pred=land sim=0.587
+  [right] big playing on … gold=hut pred=bed sim=0.522
+  [rel] big pulling … gold=to pred=on sim=0.862
+  [right] big pulling to … gold=door pred=walked sim=0.475
+  [rel] big pushing … gold=to pred=on sim=0.855
+  [right] big pushing to … gold=shop pred=bed sim=0.635
+  [right] big running on … gold=ball pred=hand sim=0.553
+  [right] calling on … gold=bag pred=hand sim=0.573
+  [right] calling to … gold=map pred=cap sim=0.619
+  [right] good calling on … gold=nib pred=land sim=0.607
+
+=== Morph -ing alignment (unique types in verb_ing corpus) ===
+  types=14  tied_to_morph_stem=14  mean cos(morph_compose, plain_compose)=0.997
+  NN decode morph→surface 14/14  plain→surface 14/14
+  when gold is -ing, model predicts stem instead: 0/0
+  per-type:
+    calling      stem=call via=morph_lex cb=True stem_cb=True cos_m_p=0.9967 dec_m=calling dec_p=calling
+    helping      stem=help via=morph_lex cb=True stem_cb=True cos_m_p=0.9971 dec_m=helping dec_p=helping
+    jumping      stem=jump via=morph_lex cb=True stem_cb=True cos_m_p=0.9983 dec_m=jumping dec_p=jumping
+    looking      stem=look via=morph_lex cb=True stem_cb=True cos_m_p=0.9911 dec_m=looking dec_p=looking
+    moving       stem=move via=morph_lex cb=True stem_cb=True cos_m_p=0.9949 dec_m=moving dec_p=moving
+    playing      stem=play via=morph_lex cb=True stem_cb=True cos_m_p=0.9986 dec_m=playing dec_p=playing
+    pulling      stem=pull via=morph_lex cb=True stem_cb=True cos_m_p=0.9974 dec_m=pulling dec_p=pulling
+    pushing      stem=push via=morph_lex cb=True stem_cb=True cos_m_p=0.9968 dec_m=pushing dec_p=pushing
+    reading      stem=read via=morph_lex cb=True stem_cb=False cos_m_p=0.9977 dec_m=reading dec_p=reading
+    running      stem=run via=morph_lex cb=True stem_cb=False cos_m_p=0.9982 dec_m=running dec_p=running
+    stopping     stem=stop via=morph_lex cb=True stem_cb=True cos_m_p=0.9996 dec_m=stopping dec_p=stopping
+    walking      stem=walk via=morph_lex cb=True stem_cb=True cos_m_p=0.9996 dec_m=walking dec_p=walking
+    washing      stem=wash via=morph_lex cb=True stem_cb=True cos_m_p=0.9959 dec_m=washing dec_p=washing
+    working      stem=work via=morph_lex cb=True stem_cb=True cos_m_p=0.9978 dec_m=working dec_p=working
+
+=== Verdict: ERROR MAP ===
+  See role/confusion tables; morph coverage secondary.
+  Implication: prefer sequence/cue tricks that *use* morph stem+ing, not re-learning letters. Stage67 split was the right direction; protect was the limiter.

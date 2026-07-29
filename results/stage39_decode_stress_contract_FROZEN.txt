@@ -1,0 +1,27 @@
+SOTE Stage 39 D decode stress contract FROZEN
+timestamp: 2026-07-24T07:37:03+00:00
+checkpoint: stage39_decode_stress_FROZEN.pt
+parent: stage38_decode_FROZEN.pt
+report: stage39_decode_stress_report_FROZEN.txt
+metrics: stage39_decode_stress_metrics.json
+
+=== CLAIM ===
+  Closed-set NN decode stays green on balanced, native, and wider phrase sets.
+  text|ok3 = 100% on all three; holdout OOV still 0% (honest NN limit).
+
+=== CONTRACT ===
+  Decode (38): Word/Phrase NN codebooks; answer = decode(slot.fp)
+  Stress (39): same decode on
+    - balanced resample bank
+    - native hold bank (no resample)
+    - wider = hold ∪ train parseable on/to phrases
+  Soft floors: bal text>=70%; native/wider >=55% or within 20pp of bal
+
+=== METRICS ===
+  balanced: word/phrase 100%; text~93.8%; j3~85.4%
+  native:   word/phrase 100%; text~91.0%; j3~88.9%
+  wider:    word/phrase 100%; text~99.3%; j3~93.1% (194 phrases / 90 words)
+  pass: True
+
+=== FREEZE_READY: True ===
+Next: Stage 40 E next-fp (context fps → next fp → NN decode; soft vs chance).

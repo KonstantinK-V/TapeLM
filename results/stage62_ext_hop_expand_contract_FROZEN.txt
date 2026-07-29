@@ -1,0 +1,17 @@
+SOTE Stage 62 expanded LIVE hops bank — FROZEN (band with 63)
+timestamp: 2026-07-24T11:33:07+00:00
+facts: data/external_facts_live_exp_FROZEN.txt
+checkpoint: stage62_ext_hop_expand_FROZEN.pt
+atom parent: stage57_rehearsal_FROZEN.pt
+
+=== CLAIM ===
+  Expanded noun_rel|polarity atomic bank (no verb_ing) holds dual-channel
+  at ~818 facts: hop2 ≥70%, atom L2 ≥25%/+10pp.
+
+=== METRICS ===
+  n_facts 818  pairs ~11.5k
+  hop2 joint 84.4%  hop3 joint3 ~92% (pre-stress)
+  atom LIVE L2 28.1%/+14pp
+
+=== FREEZE_READY: True ===
+Paired with Stage 63 stress/slice freeze.

@@ -1,0 +1,32 @@
+SOTE Stage 29d report (role-cue FT + hub listwise + h2 disambig)
+timestamp: 2026-07-24T02:19:28.496807+00:00
+device: cuda
+parents: stage29c_ablate.pt + hop_bank_25.pt
+budget: 6.0h  lr=0.0008 listwise_k=6 dirty_p=0.25
+gates: dense_H1>=55% dense_joint>=25% ctrl_joint>=55%
+
+Protocol: role tags ON, hop1+hop2 disambig ON, honest H2|H1 (no gold bridge).
+
+=== Best seed 272 ===
+split    mode                    H1      H2    H2|H1    JOINT
+----------------------------------------------------------
+dense    clean_bind           43.8%   48.4%    50.0%    21.9%
+dense    dirty_raw            21.9%   20.3%    35.7%     7.8%
+dense    dirty_bind           43.8%   51.6%    50.0%    21.9%
+dense    dirty_both_bind      43.8%   51.6%    50.0%    21.9%
+ctrl     clean_bind           78.8%   78.8%    79.4%    62.5%
+ctrl     dirty_raw            23.8%   28.7%    57.9%    13.8%
+ctrl     dirty_bind           81.2%   78.8%    80.0%    65.0%
+ctrl     dirty_both_bind      81.2%   77.5%    80.0%    65.0%
+
+=== Multi-seed ===
+  seed 272: MISS  dense_H1=43.8% joint=21.9% H2|H1=50.0% ctrl_j=62.5% steps=10482 best_metric=0.400
+  seed 273: MISS  dense_H1=42.2% joint=20.3% H2|H1=48.1% ctrl_j=63.7% steps=10462 best_metric=0.389
+  seed 274: MISS  dense_H1=42.2% joint=20.3% H2|H1=48.1% ctrl_j=63.7% steps=10400 best_metric=0.389
+  aggregate: 0/3 pass; mean_H1=42.7% mean_joint=20.8% mean_ctrl=63.3%
+
+=== vs Stage29c dense (h2_disambig baseline ~H1 40.6% joint 20.3%) ===
+  delta_H1=+2.1pp  delta_joint=+0.5pp
+
+=== Verdict ===
+  FAIL: need structural two-key / ROLE_BRIDGE (not more soft FT).

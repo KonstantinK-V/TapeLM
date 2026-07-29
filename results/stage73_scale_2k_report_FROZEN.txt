@@ -1,0 +1,24 @@
+SOTE Stage 73 report (~2k scale ZS; no FT)
+timestamp: 2026-07-24T13:00:08.183947+00:00
+device: cuda
+parent: stage57_rehearsal_FROZEN.pt  data: data/external_2k.txt (+1k control)
+hold_frac=0.3 2k_hold_subkind={'verb_ing': 119, 'noun_rel': 386, 'polarity': 95}
+Gates: L2≥25% ∧ gap≥10%; regress vs 1k ≤5pp. No FT. Trunk untouched.
+
+=== 1k ZS (control) ===
+  ALL     L2=27.9%/+19.8pp n=635 order=+14.0pp
+  no_vi   L2=30.3%/+17.1pp n=509
+  noun_rel L2=29.3%/+15.9pp n=427
+  polarity L2=35.4%/+24.4pp n=82
+  verb_ing L2=18.3%/+13.5pp n=126
+
+=== 2k ZS ===
+  ALL     L2=26.6%/+15.1pp n=1245 order=+10.6pp  Δ1k=-1.3pp
+  no_vi   L2=27.9%/+16.9pp n=1070  Δ1k=-2.3pp
+  noun_rel L2=28.1%/+15.5pp n=880
+  polarity L2=27.4%/+14.2pp n=190
+  verb_ing L2=18.3%/+10.3pp n=175
+
+=== Verdict: PASS ===
+  2k ZS L2 26.6%/+15.1pp holds ≥25%; Δ1k=-1.3pp. Scale did not break.
+  verb_ing residual lock unchanged. Hops bank unchanged. No FT on 2k.

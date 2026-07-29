@@ -1,0 +1,186 @@
+{
+  "A": {
+    "pass": false,
+    "train": {
+      "n": 62,
+      "acc": 0.9838709677419355,
+      "mean_cos": 0.9868044151413825,
+      "beats_bag": 1.0
+    },
+    "hold": {
+      "n": 36,
+      "acc": 0.6944444444444444,
+      "mean_cos": 0.6918471261031098,
+      "beats_bag": 0.8055555555555556
+    },
+    "shuffle": {
+      "n": 36,
+      "acc": 0.6944444444444444,
+      "mean_cos": 0.6859256943894757,
+      "beats_bag": 0.7777777777777778
+    },
+    "gap": 0.0
+  },
+  "B": {
+    "hold": {
+      "n": 48,
+      "raw_retrieve": 0.8333333333333334,
+      "raw_answer": 0.875,
+      "thought_retrieve": 0.3541666666666667,
+      "thought_answer": 0.3541666666666667,
+      "lift_retrieve": -0.4791666666666667,
+      "lift_answer": -0.5208333333333334,
+      "samples": [
+        {
+          "kind": "what",
+          "target": "pulling on door",
+          "cue": "on door",
+          "raw_ret": false,
+          "thought_ret": false,
+          "raw_ans": false,
+          "thought_ans": false
+        },
+        {
+          "kind": "where",
+          "target": "reading on top",
+          "cue": "reading on",
+          "raw_ret": true,
+          "thought_ret": false,
+          "raw_ans": true,
+          "thought_ans": false
+        },
+        {
+          "kind": "what",
+          "target": "go to cat",
+          "cue": "to cat",
+          "raw_ret": false,
+          "thought_ret": false,
+          "raw_ans": false,
+          "thought_ans": false
+        },
+        {
+          "kind": "where",
+          "target": "rock to car",
+          "cue": "rock to",
+          "raw_ret": true,
+          "thought_ret": true,
+          "raw_ans": true,
+          "thought_ans": true
+        },
+        {
+          "kind": "what",
+          "target": "lived on land",
+          "cue": "on land",
+          "raw_ret": true,
+          "thought_ret": true,
+          "raw_ans": true,
+          "thought_ans": true
+        },
+        {
+          "kind": "where",
+          "target": "living on land",
+          "cue": "living on",
+          "raw_ret": true,
+          "thought_ret": true,
+          "raw_ans": true,
+          "thought_ans": true
+        }
+      ]
+    },
+    "train": {
+      "n": 40,
+      "raw_retrieve": 0.8,
+      "raw_answer": 0.825,
+      "thought_retrieve": 0.525,
+      "thought_answer": 0.55,
+      "lift_retrieve": -0.275,
+      "lift_answer": -0.275,
+      "samples": [
+        {
+          "kind": "what",
+          "target": "worked on land",
+          "cue": "on land",
+          "raw_ret": true,
+          "thought_ret": false,
+          "raw_ans": true,
+          "thought_ans": false
+        },
+        {
+          "kind": "where",
+          "target": "talked to cat",
+          "cue": "talked to",
+          "raw_ret": true,
+          "thought_ret": true,
+          "raw_ans": true,
+          "thought_ans": true
+        },
+        {
+          "kind": "what",
+          "target": "big dog on car",
+          "cue": "on car",
+          "raw_ret": false,
+          "thought_ret": false,
+          "raw_ans": false,
+          "thought_ans": false
+        },
+        {
+          "kind": "where",
+          "target": "post to top",
+          "cue": "post to",
+          "raw_ret": true,
+          "thought_ret": true,
+          "raw_ans": true,
+          "thought_ans": true
+        },
+        {
+          "kind": "what",
+          "target": "good dog on top",
+          "cue": "on top",
+          "raw_ret": false,
+          "thought_ret": false,
+          "raw_ans": false,
+          "thought_ans": false
+        },
+        {
+          "kind": "where",
+          "target": "go to dog",
+          "cue": "go to",
+          "raw_ret": false,
+          "thought_ret": false,
+          "raw_ans": true,
+          "thought_ans": true
+        }
+      ]
+    }
+  },
+  "config": {
+    "dim": 64,
+    "seed": 22,
+    "mask_steps": 1400,
+    "batch_size": 48,
+    "lr": 0.002,
+    "temperature": 0.07,
+    "margin": 0.08,
+    "ssm_state": 80,
+    "w_cos": 0.75,
+    "w_ce": 1.0,
+    "w_bag": 1.0,
+    "mask_hold_min": 0.5,
+    "mask_gap_min": 0.1,
+    "episode_k": 3,
+    "n_hold_episodes": 48,
+    "n_train_episodes": 40,
+    "fewshot_exposures": 3,
+    "create_below": 0.55,
+    "stabilize_lo": 0.55,
+    "stabilize_hi": 0.88,
+    "lock_above": 0.92,
+    "ema": 0.85,
+    "soft_create_below": 0.7,
+    "retrieve_margin": 0.05,
+    "max_phrase_len": 5,
+    "max_word_len": 11,
+    "baseline_s17": 0.324,
+    "baseline_s20": 0.378
+  }
+}

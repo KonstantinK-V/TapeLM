@@ -1,0 +1,17 @@
+SOTE Stage 65 true-neg dig — DONE (wall, not NLI freeze)
+timestamp: 2026-07-24T12:00:08+00:00
+checkpoint: stage65_true_neg.pt
+bank: data/external_facts_live_exp_FROZEN.txt
+report: stage65_true_neg_report.txt
+metrics: stage65_true_neg_metrics.json
+
+=== CLAIM (dig only) ===
+  Shared what_tail cannot resolve pos vs no/not-pos mates.
+  Baselines alone still ~99%. Not logical NOT / NLI.
+
+=== METRICS (n=96; natural both-in-bank=6, rest synth mates) ===
+  conflict_tail: pos 44.8% / neg 54.2% / other 1% (≈coin; margin~0.10)
+  pos_only 99%  neg_only 99%
+  full-surface: pos→pos 75%  neg→neg 67.7% (soft, not clean)
+
+=== FREEZE_READY: dig logged; no NLI claim ===

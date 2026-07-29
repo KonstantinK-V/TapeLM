@@ -1,0 +1,7 @@
+SOTE Stage 118 — hop_conflict_rerank
+timestamp: 2026-07-25T10:57:33.799052+00:00
+mode=conflict alpha=5.0 tau=1.0 bank_frac=0.0
+SEEN obj=39.5% obj+hop=41.7% rel=88.7%
+STORY ALL=15.3%
+vs100 obj+hop -0.9pp
+Verdict: PARITY

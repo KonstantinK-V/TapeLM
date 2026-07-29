@@ -1,0 +1,38 @@
+{
+  "timestamp": "2026-07-29T03:15:32.182145+00:00",
+  "protocol": "tapelm_196",
+  "overall": "TAPELM_PARTIAL",
+  "gates": {
+    "parity_hold": true,
+    "recall_win": true,
+    "recall_beats_rag": false,
+    "calib_win": true,
+    "edit_win": false
+  },
+  "axes": {
+    "parity": {
+      "curve_next_tok": 0.8666666666666667,
+      "gpt_next_tok": 0.8433333333333334,
+      "delta": 0.023333333333333317
+    },
+    "recall": {
+      "curve_fp": 0.9466666666666667,
+      "gpt_parametric": 0.3,
+      "gpt_rag": 0.98,
+      "chance": 0.25
+    },
+    "calibration": {
+      "curve_lex_auc": 0.9820987654320987,
+      "gpt_bpe_auc": 0.3804320987654321,
+      "n_real": 108,
+      "n_fake": 150
+    },
+    "edit": {
+      "curve": 0.4166666666666667,
+      "gpt": 0.2833333333333333,
+      "n": 60,
+      "chance": 0.25
+    }
+  },
+  "note": "one frozen P1 encoder; generation + fp memory + fp lexicon + one-shot edit share one fp-space; anti-clone: win only where GPT structurally weak, curve must beat GPT AND GPT+RAG"
+}

@@ -1,0 +1,21 @@
+SOTE Stage 48 report (order hardening on freeze-47 long corpus)
+timestamp: 2026-07-24T08:57:58.322054+00:00
+device: cuda
+corpus: fp_language_corpus_long_FROZEN.pt  parent: stage47_long_seq_FROZEN.pt
+No new lexicon/data. Loss += margin(clean vs shuf-prefix) hard-negs.
+ref47: {'L2p_acc': 0.328, 'L2p_gap': 0.225, 'order_drop': 0.039}
+
+=== D word=100.0% ===
+
+=== TinySeq+order HOLD ===
+  all  acc=42.4% gap=+28.3pp cos=0.463 n=4766
+  L1   acc=79.0% gap=+30.0pp cos=0.809 n=933
+  L2p  acc=33.6% gap=+23.1pp cos=0.379 n=3833
+  L3p  acc=40.4% gap=+21.6pp cos=0.455 n=2906
+
+=== Order control L≥2 (clean vs shuf-prefix) ===
+  clean=33.6% shuf=9.3% drop=+24.3pp  (gate≥10%)
+
+=== Verdict ===
+  PASS: order drop +24pp with L≥2 held (34%/+23pp).
+  Still: no phrase-next, no char trunk.

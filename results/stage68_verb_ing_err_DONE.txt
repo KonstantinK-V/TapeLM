@@ -1,0 +1,17 @@
+SOTE Stage 68 verb_ing error + morph align — DONE
+timestamp: 2026-07-24T12:31:58+00:00
+checkpoint: stage68_verb_ing_err.pt
+report: stage68_verb_ing_err_report.txt
+
+=== READ (simple) ===
+  1) -ing already known: 14/14 types in MORPH_LEX; morph≈plain cos 0.997; NN 14/14.
+     Not an encode/morph hole.
+  2) L2 miss is mostly the OBJECT after on|to (right 5.7% n=88), not the verb.
+     Rel after *ing ~47% (on↔to swaps). Verb itself is usually L1 (outside this L2 cut).
+  3) Confusions: on↔to; objects → land/hand/bed/cap (hub attractors).
+
+=== IMPLICATION ===
+  Aligning -ing to morph is already done. Next leverage = sequence after verb
+  (object/rel), or Stage67-style split + stronger protect — not re-teach letters.
+
+=== FREEZE_READY: dig only ===

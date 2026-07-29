@@ -1,0 +1,71 @@
+SOTE Stage 33 stress+ contract FROZEN
+timestamp: 2026-07-24T06:10:00+00:00
+checkpoint: stage33_stress_FROZEN.pt
+source: stage33_stress.pt
+parent: stage32_dense_multihop_FROZEN.pt
+bank: hop_bank_25.pt
+report: stage33_stress_report_FROZEN.txt
+metrics: stage33_stress_metrics.json
+
+=== CLAIM ===
+  "32 + stress holds" — Stage32 contract survives denser-k, dirty_hard,
+  and stratified hub eval without FT and without hop3.
+
+=== CONTRACT (inherits Stage32; do not regress) ===
+
+Episodic MEM_WRITE:
+  observe_strict — one phrase key -> one memory slot
+  NEVER soft-merge distinct phrases during episode write
+
+Chain-link / ROLE_BRIDGE:
+  forward_links A->B when A.right == B.left
+  hop1 prefers chain-sourced; hop2 follows forward_link[key1] + bridge filter
+  honest metrics: no gold bridge fallback
+
+Stage33 stress surface (eval-only):
+  k-sweep episode_k in {5,7,9}; primary k=7
+  hub-strata reported for hub=1 / 2 / >=3 (stratified sampling)
+  dirty_hard as SEPARATE mode (never folded into dirty_bind)
+  soft-merge ON vs OFF guard at primary k (soft must not beat strict)
+
+NOT part of this freeze:
+  hop3
+  bank rebalance / mid-hub fill (deferred to Stage 33b)
+  any binder FT
+
+=== GATES AT FREEZE (>=2/3 seeds, primary k=7) ===
+  clean joint >= 70%; H2|H1 >= 90%
+  dirty_bind >= 55% OR within 20pp of clean
+  dirty_both >= 40%; dirty_hard >= 35%
+  ctrl clean >= 85%
+  soft-merge guard OK
+
+=== METRICS AT FREEZE (3/3 seeds PASS) ===
+  primary k=7 mean:
+    clean H1      ~85.9%
+    clean H2|H1   ~98.2%
+    clean joint   ~84.4%
+    dirty_bind    ~84.4%
+    dirty_both    ~84.4%
+    dirty_hard    ~84.4%
+    ctrl joint    ~95.0%
+  k-sweep (best seed):
+    k=5 joint ~85.9%; k=7 ~84.4%; k=9 ~75.0%
+  hub strata @ k=7 (stratified eval; bank still skewed):
+    bank pairs: hub1=3, hub2=0, hub3p=177
+    hub1  joint ~96.9% (n=32)
+    hub2  n=0 (empty in bank)
+    hub3p joint ~71.9% (n=32)
+  soft-merge guard:
+    strict joint 84.4% vs soft 48.4% (delta -35.9pp) OK
+  pass: True (3/3)
+
+=== KNOWN LIMIT (documented, not a fail) ===
+  Hub map is eval-quota only: mid-hub (hub=2) absent in hop_bank_25 dense
+  pairs. Do not treat hub1/hub3p quota joints as a full 1->2->3+ curve
+  until Stage 33b rebalances the bank.
+
+=== FREEZE_READY: True ===
+
+Next: Stage 33b — short hub-bank resample so hub1/hub2/hub3+ all exist;
+then strata again. Hop3 only after 33b.

@@ -1,0 +1,17 @@
+{
+  "timestamp": "2026-07-29T02:48:32.265891+00:00",
+  "protocol": "fp_hop2_195",
+  "overall": "HOP2_CHAIN_YES+BINDING_YES",
+  "results": {
+    "n": 120,
+    "hop1_B_acc": 1.0,
+    "chain_acc": 0.7,
+    "chain_acc_oracle_B": 0.7,
+    "direct_shortcut_acc": 0.35,
+    "binding_acc": 0.5166666666666667,
+    "chance": 0.25
+  },
+  "slots": 18172,
+  "edges": 28568,
+  "note": "zero training; chain = two cosine hops over slot memory; binding = old SOTE edge_fp at d256"
+}

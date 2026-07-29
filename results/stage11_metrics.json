@@ -1,0 +1,750 @@
+{
+  "stage": "11",
+  "timestamp": "2026-07-23T10:23:48.393818+00:00",
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "config": {
+    "dim": 64,
+    "lr": 0.002,
+    "steps": 2500,
+    "seed": 0,
+    "temperature": 0.07,
+    "batch_phrases": 12,
+    "max_phrase_len": 5,
+    "w_phrase_ce": 1.0,
+    "w_phrase_cos": 1.0,
+    "w_trace": 0.4,
+    "w_order": 0.6,
+    "w_mem": 0.35,
+    "margin": 0.08,
+    "create_below": 0.55,
+    "stabilize_lo": 0.55,
+    "stabilize_hi": 0.88,
+    "lock_above": 0.92,
+    "ema": 0.85,
+    "fewshot_exposures": 5
+  },
+  "metrics": {
+    "word_ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\word_memory_9_2.pt",
+    "morph_ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\morph_letter_9f_plusplus_FROZEN.pt",
+    "n_train": 32,
+    "n_hold": 16,
+    "memory_size": 32,
+    "gate": {
+      "seen": 30000,
+      "create": 29,
+      "stabilize": 74,
+      "lock": 29897
+    },
+    "train": {
+      "n": 32,
+      "acc": 1.0,
+      "trace": 0.996779432675491,
+      "order_acc": 1.0,
+      "mem_acc": 1.0,
+      "details": [
+        {
+          "phrase": "cat on top",
+          "trace": 0.9994333386421204,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "cat on top",
+          "mem_sim": 0.9940469264984131,
+          "ok": true
+        },
+        {
+          "phrase": "dog on top",
+          "trace": 0.9993090232213339,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "dog on top",
+          "mem_sim": 0.9950608611106873,
+          "ok": true
+        },
+        {
+          "phrase": "cat on car",
+          "trace": 0.9993658264478048,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "cat on car",
+          "mem_sim": 0.9959996938705444,
+          "ok": true
+        },
+        {
+          "phrase": "dog on car",
+          "trace": 0.9992415110270182,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "dog on car",
+          "mem_sim": 0.9880436062812805,
+          "ok": true
+        },
+        {
+          "phrase": "go to car",
+          "trace": 0.9991005261739095,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "go to car",
+          "mem_sim": 0.9957319498062134,
+          "ok": true
+        },
+        {
+          "phrase": "go to dog",
+          "trace": 0.998172402381897,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "go to dog",
+          "mem_sim": 0.9981595873832703,
+          "ok": true
+        },
+        {
+          "phrase": "go to top",
+          "trace": 0.9991680383682251,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "go to top",
+          "mem_sim": 0.9965224266052246,
+          "ok": true
+        },
+        {
+          "phrase": "go on top",
+          "trace": 0.9992400209108988,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "go on top",
+          "mem_sim": 0.9976423978805542,
+          "ok": true
+        },
+        {
+          "phrase": "cat to dog",
+          "trace": 0.9983657201131185,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "cat to dog",
+          "mem_sim": 0.9978076219558716,
+          "ok": true
+        },
+        {
+          "phrase": "dog to cat",
+          "trace": 0.9966543118158976,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "dog to cat",
+          "mem_sim": 0.9912131428718567,
+          "ok": true
+        },
+        {
+          "phrase": "no good dog",
+          "trace": 0.9972746173540751,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "no good dog",
+          "mem_sim": 0.9955135583877563,
+          "ok": true
+        },
+        {
+          "phrase": "not good cat",
+          "trace": 0.996255616346995,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "not good cat",
+          "mem_sim": 0.9962892532348633,
+          "ok": true
+        },
+        {
+          "phrase": "stop on top",
+          "trace": 0.9897895455360413,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "stop on top",
+          "mem_sim": 0.9960638284683228,
+          "ok": true
+        },
+        {
+          "phrase": "spot on top",
+          "trace": 0.9972366094589233,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "spot on top",
+          "mem_sim": 0.9902156591415405,
+          "ok": true
+        },
+        {
+          "phrase": "post to top",
+          "trace": 0.998317301273346,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "post to top",
+          "mem_sim": 0.9989492893218994,
+          "ok": true
+        },
+        {
+          "phrase": "act on top",
+          "trace": 0.9953743020693461,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "act on top",
+          "mem_sim": 0.9971917867660522,
+          "ok": true
+        },
+        {
+          "phrase": "good dog on top",
+          "trace": 0.9959753304719925,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "good dog on top",
+          "mem_sim": 0.9950318932533264,
+          "ok": true
+        },
+        {
+          "phrase": "good cat on car",
+          "trace": 0.9966109097003937,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "good cat on car",
+          "mem_sim": 0.9915218949317932,
+          "ok": true
+        },
+        {
+          "phrase": "not on top",
+          "trace": 0.9993703365325928,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "not on top",
+          "mem_sim": 0.997112512588501,
+          "ok": true
+        },
+        {
+          "phrase": "not to go",
+          "trace": 0.9979193011919657,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "not to go",
+          "mem_sim": 0.998907744884491,
+          "ok": true
+        },
+        {
+          "phrase": "cats on top",
+          "trace": 0.9959806203842163,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "cats on top",
+          "mem_sim": 0.9927700757980347,
+          "ok": true
+        },
+        {
+          "phrase": "dogs on car",
+          "trace": 0.9967757860819498,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "dogs on car",
+          "mem_sim": 0.9938386678695679,
+          "ok": true
+        },
+        {
+          "phrase": "cat plays",
+          "trace": 0.9980499744415283,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "cat plays",
+          "mem_sim": 0.9990934729576111,
+          "ok": true
+        },
+        {
+          "phrase": "dog runs",
+          "trace": 0.9978972673416138,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "dog runs",
+          "mem_sim": 0.997186541557312,
+          "ok": true
+        },
+        {
+          "phrase": "going to car",
+          "trace": 0.9932594100634257,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "going to car",
+          "mem_sim": 0.9976781606674194,
+          "ok": true
+        },
+        {
+          "phrase": "stopped on top",
+          "trace": 0.9897698561350504,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "stopped on top",
+          "mem_sim": 0.9939523339271545,
+          "ok": true
+        },
+        {
+          "phrase": "books on top",
+          "trace": 0.998563269774119,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "books on top",
+          "mem_sim": 0.9969181418418884,
+          "ok": true
+        },
+        {
+          "phrase": "playing on top",
+          "trace": 0.9964361190795898,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "playing on top",
+          "mem_sim": 0.9973351955413818,
+          "ok": true
+        },
+        {
+          "phrase": "cat making",
+          "trace": 0.994309812784195,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "cat making",
+          "mem_sim": 0.9980921745300293,
+          "ok": true
+        },
+        {
+          "phrase": "dog taking",
+          "trace": 0.9923990070819855,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "dog taking",
+          "mem_sim": 0.998265266418457,
+          "ok": true
+        },
+        {
+          "phrase": "spots on car",
+          "trace": 0.997545580069224,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "spots on car",
+          "mem_sim": 0.9974497556686401,
+          "ok": true
+        },
+        {
+          "phrase": "acted on car",
+          "trace": 0.9937805533409119,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "acted on car",
+          "mem_sim": 0.9977195858955383,
+          "ok": true
+        }
+      ],
+      "memory_size": 32,
+      "gate": {
+        "seen": 30000,
+        "create": 29,
+        "stabilize": 74,
+        "lock": 29897
+      }
+    },
+    "hold_cold": {
+      "n": 16,
+      "acc": 1.0,
+      "trace": 0.8759987850983937,
+      "order_acc": 1.0,
+      "mem_acc": 1.0,
+      "details": [
+        {
+          "phrase": "cat to car",
+          "trace": 0.999293843905131,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": null,
+          "mem_sim": 1.0,
+          "ok": true
+        },
+        {
+          "phrase": "dog to top",
+          "trace": 0.99923704067866,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": null,
+          "mem_sim": 1.0,
+          "ok": true
+        },
+        {
+          "phrase": "go to cat",
+          "trace": 0.9965853095054626,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": null,
+          "mem_sim": 1.0,
+          "ok": true
+        },
+        {
+          "phrase": "spot on car",
+          "trace": 0.9971690972646078,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": null,
+          "mem_sim": 1.0,
+          "ok": true
+        },
+        {
+          "phrase": "good dog on car",
+          "trace": 0.9961608350276947,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": null,
+          "mem_sim": 1.0,
+          "ok": true
+        },
+        {
+          "phrase": "no good cat",
+          "trace": 0.9956875244776408,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": null,
+          "mem_sim": 1.0,
+          "ok": true
+        },
+        {
+          "phrase": "jumps on top",
+          "trace": 0.8075679937998453,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": null,
+          "mem_sim": 1.0,
+          "ok": true
+        },
+        {
+          "phrase": "walks on car",
+          "trace": 0.7703531881173452,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": null,
+          "mem_sim": 1.0,
+          "ok": true
+        },
+        {
+          "phrase": "cat jumping",
+          "trace": 0.8404019474983215,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": null,
+          "mem_sim": 1.0,
+          "ok": true
+        },
+        {
+          "phrase": "dog walking",
+          "trace": 0.8414223492145538,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": null,
+          "mem_sim": 1.0,
+          "ok": true
+        },
+        {
+          "phrase": "reading on top",
+          "trace": 0.8678208986918131,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": null,
+          "mem_sim": 1.0,
+          "ok": true
+        },
+        {
+          "phrase": "cat writes",
+          "trace": 0.6692180931568146,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": null,
+          "mem_sim": 1.0,
+          "ok": true
+        },
+        {
+          "phrase": "dog jumped",
+          "trace": 0.8148591816425323,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": null,
+          "mem_sim": 1.0,
+          "ok": true
+        },
+        {
+          "phrase": "walked on car",
+          "trace": 0.8337432344754537,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": null,
+          "mem_sim": 1.0,
+          "ok": true
+        },
+        {
+          "phrase": "good jumps",
+          "trace": 0.7457978427410126,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": null,
+          "mem_sim": 1.0,
+          "ok": true
+        },
+        {
+          "phrase": "no walking",
+          "trace": 0.8406621813774109,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": null,
+          "mem_sim": 1.0,
+          "ok": true
+        }
+      ],
+      "memory_size": 32,
+      "gate": {
+        "seen": 30000,
+        "create": 29,
+        "stabilize": 74,
+        "lock": 29897
+      }
+    },
+    "hold_fewshot": {
+      "n": 16,
+      "acc": 1.0,
+      "trace": 0.8759987850983937,
+      "order_acc": 1.0,
+      "mem_acc": 1.0,
+      "details": [
+        {
+          "phrase": "cat to car",
+          "trace": 0.999293843905131,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "cat to car",
+          "mem_sim": 1.0,
+          "ok": true
+        },
+        {
+          "phrase": "dog to top",
+          "trace": 0.99923704067866,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "dog to top",
+          "mem_sim": 1.0,
+          "ok": true
+        },
+        {
+          "phrase": "go to cat",
+          "trace": 0.9965853095054626,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "go to cat",
+          "mem_sim": 1.0,
+          "ok": true
+        },
+        {
+          "phrase": "spot on car",
+          "trace": 0.9971690972646078,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "spot on car",
+          "mem_sim": 1.0,
+          "ok": true
+        },
+        {
+          "phrase": "good dog on car",
+          "trace": 0.9961608350276947,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "good dog on car",
+          "mem_sim": 1.0,
+          "ok": true
+        },
+        {
+          "phrase": "no good cat",
+          "trace": 0.9956875244776408,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "no good cat",
+          "mem_sim": 1.0000001192092896,
+          "ok": true
+        },
+        {
+          "phrase": "jumps on top",
+          "trace": 0.8075679937998453,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "jumps on top",
+          "mem_sim": 1.0,
+          "ok": true
+        },
+        {
+          "phrase": "walks on car",
+          "trace": 0.7703531881173452,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "walks on car",
+          "mem_sim": 1.0000001192092896,
+          "ok": true
+        },
+        {
+          "phrase": "cat jumping",
+          "trace": 0.8404019474983215,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "cat jumping",
+          "mem_sim": 1.0,
+          "ok": true
+        },
+        {
+          "phrase": "dog walking",
+          "trace": 0.8414223492145538,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "dog walking",
+          "mem_sim": 1.0,
+          "ok": true
+        },
+        {
+          "phrase": "reading on top",
+          "trace": 0.8678208986918131,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "reading on top",
+          "mem_sim": 1.0,
+          "ok": true
+        },
+        {
+          "phrase": "cat writes",
+          "trace": 0.6692180931568146,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "cat writes",
+          "mem_sim": 1.0000001192092896,
+          "ok": true
+        },
+        {
+          "phrase": "dog jumped",
+          "trace": 0.8148591816425323,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "dog jumped",
+          "mem_sim": 1.0,
+          "ok": true
+        },
+        {
+          "phrase": "walked on car",
+          "trace": 0.8337432344754537,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "walked on car",
+          "mem_sim": 1.0000001192092896,
+          "ok": true
+        },
+        {
+          "phrase": "good jumps",
+          "trace": 0.7457978427410126,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "good jumps",
+          "mem_sim": 1.0,
+          "ok": true
+        },
+        {
+          "phrase": "no walking",
+          "trace": 0.8406621813774109,
+          "order_ok": true,
+          "mem_ok": true,
+          "mem_name": "no walking",
+          "mem_sim": 1.0,
+          "ok": true
+        }
+      ],
+      "memory_size": 16,
+      "gate": {
+        "seen": 80,
+        "create": 14,
+        "stabilize": 18,
+        "lock": 48
+      }
+    },
+    "bridge_hold": {
+      "n": 16,
+      "acc": 1.0,
+      "details": [
+        {
+          "phrase": "cat to car",
+          "pred": "cat to car",
+          "ok": true
+        },
+        {
+          "phrase": "dog to top",
+          "pred": "dog to top",
+          "ok": true
+        },
+        {
+          "phrase": "go to cat",
+          "pred": "go to cat",
+          "ok": true
+        },
+        {
+          "phrase": "spot on car",
+          "pred": "spot on car",
+          "ok": true
+        },
+        {
+          "phrase": "good dog on car",
+          "pred": "good dog on car",
+          "ok": true
+        },
+        {
+          "phrase": "no good cat",
+          "pred": "no good cat",
+          "ok": true
+        },
+        {
+          "phrase": "jumps on top",
+          "pred": "jumps on top",
+          "ok": true
+        },
+        {
+          "phrase": "walks on car",
+          "pred": "walks on car",
+          "ok": true
+        },
+        {
+          "phrase": "cat jumping",
+          "pred": "cat jumping",
+          "ok": true
+        },
+        {
+          "phrase": "dog walking",
+          "pred": "dog walking",
+          "ok": true
+        },
+        {
+          "phrase": "reading on top",
+          "pred": "reading on top",
+          "ok": true
+        },
+        {
+          "phrase": "cat writes",
+          "pred": "cat writes",
+          "ok": true
+        },
+        {
+          "phrase": "dog jumped",
+          "pred": "dog jumped",
+          "ok": true
+        },
+        {
+          "phrase": "walked on car",
+          "pred": "walked on car",
+          "ok": true
+        },
+        {
+          "phrase": "good jumps",
+          "pred": "good jumps",
+          "ok": true
+        },
+        {
+          "phrase": "no walking",
+          "pred": "no walking",
+          "ok": true
+        }
+      ]
+    }
+  }
+}

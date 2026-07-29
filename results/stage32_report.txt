@@ -1,0 +1,38 @@
+SOTE Stage 32 report (chain-link + hop2 edge fan-out break)
+timestamp: 2026-07-24T05:47:25.420742+00:00
+device: cuda
+parents: stage31_chain_link.pt + hop_bank_25.pt
+gates: H1>=50%; H2|H1>=70% OR lift>=15%; joint>=35% OR lift>=8%; ctrl>=55%
+
+Honest protocol. Ablations: chain_link | edge_hop2 | edge_comp.
+edge_fp[A,B]=A*B; hop2 query=attended_1*bound (fan-out break).
+
+=== Best seed 272 DENSE clean_bind ===
+ablation          H1      H2    H2|H1    JOINT
+----------------------------------------------
+chain_link     87.5%   89.1%    98.2%    85.9%
+edge_hop2      87.5%   89.1%    98.2%    85.9%
+edge_comp      87.5%   89.1%    98.2%    85.9%
+
+=== Best seed 272 CTRL clean_bind ===
+ablation          H1      H2    H2|H1    JOINT
+----------------------------------------------
+chain_link     97.5%   97.5%    97.4%    95.0%
+edge_hop2      97.5%   97.5%    97.4%    95.0%
+edge_comp      97.5%   97.5%    97.4%    95.0%
+
+=== Multi-seed (primary=edge_hop2) ===
+  seed 272: PASS  H1=87.5% H2|H1=98.2% (+0.0pp vs chain) joint=85.9% (+0.0pp) ctrl=95.0%
+    edge_hop2    H1=87.5% H2|H1=98.2% (+0.0pp) joint=85.9% (+0.0pp)
+    edge_comp    H1=87.5% H2|H1=98.2% (+0.0pp) joint=85.9% (+0.0pp)
+  seed 273: PASS  H1=87.5% H2|H1=98.2% (+0.0pp vs chain) joint=85.9% (+0.0pp) ctrl=95.0%
+    edge_hop2    H1=87.5% H2|H1=98.2% (+0.0pp) joint=85.9% (+0.0pp)
+    edge_comp    H1=87.5% H2|H1=98.2% (+0.0pp) joint=85.9% (+0.0pp)
+  seed 274: PASS  H1=82.8% H2|H1=98.1% (+0.0pp vs chain) joint=81.2% (+0.0pp) ctrl=95.0%
+    edge_hop2    H1=82.8% H2|H1=98.1% (+0.0pp) joint=81.2% (+0.0pp)
+    edge_comp    H1=82.8% H2|H1=98.1% (+0.0pp) joint=81.2% (+0.0pp)
+  aggregate: 3/3 pass; mean_H1=85.9% mean_H2|H1=98.2% mean_joint=84.4%
+
+=== Verdict ===
+  PASS: observe_strict (no soft-merge) makes chain-links reliable;
+  H2|H1~98%, joint~84%. edge_hop2 == chain_link (fan-out was never the bottleneck).

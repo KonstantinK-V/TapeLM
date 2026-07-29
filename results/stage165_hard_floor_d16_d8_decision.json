@@ -1,0 +1,415 @@
+{
+  "timestamp": "2026-07-26T20:31:28.068941+00:00",
+  "protocol": "hard_floor_d16_d8_50k",
+  "framing": "Push 1L width to d16/d8 to find real STORY collapse. If still within ~2pp of d128, emb+1attn is insanely compressible on this task; if gap>=10pp, hard floor is between d32 and d16/d8.",
+  "n_phrases": 460000,
+  "steps": 50000,
+  "ritual": {
+    "batch": 8,
+    "lr": 0.001,
+    "opt": "Adam",
+    "wd": 0.0,
+    "fat_frac": 0.75,
+    "word_max_len": 16
+  },
+  "arms": {
+    "shallow_1L_d16_h1": {
+      "arm": "shallow_1L_d16_h1",
+      "unit": "word_fp",
+      "trunk": {
+        "batch": 8,
+        "lr": 0.001,
+        "opt": "Adam",
+        "wd": 0.0,
+        "d": 16,
+        "n_layer": 1,
+        "n_head": 1,
+        "fat_frac": 0.75
+      },
+      "V": 7301,
+      "params": 120368,
+      "steps": 50000,
+      "mix_meta": {
+        "n_train": 201900,
+        "n_hold_seen": 1600,
+        "n_story_hold": 34500
+      },
+      "curve": [
+        {
+          "step": 0,
+          "obj": 0.0,
+          "rel": 0.0,
+          "story_all": 0.0
+        },
+        {
+          "step": 4000,
+          "obj": 0.27,
+          "rel": 0.905,
+          "story_all": 0.11954924056834886
+        },
+        {
+          "step": 8000,
+          "obj": 0.295,
+          "rel": 0.9625,
+          "story_all": 0.14306712395884372
+        },
+        {
+          "step": 12000,
+          "obj": 0.33,
+          "rel": 0.9575,
+          "story_all": 0.15090641842234198
+        },
+        {
+          "step": 16000,
+          "obj": 0.3525,
+          "rel": 0.9625,
+          "story_all": 0.15727584517393434
+        },
+        {
+          "step": 20000,
+          "obj": 0.3625,
+          "rel": 0.94,
+          "story_all": 0.1636452719255267
+        },
+        {
+          "step": 24000,
+          "obj": 0.345,
+          "rel": 0.9125,
+          "story_all": 0.16854483096521314
+        },
+        {
+          "step": 28000,
+          "obj": 0.37,
+          "rel": 0.89,
+          "story_all": 0.17295443410093092
+        },
+        {
+          "step": 32000,
+          "obj": 0.37,
+          "rel": 0.88,
+          "story_all": 0.17197452229299362
+        },
+        {
+          "step": 36000,
+          "obj": 0.3775,
+          "rel": 0.9525,
+          "story_all": 0.1739343459088682
+        },
+        {
+          "step": 40000,
+          "obj": 0.375,
+          "rel": 0.8875,
+          "story_all": 0.17883390494855464
+        },
+        {
+          "step": 44000,
+          "obj": 0.3825,
+          "rel": 0.955,
+          "story_all": 0.19059284664380205
+        },
+        {
+          "step": 48000,
+          "obj": 0.3875,
+          "rel": 0.885,
+          "story_all": 0.19157275845173935
+        },
+        {
+          "step": 50000,
+          "obj": 0.37,
+          "rel": 0.9575,
+          "story_all": 0.18912297893189614
+        }
+      ],
+      "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage165_shallow_1L_d16_h1.pt",
+      "story_all_last": 0.18912297893189614,
+      "seen_obj_last": 0.37,
+      "ckpt_select": "best_ev_story_then_obj",
+      "seen_obj": 0.38625,
+      "seen_rel": 0.86125,
+      "story_all": 0.18331374853113983,
+      "story_obj": 0.1657142857142857,
+      "geom": {
+        "d": 16,
+        "n_layer": 1,
+        "n_head": 1,
+        "note": "hard floor d16 / 1H; head_dim=16"
+      },
+      "head_dim": 16,
+      "n_phrases": 460000
+    },
+    "shallow_1L_d8_h1": {
+      "arm": "shallow_1L_d8_h1",
+      "unit": "word_fp",
+      "trunk": {
+        "batch": 8,
+        "lr": 0.001,
+        "opt": "Adam",
+        "wd": 0.0,
+        "d": 8,
+        "n_layer": 1,
+        "n_head": 1,
+        "fat_frac": 0.75
+      },
+      "V": 7301,
+      "params": 59416,
+      "steps": 50000,
+      "mix_meta": {
+        "n_train": 201900,
+        "n_hold_seen": 1600,
+        "n_story_hold": 34500
+      },
+      "curve": [
+        {
+          "step": 0,
+          "obj": 0.0,
+          "rel": 0.0,
+          "story_all": 0.0
+        },
+        {
+          "step": 4000,
+          "obj": 0.235,
+          "rel": 0.8725,
+          "story_all": 0.10785749145924842
+        },
+        {
+          "step": 8000,
+          "obj": 0.285,
+          "rel": 0.93,
+          "story_all": 0.11176183504148365
+        },
+        {
+          "step": 12000,
+          "obj": 0.28,
+          "rel": 0.6625,
+          "story_all": 0.12981942410932162
+        },
+        {
+          "step": 16000,
+          "obj": 0.2675,
+          "rel": 0.6575,
+          "story_all": 0.1268911664226452
+        },
+        {
+          "step": 20000,
+          "obj": 0.28,
+          "rel": 0.895,
+          "story_all": 0.13372376769155686
+        },
+        {
+          "step": 24000,
+          "obj": 0.27,
+          "rel": 0.95,
+          "story_all": 0.13323572474377746
+        },
+        {
+          "step": 28000,
+          "obj": 0.2925,
+          "rel": 0.9375,
+          "story_all": 0.14250854075158614
+        },
+        {
+          "step": 32000,
+          "obj": 0.2825,
+          "rel": 0.9375,
+          "story_all": 0.1498291849682772
+        },
+        {
+          "step": 36000,
+          "obj": 0.285,
+          "rel": 0.9375,
+          "story_all": 0.15080527086383602
+        },
+        {
+          "step": 40000,
+          "obj": 0.3075,
+          "rel": 0.945,
+          "story_all": 0.15422157149829185
+        },
+        {
+          "step": 44000,
+          "obj": 0.325,
+          "rel": 0.95,
+          "story_all": 0.15714982918496828
+        },
+        {
+          "step": 48000,
+          "obj": 0.3175,
+          "rel": 0.92,
+          "story_all": 0.15178135675939483
+        },
+        {
+          "step": 50000,
+          "obj": 0.325,
+          "rel": 0.895,
+          "story_all": 0.1493411420204978
+        }
+      ],
+      "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage165_shallow_1L_d8_h1.pt",
+      "story_all_last": 0.1493411420204978,
+      "seen_obj_last": 0.325,
+      "ckpt_select": "best_ev_story_then_obj",
+      "seen_obj": 0.3425,
+      "seen_rel": 0.9475,
+      "story_all": 0.14419970631424375,
+      "story_obj": 0.15709969788519637,
+      "geom": {
+        "d": 8,
+        "n_layer": 1,
+        "n_head": 1,
+        "note": "hard floor d8 / 1H; head_dim=8"
+      },
+      "head_dim": 8,
+      "n_phrases": 460000
+    },
+    "shallow_1L_d16_h2": {
+      "arm": "shallow_1L_d16_h2",
+      "unit": "word_fp",
+      "trunk": {
+        "batch": 8,
+        "lr": 0.001,
+        "opt": "Adam",
+        "wd": 0.0,
+        "d": 16,
+        "n_layer": 1,
+        "n_head": 2,
+        "fat_frac": 0.75
+      },
+      "V": 7301,
+      "params": 120368,
+      "steps": 50000,
+      "mix_meta": {
+        "n_train": 201900,
+        "n_hold_seen": 1600,
+        "n_story_hold": 34500
+      },
+      "curve": [
+        {
+          "step": 0,
+          "obj": 0.0,
+          "rel": 0.0,
+          "story_all": 0.0
+        },
+        {
+          "step": 4000,
+          "obj": 0.205,
+          "rel": 0.84,
+          "story_all": 0.10616438356164383
+        },
+        {
+          "step": 8000,
+          "obj": 0.305,
+          "rel": 0.81,
+          "story_all": 0.13356164383561644
+        },
+        {
+          "step": 12000,
+          "obj": 0.285,
+          "rel": 0.695,
+          "story_all": 0.1360078277886497
+        },
+        {
+          "step": 16000,
+          "obj": 0.375,
+          "rel": 0.4525,
+          "story_all": 0.13992172211350293
+        },
+        {
+          "step": 20000,
+          "obj": 0.365,
+          "rel": 0.765,
+          "story_all": 0.14481409001956946
+        },
+        {
+          "step": 24000,
+          "obj": 0.3675,
+          "rel": 0.7025,
+          "story_all": 0.14677103718199608
+        },
+        {
+          "step": 28000,
+          "obj": 0.38,
+          "rel": 0.675,
+          "story_all": 0.14628180039138944
+        },
+        {
+          "step": 32000,
+          "obj": 0.38,
+          "rel": 0.6275,
+          "story_all": 0.16095890410958905
+        },
+        {
+          "step": 36000,
+          "obj": 0.3875,
+          "rel": 0.675,
+          "story_all": 0.16634050880626222
+        },
+        {
+          "step": 40000,
+          "obj": 0.3925,
+          "rel": 0.6725,
+          "story_all": 0.16634050880626222
+        },
+        {
+          "step": 44000,
+          "obj": 0.4025,
+          "rel": 0.7975,
+          "story_all": 0.1678082191780822
+        },
+        {
+          "step": 48000,
+          "obj": 0.385,
+          "rel": 0.81,
+          "story_all": 0.17906066536203522
+        },
+        {
+          "step": 50000,
+          "obj": 0.3875,
+          "rel": 0.885,
+          "story_all": 0.1815068493150685
+        }
+      ],
+      "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage165_shallow_1L_d16_h2.pt",
+      "story_all_last": 0.1815068493150685,
+      "seen_obj_last": 0.3875,
+      "ckpt_select": "best_ev_story_then_obj",
+      "seen_obj": 0.4025,
+      "seen_rel": 0.85125,
+      "story_all": 0.18409425625920472,
+      "story_obj": 0.16666666666666666,
+      "geom": {
+        "d": 16,
+        "n_layer": 1,
+        "n_head": 2,
+        "note": "d16 / 2H; head_dim=8 \u2014 split vs single"
+      },
+      "head_dim": 8,
+      "n_phrases": 460000
+    }
+  },
+  "ref_1L_d128_story": 0.21576642335766424,
+  "deltas_vs_1L_d128": {
+    "shallow_1L_d16_h1": -0.03245267482652442,
+    "shallow_1L_d8_h1": -0.07156671704342049,
+    "shallow_1L_d16_h2": -0.03167216709845952
+  },
+  "survivors_within_2pp": [],
+  "collapsed_below_5pp": [
+    "shallow_1L_d8_h1"
+  ],
+  "dead_below_10pp": [],
+  "best_arm": "shallow_1L_d16_h2",
+  "ranked": [
+    "shallow_1L_d16_h2",
+    "shallow_1L_d16_h1",
+    "shallow_1L_d8_h1"
+  ],
+  "verdict": "SOFT_COLLAPSE",
+  "upstream_164": "ATTENTION_REDUNDANT",
+  "ref100": {
+    "obj": 0.426,
+    "rel": 0.958,
+    "story_all": 0.196,
+    "rare_obj": 0.117
+  },
+  "what_this_means": "d = width of each word vector and of the single attention block. Tiny d means words are packed into a very low-dimensional codebook; attention mixes a thin signal. Collapse => task needs more geometric room than a near-bigram table in R^8/R^16. Survival => STORY here is carried by coarse clusters / transition structure, not rich syntax geometry."
+}

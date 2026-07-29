@@ -1,0 +1,32 @@
+SOTE Stage 26 report (partial-cue -> scratch -> CueBinder)
+timestamp: 2026-07-23T15:47:21.215256+00:00
+device: cuda
+parents: bridge_qa_binder_16_FROZEN.pt + thought_scratch_24_FROZEN.pt + hop_bank_25.pt
+protocol: MEM_WRITE -> SCRATCH partial -> binder completion probes -> MEM_READ -> ANSWER
+HOLD episodes=96
+
+mode                HOLD ans  HOLD ret   depth
+------------------------------------------------
+full                   68.8%     65.6%    1.00
+partial_raw            51.0%     47.4%    1.00
+partial_scratch        63.5%     58.9%    5.74
+
+HOLD by partial type (scratch):
+  first      ans= 58.3% ret= 52.1% n=96
+  second     ans= 68.8% ret= 65.6% n=96
+HOLD by partial type (raw):
+  first      ans= 40.6% ret= 36.5% n=96
+  second     ans= 61.5% ret= 58.3% n=96
+
+samples:
+  [what] go on peg full='on peg' full=0 raw0=0 scr0=0 cue0='on peg'
+  [where] go on zip full='go on' full=1 raw0=0 scr0=1 cue0='go on'
+  [what] zip on web full='on web' full=0 raw0=0 scr0=1 cue0='to web'
+  [where] go on rim full='go on' full=1 raw0=0 scr0=1 cue0='go on'
+  [what] hut on web full='on web' full=1 raw0=1 scr0=1 cue0='on web'
+  [where] rim on peg full='rim on' full=1 raw0=1 scr0=1 cue0='rim on'
+
+=== Verdict ===
+  PASS: scratch completion lifts partial cues toward full-cue retrieve.
+  Partial thought can start incomplete and finish via binder probes.
+  lift vs raw=+12.5pp  drop vs full=+5.2pp  TRAIN scratch ans=64.1%

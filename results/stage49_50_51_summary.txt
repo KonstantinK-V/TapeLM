@@ -1,0 +1,23 @@
+SOTE Stage 49 report (diverse in-lexicon seq beyond on/to-path)
+timestamp: 2026-07-24T09:07:45.927786+00:00
+stats: {'n_seq': 2902, 'n_pairs': 11214, 'n_pairs_train': 4842, 'n_pairs_hold': 6372, 'len_hist': {2: 18, 3: 491, 4: 1132, 5: 374, 7: 887}, 'kind_hist': {'adj_rel': 383, 'adj_verb_rel': 297, 'base': 215, 'list_rel': 249, 'morph_paradigm': 15, 'path2': 374, 'path3': 887, 'polarity_rel': 193, 'verb_rel': 289}, 'hold_L1': 1523, 'hold_L2p': 4849, 'hold_L3p': 3332, 'n_beyond_path': 1426}
+D word=100.0%
+HOLD L1=42.1%/+6.2pp
+HOLD L2+=34.8%/+23.2pp
+HOLD L3+=41.4%/+24.2pp
+HOLD beyond-path=18.8%/+7.7pp n=1606
+order_drop=+19.8pp
+Verdict: PASS (L≥2 soft on diverse mix)
+SOTE Stage 50 report (masked-word on diverse corpus)
+timestamp: 2026-07-24T09:08:14.904752+00:00
+TRAIN acc=22.2% gap=+15.1pp n=6221
+HOLD  acc=27.0% gap=+17.8pp n=7895
+Verdict: PASS soft (mask vs shuffle)
+SOTE Stage 51 report (junction: next-atom local + hops facts)
+timestamp: 2026-07-24T09:08:22.470405+00:00
+Channels stay separate: atom=local word stream; hops=fact graph; D=decode.
+Hops HOLD-ish dense joint3=95.8% H1=97.9% (floor 70%)
+Atom on path/base hold: acc=42.5% gap=+25.3pp n=4766
+Bridge shortlist (atom ranks next rel): acc=30.7% n=140
+Stage49 L2 soft=True  Stage50 mask soft=True
+Verdict: PASS — dual channel both needed; no phrase/char trunk.

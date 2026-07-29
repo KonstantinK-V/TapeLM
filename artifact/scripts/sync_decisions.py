@@ -1,0 +1,25 @@
+#!/usr/bin/env python3
+"""Refresh artifact/decisions/ from results/stage*_decision.json (curated list)."""
+from __future__ import annotations
+
+import shutil
+from pathlib import Path
+
+REPO = Path(__file__).resolve().parents[2]
+DEC = REPO / "artifact" / "decisions"
+TAGS = ["196", "192", "204", "205", "203", "207", "207_max", "208", "209", "210", "211", "212"]
+
+def main() -> int:
+    DEC.mkdir(parents=True, exist_ok=True)
+    n = 0
+    for t in TAGS:
+        for suffix in ("_decision.json", "_mini.md"):
+            src = REPO / "results" / f"stage{t}{suffix}"
+            if src.exists():
+                shutil.copy2(src, DEC / src.name)
+                n += 1
+    print(f"Synced {n} files -> {DEC}")
+    return 0
+
+if __name__ == "__main__":
+    raise SystemExit(main())

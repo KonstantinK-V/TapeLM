@@ -1,0 +1,388 @@
+{
+  "timestamp": "2026-07-26T20:10:29.013344+00:00",
+  "protocol": "zerolayer_control_vs_1L",
+  "framing": "0L emb\u2192linear controls: last-token (bigram-like) and meanpool (bag). Measures how much 1L attention adds over pure codebook projection.",
+  "n_phrases": 460000,
+  "steps": 50000,
+  "ritual": {
+    "batch": 8,
+    "lr": 0.001,
+    "opt": "Adam",
+    "wd": 0.0,
+    "fat_frac": 0.75,
+    "word_max_len": 16
+  },
+  "arms": {
+    "zero_last_d128": {
+      "arm": "zero_last_d128",
+      "unit": "word_fp",
+      "spec": {
+        "d": 128,
+        "mode": "last",
+        "note": "0L last-token linear (bigram-like)"
+      },
+      "trunk": {
+        "batch": 8,
+        "lr": 0.001,
+        "opt": "Adam",
+        "wd": 0.0,
+        "fat_frac": 0.75,
+        "d": 128,
+        "n_layer": 0
+      },
+      "V": 7301,
+      "params": 1876485,
+      "steps": 50000,
+      "curve": [
+        {
+          "step": 0,
+          "obj": 0.0,
+          "rel": 0.0,
+          "story_all": 0.0
+        },
+        {
+          "step": 4000,
+          "obj": 0.23,
+          "rel": 0.98,
+          "story_all": 0.1635036496350365
+        },
+        {
+          "step": 8000,
+          "obj": 0.23,
+          "rel": 0.9775,
+          "story_all": 0.19367396593673966
+        },
+        {
+          "step": 12000,
+          "obj": 0.1475,
+          "rel": 0.975,
+          "story_all": 0.19854014598540146
+        },
+        {
+          "step": 16000,
+          "obj": 0.23,
+          "rel": 0.9775,
+          "story_all": 0.21265206812652068
+        },
+        {
+          "step": 20000,
+          "obj": 0.23,
+          "rel": 0.9775,
+          "story_all": 0.19805352798053527
+        },
+        {
+          "step": 24000,
+          "obj": 0.23,
+          "rel": 0.97,
+          "story_all": 0.20632603406326033
+        },
+        {
+          "step": 28000,
+          "obj": 0.23,
+          "rel": 0.975,
+          "story_all": 0.21557177615571776
+        },
+        {
+          "step": 32000,
+          "obj": 0.23,
+          "rel": 0.9775,
+          "story_all": 0.20827250608272507
+        },
+        {
+          "step": 36000,
+          "obj": 0.23,
+          "rel": 0.98,
+          "story_all": 0.2116788321167883
+        },
+        {
+          "step": 40000,
+          "obj": 0.23,
+          "rel": 0.975,
+          "story_all": 0.22384428223844283
+        },
+        {
+          "step": 44000,
+          "obj": 0.23,
+          "rel": 0.9775,
+          "story_all": 0.2170316301703163
+        },
+        {
+          "step": 48000,
+          "obj": 0.23,
+          "rel": 0.98,
+          "story_all": 0.21313868613138687
+        },
+        {
+          "step": 50000,
+          "obj": 0.23,
+          "rel": 0.9775,
+          "story_all": 0.2072992700729927
+        }
+      ],
+      "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage164_zero_last_d128.pt",
+      "story_all_last": 0.2072992700729927,
+      "seen_obj_last": 0.23,
+      "ckpt_select": "best_ev_story_then_obj",
+      "n_phrases": 460000,
+      "seen_obj": 0.2375,
+      "seen_rel": 0.965,
+      "story_all": 0.20661398887913374,
+      "story_obj": 0.20189274447949526
+    },
+    "zero_meanpool_d128": {
+      "arm": "zero_meanpool_d128",
+      "unit": "word_fp",
+      "spec": {
+        "d": 128,
+        "mode": "meanpool",
+        "note": "0L mean-pool prefix linear (bag)"
+      },
+      "trunk": {
+        "batch": 8,
+        "lr": 0.001,
+        "opt": "Adam",
+        "wd": 0.0,
+        "fat_frac": 0.75,
+        "d": 128,
+        "n_layer": 0
+      },
+      "V": 7301,
+      "params": 1876485,
+      "steps": 50000,
+      "curve": [
+        {
+          "step": 0,
+          "obj": 0.0,
+          "rel": 0.0,
+          "story_all": 0.007285089849441476
+        },
+        {
+          "step": 4000,
+          "obj": 0.3925,
+          "rel": 0.965,
+          "story_all": 0.12773190869354056
+        },
+        {
+          "step": 8000,
+          "obj": 0.375,
+          "rel": 0.9625,
+          "story_all": 0.14570179698882954
+        },
+        {
+          "step": 12000,
+          "obj": 0.3875,
+          "rel": 0.965,
+          "story_all": 0.15687226809130647
+        },
+        {
+          "step": 16000,
+          "obj": 0.4125,
+          "rel": 0.965,
+          "story_all": 0.17095677513355997
+        },
+        {
+          "step": 20000,
+          "obj": 0.415,
+          "rel": 0.965,
+          "story_all": 0.1724137931034483
+        },
+        {
+          "step": 24000,
+          "obj": 0.4125,
+          "rel": 0.9625,
+          "story_all": 0.18115590092277806
+        },
+        {
+          "step": 28000,
+          "obj": 0.4225,
+          "rel": 0.9625,
+          "story_all": 0.18018455560951918
+        },
+        {
+          "step": 32000,
+          "obj": 0.405,
+          "rel": 0.9625,
+          "story_all": 0.18455560951918407
+        },
+        {
+          "step": 36000,
+          "obj": 0.405,
+          "rel": 0.9625,
+          "story_all": 0.18892666342884895
+        },
+        {
+          "step": 40000,
+          "obj": 0.4325,
+          "rel": 0.965,
+          "story_all": 0.1884409907722195
+        },
+        {
+          "step": 44000,
+          "obj": 0.4025,
+          "rel": 0.9625,
+          "story_all": 0.19815444390480816
+        },
+        {
+          "step": 48000,
+          "obj": 0.4025,
+          "rel": 0.965,
+          "story_all": 0.1942690626517727
+        },
+        {
+          "step": 50000,
+          "obj": 0.415,
+          "rel": 0.95,
+          "story_all": 0.1986401165614376
+        }
+      ],
+      "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage164_zero_meanpool_d128.pt",
+      "story_all_last": 0.1986401165614376,
+      "seen_obj_last": 0.415,
+      "ckpt_select": "best_ev_story_then_obj",
+      "n_phrases": 460000,
+      "seen_obj": 0.40125,
+      "seen_rel": 0.95375,
+      "story_all": 0.19352958321189156,
+      "story_obj": 0.19021739130434784
+    },
+    "zero_last_d256": {
+      "arm": "zero_last_d256",
+      "unit": "word_fp",
+      "spec": {
+        "d": 256,
+        "mode": "last",
+        "note": "0L last-token @ d256 width ctrl"
+      },
+      "trunk": {
+        "batch": 8,
+        "lr": 0.001,
+        "opt": "Adam",
+        "wd": 0.0,
+        "fat_frac": 0.75,
+        "d": 256,
+        "n_layer": 0
+      },
+      "V": 7301,
+      "params": 3745669,
+      "steps": 50000,
+      "curve": [
+        {
+          "step": 0,
+          "obj": 0.0,
+          "rel": 0.0,
+          "story_all": 0.0
+        },
+        {
+          "step": 4000,
+          "obj": 0.2,
+          "rel": 0.97,
+          "story_all": 0.18753044325377496
+        },
+        {
+          "step": 8000,
+          "obj": 0.2,
+          "rel": 0.97,
+          "story_all": 0.21529469069654164
+        },
+        {
+          "step": 12000,
+          "obj": 0.2,
+          "rel": 0.9775,
+          "story_all": 0.22162688748173404
+        },
+        {
+          "step": 16000,
+          "obj": 0.2,
+          "rel": 0.9775,
+          "story_all": 0.22162688748173404
+        },
+        {
+          "step": 20000,
+          "obj": 0.2,
+          "rel": 0.975,
+          "story_all": 0.2196785192401364
+        },
+        {
+          "step": 24000,
+          "obj": 0.2,
+          "rel": 0.97,
+          "story_all": 0.22162688748173404
+        },
+        {
+          "step": 28000,
+          "obj": 0.2,
+          "rel": 0.9775,
+          "story_all": 0.21334632245494398
+        },
+        {
+          "step": 32000,
+          "obj": 0.2,
+          "rel": 0.9675,
+          "story_all": 0.22406234778373113
+        },
+        {
+          "step": 36000,
+          "obj": 0.2,
+          "rel": 0.9775,
+          "story_all": 0.22162688748173404
+        },
+        {
+          "step": 40000,
+          "obj": 0.1425,
+          "rel": 0.9675,
+          "story_all": 0.21821724305893814
+        },
+        {
+          "step": 44000,
+          "obj": 0.2,
+          "rel": 0.97,
+          "story_all": 0.22747199220652703
+        },
+        {
+          "step": 48000,
+          "obj": 0.2,
+          "rel": 0.9775,
+          "story_all": 0.2235752557233317
+        },
+        {
+          "step": 50000,
+          "obj": 0.2,
+          "rel": 0.9775,
+          "story_all": 0.2196785192401364
+        }
+      ],
+      "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage164_zero_last_d256.pt",
+      "story_all_last": 0.2196785192401364,
+      "seen_obj_last": 0.2,
+      "ckpt_select": "best_ev_story_then_obj",
+      "n_phrases": 460000,
+      "seen_obj": 0.1925,
+      "seen_rel": 0.975,
+      "story_all": 0.22521205030710734,
+      "story_obj": 0.1694915254237288
+    }
+  },
+  "ref_1L_d128_50k_story": 0.21576642335766424,
+  "ref_160_base_story": 0.19055995309293464,
+  "deltas_vs_1L_d128": {
+    "zero_last_d128": -0.009152434478530508,
+    "zero_meanpool_d128": -0.02223684014577268,
+    "zero_last_d256": 0.009445626949443092
+  },
+  "attention_gap_1L_minus_0L_last": 0.009152434478530508,
+  "best_arm": "zero_last_d256",
+  "ranked": [
+    "zero_last_d256",
+    "zero_last_d128",
+    "zero_meanpool_d128"
+  ],
+  "verdict": "ATTENTION_REDUNDANT",
+  "upstream_163": "FLOOR_SOFT",
+  "ref100": {
+    "obj": 0.426,
+    "rel": 0.958,
+    "story_all": 0.196,
+    "rare_obj": 0.117
+  },
+  "read": "ATTENTION_MATTERS: gap>=5pp \u2014 keep 1L. ATTENTION_HELPS: 2\u20135pp. ATTENTION_REDUNDANT: 0L\u22481L \u2014 emb table carries STORY."
+}

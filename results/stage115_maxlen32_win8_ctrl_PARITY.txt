@@ -1,0 +1,9 @@
+SOTE Stage 115 — maxlen32_win8_ctrl
+timestamp: 2026-07-25T08:10:10.596098+00:00
+max_len=32 n_phrases=97693 params=2993152
+best_step=18000
+SEEN obj=42.1% rel=94.1%
+STORY ALL=11.8% obj=17.4%
+RARE obj=12.5%
+vs100: obj -0.5pp story -7.8pp
+Verdict: PARITY

@@ -1,0 +1,36 @@
+SOTE Stage 13 report (scale HOLD / lexicon)
+timestamp: 2026-07-23T11:18:32.873448+00:00
+device: cuda
+parent phrase ckpt: phrase_memory_11pp.pt
+TRAIN=68 HOLD=38 (rel train=54 hold=31)
+morph HOLD tested=22 distractor_pool=12
+probe_finetuned=False
+
+Cold (frozen Stage12 probe):
+  HOLD QA:        100.0%
+  TRAIN QA:       100.0%
+  Shuffle gap:    +98.4pp
+  Swap gap:       +100.0pp
+  Morph-inv:      100.0%
+
+Memory polish @ scale (11++ gate, large distractor pool):
+  moved_off:      100%  (mean_drop=+0.492)
+  unstick:        91%  (sticky=9%)
+  soft_create:    73%
+  prefer_new:     100% / margin 100%
+
+HOLD sample:
+  [OK] 'cat to car' what -> cat (want cat)
+  [OK] 'cat to car' where -> car (want car)
+  [OK] 'dog to top' what -> dog (want dog)
+  [OK] 'dog to top' where -> top (want top)
+  [OK] 'go to cat' what -> go (want go)
+  [OK] 'go to cat' where -> cat (want cat)
+  [OK] 'spot on car' what -> spot (want spot)
+  [OK] 'spot on car' where -> car (want car)
+  [OK] 'good dog on car' what -> dog (want dog)
+  [OK] 'good dog on car' where -> car (want car)
+
+=== Verdict ===
+  PASS: stack scales - roles + memory polish hold on expanded HOLD.
+  Next: optional text bridge / richer QA, or freeze scale contract.

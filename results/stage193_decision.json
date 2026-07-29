@@ -1,0 +1,22 @@
+{
+  "timestamp": "2026-07-29T02:31:43.702455+00:00",
+  "protocol": "fp_wired_193",
+  "overall": "FP_WIRED_YES",
+  "gates": {
+    "G1": {
+      "next_tok_raw": 0.855,
+      "next_tok_temp": 0.855,
+      "ok": true
+    },
+    "G3": {
+      "entropy_real": 4.851673194169998,
+      "entropy_fake": 5.206328856945038,
+      "ok": true
+    }
+  },
+  "temp": {
+    "w": 8.318496704101562,
+    "b": -5.918622970581055
+  },
+  "note": "frozen backbone; only (w,b) trained; surprise = FP-lexicon, read-only"
+}

@@ -1,0 +1,11 @@
+{
+  "timestamp": "2026-07-26T16:00:00.329434+00:00",
+  "protocol": "morph_codebook_156_158",
+  "plan": "C:\\Users\\Kostya\\sote-letter-assembly\\results\\plan_150_plus_clean_compare.md",
+  "stages": {
+    "156": "PARITY",
+    "157": "HARM",
+    "158": "PARITY"
+  },
+  "verdict": "PIPELINE_DONE"
+}

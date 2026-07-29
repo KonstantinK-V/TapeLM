@@ -1,0 +1,41 @@
+SOTE Stage 31 report (chain-link / handles + complementary probe)
+timestamp: 2026-07-24T05:31:55.879537+00:00
+device: cuda
+parents: stage29d_combo.pt + hop_bank_25.pt
+gates: H1>=50% OR lift>=8%; joint>=30% OR lift>=10%; ctrl>=55%
+
+Honest protocol. Ablations: base | chain_link | complement | both.
+
+=== Best seed 272 DENSE clean_bind ===
+ablation          H1      H2    H2|H1    JOINT
+----------------------------------------------
+base           42.2%   48.4%    48.1%    20.3%
+chain_link     53.1%   50.0%    50.0%    26.6%
+complement     40.6%   50.0%    50.0%    20.3%
+both           53.1%   51.6%    50.0%    26.6%
+
+=== Best seed 272 CTRL clean_bind ===
+ablation          H1      H2    H2|H1    JOINT
+----------------------------------------------
+base           80.0%   77.5%    79.7%    63.7%
+chain_link     88.8%   78.8%    81.7%    72.5%
+complement     80.0%   77.5%    79.7%    63.7%
+both           88.8%   78.8%    81.7%    72.5%
+
+=== Multi-seed (primary=both, fallback chain_link) ===
+  seed 272: MISS  H1=53.1% (+10.9pp) joint=26.6% (+6.2pp) H2|H1=50.0% ctrl=72.5%
+    chain_link   H1=53.1% joint=26.6% (+6.2pp) H2|H1=50.0%
+    complement   H1=40.6% joint=20.3% (+0.0pp) H2|H1=50.0%
+    both         H1=53.1% joint=26.6% (+6.2pp) H2|H1=50.0%
+  seed 273: MISS  H1=53.1% (+10.9pp) joint=26.6% (+6.2pp) H2|H1=50.0% ctrl=72.5%
+    chain_link   H1=53.1% joint=26.6% (+6.2pp) H2|H1=50.0%
+    complement   H1=40.6% joint=20.3% (+0.0pp) H2|H1=50.0%
+    both         H1=53.1% joint=26.6% (+6.2pp) H2|H1=50.0%
+  seed 274: MISS  H1=53.1% (+10.9pp) joint=26.6% (+6.2pp) H2|H1=50.0% ctrl=72.5%
+    chain_link   H1=53.1% joint=26.6% (+6.2pp) H2|H1=50.0%
+    complement   H1=42.2% joint=21.9% (+1.6pp) H2|H1=51.9%
+    both         H1=53.1% joint=26.6% (+6.2pp) H2|H1=50.0%
+  aggregate: 0/3 pass; mean_H1=53.1% mean_joint=26.6% mean_H2|H1=50.0%
+
+=== Verdict ===
+  PARTIAL: hop2 link helps; H1 still collision-bound.

@@ -1,0 +1,42 @@
+{
+  "diag": {
+    "ok": true,
+    "n": 63,
+    "fail": {
+      "ok12": 53,
+      "h1_miss": 8,
+      "multi_link_pick_wrong": 2
+    },
+    "h2_given_h1": 0.9636363636363636,
+    "hub2_n_triples": 49
+  },
+  "examples": [
+    {
+      "kind": "multi_link_pick_wrong",
+      "a": "go on yap",
+      "b": "yap on peg",
+      "outs": [
+        "yap on peg",
+        "yap on nib"
+      ],
+      "bridge": "yap",
+      "n_outs": 2
+    },
+    {
+      "kind": "multi_link_pick_wrong",
+      "a": "go to cat",
+      "b": "cat to cob",
+      "outs": [
+        "cat to cob",
+        "big cat on car"
+      ],
+      "bridge": "cat",
+      "n_outs": 2
+    }
+  ],
+  "mean_base_hub2_h2gh1": 0.9473684210526315,
+  "mean_fix_hub2_h2gh1": 1.0,
+  "mean_base_j3": 0.8854166666666666,
+  "mean_fix_j3": 0.9010416666666666,
+  "pass": true
+}

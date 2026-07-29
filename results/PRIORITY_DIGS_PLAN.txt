@@ -1,0 +1,9 @@
+SOTE priority digs (descending chance)
+timestamp: 2026-07-25T14:19:42.963282+00:00
+
+0 C′  signal=NULL ALL_tpw=1.0004585169523907 head=1.0 rare=1.391304347826087
+1 #5  PARTIAL obj=45.2% lift=+2.6pp STORY=16.7%
+2 G′  PARITY STORY=19.1% lift=-0.5pp
+
+Skipped: F(done PARITY/-10pp), temp, role-reweight, hybrid, multi-head, more mem
+Decision JSON: C:\Users\Kostya\sote-letter-assembly\results\stage125_127_priority_decision.json

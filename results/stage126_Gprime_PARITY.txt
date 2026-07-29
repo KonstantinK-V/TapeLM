@@ -1,0 +1,11 @@
+{
+  "dig": "G_prime_morph_roots",
+  "verdict": "PARITY",
+  "story_all": 0.1906857352401907,
+  "seen_all": 0.70125,
+  "seen_obj": 0.435,
+  "story_lift_pp": -0.005314264759809312,
+  "c_prime_signal": "NULL",
+  "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage126_Gprime_morph_roots.pt",
+  "expand": "[$stem, +affix?, surface] per word; predict surface only"
+}

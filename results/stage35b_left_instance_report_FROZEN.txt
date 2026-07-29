@@ -1,0 +1,43 @@
+SOTE Stage 35b report (left/instance channel on same_tail H1)
+timestamp: 2026-07-24T06:55:23.052799+00:00
+device: cuda
+parent: stage35a_h1_cue.pt
+primary_k=7 cue=what_tail left_instance=True
+Contract: observe_strict + chain-link + what_tail. 35b: chain-source filter + left-ink rank when |same_tail|>1.
+Bank: {'facts': 82, 'triples': 240, 'hub_triples': {'hub1': 33, 'hub2': 49, 'hub3p': 158}}
+
+gates: H1>=85% joint3>=55% hub2_H1 soft>=85% ctrl2>=85%
+
+=== Ablate clean_bind (per seed) ===
+  seed 272: no_instance:H1=89%/j3=84%/hub2H1=76% | left_instance:H1=100%/j3=95%/hub2H1=100%
+  seed 273: no_instance:H1=89%/j3=84%/hub2H1=76% | left_instance:H1=100%/j3=95%/hub2H1=100%
+  seed 274: no_instance:H1=89%/j3=81%/hub2H1=76% | left_instance:H1=100%/j3=92%/hub2H1=100%
+
+=== Primary (what_tail + left_instance) hop3 clean (best seed) ===
+  H1=100.0%  H2=96.9%  H3=95.3%
+  H2|H1=96.9%  H3|H2=98.4%
+  joint2=96.9%  joint3=95.3%
+  vs 35a H1~87.5%: +12.5pp; vs 35a j3~82.8%: +12.5pp
+
+=== Hub strata @ k=7 (best seed) ===
+hub          n      H1    H2|H1    H3|H2   JOINT3
+--------------------------------------------------
+hub1        22  100.0%   100.0%   100.0%   100.0%
+hub2        21  100.0%    95.2%    95.0%    90.5%
+hub3p       21  100.0%    95.2%   100.0%    95.2%
+
+=== Modes @ k=7 (best seed) ===
+mode                H1   JOINT3
+--------------------------------
+clean_bind      100.0%    95.3%
+dirty_bind       98.4%    93.8%
+dirty_hard       95.3%    90.6%
+
+=== Multi-seed ===
+  seed 272: PASS H1=100.0% joint3=95.3% hub2_H1=100.0% ctrl2=95.0%
+  seed 273: PASS H1=100.0% joint3=95.3% hub2_H1=100.0% ctrl2=95.0%
+  seed 274: PASS H1=100.0% joint3=92.2% hub2_H1=100.0% ctrl2=95.0%
+  aggregate: 3/3 pass; mean_H1=100.0% mean_j3=94.3% mean_hub2_H1=100.0% (no_instance hub2_H1=76.2%, Δ=+23.8pp)
+
+=== Verdict ===
+  PASS: left/instance lifts hub2 H1~100% (H1~100%, joint3~94%).

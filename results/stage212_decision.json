@@ -1,0 +1,40 @@
+{
+  "timestamp": "2026-07-29T13:24:24.220316+00:00",
+  "protocol": "instance_channel_212",
+  "overall": "THESIS_NO",
+  "t1_collision_4way": {
+    "instance_learned": 0.3776041666666667,
+    "instance_random_untrained": 0.3359375,
+    "fp_only_surface_key": 0.2421875,
+    "ctx_blend_197": 0.328125,
+    "soft_rerank": 0.3203125,
+    "chance": 0.25
+  },
+  "t2_para_hard": {
+    "para": 0.7503505456447601,
+    "hard": 0.9371891617774963,
+    "gap_hard_minus_para": 0.18683861613273622,
+    "inversion_para_gt_hard": false
+  },
+  "next_tok": {
+    "before": 0.82,
+    "after": 0.82,
+    "delta": 0.0
+  },
+  "gates": {
+    "g1_collision": false,
+    "g2_invariance": false,
+    "g3_learning_matters": false,
+    "g4_beats_soft_rerank": false,
+    "g5_no_ce_cost": true,
+    "g6_beats_ctx_blend": false
+  },
+  "anticf_frozen": true,
+  "surfaces": {
+    "total": 320,
+    "train": 224,
+    "test": 96,
+    "occ_per_surface": 4
+  },
+  "note": "instance channel = read-only 2-layer head on frozen tape state; collision test is 4-way among siblings of the SAME surface form, store/query crops are DISJOINT halves (no lexical overlap shortcut)"
+}

@@ -1,0 +1,26 @@
+SOTE Stage 84 — TinyStories real + a-z filter — WEAK
+timestamp: 2026-07-24T15:16:18+00:00
+
+=== SETUP ===
+  source: HF roneneldan/TinyStories TinyStoriesV2-GPT4 (~2MB head)
+  raw: data/_tinystories_raw_chunk.txt
+  filtered: data/external_tinystories_mini.txt (~3974 lines, word_len<=11, 3-8 words)
+  train 2981 / hold 993; codebook V=2297 (2162 new words)
+
+=== RESULT ===
+  ZS ALL@1 1.9%  rel 19%  right/obj 0%
+  FT best (step 500): ALL@1 8.0% (d+6pp) rel 78%  right/obj 0%
+  Later spikes: right~7–8% but ALL collapses (unstable)
+  Verdict: **WEAK** (soft lift on ALL/rel; object not unlocked)
+
+=== READ ===
+  Natural TinyStories ≠ fat repeats (83b). Rel learnable; object after on|to stays dead
+  without dense (left,rel,right) overlap. Huge OOV lexicon (2k new words) hard for TinySeq.
+  Reinforces: scale helps when triples repeat; open story text does not free object slot.
+
+=== ARTIFACTS ===
+  results/stage84_tinystories_report.txt
+  results/stage84_tinystories_metrics.json
+  checkpoints/stage84_tinystories.pt
+
+=== FREEZE_READY: True (WEAK dig) ===

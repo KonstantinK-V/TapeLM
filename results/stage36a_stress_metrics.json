@@ -1,0 +1,63 @@
+{
+  "pass": true,
+  "aggregate": {
+    "mean7": 0.8854166666666666,
+    "mean9": 0.859375,
+    "mean_nat": 0.8697916666666666,
+    "hub2_h2gh1": 0.9473684210526315
+  },
+  "bal_meta": {
+    "facts": 82,
+    "triples": 240,
+    "hub": {
+      "hub1": 33,
+      "hub2": 49,
+      "hub3p": 158
+    }
+  },
+  "nat_meta": {
+    "facts": 89,
+    "triples": 513,
+    "hub": {
+      "hub1": 0,
+      "hub2": 0,
+      "hub3p": 513
+    }
+  },
+  "config": {
+    "dim": 64,
+    "seed": 272,
+    "episode_k": 3,
+    "episode_k_dense": 7,
+    "n_hold_episodes": 80,
+    "n_dense_episodes": 64,
+    "create_below": 0.55,
+    "stabilize_lo": 0.55,
+    "lock_above": 0.92,
+    "ema": 0.85,
+    "retrieve_margin": 0.05,
+    "max_phrase_len": 5,
+    "max_word_len": 11,
+    "disambig_topk": 5,
+    "disambig_gap": 0.12,
+    "edge_w": 0.5,
+    "where_w": 0.3,
+    "bind_w": 0.2,
+    "dense_joint_min": 0.7,
+    "dense_h1_min": 0.9,
+    "dense_h2_given_h1_min": 0.85,
+    "dense_h3_given_h2_min": 0.85,
+    "dirty_bind_min": 0.55,
+    "dirty_bind_within_clean_pp": 0.25,
+    "dirty_hard_min": 0.5,
+    "ctrl_joint_min": 0.85,
+    "pass_seeds_min": 2,
+    "hubby_sample": true,
+    "dirty_both_min": 0.4,
+    "h1_cue_mode": "what_tail",
+    "use_left_instance": true,
+    "hub2_h1_min": 0.85,
+    "k9_joint_min": 0.65,
+    "native_joint_min": 0.55
+  }
+}

@@ -1,0 +1,28 @@
+SOTE Stage 47 long-seq contract FROZEN (L≥2 soft-green)
+timestamp: 2026-07-24T08:48:39+00:00
+checkpoint: stage47_long_seq_FROZEN.pt
+corpus: fp_language_corpus_long_FROZEN.pt (same 107-word lexicon + path2/path3)
+parent_base: fp_language_corpus.pt
+report: stage47_long_seq_report_FROZEN.txt
+
+=== CLAIM ===
+  Next-atom on fp-language learns at L≥2 when streams are long enough in-lexicon.
+  Same word atoms; graph path linearizations (5–7 toks) supply predicable context.
+
+=== METRICS (HOLD TinySeq) ===
+  L1   70.5%  gap +22.6pp
+  L≥2  32.8%  gap +22.5pp   ← main gate soft-green (was ~7%/+3pp on short bank)
+  L≥3  39.3%  gap +21.4pp
+  D word 100%
+  Order drop (shuf-prefix) ~+4pp — WEAK; not frozen as solved
+
+=== CONTRACT ===
+  Atom = space-split word (id/fp)
+  Train = context → next word_fp → decode D
+  Long memory/facts = hops/graph (not head weights)
+  Data: base phrases + path2/path3 in same lexicon
+
+NOT frozen: strong order sensitivity; phrase-next; char trunk
+
+=== FREEZE_READY: True (L≥2 soft) ===
+Next: Stage 48 order control (shuf-prefix / perm hard-neg in loss) — same corpus.

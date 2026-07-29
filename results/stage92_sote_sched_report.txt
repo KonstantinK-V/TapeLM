@@ -1,0 +1,33 @@
+SOTE Stage 92 — 1e-3 + warmup/cosine + slow fp-emb (SOTE schedule)
+timestamp: 2026-07-24T18:15:40.699320+00:00
+device: cuda
+foundation: stage85_foundation.pt dim=256
+model: WordIdTransformer d=256 L=2 H=4 max_len=16 params=2010368
+train: batch=32 steps=8000 peak_lr=0.001 warmup=500 cosine_min_ratio=0.1 emb_lr_mult=0.2
+SOTE knobs: fp-init emb slower; blocks get schedule; no label smoothing
+ref Stage90: obj=28% rel=86% head=57% swing~28pp
+ref Stage91: obj=12.7% rel=47% (2e-3 FAIL)
+
+=== FT best ===
+  step=500
+  SEEN  obj=0.7% rel=0.0% ALL=0.3% head=0.3% rare1=0.0%
+  RARE  obj=0.0% ALL=0.0%
+  STORY obj=6.5% ALL=3.2% rel=2.3%
+  curve obj swing (post-0)=0.7pp  [STABLER]
+  late: final obj=0.0% rel=0.0% | drop_from_best_obj=0.7pp
+
+=== vs Stage90 / Stage91 on SEEN ===
+  right bigram=22.1% ALL bigram=59.3%
+  TF@92 obj=0.7% rel=0.0% | 90 obj=28% rel=86% | 91 obj=12.7% rel=47%
+  SEEN freq model/bigram:
+    head21p  n= 3600  model=  0.3%  bigram= 59.3%
+
+=== Adequacy ===
+  HANDLES: curve_swing@1pp, late_obj_drop@1pp
+  FAILS:   SEEN rel@0%, SEEN object@1%
+  Read: overtrain at 91 possible late; here schedule+slow-emb aim to hold SEEN
+  without BPE-style hotter constant lr.
+
+=== Verdict: FAIL ===
+  stability: STABLER
+  gates: PARTIAL needs obj>=25% AND rel>=50%; LIVE obj>=50% AND rel>=50%

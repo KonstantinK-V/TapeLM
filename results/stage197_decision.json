@@ -1,0 +1,33 @@
+{
+  "timestamp": "2026-07-29T03:31:33.250366+00:00",
+  "protocol": "knowledge_edit_197",
+  "overall": "EDIT_CLEAN_WIN",
+  "best_mechanism": "M3_blend",
+  "best_curve_acc": 1.0,
+  "gates": {
+    "g_acquire": true,
+    "g_vs_rag": true,
+    "g_select": true
+  },
+  "axes": {
+    "acquire": {
+      "M1_meanctx": 0.46,
+      "M2_subject": 0.97,
+      "M3_blend": 1.0,
+      "M4_multikey": 0.96
+    },
+    "controls": {
+      "gpt_parametric": 0.28,
+      "gpt_rag": 0.44,
+      "chance": 0.25
+    },
+    "selective": {
+      "budget": 100,
+      "n_novel": 100,
+      "n_stream": 600,
+      "gated_novel_kept": 0.98,
+      "uniform_novel_kept": 0.2
+    }
+  },
+  "note": "zero-training; anchored/multikey write on one frozen fp-space; selective-write policy = fp-lexicon surprise (free, in-space) vs ingestion order"
+}

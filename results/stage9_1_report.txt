@@ -1,0 +1,51 @@
+SOTE Stage 9.1 report (forced population + real selection)
+timestamp: 2026-07-22T19:02:39.543903+00:00
+device: cuda
+gpu: NVIDIA GeForce RTX 3050 Laptop GPU
+steps: 2500
+alphabet: C:\Users\Kostya\sote-letter-assembly\checkpoints\alphabet_full_frozen.pt
+train words: 94 | hold-out: 17
+memory size during training: 103
+gate create/stabilize/skip/lock/mutate/die: 1/360/119105/0/51657/51475
+population words/mean_cands/locked/total: 103/2.77/0/285
+soft -ing basin updates: 4250
+ING proto leave-one-out: 100%
+baseline 7.8e HOLD COLD trace: 88%
+
+Train compose/stream:     100.0% / 100.0%
+Related-form probes:      96.0%
+Train soft trace/mem/perm/path/stab: 29/29/96/100/100%
+HOLD COLD  trace/mem/perm/path/stab: 71/71/71/100/100%
+HOLD fewshot trace/mem/perm/path/stab: 71/71/82/94/100%
+
+HOLD COLD details (no memory):
+  [OK] cards        tr=0.13 path=0.97 stab=1.00
+  [OK] bookshelves  tr=0.12 path=0.97 stab=1.00
+  [WEAK] jumping      tr=0.12 path=0.73 stab=1.00
+  [WEAK] walking      tr=0.11 path=0.76 stab=1.00
+  [OK] reading      tr=0.13 path=0.78 stab=1.00
+  [WEAK] writing      tr=0.12 path=0.76 stab=1.00
+  [OK] friendship   tr=0.14 path=0.93 stab=1.00
+  [WEAK] sunshine     tr=0.12 path=0.95 stab=1.00
+  [OK] moonlight    tr=0.13 path=0.95 stab=1.00
+  [OK] playground   tr=0.13 path=0.95 stab=1.00
+  [OK] applesauce   tr=0.13 path=0.96 stab=1.00
+  [WEAK] birdhouse    tr=0.12 path=0.94 stab=1.00
+  [OK] notebook     tr=0.13 path=0.71 stab=1.00
+  [OK] backpack     tr=0.14 path=0.92 stab=1.00
+  [OK] quickly      tr=0.13 path=0.95 stab=1.00
+  [OK] slowly       tr=0.13 path=0.93 stab=1.00
+  [OK] happily      tr=0.12 path=0.90 stab=1.00
+
+ING proto details:
+  [OK] jump    +ing -> pred=jumping      (want jumping) score=1.00
+  [OK] walk    +ing -> pred=walking      (want walking) score=1.00
+  [OK] read    +ing -> pred=reading      (want reading) score=1.00
+  [OK] write   +ing -> pred=writing      (want writing) score=1.00
+
+How to read:
+- COLD = compose only (must stay near 7.8e ~88% trace)
+- fewshot = forced population create/stabilize/mutate/die
+- 9.1: lock needs fitness+wins; bare self_sim only skips EMA
+- success: mutate/die >> 0 and mean_cands starts near pop_size
+- Stage 9 baseline: mutate~6 die=0 mean_cands~1.08 (failed selection)

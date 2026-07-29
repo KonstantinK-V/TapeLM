@@ -1,0 +1,32 @@
+SOTE Stage 9e++ mega-run summary
+finished: 2026-07-23T00:01:03.517598+00:00
+elapsed_h: 2.05
+device: cuda
+
+PRIMARY: HOLD fp-peel (letter-peel is oracle reference)
+
+BASELINE 9e+: fp-peel=8% letter=100% realize=100% aff_win=100%
+
+Variants:
+  A (peel_only (freeze MorphMod; train peel head)): steps=28000 fp-peel=0% letter=100% cycle=0% realize=100% aff_win=100% guardrail=OK
+  B (peel_apply (freeze MorphMod; train full MorphOpFP)): steps=28000 fp-peel=0% letter=100% cycle=0% realize=100% aff_win=100% guardrail=OK
+  C (peel_basins (tiny LR basins + peel head)): steps=28000 fp-peel=0% letter=100% cycle=0% realize=100% aff_win=100% guardrail=OK
+  refine(A): fp-peel=0% aff_win=100%
+
+BEST: A | FINAL HOLD fp-peel=0% (letter 100%, sub 75%, cycle 8%)
+
+Activation probe:
+  pos_gate: {'ing': 0.9982114434242249, 'ed': 0.6988079249858856, 's': 0.9340278655290604}
+  basin<->residual: {'ing': {'mean_cos_A': 0.31095467259486514, 'mean_cos_B': 0.3338157919545968}, 'ed': {'mean_cos_A': 0.26056201436689924, 'mean_cos_B': 0.23661970014550857}, 's': {'mean_cos_A': 0.24750968689719835, 'mean_cos_B': 0.11858654270569484}}
+  basin pairwise: {'ing_ed': -0.004376709461212158, 'ing_s': -0.008271042257547379, 'ed_s': -0.006517369300127029}
+
+Ablation (HOLD) — if intact margins die under zero/random/swap, basins are causal:
+  intact: realize 100% aff_win 100% m=+0.524
+  zero_basin: realize 100% aff_win 100% m=+0.523
+  random_basin: realize 100% aff_win 100% m=+0.502
+  swapped_basin: realize 100% aff_win 100% m=+0.505
+
+How to read:
+- Success: HOLD fp-peel >> baseline (~8%) without breaking aff_win/realize
+- Activation: pos_gate shows where morph writes; basin~residual shows alignment
+- Ablation: drop in aff_win under basin destroy => morph channel is causal

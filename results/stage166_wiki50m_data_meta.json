@@ -1,0 +1,11 @@
+{
+  "source": "wikitext-103-train",
+  "target_tokens": 50000000,
+  "n_tokens_used": 50000000,
+  "n_tokens_streamed": 50000046,
+  "n_phrases": 800000,
+  "max_word_len": 24,
+  "min_words": 3,
+  "max_words": 8,
+  "phrase_cap": 800000
+}

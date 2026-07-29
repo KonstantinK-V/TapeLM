@@ -1,0 +1,20 @@
+SOTE Stage 105 — fat95_push
+timestamp: 2026-07-24T22:37:09.798063+00:00
+device: cuda
+foundation: stage85_foundation_FROZEN.pt
+n_phrases=460421 V=7063 params=3392000
+arch: d=256 L=2 H=4
+train: batch=8 steps=40000 warmup=200 lr=0.001 fat_frac=0.95
+mix: {'n_story_train': 162068, 'n_story_hold': 22100, 'n_fat_triples': 300, 'fat_copies': 50, 'n_train': 174068, 'n_hold_seen': 3000, 'n_hold_rare': 160, 'n_path_triples_avail': 30196}
+NO soft@5. F85 FROZEN not overwritten.
+
+=== Final ===
+  best_step=16000
+  SEEN  obj=38.4% rel=95.2% ALL=66.8%
+  RARE  obj=10.0%
+  STORY ALL=8.2% obj=3.7%
+
+=== vs ref {'obj': 0.4066666666666667, 'rel': 0.9708333333333333, 'story_all': 0.20646221248630886, 'rare_obj': 0.138} ===
+  STORY lift -12.5pp  seen_held=True
+
+=== Verdict: PARITY ===

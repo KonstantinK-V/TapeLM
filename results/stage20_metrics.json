@@ -1,0 +1,193 @@
+{
+  "results": [
+    {
+      "name": "SlotChain",
+      "train_acc": 0.8153846153846154,
+      "hold_acc": 0.3783783783783784,
+      "shuffle_acc": 0.2972972972972973,
+      "gap": 0.08108108108108109,
+      "lift_vs_s17": 0.05437837837837839,
+      "lift_vs_s18": 0.09437837837837842,
+      "pass": false,
+      "mean_cos_hold": 0.42046574314401763,
+      "hold_samples": [
+        {
+          "prefix": "cat",
+          "want": "to",
+          "pred": "on",
+          "ok": false,
+          "cos": 0.252654492855072,
+          "sim": 0.38559067249298096,
+          "mode": "normal"
+        },
+        {
+          "prefix": "cat to",
+          "want": "car",
+          "pred": "dog",
+          "ok": false,
+          "cos": 0.152326762676239,
+          "sim": 0.9936162829399109,
+          "mode": "normal"
+        },
+        {
+          "prefix": "dog",
+          "want": "to",
+          "pred": "on",
+          "ok": false,
+          "cos": 0.32660752534866333,
+          "sim": 0.3952023684978485,
+          "mode": "normal"
+        },
+        {
+          "prefix": "dog to",
+          "want": "top",
+          "pred": "cat",
+          "ok": false,
+          "cos": 0.1782943308353424,
+          "sim": 0.9951147437095642,
+          "mode": "normal"
+        },
+        {
+          "prefix": "go",
+          "want": "to",
+          "pred": "to",
+          "ok": true,
+          "cos": 0.7455490827560425,
+          "sim": 0.7455490827560425,
+          "mode": "normal"
+        },
+        {
+          "prefix": "go to",
+          "want": "cat",
+          "pred": "car",
+          "ok": false,
+          "cos": 0.24709177017211914,
+          "sim": 0.5985195636749268,
+          "mode": "normal"
+        },
+        {
+          "prefix": "spot",
+          "want": "on",
+          "pred": "on",
+          "ok": true,
+          "cos": 0.99738609790802,
+          "sim": 0.9973860383033752,
+          "mode": "normal"
+        },
+        {
+          "prefix": "spot on",
+          "want": "car",
+          "pred": "top",
+          "ok": false,
+          "cos": 0.09697659313678741,
+          "sim": 0.9924173355102539,
+          "mode": "normal"
+        }
+      ]
+    },
+    {
+      "name": "WordSSM",
+      "train_acc": 0.8307692307692308,
+      "hold_acc": 0.36486486486486486,
+      "shuffle_acc": 0.2972972972972973,
+      "gap": 0.06756756756756754,
+      "lift_vs_s17": 0.04086486486486485,
+      "lift_vs_s18": 0.08086486486486488,
+      "pass": false,
+      "mean_cos_hold": 0.39366165123175123,
+      "hold_samples": [
+        {
+          "prefix": "cat",
+          "want": "to",
+          "pred": "on",
+          "ok": false,
+          "cos": 0.24757015705108643,
+          "sim": 0.364361971616745,
+          "mode": "normal"
+        },
+        {
+          "prefix": "cat to",
+          "want": "car",
+          "pred": "dog",
+          "ok": false,
+          "cos": 0.19954711198806763,
+          "sim": 0.9745535850524902,
+          "mode": "normal"
+        },
+        {
+          "prefix": "dog",
+          "want": "to",
+          "pred": "on",
+          "ok": false,
+          "cos": 0.3744959235191345,
+          "sim": 0.476483553647995,
+          "mode": "normal"
+        },
+        {
+          "prefix": "dog to",
+          "want": "top",
+          "pred": "cat",
+          "ok": false,
+          "cos": 0.2294299304485321,
+          "sim": 0.9672116041183472,
+          "mode": "normal"
+        },
+        {
+          "prefix": "go",
+          "want": "to",
+          "pred": "to",
+          "ok": true,
+          "cos": 0.7207512259483337,
+          "sim": 0.7207513451576233,
+          "mode": "normal"
+        },
+        {
+          "prefix": "go to",
+          "want": "cat",
+          "pred": "top",
+          "ok": false,
+          "cos": 0.2703534960746765,
+          "sim": 0.6074244976043701,
+          "mode": "normal"
+        },
+        {
+          "prefix": "spot",
+          "want": "on",
+          "pred": "on",
+          "ok": true,
+          "cos": 0.9786236882209778,
+          "sim": 0.9786237478256226,
+          "mode": "normal"
+        },
+        {
+          "prefix": "spot on",
+          "want": "car",
+          "pred": "top",
+          "ok": false,
+          "cos": 0.12444271147251129,
+          "sim": 0.9803311824798584,
+          "mode": "normal"
+        }
+      ]
+    }
+  ],
+  "best": "SlotChain",
+  "config": {
+    "dim": 64,
+    "seed": 20,
+    "steps": 2000,
+    "batch_size": 64,
+    "lr": 0.002,
+    "temperature": 0.07,
+    "max_phrase_len": 5,
+    "max_word_len": 11,
+    "slot_k": 2,
+    "ssm_state": 96,
+    "w_cos": 0.75,
+    "w_ce": 1.0,
+    "hold_acc_min": 0.55,
+    "gap_min": 0.15,
+    "baseline_hold": 0.324,
+    "baseline_s18": 0.284
+  }
+}

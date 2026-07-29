@@ -1,0 +1,14 @@
+SOTE Stage 41 plan — phrase-next shortlist (graph continuations)
+
+Diagnosis (agreed): D intact; word next soft PASS; phrase full-vocab NN wrong decoder.
+E not buried. Cheap test:
+
+  candidates(B) = {phrases with left == A.right}
+  pick argmax cos(pred_fp, cand_fp)
+  gate: shortlist acc vs random-in-shortlist (gap ≥12pp soft)
+
+Also report: MRR; hop2 binder as alternate shortlist scorer (reuse hop protocol).
+Light InfoNCE ft among siblings (optional, still thin).
+
+Out: results/stage41_phrase_shortlist_*; checkpoints/stage41_phrase_shortlist.pt
+Run: python train.py

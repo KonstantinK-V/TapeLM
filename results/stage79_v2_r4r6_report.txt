@@ -1,0 +1,81 @@
+SOTE V2 Path Replay R4-R6 (exact@1 only, no top-5)
+timestamp: 2026-07-24T14:05:45.806994+00:00
+device: cuda
+plan: results/sote_v2_path_replay.md
+v1_reserve: results/SOTE_V1_RESERVE_FROZEN.txt
+NO FT. Weights = stage57_rehearsal_FROZEN (59/73 ZS aliases).
+
+=== R4 order ===
+  noun_rel order_drop=+14.5pp
+  ALL L2 order_drop=+14.0pp
+  Verdict R4: PASS
+
+=== R5 1k ZS ===
+  n_lines=1000 hold=300
+=== 1k ALL subkinds L2+ ===
+  role           n    hit@1
+  ALL          635    27.9%
+  rel          289    54.0%
+  right        342     5.6%
+  other          4    50.0%
+
+=== 1k subkind=noun_rel ===
+  role           n    hit@1
+  ALL          427    29.3%
+  rel          213    54.0%
+  right        213     4.2%
+  other          1   100.0%
+
+=== 1k subkind=polarity ===
+  role           n    hit@1
+  ALL           82    35.4%
+  rel           41    58.5%
+  right         41    12.2%
+
+=== 1k subkind=verb_ing ===
+  role           n    hit@1
+  ALL          126    18.3%
+  rel           35    48.6%
+  right         88     5.7%
+  other          3    33.3%
+
+  path ALL hit@1=29.3% rel=54.0% right=4.2% (RESIDUAL)
+  Verdict R5: PASS
+
+=== R6 2k ZS ===
+  n_lines=2000 hold=600
+=== 2k ALL subkinds L2+ ===
+  role           n    hit@1
+  ALL         1245    26.6%
+  rel          575    53.9%
+  right        666     2.9%
+  other          4    50.0%
+
+=== 2k subkind=noun_rel ===
+  role           n    hit@1
+  ALL          880    28.1%
+  rel          424    55.0%
+  right        455     2.9%
+  other          1   100.0%
+
+=== 2k subkind=polarity ===
+  role           n    hit@1
+  ALL          190    27.4%
+  rel           95    51.6%
+  right         95     3.2%
+
+=== 2k subkind=verb_ing ===
+  role           n    hit@1
+  ALL          175    18.3%
+  rel           56    50.0%
+  right        116     2.6%
+  other          3    33.3%
+
+  dALL=-1.3pp  dpath=-1.2pp
+  path ALL hit@1=28.1% rel=55.0% right=2.9% (RESIDUAL)
+  Verdict R6: PASS
+
+=== Replay status ===
+  R4=PASS R5=PASS R6=PASS
+  Next: R7 hops (62-64 style) on FACT_BANK_EXP_FROZEN.
+  No top-5 claims.

@@ -1,0 +1,67 @@
+SOTE Stage 77 / V2.1 report (role + hit@1/@5 baseline on V1 reserve)
+timestamp: 2026-07-24T13:49:50.187425+00:00
+device: cuda
+charter: results/sote_v2_charter.md
+v1_reserve: results/SOTE_V1_RESERVE_FROZEN.txt
+weights: stage57_rehearsal_FROZEN.pt  NO FT
+Metrics: codebook-only top-k; primary claim path=hit@1; @5 side column.
+
+=== 1k HOLD L2+ ALL roles ===
+  V=135  k=5  chance@k=3.70%
+  role           n    hit@1    hit@5  mean_rk
+  ALL          635    27.9%    47.6%     28.3
+  rel          289    54.0%    88.2%      4.6
+  right        342     5.6%    13.2%     48.4
+  other          4    50.0%    50.0%     14.5
+
+=== 1k HOLD L2+ subkind=noun_rel ===
+  V=135  k=5  chance@k=3.70%
+  role           n    hit@1    hit@5  mean_rk
+  ALL          427    29.3%    47.8%     27.0
+  rel          213    54.0%    84.5%      5.6
+  right        213     4.2%    10.8%     48.5
+  other          1   100.0%   100.0%      1.0
+
+=== 1k HOLD L2+ subkind=polarity ===
+  V=135  k=5  chance@k=3.70%
+  role           n    hit@1    hit@5  mean_rk
+  ALL           82    35.4%    59.8%     27.1
+  rel           41    58.5%   100.0%      1.6
+  right         41    12.2%    19.5%     52.7
+
+=== 1k HOLD L2+ subkind=verb_ing ===
+  V=135  k=5  chance@k=3.70%
+  role           n    hit@1    hit@5  mean_rk
+  ALL          126    18.3%    38.9%     33.2
+  rel           35    48.6%    97.1%      1.8
+  right         88     5.7%    15.9%     46.2
+  other          3    33.3%    33.3%     19.0
+
+=== 2k HOLD L2+ ALL roles ===
+  V=135  k=5  chance@k=3.70%
+  role           n    hit@1    hit@5  mean_rk
+  ALL         1245    26.6%    47.1%     30.5
+  rel          575    53.9%    89.2%      4.4
+  right        666     2.9%    10.5%     53.2
+  other          4    50.0%    75.0%     12.8
+
+=== 2k HOLD L2+ subkind=verb_ing ===
+  V=135  k=5  chance@k=3.70%
+  role           n    hit@1    hit@5  mean_rk
+  ALL          175    18.3%    39.4%     36.5
+  rel           56    50.0%    98.2%      1.7
+  right        116     2.6%    10.3%     53.8
+  other          3    33.3%    66.7%     16.7
+
+=== V2.1 read (tier labels) ===
+  path noun_rel ALL hit@1=29.3% -> LIVE-shaped (RESERVE claim still V1 57/59)
+  verb_ing right hit@1=5.7% hit@5=15.9% -> RESIDUAL soft_signal=yes
+  Tier: instrumentation LIVE for v2 reporting; weights still V1 RESERVE.
+
+=== Next (charter order) ===
+  V2.2: bake this harness into every next dig
+  V2.3: role-aware / separate right protocol (protect path hit@1)
+  Do not raise dim first. Do not phrase-LM. Do not overwrite V1 reserve.
+
+=== Verdict: V2.1 PASS (baseline logged) ===
+  Palace rule: V1 labeled RESERVE; V2 metrics on; no silent draft under LIVE.

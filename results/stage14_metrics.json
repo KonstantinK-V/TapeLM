@@ -1,0 +1,81 @@
+{
+  "pass": true,
+  "metrics": {
+    "n_codebook": 149,
+    "n_train": 68,
+    "n_hold": 38,
+    "word_recon": {
+      "n": 149,
+      "acc": 1.0,
+      "morph_acc": 1.0,
+      "plain_acc": 1.0,
+      "mean_sim": 1.0000000120009351
+    },
+    "phrase_train": {
+      "n": 68,
+      "exact_acc": 1.0,
+      "mean_token_acc": 1.0
+    },
+    "phrase_hold": {
+      "n": 38,
+      "exact_acc": 1.0,
+      "mean_token_acc": 1.0
+    },
+    "morph": {
+      "identity": {
+        "n": 24,
+        "acc": 1.0
+      },
+      "swap_changed": {
+        "n": 24,
+        "acc": 1.0
+      },
+      "swap_correct": {
+        "n": 24,
+        "acc": 1.0
+      },
+      "peel_stem": {
+        "n": 24,
+        "acc": 1.0
+      }
+    },
+    "phrase_fp_train": {
+      "n": 68,
+      "acc": 1.0
+    },
+    "phrase_fp_hold": {
+      "n": 38,
+      "acc": 1.0
+    },
+    "memory": {
+      "n": 38,
+      "exact_acc": 0.9473684210526315,
+      "top1_acc": 1.0,
+      "conf_acc": 0.9473684210526315,
+      "conf_exact_acc": 1.0,
+      "n_ambiguous": 2
+    },
+    "rel_train": {
+      "n": 108,
+      "acc": 1.0
+    },
+    "rel_hold": {
+      "n": 62,
+      "acc": 1.0
+    }
+  },
+  "config": {
+    "dim": 64,
+    "seed": 14,
+    "max_phrase_len": 5,
+    "max_word_len": 11,
+    "fewshot_exposures": 5,
+    "create_below": 0.55,
+    "stabilize_lo": 0.55,
+    "stabilize_hi": 0.88,
+    "lock_above": 0.92,
+    "ema": 0.85,
+    "soft_create_below": 0.7,
+    "retrieve_margin": 0.05
+  }
+}

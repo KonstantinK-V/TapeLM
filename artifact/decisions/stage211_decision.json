@@ -1,0 +1,26 @@
+{
+  "timestamp": "2026-07-29T13:16:58.102808+00:00",
+  "protocol": "internal_slow_tape_211",
+  "overall": "THESIS_NO",
+  "clean": {
+    "internal_tape": 0.23,
+    "endpoint_only": 0.28,
+    "external_slots": 1.0,
+    "gpt_incontext": 0.26
+  },
+  "noisy": {
+    "p": 0.3,
+    "internal_tape": 0.16,
+    "doc_id_oracle_wrong_id": 0.99
+  },
+  "gates": {
+    "g1_beats_endpoint": false,
+    "g2_near_external": false,
+    "g3_beyond_window": true,
+    "g4_not_metadata": false,
+    "g5_anticf": true
+  },
+  "n_tasks": 100,
+  "chance": 0.25,
+  "anticf_encoder_frozen": true
+}

@@ -1,0 +1,14 @@
+{
+  "stage": "85",
+  "verdict": "PASS",
+  "foundation_pass": true,
+  "dim": 256,
+  "max_word_len": 24,
+  "n_chars": 37,
+  "word_exact": 1.0,
+  "digit_exact": 1.0,
+  "morph_ing_nn": 1.0,
+  "encode_B_recon": 1.0,
+  "n_words": 2528,
+  "n_digitish": 208
+}

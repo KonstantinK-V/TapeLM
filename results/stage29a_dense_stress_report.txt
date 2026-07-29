@@ -1,0 +1,43 @@
+SOTE Stage 29a report (denser-bank stress on 28+ binders)
+timestamp: 2026-07-23T19:26:43.340151+00:00
+device: cuda
+parents: stage28_plus_dirty_ft.pt + hop_bank_25.pt + thought_scratch_27c_FROZEN.pt
+eval-only; CueBinder frozen; Hop1+Hop2Left from 28+
+controlled pairs=24 eps=80 k=3
+dense pairs=180 eps=64 k=5
+
+=== CONTROLLED (reference) ===
+mode                    H1      H2    JOINT
+--------------------------------------------
+clean_bind           75.0%   76.2%    56.2%
+dirty_raw            26.2%   38.8%    15.0%
+dirty_bind           76.2%   76.2%    57.5%
+dirty_both_bind      76.2%   66.2%    50.0%
+
+=== DENSE (stress) ===
+mode                    H1      H2    JOINT
+--------------------------------------------
+clean_bind           21.9%   48.4%    14.1%
+dirty_raw            18.8%   34.4%     4.7%
+dirty_bind           21.9%   46.9%    14.1%
+dirty_both_bind      21.9%   46.9%    12.5%
+
+controlled -> dense drop (clean_bind):
+  56.2% -> 14.1%  (-42.2pp)  [Stage25 dense scratch was ~10.4%]
+
+dense samples:
+  [first] go on rim => rim on hut  rim->im[drop]  clean=0 raw=0 bind=0 both=0
+  [second] cob on rim => rim on peg  on->no[swap]  clean=0 raw=0 bind=0 both=0
+  [first] yap on peg => peg on rim  peg->pge[swap]  clean=0 raw=0 bind=0 both=0
+  [second] rim on zip => zip on yap  on->no[swap]  clean=0 raw=0 bind=0 both=0
+  [first] washed to zip => zip on yap  zip->zpi[swap]  clean=0 raw=0 bind=0 both=0
+  [second] peg on yap => yap on web  on->no[swap]  clean=0 raw=0 bind=0 both=0
+
+=== Multi-seed (dense gates) ===
+  seed 272: MISS  dense_clean=14.1% dense_bind=14.1% dense_both=12.5% lift=+9.4pp drop_vs_ctrl=+42.2pp
+  seed 273: MISS  dense_clean=14.1% dense_bind=14.1% dense_both=10.9% lift=+9.4pp drop_vs_ctrl=+43.4pp
+  seed 274: MISS  dense_clean=14.1% dense_bind=14.1% dense_both=12.5% lift=+9.4pp drop_vs_ctrl=+42.2pp
+  aggregate: 0/3 seeds pass; mean_dense_clean=14.1% mean_dense_bind=14.1% mean_dense_both=12.0% mean_drop=+42.6pp
+
+=== Verdict ===
+  PARTIAL: near dense floor gate; cue collisions dominate.

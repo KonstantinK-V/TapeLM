@@ -1,0 +1,21 @@
+SOTE Stage 48 order-control contract FROZEN
+timestamp: 2026-07-24T08:57:58+00:00
+checkpoint: stage48_order_ctrl_FROZEN.pt
+corpus: fp_language_corpus_long_FROZEN.pt
+parent: stage47_long_seq_FROZEN.pt
+
+=== CLAIM ===
+  Order sensitivity can be trained without new data: shuf-prefix / perm hard-neg in loss.
+  L≥2 soft-green retained from 47.
+
+=== METRICS HOLD ===
+  L1   79.0%  gap +30.0pp
+  L≥2  33.6%  gap +23.1pp  (ref47 32.8%/+22.5pp — held)
+  L≥3  40.4%  gap +21.6pp
+  Order drop clean−shuf_prefix: **+24.3pp** (was ~+4pp)
+
+=== CONTRACT ===
+  Same atoms/corpus as 47; head trained with order margin.
+  No phrase-next; no char trunk; hops stay fact channel.
+
+=== FREEZE_READY: True ===

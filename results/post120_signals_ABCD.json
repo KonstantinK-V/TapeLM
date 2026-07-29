@@ -1,0 +1,49 @@
+{
+  "A": {
+    "signal": "NULL",
+    "gain_pp": 0.004999000199960024,
+    "local": 0.20815836832633472,
+    "mem": 0.21315736852629474,
+    "verdict120": "NULL_MEM"
+  },
+  "B": {
+    "signal": "LIVE",
+    "speed": {
+      "verdict": "SPEED",
+      "ratio_ms_sote_over_bpe": 0.6548627357975954
+    }
+  },
+  "C": {
+    "signal": "WEAK",
+    "available": true,
+    "n_windows": 2000,
+    "mean_toks_per_word": 1.0005096190597529,
+    "median_toks_per_word": 1.0,
+    "p90": 1.0
+  },
+  "D": {
+    "signal": "NULL",
+    "cmp": {
+      "rare1": {
+        "sote": 0.0,
+        "bpe": 0.0,
+        "delta_pp": 0.0
+      },
+      "low2_5": {
+        "sote": 0.0,
+        "bpe": 0.05263157894736842,
+        "delta_pp": 0.05263157894736842
+      },
+      "mid6_20": {
+        "sote": 0.0,
+        "bpe": 0.08270676691729323,
+        "delta_pp": 0.08270676691729323
+      },
+      "head21p": {
+        "sote": 0.21407451212300413,
+        "bpe": 0.34598825831702545,
+        "delta_pp": 0.13191374619402133
+      }
+    }
+  }
+}

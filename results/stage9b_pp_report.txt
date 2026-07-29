@@ -1,0 +1,37 @@
+SOTE Stage 9b++ report (explicit residual morph + gate/scale)
+timestamp: 2026-07-22T20:15:54.249380+00:00
+device: cuda
+gpu: NVIDIA GeForce RTX 3050 Laptop GPU
+steps: 2500
+word ckpt: C:\Users\Kostya\sote-letter-assembly\checkpoints\word_memory_9_2.pt
+train -ing pairs: 10 | HOLD morph stems: 4
+operator a/b/gate_mean: 0.865/1.076/0.470
+
+HOLD COLD compose trace/perm/path/stab: 88/88/100/100%
+Morph TRAIN bind/add/stem: 100/20/0%  (agree 100%)
+Morph HOLD  bind/add/stem: 25/100/0%  (agree 100%)
+HOLD op-add gap: -75pp  (want >=0 without memorizing)
+
+Morph HOLD details (stems NEVER in morph CE):
+  [MISS] jump+ing -> jump (want jumping, add=jumping, stem=jump) agree=0.67
+  [MISS] walk+ing -> walk (want walking, add=walking, stem=walk) agree=0.74
+  [OK] read+ing -> reading (want reading, add=reading, stem=read) agree=0.71
+  [MISS] write+ing -> write (want writing, add=writing, stem=write) agree=0.68
+
+Morph TRAIN details:
+  [OK] play+ing -> playing (want playing) score=0.98 add=playing
+  [OK] run+ing -> running (want running) score=0.98 add=running
+  [OK] make+ing -> making (want making) score=0.97 add=make
+  [OK] take+ing -> taking (want taking) score=0.94 add=take
+  [OK] give+ing -> giving (want giving) score=0.97 add=give
+  [OK] stop+ing -> stopping (want stopping) score=0.97 add=stop
+  [OK] post+ing -> posting (want posting) score=0.97 add=post
+  [OK] go+ing -> going (want going) score=0.97 add=go
+  [OK] act+ing -> acting (want acting) score=0.96 add=act
+  [OK] fish+ing -> fishing (want fishing) score=0.97 add=fish
+
+How to read:
+- operator is residual add + gate/scale (+ tiny regularized delta)
+- 9b+ failure: free MLP memorized TRAIN; add won HOLD
+- success: HOLD op high like add, stem~0, compose COLD ~88%
+- loss should move (no frozen residual plateau)

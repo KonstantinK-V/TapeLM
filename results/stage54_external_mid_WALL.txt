@@ -1,0 +1,17 @@
+SOTE Stage 54 mid-external — FAIL at soft abs (scale wall)
+timestamp: 2026-07-24T09:38:55+00:00
+data: data/external_mid.txt (618 lines)
+parent: stage53_external_FROZEN.pt
+checkpoint: stage54_external_mid.pt
+
+=== RESULT ===
+  D grown 100% (V 135)
+  zero-shot L≥2 27.6% / +16.6pp
+  FT L≥2 24.2% / +12.0pp  ← abs below 25% gate (gap ok)
+  FT L1 regress 12.5%→7.4%; FT did not beat zero-shot L2
+  wall: FT_L2_soft
+
+=== READ ===
+  Tiny (34) FT worked; mid (~600) soft-abs fails / FT dilutes.
+  Stop further scale. Next dig: curriculum FT, less diverse mid, or more steps —
+  not hops-external yet, not phrase/char trunk.

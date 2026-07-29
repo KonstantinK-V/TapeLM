@@ -1,0 +1,32 @@
+SOTE Stage 21 report (motion starter: word-step + bag-neg + 1-step)
+timestamp: 2026-07-23T14:43:13.287191+00:00
+device: cuda
+contract: bridge_qa_binder_16_FROZEN.pt (structure FROZEN)
+window_k=3  steps=2200  bridge_alpha=0.0
+step_types wired: ['WORD', 'ROLE', 'MEM_READ', 'MEM_WRITE'] (trained: WORD only)
+baselines: S17=32.4%  S20slot=37.8%
+
+TRAIN: 83.1%  cos=0.838  beats_bag=100.0%
+HOLD:  32.4%  cos=0.380  beats_bag=75.7%
+SHUF:  28.4%  gap=+4.1pp
+Lift vs S17: +0.0pp   vs S20: -5.4pp
+
+HOLD samples:
+  [MISS/bag+] 'cat' -> on (want to) cos=0.27
+  [MISS/bag+] 'cat to' -> dog (want car) cos=0.34
+  [MISS/bag+] 'dog' -> on (want to) cos=0.43
+  [MISS/bag+] 'dog to' -> cat (want top) cos=0.32
+  [OK/bag+] 'go' -> to (want to) cos=0.75
+  [MISS/bag-] 'go to' -> car (want cat) cos=0.28
+  [OK/bag+] 'spot' -> on (want on) cos=0.98
+  [MISS/bag+] 'spot on' -> top (want car) cos=0.12
+  [MISS/bag+] 'good' -> cat (want dog) cos=0.63
+  [OK/bag+] 'good dog' -> on (want on) cos=0.95
+
+=== Stubs present (inactive) ===
+  BridgeStubs.write(h) -> memory-shaped fp
+  BridgeStubs.nudge(h, phrase/memory) gated; alpha=0 this stage
+  StepType.ROLE / MEM_READ / MEM_WRITE reserved
+
+=== Verdict ===
+  FAIL: word-step starter still weak — inspect window_k / bag target.

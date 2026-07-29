@@ -1,0 +1,30 @@
+SOTE Stage 59 report (~1k scale + peak-restore)
+timestamp: 2026-07-24T10:42:01.846060+00:00
+device: cuda
+parent: stage57_rehearsal.pt  data: data\external_1k.txt
+lines=1000 train/hold=700/300 pairs=2152/935 V=135 new=28
+rehearsal path=600 tiny=34 frac=0.5
+budget=3500 lrs=[0.0005, 0.001]
+gates: peak L2≥25% AND ≥ ZS (order/L1 residual diagnostics)
+
+=== D grown=100.0% ===
+
+=== Zero-shot HOLD (parent on 1k hold) ===
+  L1  11.0%/+8.3pp
+  L2+ 27.9%/+19.8pp n=635
+  order_drop=+14.0pp
+
+=== Curve arms (FT; order-biased peak) ===
+  lr=0.0005: @3450 tier=2 L2=25.4%/+17.0pp drop=+14.2pp | end L2=25.2%
+  lr=0.001: @3500 tier=2 L2=25.0%/+16.1pp drop=+14.5pp | end L2=25.0%
+
+=== Corrected selection ===
+  Use parent ZS (step0): L2 27.9%/+19.8pp order_drop=+14.0pp ≥ ZS ∧ ≥25%
+  FT not applied (dilutes L2 for +0.5pp order). ckpt weights = parent57.
+
+=== Walls: ['FT_dilutes_use_ZS', 'L1_residual_12pct'] ===
+
+=== Verdict ===
+  PASS scale (zero-shot): parent57 on 1k HOLD L2 28%/+20pp ≥25%.
+  FT optional/harmful here. L1 residual accepted (58).
+  No phrase/char trunk. No hops-external.

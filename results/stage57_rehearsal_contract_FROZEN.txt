@@ -1,0 +1,27 @@
+SOTE Stage 57 mid joint PASS — FROZEN
+timestamp: 2026-07-24T10:26:42+00:00
+checkpoint: stage57_rehearsal_FROZEN.pt
+parent: stage55_ft_curve.pt
+data: data/external_mid.txt (+ tiny rehearsal in FT)
+report: stage57_rehearsal_report_FROZEN.txt
+pass_note: stage57_rehearsal_PASS.txt
+
+=== CLAIM ===
+  Mid-external (~618) next-atom holds joint hard gate after rehearsal + order:
+  L2 ≥28% AND order_drop ≥10pp (peak restore).
+  Rehearsal = short path (len 3–5 on/to) + tiny×6, not broad on/to≈all mid.
+
+=== METRICS (HOLD mid) ===
+  L2+ **29.5% / +17.3pp**
+  order_drop **+12.9pp**  (stretch 15pp not claimed)
+  L1 ~8.8% NOT claimed (majority ceiling; see Stage 58)
+
+=== CONTRACT ===
+  Atom = word id/fp; decode = D codebook
+  Joint: L≥2 soft abs/gap + order control on mid HOLD
+  L1 residual accepted; not a freeze blocker
+  No phrase/char trunk; no hops-external in this freeze
+
+=== FREEZE_READY: True ===
+Paired with Stage 59 1k ZS scale freeze.
+Next after 57+59 freeze: kinds dig (path vs tail on 1k), then hops-on-external.

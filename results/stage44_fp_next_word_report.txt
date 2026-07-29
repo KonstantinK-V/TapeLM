@@ -1,0 +1,19 @@
+SOTE Stage 44 report (minimal next-word on fp-corpus)
+timestamp: 2026-07-24T08:27:42.033439+00:00
+device: cuda
+corpus: fp_language_corpus.pt  contract: fp_language_contract.md
+data: train=232 hold=190 vocab=107
+
+=== D regression (word codebook) ===
+  word exact=100.0%
+
+=== Next-word (exact after D) ===
+  TRAIN acc=69.8% shuffle=13.4% gap=+56.5pp cos=0.774
+  HOLD  acc=33.2% shuffle=12.1% gap=+21.1pp cos=0.410 (1/V~0.93%)
+
+=== Gates (soft) ===
+  gap>=10%  abs>=25%  D_word>=95%
+
+=== Verdict ===
+  PASS (soft): fp next-word alive on indexed corpus (HOLD 33%, gap +21pp). Not GPT.
+  Next: masked-word / longer context — still word units only.

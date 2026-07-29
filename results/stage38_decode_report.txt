@@ -1,0 +1,26 @@
+SOTE Stage 38 report (D decode codebook fp→text)
+timestamp: 2026-07-24T07:28:19.196554+00:00
+device: cuda
+parent: stage37_text_bridge_FROZEN.pt
+Contract: freeze37 A/B encode + freeze36 hop3. Decode = NN codebooks (Stage14-style).
+Bank: {'facts': 82, 'triples': 240, 'phrases': 82, 'words': 48}
+
+=== Word NN decode ===
+  exact=100.0%  n=48
+
+=== Phrase NN decode (closed codebook) ===
+  exact=100.0%  token=100.0%
+
+=== Phrase holdout decode (diagnostic) ===
+  exact=0.0%  hold=20 train=62
+  note: NN codebook cannot emit held-out strings; low exact is expected
+
+=== Answer-as-text hop3 (decode C slot fp) ===
+  seed 272: j3=90.6% text_exact=95.3% text|ok3=100.0% slot→key=100.0%
+  seed 273: j3=90.6% text_exact=95.3% text|ok3=100.0% slot→key=100.0%
+  seed 274: j3=89.1% text_exact=93.8% text|ok3=100.0% slot→key=100.0%
+  mean j3=90.1% text_exact=94.8% text|ok3=100.0% slot→key=100.0% (ref37 text_qa~88.0%)
+
+=== Verdict ===
+  PASS: D decode usable (word/phrase NN + answer-as-text~95%). Holdout exact~0% expected low for pure NN.
+  Next: E next-fp only if D stays green under richer banks.

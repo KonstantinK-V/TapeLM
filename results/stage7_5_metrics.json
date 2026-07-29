@@ -1,0 +1,489 @@
+{
+  "stage": "7.5",
+  "timestamp": "2026-07-22T10:56:51.373112+00:00",
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "config": {
+    "dim": 64,
+    "lr": 0.003,
+    "steps": 2500,
+    "batch_words": 32,
+    "batch_visual_words": 8,
+    "visual_every": 5,
+    "seed": 0,
+    "temperature": 0.07,
+    "letter_temperature": 0.07,
+    "word_weight": 1.0,
+    "consistency_weight": 0.7,
+    "trace_weight": 0.4,
+    "perm_weight": 0.35,
+    "prefix_weight": 0.55,
+    "growth_weight": 0.35,
+    "path_agree_weight": 0.35,
+    "letter_weight": 0.25,
+    "visual_letter_weight": 0.25,
+    "stability_weight": 0.15,
+    "noise_std": 0.12,
+    "trace_margin": 0.15,
+    "perm_margin": 0.35,
+    "growth_gap": 0.05
+  },
+  "metrics": {
+    "compose_acc": 1.0,
+    "stream_acc": 1.0,
+    "compose_stream_agree": 1.0,
+    "letter_trace_acc": 0.8703703703703703,
+    "perm_acc": 1.0,
+    "shared_letter_acc": 0.5,
+    "path_acc": 0.16666666666666666,
+    "path_agree": 0.0,
+    "prefix_acc": 1.0,
+    "words": [
+      {
+        "word": "cat",
+        "compose_pred": "cat",
+        "compose_score": 0.6631028652191162,
+        "stream_pred": "cat",
+        "stream_score": 0.6866887807846069,
+        "compose_stream_cos": 0.9800804257392883,
+        "compose_ok": true,
+        "stream_ok": true
+      },
+      {
+        "word": "act",
+        "compose_pred": "act",
+        "compose_score": 0.7254127860069275,
+        "stream_pred": "act",
+        "stream_score": 0.738906741142273,
+        "compose_stream_cos": 0.9918646812438965,
+        "compose_ok": true,
+        "stream_ok": true
+      },
+      {
+        "word": "car",
+        "compose_pred": "car",
+        "compose_score": 0.6676959991455078,
+        "stream_pred": "car",
+        "stream_score": 0.7303756475448608,
+        "compose_stream_cos": 0.9722442626953125,
+        "compose_ok": true,
+        "stream_ok": true
+      },
+      {
+        "word": "card",
+        "compose_pred": "card",
+        "compose_score": 0.6806666254997253,
+        "stream_pred": "card",
+        "stream_score": 0.7243808507919312,
+        "compose_stream_cos": 0.9837741255760193,
+        "compose_ok": true,
+        "stream_ok": true
+      },
+      {
+        "word": "dog",
+        "compose_pred": "dog",
+        "compose_score": 0.7358725666999817,
+        "stream_pred": "dog",
+        "stream_score": 0.734449565410614,
+        "compose_stream_cos": 0.99095618724823,
+        "compose_ok": true,
+        "stream_ok": true
+      },
+      {
+        "word": "god",
+        "compose_pred": "god",
+        "compose_score": 0.6548901796340942,
+        "stream_pred": "god",
+        "stream_score": 0.6975690126419067,
+        "compose_stream_cos": 0.9900380373001099,
+        "compose_ok": true,
+        "stream_ok": true
+      },
+      {
+        "word": "good",
+        "compose_pred": "good",
+        "compose_score": 0.6648806929588318,
+        "stream_pred": "good",
+        "stream_score": 0.6852642893791199,
+        "compose_stream_cos": 0.9932034015655518,
+        "compose_ok": true,
+        "stream_ok": true
+      },
+      {
+        "word": "go",
+        "compose_pred": "go",
+        "compose_score": 0.509017288684845,
+        "stream_pred": "go",
+        "stream_score": 0.6368504166603088,
+        "compose_stream_cos": 0.9797695279121399,
+        "compose_ok": true,
+        "stream_ok": true
+      },
+      {
+        "word": "on",
+        "compose_pred": "on",
+        "compose_score": 0.6433684229850769,
+        "stream_pred": "on",
+        "stream_score": 0.6393343210220337,
+        "compose_stream_cos": 0.9970257878303528,
+        "compose_ok": true,
+        "stream_ok": true
+      },
+      {
+        "word": "no",
+        "compose_pred": "no",
+        "compose_score": 0.514588475227356,
+        "stream_pred": "no",
+        "stream_score": 0.6614940762519836,
+        "compose_stream_cos": 0.9660760164260864,
+        "compose_ok": true,
+        "stream_ok": true
+      },
+      {
+        "word": "not",
+        "compose_pred": "not",
+        "compose_score": 0.6530783176422119,
+        "stream_pred": "not",
+        "stream_score": 0.6742616891860962,
+        "compose_stream_cos": 0.9933129549026489,
+        "compose_ok": true,
+        "stream_ok": true
+      },
+      {
+        "word": "ton",
+        "compose_pred": "ton",
+        "compose_score": 0.7629890441894531,
+        "stream_pred": "ton",
+        "stream_score": 0.7836480140686035,
+        "compose_stream_cos": 0.9944126605987549,
+        "compose_ok": true,
+        "stream_ok": true
+      },
+      {
+        "word": "to",
+        "compose_pred": "to",
+        "compose_score": 0.594877302646637,
+        "stream_pred": "to",
+        "stream_score": 0.7129418849945068,
+        "compose_stream_cos": 0.9738185405731201,
+        "compose_ok": true,
+        "stream_ok": true
+      },
+      {
+        "word": "top",
+        "compose_pred": "top",
+        "compose_score": 0.7107270359992981,
+        "stream_pred": "top",
+        "stream_score": 0.7198010683059692,
+        "compose_stream_cos": 0.994625985622406,
+        "compose_ok": true,
+        "stream_ok": true
+      },
+      {
+        "word": "pot",
+        "compose_pred": "pot",
+        "compose_score": 0.6547689437866211,
+        "stream_pred": "pot",
+        "stream_score": 0.7055598497390747,
+        "compose_stream_cos": 0.9889594316482544,
+        "compose_ok": true,
+        "stream_ok": true
+      },
+      {
+        "word": "stop",
+        "compose_pred": "stop",
+        "compose_score": 0.7257149815559387,
+        "stream_pred": "stop",
+        "stream_score": 0.7431390285491943,
+        "compose_stream_cos": 0.9975368976593018,
+        "compose_ok": true,
+        "stream_ok": true
+      },
+      {
+        "word": "spot",
+        "compose_pred": "spot",
+        "compose_score": 0.6549209356307983,
+        "stream_pred": "spot",
+        "stream_score": 0.6459004878997803,
+        "compose_stream_cos": 0.9937002658843994,
+        "compose_ok": true,
+        "stream_ok": true
+      },
+      {
+        "word": "post",
+        "compose_pred": "post",
+        "compose_score": 0.6483510732650757,
+        "stream_pred": "post",
+        "stream_score": 0.6711995005607605,
+        "compose_stream_cos": 0.9972690939903259,
+        "compose_ok": true,
+        "stream_ok": true
+      }
+    ],
+    "perms": [
+      {
+        "a": "cat",
+        "b": "act",
+        "sim": 0.2920462191104889,
+        "pa": "cat",
+        "pb": "act",
+        "ok": true
+      },
+      {
+        "a": "dog",
+        "b": "god",
+        "sim": 0.24462111294269562,
+        "pa": "dog",
+        "pb": "god",
+        "ok": true
+      },
+      {
+        "a": "on",
+        "b": "no",
+        "sim": 0.19840335845947266,
+        "pa": "on",
+        "pb": "no",
+        "ok": true
+      },
+      {
+        "a": "top",
+        "b": "pot",
+        "sim": 0.28112804889678955,
+        "pa": "top",
+        "pb": "pot",
+        "ok": true
+      },
+      {
+        "a": "stop",
+        "b": "spot",
+        "sim": 0.2405386120080948,
+        "pa": "stop",
+        "pb": "spot",
+        "ok": true
+      },
+      {
+        "a": "post",
+        "b": "spot",
+        "sim": 0.07378332316875458,
+        "pa": "post",
+        "pb": "spot",
+        "ok": true
+      }
+    ],
+    "shared": [
+      {
+        "w1": "cat",
+        "w2": "car",
+        "letter": "c",
+        "s1": 0.15758121013641357,
+        "s2": 0.20737788081169128,
+        "ok": true
+      },
+      {
+        "w1": "dog",
+        "w2": "good",
+        "letter": "d",
+        "s1": 0.14685440063476562,
+        "s2": 0.15874294936656952,
+        "ok": false
+      },
+      {
+        "w1": "top",
+        "w2": "pot",
+        "letter": "t",
+        "s1": 0.24619323015213013,
+        "s2": 0.1465831696987152,
+        "ok": false
+      },
+      {
+        "w1": "stop",
+        "w2": "post",
+        "letter": "s",
+        "s1": 0.16951259970664978,
+        "s2": 0.18135562539100647,
+        "ok": true
+      }
+    ],
+    "paths": [
+      {
+        "word": "cat",
+        "text_pred": "cat",
+        "visual_pred": "pot",
+        "agree_cos": 0.305780827999115,
+        "ok": false
+      },
+      {
+        "word": "act",
+        "text_pred": "act",
+        "visual_pred": "pot",
+        "agree_cos": 0.12257066369056702,
+        "ok": false
+      },
+      {
+        "word": "car",
+        "text_pred": "car",
+        "visual_pred": "pot",
+        "agree_cos": 0.09063387662172318,
+        "ok": false
+      },
+      {
+        "word": "card",
+        "text_pred": "card",
+        "visual_pred": "card",
+        "agree_cos": 0.20761099457740784,
+        "ok": true
+      },
+      {
+        "word": "dog",
+        "text_pred": "dog",
+        "visual_pred": "pot",
+        "agree_cos": 0.3769994378089905,
+        "ok": false
+      },
+      {
+        "word": "god",
+        "text_pred": "god",
+        "visual_pred": "pot",
+        "agree_cos": 0.31149399280548096,
+        "ok": false
+      },
+      {
+        "word": "good",
+        "text_pred": "good",
+        "visual_pred": "card",
+        "agree_cos": 0.4402174949645996,
+        "ok": false
+      },
+      {
+        "word": "go",
+        "text_pred": "go",
+        "visual_pred": "on",
+        "agree_cos": 0.47509095072746277,
+        "ok": false
+      },
+      {
+        "word": "on",
+        "text_pred": "on",
+        "visual_pred": "on",
+        "agree_cos": 0.518735945224762,
+        "ok": true
+      },
+      {
+        "word": "no",
+        "text_pred": "no",
+        "visual_pred": "on",
+        "agree_cos": 0.5707623958587646,
+        "ok": false
+      },
+      {
+        "word": "not",
+        "text_pred": "not",
+        "visual_pred": "pot",
+        "agree_cos": 0.3705199360847473,
+        "ok": false
+      },
+      {
+        "word": "ton",
+        "text_pred": "ton",
+        "visual_pred": "pot",
+        "agree_cos": 0.372184157371521,
+        "ok": false
+      },
+      {
+        "word": "to",
+        "text_pred": "to",
+        "visual_pred": "on",
+        "agree_cos": 0.4776898920536041,
+        "ok": false
+      },
+      {
+        "word": "top",
+        "text_pred": "top",
+        "visual_pred": "pot",
+        "agree_cos": 0.3474608361721039,
+        "ok": false
+      },
+      {
+        "word": "pot",
+        "text_pred": "pot",
+        "visual_pred": "pot",
+        "agree_cos": 0.3494763672351837,
+        "ok": true
+      },
+      {
+        "word": "stop",
+        "text_pred": "stop",
+        "visual_pred": "card",
+        "agree_cos": 0.5599367618560791,
+        "ok": false
+      },
+      {
+        "word": "spot",
+        "text_pred": "spot",
+        "visual_pred": "card",
+        "agree_cos": 0.2910905182361603,
+        "ok": false
+      },
+      {
+        "word": "post",
+        "text_pred": "post",
+        "visual_pred": "card",
+        "agree_cos": 0.4596555233001709,
+        "ok": false
+      }
+    ],
+    "prefixes": [
+      {
+        "prefix": "ca",
+        "family": [
+          "cat",
+          "car",
+          "card"
+        ],
+        "family_sim": 0.47752925753593445,
+        "other_sim": 0.05628519505262375,
+        "ok": true
+      },
+      {
+        "prefix": "do",
+        "family": [
+          "dog"
+        ],
+        "family_sim": 0.6383241415023804,
+        "other_sim": 0.18565231561660767,
+        "ok": true
+      },
+      {
+        "prefix": "sto",
+        "family": [
+          "stop"
+        ],
+        "family_sim": 0.6869009733200073,
+        "other_sim": 0.25265341997146606,
+        "ok": true
+      },
+      {
+        "prefix": "go",
+        "family": [
+          "go",
+          "god",
+          "good"
+        ],
+        "family_sim": 0.5090172290802002,
+        "other_sim": 0.04080813378095627,
+        "ok": true
+      },
+      {
+        "prefix": "po",
+        "family": [
+          "pot",
+          "post"
+        ],
+        "family_sim": 0.4906126856803894,
+        "other_sim": 0.10691694915294647,
+        "ok": true
+      }
+    ],
+    "alphabet_path": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\alphabet_frozen.pt"
+  }
+}

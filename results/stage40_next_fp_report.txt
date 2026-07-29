@@ -1,0 +1,20 @@
+SOTE Stage 40 report (E next-fp soft vs chance)
+timestamp: 2026-07-24T07:41:20.352836+00:00
+device: cuda
+parent: stage39_decode_stress_FROZEN.pt
+Contract: freeze39 D stress. Thin next-fp only; decode = NN codebook.
+
+=== D regression (hold closed-set) ===
+  word exact=100.0%  phrase=100.0%
+
+=== Word next-fp ===
+  TRAIN acc=73.1% shuffle=16.7% gap=+56.5pp cos=0.824 n=216
+  HOLD  acc=36.3% shuffle=14.8% gap=+21.4pp cos=0.449 n=182 (1/V~1.11%)
+
+=== Phrase next-fp (chain A→B) ===
+  TRAIN acc=42.4% shuffle=3.6% gap=+38.8pp cos=0.846 n=165
+  HOLD  acc=0.0% shuffle=0.6% gap=-0.6pp cos=0.737 n=180 (1/V~0.52%)
+
+=== Verdict ===
+  PARTIAL: signal in ['word'] only; other still ~chance. Not GPT — optional deepen later.
+  Gates: gap>=10% abs>=25% (vs shuffle, not GPT).

@@ -1,0 +1,52 @@
+SOTE V1 RESERVE — FROZEN (do not train over; reference only)
+timestamp: 2026-07-24T13:50:00+00:00
+
+=== INTENT ===
+  V1 = proof-of-possibility trunk. Working, not maximally hardened.
+  Label: DRAFT FOUNDATION that carries LIVE claims — keep as reserve.
+  V2 builds beside it; same encode/decode/lexicon/hops ideas, new slot+metric contract.
+
+=== DO NOT ===
+  Overwrite these weights for v2 experiments without copying first.
+  Mix v1 LIVE gates with v2 soft/@5 claims without labeling which contract.
+
+=== CORE WEIGHTS (reserve) ===
+  encode/morph/phrase stack lineage: bridge_qa_binder_16_FROZEN, morph_letter_9f_plusplus_FROZEN,
+    word_memory_9_2, thought_scratch_27c_FROZEN, hop binders stage28_plus_dirty_ft
+  atom next:     stage57_rehearsal_FROZEN.pt
+  scale 1k ZS:   stage59_scale_1k_FROZEN.pt  (=57 weights)
+  scale 2k ZS:   stage73_scale_2k_FROZEN.pt  (=57 weights)
+  hops expand:   stage62_ext_hop_expand_FROZEN.pt
+  hops stress:   stage63_hop3_polarity_junction_FROZEN.pt
+  hops dirty:    stage64_dirty_hop_FROZEN.pt
+  decode edge:   stage38_decode_FROZEN / stage39_decode_stress_FROZEN
+  text bridge:   stage37_text_bridge_FROZEN
+  beyond/long:   stage47/48/52/53 FROZEN as listed in results/*_contract_FROZEN.txt
+
+=== DATA (reserve) ===
+  data/external_1k.txt
+  data/external_2k.txt
+  data/external_facts_live_exp_FROZEN.txt
+  data/external_verb_dense.txt  (diagnostic; not LIVE)
+
+=== BAND FILES ===
+  results/stage57_59_external_band_FROZEN.txt
+  results/stage62_64_ext_hops_band_FROZEN.txt
+  results/stage66_72_verb_ing_RESIDUAL_LOCK.txt
+  results/stage73_scale_2k_contract_FROZEN.txt
+  results/stage76a_hitk_remeasure_DONE.txt
+
+=== V1 LIVE CLAIMS (locked) ===
+  1. Mid joint L2∧order (57)
+  2. 1k/2k ZS L2>=25% path-ish (59/73); scale=ZS not fragile FT
+  3. Hops noun_rel|polarity + dirty (62-64)
+  4. Soft L1 residual; verb_ing object residual; true-neg wall
+
+=== V1 EXPLICIT RESIDUALS (draft marks) ===
+  Letter/morph: green for in-lexicon compose; not exhaustively stress-hardened for all OOV.
+  verb_ing object-after-rel: hit@1~6% hit@5~16% (signal weak, not zero)
+  Negation: retrieval keys only, not logical NOT
+  Phrase generative next: FAIL (40/41/69)
+
+=== FREEZE_READY: True ===
+V2 active work starts from sote_v2_charter.md + Stage 77 baseline.

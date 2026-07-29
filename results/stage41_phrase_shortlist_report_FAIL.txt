@@ -1,0 +1,23 @@
+SOTE Stage 41 report (E phrase-next shortlist / graph continuations)
+timestamp: 2026-07-24T07:50:42.777126+00:00
+device: cuda
+parent: stage40_next_fp.pt
+Full-codebook phrase NN = diagnostic only. Gate = shortlist vs shuffle.
+
+=== D regression ===
+  word=100.0% phrase=100.0%
+
+=== Word next (carry) ===
+  HOLD acc=36.3% gap=+21.4pp
+
+=== Phrase next SHORTLIST (A.right → local cands) ===
+  mlp_train: acc=37.9% shuffle=32.7% gap=+5.2pp mrr=0.618 |cands|~4.2 chance~37.9% n=153 [FAIL]
+  mlp_hold: acc=33.3% shuffle=37.3% gap=-4.0pp mrr=0.611 |cands|~3.0 chance~33.3% n=177 [FAIL]
+  mlp_train_ft: acc=37.9% shuffle=32.7% gap=+5.2pp mrr=0.618 |cands|~4.2 chance~37.9% n=153 [FAIL]
+  mlp_hold_ft: acc=33.3% shuffle=37.3% gap=-4.0pp mrr=0.611 |cands|~3.0 chance~33.3% n=177 [FAIL]
+  hop2_hold: acc=33.3% shuffle=37.3% gap=-4.0pp mrr=0.611 |cands|~3.0 chance~33.3% n=177 [FAIL]
+  raw_hold: acc=33.3% shuffle=37.3% gap=-4.0pp mrr=0.611 |cands|~3.0 chance~33.3% n=177 [FAIL]
+
+=== Verdict ===
+  FAIL shortlist phrase: keep word-only dynamics + hop retrieval; no phrase LM claim.
+  Note: full-vocab phrase exact remains the wrong decoder for E.

@@ -1,0 +1,110 @@
+{
+  "pass": true,
+  "identity": {
+    "by_k": {
+      "2": {
+        "n_episodes": 40,
+        "retrieve_acc": 1.0,
+        "answer_acc": 1.0,
+        "joint_acc": 1.0,
+        "wrong_reject_acc": 1.0,
+        "ambiguous_rate": 0.0
+      },
+      "3": {
+        "n_episodes": 40,
+        "retrieve_acc": 1.0,
+        "answer_acc": 1.0,
+        "joint_acc": 1.0,
+        "wrong_reject_acc": 1.0,
+        "ambiguous_rate": 0.0
+      },
+      "4": {
+        "n_episodes": 40,
+        "retrieve_acc": 1.0,
+        "answer_acc": 1.0,
+        "joint_acc": 1.0,
+        "wrong_reject_acc": 1.0,
+        "ambiguous_rate": 0.0125
+      }
+    },
+    "retrieve_acc": 1.0,
+    "answer_acc": 1.0,
+    "joint_acc": 1.0,
+    "wrong_reject_acc": 1.0,
+    "n": 720
+  },
+  "cue": {
+    "by_k": {
+      "2": {
+        "n_episodes": 40,
+        "retrieve_acc": 0.86875,
+        "answer_acc": 0.86875,
+        "joint_acc": 0.86875,
+        "wrong_reject_acc": 1.0,
+        "ambiguous_rate": 0.0
+      },
+      "3": {
+        "n_episodes": 40,
+        "retrieve_acc": 0.7291666666666666,
+        "answer_acc": 0.7458333333333333,
+        "joint_acc": 0.7291666666666666,
+        "wrong_reject_acc": 1.0,
+        "ambiguous_rate": 0.0
+      },
+      "4": {
+        "n_episodes": 40,
+        "retrieve_acc": 0.71875,
+        "answer_acc": 0.725,
+        "joint_acc": 0.71875,
+        "wrong_reject_acc": 1.0,
+        "ambiguous_rate": 0.0
+      }
+    },
+    "retrieve_acc": 0.7555555555555555,
+    "answer_acc": 0.7638888888888888,
+    "joint_acc": 0.7555555555555555,
+    "wrong_reject_acc": 1.0,
+    "n": 720
+  },
+  "interference": {
+    "identity": {
+      "n": 38,
+      "n_packs": 6,
+      "retrieve_acc": 1.0,
+      "answer_acc": 1.0,
+      "joint_acc": 1.0,
+      "wrong_reject_acc": 1.0
+    },
+    "cue": {
+      "n": 38,
+      "n_packs": 6,
+      "retrieve_acc": 0.631578947368421,
+      "answer_acc": 0.7631578947368421,
+      "joint_acc": 0.631578947368421,
+      "wrong_reject_acc": 1.0
+    }
+  },
+  "config": {
+    "dim": 64,
+    "seed": 15,
+    "max_phrase_len": 5,
+    "max_word_len": 11,
+    "fewshot_exposures": 5,
+    "create_below": 0.55,
+    "stabilize_lo": 0.55,
+    "stabilize_hi": 0.88,
+    "lock_above": 0.92,
+    "ema": 0.85,
+    "soft_create_below": 0.7,
+    "retrieve_margin": 0.05,
+    "n_episodes": 40,
+    "ks": [
+      2,
+      3,
+      4
+    ],
+    "identity_joint_min": 0.9,
+    "interference_joint_min": 0.8,
+    "cue_retrieve_min": 0.4
+  }
+}

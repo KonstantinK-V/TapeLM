@@ -1,0 +1,9 @@
+SOTE Stage 120 — phrase-memory second channel
+timestamp: 2026-07-25T12:55:23.201951+00:00
+episodes train/hold, alpha=3.0, fat_frac=0.5
+STORY_LOCAL ALL=20.8%
+STORY_MEM   ALL=21.3% (gain +0.5pp)
+SEEN obj=28.8% rel=75.8%
+vs Stage100 STORY 19.6%
+Verdict: NULL_MEM
+Channel B = SoftPhraseMemory over previous sentences; boost words from retrieve.

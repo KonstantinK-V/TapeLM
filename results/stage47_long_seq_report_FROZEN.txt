@@ -1,0 +1,22 @@
+SOTE Stage 47 report (longer in-lexicon seq + TinySeq L≥2 retest)
+timestamp: 2026-07-24T08:48:39.373739+00:00
+device: cuda
+Same lexicon; paths A→B / A→B→C linearized to 5–7 word atoms.
+corpus_long stats: {'n_seq': 1476, 'n_base': 215, 'n_path2': 374, 'n_path3': 887, 'n_pairs': 7240, 'n_pairs_train': 2474, 'n_pairs_hold': 4766, 'len_hist': {2: 18, 3: 187, 4: 10, 5: 374, 7: 887}, 'hold_L1': 933, 'hold_L2p': 3833, 'hold_L3p': 2906}
+ref46 L≥2: {'acc': 0.074, 'gap': 0.032, 'note': 'stage46 L2p'}
+
+=== D word=100.0% ===
+
+=== TinySeq HOLD ===
+  all  acc=40.2% gap=+26.9pp cos=0.454 n=4766
+  L1   acc=70.5% gap=+22.6pp cos=0.784 n=933
+  L2p  acc=32.8% gap=+22.5pp cos=0.373 n=3833
+  L3p  acc=39.3% gap=+21.4pp cos=0.448 n=2906
+
+=== Order control L≥2 ===
+  clean=32.8% shuf_prefix=28.9% drop=+3.9pp
+
+=== Gates: L≥2 gap>=10% abs>=25%; L1 abs>=25% ===
+
+=== Verdict ===
+  PASS/PARTIAL: L≥2 soft-green; order drop +4pp weak.

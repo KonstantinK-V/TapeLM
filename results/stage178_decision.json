@@ -1,0 +1,31 @@
+{
+  "timestamp": "2026-07-28T14:44:23.071951+00:00",
+  "protocol": "curve_retention_178",
+  "overall": "CURVE_RETENTION_CONTEXT_YES",
+  "early": "EARLY_PASS_PREFIX",
+  "steps_ran": 1500,
+  "objective": {
+    "retention": "same-last-piece pairs → push endpoints apart",
+    "past_bag": "state_t → mean of earlier arcs (exclude last)",
+    "predict_far": "state_t → arc_t+4",
+    "instance": "random cue on prefix half only → recover from final",
+    "next_local_weight": 0.15
+  },
+  "units": "Stage177 ByteLevel BPE pieces (unchanged)",
+  "A": {
+    "verdict": "A_PASS_PREFIX_VISIBLE",
+    "mean_cos_same_last_piece": 0.6254161057062447,
+    "mean_cos_diff_last_piece": 0.7512835363391787,
+    "n_same": 80,
+    "n_diff": 80
+  },
+  "init_A": {
+    "verdict": "A_PASS_PREFIX_VISIBLE",
+    "mean_cos_same_last_piece": 0.8201416522264481,
+    "mean_cos_diff_last_piece": 0.660852905549109,
+    "n_same": 80,
+    "n_diff": 80
+  },
+  "note": "Falsify: can objective-flip beat last-unit wipe without new tokenizer?",
+  "next": "If YES: harden + gate B. If NULL: this objective family insufficient at this scale — need stronger instance/handwriting or abandon context-from-curve under local ink."
+}

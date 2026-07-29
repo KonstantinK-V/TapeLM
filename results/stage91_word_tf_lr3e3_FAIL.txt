@@ -1,0 +1,31 @@
+SOTE Stage 91 — batch=32 word-id TF, lr=3e-3 (dense-data push vs Stage90)
+timestamp: 2026-07-24T17:43:43.438338+00:00
+device: cuda
+foundation: stage85_foundation.pt dim=256
+model: WordIdTransformer d=256 L=2 H=4 max_len=16 params=2010368
+train: batch=32 steps=8000 lr=0.003 atom-examples~256000; left-pad + causal; CE next word_id
+ablate: ONLY lr 1e-3->3e-3 vs Stage90; batch/model/mix fixed
+ref Stage88: obj=28% rel=84% head=56%
+ref Stage90: obj=28% rel=86% head=57%
+
+=== FT best ===
+  step=4000
+  SEEN  obj=21.3% rel=0.7% ALL=11.0% head=11.0% rare1=0.0%
+  RARE  obj=11.7% ALL=5.8%
+  STORY obj=12.3% ALL=6.6% rel=18.8%
+  curve obj swing (post-0)=21.3pp  [STABLER]
+
+=== vs Stage90 / Stage88 on SEEN ===
+  right bigram=22.1% ALL bigram=59.3%
+  TF@91 obj=21.3% rel=0.7% | 90 obj=28% rel=86% | 88 obj=28% rel=84%
+  SEEN freq model/bigram:
+    head21p  n= 3600  model= 11.0%  bigram= 59.3%
+
+=== Adequacy ===
+  HANDLES: -
+  FAILS:   SEEN rel@1%, SEEN object@21%, curve_swing@21pp
+  Read: denser fat mix may tolerate hotter lr; watch swing and SEEN lock.
+
+=== Verdict: FAIL ===
+  stability: STABLER
+  gates: PARTIAL needs obj>=25% AND rel>=50%; LIVE obj>=50% AND rel>=50%

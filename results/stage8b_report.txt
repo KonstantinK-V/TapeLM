@@ -1,0 +1,39 @@
+SOTE Stage 8b report (soft phrase memory + curiosity)
+timestamp: 2026-07-22T16:51:21.657030+00:00
+device: cuda
+gpu: NVIDIA GeForce RTX 3050 Laptop GPU
+steps: 2500
+alphabet: C:\Users\Kostya\sote-letter-assembly\checkpoints\alphabet_full_frozen.pt
+word ckpt: C:\Users\Kostya\sote-letter-assembly\checkpoints\word_memory_78e.pt
+warm-start: C:\Users\Kostya\sote-letter-assembly\checkpoints\phrase_compose_8a.pt
+train phrases: 24 | hold: 6
+memory size: 25
+gate create/stabilize/skip/lock: 25/6/21301/38668
+
+Train phrase acc:        100.0%
+Train stream agree:      0.999
+Train soft tr/mem/ord/stab: 100/88/100/100%
+HOLD COLD  tr/mem/ord/stab: 100/100/100/100%
+HOLD fewshot tr/mem/ord/stab: 100/100/100/100%
+Prefix probes:           100%
+
+HOLD COLD details:
+  [OK] 'cat to car          ' tr=0.24 order=Y stream=0.74
+  [OK] 'dog to top          ' tr=0.25 order=Y stream=0.76
+  [OK] 'go to cat           ' tr=0.27 order=Y stream=0.73
+  [OK] 'spot on car         ' tr=0.25 order=Y stream=0.88
+  [OK] 'good dog on car     ' tr=0.21 order=Y stream=0.86
+  [OK] 'no good cat         ' tr=0.26 order=Y stream=0.73
+
+HOLD fewshot details:
+  [OK] 'cat to car          ' tr=0.24 mem_tr=0.24 mem_agree=1.00 n=1
+  [OK] 'dog to top          ' tr=0.25 mem_tr=0.25 mem_agree=1.00 n=1
+  [OK] 'go to cat           ' tr=0.27 mem_tr=0.27 mem_agree=1.00 n=1
+  [OK] 'spot on car         ' tr=0.25 mem_tr=0.25 mem_agree=1.00 n=1
+  [OK] 'good dog on car     ' tr=0.21 mem_tr=0.21 mem_agree=1.00 n=1
+  [OK] 'no good cat         ' tr=0.26 mem_tr=0.26 mem_agree=1.00 n=1
+
+How to read:
+- COLD = compose only, no phrase memory at eval
+- fewshot = curiosity create/stabilize/lock (5 exposures), no phrase CE
+- word layer remains frozen; reasoning still deferred to 8c

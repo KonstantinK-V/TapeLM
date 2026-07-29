@@ -1,0 +1,285 @@
+{
+  "pass": true,
+  "hold": {
+    "n": 64,
+    "samples": [
+      {
+        "kind": "what",
+        "target": "old book on car",
+        "cue": "on car",
+        "raw_ret": true,
+        "raw_ans": true,
+        "polluted_ret": false,
+        "polluted_ans": false,
+        "scratch_ret": true,
+        "scratch_ans": true,
+        "scratch_nudge_ret": true,
+        "scratch_nudge_ans": true
+      },
+      {
+        "kind": "where",
+        "target": "pushing to car",
+        "cue": "pushing to",
+        "raw_ret": true,
+        "raw_ans": true,
+        "polluted_ret": true,
+        "polluted_ans": true,
+        "scratch_ret": true,
+        "scratch_ans": true,
+        "scratch_nudge_ret": true,
+        "scratch_nudge_ans": true
+      },
+      {
+        "kind": "what",
+        "target": "jumps on top",
+        "cue": "on top",
+        "raw_ret": true,
+        "raw_ans": true,
+        "polluted_ret": false,
+        "polluted_ans": false,
+        "scratch_ret": true,
+        "scratch_ans": true,
+        "scratch_nudge_ret": true,
+        "scratch_nudge_ans": true
+      },
+      {
+        "kind": "where",
+        "target": "rock to car",
+        "cue": "rock to",
+        "raw_ret": true,
+        "raw_ans": true,
+        "polluted_ret": true,
+        "polluted_ans": true,
+        "scratch_ret": true,
+        "scratch_ans": true,
+        "scratch_nudge_ret": true,
+        "scratch_nudge_ans": true
+      },
+      {
+        "kind": "what",
+        "target": "spot on car",
+        "cue": "on car",
+        "raw_ret": false,
+        "raw_ans": true,
+        "polluted_ret": false,
+        "polluted_ans": false,
+        "scratch_ret": false,
+        "scratch_ans": true,
+        "scratch_nudge_ret": false,
+        "scratch_nudge_ans": true
+      },
+      {
+        "kind": "where",
+        "target": "walks on car",
+        "cue": "walks on",
+        "raw_ret": true,
+        "raw_ans": true,
+        "polluted_ret": true,
+        "polluted_ans": true,
+        "scratch_ret": true,
+        "scratch_ans": true,
+        "scratch_nudge_ret": true,
+        "scratch_nudge_ans": true
+      },
+      {
+        "kind": "what",
+        "target": "pulls on door",
+        "cue": "on door",
+        "raw_ret": true,
+        "raw_ans": true,
+        "polluted_ret": false,
+        "polluted_ans": false,
+        "scratch_ret": true,
+        "scratch_ans": true,
+        "scratch_nudge_ret": true,
+        "scratch_nudge_ans": true
+      },
+      {
+        "kind": "where",
+        "target": "big cat on car",
+        "cue": "cat on",
+        "raw_ret": true,
+        "raw_ans": true,
+        "polluted_ret": false,
+        "polluted_ans": false,
+        "scratch_ret": true,
+        "scratch_ans": true,
+        "scratch_nudge_ret": true,
+        "scratch_nudge_ans": true
+      }
+    ],
+    "modes": {
+      "raw": {
+        "retrieve": 0.796875,
+        "answer": 0.828125,
+        "mean_scratch_depth": 0.0
+      },
+      "polluted": {
+        "retrieve": 0.390625,
+        "answer": 0.390625,
+        "mean_scratch_depth": 0.0
+      },
+      "scratch": {
+        "retrieve": 0.796875,
+        "answer": 0.828125,
+        "mean_scratch_depth": 1.890625
+      },
+      "scratch_nudge": {
+        "retrieve": 0.796875,
+        "answer": 0.828125,
+        "mean_scratch_depth": 1.890625
+      }
+    }
+  },
+  "train": {
+    "n": 48,
+    "samples": [
+      {
+        "kind": "what",
+        "target": "stops on road",
+        "cue": "on road",
+        "raw_ret": true,
+        "raw_ans": true,
+        "polluted_ret": false,
+        "polluted_ans": false,
+        "scratch_ret": true,
+        "scratch_ans": true,
+        "scratch_nudge_ret": true,
+        "scratch_nudge_ans": true
+      },
+      {
+        "kind": "where",
+        "target": "spot on top",
+        "cue": "spot on",
+        "raw_ret": true,
+        "raw_ans": true,
+        "polluted_ret": true,
+        "polluted_ans": true,
+        "scratch_ret": true,
+        "scratch_ans": true,
+        "scratch_nudge_ret": true,
+        "scratch_nudge_ans": true
+      },
+      {
+        "kind": "what",
+        "target": "stop on top",
+        "cue": "on top",
+        "raw_ret": true,
+        "raw_ans": true,
+        "polluted_ret": false,
+        "polluted_ans": false,
+        "scratch_ret": true,
+        "scratch_ans": true,
+        "scratch_nudge_ret": true,
+        "scratch_nudge_ans": true
+      },
+      {
+        "kind": "where",
+        "target": "dog to cat",
+        "cue": "dog to",
+        "raw_ret": true,
+        "raw_ans": true,
+        "polluted_ret": true,
+        "polluted_ans": true,
+        "scratch_ret": true,
+        "scratch_ans": true,
+        "scratch_nudge_ret": true,
+        "scratch_nudge_ans": true
+      },
+      {
+        "kind": "what",
+        "target": "bird on top",
+        "cue": "on top",
+        "raw_ret": false,
+        "raw_ans": false,
+        "polluted_ret": false,
+        "polluted_ans": false,
+        "scratch_ret": false,
+        "scratch_ans": false,
+        "scratch_nudge_ret": false,
+        "scratch_nudge_ans": false
+      },
+      {
+        "kind": "where",
+        "target": "called on top",
+        "cue": "called on",
+        "raw_ret": true,
+        "raw_ans": true,
+        "polluted_ret": true,
+        "polluted_ans": true,
+        "scratch_ret": true,
+        "scratch_ans": true,
+        "scratch_nudge_ret": true,
+        "scratch_nudge_ans": true
+      },
+      {
+        "kind": "what",
+        "target": "go on top",
+        "cue": "on top",
+        "raw_ret": false,
+        "raw_ans": false,
+        "polluted_ret": false,
+        "polluted_ans": false,
+        "scratch_ret": false,
+        "scratch_ans": false,
+        "scratch_nudge_ret": false,
+        "scratch_nudge_ans": false
+      },
+      {
+        "kind": "where",
+        "target": "hand on door",
+        "cue": "hand on",
+        "raw_ret": true,
+        "raw_ans": true,
+        "polluted_ret": true,
+        "polluted_ans": true,
+        "scratch_ret": true,
+        "scratch_ans": true,
+        "scratch_nudge_ret": true,
+        "scratch_nudge_ans": true
+      }
+    ],
+    "modes": {
+      "raw": {
+        "retrieve": 0.9583333333333334,
+        "answer": 0.9583333333333334,
+        "mean_scratch_depth": 0.0
+      },
+      "polluted": {
+        "retrieve": 0.5833333333333334,
+        "answer": 0.5833333333333334,
+        "mean_scratch_depth": 0.0
+      },
+      "scratch": {
+        "retrieve": 0.9583333333333334,
+        "answer": 0.9583333333333334,
+        "mean_scratch_depth": 1.9583333333333333
+      },
+      "scratch_nudge": {
+        "retrieve": 0.9583333333333334,
+        "answer": 0.9583333333333334,
+        "mean_scratch_depth": 1.9583333333333333
+      }
+    }
+  },
+  "config": {
+    "dim": 64,
+    "seed": 23,
+    "episode_k": 3,
+    "n_hold_episodes": 64,
+    "n_train_episodes": 48,
+    "create_below": 0.55,
+    "stabilize_lo": 0.55,
+    "stabilize_hi": 0.88,
+    "lock_above": 0.92,
+    "ema": 0.85,
+    "soft_create_below": 0.7,
+    "retrieve_margin": 0.05,
+    "max_phrase_len": 5,
+    "max_word_len": 11,
+    "scratch_nudge": 0.15,
+    "tol_pp": 0.03,
+    "polluted_max": 0.5,
+    "s22_raw_ans": 0.875
+  }
+}

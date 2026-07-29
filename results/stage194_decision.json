@@ -1,0 +1,22 @@
+{
+  "timestamp": "2026-07-29T02:40:03.970740+00:00",
+  "protocol": "fp_fact_memory_194",
+  "overall": "FACT_MEMORY_YES",
+  "read_memory": {
+    "acc": 0.9466666666666667,
+    "n": 150,
+    "abstain": 0
+  },
+  "control_unread_memory": {
+    "acc": 0.2740740740740741,
+    "n": 135,
+    "abstain": 15
+  },
+  "chance": 0.25,
+  "lm_baseline_p1_entity": 0.2733333333333333,
+  "slots": {
+    "read": 18172,
+    "control": 18896
+  },
+  "note": "zero training; fp = frozen P1 arc_enc; hop1 retrieval (old SOTE SoftPhraseMemory style)"
+}

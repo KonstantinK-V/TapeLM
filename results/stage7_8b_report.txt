@@ -1,0 +1,67 @@
+SOTE Stage 7.8b report (richer WordComposer on full a-z alphabet)
+timestamp: 2026-07-22T12:16:55.517571+00:00
+device: cuda
+gpu: NVIDIA GeForce RTX 3050 Laptop GPU
+steps: 4000
+alphabet: C:\Users\Kostya\sote-letter-assembly\checkpoints\alphabet_full_frozen.pt
+train words: 94 | hold-out: 17
+
+Train compose acc:        100.0%
+Train stream acc:         100.0%
+Compose~stream agree:     100.0%
+Related-form probes:      96.0%
+Prefix probes:            100.0%
+Train soft trace/perm/path: 16/84/100%
+HOLD soft trace/perm/path:  6/82/94%
+OOV nearest related-form: 0.0%
+
+Hold-out soft details:
+  [WEAK] cards        min_trace=0.11 perm=N path=0.96
+  [WEAK] bookshelves  min_trace=-0.22 perm=Y path=0.95
+  [WEAK] jumping      min_trace=-0.19 perm=Y path=0.74
+  [WEAK] walking      min_trace=-0.10 perm=Y path=0.86
+  [WEAK] reading      min_trace=-0.17 perm=Y path=0.94
+  [WEAK] writing      min_trace=-0.20 perm=Y path=0.58
+  [WEAK] friendship   min_trace=-0.04 perm=Y path=0.88
+  [WEAK] sunshine     min_trace=-0.06 perm=Y path=0.87
+  [WEAK] moonlight    min_trace=-0.14 perm=Y path=0.93
+  [WEAK] playground   min_trace=-0.12 perm=Y path=0.69
+  [WEAK] applesauce   min_trace=-0.04 perm=Y path=0.98
+  [WEAK] birdhouse    min_trace=-0.13 perm=Y path=0.52
+  [WEAK] notebook     min_trace=-0.24 perm=N path=0.95
+  [WEAK] backpack     min_trace=-0.04 perm=N path=0.78
+  [WEAK] quickly      min_trace=0.00 perm=Y path=0.94
+  [WEAK] slowly       min_trace=0.04 perm=Y path=0.83
+  [WEAK] happily      min_trace=0.01 perm=Y path=0.89
+
+OOV nearest train neighbor:
+  [oth] cards        -> cars         (0.43)
+  [n/a] bookshelves  -> books        (0.50)
+  [n/a] jumping      -> jumps        (0.68)
+  [n/a] walking      -> walk         (0.50)
+  [n/a] reading      -> school       (0.50)
+  [n/a] writing      -> writes       (0.69)
+  [n/a] friendship   -> friends      (0.63)
+  [n/a] sunshine     -> houses       (0.35)
+  [n/a] moonlight    -> books        (0.37)
+  [n/a] playground   -> play         (0.40)
+  [n/a] applesauce   -> apples       (0.45)
+  [n/a] birdhouse    -> black        (0.33)
+  [n/a] notebook     -> morning      (0.36)
+  [n/a] backpack     -> black        (0.42)
+  [n/a] quickly      -> quick        (0.69)
+  [n/a] slowly       -> slow         (0.69)
+  [n/a] happily      -> happy        (0.63)
+
+Prefix probes:
+  [OK] 'ca' family=0.41 other=0.18
+  [OK] 'bo' family=0.56 other=0.31
+  [OK] 'wa' family=0.50 other=0.19
+  [OK] 'fr' family=0.60 other=0.27
+  [OK] 're' family=0.60 other=0.26
+  [OK] 'pl' family=0.62 other=0.30
+
+How to read:
+- Composer is richer (sin+learned pos, content/order slots, gated mix).
+- Hold-out never saw word-class CE; soft metrics test general letter->word rule.
+- Next 7.8c: soft create + gradual stabilize of novel word attractors.

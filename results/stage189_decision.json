@@ -1,0 +1,40 @@
+{
+  "timestamp": "2026-07-28T20:01:05.985808+00:00",
+  "protocol": "surprise_head_188",
+  "overall": "SURPRISE_HEAD_PARTIAL_3",
+  "gates": {
+    "G1_ce_preserved": {
+      "next_tok": 0.7,
+      "baseline_187": 0.7266666666666667,
+      "ok": true
+    },
+    "G2_novelty": {
+      "surprise_seen_train": 0.06880883384495974,
+      "surprise_unseen_hold": 0.07130763974040746,
+      "ok": true
+    },
+    "G3_calibration": {
+      "entropy_after_real": 4.964376816153527,
+      "entropy_after_fake": 4.552429369091987,
+      "ok": false
+    }
+  },
+  "diagnostic_surprise_at_span": {
+    "real": 0.06552731283009053,
+    "fake": 0.054462540941312906,
+    "fake_gt_real": false
+  },
+  "temp": {
+    "w": 3.81599760055542,
+    "b": -2.646350145339966
+  },
+  "exam_full": {
+    "next_tok_acc": 0.7,
+    "next_tok_n": 150,
+    "entity_acc": 0.2,
+    "entity_n": 100,
+    "ood_acc": 0.18333333333333332,
+    "ood_n": 60
+  },
+  "steps": 3000
+}

@@ -1,0 +1,5618 @@
+{
+  "stage": "9e-probe",
+  "timestamp": "2026-07-23T06:14:14.099320+00:00",
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "metrics": {
+    "word_ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\word_memory_9_2.pt",
+    "morph_ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\morph_hybrid_9e_plus.pt",
+    "config": {
+      "dim": 64,
+      "seed": 0,
+      "max_suffix": 4,
+      "ridge": 0.01,
+      "topk": 8
+    },
+    "baseline_letter_peel": {
+      "acc": 1.0,
+      "mean_cos": 0.9513096213340759
+    },
+    "baseline_fp_peel": {
+      "acc": 0.08333333333333333,
+      "mean_cos": 0.2989229243248701
+    },
+    "affix_dirs": {
+      "out": {
+        "pairwise_dir_cos": {
+          "ing_ed": 0.04872303456068039,
+          "ing_s": 0.3551411032676697,
+          "ed_s": 0.12868830561637878
+        },
+        "top_units": {
+          "ing": [
+            {
+              "unit": 46,
+              "delta": 0.13727954030036926
+            },
+            {
+              "unit": 29,
+              "delta": -0.11960035562515259
+            },
+            {
+              "unit": 6,
+              "delta": -0.1175556480884552
+            },
+            {
+              "unit": 41,
+              "delta": 0.09880100935697556
+            },
+            {
+              "unit": 16,
+              "delta": -0.09548291563987732
+            },
+            {
+              "unit": 8,
+              "delta": 0.09259112179279327
+            },
+            {
+              "unit": 0,
+              "delta": -0.08770430088043213
+            },
+            {
+              "unit": 20,
+              "delta": 0.07967491447925568
+            }
+          ],
+          "ed": [
+            {
+              "unit": 47,
+              "delta": -0.16959284245967865
+            },
+            {
+              "unit": 46,
+              "delta": -0.1421363800764084
+            },
+            {
+              "unit": 57,
+              "delta": -0.10387779772281647
+            },
+            {
+              "unit": 17,
+              "delta": 0.08648154139518738
+            },
+            {
+              "unit": 52,
+              "delta": 0.08043716847896576
+            },
+            {
+              "unit": 44,
+              "delta": -0.08010279387235641
+            },
+            {
+              "unit": 42,
+              "delta": 0.07930963486433029
+            },
+            {
+              "unit": 16,
+              "delta": 0.077765092253685
+            }
+          ],
+          "s": [
+            {
+              "unit": 6,
+              "delta": 0.10795411467552185
+            },
+            {
+              "unit": 29,
+              "delta": 0.09892178326845169
+            },
+            {
+              "unit": 55,
+              "delta": -0.09580951929092407
+            },
+            {
+              "unit": 1,
+              "delta": -0.09096068143844604
+            },
+            {
+              "unit": 8,
+              "delta": -0.08724275231361389
+            },
+            {
+              "unit": 20,
+              "delta": -0.08677208423614502
+            },
+            {
+              "unit": 42,
+              "delta": -0.07141539454460144
+            },
+            {
+              "unit": 47,
+              "delta": 0.07096484303474426
+            }
+          ]
+        }
+      },
+      "out_mid": {
+        "pairwise_dir_cos": {
+          "ing_ed": 0.05706261843442917,
+          "ing_s": 0.4929010272026062,
+          "ed_s": -0.03641822189092636
+        },
+        "top_units": {
+          "ing": [
+            {
+              "unit": 48,
+              "delta": -0.10393168032169342
+            },
+            {
+              "unit": 33,
+              "delta": -0.09984692931175232
+            },
+            {
+              "unit": 7,
+              "delta": 0.09774544835090637
+            },
+            {
+              "unit": 3,
+              "delta": 0.09664604067802429
+            },
+            {
+              "unit": 35,
+              "delta": -0.08771590143442154
+            },
+            {
+              "unit": 9,
+              "delta": -0.08494636416435242
+            },
+            {
+              "unit": 5,
+              "delta": 0.08447621017694473
+            },
+            {
+              "unit": 0,
+              "delta": 0.08075801283121109
+            }
+          ],
+          "ed": [
+            {
+              "unit": 9,
+              "delta": 0.11616095900535583
+            },
+            {
+              "unit": 3,
+              "delta": -0.11016382277011871
+            },
+            {
+              "unit": 36,
+              "delta": 0.10702010989189148
+            },
+            {
+              "unit": 62,
+              "delta": 0.10549686849117279
+            },
+            {
+              "unit": 60,
+              "delta": -0.10425533354282379
+            },
+            {
+              "unit": 47,
+              "delta": 0.09483509510755539
+            },
+            {
+              "unit": 0,
+              "delta": -0.09047216176986694
+            },
+            {
+              "unit": 54,
+              "delta": -0.08816498517990112
+            }
+          ],
+          "s": [
+            {
+              "unit": 63,
+              "delta": -0.11138968169689178
+            },
+            {
+              "unit": 27,
+              "delta": 0.10752083361148834
+            },
+            {
+              "unit": 18,
+              "delta": 0.10546881705522537
+            },
+            {
+              "unit": 16,
+              "delta": -0.10216110199689865
+            },
+            {
+              "unit": 17,
+              "delta": 0.09551625698804855
+            },
+            {
+              "unit": 26,
+              "delta": -0.09195999801158905
+            },
+            {
+              "unit": 60,
+              "delta": 0.0879557877779007
+            },
+            {
+              "unit": 54,
+              "delta": 0.0830281525850296
+            }
+          ]
+        }
+      },
+      "slots_pool": {
+        "pairwise_dir_cos": {
+          "ing_ed": 0.17168372869491577,
+          "ing_s": 0.4158514142036438,
+          "ed_s": -0.07607465237379074
+        },
+        "top_units": {
+          "ing": [
+            {
+              "unit": 31,
+              "delta": -0.2647477388381958
+            },
+            {
+              "unit": 58,
+              "delta": 0.17686770856380463
+            },
+            {
+              "unit": 48,
+              "delta": -0.16938166320323944
+            },
+            {
+              "unit": 16,
+              "delta": -0.11568890511989594
+            },
+            {
+              "unit": 43,
+              "delta": 0.11434793472290039
+            },
+            {
+              "unit": 17,
+              "delta": 0.10448293387889862
+            },
+            {
+              "unit": 7,
+              "delta": 0.10211534798145294
+            },
+            {
+              "unit": 57,
+              "delta": -0.09839648008346558
+            }
+          ],
+          "ed": [
+            {
+              "unit": 48,
+              "delta": 0.2104569375514984
+            },
+            {
+              "unit": 25,
+              "delta": 0.1751159280538559
+            },
+            {
+              "unit": 59,
+              "delta": -0.17450343072414398
+            },
+            {
+              "unit": 42,
+              "delta": -0.15852831304073334
+            },
+            {
+              "unit": 7,
+              "delta": -0.14485621452331543
+            },
+            {
+              "unit": 36,
+              "delta": -0.13358648121356964
+            },
+            {
+              "unit": 43,
+              "delta": -0.13016121089458466
+            },
+            {
+              "unit": 52,
+              "delta": 0.12874726951122284
+            }
+          ],
+          "s": [
+            {
+              "unit": 31,
+              "delta": 0.2135104238986969
+            },
+            {
+              "unit": 58,
+              "delta": -0.19521504640579224
+            },
+            {
+              "unit": 42,
+              "delta": 0.17294922471046448
+            },
+            {
+              "unit": 33,
+              "delta": 0.12055161595344543
+            },
+            {
+              "unit": 16,
+              "delta": 0.11773860454559326
+            },
+            {
+              "unit": 38,
+              "delta": -0.1150822564959526
+            },
+            {
+              "unit": 17,
+              "delta": -0.11393830925226212
+            },
+            {
+              "unit": 41,
+              "delta": -0.11107052117586136
+            }
+          ]
+        }
+      },
+      "content_pool": {
+        "pairwise_dir_cos": {
+          "ing_ed": 0.3032257556915283,
+          "ing_s": 0.8975237607955933,
+          "ed_s": 0.23611652851104736
+        },
+        "top_units": {
+          "ing": [
+            {
+              "unit": 4,
+              "delta": -0.14836019277572632
+            },
+            {
+              "unit": 8,
+              "delta": 0.14367765188217163
+            },
+            {
+              "unit": 59,
+              "delta": -0.13254982233047485
+            },
+            {
+              "unit": 0,
+              "delta": -0.12973248958587646
+            },
+            {
+              "unit": 26,
+              "delta": 0.12135476619005203
+            },
+            {
+              "unit": 52,
+              "delta": -0.11592524498701096
+            },
+            {
+              "unit": 39,
+              "delta": 0.11249593645334244
+            },
+            {
+              "unit": 12,
+              "delta": -0.1015336886048317
+            }
+          ],
+          "ed": [
+            {
+              "unit": 20,
+              "delta": 0.2251274287700653
+            },
+            {
+              "unit": 4,
+              "delta": 0.19319944083690643
+            },
+            {
+              "unit": 1,
+              "delta": -0.1914292573928833
+            },
+            {
+              "unit": 24,
+              "delta": -0.18927735090255737
+            },
+            {
+              "unit": 53,
+              "delta": 0.18157684803009033
+            },
+            {
+              "unit": 13,
+              "delta": -0.16582338511943817
+            },
+            {
+              "unit": 37,
+              "delta": 0.12888053059577942
+            },
+            {
+              "unit": 10,
+              "delta": 0.12427447736263275
+            }
+          ],
+          "s": [
+            {
+              "unit": 20,
+              "delta": -0.1177077665925026
+            },
+            {
+              "unit": 53,
+              "delta": -0.1145014762878418
+            },
+            {
+              "unit": 1,
+              "delta": 0.10561184585094452
+            },
+            {
+              "unit": 45,
+              "delta": 0.09874437004327774
+            },
+            {
+              "unit": 11,
+              "delta": -0.0946224182844162
+            },
+            {
+              "unit": 0,
+              "delta": 0.093564972281456
+            },
+            {
+              "unit": 38,
+              "delta": -0.09321867674589157
+            },
+            {
+              "unit": 51,
+              "delta": 0.09133566915988922
+            }
+          ]
+        }
+      },
+      "order_pool": {
+        "pairwise_dir_cos": {
+          "ing_ed": 0.41433125734329224,
+          "ing_s": 0.6918243169784546,
+          "ed_s": 0.41446757316589355
+        },
+        "top_units": {
+          "ing": [
+            {
+              "unit": 59,
+              "delta": 0.2427646368741989
+            },
+            {
+              "unit": 31,
+              "delta": -0.17983773350715637
+            },
+            {
+              "unit": 28,
+              "delta": 0.1550041139125824
+            },
+            {
+              "unit": 3,
+              "delta": -0.1496671587228775
+            },
+            {
+              "unit": 51,
+              "delta": 0.1469898819923401
+            },
+            {
+              "unit": 14,
+              "delta": -0.14411446452140808
+            },
+            {
+              "unit": 5,
+              "delta": 0.14206017553806305
+            },
+            {
+              "unit": 58,
+              "delta": 0.13165389001369476
+            }
+          ],
+          "ed": [
+            {
+              "unit": 11,
+              "delta": -0.20533299446105957
+            },
+            {
+              "unit": 59,
+              "delta": -0.1957944929599762
+            },
+            {
+              "unit": 25,
+              "delta": 0.16640423238277435
+            },
+            {
+              "unit": 42,
+              "delta": -0.1538536250591278
+            },
+            {
+              "unit": 51,
+              "delta": -0.15236259996891022
+            },
+            {
+              "unit": 3,
+              "delta": 0.14766091108322144
+            },
+            {
+              "unit": 1,
+              "delta": 0.1439155787229538
+            },
+            {
+              "unit": 31,
+              "delta": 0.1424010694026947
+            }
+          ],
+          "s": [
+            {
+              "unit": 14,
+              "delta": 0.139698326587677
+            },
+            {
+              "unit": 11,
+              "delta": 0.12433674931526184
+            },
+            {
+              "unit": 56,
+              "delta": 0.11775268614292145
+            },
+            {
+              "unit": 41,
+              "delta": 0.11385607719421387
+            },
+            {
+              "unit": 50,
+              "delta": 0.1094098910689354
+            },
+            {
+              "unit": 43,
+              "delta": -0.10071581602096558
+            },
+            {
+              "unit": 24,
+              "delta": -0.1003475934267044
+            },
+            {
+              "unit": 10,
+              "delta": 0.09351887553930283
+            }
+          ]
+        }
+      },
+      "morph_pool": {
+        "pairwise_dir_cos": {
+          "ing_ed": 0.008325919508934021,
+          "ing_s": 0.0729529932141304,
+          "ed_s": 0.09011894464492798
+        },
+        "top_units": {
+          "ing": [
+            {
+              "unit": 58,
+              "delta": 0.3696921765804291
+            },
+            {
+              "unit": 19,
+              "delta": 0.3433370292186737
+            },
+            {
+              "unit": 9,
+              "delta": 0.3059786558151245
+            },
+            {
+              "unit": 32,
+              "delta": -0.2880881428718567
+            },
+            {
+              "unit": 6,
+              "delta": -0.25902271270751953
+            },
+            {
+              "unit": 5,
+              "delta": -0.25636422634124756
+            },
+            {
+              "unit": 0,
+              "delta": 0.24350567162036896
+            },
+            {
+              "unit": 16,
+              "delta": -0.23856264352798462
+            }
+          ],
+          "ed": [
+            {
+              "unit": 48,
+              "delta": 0.34066909551620483
+            },
+            {
+              "unit": 59,
+              "delta": 0.30307671427726746
+            },
+            {
+              "unit": 27,
+              "delta": 0.2836143374443054
+            },
+            {
+              "unit": 9,
+              "delta": -0.2676917314529419
+            },
+            {
+              "unit": 18,
+              "delta": 0.2522650361061096
+            },
+            {
+              "unit": 30,
+              "delta": 0.24389246106147766
+            },
+            {
+              "unit": 34,
+              "delta": -0.22589242458343506
+            },
+            {
+              "unit": 32,
+              "delta": 0.2236945778131485
+            }
+          ],
+          "s": [
+            {
+              "unit": 19,
+              "delta": -0.2987057566642761
+            },
+            {
+              "unit": 36,
+              "delta": 0.26987573504447937
+            },
+            {
+              "unit": 18,
+              "delta": -0.2616760730743408
+            },
+            {
+              "unit": 63,
+              "delta": -0.24927005171775818
+            },
+            {
+              "unit": 48,
+              "delta": -0.24475738406181335
+            },
+            {
+              "unit": 12,
+              "delta": 0.22627542912960052
+            },
+            {
+              "unit": 4,
+              "delta": 0.22605884075164795
+            },
+            {
+              "unit": 27,
+              "delta": -0.2255532294511795
+            }
+          ]
+        }
+      }
+    },
+    "linear_peel": {
+      "out": {
+        "train": {
+          "acc": 1.0,
+          "mean_cos": 0.9981502890586853,
+          "details": [
+            {
+              "stem": "play",
+              "affix": "ing",
+              "pred": "play",
+              "ok": true,
+              "cos": 0.9989805221557617
+            },
+            {
+              "stem": "go",
+              "affix": "ing",
+              "pred": "go",
+              "ok": true,
+              "cos": 0.9976920485496521
+            },
+            {
+              "stem": "act",
+              "affix": "ing",
+              "pred": "act",
+              "ok": true,
+              "cos": 0.997852623462677
+            },
+            {
+              "stem": "fish",
+              "affix": "ing",
+              "pred": "fish",
+              "ok": true,
+              "cos": 0.999024510383606
+            },
+            {
+              "stem": "post",
+              "affix": "ing",
+              "pred": "post",
+              "ok": true,
+              "cos": 0.9947232007980347
+            },
+            {
+              "stem": "book",
+              "affix": "ing",
+              "pred": "book",
+              "ok": true,
+              "cos": 0.9977614283561707
+            },
+            {
+              "stem": "light",
+              "affix": "ing",
+              "pred": "light",
+              "ok": true,
+              "cos": 0.997248649597168
+            },
+            {
+              "stem": "make",
+              "affix": "ing",
+              "pred": "make",
+              "ok": true,
+              "cos": 0.998357892036438
+            },
+            {
+              "stem": "take",
+              "affix": "ing",
+              "pred": "take",
+              "ok": true,
+              "cos": 0.997901201248169
+            },
+            {
+              "stem": "give",
+              "affix": "ing",
+              "pred": "give",
+              "ok": true,
+              "cos": 0.9985443949699402
+            },
+            {
+              "stem": "run",
+              "affix": "ing",
+              "pred": "run",
+              "ok": true,
+              "cos": 0.9982004761695862
+            },
+            {
+              "stem": "stop",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": true,
+              "cos": 0.9948998689651489
+            },
+            {
+              "stem": "spot",
+              "affix": "ing",
+              "pred": "spot",
+              "ok": true,
+              "cos": 0.9967368841171265
+            },
+            {
+              "stem": "top",
+              "affix": "ing",
+              "pred": "top",
+              "ok": true,
+              "cos": 0.9986026883125305
+            },
+            {
+              "stem": "play",
+              "affix": "ed",
+              "pred": "play",
+              "ok": true,
+              "cos": 0.996353030204773
+            },
+            {
+              "stem": "stop",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": true,
+              "cos": 0.998699963092804
+            },
+            {
+              "stem": "post",
+              "affix": "ed",
+              "pred": "post",
+              "ok": true,
+              "cos": 0.9995992183685303
+            },
+            {
+              "stem": "act",
+              "affix": "ed",
+              "pred": "act",
+              "ok": true,
+              "cos": 0.9972363710403442
+            },
+            {
+              "stem": "fish",
+              "affix": "ed",
+              "pred": "fish",
+              "ok": true,
+              "cos": 0.9996617436408997
+            },
+            {
+              "stem": "book",
+              "affix": "ed",
+              "pred": "book",
+              "ok": true,
+              "cos": 0.999383807182312
+            },
+            {
+              "stem": "top",
+              "affix": "ed",
+              "pred": "top",
+              "ok": true,
+              "cos": 0.9993259906768799
+            },
+            {
+              "stem": "spot",
+              "affix": "ed",
+              "pred": "spot",
+              "ok": true,
+              "cos": 0.9994930028915405
+            },
+            {
+              "stem": "light",
+              "affix": "ed",
+              "pred": "light",
+              "ok": true,
+              "cos": 0.9977427124977112
+            },
+            {
+              "stem": "water",
+              "affix": "ed",
+              "pred": "water",
+              "ok": true,
+              "cos": 0.9995040893554688
+            },
+            {
+              "stem": "play",
+              "affix": "s",
+              "pred": "play",
+              "ok": true,
+              "cos": 0.9970171451568604
+            },
+            {
+              "stem": "run",
+              "affix": "s",
+              "pred": "run",
+              "ok": true,
+              "cos": 0.9983161091804504
+            },
+            {
+              "stem": "make",
+              "affix": "s",
+              "pred": "make",
+              "ok": true,
+              "cos": 0.9986383318901062
+            },
+            {
+              "stem": "take",
+              "affix": "s",
+              "pred": "take",
+              "ok": true,
+              "cos": 0.9967324733734131
+            },
+            {
+              "stem": "give",
+              "affix": "s",
+              "pred": "give",
+              "ok": true,
+              "cos": 0.9993464350700378
+            },
+            {
+              "stem": "cat",
+              "affix": "s",
+              "pred": "cat",
+              "ok": true,
+              "cos": 0.9972844123840332
+            },
+            {
+              "stem": "dog",
+              "affix": "s",
+              "pred": "dog",
+              "ok": true,
+              "cos": 0.999526858329773
+            },
+            {
+              "stem": "book",
+              "affix": "s",
+              "pred": "book",
+              "ok": true,
+              "cos": 0.9997857809066772
+            },
+            {
+              "stem": "act",
+              "affix": "s",
+              "pred": "act",
+              "ok": true,
+              "cos": 0.9976218342781067
+            },
+            {
+              "stem": "post",
+              "affix": "s",
+              "pred": "post",
+              "ok": true,
+              "cos": 0.9993482828140259
+            },
+            {
+              "stem": "go",
+              "affix": "s",
+              "pred": "go",
+              "ok": true,
+              "cos": 0.9984825849533081
+            },
+            {
+              "stem": "fish",
+              "affix": "s",
+              "pred": "fish",
+              "ok": true,
+              "cos": 0.9983057975769043
+            },
+            {
+              "stem": "top",
+              "affix": "s",
+              "pred": "top",
+              "ok": true,
+              "cos": 0.9971076250076294
+            },
+            {
+              "stem": "spot",
+              "affix": "s",
+              "pred": "spot",
+              "ok": true,
+              "cos": 0.9986680150032043
+            }
+          ]
+        },
+        "hold": {
+          "acc": 0.0,
+          "mean_cos": 0.12574921548366547,
+          "details": [
+            {
+              "stem": "jump",
+              "affix": "ing",
+              "pred": "light",
+              "ok": false,
+              "cos": 0.04541501775383949
+            },
+            {
+              "stem": "walk",
+              "affix": "ing",
+              "pred": "spot",
+              "ok": false,
+              "cos": 0.2300407588481903
+            },
+            {
+              "stem": "read",
+              "affix": "ing",
+              "pred": "run",
+              "ok": false,
+              "cos": 0.19988927245140076
+            },
+            {
+              "stem": "write",
+              "affix": "ing",
+              "pred": "spot",
+              "ok": false,
+              "cos": -0.06736604124307632
+            },
+            {
+              "stem": "jump",
+              "affix": "ed",
+              "pred": "fish",
+              "ok": false,
+              "cos": 0.3942693769931793
+            },
+            {
+              "stem": "walk",
+              "affix": "ed",
+              "pred": "play",
+              "ok": false,
+              "cos": 0.27455317974090576
+            },
+            {
+              "stem": "read",
+              "affix": "ed",
+              "pred": "fish",
+              "ok": false,
+              "cos": 0.18964973092079163
+            },
+            {
+              "stem": "write",
+              "affix": "ed",
+              "pred": "go",
+              "ok": false,
+              "cos": -0.012995611876249313
+            },
+            {
+              "stem": "jump",
+              "affix": "s",
+              "pred": "light",
+              "ok": false,
+              "cos": -0.10260532796382904
+            },
+            {
+              "stem": "walk",
+              "affix": "s",
+              "pred": "spot",
+              "ok": false,
+              "cos": 0.17287233471870422
+            },
+            {
+              "stem": "read",
+              "affix": "s",
+              "pred": "spot",
+              "ok": false,
+              "cos": 0.15822885930538177
+            },
+            {
+              "stem": "write",
+              "affix": "s",
+              "pred": "give",
+              "ok": false,
+              "cos": 0.02703901380300522
+            }
+          ]
+        },
+        "W_fro": 9.224740028381348,
+        "wrong_affix": {
+          "acc": 0.0,
+          "mean_cos": 0.13845288753509521,
+          "details": [
+            {
+              "stem": "jump",
+              "affix": "ing",
+              "pred": "fish",
+              "ok": false,
+              "cos": 0.3942693769931793
+            },
+            {
+              "stem": "walk",
+              "affix": "ing",
+              "pred": "play",
+              "ok": false,
+              "cos": 0.27455317974090576
+            },
+            {
+              "stem": "read",
+              "affix": "ing",
+              "pred": "fish",
+              "ok": false,
+              "cos": 0.18964973092079163
+            },
+            {
+              "stem": "write",
+              "affix": "ing",
+              "pred": "go",
+              "ok": false,
+              "cos": -0.012995611876249313
+            },
+            {
+              "stem": "jump",
+              "affix": "ed",
+              "pred": "light",
+              "ok": false,
+              "cos": 0.04541501775383949
+            },
+            {
+              "stem": "walk",
+              "affix": "ed",
+              "pred": "spot",
+              "ok": false,
+              "cos": 0.2300407588481903
+            },
+            {
+              "stem": "read",
+              "affix": "ed",
+              "pred": "run",
+              "ok": false,
+              "cos": 0.19988927245140076
+            },
+            {
+              "stem": "write",
+              "affix": "ed",
+              "pred": "spot",
+              "ok": false,
+              "cos": -0.06736604124307632
+            },
+            {
+              "stem": "jump",
+              "affix": "s",
+              "pred": "light",
+              "ok": false,
+              "cos": 0.04541501775383949
+            },
+            {
+              "stem": "walk",
+              "affix": "s",
+              "pred": "spot",
+              "ok": false,
+              "cos": 0.2300407588481903
+            },
+            {
+              "stem": "read",
+              "affix": "s",
+              "pred": "run",
+              "ok": false,
+              "cos": 0.19988927245140076
+            },
+            {
+              "stem": "write",
+              "affix": "s",
+              "pred": "spot",
+              "ok": false,
+              "cos": -0.06736604124307632
+            }
+          ]
+        },
+        "shuffle": {
+          "acc": 0.0,
+          "mean_cos": 0.123982273042202,
+          "details": [
+            {
+              "stem": "jump",
+              "affix": "ing",
+              "pred": "light",
+              "ok": false,
+              "cos": 0.07473291456699371
+            },
+            {
+              "stem": "walk",
+              "affix": "ing",
+              "pred": "spot",
+              "ok": false,
+              "cos": 0.2422533631324768
+            },
+            {
+              "stem": "read",
+              "affix": "ing",
+              "pred": "fish",
+              "ok": false,
+              "cos": 0.20718733966350555
+            },
+            {
+              "stem": "write",
+              "affix": "ing",
+              "pred": "light",
+              "ok": false,
+              "cos": 0.11108183860778809
+            },
+            {
+              "stem": "jump",
+              "affix": "ed",
+              "pred": "light",
+              "ok": false,
+              "cos": 0.24201753735542297
+            },
+            {
+              "stem": "walk",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.3602832555770874
+            },
+            {
+              "stem": "read",
+              "affix": "ed",
+              "pred": "take",
+              "ok": false,
+              "cos": 0.037391141057014465
+            },
+            {
+              "stem": "write",
+              "affix": "ed",
+              "pred": "take",
+              "ok": false,
+              "cos": 0.09619617462158203
+            },
+            {
+              "stem": "jump",
+              "affix": "s",
+              "pred": "light",
+              "ok": false,
+              "cos": -0.10260532796382904
+            },
+            {
+              "stem": "walk",
+              "affix": "s",
+              "pred": "spot",
+              "ok": false,
+              "cos": 0.17287233471870422
+            },
+            {
+              "stem": "read",
+              "affix": "s",
+              "pred": "spot",
+              "ok": false,
+              "cos": 0.15822885930538177
+            },
+            {
+              "stem": "write",
+              "affix": "s",
+              "pred": "spot",
+              "ok": false,
+              "cos": -0.11185219883918762
+            }
+          ]
+        }
+      },
+      "out_mid": {
+        "train": {
+          "acc": 1.0,
+          "mean_cos": 0.9994418621063232,
+          "details": [
+            {
+              "stem": "play",
+              "affix": "ing",
+              "pred": "play",
+              "ok": true,
+              "cos": 0.9997071027755737
+            },
+            {
+              "stem": "go",
+              "affix": "ing",
+              "pred": "go",
+              "ok": true,
+              "cos": 0.9997740387916565
+            },
+            {
+              "stem": "act",
+              "affix": "ing",
+              "pred": "act",
+              "ok": true,
+              "cos": 0.9996697306632996
+            },
+            {
+              "stem": "fish",
+              "affix": "ing",
+              "pred": "fish",
+              "ok": true,
+              "cos": 0.9995875954627991
+            },
+            {
+              "stem": "post",
+              "affix": "ing",
+              "pred": "post",
+              "ok": true,
+              "cos": 0.9996343851089478
+            },
+            {
+              "stem": "book",
+              "affix": "ing",
+              "pred": "book",
+              "ok": true,
+              "cos": 0.9997392892837524
+            },
+            {
+              "stem": "light",
+              "affix": "ing",
+              "pred": "light",
+              "ok": true,
+              "cos": 0.9980967044830322
+            },
+            {
+              "stem": "make",
+              "affix": "ing",
+              "pred": "make",
+              "ok": true,
+              "cos": 0.9995738863945007
+            },
+            {
+              "stem": "take",
+              "affix": "ing",
+              "pred": "take",
+              "ok": true,
+              "cos": 0.9991847276687622
+            },
+            {
+              "stem": "give",
+              "affix": "ing",
+              "pred": "give",
+              "ok": true,
+              "cos": 0.9998073577880859
+            },
+            {
+              "stem": "run",
+              "affix": "ing",
+              "pred": "run",
+              "ok": true,
+              "cos": 0.9994552135467529
+            },
+            {
+              "stem": "stop",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": true,
+              "cos": 0.9989314675331116
+            },
+            {
+              "stem": "spot",
+              "affix": "ing",
+              "pred": "spot",
+              "ok": true,
+              "cos": 0.9994438886642456
+            },
+            {
+              "stem": "top",
+              "affix": "ing",
+              "pred": "top",
+              "ok": true,
+              "cos": 0.9987248182296753
+            },
+            {
+              "stem": "play",
+              "affix": "ed",
+              "pred": "play",
+              "ok": true,
+              "cos": 0.9992754459381104
+            },
+            {
+              "stem": "stop",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": true,
+              "cos": 0.999605119228363
+            },
+            {
+              "stem": "post",
+              "affix": "ed",
+              "pred": "post",
+              "ok": true,
+              "cos": 0.9997375011444092
+            },
+            {
+              "stem": "act",
+              "affix": "ed",
+              "pred": "act",
+              "ok": true,
+              "cos": 0.9990925788879395
+            },
+            {
+              "stem": "fish",
+              "affix": "ed",
+              "pred": "fish",
+              "ok": true,
+              "cos": 0.9999058246612549
+            },
+            {
+              "stem": "book",
+              "affix": "ed",
+              "pred": "book",
+              "ok": true,
+              "cos": 0.9998965263366699
+            },
+            {
+              "stem": "top",
+              "affix": "ed",
+              "pred": "top",
+              "ok": true,
+              "cos": 0.9997334480285645
+            },
+            {
+              "stem": "spot",
+              "affix": "ed",
+              "pred": "spot",
+              "ok": true,
+              "cos": 0.9997743368148804
+            },
+            {
+              "stem": "light",
+              "affix": "ed",
+              "pred": "light",
+              "ok": true,
+              "cos": 0.9992846250534058
+            },
+            {
+              "stem": "water",
+              "affix": "ed",
+              "pred": "water",
+              "ok": true,
+              "cos": 0.999694287776947
+            },
+            {
+              "stem": "play",
+              "affix": "s",
+              "pred": "play",
+              "ok": true,
+              "cos": 0.9990352392196655
+            },
+            {
+              "stem": "run",
+              "affix": "s",
+              "pred": "run",
+              "ok": true,
+              "cos": 0.9994078874588013
+            },
+            {
+              "stem": "make",
+              "affix": "s",
+              "pred": "make",
+              "ok": true,
+              "cos": 0.9994720220565796
+            },
+            {
+              "stem": "take",
+              "affix": "s",
+              "pred": "take",
+              "ok": true,
+              "cos": 0.9987519383430481
+            },
+            {
+              "stem": "give",
+              "affix": "s",
+              "pred": "give",
+              "ok": true,
+              "cos": 0.9997742772102356
+            },
+            {
+              "stem": "cat",
+              "affix": "s",
+              "pred": "cat",
+              "ok": true,
+              "cos": 0.9995265007019043
+            },
+            {
+              "stem": "dog",
+              "affix": "s",
+              "pred": "dog",
+              "ok": true,
+              "cos": 0.9997172355651855
+            },
+            {
+              "stem": "book",
+              "affix": "s",
+              "pred": "book",
+              "ok": true,
+              "cos": 0.9998835325241089
+            },
+            {
+              "stem": "act",
+              "affix": "s",
+              "pred": "act",
+              "ok": true,
+              "cos": 0.9989170432090759
+            },
+            {
+              "stem": "post",
+              "affix": "s",
+              "pred": "post",
+              "ok": true,
+              "cos": 0.9997395277023315
+            },
+            {
+              "stem": "go",
+              "affix": "s",
+              "pred": "go",
+              "ok": true,
+              "cos": 0.9996891021728516
+            },
+            {
+              "stem": "fish",
+              "affix": "s",
+              "pred": "fish",
+              "ok": true,
+              "cos": 0.9992886781692505
+            },
+            {
+              "stem": "top",
+              "affix": "s",
+              "pred": "top",
+              "ok": true,
+              "cos": 0.9990893006324768
+            },
+            {
+              "stem": "spot",
+              "affix": "s",
+              "pred": "spot",
+              "ok": true,
+              "cos": 0.9991705417633057
+            }
+          ]
+        },
+        "hold": {
+          "acc": 0.0,
+          "mean_cos": 0.09920047968626022,
+          "details": [
+            {
+              "stem": "jump",
+              "affix": "ing",
+              "pred": "light",
+              "ok": false,
+              "cos": -0.008757688105106354
+            },
+            {
+              "stem": "walk",
+              "affix": "ing",
+              "pred": "play",
+              "ok": false,
+              "cos": 0.19057682156562805
+            },
+            {
+              "stem": "read",
+              "affix": "ing",
+              "pred": "run",
+              "ok": false,
+              "cos": 0.3486923277378082
+            },
+            {
+              "stem": "write",
+              "affix": "ing",
+              "pred": "spot",
+              "ok": false,
+              "cos": -0.11241010576486588
+            },
+            {
+              "stem": "jump",
+              "affix": "ed",
+              "pred": "play",
+              "ok": false,
+              "cos": 0.19297757744789124
+            },
+            {
+              "stem": "walk",
+              "affix": "ed",
+              "pred": "play",
+              "ok": false,
+              "cos": 0.20698580145835876
+            },
+            {
+              "stem": "read",
+              "affix": "ed",
+              "pred": "fish",
+              "ok": false,
+              "cos": 0.2238447666168213
+            },
+            {
+              "stem": "write",
+              "affix": "ed",
+              "pred": "go",
+              "ok": false,
+              "cos": -0.054612159729003906
+            },
+            {
+              "stem": "jump",
+              "affix": "s",
+              "pred": "light",
+              "ok": false,
+              "cos": -0.1286367028951645
+            },
+            {
+              "stem": "walk",
+              "affix": "s",
+              "pred": "spot",
+              "ok": false,
+              "cos": 0.07291462272405624
+            },
+            {
+              "stem": "read",
+              "affix": "s",
+              "pred": "play",
+              "ok": false,
+              "cos": 0.2153601050376892
+            },
+            {
+              "stem": "write",
+              "affix": "s",
+              "pred": "give",
+              "ok": false,
+              "cos": 0.043470319360494614
+            }
+          ]
+        },
+        "W_fro": 8.252119064331055,
+        "wrong_affix": {
+          "acc": 0.0,
+          "mean_cos": 0.11711655557155609,
+          "details": [
+            {
+              "stem": "jump",
+              "affix": "ing",
+              "pred": "play",
+              "ok": false,
+              "cos": 0.19297757744789124
+            },
+            {
+              "stem": "walk",
+              "affix": "ing",
+              "pred": "play",
+              "ok": false,
+              "cos": 0.20698580145835876
+            },
+            {
+              "stem": "read",
+              "affix": "ing",
+              "pred": "fish",
+              "ok": false,
+              "cos": 0.2238447666168213
+            },
+            {
+              "stem": "write",
+              "affix": "ing",
+              "pred": "go",
+              "ok": false,
+              "cos": -0.054612159729003906
+            },
+            {
+              "stem": "jump",
+              "affix": "ed",
+              "pred": "light",
+              "ok": false,
+              "cos": -0.008757688105106354
+            },
+            {
+              "stem": "walk",
+              "affix": "ed",
+              "pred": "play",
+              "ok": false,
+              "cos": 0.19057682156562805
+            },
+            {
+              "stem": "read",
+              "affix": "ed",
+              "pred": "run",
+              "ok": false,
+              "cos": 0.3486923277378082
+            },
+            {
+              "stem": "write",
+              "affix": "ed",
+              "pred": "spot",
+              "ok": false,
+              "cos": -0.11241010576486588
+            },
+            {
+              "stem": "jump",
+              "affix": "s",
+              "pred": "light",
+              "ok": false,
+              "cos": -0.008757688105106354
+            },
+            {
+              "stem": "walk",
+              "affix": "s",
+              "pred": "play",
+              "ok": false,
+              "cos": 0.19057682156562805
+            },
+            {
+              "stem": "read",
+              "affix": "s",
+              "pred": "run",
+              "ok": false,
+              "cos": 0.3486923277378082
+            },
+            {
+              "stem": "write",
+              "affix": "s",
+              "pred": "spot",
+              "ok": false,
+              "cos": -0.11241010576486588
+            }
+          ]
+        },
+        "shuffle": {
+          "acc": 0.0,
+          "mean_cos": 0.11162670701742172,
+          "details": [
+            {
+              "stem": "jump",
+              "affix": "ing",
+              "pred": "light",
+              "ok": false,
+              "cos": 0.06420686095952988
+            },
+            {
+              "stem": "walk",
+              "affix": "ing",
+              "pred": "play",
+              "ok": false,
+              "cos": 0.18749013543128967
+            },
+            {
+              "stem": "read",
+              "affix": "ing",
+              "pred": "spot",
+              "ok": false,
+              "cos": 0.40722590684890747
+            },
+            {
+              "stem": "write",
+              "affix": "ing",
+              "pred": "spot",
+              "ok": false,
+              "cos": 0.054236769676208496
+            },
+            {
+              "stem": "jump",
+              "affix": "ed",
+              "pred": "light",
+              "ok": false,
+              "cos": 0.22854939103126526
+            },
+            {
+              "stem": "walk",
+              "affix": "ed",
+              "pred": "go",
+              "ok": false,
+              "cos": 0.2135070264339447
+            },
+            {
+              "stem": "read",
+              "affix": "ed",
+              "pred": "top",
+              "ok": false,
+              "cos": 0.14179226756095886
+            },
+            {
+              "stem": "write",
+              "affix": "ed",
+              "pred": "go",
+              "ok": false,
+              "cos": -0.029380973428487778
+            },
+            {
+              "stem": "jump",
+              "affix": "s",
+              "pred": "light",
+              "ok": false,
+              "cos": -0.1286367028951645
+            },
+            {
+              "stem": "walk",
+              "affix": "s",
+              "pred": "spot",
+              "ok": false,
+              "cos": 0.07291462272405624
+            },
+            {
+              "stem": "read",
+              "affix": "s",
+              "pred": "play",
+              "ok": false,
+              "cos": 0.2153601050376892
+            },
+            {
+              "stem": "write",
+              "affix": "s",
+              "pred": "spot",
+              "ok": false,
+              "cos": -0.08774489909410477
+            }
+          ]
+        }
+      },
+      "slots_pool": {
+        "train": {
+          "acc": 1.0,
+          "mean_cos": 0.9979159832000732,
+          "details": [
+            {
+              "stem": "play",
+              "affix": "ing",
+              "pred": "play",
+              "ok": true,
+              "cos": 0.9994176030158997
+            },
+            {
+              "stem": "go",
+              "affix": "ing",
+              "pred": "go",
+              "ok": true,
+              "cos": 0.9984694719314575
+            },
+            {
+              "stem": "act",
+              "affix": "ing",
+              "pred": "act",
+              "ok": true,
+              "cos": 0.9949544072151184
+            },
+            {
+              "stem": "fish",
+              "affix": "ing",
+              "pred": "fish",
+              "ok": true,
+              "cos": 0.9992115497589111
+            },
+            {
+              "stem": "post",
+              "affix": "ing",
+              "pred": "post",
+              "ok": true,
+              "cos": 0.9978342652320862
+            },
+            {
+              "stem": "book",
+              "affix": "ing",
+              "pred": "book",
+              "ok": true,
+              "cos": 0.9984732866287231
+            },
+            {
+              "stem": "light",
+              "affix": "ing",
+              "pred": "light",
+              "ok": true,
+              "cos": 0.9976047277450562
+            },
+            {
+              "stem": "make",
+              "affix": "ing",
+              "pred": "make",
+              "ok": true,
+              "cos": 0.9991548657417297
+            },
+            {
+              "stem": "take",
+              "affix": "ing",
+              "pred": "take",
+              "ok": true,
+              "cos": 0.9988700747489929
+            },
+            {
+              "stem": "give",
+              "affix": "ing",
+              "pred": "give",
+              "ok": true,
+              "cos": 0.9977530837059021
+            },
+            {
+              "stem": "run",
+              "affix": "ing",
+              "pred": "run",
+              "ok": true,
+              "cos": 0.9982110261917114
+            },
+            {
+              "stem": "stop",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": true,
+              "cos": 0.996152400970459
+            },
+            {
+              "stem": "spot",
+              "affix": "ing",
+              "pred": "spot",
+              "ok": true,
+              "cos": 0.9928499460220337
+            },
+            {
+              "stem": "top",
+              "affix": "ing",
+              "pred": "top",
+              "ok": true,
+              "cos": 0.9977574944496155
+            },
+            {
+              "stem": "play",
+              "affix": "ed",
+              "pred": "play",
+              "ok": true,
+              "cos": 0.9994520545005798
+            },
+            {
+              "stem": "stop",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": true,
+              "cos": 0.9981631636619568
+            },
+            {
+              "stem": "post",
+              "affix": "ed",
+              "pred": "post",
+              "ok": true,
+              "cos": 0.9985003471374512
+            },
+            {
+              "stem": "act",
+              "affix": "ed",
+              "pred": "act",
+              "ok": true,
+              "cos": 0.9976749420166016
+            },
+            {
+              "stem": "fish",
+              "affix": "ed",
+              "pred": "fish",
+              "ok": true,
+              "cos": 0.9988012313842773
+            },
+            {
+              "stem": "book",
+              "affix": "ed",
+              "pred": "book",
+              "ok": true,
+              "cos": 0.9992883801460266
+            },
+            {
+              "stem": "top",
+              "affix": "ed",
+              "pred": "top",
+              "ok": true,
+              "cos": 0.9975821375846863
+            },
+            {
+              "stem": "spot",
+              "affix": "ed",
+              "pred": "spot",
+              "ok": true,
+              "cos": 0.9980918765068054
+            },
+            {
+              "stem": "light",
+              "affix": "ed",
+              "pred": "light",
+              "ok": true,
+              "cos": 0.9990046620368958
+            },
+            {
+              "stem": "water",
+              "affix": "ed",
+              "pred": "water",
+              "ok": true,
+              "cos": 0.9982132315635681
+            },
+            {
+              "stem": "play",
+              "affix": "s",
+              "pred": "play",
+              "ok": true,
+              "cos": 0.99814772605896
+            },
+            {
+              "stem": "run",
+              "affix": "s",
+              "pred": "run",
+              "ok": true,
+              "cos": 0.9992194771766663
+            },
+            {
+              "stem": "make",
+              "affix": "s",
+              "pred": "make",
+              "ok": true,
+              "cos": 0.9996168613433838
+            },
+            {
+              "stem": "take",
+              "affix": "s",
+              "pred": "take",
+              "ok": true,
+              "cos": 0.998953104019165
+            },
+            {
+              "stem": "give",
+              "affix": "s",
+              "pred": "give",
+              "ok": true,
+              "cos": 0.9989014267921448
+            },
+            {
+              "stem": "cat",
+              "affix": "s",
+              "pred": "cat",
+              "ok": true,
+              "cos": 0.997420072555542
+            },
+            {
+              "stem": "dog",
+              "affix": "s",
+              "pred": "dog",
+              "ok": true,
+              "cos": 0.9966924786567688
+            },
+            {
+              "stem": "book",
+              "affix": "s",
+              "pred": "book",
+              "ok": true,
+              "cos": 0.9993459582328796
+            },
+            {
+              "stem": "act",
+              "affix": "s",
+              "pred": "act",
+              "ok": true,
+              "cos": 0.9960705041885376
+            },
+            {
+              "stem": "post",
+              "affix": "s",
+              "pred": "post",
+              "ok": true,
+              "cos": 0.9985449314117432
+            },
+            {
+              "stem": "go",
+              "affix": "s",
+              "pred": "go",
+              "ok": true,
+              "cos": 0.9981228113174438
+            },
+            {
+              "stem": "fish",
+              "affix": "s",
+              "pred": "fish",
+              "ok": true,
+              "cos": 0.9988053441047668
+            },
+            {
+              "stem": "top",
+              "affix": "s",
+              "pred": "top",
+              "ok": true,
+              "cos": 0.99736088514328
+            },
+            {
+              "stem": "spot",
+              "affix": "s",
+              "pred": "spot",
+              "ok": true,
+              "cos": 0.9921156764030457
+            }
+          ]
+        },
+        "hold": {
+          "acc": 0.0,
+          "mean_cos": 0.01708153821527958,
+          "details": [
+            {
+              "stem": "jump",
+              "affix": "ing",
+              "pred": "light",
+              "ok": false,
+              "cos": -0.0029156841337680817
+            },
+            {
+              "stem": "walk",
+              "affix": "ing",
+              "pred": "play",
+              "ok": false,
+              "cos": 0.17286962270736694
+            },
+            {
+              "stem": "read",
+              "affix": "ing",
+              "pred": "run",
+              "ok": false,
+              "cos": 0.052939191460609436
+            },
+            {
+              "stem": "write",
+              "affix": "ing",
+              "pred": "play",
+              "ok": false,
+              "cos": -0.15292835235595703
+            },
+            {
+              "stem": "jump",
+              "affix": "ed",
+              "pred": "light",
+              "ok": false,
+              "cos": -0.004459261894226074
+            },
+            {
+              "stem": "walk",
+              "affix": "ed",
+              "pred": "play",
+              "ok": false,
+              "cos": 0.1719525009393692
+            },
+            {
+              "stem": "read",
+              "affix": "ed",
+              "pred": "run",
+              "ok": false,
+              "cos": 0.05014169216156006
+            },
+            {
+              "stem": "write",
+              "affix": "ed",
+              "pred": "play",
+              "ok": false,
+              "cos": -0.15152598917484283
+            },
+            {
+              "stem": "jump",
+              "affix": "s",
+              "pred": "light",
+              "ok": false,
+              "cos": -0.017724663019180298
+            },
+            {
+              "stem": "walk",
+              "affix": "s",
+              "pred": "play",
+              "ok": false,
+              "cos": 0.18410071730613708
+            },
+            {
+              "stem": "read",
+              "affix": "s",
+              "pred": "run",
+              "ok": false,
+              "cos": 0.04195919632911682
+            },
+            {
+              "stem": "write",
+              "affix": "s",
+              "pred": "play",
+              "ok": false,
+              "cos": -0.13943052291870117
+            }
+          ]
+        },
+        "W_fro": 10.10410213470459,
+        "wrong_affix": {
+          "acc": 0.0,
+          "mean_cos": 0.017169876024127007,
+          "details": [
+            {
+              "stem": "jump",
+              "affix": "ing",
+              "pred": "light",
+              "ok": false,
+              "cos": -0.004459261894226074
+            },
+            {
+              "stem": "walk",
+              "affix": "ing",
+              "pred": "play",
+              "ok": false,
+              "cos": 0.1719525009393692
+            },
+            {
+              "stem": "read",
+              "affix": "ing",
+              "pred": "run",
+              "ok": false,
+              "cos": 0.05014169216156006
+            },
+            {
+              "stem": "write",
+              "affix": "ing",
+              "pred": "play",
+              "ok": false,
+              "cos": -0.15152598917484283
+            },
+            {
+              "stem": "jump",
+              "affix": "ed",
+              "pred": "light",
+              "ok": false,
+              "cos": -0.0029156841337680817
+            },
+            {
+              "stem": "walk",
+              "affix": "ed",
+              "pred": "play",
+              "ok": false,
+              "cos": 0.17286962270736694
+            },
+            {
+              "stem": "read",
+              "affix": "ed",
+              "pred": "run",
+              "ok": false,
+              "cos": 0.052939191460609436
+            },
+            {
+              "stem": "write",
+              "affix": "ed",
+              "pred": "play",
+              "ok": false,
+              "cos": -0.15292835235595703
+            },
+            {
+              "stem": "jump",
+              "affix": "s",
+              "pred": "light",
+              "ok": false,
+              "cos": -0.0029156841337680817
+            },
+            {
+              "stem": "walk",
+              "affix": "s",
+              "pred": "play",
+              "ok": false,
+              "cos": 0.17286962270736694
+            },
+            {
+              "stem": "read",
+              "affix": "s",
+              "pred": "run",
+              "ok": false,
+              "cos": 0.052939191460609436
+            },
+            {
+              "stem": "write",
+              "affix": "s",
+              "pred": "play",
+              "ok": false,
+              "cos": -0.15292835235595703
+            }
+          ]
+        },
+        "shuffle": {
+          "acc": 0.0,
+          "mean_cos": 0.009813323616981506,
+          "details": [
+            {
+              "stem": "jump",
+              "affix": "ing",
+              "pred": "light",
+              "ok": false,
+              "cos": 0.02799055725336075
+            },
+            {
+              "stem": "walk",
+              "affix": "ing",
+              "pred": "play",
+              "ok": false,
+              "cos": 0.07425051927566528
+            },
+            {
+              "stem": "read",
+              "affix": "ing",
+              "pred": "play",
+              "ok": false,
+              "cos": 0.023837532848119736
+            },
+            {
+              "stem": "write",
+              "affix": "ing",
+              "pred": "play",
+              "ok": false,
+              "cos": -0.14396712183952332
+            },
+            {
+              "stem": "jump",
+              "affix": "ed",
+              "pred": "light",
+              "ok": false,
+              "cos": 0.02999800071120262
+            },
+            {
+              "stem": "walk",
+              "affix": "ed",
+              "pred": "play",
+              "ok": false,
+              "cos": 0.17086584866046906
+            },
+            {
+              "stem": "read",
+              "affix": "ed",
+              "pred": "run",
+              "ok": false,
+              "cos": 0.01782573200762272
+            },
+            {
+              "stem": "write",
+              "affix": "ed",
+              "pred": "play",
+              "ok": false,
+              "cos": -0.1507997214794159
+            },
+            {
+              "stem": "jump",
+              "affix": "s",
+              "pred": "light",
+              "ok": false,
+              "cos": -0.017724663019180298
+            },
+            {
+              "stem": "walk",
+              "affix": "s",
+              "pred": "play",
+              "ok": false,
+              "cos": 0.18410071730613708
+            },
+            {
+              "stem": "read",
+              "affix": "s",
+              "pred": "run",
+              "ok": false,
+              "cos": 0.04195919632911682
+            },
+            {
+              "stem": "write",
+              "affix": "s",
+              "pred": "play",
+              "ok": false,
+              "cos": -0.14057672023773193
+            }
+          ]
+        }
+      },
+      "content_pool": {
+        "train": {
+          "acc": 1.0,
+          "mean_cos": 0.9582880735397339,
+          "details": [
+            {
+              "stem": "play",
+              "affix": "ing",
+              "pred": "play",
+              "ok": true,
+              "cos": 0.9899986982345581
+            },
+            {
+              "stem": "go",
+              "affix": "ing",
+              "pred": "go",
+              "ok": true,
+              "cos": 0.9683136343955994
+            },
+            {
+              "stem": "act",
+              "affix": "ing",
+              "pred": "act",
+              "ok": true,
+              "cos": 0.9565298557281494
+            },
+            {
+              "stem": "fish",
+              "affix": "ing",
+              "pred": "fish",
+              "ok": true,
+              "cos": 0.9762465953826904
+            },
+            {
+              "stem": "post",
+              "affix": "ing",
+              "pred": "post",
+              "ok": true,
+              "cos": 0.9512580037117004
+            },
+            {
+              "stem": "book",
+              "affix": "ing",
+              "pred": "book",
+              "ok": true,
+              "cos": 0.9844204187393188
+            },
+            {
+              "stem": "light",
+              "affix": "ing",
+              "pred": "light",
+              "ok": true,
+              "cos": 0.9565285444259644
+            },
+            {
+              "stem": "make",
+              "affix": "ing",
+              "pred": "make",
+              "ok": true,
+              "cos": 0.9936853647232056
+            },
+            {
+              "stem": "take",
+              "affix": "ing",
+              "pred": "take",
+              "ok": true,
+              "cos": 0.9764569997787476
+            },
+            {
+              "stem": "give",
+              "affix": "ing",
+              "pred": "give",
+              "ok": true,
+              "cos": 0.9288603663444519
+            },
+            {
+              "stem": "run",
+              "affix": "ing",
+              "pred": "run",
+              "ok": true,
+              "cos": 0.953195333480835
+            },
+            {
+              "stem": "stop",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": true,
+              "cos": 0.9525575041770935
+            },
+            {
+              "stem": "spot",
+              "affix": "ing",
+              "pred": "spot",
+              "ok": true,
+              "cos": 0.9259308576583862
+            },
+            {
+              "stem": "top",
+              "affix": "ing",
+              "pred": "top",
+              "ok": true,
+              "cos": 0.9647933840751648
+            },
+            {
+              "stem": "play",
+              "affix": "ed",
+              "pred": "play",
+              "ok": true,
+              "cos": 0.9940017461776733
+            },
+            {
+              "stem": "stop",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": true,
+              "cos": 0.941612720489502
+            },
+            {
+              "stem": "post",
+              "affix": "ed",
+              "pred": "post",
+              "ok": true,
+              "cos": 0.9806789755821228
+            },
+            {
+              "stem": "act",
+              "affix": "ed",
+              "pred": "act",
+              "ok": true,
+              "cos": 0.9749056696891785
+            },
+            {
+              "stem": "fish",
+              "affix": "ed",
+              "pred": "fish",
+              "ok": true,
+              "cos": 0.9754101037979126
+            },
+            {
+              "stem": "book",
+              "affix": "ed",
+              "pred": "book",
+              "ok": true,
+              "cos": 0.9905188083648682
+            },
+            {
+              "stem": "top",
+              "affix": "ed",
+              "pred": "top",
+              "ok": true,
+              "cos": 0.9415088295936584
+            },
+            {
+              "stem": "spot",
+              "affix": "ed",
+              "pred": "spot",
+              "ok": true,
+              "cos": 0.9466720223426819
+            },
+            {
+              "stem": "light",
+              "affix": "ed",
+              "pred": "light",
+              "ok": true,
+              "cos": 0.9850648641586304
+            },
+            {
+              "stem": "water",
+              "affix": "ed",
+              "pred": "water",
+              "ok": true,
+              "cos": 0.9778940677642822
+            },
+            {
+              "stem": "play",
+              "affix": "s",
+              "pred": "play",
+              "ok": true,
+              "cos": 0.9601705074310303
+            },
+            {
+              "stem": "run",
+              "affix": "s",
+              "pred": "run",
+              "ok": true,
+              "cos": 0.9897318482398987
+            },
+            {
+              "stem": "make",
+              "affix": "s",
+              "pred": "make",
+              "ok": true,
+              "cos": 0.9949949979782104
+            },
+            {
+              "stem": "take",
+              "affix": "s",
+              "pred": "take",
+              "ok": true,
+              "cos": 0.9724475145339966
+            },
+            {
+              "stem": "give",
+              "affix": "s",
+              "pred": "give",
+              "ok": true,
+              "cos": 0.9126613736152649
+            },
+            {
+              "stem": "cat",
+              "affix": "s",
+              "pred": "cat",
+              "ok": true,
+              "cos": 0.8586444854736328
+            },
+            {
+              "stem": "dog",
+              "affix": "s",
+              "pred": "dog",
+              "ok": true,
+              "cos": 0.8544256091117859
+            },
+            {
+              "stem": "book",
+              "affix": "s",
+              "pred": "book",
+              "ok": true,
+              "cos": 0.9878121614456177
+            },
+            {
+              "stem": "act",
+              "affix": "s",
+              "pred": "act",
+              "ok": true,
+              "cos": 0.9521532654762268
+            },
+            {
+              "stem": "post",
+              "affix": "s",
+              "pred": "post",
+              "ok": true,
+              "cos": 0.9831043481826782
+            },
+            {
+              "stem": "go",
+              "affix": "s",
+              "pred": "go",
+              "ok": true,
+              "cos": 0.8832206726074219
+            },
+            {
+              "stem": "fish",
+              "affix": "s",
+              "pred": "fish",
+              "ok": true,
+              "cos": 0.9816696047782898
+            },
+            {
+              "stem": "top",
+              "affix": "s",
+              "pred": "top",
+              "ok": true,
+              "cos": 0.9360538721084595
+            },
+            {
+              "stem": "spot",
+              "affix": "s",
+              "pred": "spot",
+              "ok": true,
+              "cos": 0.9608131647109985
+            }
+          ]
+        },
+        "hold": {
+          "acc": 0.0,
+          "mean_cos": 0.03687015920877457,
+          "details": [
+            {
+              "stem": "jump",
+              "affix": "ing",
+              "pred": "light",
+              "ok": false,
+              "cos": 0.024939265102148056
+            },
+            {
+              "stem": "walk",
+              "affix": "ing",
+              "pred": "book",
+              "ok": false,
+              "cos": -0.12236703187227249
+            },
+            {
+              "stem": "read",
+              "affix": "ing",
+              "pred": "go",
+              "ok": false,
+              "cos": 0.17766574025154114
+            },
+            {
+              "stem": "write",
+              "affix": "ing",
+              "pred": "spot",
+              "ok": false,
+              "cos": 0.0649125874042511
+            },
+            {
+              "stem": "jump",
+              "affix": "ed",
+              "pred": "light",
+              "ok": false,
+              "cos": 0.03133760392665863
+            },
+            {
+              "stem": "walk",
+              "affix": "ed",
+              "pred": "book",
+              "ok": false,
+              "cos": -0.09056545048952103
+            },
+            {
+              "stem": "read",
+              "affix": "ed",
+              "pred": "go",
+              "ok": false,
+              "cos": 0.17779135704040527
+            },
+            {
+              "stem": "write",
+              "affix": "ed",
+              "pred": "spot",
+              "ok": false,
+              "cos": 0.06823419779539108
+            },
+            {
+              "stem": "jump",
+              "affix": "s",
+              "pred": "light",
+              "ok": false,
+              "cos": -0.0038384944200515747
+            },
+            {
+              "stem": "walk",
+              "affix": "s",
+              "pred": "book",
+              "ok": false,
+              "cos": -0.1501883715391159
+            },
+            {
+              "stem": "read",
+              "affix": "s",
+              "pred": "go",
+              "ok": false,
+              "cos": 0.20023274421691895
+            },
+            {
+              "stem": "write",
+              "affix": "s",
+              "pred": "spot",
+              "ok": false,
+              "cos": 0.06428776681423187
+            }
+          ]
+        },
+        "W_fro": 16.25609016418457,
+        "wrong_affix": {
+          "acc": 0.0,
+          "mean_cos": 0.03975823521614075,
+          "details": [
+            {
+              "stem": "jump",
+              "affix": "ing",
+              "pred": "light",
+              "ok": false,
+              "cos": 0.03133760392665863
+            },
+            {
+              "stem": "walk",
+              "affix": "ing",
+              "pred": "book",
+              "ok": false,
+              "cos": -0.09056545048952103
+            },
+            {
+              "stem": "read",
+              "affix": "ing",
+              "pred": "go",
+              "ok": false,
+              "cos": 0.17779135704040527
+            },
+            {
+              "stem": "write",
+              "affix": "ing",
+              "pred": "spot",
+              "ok": false,
+              "cos": 0.06823419779539108
+            },
+            {
+              "stem": "jump",
+              "affix": "ed",
+              "pred": "light",
+              "ok": false,
+              "cos": 0.024939265102148056
+            },
+            {
+              "stem": "walk",
+              "affix": "ed",
+              "pred": "book",
+              "ok": false,
+              "cos": -0.12236703187227249
+            },
+            {
+              "stem": "read",
+              "affix": "ed",
+              "pred": "go",
+              "ok": false,
+              "cos": 0.17766574025154114
+            },
+            {
+              "stem": "write",
+              "affix": "ed",
+              "pred": "spot",
+              "ok": false,
+              "cos": 0.0649125874042511
+            },
+            {
+              "stem": "jump",
+              "affix": "s",
+              "pred": "light",
+              "ok": false,
+              "cos": 0.024939265102148056
+            },
+            {
+              "stem": "walk",
+              "affix": "s",
+              "pred": "book",
+              "ok": false,
+              "cos": -0.12236703187227249
+            },
+            {
+              "stem": "read",
+              "affix": "s",
+              "pred": "go",
+              "ok": false,
+              "cos": 0.17766574025154114
+            },
+            {
+              "stem": "write",
+              "affix": "s",
+              "pred": "spot",
+              "ok": false,
+              "cos": 0.0649125874042511
+            }
+          ]
+        },
+        "shuffle": {
+          "acc": 0.0,
+          "mean_cos": 0.003420124528929591,
+          "details": [
+            {
+              "stem": "jump",
+              "affix": "ing",
+              "pred": "make",
+              "ok": false,
+              "cos": -0.07520732283592224
+            },
+            {
+              "stem": "walk",
+              "affix": "ing",
+              "pred": "book",
+              "ok": false,
+              "cos": -0.14993852376937866
+            },
+            {
+              "stem": "read",
+              "affix": "ing",
+              "pred": "fish",
+              "ok": false,
+              "cos": 0.11371762305498123
+            },
+            {
+              "stem": "write",
+              "affix": "ing",
+              "pred": "spot",
+              "ok": false,
+              "cos": -0.010786697268486023
+            },
+            {
+              "stem": "jump",
+              "affix": "ed",
+              "pred": "light",
+              "ok": false,
+              "cos": -0.001020669937133789
+            },
+            {
+              "stem": "walk",
+              "affix": "ed",
+              "pred": "book",
+              "ok": false,
+              "cos": -0.13230080902576447
+            },
+            {
+              "stem": "read",
+              "affix": "ed",
+              "pred": "go",
+              "ok": false,
+              "cos": 0.10137422382831573
+            },
+            {
+              "stem": "write",
+              "affix": "ed",
+              "pred": "spot",
+              "ok": false,
+              "cos": 0.07210472226142883
+            },
+            {
+              "stem": "jump",
+              "affix": "s",
+              "pred": "light",
+              "ok": false,
+              "cos": -0.0038384944200515747
+            },
+            {
+              "stem": "walk",
+              "affix": "s",
+              "pred": "book",
+              "ok": false,
+              "cos": -0.1501883715391159
+            },
+            {
+              "stem": "read",
+              "affix": "s",
+              "pred": "go",
+              "ok": false,
+              "cos": 0.20023274421691895
+            },
+            {
+              "stem": "write",
+              "affix": "s",
+              "pred": "spot",
+              "ok": false,
+              "cos": 0.07689311355352402
+            }
+          ]
+        }
+      },
+      "order_pool": {
+        "train": {
+          "acc": 1.0,
+          "mean_cos": 0.9561664462089539,
+          "details": [
+            {
+              "stem": "play",
+              "affix": "ing",
+              "pred": "play",
+              "ok": true,
+              "cos": 0.9868552088737488
+            },
+            {
+              "stem": "go",
+              "affix": "ing",
+              "pred": "go",
+              "ok": true,
+              "cos": 0.8122766613960266
+            },
+            {
+              "stem": "act",
+              "affix": "ing",
+              "pred": "act",
+              "ok": true,
+              "cos": 0.9238121509552002
+            },
+            {
+              "stem": "fish",
+              "affix": "ing",
+              "pred": "fish",
+              "ok": true,
+              "cos": 0.9499300718307495
+            },
+            {
+              "stem": "post",
+              "affix": "ing",
+              "pred": "post",
+              "ok": true,
+              "cos": 0.9806930422782898
+            },
+            {
+              "stem": "book",
+              "affix": "ing",
+              "pred": "book",
+              "ok": true,
+              "cos": 0.9926700592041016
+            },
+            {
+              "stem": "light",
+              "affix": "ing",
+              "pred": "light",
+              "ok": true,
+              "cos": 0.9048274755477905
+            },
+            {
+              "stem": "make",
+              "affix": "ing",
+              "pred": "make",
+              "ok": true,
+              "cos": 0.9569064378738403
+            },
+            {
+              "stem": "take",
+              "affix": "ing",
+              "pred": "take",
+              "ok": true,
+              "cos": 0.9635823369026184
+            },
+            {
+              "stem": "give",
+              "affix": "ing",
+              "pred": "give",
+              "ok": true,
+              "cos": 0.9888638257980347
+            },
+            {
+              "stem": "run",
+              "affix": "ing",
+              "pred": "run",
+              "ok": true,
+              "cos": 0.9654735922813416
+            },
+            {
+              "stem": "stop",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": true,
+              "cos": 0.9044755101203918
+            },
+            {
+              "stem": "spot",
+              "affix": "ing",
+              "pred": "spot",
+              "ok": true,
+              "cos": 0.9625561833381653
+            },
+            {
+              "stem": "top",
+              "affix": "ing",
+              "pred": "top",
+              "ok": true,
+              "cos": 0.9360014796257019
+            },
+            {
+              "stem": "play",
+              "affix": "ed",
+              "pred": "play",
+              "ok": true,
+              "cos": 0.9925240278244019
+            },
+            {
+              "stem": "stop",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": true,
+              "cos": 0.9321516752243042
+            },
+            {
+              "stem": "post",
+              "affix": "ed",
+              "pred": "post",
+              "ok": true,
+              "cos": 0.9696325063705444
+            },
+            {
+              "stem": "act",
+              "affix": "ed",
+              "pred": "act",
+              "ok": true,
+              "cos": 0.9721983075141907
+            },
+            {
+              "stem": "fish",
+              "affix": "ed",
+              "pred": "fish",
+              "ok": true,
+              "cos": 0.9681942462921143
+            },
+            {
+              "stem": "book",
+              "affix": "ed",
+              "pred": "book",
+              "ok": true,
+              "cos": 0.9949103593826294
+            },
+            {
+              "stem": "top",
+              "affix": "ed",
+              "pred": "top",
+              "ok": true,
+              "cos": 0.9577242732048035
+            },
+            {
+              "stem": "spot",
+              "affix": "ed",
+              "pred": "spot",
+              "ok": true,
+              "cos": 0.9500859379768372
+            },
+            {
+              "stem": "light",
+              "affix": "ed",
+              "pred": "light",
+              "ok": true,
+              "cos": 0.9171136617660522
+            },
+            {
+              "stem": "water",
+              "affix": "ed",
+              "pred": "water",
+              "ok": true,
+              "cos": 0.9368630647659302
+            },
+            {
+              "stem": "play",
+              "affix": "s",
+              "pred": "play",
+              "ok": true,
+              "cos": 0.9940584897994995
+            },
+            {
+              "stem": "run",
+              "affix": "s",
+              "pred": "run",
+              "ok": true,
+              "cos": 0.9916273355484009
+            },
+            {
+              "stem": "make",
+              "affix": "s",
+              "pred": "make",
+              "ok": true,
+              "cos": 0.9747971892356873
+            },
+            {
+              "stem": "take",
+              "affix": "s",
+              "pred": "take",
+              "ok": true,
+              "cos": 0.9487602710723877
+            },
+            {
+              "stem": "give",
+              "affix": "s",
+              "pred": "give",
+              "ok": true,
+              "cos": 0.9900454878807068
+            },
+            {
+              "stem": "cat",
+              "affix": "s",
+              "pred": "cat",
+              "ok": true,
+              "cos": 0.9184911251068115
+            },
+            {
+              "stem": "dog",
+              "affix": "s",
+              "pred": "dog",
+              "ok": true,
+              "cos": 0.9543349742889404
+            },
+            {
+              "stem": "book",
+              "affix": "s",
+              "pred": "book",
+              "ok": true,
+              "cos": 0.9939283132553101
+            },
+            {
+              "stem": "act",
+              "affix": "s",
+              "pred": "act",
+              "ok": true,
+              "cos": 0.9766877889633179
+            },
+            {
+              "stem": "post",
+              "affix": "s",
+              "pred": "post",
+              "ok": true,
+              "cos": 0.9738695025444031
+            },
+            {
+              "stem": "go",
+              "affix": "s",
+              "pred": "go",
+              "ok": true,
+              "cos": 0.9657367467880249
+            },
+            {
+              "stem": "fish",
+              "affix": "s",
+              "pred": "fish",
+              "ok": true,
+              "cos": 0.9489039778709412
+            },
+            {
+              "stem": "top",
+              "affix": "s",
+              "pred": "top",
+              "ok": true,
+              "cos": 0.9618911743164062
+            },
+            {
+              "stem": "spot",
+              "affix": "s",
+              "pred": "spot",
+              "ok": true,
+              "cos": 0.9208697080612183
+            }
+          ]
+        },
+        "hold": {
+          "acc": 0.0,
+          "mean_cos": 0.012701256200671196,
+          "details": [
+            {
+              "stem": "jump",
+              "affix": "ing",
+              "pred": "make",
+              "ok": false,
+              "cos": 0.028006181120872498
+            },
+            {
+              "stem": "walk",
+              "affix": "ing",
+              "pred": "play",
+              "ok": false,
+              "cos": -0.014370910823345184
+            },
+            {
+              "stem": "read",
+              "affix": "ing",
+              "pred": "fish",
+              "ok": false,
+              "cos": 0.09452388435602188
+            },
+            {
+              "stem": "write",
+              "affix": "ing",
+              "pred": "give",
+              "ok": false,
+              "cos": -0.018925033509731293
+            },
+            {
+              "stem": "jump",
+              "affix": "ed",
+              "pred": "make",
+              "ok": false,
+              "cos": 0.01720745861530304
+            },
+            {
+              "stem": "walk",
+              "affix": "ed",
+              "pred": "play",
+              "ok": false,
+              "cos": -0.024306822568178177
+            },
+            {
+              "stem": "read",
+              "affix": "ed",
+              "pred": "fish",
+              "ok": false,
+              "cos": 0.0812460333108902
+            },
+            {
+              "stem": "write",
+              "affix": "ed",
+              "pred": "give",
+              "ok": false,
+              "cos": -0.01886766031384468
+            },
+            {
+              "stem": "jump",
+              "affix": "s",
+              "pred": "make",
+              "ok": false,
+              "cos": 0.02068193256855011
+            },
+            {
+              "stem": "walk",
+              "affix": "s",
+              "pred": "play",
+              "ok": false,
+              "cos": -0.021004825830459595
+            },
+            {
+              "stem": "read",
+              "affix": "s",
+              "pred": "fish",
+              "ok": false,
+              "cos": 0.08421336114406586
+            },
+            {
+              "stem": "write",
+              "affix": "s",
+              "pred": "give",
+              "ok": false,
+              "cos": -0.0759885311126709
+            }
+          ]
+        },
+        "W_fro": 16.99738121032715,
+        "wrong_affix": {
+          "acc": 0.0,
+          "mean_cos": 0.01947893761098385,
+          "details": [
+            {
+              "stem": "jump",
+              "affix": "ing",
+              "pred": "make",
+              "ok": false,
+              "cos": 0.01720745861530304
+            },
+            {
+              "stem": "walk",
+              "affix": "ing",
+              "pred": "play",
+              "ok": false,
+              "cos": -0.024306822568178177
+            },
+            {
+              "stem": "read",
+              "affix": "ing",
+              "pred": "fish",
+              "ok": false,
+              "cos": 0.0812460333108902
+            },
+            {
+              "stem": "write",
+              "affix": "ing",
+              "pred": "give",
+              "ok": false,
+              "cos": -0.01886766031384468
+            },
+            {
+              "stem": "jump",
+              "affix": "ed",
+              "pred": "make",
+              "ok": false,
+              "cos": 0.028006181120872498
+            },
+            {
+              "stem": "walk",
+              "affix": "ed",
+              "pred": "play",
+              "ok": false,
+              "cos": -0.014370910823345184
+            },
+            {
+              "stem": "read",
+              "affix": "ed",
+              "pred": "fish",
+              "ok": false,
+              "cos": 0.09452388435602188
+            },
+            {
+              "stem": "write",
+              "affix": "ed",
+              "pred": "give",
+              "ok": false,
+              "cos": -0.018925033509731293
+            },
+            {
+              "stem": "jump",
+              "affix": "s",
+              "pred": "make",
+              "ok": false,
+              "cos": 0.028006181120872498
+            },
+            {
+              "stem": "walk",
+              "affix": "s",
+              "pred": "play",
+              "ok": false,
+              "cos": -0.014370910823345184
+            },
+            {
+              "stem": "read",
+              "affix": "s",
+              "pred": "fish",
+              "ok": false,
+              "cos": 0.09452388435602188
+            },
+            {
+              "stem": "write",
+              "affix": "s",
+              "pred": "give",
+              "ok": false,
+              "cos": -0.018925033509731293
+            }
+          ]
+        },
+        "shuffle": {
+          "acc": 0.0,
+          "mean_cos": 0.04170148819684982,
+          "details": [
+            {
+              "stem": "jump",
+              "affix": "ing",
+              "pred": "make",
+              "ok": false,
+              "cos": 0.018261656165122986
+            },
+            {
+              "stem": "walk",
+              "affix": "ing",
+              "pred": "play",
+              "ok": false,
+              "cos": 0.0013221688568592072
+            },
+            {
+              "stem": "read",
+              "affix": "ing",
+              "pred": "fish",
+              "ok": false,
+              "cos": 0.1051231175661087
+            },
+            {
+              "stem": "write",
+              "affix": "ing",
+              "pred": "give",
+              "ok": false,
+              "cos": -0.00723692774772644
+            },
+            {
+              "stem": "jump",
+              "affix": "ed",
+              "pred": "make",
+              "ok": false,
+              "cos": 0.0820956751704216
+            },
+            {
+              "stem": "walk",
+              "affix": "ed",
+              "pred": "make",
+              "ok": false,
+              "cos": 0.06750510632991791
+            },
+            {
+              "stem": "read",
+              "affix": "ed",
+              "pred": "fish",
+              "ok": false,
+              "cos": 0.0745578482747078
+            },
+            {
+              "stem": "write",
+              "affix": "ed",
+              "pred": "give",
+              "ok": false,
+              "cos": 0.057726312428712845
+            },
+            {
+              "stem": "jump",
+              "affix": "s",
+              "pred": "make",
+              "ok": false,
+              "cos": 0.02068193256855011
+            },
+            {
+              "stem": "walk",
+              "affix": "s",
+              "pred": "play",
+              "ok": false,
+              "cos": -0.021004825830459595
+            },
+            {
+              "stem": "read",
+              "affix": "s",
+              "pred": "fish",
+              "ok": false,
+              "cos": 0.08421336114406586
+            },
+            {
+              "stem": "write",
+              "affix": "s",
+              "pred": "give",
+              "ok": false,
+              "cos": 0.017172381281852722
+            }
+          ]
+        }
+      },
+      "morph_pool": {
+        "train": {
+          "acc": 0.10526315789473684,
+          "mean_cos": 0.3392115831375122,
+          "details": [
+            {
+              "stem": "play",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.26892656087875366
+            },
+            {
+              "stem": "go",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.37468838691711426
+            },
+            {
+              "stem": "act",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.08932755887508392
+            },
+            {
+              "stem": "fish",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.30667877197265625
+            },
+            {
+              "stem": "post",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.2566494345664978
+            },
+            {
+              "stem": "book",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.24016457796096802
+            },
+            {
+              "stem": "light",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.36247900128364563
+            },
+            {
+              "stem": "make",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.26432546973228455
+            },
+            {
+              "stem": "take",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.43585965037345886
+            },
+            {
+              "stem": "give",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.25326699018478394
+            },
+            {
+              "stem": "run",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.26968836784362793
+            },
+            {
+              "stem": "stop",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": true,
+              "cos": 0.46795767545700073
+            },
+            {
+              "stem": "spot",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.21730110049247742
+            },
+            {
+              "stem": "top",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.19502173364162445
+            },
+            {
+              "stem": "play",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.40146932005882263
+            },
+            {
+              "stem": "stop",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": true,
+              "cos": 0.49831196665763855
+            },
+            {
+              "stem": "post",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.32005539536476135
+            },
+            {
+              "stem": "act",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.05894601345062256
+            },
+            {
+              "stem": "fish",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.34022462368011475
+            },
+            {
+              "stem": "book",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.33260273933410645
+            },
+            {
+              "stem": "top",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.34996214509010315
+            },
+            {
+              "stem": "spot",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.24192628264427185
+            },
+            {
+              "stem": "light",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.38927626609802246
+            },
+            {
+              "stem": "water",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.45799675583839417
+            },
+            {
+              "stem": "play",
+              "affix": "s",
+              "pred": "cat",
+              "ok": false,
+              "cos": 0.2421332150697708
+            },
+            {
+              "stem": "run",
+              "affix": "s",
+              "pred": "cat",
+              "ok": false,
+              "cos": 0.29920780658721924
+            },
+            {
+              "stem": "make",
+              "affix": "s",
+              "pred": "give",
+              "ok": false,
+              "cos": 0.3597802519798279
+            },
+            {
+              "stem": "take",
+              "affix": "s",
+              "pred": "give",
+              "ok": false,
+              "cos": 0.5099455714225769
+            },
+            {
+              "stem": "give",
+              "affix": "s",
+              "pred": "give",
+              "ok": true,
+              "cos": 0.6172791719436646
+            },
+            {
+              "stem": "cat",
+              "affix": "s",
+              "pred": "cat",
+              "ok": true,
+              "cos": 0.4574153423309326
+            },
+            {
+              "stem": "dog",
+              "affix": "s",
+              "pred": "cat",
+              "ok": false,
+              "cos": 0.4087921679019928
+            },
+            {
+              "stem": "book",
+              "affix": "s",
+              "pred": "cat",
+              "ok": false,
+              "cos": 0.36676108837127686
+            },
+            {
+              "stem": "act",
+              "affix": "s",
+              "pred": "cat",
+              "ok": false,
+              "cos": 0.24433204531669617
+            },
+            {
+              "stem": "post",
+              "affix": "s",
+              "pred": "cat",
+              "ok": false,
+              "cos": 0.42143481969833374
+            },
+            {
+              "stem": "go",
+              "affix": "s",
+              "pred": "give",
+              "ok": false,
+              "cos": 0.5811945199966431
+            },
+            {
+              "stem": "fish",
+              "affix": "s",
+              "pred": "give",
+              "ok": false,
+              "cos": 0.4450799226760864
+            },
+            {
+              "stem": "top",
+              "affix": "s",
+              "pred": "cat",
+              "ok": false,
+              "cos": 0.29134401679039
+            },
+            {
+              "stem": "spot",
+              "affix": "s",
+              "pred": "cat",
+              "ok": false,
+              "cos": 0.2522340416908264
+            }
+          ]
+        },
+        "hold": {
+          "acc": 0.0,
+          "mean_cos": -0.0014909332385286689,
+          "details": [
+            {
+              "stem": "jump",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": -0.004522757604718208
+            },
+            {
+              "stem": "walk",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": -0.04825218766927719
+            },
+            {
+              "stem": "read",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.05677876994013786
+            },
+            {
+              "stem": "write",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": -0.0250135138630867
+            },
+            {
+              "stem": "jump",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": -0.0665605366230011
+            },
+            {
+              "stem": "walk",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.11340358108282089
+            },
+            {
+              "stem": "read",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.06155277043581009
+            },
+            {
+              "stem": "write",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.05066198110580444
+            },
+            {
+              "stem": "jump",
+              "affix": "s",
+              "pred": "cat",
+              "ok": false,
+              "cos": -0.1205504834651947
+            },
+            {
+              "stem": "walk",
+              "affix": "s",
+              "pred": "cat",
+              "ok": false,
+              "cos": -0.10093116015195847
+            },
+            {
+              "stem": "read",
+              "affix": "s",
+              "pred": "cat",
+              "ok": false,
+              "cos": 0.0791090577840805
+            },
+            {
+              "stem": "write",
+              "affix": "s",
+              "pred": "give",
+              "ok": false,
+              "cos": -0.013566717505455017
+            }
+          ]
+        },
+        "W_fro": 0.8620643615722656,
+        "wrong_affix": {
+          "acc": 0.0,
+          "mean_cos": 0.00975320115685463,
+          "details": [
+            {
+              "stem": "jump",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": -0.0665605366230011
+            },
+            {
+              "stem": "walk",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.11340358108282089
+            },
+            {
+              "stem": "read",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.06155277043581009
+            },
+            {
+              "stem": "write",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.05066198110580444
+            },
+            {
+              "stem": "jump",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": -0.004522757604718208
+            },
+            {
+              "stem": "walk",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": -0.04825218766927719
+            },
+            {
+              "stem": "read",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.05677876994013786
+            },
+            {
+              "stem": "write",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": -0.0250135138630867
+            },
+            {
+              "stem": "jump",
+              "affix": "s",
+              "pred": "stop",
+              "ok": false,
+              "cos": -0.004522757604718208
+            },
+            {
+              "stem": "walk",
+              "affix": "s",
+              "pred": "stop",
+              "ok": false,
+              "cos": -0.04825218766927719
+            },
+            {
+              "stem": "read",
+              "affix": "s",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.05677876994013786
+            },
+            {
+              "stem": "write",
+              "affix": "s",
+              "pred": "stop",
+              "ok": false,
+              "cos": -0.0250135138630867
+            }
+          ]
+        },
+        "shuffle": {
+          "acc": 0.0,
+          "mean_cos": -0.0005089740152470767,
+          "details": [
+            {
+              "stem": "jump",
+              "affix": "ing",
+              "pred": "take",
+              "ok": false,
+              "cos": 0.037091437727212906
+            },
+            {
+              "stem": "walk",
+              "affix": "ing",
+              "pred": "go",
+              "ok": false,
+              "cos": -0.05132358521223068
+            },
+            {
+              "stem": "read",
+              "affix": "ing",
+              "pred": "take",
+              "ok": false,
+              "cos": 0.059922121465206146
+            },
+            {
+              "stem": "write",
+              "affix": "ing",
+              "pred": "take",
+              "ok": false,
+              "cos": -0.027979455888271332
+            },
+            {
+              "stem": "jump",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": -0.0827905684709549
+            },
+            {
+              "stem": "walk",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.10284316539764404
+            },
+            {
+              "stem": "read",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.059990137815475464
+            },
+            {
+              "stem": "write",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.04527539759874344
+            },
+            {
+              "stem": "jump",
+              "affix": "s",
+              "pred": "cat",
+              "ok": false,
+              "cos": -0.1205504834651947
+            },
+            {
+              "stem": "walk",
+              "affix": "s",
+              "pred": "cat",
+              "ok": false,
+              "cos": -0.10093116015195847
+            },
+            {
+              "stem": "read",
+              "affix": "s",
+              "pred": "cat",
+              "ok": false,
+              "cos": 0.0791090577840805
+            },
+            {
+              "stem": "write",
+              "affix": "s",
+              "pred": "take",
+              "ok": false,
+              "cos": -0.006763756275177002
+            }
+          ]
+        }
+      },
+      "mod_suf_pool": {
+        "train": {
+          "acc": 0.10526315789473684,
+          "mean_cos": 0.3392105996608734,
+          "details": [
+            {
+              "stem": "play",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.2687590420246124
+            },
+            {
+              "stem": "go",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.3750356435775757
+            },
+            {
+              "stem": "act",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.08925827592611313
+            },
+            {
+              "stem": "fish",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.3067799210548401
+            },
+            {
+              "stem": "post",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.2563711404800415
+            },
+            {
+              "stem": "book",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.23991858959197998
+            },
+            {
+              "stem": "light",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.36236572265625
+            },
+            {
+              "stem": "make",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.26459065079689026
+            },
+            {
+              "stem": "take",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.4360271990299225
+            },
+            {
+              "stem": "give",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.2538049817085266
+            },
+            {
+              "stem": "run",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.2696537375450134
+            },
+            {
+              "stem": "stop",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": true,
+              "cos": 0.46785879135131836
+            },
+            {
+              "stem": "spot",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.21712759137153625
+            },
+            {
+              "stem": "top",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.19478273391723633
+            },
+            {
+              "stem": "play",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.40155377984046936
+            },
+            {
+              "stem": "stop",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": true,
+              "cos": 0.49862635135650635
+            },
+            {
+              "stem": "post",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.31955254077911377
+            },
+            {
+              "stem": "act",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.05872027575969696
+            },
+            {
+              "stem": "fish",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.3410302400588989
+            },
+            {
+              "stem": "book",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.33226925134658813
+            },
+            {
+              "stem": "top",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.34976428747177124
+            },
+            {
+              "stem": "spot",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.24164685606956482
+            },
+            {
+              "stem": "light",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.3894008696079254
+            },
+            {
+              "stem": "water",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.45819786190986633
+            },
+            {
+              "stem": "play",
+              "affix": "s",
+              "pred": "cat",
+              "ok": false,
+              "cos": 0.2418977916240692
+            },
+            {
+              "stem": "run",
+              "affix": "s",
+              "pred": "cat",
+              "ok": false,
+              "cos": 0.2994667887687683
+            },
+            {
+              "stem": "make",
+              "affix": "s",
+              "pred": "give",
+              "ok": false,
+              "cos": 0.35961636900901794
+            },
+            {
+              "stem": "take",
+              "affix": "s",
+              "pred": "give",
+              "ok": false,
+              "cos": 0.5104892253875732
+            },
+            {
+              "stem": "give",
+              "affix": "s",
+              "pred": "give",
+              "ok": true,
+              "cos": 0.6164630651473999
+            },
+            {
+              "stem": "cat",
+              "affix": "s",
+              "pred": "cat",
+              "ok": true,
+              "cos": 0.4575275480747223
+            },
+            {
+              "stem": "dog",
+              "affix": "s",
+              "pred": "cat",
+              "ok": false,
+              "cos": 0.4092558026313782
+            },
+            {
+              "stem": "book",
+              "affix": "s",
+              "pred": "cat",
+              "ok": false,
+              "cos": 0.3665768802165985
+            },
+            {
+              "stem": "act",
+              "affix": "s",
+              "pred": "cat",
+              "ok": false,
+              "cos": 0.2445739209651947
+            },
+            {
+              "stem": "post",
+              "affix": "s",
+              "pred": "cat",
+              "ok": false,
+              "cos": 0.4212486445903778
+            },
+            {
+              "stem": "go",
+              "affix": "s",
+              "pred": "give",
+              "ok": false,
+              "cos": 0.5811089277267456
+            },
+            {
+              "stem": "fish",
+              "affix": "s",
+              "pred": "give",
+              "ok": false,
+              "cos": 0.44558185338974
+            },
+            {
+              "stem": "top",
+              "affix": "s",
+              "pred": "cat",
+              "ok": false,
+              "cos": 0.29106569290161133
+            },
+            {
+              "stem": "spot",
+              "affix": "s",
+              "pred": "cat",
+              "ok": false,
+              "cos": 0.2520332336425781
+            }
+          ]
+        },
+        "hold": {
+          "acc": 0.0,
+          "mean_cos": -0.0014783641090616584,
+          "details": [
+            {
+              "stem": "jump",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": -0.004396084696054459
+            },
+            {
+              "stem": "walk",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": -0.04835432022809982
+            },
+            {
+              "stem": "read",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.05676797404885292
+            },
+            {
+              "stem": "write",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": -0.025051280856132507
+            },
+            {
+              "stem": "jump",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": -0.06628391146659851
+            },
+            {
+              "stem": "walk",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.11342205852270126
+            },
+            {
+              "stem": "read",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.061591748148202896
+            },
+            {
+              "stem": "write",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.050697240978479385
+            },
+            {
+              "stem": "jump",
+              "affix": "s",
+              "pred": "cat",
+              "ok": false,
+              "cos": -0.12042007595300674
+            },
+            {
+              "stem": "walk",
+              "affix": "s",
+              "pred": "cat",
+              "ok": false,
+              "cos": -0.1014215499162674
+            },
+            {
+              "stem": "read",
+              "affix": "s",
+              "pred": "cat",
+              "ok": false,
+              "cos": 0.07920072972774506
+            },
+            {
+              "stem": "write",
+              "affix": "s",
+              "pred": "give",
+              "ok": false,
+              "cos": -0.0134928859770298
+            }
+          ]
+        },
+        "W_fro": 1.1796023845672607,
+        "wrong_affix": {
+          "acc": 0.0,
+          "mean_cos": 0.009779976680874825,
+          "details": [
+            {
+              "stem": "jump",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": -0.06628391146659851
+            },
+            {
+              "stem": "walk",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.11342205852270126
+            },
+            {
+              "stem": "read",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.061591748148202896
+            },
+            {
+              "stem": "write",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.050697240978479385
+            },
+            {
+              "stem": "jump",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": -0.004396084696054459
+            },
+            {
+              "stem": "walk",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": -0.04835432022809982
+            },
+            {
+              "stem": "read",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.05676797404885292
+            },
+            {
+              "stem": "write",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": -0.025051280856132507
+            },
+            {
+              "stem": "jump",
+              "affix": "s",
+              "pred": "stop",
+              "ok": false,
+              "cos": -0.004396084696054459
+            },
+            {
+              "stem": "walk",
+              "affix": "s",
+              "pred": "stop",
+              "ok": false,
+              "cos": -0.04835432022809982
+            },
+            {
+              "stem": "read",
+              "affix": "s",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.05676797404885292
+            },
+            {
+              "stem": "write",
+              "affix": "s",
+              "pred": "stop",
+              "ok": false,
+              "cos": -0.025051280856132507
+            }
+          ]
+        },
+        "shuffle": {
+          "acc": 0.0,
+          "mean_cos": -0.003267938969656825,
+          "details": [
+            {
+              "stem": "jump",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": -0.03968155384063721
+            },
+            {
+              "stem": "walk",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": -0.055992815643548965
+            },
+            {
+              "stem": "read",
+              "affix": "ing",
+              "pred": "take",
+              "ok": false,
+              "cos": 0.062026768922805786
+            },
+            {
+              "stem": "write",
+              "affix": "ing",
+              "pred": "take",
+              "ok": false,
+              "cos": -0.02558528631925583
+            },
+            {
+              "stem": "jump",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": -0.04738300293684006
+            },
+            {
+              "stem": "walk",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.10466715693473816
+            },
+            {
+              "stem": "read",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.06470730155706406
+            },
+            {
+              "stem": "write",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.04926792532205582
+            },
+            {
+              "stem": "jump",
+              "affix": "s",
+              "pred": "cat",
+              "ok": false,
+              "cos": -0.12042007595300674
+            },
+            {
+              "stem": "walk",
+              "affix": "s",
+              "pred": "cat",
+              "ok": false,
+              "cos": -0.1014215499162674
+            },
+            {
+              "stem": "read",
+              "affix": "s",
+              "pred": "cat",
+              "ok": false,
+              "cos": 0.07920072972774506
+            },
+            {
+              "stem": "write",
+              "affix": "s",
+              "pred": "go",
+              "ok": false,
+              "cos": -0.008600890636444092
+            }
+          ]
+        }
+      },
+      "form_minus_stem_out": {
+        "train": {
+          "acc": 1.0,
+          "mean_cos": 0.9977620840072632,
+          "details": [
+            {
+              "stem": "play",
+              "affix": "ing",
+              "pred": "play",
+              "ok": true,
+              "cos": 0.9975592494010925
+            },
+            {
+              "stem": "go",
+              "affix": "ing",
+              "pred": "go",
+              "ok": true,
+              "cos": 0.9989800453186035
+            },
+            {
+              "stem": "act",
+              "affix": "ing",
+              "pred": "act",
+              "ok": true,
+              "cos": 0.9988093972206116
+            },
+            {
+              "stem": "fish",
+              "affix": "ing",
+              "pred": "fish",
+              "ok": true,
+              "cos": 0.9987512230873108
+            },
+            {
+              "stem": "post",
+              "affix": "ing",
+              "pred": "post",
+              "ok": true,
+              "cos": 0.9968514442443848
+            },
+            {
+              "stem": "book",
+              "affix": "ing",
+              "pred": "book",
+              "ok": true,
+              "cos": 0.9992325901985168
+            },
+            {
+              "stem": "light",
+              "affix": "ing",
+              "pred": "light",
+              "ok": true,
+              "cos": 0.9986685514450073
+            },
+            {
+              "stem": "make",
+              "affix": "ing",
+              "pred": "make",
+              "ok": true,
+              "cos": 0.9983312487602234
+            },
+            {
+              "stem": "take",
+              "affix": "ing",
+              "pred": "take",
+              "ok": true,
+              "cos": 0.9958853125572205
+            },
+            {
+              "stem": "give",
+              "affix": "ing",
+              "pred": "give",
+              "ok": true,
+              "cos": 0.9982945919036865
+            },
+            {
+              "stem": "run",
+              "affix": "ing",
+              "pred": "run",
+              "ok": true,
+              "cos": 0.9945321083068848
+            },
+            {
+              "stem": "stop",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": true,
+              "cos": 0.9951170086860657
+            },
+            {
+              "stem": "spot",
+              "affix": "ing",
+              "pred": "spot",
+              "ok": true,
+              "cos": 0.997810423374176
+            },
+            {
+              "stem": "top",
+              "affix": "ing",
+              "pred": "top",
+              "ok": true,
+              "cos": 0.9976999163627625
+            },
+            {
+              "stem": "play",
+              "affix": "ed",
+              "pred": "play",
+              "ok": true,
+              "cos": 0.9961163997650146
+            },
+            {
+              "stem": "stop",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": true,
+              "cos": 0.9988030195236206
+            },
+            {
+              "stem": "post",
+              "affix": "ed",
+              "pred": "post",
+              "ok": true,
+              "cos": 0.9961675405502319
+            },
+            {
+              "stem": "act",
+              "affix": "ed",
+              "pred": "act",
+              "ok": true,
+              "cos": 0.9997109770774841
+            },
+            {
+              "stem": "fish",
+              "affix": "ed",
+              "pred": "fish",
+              "ok": true,
+              "cos": 0.9982295036315918
+            },
+            {
+              "stem": "book",
+              "affix": "ed",
+              "pred": "book",
+              "ok": true,
+              "cos": 0.9990008473396301
+            },
+            {
+              "stem": "top",
+              "affix": "ed",
+              "pred": "top",
+              "ok": true,
+              "cos": 0.9962037801742554
+            },
+            {
+              "stem": "spot",
+              "affix": "ed",
+              "pred": "spot",
+              "ok": true,
+              "cos": 0.999058723449707
+            },
+            {
+              "stem": "light",
+              "affix": "ed",
+              "pred": "light",
+              "ok": true,
+              "cos": 0.9963343739509583
+            },
+            {
+              "stem": "water",
+              "affix": "ed",
+              "pred": "water",
+              "ok": true,
+              "cos": 0.9988692998886108
+            },
+            {
+              "stem": "play",
+              "affix": "s",
+              "pred": "play",
+              "ok": true,
+              "cos": 0.9991773366928101
+            },
+            {
+              "stem": "run",
+              "affix": "s",
+              "pred": "run",
+              "ok": true,
+              "cos": 0.9960007667541504
+            },
+            {
+              "stem": "make",
+              "affix": "s",
+              "pred": "make",
+              "ok": true,
+              "cos": 0.9986468553543091
+            },
+            {
+              "stem": "take",
+              "affix": "s",
+              "pred": "take",
+              "ok": true,
+              "cos": 0.9988583922386169
+            },
+            {
+              "stem": "give",
+              "affix": "s",
+              "pred": "give",
+              "ok": true,
+              "cos": 0.9983940124511719
+            },
+            {
+              "stem": "cat",
+              "affix": "s",
+              "pred": "cat",
+              "ok": true,
+              "cos": 0.998623251914978
+            },
+            {
+              "stem": "dog",
+              "affix": "s",
+              "pred": "dog",
+              "ok": true,
+              "cos": 0.997683048248291
+            },
+            {
+              "stem": "book",
+              "affix": "s",
+              "pred": "book",
+              "ok": true,
+              "cos": 0.9975998401641846
+            },
+            {
+              "stem": "act",
+              "affix": "s",
+              "pred": "act",
+              "ok": true,
+              "cos": 0.9978238344192505
+            },
+            {
+              "stem": "post",
+              "affix": "s",
+              "pred": "post",
+              "ok": true,
+              "cos": 0.9947017431259155
+            },
+            {
+              "stem": "go",
+              "affix": "s",
+              "pred": "go",
+              "ok": true,
+              "cos": 0.9964621663093567
+            },
+            {
+              "stem": "fish",
+              "affix": "s",
+              "pred": "fish",
+              "ok": true,
+              "cos": 0.9984675049781799
+            },
+            {
+              "stem": "top",
+              "affix": "s",
+              "pred": "top",
+              "ok": true,
+              "cos": 0.99920654296875
+            },
+            {
+              "stem": "spot",
+              "affix": "s",
+              "pred": "spot",
+              "ok": true,
+              "cos": 0.9982948303222656
+            }
+          ]
+        },
+        "hold": {
+          "acc": 0.0,
+          "mean_cos": 0.060162462294101715,
+          "details": [
+            {
+              "stem": "jump",
+              "affix": "ing",
+              "pred": "post",
+              "ok": false,
+              "cos": 0.18234235048294067
+            },
+            {
+              "stem": "walk",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.18523213267326355
+            },
+            {
+              "stem": "read",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.084132619202137
+            },
+            {
+              "stem": "write",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": -0.007820632308721542
+            },
+            {
+              "stem": "jump",
+              "affix": "ed",
+              "pred": "top",
+              "ok": false,
+              "cos": 0.18307210505008698
+            },
+            {
+              "stem": "walk",
+              "affix": "ed",
+              "pred": "play",
+              "ok": false,
+              "cos": 0.012703826650977135
+            },
+            {
+              "stem": "read",
+              "affix": "ed",
+              "pred": "run",
+              "ok": false,
+              "cos": -0.014992542564868927
+            },
+            {
+              "stem": "write",
+              "affix": "ed",
+              "pred": "act",
+              "ok": false,
+              "cos": -0.04609159380197525
+            },
+            {
+              "stem": "jump",
+              "affix": "s",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.05649612843990326
+            },
+            {
+              "stem": "walk",
+              "affix": "s",
+              "pred": "play",
+              "ok": false,
+              "cos": 0.03721145540475845
+            },
+            {
+              "stem": "read",
+              "affix": "s",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.010181538760662079
+            },
+            {
+              "stem": "write",
+              "affix": "s",
+              "pred": "water",
+              "ok": false,
+              "cos": 0.03948214277625084
+            }
+          ]
+        },
+        "W_fro": 9.737836837768555,
+        "wrong_affix": {
+          "acc": 0.0,
+          "mean_cos": 0.08520539849996567,
+          "details": [
+            {
+              "stem": "jump",
+              "affix": "ing",
+              "pred": "top",
+              "ok": false,
+              "cos": 0.18307210505008698
+            },
+            {
+              "stem": "walk",
+              "affix": "ing",
+              "pred": "play",
+              "ok": false,
+              "cos": 0.012703826650977135
+            },
+            {
+              "stem": "read",
+              "affix": "ing",
+              "pred": "run",
+              "ok": false,
+              "cos": -0.014992542564868927
+            },
+            {
+              "stem": "write",
+              "affix": "ing",
+              "pred": "act",
+              "ok": false,
+              "cos": -0.04609159380197525
+            },
+            {
+              "stem": "jump",
+              "affix": "ed",
+              "pred": "post",
+              "ok": false,
+              "cos": 0.18234235048294067
+            },
+            {
+              "stem": "walk",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.18523213267326355
+            },
+            {
+              "stem": "read",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.084132619202137
+            },
+            {
+              "stem": "write",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": -0.007820632308721542
+            },
+            {
+              "stem": "jump",
+              "affix": "s",
+              "pred": "post",
+              "ok": false,
+              "cos": 0.18234235048294067
+            },
+            {
+              "stem": "walk",
+              "affix": "s",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.18523213267326355
+            },
+            {
+              "stem": "read",
+              "affix": "s",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.084132619202137
+            },
+            {
+              "stem": "write",
+              "affix": "s",
+              "pred": "stop",
+              "ok": false,
+              "cos": -0.007820632308721542
+            }
+          ]
+        },
+        "shuffle": {
+          "acc": 0.0,
+          "mean_cos": 0.07440711557865143,
+          "details": [
+            {
+              "stem": "jump",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.06692925095558167
+            },
+            {
+              "stem": "walk",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.18167516589164734
+            },
+            {
+              "stem": "read",
+              "affix": "ing",
+              "pred": "post",
+              "ok": false,
+              "cos": 0.09846790134906769
+            },
+            {
+              "stem": "write",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": false,
+              "cos": -0.01498890295624733
+            },
+            {
+              "stem": "jump",
+              "affix": "ed",
+              "pred": "fish",
+              "ok": false,
+              "cos": 0.2046668976545334
+            },
+            {
+              "stem": "walk",
+              "affix": "ed",
+              "pred": "fish",
+              "ok": false,
+              "cos": 0.2315257489681244
+            },
+            {
+              "stem": "read",
+              "affix": "ed",
+              "pred": "run",
+              "ok": false,
+              "cos": 0.009737566113471985
+            },
+            {
+              "stem": "write",
+              "affix": "ed",
+              "pred": "act",
+              "ok": false,
+              "cos": -0.0646481141448021
+            },
+            {
+              "stem": "jump",
+              "affix": "s",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.05649612843990326
+            },
+            {
+              "stem": "walk",
+              "affix": "s",
+              "pred": "play",
+              "ok": false,
+              "cos": 0.03721145540475845
+            },
+            {
+              "stem": "read",
+              "affix": "s",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.010181538760662079
+            },
+            {
+              "stem": "write",
+              "affix": "s",
+              "pred": "take",
+              "ok": false,
+              "cos": 0.07563069462776184
+            }
+          ]
+        }
+      },
+      "concat_out_morph": {
+        "train": {
+          "acc": 1.0,
+          "mean_cos": 0.9966456890106201,
+          "details": [
+            {
+              "stem": "play",
+              "affix": "ing",
+              "pred": "play",
+              "ok": true,
+              "cos": 0.9977489113807678
+            },
+            {
+              "stem": "go",
+              "affix": "ing",
+              "pred": "go",
+              "ok": true,
+              "cos": 0.9968717694282532
+            },
+            {
+              "stem": "act",
+              "affix": "ing",
+              "pred": "act",
+              "ok": true,
+              "cos": 0.9981358647346497
+            },
+            {
+              "stem": "fish",
+              "affix": "ing",
+              "pred": "fish",
+              "ok": true,
+              "cos": 0.9974601864814758
+            },
+            {
+              "stem": "post",
+              "affix": "ing",
+              "pred": "post",
+              "ok": true,
+              "cos": 0.9928062558174133
+            },
+            {
+              "stem": "book",
+              "affix": "ing",
+              "pred": "book",
+              "ok": true,
+              "cos": 0.9952020645141602
+            },
+            {
+              "stem": "light",
+              "affix": "ing",
+              "pred": "light",
+              "ok": true,
+              "cos": 0.9938732385635376
+            },
+            {
+              "stem": "make",
+              "affix": "ing",
+              "pred": "make",
+              "ok": true,
+              "cos": 0.9962263703346252
+            },
+            {
+              "stem": "take",
+              "affix": "ing",
+              "pred": "take",
+              "ok": true,
+              "cos": 0.9951840043067932
+            },
+            {
+              "stem": "give",
+              "affix": "ing",
+              "pred": "give",
+              "ok": true,
+              "cos": 0.9973108768463135
+            },
+            {
+              "stem": "run",
+              "affix": "ing",
+              "pred": "run",
+              "ok": true,
+              "cos": 0.9970351457595825
+            },
+            {
+              "stem": "stop",
+              "affix": "ing",
+              "pred": "stop",
+              "ok": true,
+              "cos": 0.9884103536605835
+            },
+            {
+              "stem": "spot",
+              "affix": "ing",
+              "pred": "spot",
+              "ok": true,
+              "cos": 0.9921778440475464
+            },
+            {
+              "stem": "top",
+              "affix": "ing",
+              "pred": "top",
+              "ok": true,
+              "cos": 0.9984319806098938
+            },
+            {
+              "stem": "play",
+              "affix": "ed",
+              "pred": "play",
+              "ok": true,
+              "cos": 0.994066059589386
+            },
+            {
+              "stem": "stop",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": true,
+              "cos": 0.9974291324615479
+            },
+            {
+              "stem": "post",
+              "affix": "ed",
+              "pred": "post",
+              "ok": true,
+              "cos": 0.9994453191757202
+            },
+            {
+              "stem": "act",
+              "affix": "ed",
+              "pred": "act",
+              "ok": true,
+              "cos": 0.9960205554962158
+            },
+            {
+              "stem": "fish",
+              "affix": "ed",
+              "pred": "fish",
+              "ok": true,
+              "cos": 0.999542772769928
+            },
+            {
+              "stem": "book",
+              "affix": "ed",
+              "pred": "book",
+              "ok": true,
+              "cos": 0.9985648989677429
+            },
+            {
+              "stem": "top",
+              "affix": "ed",
+              "pred": "top",
+              "ok": true,
+              "cos": 0.9979150295257568
+            },
+            {
+              "stem": "spot",
+              "affix": "ed",
+              "pred": "spot",
+              "ok": true,
+              "cos": 0.9996130466461182
+            },
+            {
+              "stem": "light",
+              "affix": "ed",
+              "pred": "light",
+              "ok": true,
+              "cos": 0.9946447610855103
+            },
+            {
+              "stem": "water",
+              "affix": "ed",
+              "pred": "water",
+              "ok": true,
+              "cos": 0.9987221956253052
+            },
+            {
+              "stem": "play",
+              "affix": "s",
+              "pred": "play",
+              "ok": true,
+              "cos": 0.9936270713806152
+            },
+            {
+              "stem": "run",
+              "affix": "s",
+              "pred": "run",
+              "ok": true,
+              "cos": 0.9962754249572754
+            },
+            {
+              "stem": "make",
+              "affix": "s",
+              "pred": "make",
+              "ok": true,
+              "cos": 0.9972339868545532
+            },
+            {
+              "stem": "take",
+              "affix": "s",
+              "pred": "take",
+              "ok": true,
+              "cos": 0.9934931993484497
+            },
+            {
+              "stem": "give",
+              "affix": "s",
+              "pred": "give",
+              "ok": true,
+              "cos": 0.9989601969718933
+            },
+            {
+              "stem": "cat",
+              "affix": "s",
+              "pred": "cat",
+              "ok": true,
+              "cos": 0.9963749647140503
+            },
+            {
+              "stem": "dog",
+              "affix": "s",
+              "pred": "dog",
+              "ok": true,
+              "cos": 0.9988348484039307
+            },
+            {
+              "stem": "book",
+              "affix": "s",
+              "pred": "book",
+              "ok": true,
+              "cos": 0.9996231198310852
+            },
+            {
+              "stem": "act",
+              "affix": "s",
+              "pred": "act",
+              "ok": true,
+              "cos": 0.9967255592346191
+            },
+            {
+              "stem": "post",
+              "affix": "s",
+              "pred": "post",
+              "ok": true,
+              "cos": 0.9993453025817871
+            },
+            {
+              "stem": "go",
+              "affix": "s",
+              "pred": "go",
+              "ok": true,
+              "cos": 0.9985533356666565
+            },
+            {
+              "stem": "fish",
+              "affix": "s",
+              "pred": "fish",
+              "ok": true,
+              "cos": 0.9958344101905823
+            },
+            {
+              "stem": "top",
+              "affix": "s",
+              "pred": "top",
+              "ok": true,
+              "cos": 0.997907280921936
+            },
+            {
+              "stem": "spot",
+              "affix": "s",
+              "pred": "spot",
+              "ok": true,
+              "cos": 0.9969104528427124
+            }
+          ]
+        },
+        "hold": {
+          "acc": 0.0,
+          "mean_cos": 0.14642176032066345,
+          "details": [
+            {
+              "stem": "jump",
+              "affix": "ing",
+              "pred": "light",
+              "ok": false,
+              "cos": 0.09254984557628632
+            },
+            {
+              "stem": "walk",
+              "affix": "ing",
+              "pred": "spot",
+              "ok": false,
+              "cos": 0.28786757588386536
+            },
+            {
+              "stem": "read",
+              "affix": "ing",
+              "pred": "dog",
+              "ok": false,
+              "cos": 0.2112167477607727
+            },
+            {
+              "stem": "write",
+              "affix": "ing",
+              "pred": "spot",
+              "ok": false,
+              "cos": 0.03151471167802811
+            },
+            {
+              "stem": "jump",
+              "affix": "ed",
+              "pred": "cat",
+              "ok": false,
+              "cos": 0.2818772792816162
+            },
+            {
+              "stem": "walk",
+              "affix": "ed",
+              "pred": "play",
+              "ok": false,
+              "cos": 0.2666511535644531
+            },
+            {
+              "stem": "read",
+              "affix": "ed",
+              "pred": "fish",
+              "ok": false,
+              "cos": 0.15751764178276062
+            },
+            {
+              "stem": "write",
+              "affix": "ed",
+              "pred": "go",
+              "ok": false,
+              "cos": 0.0624297559261322
+            },
+            {
+              "stem": "jump",
+              "affix": "s",
+              "pred": "make",
+              "ok": false,
+              "cos": -0.009173687547445297
+            },
+            {
+              "stem": "walk",
+              "affix": "s",
+              "pred": "spot",
+              "ok": false,
+              "cos": 0.19322118163108826
+            },
+            {
+              "stem": "read",
+              "affix": "s",
+              "pred": "spot",
+              "ok": false,
+              "cos": 0.1353219896554947
+            },
+            {
+              "stem": "write",
+              "affix": "s",
+              "pred": "take",
+              "ok": false,
+              "cos": 0.04606672748923302
+            }
+          ]
+        },
+        "W_fro": 11.009343147277832,
+        "wrong_affix": {
+          "acc": 0.0,
+          "mean_cos": 0.1678978055715561,
+          "details": [
+            {
+              "stem": "jump",
+              "affix": "ing",
+              "pred": "cat",
+              "ok": false,
+              "cos": 0.2818772792816162
+            },
+            {
+              "stem": "walk",
+              "affix": "ing",
+              "pred": "play",
+              "ok": false,
+              "cos": 0.2666511535644531
+            },
+            {
+              "stem": "read",
+              "affix": "ing",
+              "pred": "fish",
+              "ok": false,
+              "cos": 0.15751764178276062
+            },
+            {
+              "stem": "write",
+              "affix": "ing",
+              "pred": "go",
+              "ok": false,
+              "cos": 0.0624297559261322
+            },
+            {
+              "stem": "jump",
+              "affix": "ed",
+              "pred": "light",
+              "ok": false,
+              "cos": 0.09254984557628632
+            },
+            {
+              "stem": "walk",
+              "affix": "ed",
+              "pred": "spot",
+              "ok": false,
+              "cos": 0.28786757588386536
+            },
+            {
+              "stem": "read",
+              "affix": "ed",
+              "pred": "dog",
+              "ok": false,
+              "cos": 0.2112167477607727
+            },
+            {
+              "stem": "write",
+              "affix": "ed",
+              "pred": "spot",
+              "ok": false,
+              "cos": 0.03151471167802811
+            },
+            {
+              "stem": "jump",
+              "affix": "s",
+              "pred": "light",
+              "ok": false,
+              "cos": 0.09254984557628632
+            },
+            {
+              "stem": "walk",
+              "affix": "s",
+              "pred": "spot",
+              "ok": false,
+              "cos": 0.28786757588386536
+            },
+            {
+              "stem": "read",
+              "affix": "s",
+              "pred": "dog",
+              "ok": false,
+              "cos": 0.2112167477607727
+            },
+            {
+              "stem": "write",
+              "affix": "s",
+              "pred": "spot",
+              "ok": false,
+              "cos": 0.03151471167802811
+            }
+          ]
+        },
+        "shuffle": {
+          "acc": 0.0,
+          "mean_cos": 0.1341170072555542,
+          "details": [
+            {
+              "stem": "jump",
+              "affix": "ing",
+              "pred": "top",
+              "ok": false,
+              "cos": 0.15309803187847137
+            },
+            {
+              "stem": "walk",
+              "affix": "ing",
+              "pred": "spot",
+              "ok": false,
+              "cos": 0.3064894676208496
+            },
+            {
+              "stem": "read",
+              "affix": "ing",
+              "pred": "fish",
+              "ok": false,
+              "cos": 0.27876442670822144
+            },
+            {
+              "stem": "write",
+              "affix": "ing",
+              "pred": "light",
+              "ok": false,
+              "cos": 0.1295669674873352
+            },
+            {
+              "stem": "jump",
+              "affix": "ed",
+              "pred": "light",
+              "ok": false,
+              "cos": 0.16394564509391785
+            },
+            {
+              "stem": "walk",
+              "affix": "ed",
+              "pred": "stop",
+              "ok": false,
+              "cos": 0.31715327501296997
+            },
+            {
+              "stem": "read",
+              "affix": "ed",
+              "pred": "top",
+              "ok": false,
+              "cos": -0.057309385389089584
+            },
+            {
+              "stem": "write",
+              "affix": "ed",
+              "pred": "light",
+              "ok": false,
+              "cos": 0.12456753104925156
+            },
+            {
+              "stem": "jump",
+              "affix": "s",
+              "pred": "make",
+              "ok": false,
+              "cos": -0.009173687547445297
+            },
+            {
+              "stem": "walk",
+              "affix": "s",
+              "pred": "spot",
+              "ok": false,
+              "cos": 0.19322118163108826
+            },
+            {
+              "stem": "read",
+              "affix": "s",
+              "pred": "spot",
+              "ok": false,
+              "cos": 0.1353219896554947
+            },
+            {
+              "stem": "write",
+              "affix": "s",
+              "pred": "spot",
+              "ok": false,
+              "cos": -0.12624134123325348
+            }
+          ]
+        }
+      }
+    },
+    "pos_gate_means": {
+      "ing": 0.9982115030288696,
+      "ed": 0.698807954788208,
+      "s": 0.9546224673589071
+    },
+    "basin_pairwise": {
+      "ing_ed": -0.004376709461212158,
+      "ing_s": -0.008271042257547379,
+      "ed_s": -0.006517369300127029
+    },
+    "n_train": 38,
+    "n_hold": 12,
+    "verdict": {
+      "best": "out: HOLD linear-peel 0% (letter 100%, fp-op 8%)",
+      "controls": "same probe on wrong-affix 0% / shuffle 0%",
+      "overall": "Hidden linear peel does not beat fp-op much — stem not linearly readable from these acts; letter-path remains the real peel.",
+      "affix_dirs": "mean pairwise cos of out form-stem dirs=0.178 (lower=more separated)"
+    }
+  }
+}

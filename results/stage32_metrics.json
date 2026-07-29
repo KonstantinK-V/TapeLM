@@ -1,0 +1,756 @@
+{
+  "pass": true,
+  "best_seed": 272,
+  "seeds": [
+    {
+      "seed": 272,
+      "ok": true,
+      "prim_h1": 0.875,
+      "prim_joint": 0.859375,
+      "prim_h2gh1": 0.9821428571428571,
+      "h2_lift": 0.0,
+      "j_lift": 0.0,
+      "dense": {
+        "chain_link": {
+          "clean_bind": {
+            "hop1": 0.875,
+            "hop2": 0.890625,
+            "hop2_legacy": 0.890625,
+            "joint": 0.859375,
+            "h2_given_h1": 0.9821428571428571,
+            "n_h1_ok": 56,
+            "mean_depth": 9.28125
+          },
+          "dirty_raw": {
+            "hop1": 0.890625,
+            "hop2": 0.9375,
+            "hop2_legacy": 0.9375,
+            "joint": 0.890625,
+            "h2_given_h1": 1.0,
+            "n_h1_ok": 57,
+            "mean_depth": 9.28125
+          },
+          "dirty_bind": {
+            "hop1": 0.875,
+            "hop2": 0.890625,
+            "hop2_legacy": 0.890625,
+            "joint": 0.859375,
+            "h2_given_h1": 0.9821428571428571,
+            "n_h1_ok": 56,
+            "mean_depth": 9.28125
+          },
+          "dirty_both_bind": {
+            "hop1": 0.875,
+            "hop2": 0.890625,
+            "hop2_legacy": 0.890625,
+            "joint": 0.859375,
+            "h2_given_h1": 0.9821428571428571,
+            "n_h1_ok": 56,
+            "mean_depth": 10.28125
+          }
+        },
+        "edge_hop2": {
+          "clean_bind": {
+            "hop1": 0.875,
+            "hop2": 0.890625,
+            "hop2_legacy": 0.890625,
+            "joint": 0.859375,
+            "h2_given_h1": 0.9821428571428571,
+            "n_h1_ok": 56,
+            "mean_depth": 9.34375
+          },
+          "dirty_raw": {
+            "hop1": 0.890625,
+            "hop2": 0.9375,
+            "hop2_legacy": 0.9375,
+            "joint": 0.890625,
+            "h2_given_h1": 1.0,
+            "n_h1_ok": 57,
+            "mean_depth": 9.34375
+          },
+          "dirty_bind": {
+            "hop1": 0.875,
+            "hop2": 0.890625,
+            "hop2_legacy": 0.890625,
+            "joint": 0.859375,
+            "h2_given_h1": 0.9821428571428571,
+            "n_h1_ok": 56,
+            "mean_depth": 9.34375
+          },
+          "dirty_both_bind": {
+            "hop1": 0.875,
+            "hop2": 0.890625,
+            "hop2_legacy": 0.890625,
+            "joint": 0.859375,
+            "h2_given_h1": 0.9821428571428571,
+            "n_h1_ok": 56,
+            "mean_depth": 10.34375
+          }
+        },
+        "edge_comp": {
+          "clean_bind": {
+            "hop1": 0.875,
+            "hop2": 0.890625,
+            "hop2_legacy": 0.890625,
+            "joint": 0.859375,
+            "h2_given_h1": 0.9821428571428571,
+            "n_h1_ok": 56,
+            "mean_depth": 9.40625
+          },
+          "dirty_raw": {
+            "hop1": 0.890625,
+            "hop2": 0.9375,
+            "hop2_legacy": 0.9375,
+            "joint": 0.890625,
+            "h2_given_h1": 1.0,
+            "n_h1_ok": 57,
+            "mean_depth": 9.40625
+          },
+          "dirty_bind": {
+            "hop1": 0.875,
+            "hop2": 0.890625,
+            "hop2_legacy": 0.890625,
+            "joint": 0.859375,
+            "h2_given_h1": 0.9821428571428571,
+            "n_h1_ok": 56,
+            "mean_depth": 9.40625
+          },
+          "dirty_both_bind": {
+            "hop1": 0.875,
+            "hop2": 0.890625,
+            "hop2_legacy": 0.890625,
+            "joint": 0.859375,
+            "h2_given_h1": 0.9821428571428571,
+            "n_h1_ok": 56,
+            "mean_depth": 10.40625
+          }
+        }
+      },
+      "ctrl": {
+        "chain_link": {
+          "clean_bind": {
+            "hop1": 0.975,
+            "hop2": 0.975,
+            "hop2_legacy": 0.975,
+            "joint": 0.95,
+            "h2_given_h1": 0.9743589743589743,
+            "n_h1_ok": 78,
+            "mean_depth": 9.05
+          },
+          "dirty_raw": {
+            "hop1": 0.9875,
+            "hop2": 0.975,
+            "hop2_legacy": 0.975,
+            "joint": 0.9625,
+            "h2_given_h1": 0.9746835443037974,
+            "n_h1_ok": 79,
+            "mean_depth": 9.05
+          },
+          "dirty_bind": {
+            "hop1": 0.9875,
+            "hop2": 0.975,
+            "hop2_legacy": 0.975,
+            "joint": 0.9625,
+            "h2_given_h1": 0.9746835443037974,
+            "n_h1_ok": 79,
+            "mean_depth": 9.05
+          },
+          "dirty_both_bind": {
+            "hop1": 0.9875,
+            "hop2": 0.975,
+            "hop2_legacy": 0.975,
+            "joint": 0.9625,
+            "h2_given_h1": 0.9746835443037974,
+            "n_h1_ok": 79,
+            "mean_depth": 10.05
+          }
+        },
+        "edge_hop2": {
+          "clean_bind": {
+            "hop1": 0.975,
+            "hop2": 0.975,
+            "hop2_legacy": 0.975,
+            "joint": 0.95,
+            "h2_given_h1": 0.9743589743589743,
+            "n_h1_ok": 78,
+            "mean_depth": 9.125
+          },
+          "dirty_raw": {
+            "hop1": 0.9875,
+            "hop2": 0.9625,
+            "hop2_legacy": 0.9625,
+            "joint": 0.95,
+            "h2_given_h1": 0.9620253164556962,
+            "n_h1_ok": 79,
+            "mean_depth": 9.125
+          },
+          "dirty_bind": {
+            "hop1": 0.9875,
+            "hop2": 0.975,
+            "hop2_legacy": 0.975,
+            "joint": 0.9625,
+            "h2_given_h1": 0.9746835443037974,
+            "n_h1_ok": 79,
+            "mean_depth": 9.125
+          },
+          "dirty_both_bind": {
+            "hop1": 0.9875,
+            "hop2": 0.975,
+            "hop2_legacy": 0.975,
+            "joint": 0.9625,
+            "h2_given_h1": 0.9746835443037974,
+            "n_h1_ok": 79,
+            "mean_depth": 10.125
+          }
+        },
+        "edge_comp": {
+          "clean_bind": {
+            "hop1": 0.975,
+            "hop2": 0.975,
+            "hop2_legacy": 0.975,
+            "joint": 0.95,
+            "h2_given_h1": 0.9743589743589743,
+            "n_h1_ok": 78,
+            "mean_depth": 9.2
+          },
+          "dirty_raw": {
+            "hop1": 0.9875,
+            "hop2": 0.9625,
+            "hop2_legacy": 0.9625,
+            "joint": 0.95,
+            "h2_given_h1": 0.9620253164556962,
+            "n_h1_ok": 79,
+            "mean_depth": 9.2
+          },
+          "dirty_bind": {
+            "hop1": 0.9875,
+            "hop2": 0.975,
+            "hop2_legacy": 0.975,
+            "joint": 0.9625,
+            "h2_given_h1": 0.9746835443037974,
+            "n_h1_ok": 79,
+            "mean_depth": 9.2
+          },
+          "dirty_both_bind": {
+            "hop1": 0.9875,
+            "hop2": 0.975,
+            "hop2_legacy": 0.975,
+            "joint": 0.9625,
+            "h2_given_h1": 0.9746835443037974,
+            "n_h1_ok": 79,
+            "mean_depth": 10.2
+          }
+        }
+      }
+    },
+    {
+      "seed": 273,
+      "ok": true,
+      "prim_h1": 0.875,
+      "prim_joint": 0.859375,
+      "prim_h2gh1": 0.9821428571428571,
+      "h2_lift": 0.0,
+      "j_lift": 0.0,
+      "dense": {
+        "chain_link": {
+          "clean_bind": {
+            "hop1": 0.875,
+            "hop2": 0.890625,
+            "hop2_legacy": 0.890625,
+            "joint": 0.859375,
+            "h2_given_h1": 0.9821428571428571,
+            "n_h1_ok": 56,
+            "mean_depth": 9.28125
+          },
+          "dirty_raw": {
+            "hop1": 0.890625,
+            "hop2": 0.9375,
+            "hop2_legacy": 0.9375,
+            "joint": 0.890625,
+            "h2_given_h1": 1.0,
+            "n_h1_ok": 57,
+            "mean_depth": 9.28125
+          },
+          "dirty_bind": {
+            "hop1": 0.859375,
+            "hop2": 0.890625,
+            "hop2_legacy": 0.890625,
+            "joint": 0.84375,
+            "h2_given_h1": 0.9818181818181818,
+            "n_h1_ok": 55,
+            "mean_depth": 9.28125
+          },
+          "dirty_both_bind": {
+            "hop1": 0.859375,
+            "hop2": 0.890625,
+            "hop2_legacy": 0.890625,
+            "joint": 0.84375,
+            "h2_given_h1": 0.9818181818181818,
+            "n_h1_ok": 55,
+            "mean_depth": 10.28125
+          }
+        },
+        "edge_hop2": {
+          "clean_bind": {
+            "hop1": 0.875,
+            "hop2": 0.890625,
+            "hop2_legacy": 0.890625,
+            "joint": 0.859375,
+            "h2_given_h1": 0.9821428571428571,
+            "n_h1_ok": 56,
+            "mean_depth": 9.34375
+          },
+          "dirty_raw": {
+            "hop1": 0.890625,
+            "hop2": 0.9375,
+            "hop2_legacy": 0.9375,
+            "joint": 0.890625,
+            "h2_given_h1": 1.0,
+            "n_h1_ok": 57,
+            "mean_depth": 9.34375
+          },
+          "dirty_bind": {
+            "hop1": 0.859375,
+            "hop2": 0.890625,
+            "hop2_legacy": 0.890625,
+            "joint": 0.84375,
+            "h2_given_h1": 0.9818181818181818,
+            "n_h1_ok": 55,
+            "mean_depth": 9.34375
+          },
+          "dirty_both_bind": {
+            "hop1": 0.859375,
+            "hop2": 0.890625,
+            "hop2_legacy": 0.890625,
+            "joint": 0.84375,
+            "h2_given_h1": 0.9818181818181818,
+            "n_h1_ok": 55,
+            "mean_depth": 10.34375
+          }
+        },
+        "edge_comp": {
+          "clean_bind": {
+            "hop1": 0.875,
+            "hop2": 0.890625,
+            "hop2_legacy": 0.890625,
+            "joint": 0.859375,
+            "h2_given_h1": 0.9821428571428571,
+            "n_h1_ok": 56,
+            "mean_depth": 9.40625
+          },
+          "dirty_raw": {
+            "hop1": 0.890625,
+            "hop2": 0.9375,
+            "hop2_legacy": 0.9375,
+            "joint": 0.890625,
+            "h2_given_h1": 1.0,
+            "n_h1_ok": 57,
+            "mean_depth": 9.40625
+          },
+          "dirty_bind": {
+            "hop1": 0.859375,
+            "hop2": 0.890625,
+            "hop2_legacy": 0.890625,
+            "joint": 0.84375,
+            "h2_given_h1": 0.9818181818181818,
+            "n_h1_ok": 55,
+            "mean_depth": 9.40625
+          },
+          "dirty_both_bind": {
+            "hop1": 0.859375,
+            "hop2": 0.890625,
+            "hop2_legacy": 0.890625,
+            "joint": 0.84375,
+            "h2_given_h1": 0.9818181818181818,
+            "n_h1_ok": 55,
+            "mean_depth": 10.40625
+          }
+        }
+      },
+      "ctrl": {
+        "chain_link": {
+          "clean_bind": {
+            "hop1": 0.975,
+            "hop2": 0.975,
+            "hop2_legacy": 0.975,
+            "joint": 0.95,
+            "h2_given_h1": 0.9743589743589743,
+            "n_h1_ok": 78,
+            "mean_depth": 9.05
+          },
+          "dirty_raw": {
+            "hop1": 0.9875,
+            "hop2": 0.975,
+            "hop2_legacy": 0.975,
+            "joint": 0.9625,
+            "h2_given_h1": 0.9746835443037974,
+            "n_h1_ok": 79,
+            "mean_depth": 9.05
+          },
+          "dirty_bind": {
+            "hop1": 0.975,
+            "hop2": 0.975,
+            "hop2_legacy": 0.975,
+            "joint": 0.95,
+            "h2_given_h1": 0.9743589743589743,
+            "n_h1_ok": 78,
+            "mean_depth": 9.05
+          },
+          "dirty_both_bind": {
+            "hop1": 0.975,
+            "hop2": 0.975,
+            "hop2_legacy": 0.975,
+            "joint": 0.95,
+            "h2_given_h1": 0.9743589743589743,
+            "n_h1_ok": 78,
+            "mean_depth": 10.05
+          }
+        },
+        "edge_hop2": {
+          "clean_bind": {
+            "hop1": 0.975,
+            "hop2": 0.975,
+            "hop2_legacy": 0.975,
+            "joint": 0.95,
+            "h2_given_h1": 0.9743589743589743,
+            "n_h1_ok": 78,
+            "mean_depth": 9.125
+          },
+          "dirty_raw": {
+            "hop1": 0.9875,
+            "hop2": 0.9625,
+            "hop2_legacy": 0.9625,
+            "joint": 0.95,
+            "h2_given_h1": 0.9620253164556962,
+            "n_h1_ok": 79,
+            "mean_depth": 9.125
+          },
+          "dirty_bind": {
+            "hop1": 0.975,
+            "hop2": 0.975,
+            "hop2_legacy": 0.975,
+            "joint": 0.95,
+            "h2_given_h1": 0.9743589743589743,
+            "n_h1_ok": 78,
+            "mean_depth": 9.125
+          },
+          "dirty_both_bind": {
+            "hop1": 0.975,
+            "hop2": 0.975,
+            "hop2_legacy": 0.975,
+            "joint": 0.95,
+            "h2_given_h1": 0.9743589743589743,
+            "n_h1_ok": 78,
+            "mean_depth": 10.125
+          }
+        },
+        "edge_comp": {
+          "clean_bind": {
+            "hop1": 0.975,
+            "hop2": 0.975,
+            "hop2_legacy": 0.975,
+            "joint": 0.95,
+            "h2_given_h1": 0.9743589743589743,
+            "n_h1_ok": 78,
+            "mean_depth": 9.2
+          },
+          "dirty_raw": {
+            "hop1": 0.9875,
+            "hop2": 0.9625,
+            "hop2_legacy": 0.9625,
+            "joint": 0.95,
+            "h2_given_h1": 0.9620253164556962,
+            "n_h1_ok": 79,
+            "mean_depth": 9.2
+          },
+          "dirty_bind": {
+            "hop1": 0.975,
+            "hop2": 0.975,
+            "hop2_legacy": 0.975,
+            "joint": 0.95,
+            "h2_given_h1": 0.9743589743589743,
+            "n_h1_ok": 78,
+            "mean_depth": 9.2
+          },
+          "dirty_both_bind": {
+            "hop1": 0.975,
+            "hop2": 0.975,
+            "hop2_legacy": 0.975,
+            "joint": 0.95,
+            "h2_given_h1": 0.9743589743589743,
+            "n_h1_ok": 78,
+            "mean_depth": 10.2
+          }
+        }
+      }
+    },
+    {
+      "seed": 274,
+      "ok": true,
+      "prim_h1": 0.828125,
+      "prim_joint": 0.8125,
+      "prim_h2gh1": 0.9811320754716981,
+      "h2_lift": 0.0,
+      "j_lift": 0.0,
+      "dense": {
+        "chain_link": {
+          "clean_bind": {
+            "hop1": 0.828125,
+            "hop2": 0.90625,
+            "hop2_legacy": 0.90625,
+            "joint": 0.8125,
+            "h2_given_h1": 0.9811320754716981,
+            "n_h1_ok": 53,
+            "mean_depth": 9.28125
+          },
+          "dirty_raw": {
+            "hop1": 0.890625,
+            "hop2": 0.9375,
+            "hop2_legacy": 0.9375,
+            "joint": 0.890625,
+            "h2_given_h1": 1.0,
+            "n_h1_ok": 57,
+            "mean_depth": 9.28125
+          },
+          "dirty_bind": {
+            "hop1": 0.828125,
+            "hop2": 0.890625,
+            "hop2_legacy": 0.890625,
+            "joint": 0.8125,
+            "h2_given_h1": 0.9811320754716981,
+            "n_h1_ok": 53,
+            "mean_depth": 9.28125
+          },
+          "dirty_both_bind": {
+            "hop1": 0.828125,
+            "hop2": 0.890625,
+            "hop2_legacy": 0.890625,
+            "joint": 0.8125,
+            "h2_given_h1": 0.9811320754716981,
+            "n_h1_ok": 53,
+            "mean_depth": 10.28125
+          }
+        },
+        "edge_hop2": {
+          "clean_bind": {
+            "hop1": 0.828125,
+            "hop2": 0.90625,
+            "hop2_legacy": 0.90625,
+            "joint": 0.8125,
+            "h2_given_h1": 0.9811320754716981,
+            "n_h1_ok": 53,
+            "mean_depth": 9.34375
+          },
+          "dirty_raw": {
+            "hop1": 0.890625,
+            "hop2": 0.9375,
+            "hop2_legacy": 0.9375,
+            "joint": 0.890625,
+            "h2_given_h1": 1.0,
+            "n_h1_ok": 57,
+            "mean_depth": 9.34375
+          },
+          "dirty_bind": {
+            "hop1": 0.828125,
+            "hop2": 0.890625,
+            "hop2_legacy": 0.890625,
+            "joint": 0.8125,
+            "h2_given_h1": 0.9811320754716981,
+            "n_h1_ok": 53,
+            "mean_depth": 9.34375
+          },
+          "dirty_both_bind": {
+            "hop1": 0.828125,
+            "hop2": 0.890625,
+            "hop2_legacy": 0.890625,
+            "joint": 0.8125,
+            "h2_given_h1": 0.9811320754716981,
+            "n_h1_ok": 53,
+            "mean_depth": 10.34375
+          }
+        },
+        "edge_comp": {
+          "clean_bind": {
+            "hop1": 0.828125,
+            "hop2": 0.90625,
+            "hop2_legacy": 0.90625,
+            "joint": 0.8125,
+            "h2_given_h1": 0.9811320754716981,
+            "n_h1_ok": 53,
+            "mean_depth": 9.40625
+          },
+          "dirty_raw": {
+            "hop1": 0.890625,
+            "hop2": 0.9375,
+            "hop2_legacy": 0.9375,
+            "joint": 0.890625,
+            "h2_given_h1": 1.0,
+            "n_h1_ok": 57,
+            "mean_depth": 9.40625
+          },
+          "dirty_bind": {
+            "hop1": 0.828125,
+            "hop2": 0.890625,
+            "hop2_legacy": 0.890625,
+            "joint": 0.8125,
+            "h2_given_h1": 0.9811320754716981,
+            "n_h1_ok": 53,
+            "mean_depth": 9.40625
+          },
+          "dirty_both_bind": {
+            "hop1": 0.828125,
+            "hop2": 0.890625,
+            "hop2_legacy": 0.890625,
+            "joint": 0.8125,
+            "h2_given_h1": 0.9811320754716981,
+            "n_h1_ok": 53,
+            "mean_depth": 10.40625
+          }
+        }
+      },
+      "ctrl": {
+        "chain_link": {
+          "clean_bind": {
+            "hop1": 0.975,
+            "hop2": 0.975,
+            "hop2_legacy": 0.975,
+            "joint": 0.95,
+            "h2_given_h1": 0.9743589743589743,
+            "n_h1_ok": 78,
+            "mean_depth": 9.05
+          },
+          "dirty_raw": {
+            "hop1": 0.9875,
+            "hop2": 0.975,
+            "hop2_legacy": 0.975,
+            "joint": 0.9625,
+            "h2_given_h1": 0.9746835443037974,
+            "n_h1_ok": 79,
+            "mean_depth": 9.05
+          },
+          "dirty_bind": {
+            "hop1": 0.9625,
+            "hop2": 0.975,
+            "hop2_legacy": 0.975,
+            "joint": 0.9375,
+            "h2_given_h1": 0.974025974025974,
+            "n_h1_ok": 77,
+            "mean_depth": 9.05
+          },
+          "dirty_both_bind": {
+            "hop1": 0.9625,
+            "hop2": 0.975,
+            "hop2_legacy": 0.975,
+            "joint": 0.9375,
+            "h2_given_h1": 0.974025974025974,
+            "n_h1_ok": 77,
+            "mean_depth": 10.05
+          }
+        },
+        "edge_hop2": {
+          "clean_bind": {
+            "hop1": 0.975,
+            "hop2": 0.975,
+            "hop2_legacy": 0.975,
+            "joint": 0.95,
+            "h2_given_h1": 0.9743589743589743,
+            "n_h1_ok": 78,
+            "mean_depth": 9.125
+          },
+          "dirty_raw": {
+            "hop1": 0.9875,
+            "hop2": 0.9625,
+            "hop2_legacy": 0.9625,
+            "joint": 0.95,
+            "h2_given_h1": 0.9620253164556962,
+            "n_h1_ok": 79,
+            "mean_depth": 9.125
+          },
+          "dirty_bind": {
+            "hop1": 0.9625,
+            "hop2": 0.975,
+            "hop2_legacy": 0.975,
+            "joint": 0.9375,
+            "h2_given_h1": 0.974025974025974,
+            "n_h1_ok": 77,
+            "mean_depth": 9.125
+          },
+          "dirty_both_bind": {
+            "hop1": 0.9625,
+            "hop2": 0.975,
+            "hop2_legacy": 0.975,
+            "joint": 0.9375,
+            "h2_given_h1": 0.974025974025974,
+            "n_h1_ok": 77,
+            "mean_depth": 10.125
+          }
+        },
+        "edge_comp": {
+          "clean_bind": {
+            "hop1": 0.975,
+            "hop2": 0.975,
+            "hop2_legacy": 0.975,
+            "joint": 0.95,
+            "h2_given_h1": 0.9743589743589743,
+            "n_h1_ok": 78,
+            "mean_depth": 9.2
+          },
+          "dirty_raw": {
+            "hop1": 0.9875,
+            "hop2": 0.9625,
+            "hop2_legacy": 0.9625,
+            "joint": 0.95,
+            "h2_given_h1": 0.9620253164556962,
+            "n_h1_ok": 79,
+            "mean_depth": 9.2
+          },
+          "dirty_bind": {
+            "hop1": 0.9625,
+            "hop2": 0.975,
+            "hop2_legacy": 0.975,
+            "joint": 0.9375,
+            "h2_given_h1": 0.974025974025974,
+            "n_h1_ok": 77,
+            "mean_depth": 9.2
+          },
+          "dirty_both_bind": {
+            "hop1": 0.9625,
+            "hop2": 0.975,
+            "hop2_legacy": 0.975,
+            "joint": 0.9375,
+            "h2_given_h1": 0.974025974025974,
+            "n_h1_ok": 77,
+            "mean_depth": 10.2
+          }
+        }
+      }
+    }
+  ],
+  "config": {
+    "dim": 64,
+    "seed": 272,
+    "episode_k": 3,
+    "episode_k_dense": 5,
+    "n_hold_episodes": 80,
+    "n_dense_episodes": 64,
+    "create_below": 0.55,
+    "stabilize_lo": 0.55,
+    "lock_above": 0.92,
+    "ema": 0.85,
+    "retrieve_margin": 0.05,
+    "max_phrase_len": 5,
+    "max_word_len": 11,
+    "disambig_topk": 5,
+    "disambig_gap": 0.12,
+    "dense_h1_min": 0.5,
+    "dense_joint_min": 0.35,
+    "dense_h2_given_h1_min": 0.7,
+    "h2gh1_lift_min": 0.15,
+    "joint_lift_min": 0.08,
+    "ctrl_joint_min": 0.55,
+    "pass_seeds_min": 2,
+    "edge_w": 0.5,
+    "where_w": 0.3,
+    "bind_w": 0.2
+  }
+}

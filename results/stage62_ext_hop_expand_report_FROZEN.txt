@@ -1,0 +1,28 @@
+SOTE Stage 62 report (expand LIVE facts + dual-channel re-probe)
+timestamp: 2026-07-24T11:33:07.502297+00:00
+device: cuda
+atom parent: stage57_rehearsal_FROZEN.pt  facts: data\external_facts_live_exp.txt
+LIVE lines=693 atoms=818 pairs=11570 triples=163589
+ref61: n=120 hop2=80% atom L2=28%/+14pp
+gates: hop2 joint≥70% stretch AND atom L2≥25%/+10pp (no verb_ing)
+
+=== Fact bank EXPANDED ===
+  subkinds=noun_rel|polarity  skip=verb_ing  cap=all_chain
+  n_facts=818 (+698 vs 61) n_pairs=11570 n_triples=163589
+
+=== Hop channel (external 2hop clean_bind) ===
+  joint=84.4%  H1=88.5%  H2=89.6%  n_eps=96
+  Δ vs 61 hop2=+4.7pp
+  hop3 joint3=92.2%
+  internal hop2 regression=83.3%
+
+=== Atom channel (LIVE HOLD, TinySeq 57) ===
+  L1  1.2%/+0.8pp n=242
+  L2+ 28.1%/+14.4pp n=584
+  Δ vs 61 L2=-0.0pp
+
+=== Walls: none ===
+
+=== Verdict ===
+  PASS expand: hop2 84% ≥70% with n_facts=818 (was 120); atom L2 28%/+14pp. Freeze expanded bank; optional hop3 dig or polarity stress.
+  No verb_ing. No phrase/char trunk. Freeze 57/59 unchanged.

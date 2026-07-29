@@ -1,0 +1,9 @@
+SOTE Stages 70–72 verb_ing follow-ups — DONE
+timestamp: 2026-07-24T12:51:03+00:00
+
+70 ing+rehearse:     PARTIAL  best 23.5%/+10.6pp protect OK (vs ZS split 8.3%)
+71 side-hint object: FAIL     5.7% → 2.3% (hurt)
+72 object shortlist: FAIL     5.7% gap=+4.5pp |cands|~43 ≈ full-vocab hard
+
+Bundle: stage70_72_bundle_report.txt + per-dig reports.
+Hop bank unchanged. Parent 57 unchanged.

@@ -1,0 +1,124 @@
+{
+  "timestamp": "2026-07-25T14:40:34.234179+00:00",
+  "hypothesis": "If SOTE top5 more function-heavy / higher unigram than BPE especially on bpe_only \u2192 local-freq bias supported; else reject 'SOTE=func BPE=plot'",
+  "slices": {
+    "bpe_only": {
+      "n": 654,
+      "mean_sote_func_frac_in_top5": 0.6165137614678924,
+      "mean_bpe_func_frac_in_top5": 0.47813455657492354,
+      "frac_sote_top1_func": 0.6666666666666666,
+      "frac_bpe_top1_func": 0.48623853211009177,
+      "mean_sote_top5_unigram": 5741.630581039751,
+      "mean_bpe_top5_unigram": 4471.96039755351,
+      "gold_bucket": {
+        "head21p": 626,
+        "mid6_20": 21,
+        "low2_5": 7
+      },
+      "role": {
+        "other": 546,
+        "rel": 47,
+        "right": 36,
+        "verb_ing": 17,
+        "leftish": 8
+      },
+      "delta_func_sote_minus_bpe": 0.13837920489296884
+    },
+    "ALL": {
+      "n": 2379,
+      "mean_sote_func_frac_in_top5": 0.620428751576285,
+      "mean_bpe_func_frac_in_top5": 0.5012189995796551,
+      "frac_sote_top1_func": 0.6960907944514502,
+      "frac_bpe_top1_func": 0.5283732660781841,
+      "mean_sote_top5_unigram": null,
+      "mean_bpe_top5_unigram": null,
+      "gold_bucket": {},
+      "role": {},
+      "delta_func_sote_minus_bpe": 0.11920975199662986
+    },
+    "neither": {
+      "n": 934,
+      "mean_sote_func_frac_in_top5": 0.5603854389721641,
+      "mean_bpe_func_frac_in_top5": 0.3797109207708771,
+      "frac_sote_top1_func": 0.6252676659528907,
+      "frac_bpe_top1_func": 0.37687366167023556,
+      "mean_sote_top5_unigram": 5917.546680942186,
+      "mean_bpe_top5_unigram": 3828.1516059957216,
+      "gold_bucket": {
+        "head21p": 794,
+        "mid6_20": 94,
+        "low2_5": 27,
+        "rare1": 19
+      },
+      "role": {
+        "other": 782,
+        "right": 103,
+        "verb_ing": 33,
+        "rel": 13,
+        "leftish": 3
+      },
+      "delta_func_sote_minus_bpe": 0.180674518201287
+    },
+    "both": {
+      "n": 716,
+      "mean_sote_func_frac_in_top5": 0.703072625698328,
+      "mean_bpe_func_frac_in_top5": 0.6796787709497223,
+      "frac_sote_top1_func": 0.8142458100558659,
+      "frac_bpe_top1_func": 0.7681564245810056,
+      "mean_sote_top5_unigram": 7397.615363128493,
+      "mean_bpe_top5_unigram": 7161.3147346368805,
+      "gold_bucket": {
+        "head21p": 716
+      },
+      "role": {
+        "other": 434,
+        "rel": 182,
+        "leftish": 14,
+        "right": 86
+      },
+      "delta_func_sote_minus_bpe": 0.02339385474860567
+    },
+    "sote_only": {
+      "n": 75,
+      "mean_sote_func_frac_in_top5": 0.6133333333333332,
+      "mean_bpe_func_frac_in_top5": 0.512,
+      "frac_sote_top1_func": 0.7066666666666667,
+      "frac_bpe_top1_func": 0.49333333333333335,
+      "mean_sote_top5_unigram": 6240.205333333332,
+      "mean_bpe_top5_unigram": 4651.999333333332,
+      "gold_bucket": {
+        "head21p": 75
+      },
+      "role": {
+        "right": 15,
+        "other": 49,
+        "rel": 9,
+        "leftish": 2
+      },
+      "delta_func_sote_minus_bpe": 0.10133333333333316
+    }
+  },
+  "mean_jaccard": 0.18806171060269178,
+  "hop_width_seen_right": {
+    "n": 400,
+    "mean_hop_set_size": 90.225,
+    "mean_left_rel_only_size": 84.4025,
+    "mean_hop_intersect_top5": 4.16,
+    "frac_atom_top1_in_hop": 1.0,
+    "frac_gold_in_hop": 1.0,
+    "frac_gold_in_top5": 0.79,
+    "frac_gold_in_left_rel_only": 1.0,
+    "note": "If top1\u2208hop ~100% and hop set huge, intersect_argmax\u2248atom argmax \u2014 explains ~0pp lift from hops@K"
+  },
+  "stage128_snapshot": null,
+  "verdict_rules": {
+    "SUPPORT_local_freq": "delta_func_sote_minus_bpe on bpe_only >= 0.10",
+    "REJECT_local_freq": "abs(delta) < 0.05 on bpe_only and ALL",
+    "hops_obj_unlikely": "frac_atom_top1_in_hop >= 0.90 and mean_hop_set_size >= 20"
+  },
+  "auto": {
+    "func_hypothesis": "SUPPORT_local_freq",
+    "hops_lift_obj": "UNLIKELY",
+    "bpe_only_delta_func": 0.13837920489296884
+  }
+}

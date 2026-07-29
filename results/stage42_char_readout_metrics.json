@@ -1,0 +1,195 @@
+{
+  "pass": true,
+  "flags": {
+    "word_ok": true,
+    "phrase_ok": true
+  },
+  "word_hold": {
+    "tf_acc": 0.5992217898832685,
+    "exact": 0.4375,
+    "exact_oracle_len": 0.4375,
+    "chance": 0.037037037037037035,
+    "gap": 0.5621847528462314,
+    "n": 48
+  },
+  "phrase_hold": {
+    "tf_acc": 0.588613406795225,
+    "exact": 0.0,
+    "exact_oracle_len": 0.0,
+    "chance": 0.037037037037037035,
+    "gap": 0.5515763697581879,
+    "n": 89
+  },
+  "phrase_samples": [
+    {
+      "gold": "ball on car",
+      "gen": "log on pad",
+      "gen_ol": "log on pad",
+      "ok": false
+    },
+    {
+      "gold": "ball to rim",
+      "gen": "working on car",
+      "gen_ol": "working on",
+      "ok": false
+    },
+    {
+      "gold": "ball to zip",
+      "gen": "ball to pad",
+      "gen_ol": "ball to pad",
+      "ok": false
+    },
+    {
+      "gold": "big cat on car",
+      "gen": "book to mat",
+      "gen_ol": "book to mat on",
+      "ok": false
+    },
+    {
+      "gold": "bird to nib",
+      "gen": "bird on top",
+      "gen_ol": "bird on top",
+      "ok": false
+    },
+    {
+      "gold": "bird to peg",
+      "gen": "bird on top",
+      "gen_ol": "bird on top",
+      "ok": false
+    },
+    {
+      "gold": "bird to top",
+      "gen": "talking to bin",
+      "gen_ol": "talking to",
+      "ok": false
+    },
+    {
+      "gold": "cat to car",
+      "gen": "cat to mat",
+      "gen_ol": "cat to mat",
+      "ok": false
+    }
+  ],
+  "word_samples": [
+    {
+      "gold": "ball",
+      "gen": "ball",
+      "gen_ol": "ball",
+      "ok": true
+    },
+    {
+      "gold": "big",
+      "gen": "big",
+      "gen_ol": "big",
+      "ok": true
+    },
+    {
+      "gold": "bird",
+      "gen": "bird",
+      "gen_ol": "bird",
+      "ok": true
+    },
+    {
+      "gold": "book",
+      "gen": "book",
+      "gen_ol": "book",
+      "ok": true
+    },
+    {
+      "gold": "car",
+      "gen": "car",
+      "gen_ol": "car",
+      "ok": true
+    },
+    {
+      "gold": "cat",
+      "gen": "cat",
+      "gen_ol": "cat",
+      "ok": true
+    },
+    {
+      "gold": "cob",
+      "gen": "called",
+      "gen_ol": "cal",
+      "ok": false
+    },
+    {
+      "gold": "dog",
+      "gen": "dog",
+      "gen_ol": "dog",
+      "ok": true
+    }
+  ],
+  "d_word": {
+    "exact": 1.0,
+    "n": 48
+  },
+  "d_phrase": {
+    "exact": 1.0,
+    "token": 1.0,
+    "n": 89
+  },
+  "config": {
+    "dim": 64,
+    "seed": 272,
+    "episode_k": 3,
+    "episode_k_dense": 7,
+    "n_hold_episodes": 80,
+    "n_dense_episodes": 64,
+    "create_below": 0.55,
+    "stabilize_lo": 0.55,
+    "lock_above": 0.92,
+    "ema": 0.85,
+    "retrieve_margin": 0.05,
+    "max_phrase_len": 5,
+    "max_word_len": 11,
+    "disambig_topk": 5,
+    "disambig_gap": 0.12,
+    "edge_w": 0.5,
+    "where_w": 0.3,
+    "bind_w": 0.2,
+    "dense_joint_min": 0.7,
+    "dense_h1_min": 0.9,
+    "dense_h2_given_h1_min": 0.85,
+    "dense_h3_given_h2_min": 0.85,
+    "dirty_bind_min": 0.55,
+    "dirty_bind_within_clean_pp": 0.25,
+    "dirty_hard_min": 0.5,
+    "ctrl_joint_min": 0.85,
+    "pass_seeds_min": 2,
+    "hubby_sample": true,
+    "dirty_both_min": 0.4,
+    "h1_cue_mode": "what_tail",
+    "use_left_instance": true,
+    "hub2_h1_min": 0.85,
+    "k9_joint_min": 0.65,
+    "native_joint_min": 0.55,
+    "lexicon_min": 0.99,
+    "encode_recon_min": 0.95,
+    "text_qa_joint_floor": 0.55,
+    "text_qa_within_ctrl_pp": 0.2,
+    "projector_steps": 2500,
+    "projector_lr": 0.001,
+    "word_decode_min": 0.95,
+    "phrase_decode_min": 0.95,
+    "answer_text_min": 0.7,
+    "answer_text_stress_min": 0.55,
+    "answer_text_within_bal_pp": 0.2,
+    "holdout_decode_floor": 0.0,
+    "n_dense_episodes_stress": 48,
+    "next_fp_steps": 2500,
+    "next_fp_lr": 0.001,
+    "next_fp_gap_min": 0.1,
+    "next_fp_abs_min": 0.25,
+    "next_fp_batch": 64,
+    "shortlist_gap_min": 0.12,
+    "shortlist_abs_min": 0.35,
+    "shortlist_ft_steps": 1500,
+    "shortlist_min_cands": 2,
+    "char_steps": 3000,
+    "char_lr": 0.001,
+    "char_batch": 64,
+    "char_acc_gap_min": 0.2,
+    "char_exact_floor": 0.05
+  }
+}

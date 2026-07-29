@@ -1,0 +1,29 @@
+SOTE Stage 9b report (morph generative channel)
+timestamp: 2026-07-22T20:04:34.752173+00:00
+device: cuda
+gpu: NVIDIA GeForce RTX 3050 Laptop GPU
+steps: 2500
+word ckpt: C:\Users\Kostya\sote-letter-assembly\checkpoints\word_memory_9_2.pt
+ing basin updates: 6750
+
+HOLD COLD compose trace/perm/path/stab: 88/88/100/100%
+Morph LOO  bind/add/stem: 100/100/0%  (agree 100%)
+Morph HOLD bind/add/stem: 100/100/0%  (agree 100%)
+
+Morph HOLD details (stem⊕ing -> form; OOV forms):
+  [OK] jump+ing -> jumping (want jumping, add=jumping, stem=jump) agree=1.00
+  [OK] walk+ing -> walking (want walking, add=walking, stem=walk) agree=1.00
+  [OK] read+ing -> reading (want reading, add=reading, stem=read) agree=1.00
+  [OK] write+ing -> writing (want writing, add=writing, stem=write) agree=1.00
+
+Morph LOO details:
+  [OK] jump+ing -> jumping (want jumping) score=1.00
+  [OK] walk+ing -> walking (want walking) score=1.00
+  [OK] read+ing -> reading (want reading) score=1.00
+  [OK] write+ing -> writing (want writing) score=1.00
+
+How to read:
+- GOAL: generative morphology, not population churn
+- MorphBind should beat add-only and stem-only
+- HOLD COLD compose must stay near 7.8e/9.2 (~88% trace)
+- only -ing seeded; no -s/-ly

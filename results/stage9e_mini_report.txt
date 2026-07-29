@@ -1,0 +1,40 @@
+SOTE Stage 9e-mini report (hybrid realize + MorphOp, ing/ed)
+timestamp: 2026-07-22T21:20:42.059043+00:00
+device: cuda
+steps: 3500
+word ckpt: word_memory_9_2.pt
+TRAIN=24 HOLD=8 affixes=['ing', 'ed']
+basin cos(ing,ed)=-0.0017
+pos_gate_mean(train end)=0.891
+
+Success = HOLD realize ok AND affix/shuffle margins > 0 AND peel usable.
+
+=== HOLD ===
+realize: op 100% | naive 100% | agree 0.997
+  affix margin +0.698 (win 100%) | shuffle margin +0.274 (win 100%)
+  ing: op 100% naive 100% aff_m +0.701 shuf_m +0.150
+  ed: op 100% naive 100% aff_m +0.696 shuf_m +0.398
+peel: 25% (sub 100%) | cycle reapply/repeel 100/50%
+
+=== TRAIN ===
+realize: op 100% | naive 100% | agree 0.997
+  affix margin +0.546 (win 100%) | shuffle margin +0.329 (win 100%)
+  ing: op 100% naive 100% aff_m +0.560 shuf_m +0.302
+  ed: op 100% naive 100% aff_m +0.526 shuf_m +0.367
+peel: 100% (sub 92%) | cycle reapply/repeel 100/100%
+
+HOLD per-stem:
+  [OK] jump+ing -> jumping (want jumping) aff_m=+0.730 shuf_m=+0.052 agree=1.00
+  [OK] walk+ing -> walking (want walking) aff_m=+0.646 shuf_m=+0.087 agree=1.00
+  [OK] read+ing -> reading (want reading) aff_m=+0.805 shuf_m=+0.247 agree=1.00
+  [OK] write+ing -> writing (want writing) aff_m=+0.622 shuf_m=+0.214 agree=1.00
+  [OK] jump+ed -> jumped (want jumped) aff_m=+0.745 shuf_m=+0.321 agree=1.00
+  [OK] walk+ed -> walked (want walked) aff_m=+0.651 shuf_m=+0.389 agree=1.00
+  [OK] read+ed -> readed (want readed) aff_m=+0.793 shuf_m=+0.439 agree=1.00
+  [OK] write+ed -> writed (want writed) aff_m=+0.595 shuf_m=+0.443 agree=0.99
+
+=== Auto verdict ===
+  [realize] HOLD realize 100% vs naive 100% (d +0pp)
+  [margins] affix win 100% m=+0.698 | shuffle win 100% m=+0.274
+  [peel] peel 25% vs sub 100%
+  [overall] Margins OK (affix/shuffle) but realize/peel still weak on HOLD - operator id without OOV assembly.

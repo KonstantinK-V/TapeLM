@@ -1,0 +1,34 @@
+SOTE Stage 52 report (deepen beyond-path next-atom)
+timestamp: 2026-07-24T09:21:39.620646+00:00
+device: cuda
+corpus: fp_language_corpus_beyond.pt  stats: {'n_seq': 21793, 'n_pairs': 65132, 'n_beyond_seq': 20317, 'n_beyond_pairs_train': 37883, 'n_beyond_pairs_hold': 20009, 'n_path_pairs_hold': 4766, 'kind_hist': {'adj_list_rel': 190, 'adj_rel': 383, 'adj_verb_rel': 297, 'base': 215, 'frame_grid': 12556, 'list_rel': 249, 'morph_paradigm': 15, 'path2': 374, 'path3': 887, 'polarity_rel': 193, 'verb_noun_chain': 3200, 'verb_rel': 3234}, 'len_hist': {2: 18, 3: 3436, 4: 16888, 5: 564, 7: 887}, 'beyond_hold_L1': 7055, 'beyond_hold_L2p': 12954}
+ref49 beyond ~18.8%/+7.7pp → target soft L≥2 ≥25%/+10pp
+
+=== D word=100.0% ===
+
+=== Beyond-path HOLD (all kinds) ===
+  all  18.6%/+10.5pp n=20009
+  L1   9.1%/+5.2pp n=7055
+  L2+  23.8%/+12.6pp n=12954
+  L3+  3.2%/+0.5pp n=5899
+
+=== Beyond-path HOLD core (excl. verb_rel) ===
+  L2+  26.0%/+12.5pp n=11753
+
+=== Beyond L2+ by kind ===
+  adj_list_rel     17.6%/+7.8pp n=153
+  adj_rel          27.1%/+13.9pp n=410
+  adj_verb_rel     25.0%/+12.9pp n=124
+  frame_grid       26.0%/+12.6pp n=8510
+  list_rel         30.6%/+20.8pp n=144
+  morph_paradigm   0.0%/+0.0pp n=6
+  polarity_rel     30.5%/+16.1pp n=174
+  verb_noun_chain  25.8%/+12.9pp n=2232
+  verb_rel         2.1%/-0.2pp n=1201
+
+=== Path HOLD (regression) ===
+  L2+  38.1%/+24.1pp n=3833
+order_drop beyond L2+=+4.8pp
+
+=== Verdict ===
+  PASS/PARTIAL: beyond-core L≥2 soft-green (26%/+12pp); order drop +5pp weak. verb_rel remains hard.

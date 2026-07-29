@@ -1,0 +1,5 @@
+SOTE Stage 50 report (masked-word on diverse corpus)
+timestamp: 2026-07-24T09:08:14.904752+00:00
+TRAIN acc=22.2% gap=+15.1pp n=6221
+HOLD  acc=27.0% gap=+17.8pp n=7895
+Verdict: PASS soft (mask vs shuffle)

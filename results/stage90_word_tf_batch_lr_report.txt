@@ -1,0 +1,31 @@
+SOTE Stage 90 — batch=32 word-id TF, lr=1e-3 (ablate vs Stage89)
+timestamp: 2026-07-24T17:29:40.458605+00:00
+device: cuda
+foundation: stage85_foundation.pt dim=256
+model: WordIdTransformer d=256 L=2 H=4 max_len=16 params=2010368
+train: batch=32 steps=8000 lr=0.001 atom-examples~256000; left-pad + causal; CE next word_id
+ablate: ONLY lr 3e-4->1e-3 vs Stage89; batch/model/mix fixed
+ref Stage88: obj=28% rel=84% head=56%
+ref Stage89: obj=24.7% rel=0% head=12.3%
+
+=== FT best ===
+  step=6000
+  SEEN  obj=28.0% rel=86.0% ALL=57.0% head=57.0% rare1=0.0%
+  RARE  obj=6.7% ALL=48.3%
+  STORY obj=16.6% ALL=9.7% rel=37.5%
+  curve obj swing (post-0)=28.0pp  [SIMILAR_SWING]
+
+=== vs Stage88 / Stage89 on SEEN ===
+  right bigram=22.1% ALL bigram=59.3%
+  TF@90 obj=28.0% rel=86.0% | 88 obj=28% rel=84% | 89 obj=24.7% rel=0%
+  SEEN freq model/bigram:
+    head21p  n= 3600  model= 57.0%  bigram= 59.3%
+
+=== Adequacy ===
+  HANDLES: SEEN rel@86%, SEEN_REL_RESTORED_vs_89, SEEN object@28%, SEEN head@57%
+  FAILS:   curve_swing@28pp
+  Read: same SOTE atom batch as 89; higher lr may restore fat-SEEN lock.
+
+=== Verdict: PARTIAL ===
+  stability: SIMILAR_SWING
+  gates: PARTIAL needs obj>=25% AND rel>=50%; LIVE obj>=50% AND rel>=50%

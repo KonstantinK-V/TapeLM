@@ -1,0 +1,28 @@
+SOTE V2 Path Replay R8 right-after-rel protocol (no top-5)
+timestamp: 2026-07-24T14:11:47.162132+00:00
+device: cuda
+plan: results/sote_v2_path_replay.md
+NO FT. No soft@5 claim.
+
+=== R8a next@1 (noun_rel HOLD) ===
+  ALL=29.3%  rel=54.0%  right=4.2%
+  protect path/rel: OK
+  right residual (<15% @1): YES
+
+=== R8b hops route for object ===
+  what_tail phrase retrieve=97.9%
+  right atom via retrieved fact=100.0%
+  hops-primary floor what_tail (>=70%): OK
+
+=== R8c left_fp match (harder; no right in cue) ===
+  left_fp nearest phrase=100.0% right=100.0%
+  note: left collisions in bank uniq=1 multi=62
+
+=== Decision: HOPS_PRIMARY_FOR_RIGHT ===
+  right-after-rel is NOT a TinySeq next@1 LIVE claim.
+  Object via memory/hops (what_tail fact key); keep rel+path on next.
+  left_fp match logged (collision-bound when left repeats).
+  Cue redesign if generative right@1 becomes goal. Not soft@5.
+
+=== Verdict R8: PASS ===
+  Next: R9 V2 band freeze (R0-R8 exact-only replay).

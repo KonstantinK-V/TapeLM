@@ -1,0 +1,65 @@
+SOTE Stage 8a report (frozen word contract + PhraseComposer)
+timestamp: 2026-07-22T16:39:24.290708+00:00
+device: cuda
+gpu: NVIDIA GeForce RTX 3050 Laptop GPU
+steps: 3000
+alphabet: C:\Users\Kostya\sote-letter-assembly\checkpoints\alphabet_full_frozen.pt
+word ckpt: C:\Users\Kostya\sote-letter-assembly\checkpoints\word_memory_78e.pt
+train phrases: 24 | hold phrases: 6
+word layer: FROZEN (compose letters -> word_fp)
+
+Train phrase acc:        100.0%
+Train word-trace/order:  92% / 100%
+Train stream agree:      1.000
+HOLD word-trace/order:   100% / 100%
+Prefix probes:           100%
+
+Train phrases:
+  [OK] 'cat on top          ' -> 'cat on top' sim=0.88 tr=0.20
+  [OK] 'dog on top          ' -> 'dog on top' sim=0.81 tr=0.21
+  [OK] 'cat on car          ' -> 'cat on car' sim=0.81 tr=0.21
+  [OK] 'dog on car          ' -> 'dog on car' sim=0.75 tr=0.23
+  [OK] 'go to car           ' -> 'go to car' sim=0.76 tr=0.20
+  [OK] 'go to dog           ' -> 'go to dog' sim=0.80 tr=0.21
+  [OK] 'go to top           ' -> 'go to top' sim=0.78 tr=0.21
+  [WEAK] 'go on top           ' -> 'go on top' sim=0.81 tr=0.20
+  [OK] 'cat to dog          ' -> 'cat to dog' sim=0.83 tr=0.20
+  [OK] 'dog to cat          ' -> 'dog to cat' sim=0.79 tr=0.21
+  [OK] 'no good dog         ' -> 'no good dog' sim=0.74 tr=0.20
+  [OK] 'not good cat        ' -> 'not good cat' sim=0.83 tr=0.20
+  [OK] 'stop on top         ' -> 'stop on top' sim=0.87 tr=0.21
+  [OK] 'spot on top         ' -> 'spot on top' sim=0.82 tr=0.20
+  [OK] 'post to top         ' -> 'post to top' sim=0.81 tr=0.21
+  [OK] 'act on top          ' -> 'act on top' sim=0.81 tr=0.20
+  [OK] 'pot on top          ' -> 'pot on top' sim=0.82 tr=0.21
+  [WEAK] 'card on top         ' -> 'card on top' sim=0.86 tr=0.20
+  [OK] 'not on top          ' -> 'not on top' sim=0.84 tr=0.22
+  [OK] 'not to go           ' -> 'not to go' sim=0.83 tr=0.21
+  [OK] 'no cat on top       ' -> 'no cat on top' sim=0.86 tr=0.22
+  [OK] 'no dog on car       ' -> 'no dog on car' sim=0.80 tr=0.21
+  [OK] 'good dog on top     ' -> 'good dog on top' sim=0.84 tr=0.21
+  [OK] 'good cat on car     ' -> 'good cat on car' sim=0.83 tr=0.21
+
+HOLD phrases (no phrase CE; soft invariants only):
+  [OK] 'cat to car          ' tr=0.23 order=Y stream=0.85
+  [OK] 'dog to top          ' tr=0.23 order=Y stream=0.72
+  [OK] 'go to cat           ' tr=0.23 order=Y stream=0.67
+  [OK] 'spot on car         ' tr=0.23 order=Y stream=0.81
+  [OK] 'good dog on car     ' tr=0.21 order=Y stream=0.87
+  [OK] 'no good cat         ' tr=0.25 order=Y stream=0.68
+
+Prefix probes:
+  [OK] 'go' family=0.43 other=-0.07 family=['go to car', 'go to dog', 'go to top', 'go on top']
+  [OK] 'go to' family=0.49 other=-0.07 family=['go to car', 'go to dog', 'go to top']
+  [OK] 'cat' family=0.55 other=-0.04 family=['cat on top', 'cat on car', 'cat to dog']
+  [OK] 'dog' family=0.46 other=-0.05 family=['dog on top', 'dog on car', 'dog to cat']
+  [OK] 'no' family=0.48 other=-0.03 family=['no good dog', 'no cat on top', 'no dog on car']
+  [OK] 'not' family=0.50 other=-0.07 family=['not good cat', 'not on top', 'not to go']
+  [OK] 'cat on' family=0.69 other=-0.02 family=['cat on top', 'cat on car']
+  [OK] 'dog on' family=0.57 other=-0.05 family=['dog on top', 'dog on car']
+
+How to read:
+- Word encoder/composer frozen from 7.8e; phrases bind word fps + END
+- word-trace: each content word_fp remains detectable inside phrase_fp
+- HOLD has no phrase-class CE — only trace/order/stream
+- Reasoning QA deferred to stage 8c

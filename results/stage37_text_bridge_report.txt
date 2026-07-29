@@ -1,0 +1,25 @@
+SOTE Stage 37 report (text bridge A/B/C on freeze 36)
+timestamp: 2026-07-24T07:16:24.352886+00:00
+device: cuda
+parent: stage36b_h2_residual_FROZEN.pt
+Contract core frozen: observe_strict + chain-link + what_tail + left_instance.
+Bank: {'facts': 82, 'triples': 240, 'phrases': 82}
+
+=== A Lexicon lookup ===
+  exact=100.0%  norm_variants=100.0%
+
+=== B Encode-only reconstruct ===
+  recon=100.0%  mean_sim=1.000
+
+=== C Thin projector (ablate vs B) ===
+  recon=96.3%  mean_sim=0.995  Δ vs B=-3.7pp
+
+=== Text-QA hop3 via encode-only strings (B path) ===
+  seed 272: text_j3=89.1% H1=93.8% | ctrl_j3=89.1% (Δ=+0.0pp)
+  seed 273: text_j3=89.1% H1=93.8% | ctrl_j3=89.1% (Δ=+0.0pp)
+  seed 274: text_j3=85.9% H1=93.8% | ctrl_j3=85.9% (Δ=+0.0pp)
+  mean text_j3=88.0% ctrl_j3=88.0% (vs freeze36 ~88.5%)
+
+=== Verdict ===
+  PASS: A/B green; text-QA holds (~88%); C ok vs B; ctrl intact.
+  Deferred: D decode, E next-fp.

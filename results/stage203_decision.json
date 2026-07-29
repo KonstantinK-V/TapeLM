@@ -1,0 +1,44 @@
+{
+  "timestamp": "2026-07-29T05:55:42.726376+00:00",
+  "protocol": "internal_hops_203",
+  "overall": "INTERNAL_HOPS_YES_IF_STRUCTURED",
+  "free_form_reader": {
+    "train": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 0.9944444444444445
+    },
+    "test": {
+      "1": 0.2833333333333333,
+      "2": 0.15,
+      "3": 0.2
+    }
+  },
+  "soft_follow_reader": {
+    "train": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 0.9888888888888889
+    },
+    "test": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 1.0
+    }
+  },
+  "external_hand_loop_test": {
+    "1": 1.0,
+    "2": 1.0,
+    "3": 1.0
+  },
+  "free_form_overfits": true,
+  "anticf_encoder_frozen": true,
+  "tape_slots": 3719,
+  "chains_train_test": [
+    180,
+    60
+  ],
+  "t_steps": 3,
+  "chance": 0.25,
+  "note": "internal hops generalize ONLY with minimal structure (soft value-follow + step select); a free-form learned reader memorizes; anti-CF preserved (frozen encoder + non-grad tape)"
+}

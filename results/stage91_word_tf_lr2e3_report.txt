@@ -1,0 +1,31 @@
+SOTE Stage 91 — batch=32 word-id TF, lr=2e-3 (denser up vs Stage90)
+timestamp: 2026-07-24T17:51:40.327309+00:00
+device: cuda
+foundation: stage85_foundation.pt dim=256
+model: WordIdTransformer d=256 L=2 H=4 max_len=16 params=2010368
+train: batch=32 steps=8000 lr=0.002 atom-examples~256000; left-pad + causal; CE next word_id
+ablate: ONLY lr 1e-3->2e-3 vs Stage90; denser batch may allow higher lr
+ref Stage88: obj=28% rel=84% head=56%
+ref Stage90: obj=28% rel=86% head=57% (lr1e-3)
+
+=== FT best ===
+  step=6000
+  SEEN  obj=12.7% rel=47.3% ALL=30.0% head=30.0% rare1=0.0%
+  RARE  obj=1.7% ALL=15.8%
+  STORY obj=10.8% ALL=6.8% rel=26.4%
+  curve obj swing (post-0)=12.7pp  [STABLER]
+
+=== vs Stage88 / Stage89 on SEEN ===
+  right bigram=22.1% ALL bigram=59.3%
+  TF@91 obj=12.7% rel=47.3% | 88 obj=28% rel=84% | 89 obj=28.0% rel=86%
+  SEEN freq model/bigram:
+    head21p  n= 3600  model= 30.0%  bigram= 59.3%
+
+=== Adequacy ===
+  HANDLES: SEEN head@30%, curve_swing@13pp
+  FAILS:   SEEN rel@47%, SEEN object@13%
+  Read: same SOTE atom batch as 89; higher lr may restore fat-SEEN lock.
+
+=== Verdict: FAIL ===
+  stability: STABLER
+  gates: PARTIAL needs obj>=25% AND rel>=50%; LIVE obj>=50% AND rel>=50%

@@ -1,0 +1,30 @@
+SOTE Stage 55 report (mid FT dig — HOLD L2 curve + early stop)
+timestamp: 2026-07-24T09:51:52.956693+00:00
+device: cuda
+parent: stage53_external_FROZEN.pt  data: data\external_mid.txt
+lines=618 train/hold=402/216 pairs=1231/650 V=135 new=28
+budget=3000 eval_every=150 lrs=[0.001, 0.0001]
+Goal: FT L≥2 ≥25% AND ≥ zero-shot on same mid (restore peak, not end-of-run).
+
+=== D grown exact=100.0% ===
+
+=== Zero-shot HOLD ===
+  L1  12.5%/+7.9pp n=216
+  L2+ 27.6%/+16.6pp n=434
+  L3+ 10.1%/+8.3pp n=218
+
+=== Curve arms (peak restored) ===
+  lr=0.001: peak@ 2850 L2=28.3%/+15.7pp | end L2=24.2%/+12.0pp | overshoot=+4.1pp
+  lr=0.0001: peak@ 0 L2=27.6%/+16.6pp | end L2=26.7%/+14.1pp | overshoot=+0.9pp
+
+=== Selected lr=0.001 @step=2850 → HOLD ===
+  L1  7.4%/+5.1pp n=216
+  L2+ 28.3%/+15.7pp n=434
+  L3+ 8.3%/+6.0pp n=218
+  order_drop=+3.2pp  vs_ZS=+ (ZS L2=27.6%)
+
+=== Walls: ['overshoot_4pp', 'order_weak'] ===
+
+=== Verdict ===
+  PASS dig: peak FT L≥2 28%/+16pp ≥25% and ≥ ZS. Wall was overshoot/schedule — restore peak; curriculum not needed yet.
+  No phrase/char trunk.

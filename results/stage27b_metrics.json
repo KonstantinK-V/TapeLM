@@ -1,0 +1,295 @@
+{
+  "pass": false,
+  "hold": {
+    "n": 80,
+    "n_pairs": 24,
+    "samples": [
+      {
+        "a": "ball to rim",
+        "b": "rim on peg",
+        "which": "first",
+        "full_full_j": true,
+        "full_full_1": true,
+        "hop1_partial_raw_j": false,
+        "hop1_partial_raw_1": false,
+        "hop1_partial_probe_j": true,
+        "hop1_partial_probe_1": true,
+        "hop1_partial_bind_j": false,
+        "hop1_partial_bind_1": false
+      },
+      {
+        "a": "spot to hut",
+        "b": "hut on peg",
+        "which": "second",
+        "full_full_j": false,
+        "full_full_1": false,
+        "hop1_partial_raw_j": false,
+        "hop1_partial_raw_1": false,
+        "hop1_partial_probe_j": false,
+        "hop1_partial_probe_1": false,
+        "hop1_partial_bind_j": false,
+        "hop1_partial_bind_1": false
+      },
+      {
+        "a": "ship to hut",
+        "b": "hut on web",
+        "which": "first",
+        "full_full_j": true,
+        "full_full_1": true,
+        "hop1_partial_raw_j": false,
+        "hop1_partial_raw_1": false,
+        "hop1_partial_probe_j": true,
+        "hop1_partial_probe_1": true,
+        "hop1_partial_bind_j": true,
+        "hop1_partial_bind_1": true
+      },
+      {
+        "a": "go to hut",
+        "b": "hut on rim",
+        "which": "second",
+        "full_full_j": false,
+        "full_full_1": false,
+        "hop1_partial_raw_j": false,
+        "hop1_partial_raw_1": false,
+        "hop1_partial_probe_j": false,
+        "hop1_partial_probe_1": true,
+        "hop1_partial_bind_j": false,
+        "hop1_partial_bind_1": false
+      },
+      {
+        "a": "pulls to web",
+        "b": "web on nib",
+        "which": "first",
+        "full_full_j": false,
+        "full_full_1": true,
+        "hop1_partial_raw_j": false,
+        "hop1_partial_raw_1": false,
+        "hop1_partial_probe_j": false,
+        "hop1_partial_probe_1": true,
+        "hop1_partial_bind_j": false,
+        "hop1_partial_bind_1": true
+      },
+      {
+        "a": "pushes to web",
+        "b": "web on cob",
+        "which": "second",
+        "full_full_j": false,
+        "full_full_1": true,
+        "hop1_partial_raw_j": false,
+        "hop1_partial_raw_1": true,
+        "hop1_partial_probe_j": false,
+        "hop1_partial_probe_1": true,
+        "hop1_partial_bind_j": false,
+        "hop1_partial_bind_1": true
+      },
+      {
+        "a": "spot to web",
+        "b": "web on hut",
+        "which": "first",
+        "full_full_j": false,
+        "full_full_1": false,
+        "hop1_partial_raw_j": false,
+        "hop1_partial_raw_1": false,
+        "hop1_partial_probe_j": false,
+        "hop1_partial_probe_1": false,
+        "hop1_partial_bind_j": false,
+        "hop1_partial_bind_1": false
+      },
+      {
+        "a": "cat to cob",
+        "b": "cob on peg",
+        "which": "second",
+        "full_full_j": false,
+        "full_full_1": false,
+        "hop1_partial_raw_j": false,
+        "hop1_partial_raw_1": false,
+        "hop1_partial_probe_j": false,
+        "hop1_partial_probe_1": false,
+        "hop1_partial_bind_j": false,
+        "hop1_partial_bind_1": false
+      }
+    ],
+    "modes": {
+      "full_full": {
+        "hop1": 0.75,
+        "hop2": 0.6375,
+        "joint": 0.45,
+        "mean_depth": 5.9125
+      },
+      "hop1_partial_raw": {
+        "hop1": 0.45,
+        "hop2": 0.5375,
+        "joint": 0.2125,
+        "mean_depth": 6.925
+      },
+      "hop1_partial_probe": {
+        "hop1": 0.625,
+        "hop2": 0.5875,
+        "joint": 0.3875,
+        "mean_depth": 11.85
+      },
+      "hop1_partial_bind": {
+        "hop1": 0.725,
+        "hop2": 0.6125,
+        "joint": 0.4375,
+        "mean_depth": 6.9125
+      }
+    }
+  },
+  "train": {
+    "n": 48,
+    "n_pairs": 20,
+    "samples": [
+      {
+        "a": "ball to pen",
+        "b": "pen on pad",
+        "which": "first",
+        "full_full_j": false,
+        "full_full_1": false,
+        "hop1_partial_raw_j": false,
+        "hop1_partial_raw_1": false,
+        "hop1_partial_probe_j": false,
+        "hop1_partial_probe_1": false,
+        "hop1_partial_bind_j": false,
+        "hop1_partial_bind_1": false
+      },
+      {
+        "a": "sand to lid",
+        "b": "lid on mug",
+        "which": "second",
+        "full_full_j": false,
+        "full_full_1": false,
+        "hop1_partial_raw_j": false,
+        "hop1_partial_raw_1": false,
+        "hop1_partial_probe_j": false,
+        "hop1_partial_probe_1": false,
+        "hop1_partial_bind_j": false,
+        "hop1_partial_bind_1": false
+      },
+      {
+        "a": "spot to log",
+        "b": "log on mug",
+        "which": "first",
+        "full_full_j": false,
+        "full_full_1": false,
+        "hop1_partial_raw_j": false,
+        "hop1_partial_raw_1": false,
+        "hop1_partial_probe_j": false,
+        "hop1_partial_probe_1": false,
+        "hop1_partial_bind_j": false,
+        "hop1_partial_bind_1": false
+      },
+      {
+        "a": "stop to bag",
+        "b": "bag on lid",
+        "which": "second",
+        "full_full_j": false,
+        "full_full_1": true,
+        "hop1_partial_raw_j": false,
+        "hop1_partial_raw_1": true,
+        "hop1_partial_probe_j": false,
+        "hop1_partial_probe_1": true,
+        "hop1_partial_bind_j": false,
+        "hop1_partial_bind_1": true
+      },
+      {
+        "a": "sand to lid",
+        "b": "lid on mug",
+        "which": "first",
+        "full_full_j": false,
+        "full_full_1": false,
+        "hop1_partial_raw_j": false,
+        "hop1_partial_raw_1": false,
+        "hop1_partial_probe_j": false,
+        "hop1_partial_probe_1": false,
+        "hop1_partial_bind_j": true,
+        "hop1_partial_bind_1": true
+      },
+      {
+        "a": "looking to mug",
+        "b": "mug on pad",
+        "which": "second",
+        "full_full_j": true,
+        "full_full_1": true,
+        "hop1_partial_raw_j": true,
+        "hop1_partial_raw_1": true,
+        "hop1_partial_probe_j": true,
+        "hop1_partial_probe_1": true,
+        "hop1_partial_bind_j": true,
+        "hop1_partial_bind_1": true
+      },
+      {
+        "a": "fish to log",
+        "b": "log on bin",
+        "which": "first",
+        "full_full_j": false,
+        "full_full_1": true,
+        "hop1_partial_raw_j": false,
+        "hop1_partial_raw_1": true,
+        "hop1_partial_probe_j": false,
+        "hop1_partial_probe_1": true,
+        "hop1_partial_bind_j": false,
+        "hop1_partial_bind_1": true
+      },
+      {
+        "a": "looking to mug",
+        "b": "mug on pad",
+        "which": "second",
+        "full_full_j": true,
+        "full_full_1": true,
+        "hop1_partial_raw_j": true,
+        "hop1_partial_raw_1": true,
+        "hop1_partial_probe_j": true,
+        "hop1_partial_probe_1": true,
+        "hop1_partial_bind_j": true,
+        "hop1_partial_bind_1": true
+      }
+    ],
+    "modes": {
+      "full_full": {
+        "hop1": 0.6666666666666666,
+        "hop2": 0.7708333333333334,
+        "joint": 0.5208333333333334,
+        "mean_depth": 5.9375
+      },
+      "hop1_partial_raw": {
+        "hop1": 0.4583333333333333,
+        "hop2": 0.7708333333333334,
+        "joint": 0.3333333333333333,
+        "mean_depth": 6.875
+      },
+      "hop1_partial_probe": {
+        "hop1": 0.5625,
+        "hop2": 0.7083333333333334,
+        "joint": 0.4375,
+        "mean_depth": 11.895833333333334
+      },
+      "hop1_partial_bind": {
+        "hop1": 0.75,
+        "hop2": 0.7916666666666666,
+        "joint": 0.6041666666666666,
+        "mean_depth": 6.979166666666667
+      }
+    }
+  },
+  "config": {
+    "dim": 64,
+    "seed": 272,
+    "episode_k": 3,
+    "steps": 1800,
+    "batch_size": 32,
+    "lr": 0.002,
+    "temperature": 0.07,
+    "n_hold_episodes": 80,
+    "n_train_episodes": 48,
+    "create_below": 0.55,
+    "stabilize_lo": 0.55,
+    "lock_above": 0.92,
+    "ema": 0.85,
+    "retrieve_margin": 0.05,
+    "max_phrase_len": 5,
+    "max_word_len": 11,
+    "joint_min": 0.45,
+    "lift_vs_raw_pp": 0.15
+  }
+}

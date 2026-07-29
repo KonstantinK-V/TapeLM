@@ -1,0 +1,55 @@
+SOTE Stage 10+ report (soft_variant + skeleton_kept)
+timestamp: 2026-07-23T09:57:39.298026+00:00
+device: cuda
+steps: 3000  eval_only=True
+word ckpt: word_memory_9_2.pt
+morph ckpt: morph_letter_9f_plusplus_FROZEN.pt
+TRAIN=69 HOLD=26 HOLD_BANK=30
+variant_delta=0.05  soft_margin=0.05
+Frozen: encoder + WordComposer + MorphMod
+
+Train phrase acc:   100.0%  trace=0.99 order=100% peel=100%
+HOLD invariants:    trace=0.83 order=100% peel=100%
+Prefix probes:      100%
+
+Morph-swap contract:
+  soft_variant = morph_drop>=delta AND destroy_drop >= morph_drop+soft_margin
+  skeleton_kept = cos(morph, peel_skel) > cos(destroy, peel_skel)
+  TRAIN: soft=40% skel=29% both=16% | moved=100% prefer=100% var=100%
+         mean_drop=+0.809 mean_anti=+0.788 gap(anti-morph)=-0.021 | skel cos m/d=+0.228/+0.359
+  HOLD:  soft=35% skel=50% both=25% | moved=100% prefer=100% var=100%
+         mean_drop=+0.470 mean_anti=+0.468 gap(anti-morph)=-0.002 | skel cos m/d=+0.482/+0.512
+Rel TRAIN / HOLD:   100% / 100%
+
+HOLD morph-swap details:
+  [HARD] jumps on top: jumps->jumped foil=tree drop=+0.933 anti=+0.645 gap=-0.288 skel_m/d=-0.207/+0.324 soft=0 skel=0
+  [HARD] jumping on top: jumping->jumped foil=house drop=+0.983 anti=+0.925 gap=-0.058 skel_m/d=-0.207/+0.499 soft=0 skel=0
+  [SKEL] jumped on top: jumped->jumping foil=water drop=+0.983 anti=+0.620 gap=-0.363 skel_m/d=+0.218/+0.064 soft=0 skel=1
+  [SKEL] walks on car: walks->walked foil=bird drop=+0.405 anti=+0.237 gap=-0.168 skel_m/d=+0.151/-0.387 soft=0 skel=1
+  [SOFT] walking on car: walking->walked foil=card drop=+0.695 anti=+1.275 gap=+0.579 skel_m/d=+0.151/+0.391 soft=1 skel=0
+  [HARD] walked on car: walked->walking foil=pot drop=+0.695 anti=+0.509 gap=-0.186 skel_m/d=-0.243/-0.138 soft=0 skel=0
+  [HARD] cat jumps: jumps->jumped foil=tree drop=+0.582 anti=+0.278 gap=-0.304 skel_m/d=+0.354/+0.640 soft=0 skel=0
+  [HARD] cat jumping: jumping->jumped foil=bird drop=+0.573 anti=+0.267 gap=-0.306 skel_m/d=+0.354/+0.621 soft=0 skel=0
+  [SOFT] cat jumped: jumped->jumping foil=tree drop=+0.573 anti=+0.824 gap=+0.251 skel_m/d=+0.604/+0.640 soft=1 skel=0
+  [OK] dog walks: walks->walked foil=card drop=+0.142 anti=+0.690 gap=+0.548 skel_m/d=+0.875/+0.588 soft=1 skel=1
+  [OK] dog walking: walking->walked foil=house drop=+0.422 anti=+0.641 gap=+0.218 skel_m/d=+0.875/+0.872 soft=1 skel=1
+  [HARD] dog walked: walked->walking foil=card drop=+0.422 anti=+0.396 gap=-0.026 skel_m/d=+0.539/+0.588 soft=0 skel=0
+  [SKEL] reading on top: reading->readed foil=pot drop=+0.897 anti=+0.818 gap=-0.079 skel_m/d=+0.139/-0.009 soft=0 skel=1
+  [SKEL] cat writes: writes->writed foil=house drop=+0.293 anti=+0.230 gap=-0.063 skel_m/d=+0.705/+0.484 soft=0 skel=1
+
+HOLD relational (sample):
+  [OK] 'cat to car' what -> cat (want cat)
+  [OK] 'cat to car' where -> car (want car)
+  [OK] 'dog to top' what -> dog (want dog)
+  [OK] 'dog to top' where -> top (want top)
+  [OK] 'go to cat' what -> go (want go)
+  [OK] 'go to cat' where -> cat (want cat)
+  [OK] 'spot on car' what -> spot (want spot)
+  [OK] 'spot on car' where -> car (want car)
+  [OK] 'good dog on car' what -> dog (want dog)
+  [OK] 'good dog on car' where -> car (want car)
+
+=== Verdict ===
+  soft_variant/skeleton not yet stable on HOLD (model fact or tune margins).
+    soft=0.35 skel=0.50 both=0.25 mean_gap=-0.002
+    Note: mean destroy_drop < morph_drop — affix swap hits phrase_fp harder than foil.

@@ -1,0 +1,552 @@
+{
+  "pass": true,
+  "n_controlled_hold_pairs": 24,
+  "stats": {
+    "base_hold": {
+      "n_phrases": 38,
+      "n_rel": 31,
+      "n_chains": 5,
+      "n_shared_obj_keys": 4,
+      "shared_obj_examples": {
+        "car": [
+          "cat to car",
+          "spot on car",
+          "good dog on car",
+          "ball on car"
+        ],
+        "top": [
+          "dog to top",
+          "bird to top",
+          "red dog on top",
+          "jumps on top"
+        ],
+        "land": [
+          "fish on land",
+          "living on land",
+          "lived on land"
+        ],
+        "door": [
+          "pulls on door",
+          "pulling on door",
+          "pulled on door"
+        ]
+      },
+      "chain_examples": [
+        [
+          "go to cat",
+          "cat to car"
+        ],
+        [
+          "go to cat",
+          "big cat on car"
+        ],
+        [
+          "pulls on door",
+          "door to car"
+        ],
+        [
+          "pulling on door",
+          "door to car"
+        ],
+        [
+          "pulled on door",
+          "door to car"
+        ]
+      ]
+    },
+    "exp_hold": {
+      "n_phrases": 96,
+      "n_rel": 89,
+      "n_chains": 180,
+      "n_shared_obj_keys": 12,
+      "shared_obj_examples": {
+        "car": [
+          "cat to car",
+          "spot on car",
+          "good dog on car",
+          "ball on car"
+        ],
+        "top": [
+          "dog to top",
+          "bird to top",
+          "red dog on top",
+          "jumps on top"
+        ],
+        "land": [
+          "fish on land",
+          "living on land",
+          "lived on land"
+        ],
+        "door": [
+          "pulls on door",
+          "pulling on door",
+          "pulled on door"
+        ],
+        "hut": [
+          "go to hut",
+          "spot on hut",
+          "spot to hut",
+          "go on hut"
+        ],
+        "rim": [
+          "hut on rim",
+          "peg on rim",
+          "ball to rim",
+          "go on rim"
+        ]
+      },
+      "chain_examples": [
+        [
+          "go to hut",
+          "hut on rim"
+        ],
+        [
+          "spot to hut",
+          "hut on peg"
+        ],
+        [
+          "bird to peg",
+          "peg on rim"
+        ],
+        [
+          "fish to peg",
+          "peg on hut"
+        ],
+        [
+          "ball to rim",
+          "rim on peg"
+        ],
+        [
+          "ship to rim",
+          "rim on hut"
+        ],
+        [
+          "dog to cob",
+          "cob on rim"
+        ],
+        [
+          "cat to cob",
+          "cob on peg"
+        ]
+      ]
+    },
+    "base_train": {
+      "n_phrases": 68,
+      "n_rel": 54,
+      "n_chains": 46,
+      "n_shared_obj_keys": 7,
+      "shared_obj_examples": {
+        "top": [
+          "cat on top",
+          "dog on top",
+          "go to top",
+          "go on top"
+        ],
+        "car": [
+          "cat on car",
+          "dog on car",
+          "go to car",
+          "good cat on car"
+        ],
+        "dog": [
+          "go to dog",
+          "cat to dog"
+        ],
+        "cat": [
+          "dog to cat",
+          "talking to cat",
+          "talked to cat",
+          "talks to cat"
+        ],
+        "land": [
+          "ball on land",
+          "ship to land",
+          "red car on land",
+          "working on land"
+        ],
+        "road": [
+          "rock on road",
+          "shop on road",
+          "sand on road",
+          "stopping on road"
+        ]
+      },
+      "chain_examples": [
+        [
+          "cat on car",
+          "red car on land"
+        ],
+        [
+          "dog on car",
+          "red car on land"
+        ],
+        [
+          "go to car",
+          "red car on land"
+        ],
+        [
+          "go to dog",
+          "dog on top"
+        ],
+        [
+          "go to dog",
+          "dog on car"
+        ],
+        [
+          "go to dog",
+          "dog to cat"
+        ],
+        [
+          "go to dog",
+          "good dog on top"
+        ],
+        [
+          "go to dog",
+          "big dog on car"
+        ]
+      ]
+    },
+    "exp_train": {
+      "n_phrases": 119,
+      "n_rel": 105,
+      "n_chains": 165,
+      "n_shared_obj_keys": 17,
+      "shared_obj_examples": {
+        "top": [
+          "cat on top",
+          "dog on top",
+          "go to top",
+          "go on top"
+        ],
+        "car": [
+          "cat on car",
+          "dog on car",
+          "go to car",
+          "good cat on car"
+        ],
+        "dog": [
+          "go to dog",
+          "cat to dog"
+        ],
+        "cat": [
+          "dog to cat",
+          "talking to cat",
+          "talked to cat",
+          "talks to cat"
+        ],
+        "land": [
+          "ball on land",
+          "ship to land",
+          "red car on land",
+          "working on land"
+        ],
+        "road": [
+          "rock on road",
+          "shop on road",
+          "sand on road",
+          "stopping on road"
+        ]
+      },
+      "chain_examples": [
+        [
+          "cat on car",
+          "red car on land"
+        ],
+        [
+          "dog on car",
+          "red car on land"
+        ],
+        [
+          "go to car",
+          "red car on land"
+        ],
+        [
+          "go to dog",
+          "dog on top"
+        ],
+        [
+          "go to dog",
+          "dog on car"
+        ],
+        [
+          "go to dog",
+          "dog to cat"
+        ],
+        [
+          "go to dog",
+          "good dog on top"
+        ],
+        [
+          "go to dog",
+          "big dog on car"
+        ]
+      ]
+    }
+  },
+  "eval": {
+    "base_hold": {
+      "n": 48,
+      "n_chains": 5,
+      "samples": [
+        {
+          "a": "pulling on door",
+          "b": "door to car",
+          "scratch_j": true,
+          "oracle2_j": true,
+          "polluted_j": false
+        },
+        {
+          "a": "go to cat",
+          "b": "big cat on car",
+          "scratch_j": true,
+          "oracle2_j": true,
+          "polluted_j": false
+        },
+        {
+          "a": "pulls on door",
+          "b": "door to car",
+          "scratch_j": false,
+          "oracle2_j": false,
+          "polluted_j": false
+        },
+        {
+          "a": "go to cat",
+          "b": "big cat on car",
+          "scratch_j": true,
+          "oracle2_j": true,
+          "polluted_j": false
+        },
+        {
+          "a": "go to cat",
+          "b": "cat to car",
+          "scratch_j": true,
+          "oracle2_j": true,
+          "polluted_j": false
+        },
+        {
+          "a": "pulled on door",
+          "b": "door to car",
+          "scratch_j": true,
+          "oracle2_j": true,
+          "polluted_j": false
+        },
+        {
+          "a": "go to cat",
+          "b": "cat to car",
+          "scratch_j": true,
+          "oracle2_j": true,
+          "polluted_j": false
+        },
+        {
+          "a": "go to cat",
+          "b": "cat to car",
+          "scratch_j": true,
+          "oracle2_j": true,
+          "polluted_j": false
+        }
+      ],
+      "modes": {
+        "scratch": {
+          "hop1": 0.8125,
+          "hop2": 0.9375,
+          "joint": 0.7708333333333334,
+          "mean_scratch_depth": 4.895833333333333
+        },
+        "oracle2": {
+          "hop1": 0.8125,
+          "hop2": 0.9583333333333334,
+          "joint": 0.7708333333333334,
+          "mean_scratch_depth": 3.8958333333333335
+        },
+        "polluted": {
+          "hop1": 0.0,
+          "hop2": 0.5208333333333334,
+          "joint": 0.0,
+          "mean_scratch_depth": 0.0
+        }
+      }
+    },
+    "controlled_hold": {
+      "n": 80,
+      "n_chains": 24,
+      "samples": [
+        {
+          "a": "fish to peg",
+          "b": "peg on hut",
+          "scratch_j": true,
+          "oracle2_j": true,
+          "polluted_j": false
+        },
+        {
+          "a": "cat to cob",
+          "b": "cob on peg",
+          "scratch_j": true,
+          "oracle2_j": true,
+          "polluted_j": false
+        },
+        {
+          "a": "reading to yap",
+          "b": "yap on nib",
+          "scratch_j": true,
+          "oracle2_j": true,
+          "polluted_j": false
+        },
+        {
+          "a": "living to yap",
+          "b": "yap on web",
+          "scratch_j": false,
+          "oracle2_j": false,
+          "polluted_j": false
+        },
+        {
+          "a": "dog to cob",
+          "b": "cob on rim",
+          "scratch_j": true,
+          "oracle2_j": true,
+          "polluted_j": false
+        },
+        {
+          "a": "bird to peg",
+          "b": "peg on rim",
+          "scratch_j": true,
+          "oracle2_j": true,
+          "polluted_j": false
+        },
+        {
+          "a": "walks to peg",
+          "b": "peg on yap",
+          "scratch_j": true,
+          "oracle2_j": true,
+          "polluted_j": false
+        },
+        {
+          "a": "fish to yap",
+          "b": "yap on peg",
+          "scratch_j": true,
+          "oracle2_j": true,
+          "polluted_j": false
+        }
+      ],
+      "modes": {
+        "scratch": {
+          "hop1": 0.7875,
+          "hop2": 0.6375,
+          "joint": 0.5375,
+          "mean_scratch_depth": 4.9875
+        },
+        "oracle2": {
+          "hop1": 0.7875,
+          "hop2": 0.825,
+          "joint": 0.6125,
+          "mean_scratch_depth": 3.9875
+        },
+        "polluted": {
+          "hop1": 0.1,
+          "hop2": 0.55,
+          "joint": 0.0625,
+          "mean_scratch_depth": 0.0
+        }
+      }
+    },
+    "full_stress_hold": {
+      "n": 48,
+      "n_chains": 180,
+      "samples": [
+        {
+          "a": "bird to nib",
+          "b": "nib on zip",
+          "scratch_j": false,
+          "oracle2_j": false,
+          "polluted_j": false
+        },
+        {
+          "a": "go on hut",
+          "b": "hut on peg",
+          "scratch_j": false,
+          "oracle2_j": false,
+          "polluted_j": false
+        },
+        {
+          "a": "go on yap",
+          "b": "yap on nib",
+          "scratch_j": false,
+          "oracle2_j": false,
+          "polluted_j": false
+        },
+        {
+          "a": "yap on nib",
+          "b": "nib on zip",
+          "scratch_j": false,
+          "oracle2_j": false,
+          "polluted_j": false
+        },
+        {
+          "a": "go on hut",
+          "b": "hut on rim",
+          "scratch_j": false,
+          "oracle2_j": false,
+          "polluted_j": false
+        },
+        {
+          "a": "rim on hut",
+          "b": "hut on rim",
+          "scratch_j": false,
+          "oracle2_j": false,
+          "polluted_j": false
+        },
+        {
+          "a": "yap on nib",
+          "b": "nib on cob",
+          "scratch_j": false,
+          "oracle2_j": false,
+          "polluted_j": false
+        },
+        {
+          "a": "bird to nib",
+          "b": "nib on hut",
+          "scratch_j": false,
+          "oracle2_j": false,
+          "polluted_j": false
+        }
+      ],
+      "modes": {
+        "scratch": {
+          "hop1": 0.3958333333333333,
+          "hop2": 0.5625,
+          "joint": 0.10416666666666667,
+          "mean_scratch_depth": 4.916666666666667
+        },
+        "oracle2": {
+          "hop1": 0.3958333333333333,
+          "hop2": 0.6875,
+          "joint": 0.125,
+          "mean_scratch_depth": 3.9166666666666665
+        },
+        "polluted": {
+          "hop1": 0.020833333333333332,
+          "hop2": 0.5208333333333334,
+          "joint": 0.0,
+          "mean_scratch_depth": 0.0
+        }
+      }
+    }
+  },
+  "config": {
+    "dim": 64,
+    "seed": 25,
+    "episode_k": 3,
+    "n_hold_episodes": 80,
+    "n_train_episodes": 60,
+    "create_below": 0.55,
+    "stabilize_lo": 0.55,
+    "lock_above": 0.92,
+    "ema": 0.85,
+    "retrieve_margin": 0.05,
+    "max_phrase_len": 5,
+    "max_word_len": 11,
+    "hold_chains_min": 20,
+    "joint_min": 0.5,
+    "hop1_min": 0.7,
+    "beat_polluted_pp": 0.25
+  }
+}

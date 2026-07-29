@@ -1,0 +1,20 @@
+SOTE Stage 74 report (dense verb,rel,right — object dig)
+timestamp: 2026-07-24T13:18:36.298055+00:00
+device: cuda
+parent: stage57_rehearsal_FROZEN.pt  data: data\external_verb_dense.txt
+triples=224 line_hold=1008 trip_hold=44/792 lines
+FT steps≤2500 rehearse_1k=0.25 protect≤5pp
+
+=== ZS object-slot ===
+  line-hold (in-dist):  6.2%/+-0.1pp n=1008
+  trip-hold (OOD triple): 6.4%/+-2.7pp n=792
+
+=== After FT (best protect-aware) ===
+  line-hold:  12.3%/+0.3pp  ΔZS=+6.1pp  step=1000
+  trip-hold:  14.0%/+-1.0pp
+  1k noun_rel 27.6% (Δ=+1.6pp)  polarity 30.5% (Δ=+4.9pp)
+
+=== Verdict: FAIL ===
+  Dense repeats did not unlock object-after-rel.
+  Hops still noun_rel|polarity until object LIVE + separate hop probe.
+  Semi-cognitive note: path+hops work; verb_ing object was the missing bit this dig targets.

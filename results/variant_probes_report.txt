@@ -1,0 +1,56 @@
+SOTE variant probes (against 7.8c)
+timestamp: 2026-07-22T14:03:52.981851+00:00
+
+=== 1. Morphology discovery ===
+purity=0.64  NMI=0.26  k=4  pairs=33
+verdict: seeded prior OK for: ing; full unsupervised discovery weak (class imbalance)
+pairwise intra-tag delta cos (better than k-means under imbalance):
+  ing      n= 4  intra=0.403
+  ~an+en   n= 2  intra=0.247
+  ly       n= 3  intra=0.136
+  s        n=20  intra=0.075
+unsupervised tag readiness (F1 of best cluster):
+  ~an+en   n= 2  F1=0.67
+  s        n=20  F1=0.50
+  ing      n= 4  F1=0.25
+  ly       n= 3  F1=0.18
+clusters:
+  c0: dom=~an+en(50%) n=4 intra=0.13  dog->dogs, man->men, woman->women, read->reading
+  c1: dom=s(88%) n=8 intra=0.15  cat->cats, bird->birds, walk->walks, apple->apples, table->tables, read->reads
+  c2: dom=s(78%) n=9 intra=0.14  book->books, tree->trees, make->makes, take->takes, give->gives, write->writes
+  c3: dom=s(42%) n=12 intra=0.21  run->runs, jump->jumps, house->houses, window->windows, friend->friends, leaf->leaves
+
+=== 2. Residual as feature ===
+related/random compose cos: 0.600 / 0.059 (gap 0.541)
+related/random R_span cos:  0.583 / 0.043 (gap 0.540)
+morph retrieve acc compose/rspan: 93% / 90%
+verdict: residual ≈ compose for relatedness — use as aux loss / morph proto, not replace compose
+
+=== 3. Curiosity-driven stabilization ===
+memory slots: 111
+HOLD/train mean novelty: 0.329 / 0.414
+HOLD create/stabilize/ambiguous rates: 18%/35%/47%
+always-EMA hold mean count: 7412
+verdict: implement curiosity gate next train — always-EMA overwrites (~7412 updates/HOLD word); novelty signal mid but selectivity still needed
+
+=== 4. Hierarchical attractors ===
+verdict: letter OK → soft subword(-ing) only → word soft → phrase later
+  letter   ready=True  frozen  
+  subword  ready=True  partial  seed soft -ing only; unsupervised -s mixed; no full subword layer yet
+  word     ready=True  soft memory (7.8c)  create+EMA works; freeze only after cold-OOV ok
+  phrase   ready=False  not ready  compounds not additive; need word contract first
+
+=== 5. Dynamic context shift ===
+max_safe_alpha: 0.25
+verdict: allow weak context alpha<=0.25
+  alpha=0.00  self_cos=1.000  d(min_trace)=-0.000
+  alpha=0.10  self_cos=0.995  d(min_trace)=+0.002
+  alpha=0.25  self_cos=0.971  d(min_trace)=-0.005
+  alpha=0.50  self_cos=0.895  d(min_trace)=-0.022
+
+=== Priority recommendation ===
+1. Residual-as-feature (aux) + seeded -ing morph prior (pairwise evidence)
+2. Curiosity gate on SoftWordMemory (stop always-EMA)
+3. Soft subword only for high-intra tags (-ing); not full hierarchy
+4. Context shift alpha<=0.25 after traces stronger; keep weak
+5. Phrase level after word contract freezes

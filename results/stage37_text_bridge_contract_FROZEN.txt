@@ -1,0 +1,27 @@
+SOTE Stage 37 text-bridge contract FROZEN (A/B/C)
+timestamp: 2026-07-24T07:20:00+00:00
+checkpoint: stage37_text_bridge_FROZEN.pt
+parent: stage36b_h2_residual_FROZEN.pt
+report: stage37_text_bridge_report_FROZEN.txt
+metrics: stage37_text_bridge_metrics.json
+
+=== CLAIM ===
+  External text → frozen compose → hop3 holds on in-bank strings.
+  A lexicon 100%; B encode-recon 100%; text-QA joint3 == internal ctrl (~88%).
+  C projector optional (−3.7pp vs B); primary path remains encode-only B.
+
+=== CONTRACT ===
+  Core memory/hop (36): observe_strict + chain-link + what_tail + left_instance
+  Bridge A: normalize → exact lexicon key
+  Bridge B: text → Letter/Word/Morph/PhraseComposer → phrase_fp → NN slot
+  Text-QA: external strings through B into hop3 protocol (h2 left-instance)
+  C: thin bag-char projector = ablate only; do not replace B if C < B
+
+NOT frozen here: D decode, E next-fp
+
+=== METRICS ===
+  A exact/variants 100%; B recon 100%; C recon 96.3%; text_j3~88% = ctrl
+  pass: True
+
+=== FREEZE_READY: True ===
+Next: Stage 38 D decode codebook (fp → text).

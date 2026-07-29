@@ -1,0 +1,1829 @@
+{
+  "stage": "9e-mini",
+  "timestamp": "2026-07-22T21:20:42.059043+00:00",
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "config": {
+    "dim": 64,
+    "lr": 0.003,
+    "steps": 3500,
+    "seed": 0,
+    "temperature": 0.07,
+    "contrast_temp": 0.1,
+    "batch_pairs": 20,
+    "w_realize_ce": 1.0,
+    "w_realize_cos": 1.0,
+    "w_peel": 0.8,
+    "w_cycle": 0.6,
+    "w_agree": 0.5,
+    "w_swap_affix": 0.8,
+    "w_swap_shuffle": 0.6,
+    "w_contrast": 0.8,
+    "w_delta": 0.08,
+    "w_basin_sep": 0.1,
+    "margin": 0.1,
+    "warm_b_blend": 0.25,
+    "max_suffix": 4
+  },
+  "metrics": {
+    "word_ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\word_memory_9_2.pt",
+    "n_train": 24,
+    "n_hold": 8,
+    "basin_cos": -0.0017090141773223877,
+    "pos_gate_end": 0.8907336592674255,
+    "train_pairs": [
+      [
+        "play",
+        "ing",
+        "playing"
+      ],
+      [
+        "go",
+        "ing",
+        "going"
+      ],
+      [
+        "act",
+        "ing",
+        "acting"
+      ],
+      [
+        "fish",
+        "ing",
+        "fishing"
+      ],
+      [
+        "post",
+        "ing",
+        "posting"
+      ],
+      [
+        "book",
+        "ing",
+        "booking"
+      ],
+      [
+        "light",
+        "ing",
+        "lighting"
+      ],
+      [
+        "make",
+        "ing",
+        "making"
+      ],
+      [
+        "take",
+        "ing",
+        "taking"
+      ],
+      [
+        "give",
+        "ing",
+        "giving"
+      ],
+      [
+        "run",
+        "ing",
+        "running"
+      ],
+      [
+        "stop",
+        "ing",
+        "stopping"
+      ],
+      [
+        "spot",
+        "ing",
+        "spotting"
+      ],
+      [
+        "top",
+        "ing",
+        "topping"
+      ],
+      [
+        "play",
+        "ed",
+        "played"
+      ],
+      [
+        "stop",
+        "ed",
+        "stopped"
+      ],
+      [
+        "post",
+        "ed",
+        "posted"
+      ],
+      [
+        "act",
+        "ed",
+        "acted"
+      ],
+      [
+        "fish",
+        "ed",
+        "fished"
+      ],
+      [
+        "book",
+        "ed",
+        "booked"
+      ],
+      [
+        "top",
+        "ed",
+        "topped"
+      ],
+      [
+        "spot",
+        "ed",
+        "spotted"
+      ],
+      [
+        "light",
+        "ed",
+        "lighted"
+      ],
+      [
+        "water",
+        "ed",
+        "watered"
+      ]
+    ],
+    "hold_pairs": [
+      [
+        "jump",
+        "ing",
+        "jumping"
+      ],
+      [
+        "walk",
+        "ing",
+        "walking"
+      ],
+      [
+        "read",
+        "ing",
+        "reading"
+      ],
+      [
+        "write",
+        "ing",
+        "writing"
+      ],
+      [
+        "jump",
+        "ed",
+        "jumped"
+      ],
+      [
+        "walk",
+        "ed",
+        "walked"
+      ],
+      [
+        "read",
+        "ed",
+        "readed"
+      ],
+      [
+        "write",
+        "ed",
+        "writed"
+      ]
+    ],
+    "hold": {
+      "realize": {
+        "all": {
+          "label": "all",
+          "n": 8,
+          "acc": 1.0,
+          "naive_acc": 1.0,
+          "mean_agree": 0.9972964078187943,
+          "mean_margin_aff": 0.6984408441931009,
+          "mean_margin_shuf": 0.27392181754112244,
+          "aff_win": 1.0,
+          "shuf_win": 1.0,
+          "details": [
+            {
+              "stem": "jump",
+              "affix": "ing",
+              "form": "jumping",
+              "pred": "jumping",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9976232051849365,
+              "cos_right": 0.9976232051849365,
+              "cos_wrong_aff": 0.26787465810775757,
+              "cos_shuf": 0.9454506635665894,
+              "margin_aff": 0.729748547077179,
+              "margin_shuf": 0.05217254161834717,
+              "score": 0.9976231455802917
+            },
+            {
+              "stem": "walk",
+              "affix": "ing",
+              "form": "walking",
+              "pred": "walking",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9988001585006714,
+              "cos_right": 0.9988001585006714,
+              "cos_wrong_aff": 0.35264939069747925,
+              "cos_shuf": 0.9121054410934448,
+              "margin_aff": 0.6461507678031921,
+              "margin_shuf": 0.08669471740722656,
+              "score": 0.9988001585006714
+            },
+            {
+              "stem": "read",
+              "affix": "ing",
+              "form": "reading",
+              "pred": "reading",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9989335536956787,
+              "cos_right": 0.9989335536956787,
+              "cos_wrong_aff": 0.19362661242485046,
+              "cos_shuf": 0.7522901892662048,
+              "margin_aff": 0.8053069412708282,
+              "margin_shuf": 0.24664336442947388,
+              "score": 0.9989334940910339
+            },
+            {
+              "stem": "write",
+              "affix": "ing",
+              "form": "writing",
+              "pred": "writing",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9985092878341675,
+              "cos_right": 0.9985092878341675,
+              "cos_wrong_aff": 0.3760416507720947,
+              "cos_shuf": 0.7847656607627869,
+              "margin_aff": 0.6224676370620728,
+              "margin_shuf": 0.21374362707138062,
+              "score": 0.9985092878341675
+            },
+            {
+              "stem": "jump",
+              "affix": "ed",
+              "form": "jumped",
+              "pred": "jumped",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9958969950675964,
+              "cos_right": 0.9958969950675964,
+              "cos_wrong_aff": 0.2512832283973694,
+              "cos_shuf": 0.674785852432251,
+              "margin_aff": 0.744613766670227,
+              "margin_shuf": 0.32111114263534546,
+              "score": 0.9958969354629517
+            },
+            {
+              "stem": "walk",
+              "affix": "ed",
+              "form": "walked",
+              "pred": "walked",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9994131922721863,
+              "cos_right": 0.9994131922721863,
+              "cos_wrong_aff": 0.34809812903404236,
+              "cos_shuf": 0.6108379364013672,
+              "margin_aff": 0.6513150632381439,
+              "margin_shuf": 0.3885752558708191,
+              "score": 0.9994131326675415
+            },
+            {
+              "stem": "read",
+              "affix": "ed",
+              "form": "readed",
+              "pred": "readed",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9975261092185974,
+              "cos_right": 0.9975261092185974,
+              "cos_wrong_aff": 0.20457051694393158,
+              "cos_shuf": 0.5583332777023315,
+              "margin_aff": 0.7929555922746658,
+              "margin_shuf": 0.43919283151626587,
+              "score": 0.9975261092185974
+            },
+            {
+              "stem": "write",
+              "affix": "ed",
+              "form": "writed",
+              "pred": "writed",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9916687607765198,
+              "cos_right": 0.9916687607765198,
+              "cos_wrong_aff": 0.39670032262802124,
+              "cos_shuf": 0.5484277009963989,
+              "margin_aff": 0.5949684381484985,
+              "margin_shuf": 0.44324105978012085,
+              "score": 0.9916688203811646
+            }
+          ]
+        },
+        "ing": {
+          "label": "ing",
+          "n": 4,
+          "acc": 1.0,
+          "naive_acc": 1.0,
+          "mean_agree": 0.9984665513038635,
+          "mean_margin_aff": 0.700918473303318,
+          "mean_margin_shuf": 0.14981356263160706,
+          "aff_win": 1.0,
+          "shuf_win": 1.0,
+          "details": [
+            {
+              "stem": "jump",
+              "affix": "ing",
+              "form": "jumping",
+              "pred": "jumping",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9976232051849365,
+              "cos_right": 0.9976232051849365,
+              "cos_wrong_aff": 0.26787465810775757,
+              "cos_shuf": 0.9454506635665894,
+              "margin_aff": 0.729748547077179,
+              "margin_shuf": 0.05217254161834717,
+              "score": 0.9976231455802917
+            },
+            {
+              "stem": "walk",
+              "affix": "ing",
+              "form": "walking",
+              "pred": "walking",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9988001585006714,
+              "cos_right": 0.9988001585006714,
+              "cos_wrong_aff": 0.35264939069747925,
+              "cos_shuf": 0.9121054410934448,
+              "margin_aff": 0.6461507678031921,
+              "margin_shuf": 0.08669471740722656,
+              "score": 0.9988001585006714
+            },
+            {
+              "stem": "read",
+              "affix": "ing",
+              "form": "reading",
+              "pred": "reading",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9989335536956787,
+              "cos_right": 0.9989335536956787,
+              "cos_wrong_aff": 0.19362661242485046,
+              "cos_shuf": 0.7522901892662048,
+              "margin_aff": 0.8053069412708282,
+              "margin_shuf": 0.24664336442947388,
+              "score": 0.9989334940910339
+            },
+            {
+              "stem": "write",
+              "affix": "ing",
+              "form": "writing",
+              "pred": "writing",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9985092878341675,
+              "cos_right": 0.9985092878341675,
+              "cos_wrong_aff": 0.3760416507720947,
+              "cos_shuf": 0.7847656607627869,
+              "margin_aff": 0.6224676370620728,
+              "margin_shuf": 0.21374362707138062,
+              "score": 0.9985092878341675
+            }
+          ]
+        },
+        "ed": {
+          "label": "ed",
+          "n": 4,
+          "acc": 1.0,
+          "naive_acc": 1.0,
+          "mean_agree": 0.996126264333725,
+          "mean_margin_aff": 0.6959632150828838,
+          "mean_margin_shuf": 0.3980300724506378,
+          "aff_win": 1.0,
+          "shuf_win": 1.0,
+          "details": [
+            {
+              "stem": "jump",
+              "affix": "ed",
+              "form": "jumped",
+              "pred": "jumped",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9958969950675964,
+              "cos_right": 0.9958969950675964,
+              "cos_wrong_aff": 0.2512832283973694,
+              "cos_shuf": 0.674785852432251,
+              "margin_aff": 0.744613766670227,
+              "margin_shuf": 0.32111114263534546,
+              "score": 0.9958969354629517
+            },
+            {
+              "stem": "walk",
+              "affix": "ed",
+              "form": "walked",
+              "pred": "walked",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9994131922721863,
+              "cos_right": 0.9994131922721863,
+              "cos_wrong_aff": 0.34809812903404236,
+              "cos_shuf": 0.6108379364013672,
+              "margin_aff": 0.6513150632381439,
+              "margin_shuf": 0.3885752558708191,
+              "score": 0.9994131326675415
+            },
+            {
+              "stem": "read",
+              "affix": "ed",
+              "form": "readed",
+              "pred": "readed",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9975261092185974,
+              "cos_right": 0.9975261092185974,
+              "cos_wrong_aff": 0.20457051694393158,
+              "cos_shuf": 0.5583332777023315,
+              "margin_aff": 0.7929555922746658,
+              "margin_shuf": 0.43919283151626587,
+              "score": 0.9975261092185974
+            },
+            {
+              "stem": "write",
+              "affix": "ed",
+              "form": "writed",
+              "pred": "writed",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9916687607765198,
+              "cos_right": 0.9916687607765198,
+              "cos_wrong_aff": 0.39670032262802124,
+              "cos_shuf": 0.5484277009963989,
+              "margin_aff": 0.5949684381484985,
+              "margin_shuf": 0.44324105978012085,
+              "score": 0.9916688203811646
+            }
+          ]
+        }
+      },
+      "peel_cycle": {
+        "peel": {
+          "acc": 0.25,
+          "sub_acc": 1.0,
+          "mean_agree": 0.3808390647172928,
+          "details": [
+            {
+              "stem": "jump",
+              "affix": "ing",
+              "form": "jumping",
+              "pred": "top",
+              "ok": false,
+              "sub_ok": true,
+              "agree": 0.17856866121292114
+            },
+            {
+              "stem": "walk",
+              "affix": "ing",
+              "form": "walking",
+              "pred": "spot",
+              "ok": false,
+              "sub_ok": true,
+              "agree": 0.44257399439811707
+            },
+            {
+              "stem": "read",
+              "affix": "ing",
+              "form": "reading",
+              "pred": "read",
+              "ok": true,
+              "sub_ok": true,
+              "agree": 0.5530266761779785
+            },
+            {
+              "stem": "write",
+              "affix": "ing",
+              "form": "writing",
+              "pred": "spot",
+              "ok": false,
+              "sub_ok": true,
+              "agree": 0.22535648941993713
+            },
+            {
+              "stem": "jump",
+              "affix": "ed",
+              "form": "jumped",
+              "pred": "fish",
+              "ok": false,
+              "sub_ok": true,
+              "agree": 0.39794737100601196
+            },
+            {
+              "stem": "walk",
+              "affix": "ed",
+              "form": "walked",
+              "pred": "walk",
+              "ok": true,
+              "sub_ok": true,
+              "agree": 0.42660778760910034
+            },
+            {
+              "stem": "read",
+              "affix": "ed",
+              "form": "readed",
+              "pred": "fish",
+              "ok": false,
+              "sub_ok": true,
+              "agree": 0.42939049005508423
+            },
+            {
+              "stem": "write",
+              "affix": "ed",
+              "form": "writed",
+              "pred": "water",
+              "ok": false,
+              "sub_ok": true,
+              "agree": 0.3932410478591919
+            }
+          ]
+        },
+        "cycle": {
+          "reapply_acc": 1.0,
+          "repeel_acc": 0.5,
+          "mean_reapply": 0.7901126220822334,
+          "mean_repeel": 0.5259888656437397,
+          "details": [
+            {
+              "stem": "jump",
+              "affix": "ing",
+              "cos_reapply": 0.6702084541320801,
+              "cos_repeel": 0.3280792534351349,
+              "ok_reapply": true,
+              "ok_repeel": false
+            },
+            {
+              "stem": "walk",
+              "affix": "ing",
+              "cos_reapply": 0.8652985095977783,
+              "cos_repeel": 0.6616167426109314,
+              "ok_reapply": true,
+              "ok_repeel": true
+            },
+            {
+              "stem": "read",
+              "affix": "ing",
+              "cos_reapply": 0.8090242147445679,
+              "cos_repeel": 0.7356986999511719,
+              "ok_reapply": true,
+              "ok_repeel": true
+            },
+            {
+              "stem": "write",
+              "affix": "ing",
+              "cos_reapply": 0.8451805114746094,
+              "cos_repeel": 0.40410780906677246,
+              "ok_reapply": true,
+              "ok_repeel": false
+            },
+            {
+              "stem": "jump",
+              "affix": "ed",
+              "cos_reapply": 0.8693065643310547,
+              "cos_repeel": 0.2633246183395386,
+              "ok_reapply": true,
+              "ok_repeel": false
+            },
+            {
+              "stem": "walk",
+              "affix": "ed",
+              "cos_reapply": 0.5969504714012146,
+              "cos_repeel": 0.667192280292511,
+              "ok_reapply": true,
+              "ok_repeel": true
+            },
+            {
+              "stem": "read",
+              "affix": "ed",
+              "cos_reapply": 0.9497016668319702,
+              "cos_repeel": 0.6776421070098877,
+              "ok_reapply": true,
+              "ok_repeel": true
+            },
+            {
+              "stem": "write",
+              "affix": "ed",
+              "cos_reapply": 0.7152305841445923,
+              "cos_repeel": 0.4702494144439697,
+              "ok_reapply": true,
+              "ok_repeel": false
+            }
+          ]
+        }
+      }
+    },
+    "train": {
+      "realize": {
+        "all": {
+          "label": "all",
+          "n": 24,
+          "acc": 1.0,
+          "naive_acc": 1.0,
+          "mean_agree": 0.9970773359139761,
+          "mean_margin_aff": 0.5457930434495211,
+          "mean_margin_shuf": 0.3293718819816907,
+          "aff_win": 1.0,
+          "shuf_win": 1.0,
+          "details": [
+            {
+              "stem": "play",
+              "affix": "ing",
+              "form": "playing",
+              "pred": "playing",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.997719407081604,
+              "cos_right": 0.997719407081604,
+              "cos_wrong_aff": 0.6613624691963196,
+              "cos_shuf": 0.705569326877594,
+              "margin_aff": 0.3363569378852844,
+              "margin_shuf": 0.29215008020401,
+              "score": 0.997719407081604
+            },
+            {
+              "stem": "go",
+              "affix": "ing",
+              "form": "going",
+              "pred": "going",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9924029111862183,
+              "cos_right": 0.9924029111862183,
+              "cos_wrong_aff": 0.6534246802330017,
+              "cos_shuf": 0.6412510871887207,
+              "margin_aff": 0.33897823095321655,
+              "margin_shuf": 0.35115182399749756,
+              "score": 0.9924029111862183
+            },
+            {
+              "stem": "act",
+              "affix": "ing",
+              "form": "acting",
+              "pred": "acting",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9992088675498962,
+              "cos_right": 0.9992088675498962,
+              "cos_wrong_aff": 0.4401654005050659,
+              "cos_shuf": 0.46752095222473145,
+              "margin_aff": 0.5590434670448303,
+              "margin_shuf": 0.5316879153251648,
+              "score": 0.999208927154541
+            },
+            {
+              "stem": "fish",
+              "affix": "ing",
+              "form": "fishing",
+              "pred": "fishing",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9989354610443115,
+              "cos_right": 0.9989354610443115,
+              "cos_wrong_aff": 0.3847637474536896,
+              "cos_shuf": 0.7670944929122925,
+              "margin_aff": 0.614171713590622,
+              "margin_shuf": 0.23184096813201904,
+              "score": 0.9989354610443115
+            },
+            {
+              "stem": "post",
+              "affix": "ing",
+              "form": "posting",
+              "pred": "posting",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9982964992523193,
+              "cos_right": 0.9982964992523193,
+              "cos_wrong_aff": 0.4703841805458069,
+              "cos_shuf": 0.7241620421409607,
+              "margin_aff": 0.5279123187065125,
+              "margin_shuf": 0.27413445711135864,
+              "score": 0.9982964992523193
+            },
+            {
+              "stem": "book",
+              "affix": "ing",
+              "form": "booking",
+              "pred": "booking",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9986710548400879,
+              "cos_right": 0.9986710548400879,
+              "cos_wrong_aff": 0.16856588423252106,
+              "cos_shuf": 0.6304836869239807,
+              "margin_aff": 0.8301051706075668,
+              "margin_shuf": 0.3681873679161072,
+              "score": 0.9986711144447327
+            },
+            {
+              "stem": "light",
+              "affix": "ing",
+              "form": "lighting",
+              "pred": "lighting",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9959757328033447,
+              "cos_right": 0.9959757328033447,
+              "cos_wrong_aff": 0.6579759120941162,
+              "cos_shuf": 0.7790515422821045,
+              "margin_aff": 0.3379998207092285,
+              "margin_shuf": 0.21692419052124023,
+              "score": 0.9959757924079895
+            },
+            {
+              "stem": "make",
+              "affix": "ing",
+              "form": "making",
+              "pred": "making",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9989631175994873,
+              "cos_right": 0.9989631175994873,
+              "cos_wrong_aff": 0.4544641375541687,
+              "cos_shuf": 0.7557122111320496,
+              "margin_aff": 0.5444989800453186,
+              "margin_shuf": 0.24325090646743774,
+              "score": 0.9989631175994873
+            },
+            {
+              "stem": "take",
+              "affix": "ing",
+              "form": "taking",
+              "pred": "taking",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9993448257446289,
+              "cos_right": 0.9993448257446289,
+              "cos_wrong_aff": 0.1580324023962021,
+              "cos_shuf": 0.5559155941009521,
+              "margin_aff": 0.8413124233484268,
+              "margin_shuf": 0.44342923164367676,
+              "score": 0.9993448257446289
+            },
+            {
+              "stem": "give",
+              "affix": "ing",
+              "form": "giving",
+              "pred": "giving",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9984235763549805,
+              "cos_right": 0.9984235763549805,
+              "cos_wrong_aff": 0.448115736246109,
+              "cos_shuf": 0.7845836877822876,
+              "margin_aff": 0.5503078401088715,
+              "margin_shuf": 0.21383988857269287,
+              "score": 0.9984235763549805
+            },
+            {
+              "stem": "run",
+              "affix": "ing",
+              "form": "running",
+              "pred": "running",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9993390440940857,
+              "cos_right": 0.9993390440940857,
+              "cos_wrong_aff": 0.22129186987876892,
+              "cos_shuf": 0.8265970945358276,
+              "margin_aff": 0.7780471742153168,
+              "margin_shuf": 0.17274194955825806,
+              "score": 0.9993391036987305
+            },
+            {
+              "stem": "stop",
+              "affix": "ing",
+              "form": "stopping",
+              "pred": "stopping",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.999544620513916,
+              "cos_right": 0.999544620513916,
+              "cos_wrong_aff": 0.3280071020126343,
+              "cos_shuf": 0.7962993383407593,
+              "margin_aff": 0.6715375185012817,
+              "margin_shuf": 0.20324528217315674,
+              "score": 0.9995447397232056
+            },
+            {
+              "stem": "spot",
+              "affix": "ing",
+              "form": "spotting",
+              "pred": "spotting",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.998755156993866,
+              "cos_right": 0.998755156993866,
+              "cos_wrong_aff": 0.6285584568977356,
+              "cos_shuf": 0.8159141540527344,
+              "margin_aff": 0.37019670009613037,
+              "margin_shuf": 0.1828410029411316,
+              "score": 0.998755156993866
+            },
+            {
+              "stem": "top",
+              "affix": "ing",
+              "form": "topping",
+              "pred": "topping",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9986480474472046,
+              "cos_right": 0.9986480474472046,
+              "cos_wrong_aff": 0.4574158787727356,
+              "cos_shuf": 0.4936560392379761,
+              "margin_aff": 0.541232168674469,
+              "margin_shuf": 0.5049920082092285,
+              "score": 0.9986481666564941
+            },
+            {
+              "stem": "play",
+              "affix": "ed",
+              "form": "played",
+              "pred": "played",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9922490119934082,
+              "cos_right": 0.9922490119934082,
+              "cos_wrong_aff": 0.6665854454040527,
+              "cos_shuf": 0.8461194038391113,
+              "margin_aff": 0.32566356658935547,
+              "margin_shuf": 0.14612960815429688,
+              "score": 0.992249071598053
+            },
+            {
+              "stem": "stop",
+              "affix": "ed",
+              "form": "stopped",
+              "pred": "stopped",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9927167892456055,
+              "cos_right": 0.9927167892456055,
+              "cos_wrong_aff": 0.3621581196784973,
+              "cos_shuf": 0.42990756034851074,
+              "margin_aff": 0.6305586695671082,
+              "margin_shuf": 0.5628092288970947,
+              "score": 0.9927169680595398
+            },
+            {
+              "stem": "post",
+              "affix": "ed",
+              "form": "posted",
+              "pred": "posted",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9929763078689575,
+              "cos_right": 0.9929763078689575,
+              "cos_wrong_aff": 0.4726705849170685,
+              "cos_shuf": 0.7688233852386475,
+              "margin_aff": 0.520305722951889,
+              "margin_shuf": 0.22415292263031006,
+              "score": 0.9929763078689575
+            },
+            {
+              "stem": "act",
+              "affix": "ed",
+              "form": "acted",
+              "pred": "acted",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9977830648422241,
+              "cos_right": 0.9977830648422241,
+              "cos_wrong_aff": 0.44934627413749695,
+              "cos_shuf": 0.5822778940200806,
+              "margin_aff": 0.5484367907047272,
+              "margin_shuf": 0.41550517082214355,
+              "score": 0.9977830648422241
+            },
+            {
+              "stem": "fish",
+              "affix": "ed",
+              "form": "fished",
+              "pred": "fished",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9986394047737122,
+              "cos_right": 0.9986394047737122,
+              "cos_wrong_aff": 0.3901391625404358,
+              "cos_shuf": 0.7700880169868469,
+              "margin_aff": 0.6085002422332764,
+              "margin_shuf": 0.22855138778686523,
+              "score": 0.9986394643783569
+            },
+            {
+              "stem": "book",
+              "affix": "ed",
+              "form": "booked",
+              "pred": "booked",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9957709312438965,
+              "cos_right": 0.9957709312438965,
+              "cos_wrong_aff": 0.17941664159297943,
+              "cos_shuf": 0.6322460174560547,
+              "margin_aff": 0.816354289650917,
+              "margin_shuf": 0.3635249137878418,
+              "score": 0.9957709312438965
+            },
+            {
+              "stem": "top",
+              "affix": "ed",
+              "form": "topped",
+              "pred": "topped",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9954560995101929,
+              "cos_right": 0.9954560995101929,
+              "cos_wrong_aff": 0.4697543978691101,
+              "cos_shuf": 0.46826082468032837,
+              "margin_aff": 0.5257017016410828,
+              "margin_shuf": 0.5271952748298645,
+              "score": 0.9954561591148376
+            },
+            {
+              "stem": "spot",
+              "affix": "ed",
+              "form": "spotted",
+              "pred": "spotted",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9963515996932983,
+              "cos_right": 0.9963515996932983,
+              "cos_wrong_aff": 0.6574596762657166,
+              "cos_shuf": 0.6050683856010437,
+              "margin_aff": 0.3388919234275818,
+              "margin_shuf": 0.39128321409225464,
+              "score": 0.9963515400886536
+            },
+            {
+              "stem": "light",
+              "affix": "ed",
+              "form": "lighted",
+              "pred": "lighted",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9977966547012329,
+              "cos_right": 0.9977966547012329,
+              "cos_wrong_aff": 0.6498808264732361,
+              "cos_shuf": 0.6089574098587036,
+              "margin_aff": 0.3479158282279968,
+              "margin_shuf": 0.3888392448425293,
+              "score": 0.9977967143058777
+            },
+            {
+              "stem": "water",
+              "affix": "ed",
+              "form": "watered",
+              "pred": "watered",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9958878755569458,
+              "cos_right": 0.9958878755569458,
+              "cos_wrong_aff": 0.4008840322494507,
+              "cos_shuf": 0.5693707466125488,
+              "margin_aff": 0.5950038433074951,
+              "margin_shuf": 0.426517128944397,
+              "score": 0.9958879947662354
+            }
+          ]
+        },
+        "ing": {
+          "label": "ing",
+          "n": 14,
+          "acc": 1.0,
+          "naive_acc": 1.0,
+          "mean_agree": 0.9981591658932822,
+          "mean_margin_aff": 0.5601214617490768,
+          "mean_margin_shuf": 0.3021726480552128,
+          "aff_win": 1.0,
+          "shuf_win": 1.0,
+          "details": [
+            {
+              "stem": "play",
+              "affix": "ing",
+              "form": "playing",
+              "pred": "playing",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.997719407081604,
+              "cos_right": 0.997719407081604,
+              "cos_wrong_aff": 0.6613624691963196,
+              "cos_shuf": 0.705569326877594,
+              "margin_aff": 0.3363569378852844,
+              "margin_shuf": 0.29215008020401,
+              "score": 0.997719407081604
+            },
+            {
+              "stem": "go",
+              "affix": "ing",
+              "form": "going",
+              "pred": "going",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9924029111862183,
+              "cos_right": 0.9924029111862183,
+              "cos_wrong_aff": 0.6534246802330017,
+              "cos_shuf": 0.6412510871887207,
+              "margin_aff": 0.33897823095321655,
+              "margin_shuf": 0.35115182399749756,
+              "score": 0.9924029111862183
+            },
+            {
+              "stem": "act",
+              "affix": "ing",
+              "form": "acting",
+              "pred": "acting",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9992088675498962,
+              "cos_right": 0.9992088675498962,
+              "cos_wrong_aff": 0.4401654005050659,
+              "cos_shuf": 0.46752095222473145,
+              "margin_aff": 0.5590434670448303,
+              "margin_shuf": 0.5316879153251648,
+              "score": 0.999208927154541
+            },
+            {
+              "stem": "fish",
+              "affix": "ing",
+              "form": "fishing",
+              "pred": "fishing",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9989354610443115,
+              "cos_right": 0.9989354610443115,
+              "cos_wrong_aff": 0.3847637474536896,
+              "cos_shuf": 0.7670944929122925,
+              "margin_aff": 0.614171713590622,
+              "margin_shuf": 0.23184096813201904,
+              "score": 0.9989354610443115
+            },
+            {
+              "stem": "post",
+              "affix": "ing",
+              "form": "posting",
+              "pred": "posting",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9982964992523193,
+              "cos_right": 0.9982964992523193,
+              "cos_wrong_aff": 0.4703841805458069,
+              "cos_shuf": 0.7241620421409607,
+              "margin_aff": 0.5279123187065125,
+              "margin_shuf": 0.27413445711135864,
+              "score": 0.9982964992523193
+            },
+            {
+              "stem": "book",
+              "affix": "ing",
+              "form": "booking",
+              "pred": "booking",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9986710548400879,
+              "cos_right": 0.9986710548400879,
+              "cos_wrong_aff": 0.16856588423252106,
+              "cos_shuf": 0.6304836869239807,
+              "margin_aff": 0.8301051706075668,
+              "margin_shuf": 0.3681873679161072,
+              "score": 0.9986711144447327
+            },
+            {
+              "stem": "light",
+              "affix": "ing",
+              "form": "lighting",
+              "pred": "lighting",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9959757328033447,
+              "cos_right": 0.9959757328033447,
+              "cos_wrong_aff": 0.6579759120941162,
+              "cos_shuf": 0.7790515422821045,
+              "margin_aff": 0.3379998207092285,
+              "margin_shuf": 0.21692419052124023,
+              "score": 0.9959757924079895
+            },
+            {
+              "stem": "make",
+              "affix": "ing",
+              "form": "making",
+              "pred": "making",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9989631175994873,
+              "cos_right": 0.9989631175994873,
+              "cos_wrong_aff": 0.4544641375541687,
+              "cos_shuf": 0.7557122111320496,
+              "margin_aff": 0.5444989800453186,
+              "margin_shuf": 0.24325090646743774,
+              "score": 0.9989631175994873
+            },
+            {
+              "stem": "take",
+              "affix": "ing",
+              "form": "taking",
+              "pred": "taking",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9993448257446289,
+              "cos_right": 0.9993448257446289,
+              "cos_wrong_aff": 0.1580324023962021,
+              "cos_shuf": 0.5559155941009521,
+              "margin_aff": 0.8413124233484268,
+              "margin_shuf": 0.44342923164367676,
+              "score": 0.9993448257446289
+            },
+            {
+              "stem": "give",
+              "affix": "ing",
+              "form": "giving",
+              "pred": "giving",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9984235763549805,
+              "cos_right": 0.9984235763549805,
+              "cos_wrong_aff": 0.448115736246109,
+              "cos_shuf": 0.7845836877822876,
+              "margin_aff": 0.5503078401088715,
+              "margin_shuf": 0.21383988857269287,
+              "score": 0.9984235763549805
+            },
+            {
+              "stem": "run",
+              "affix": "ing",
+              "form": "running",
+              "pred": "running",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9993390440940857,
+              "cos_right": 0.9993390440940857,
+              "cos_wrong_aff": 0.22129186987876892,
+              "cos_shuf": 0.8265970945358276,
+              "margin_aff": 0.7780471742153168,
+              "margin_shuf": 0.17274194955825806,
+              "score": 0.9993391036987305
+            },
+            {
+              "stem": "stop",
+              "affix": "ing",
+              "form": "stopping",
+              "pred": "stopping",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.999544620513916,
+              "cos_right": 0.999544620513916,
+              "cos_wrong_aff": 0.3280071020126343,
+              "cos_shuf": 0.7962993383407593,
+              "margin_aff": 0.6715375185012817,
+              "margin_shuf": 0.20324528217315674,
+              "score": 0.9995447397232056
+            },
+            {
+              "stem": "spot",
+              "affix": "ing",
+              "form": "spotting",
+              "pred": "spotting",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.998755156993866,
+              "cos_right": 0.998755156993866,
+              "cos_wrong_aff": 0.6285584568977356,
+              "cos_shuf": 0.8159141540527344,
+              "margin_aff": 0.37019670009613037,
+              "margin_shuf": 0.1828410029411316,
+              "score": 0.998755156993866
+            },
+            {
+              "stem": "top",
+              "affix": "ing",
+              "form": "topping",
+              "pred": "topping",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9986480474472046,
+              "cos_right": 0.9986480474472046,
+              "cos_wrong_aff": 0.4574158787727356,
+              "cos_shuf": 0.4936560392379761,
+              "margin_aff": 0.541232168674469,
+              "margin_shuf": 0.5049920082092285,
+              "score": 0.9986481666564941
+            }
+          ]
+        },
+        "ed": {
+          "label": "ed",
+          "n": 10,
+          "acc": 1.0,
+          "naive_acc": 1.0,
+          "mean_agree": 0.9955627739429473,
+          "mean_margin_aff": 0.525733257830143,
+          "mean_margin_shuf": 0.36745080947875974,
+          "aff_win": 1.0,
+          "shuf_win": 1.0,
+          "details": [
+            {
+              "stem": "play",
+              "affix": "ed",
+              "form": "played",
+              "pred": "played",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9922490119934082,
+              "cos_right": 0.9922490119934082,
+              "cos_wrong_aff": 0.6665854454040527,
+              "cos_shuf": 0.8461194038391113,
+              "margin_aff": 0.32566356658935547,
+              "margin_shuf": 0.14612960815429688,
+              "score": 0.992249071598053
+            },
+            {
+              "stem": "stop",
+              "affix": "ed",
+              "form": "stopped",
+              "pred": "stopped",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9927167892456055,
+              "cos_right": 0.9927167892456055,
+              "cos_wrong_aff": 0.3621581196784973,
+              "cos_shuf": 0.42990756034851074,
+              "margin_aff": 0.6305586695671082,
+              "margin_shuf": 0.5628092288970947,
+              "score": 0.9927169680595398
+            },
+            {
+              "stem": "post",
+              "affix": "ed",
+              "form": "posted",
+              "pred": "posted",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9929763078689575,
+              "cos_right": 0.9929763078689575,
+              "cos_wrong_aff": 0.4726705849170685,
+              "cos_shuf": 0.7688233852386475,
+              "margin_aff": 0.520305722951889,
+              "margin_shuf": 0.22415292263031006,
+              "score": 0.9929763078689575
+            },
+            {
+              "stem": "act",
+              "affix": "ed",
+              "form": "acted",
+              "pred": "acted",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9977830648422241,
+              "cos_right": 0.9977830648422241,
+              "cos_wrong_aff": 0.44934627413749695,
+              "cos_shuf": 0.5822778940200806,
+              "margin_aff": 0.5484367907047272,
+              "margin_shuf": 0.41550517082214355,
+              "score": 0.9977830648422241
+            },
+            {
+              "stem": "fish",
+              "affix": "ed",
+              "form": "fished",
+              "pred": "fished",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9986394047737122,
+              "cos_right": 0.9986394047737122,
+              "cos_wrong_aff": 0.3901391625404358,
+              "cos_shuf": 0.7700880169868469,
+              "margin_aff": 0.6085002422332764,
+              "margin_shuf": 0.22855138778686523,
+              "score": 0.9986394643783569
+            },
+            {
+              "stem": "book",
+              "affix": "ed",
+              "form": "booked",
+              "pred": "booked",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9957709312438965,
+              "cos_right": 0.9957709312438965,
+              "cos_wrong_aff": 0.17941664159297943,
+              "cos_shuf": 0.6322460174560547,
+              "margin_aff": 0.816354289650917,
+              "margin_shuf": 0.3635249137878418,
+              "score": 0.9957709312438965
+            },
+            {
+              "stem": "top",
+              "affix": "ed",
+              "form": "topped",
+              "pred": "topped",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9954560995101929,
+              "cos_right": 0.9954560995101929,
+              "cos_wrong_aff": 0.4697543978691101,
+              "cos_shuf": 0.46826082468032837,
+              "margin_aff": 0.5257017016410828,
+              "margin_shuf": 0.5271952748298645,
+              "score": 0.9954561591148376
+            },
+            {
+              "stem": "spot",
+              "affix": "ed",
+              "form": "spotted",
+              "pred": "spotted",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9963515996932983,
+              "cos_right": 0.9963515996932983,
+              "cos_wrong_aff": 0.6574596762657166,
+              "cos_shuf": 0.6050683856010437,
+              "margin_aff": 0.3388919234275818,
+              "margin_shuf": 0.39128321409225464,
+              "score": 0.9963515400886536
+            },
+            {
+              "stem": "light",
+              "affix": "ed",
+              "form": "lighted",
+              "pred": "lighted",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9977966547012329,
+              "cos_right": 0.9977966547012329,
+              "cos_wrong_aff": 0.6498808264732361,
+              "cos_shuf": 0.6089574098587036,
+              "margin_aff": 0.3479158282279968,
+              "margin_shuf": 0.3888392448425293,
+              "score": 0.9977967143058777
+            },
+            {
+              "stem": "water",
+              "affix": "ed",
+              "form": "watered",
+              "pred": "watered",
+              "ok": true,
+              "naive_ok": true,
+              "agree": 0.9958878755569458,
+              "cos_right": 0.9958878755569458,
+              "cos_wrong_aff": 0.4008840322494507,
+              "cos_shuf": 0.5693707466125488,
+              "margin_aff": 0.5950038433074951,
+              "margin_shuf": 0.426517128944397,
+              "score": 0.9958879947662354
+            }
+          ]
+        }
+      },
+      "peel_cycle": {
+        "peel": {
+          "acc": 1.0,
+          "sub_acc": 0.9166666666666666,
+          "mean_agree": 0.9989391714334488,
+          "details": [
+            {
+              "stem": "play",
+              "affix": "ing",
+              "form": "playing",
+              "pred": "play",
+              "ok": true,
+              "sub_ok": true,
+              "agree": 0.9977392554283142
+            },
+            {
+              "stem": "go",
+              "affix": "ing",
+              "form": "going",
+              "pred": "go",
+              "ok": true,
+              "sub_ok": true,
+              "agree": 0.9985061883926392
+            },
+            {
+              "stem": "act",
+              "affix": "ing",
+              "form": "acting",
+              "pred": "act",
+              "ok": true,
+              "sub_ok": true,
+              "agree": 0.9995495080947876
+            },
+            {
+              "stem": "fish",
+              "affix": "ing",
+              "form": "fishing",
+              "pred": "fish",
+              "ok": true,
+              "sub_ok": true,
+              "agree": 0.999678373336792
+            },
+            {
+              "stem": "post",
+              "affix": "ing",
+              "form": "posting",
+              "pred": "post",
+              "ok": true,
+              "sub_ok": true,
+              "agree": 0.9996356964111328
+            },
+            {
+              "stem": "book",
+              "affix": "ing",
+              "form": "booking",
+              "pred": "book",
+              "ok": true,
+              "sub_ok": true,
+              "agree": 0.9995374083518982
+            },
+            {
+              "stem": "light",
+              "affix": "ing",
+              "form": "lighting",
+              "pred": "light",
+              "ok": true,
+              "sub_ok": true,
+              "agree": 0.9976762533187866
+            },
+            {
+              "stem": "make",
+              "affix": "ing",
+              "form": "making",
+              "pred": "make",
+              "ok": true,
+              "sub_ok": true,
+              "agree": 0.9994782209396362
+            },
+            {
+              "stem": "take",
+              "affix": "ing",
+              "form": "taking",
+              "pred": "take",
+              "ok": true,
+              "sub_ok": false,
+              "agree": 0.9986422657966614
+            },
+            {
+              "stem": "give",
+              "affix": "ing",
+              "form": "giving",
+              "pred": "give",
+              "ok": true,
+              "sub_ok": true,
+              "agree": 0.9994738698005676
+            },
+            {
+              "stem": "run",
+              "affix": "ing",
+              "form": "running",
+              "pred": "run",
+              "ok": true,
+              "sub_ok": true,
+              "agree": 0.9994786381721497
+            },
+            {
+              "stem": "stop",
+              "affix": "ing",
+              "form": "stopping",
+              "pred": "stop",
+              "ok": true,
+              "sub_ok": true,
+              "agree": 0.9996784329414368
+            },
+            {
+              "stem": "spot",
+              "affix": "ing",
+              "form": "spotting",
+              "pred": "spot",
+              "ok": true,
+              "sub_ok": false,
+              "agree": 0.998346745967865
+            },
+            {
+              "stem": "top",
+              "affix": "ing",
+              "form": "topping",
+              "pred": "top",
+              "ok": true,
+              "sub_ok": true,
+              "agree": 0.9995566606521606
+            },
+            {
+              "stem": "play",
+              "affix": "ed",
+              "form": "played",
+              "pred": "play",
+              "ok": true,
+              "sub_ok": true,
+              "agree": 0.9972965717315674
+            },
+            {
+              "stem": "stop",
+              "affix": "ed",
+              "form": "stopped",
+              "pred": "stop",
+              "ok": true,
+              "sub_ok": true,
+              "agree": 0.9989238381385803
+            },
+            {
+              "stem": "post",
+              "affix": "ed",
+              "form": "posted",
+              "pred": "post",
+              "ok": true,
+              "sub_ok": true,
+              "agree": 0.999046802520752
+            },
+            {
+              "stem": "act",
+              "affix": "ed",
+              "form": "acted",
+              "pred": "act",
+              "ok": true,
+              "sub_ok": true,
+              "agree": 0.9994399547576904
+            },
+            {
+              "stem": "fish",
+              "affix": "ed",
+              "form": "fished",
+              "pred": "fish",
+              "ok": true,
+              "sub_ok": true,
+              "agree": 0.9993736147880554
+            },
+            {
+              "stem": "book",
+              "affix": "ed",
+              "form": "booked",
+              "pred": "book",
+              "ok": true,
+              "sub_ok": true,
+              "agree": 0.9993354082107544
+            },
+            {
+              "stem": "top",
+              "affix": "ed",
+              "form": "topped",
+              "pred": "top",
+              "ok": true,
+              "sub_ok": true,
+              "agree": 0.9993512034416199
+            },
+            {
+              "stem": "spot",
+              "affix": "ed",
+              "form": "spotted",
+              "pred": "spot",
+              "ok": true,
+              "sub_ok": true,
+              "agree": 0.9979630708694458
+            },
+            {
+              "stem": "light",
+              "affix": "ed",
+              "form": "lighted",
+              "pred": "light",
+              "ok": true,
+              "sub_ok": true,
+              "agree": 0.9977601766586304
+            },
+            {
+              "stem": "water",
+              "affix": "ed",
+              "form": "watered",
+              "pred": "water",
+              "ok": true,
+              "sub_ok": true,
+              "agree": 0.9990719556808472
+            }
+          ]
+        },
+        "cycle": {
+          "reapply_acc": 1.0,
+          "repeel_acc": 1.0,
+          "mean_reapply": 0.9985286841789881,
+          "mean_repeel": 0.9992002670963606,
+          "details": [
+            {
+              "stem": "play",
+              "affix": "ing",
+              "cos_reapply": 0.9982506632804871,
+              "cos_repeel": 0.998091459274292,
+              "ok_reapply": true,
+              "ok_repeel": true
+            },
+            {
+              "stem": "go",
+              "affix": "ing",
+              "cos_reapply": 0.9984856843948364,
+              "cos_repeel": 0.9992590546607971,
+              "ok_reapply": true,
+              "ok_repeel": true
+            },
+            {
+              "stem": "act",
+              "affix": "ing",
+              "cos_reapply": 0.9991245269775391,
+              "cos_repeel": 0.9990729689598083,
+              "ok_reapply": true,
+              "ok_repeel": true
+            },
+            {
+              "stem": "fish",
+              "affix": "ing",
+              "cos_reapply": 0.9993888735771179,
+              "cos_repeel": 0.9994691610336304,
+              "ok_reapply": true,
+              "ok_repeel": true
+            },
+            {
+              "stem": "post",
+              "affix": "ing",
+              "cos_reapply": 0.9988893270492554,
+              "cos_repeel": 0.9994481801986694,
+              "ok_reapply": true,
+              "ok_repeel": true
+            },
+            {
+              "stem": "book",
+              "affix": "ing",
+              "cos_reapply": 0.99956214427948,
+              "cos_repeel": 0.9995366334915161,
+              "ok_reapply": true,
+              "ok_repeel": true
+            },
+            {
+              "stem": "light",
+              "affix": "ing",
+              "cos_reapply": 0.9969170093536377,
+              "cos_repeel": 0.9984413981437683,
+              "ok_reapply": true,
+              "ok_repeel": true
+            },
+            {
+              "stem": "make",
+              "affix": "ing",
+              "cos_reapply": 0.9995155334472656,
+              "cos_repeel": 0.9992891550064087,
+              "ok_reapply": true,
+              "ok_repeel": true
+            },
+            {
+              "stem": "take",
+              "affix": "ing",
+              "cos_reapply": 0.9984763860702515,
+              "cos_repeel": 0.9976291060447693,
+              "ok_reapply": true,
+              "ok_repeel": true
+            },
+            {
+              "stem": "give",
+              "affix": "ing",
+              "cos_reapply": 0.9991093277931213,
+              "cos_repeel": 0.9994018077850342,
+              "ok_reapply": true,
+              "ok_repeel": true
+            },
+            {
+              "stem": "run",
+              "affix": "ing",
+              "cos_reapply": 0.99962317943573,
+              "cos_repeel": 0.9996357560157776,
+              "ok_reapply": true,
+              "ok_repeel": true
+            },
+            {
+              "stem": "stop",
+              "affix": "ing",
+              "cos_reapply": 0.9993075132369995,
+              "cos_repeel": 0.999491810798645,
+              "ok_reapply": true,
+              "ok_repeel": true
+            },
+            {
+              "stem": "spot",
+              "affix": "ing",
+              "cos_reapply": 0.9982471466064453,
+              "cos_repeel": 0.9993365406990051,
+              "ok_reapply": true,
+              "ok_repeel": true
+            },
+            {
+              "stem": "top",
+              "affix": "ing",
+              "cos_reapply": 0.9989887475967407,
+              "cos_repeel": 0.9991734623908997,
+              "ok_reapply": true,
+              "ok_repeel": true
+            },
+            {
+              "stem": "play",
+              "affix": "ed",
+              "cos_reapply": 0.9971504211425781,
+              "cos_repeel": 0.9996345043182373,
+              "ok_reapply": true,
+              "ok_repeel": true
+            },
+            {
+              "stem": "stop",
+              "affix": "ed",
+              "cos_reapply": 0.9984368085861206,
+              "cos_repeel": 0.999518871307373,
+              "ok_reapply": true,
+              "ok_repeel": true
+            },
+            {
+              "stem": "post",
+              "affix": "ed",
+              "cos_reapply": 0.998161792755127,
+              "cos_repeel": 0.9995701909065247,
+              "ok_reapply": true,
+              "ok_repeel": true
+            },
+            {
+              "stem": "act",
+              "affix": "ed",
+              "cos_reapply": 0.9991570711135864,
+              "cos_repeel": 0.9997312426567078,
+              "ok_reapply": true,
+              "ok_repeel": true
+            },
+            {
+              "stem": "fish",
+              "affix": "ed",
+              "cos_reapply": 0.9991186261177063,
+              "cos_repeel": 0.9993113875389099,
+              "ok_reapply": true,
+              "ok_repeel": true
+            },
+            {
+              "stem": "book",
+              "affix": "ed",
+              "cos_reapply": 0.999194860458374,
+              "cos_repeel": 0.9993818402290344,
+              "ok_reapply": true,
+              "ok_repeel": true
+            },
+            {
+              "stem": "top",
+              "affix": "ed",
+              "cos_reapply": 0.998855710029602,
+              "cos_repeel": 0.999398410320282,
+              "ok_reapply": true,
+              "ok_repeel": true
+            },
+            {
+              "stem": "spot",
+              "affix": "ed",
+              "cos_reapply": 0.993219792842865,
+              "cos_repeel": 0.9985585808753967,
+              "ok_reapply": true,
+              "ok_repeel": true
+            },
+            {
+              "stem": "light",
+              "affix": "ed",
+              "cos_reapply": 0.9984512329101562,
+              "cos_repeel": 0.9992789030075073,
+              "ok_reapply": true,
+              "ok_repeel": true
+            },
+            {
+              "stem": "water",
+              "affix": "ed",
+              "cos_reapply": 0.9990560412406921,
+              "cos_repeel": 0.9991459846496582,
+              "ok_reapply": true,
+              "ok_repeel": true
+            }
+          ]
+        }
+      }
+    },
+    "verdict": {
+      "realize": "HOLD realize 100% vs naive 100% (d +0pp)",
+      "margins": "affix win 100% m=+0.698 | shuffle win 100% m=+0.274",
+      "peel": "peel 25% vs sub 100%",
+      "overall": "Margins OK (affix/shuffle) but realize/peel still weak on HOLD - operator id without OOV assembly."
+    }
+  }
+}

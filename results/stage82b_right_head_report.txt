@@ -1,0 +1,20 @@
+SOTE Stage 82b — RightHead noun_rel object slot
+timestamp: 2026-07-24T14:29:11.638293+00:00
+device: cuda
+parent: stage57_rehearsal_FROZEN.pt (TinySeq frozen)
+head: RightHead(h, left_fp, rel_fp) residual ADD-on
+steps=2000 lr=0.001 train_obj=473 hold_obj=213
+NO soft@5. NO verb_ing. V1 reserve not overwritten.
+
+=== ZS baseline (82a) ===
+  right@1=4.2% path=29.3% rel=54.0%
+
+=== Best / final ===
+  best step=1000 right@1=5.6% path=30.0% rel=54.0% protect=True
+  final right@1=5.6% (dZS +1.4pp) mean_rank=39.8
+  final path=30.0% (d +0.7pp) rel=54.0% (d +0.0pp)
+  confusion_n={'right_correct': 12, 'other_rightish': 192, 'rel': 0, 'left': 2, 'other': 7}
+
+=== Verdict: FAIL ===
+  PARTIAL gate right@1>=15% + protect; LIVE stretch >=25%
+  Next: if PARTIAL/PASS try polarity; if FAIL stay HOPS_PRIMARY / cue redesign.

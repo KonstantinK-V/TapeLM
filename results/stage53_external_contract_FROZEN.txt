@@ -1,0 +1,18 @@
+SOTE Stage 53 tiny-external transfer FROZEN
+timestamp: 2026-07-24T09:30:25+00:00
+checkpoint: stage53_external_FROZEN.pt
+parent: stage52_beyond_FROZEN.pt
+data: data/tiny_external.txt
+
+=== CLAIM ===
+  Axis encode → next-atom → D transfers to a tiny external set after light FT.
+  Zero-shot from freeze52 is weak (expected); FT is the transfer claim.
+
+=== METRICS ===
+  lines 34 (train 21 / hold 13); codebook 113 (+fox,hat,bed,jump,play,walk)
+  D grown 100%
+  zero-shot HOLD L≥2 21.4% / −3.6pp
+  FT HOLD L≥2 **46.4% / +32.1pp**; order drop **+21.4pp**
+
+=== FREEZE_READY: True ===
+Next: larger external / hops on external facts — optional. No phrase/char trunk.

@@ -1,0 +1,11 @@
+{
+  "dig": "G",
+  "tag": "char_piece_dense_steps",
+  "verdict": "PARITY",
+  "story_all": 0.16721672167216722,
+  "seen_all": 0.69375,
+  "story_lift_pp": -0.028783278327832784,
+  "mean_expand_hint": "up_to_+2_pieces_per_word",
+  "supported_by_C": "WEAK",
+  "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage123_G_dense_steps.pt"
+}

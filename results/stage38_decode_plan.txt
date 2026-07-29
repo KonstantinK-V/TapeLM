@@ -1,0 +1,24 @@
+SOTE Stage 38 plan — D decode codebook (fp → text)
+
+Parent: stage37_text_bridge_FROZEN (A/B encode) + hop3 contract through 36b.
+Do not start E until D green.
+
+D deliverables
+  1. Word NN codebook: word_fp → nearest word
+  2. Phrase NN codebook: phrase_fp → nearest phrase (closed bank)
+  3. Answer-as-text: hop3 slot.fp → decode → gold C phrase
+  4. Holdout phrase decode diagnostic (NN cannot invent OOV; expect low)
+
+Gates
+  word_decode_min >= 0.95
+  phrase_decode_min >= 0.95
+  answer_text_exact >= 0.70 (episode rate; tracks hop3)
+  slot→key (given retrieved key3) >= 0.95
+
+Out
+  results/stage38_decode_report.txt
+  results/stage38_decode_metrics.json
+  checkpoints/stage38_decode.pt
+  checkpoints/stage38_codebooks.pt
+
+Run: python train.py

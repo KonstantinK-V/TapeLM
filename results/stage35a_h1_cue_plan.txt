@@ -1,0 +1,26 @@
+"""
+Stage 35a: targeted H1 cue fix (what_tail), not soft-disambig.
+
+Diagnosis (on Stage34 hop3 / balanced bank):
+  All H1 misses were collision_same_rel or collision_same_obj.
+  Bare rel_only ('on') and obj_only collide inside the episode.
+  Compound WHAT-tail cue 'rel right' is unique in ~55/64 episodes.
+
+Fix (one lever):
+  hop1 cue = f'{rel} {right}'  (what_tail surface instance)
+  bind via frozen CueBinder (WHAT), consistency = same rel+right
+  Keep observe_strict + chain-link hop2/hop3. No FT. No planner.
+
+Ablate: legacy_partial (Stage34) vs what_tail (35a).
+
+Parent: stage34_hop3_FROZEN.pt
+Bank: same 33b resample_hub_balanced_bank
+
+Results:
+  results/stage35a_h1_cue_report.txt
+  results/stage35a_h1_cue_metrics.json
+  checkpoints/stage35a_h1_cue.pt
+
+Run:
+  python train.py
+"""

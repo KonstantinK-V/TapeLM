@@ -1,0 +1,45 @@
+SOTE Stage 28+ report (dirty-augment FT + Hop2LeftBinder)
+timestamp: 2026-07-23T19:17:57.097917+00:00
+device: cuda
+parents: stage27b_plus_hop1_partial.pt + thought_scratch_27c_FROZEN.pt + hop_bank_25.pt
+knobs: steps=1000 lr=0.001 dirty_p=0.55 clean_w=0.6
+HOLD pairs=24 episodes=80 HOLD_EVAL_SEED=10027
+
+mode                    H1      H2    JOINT   depth
+----------------------------------------------------
+clean_bind           75.0%   76.2%    56.2%    4.92
+dirty_raw            26.2%   38.8%    15.0%    5.79
+dirty_probe          53.8%   60.0%    36.2%   12.85
+dirty_bind           76.2%   76.2%    57.5%    5.95
+dirty_both_bind      76.2%   66.2%    50.0%    6.91
+
+dirty_bind joint by kind:
+  drop     61.1%
+  swap     60.6%
+  trunc    46.2%
+  sub      56.2%
+
+vs Stage28 baseline (seed-mean approx):
+  clean_bind         51.7% -> 56.2%  (+4.6pp)
+  dirty_bind         55.0% -> 57.5%  (+2.5pp)
+  dirty_both_bind    29.2% -> 50.0%  (+20.8pp)
+
+samples:
+  [first] dog to cob => cob on rim  cob->ob[drop]  clean=1 raw=0 probe=0 bind=1 both=1
+  [second] bird to peg => peg on rim  to->ot[swap]  clean=1 raw=0 probe=0 bind=1 both=1
+  [first] bird to peg => peg on rim  peg->pge[swap]  clean=0 raw=0 probe=0 bind=0 both=0
+  [second] go to cob => cob on zip  to->ot[swap]  clean=1 raw=1 probe=1 bind=1 both=1
+  [first] washed to zip => zip on yap  zip->zpi[swap]  clean=1 raw=0 probe=1 bind=1 both=1
+  [second] pushes to web => web on cob  to->ot[swap]  clean=0 raw=0 probe=0 bind=0 both=0
+
+=== Best-seed detail ===
+  clean=56.2% dirty_raw=15.0% probe=36.2% dirty_bind=57.5% dirty_both=50.0% lift=+42.5pp drop_vs_clean=-1.2pp
+
+=== Multi-seed ===
+  seed 272: PASS  dirty_bind=57.5% dirty_both=50.0% clean=56.2% lift=+42.5pp drop=-1.2pp
+  seed 273: PASS  dirty_bind=56.2% dirty_both=48.8% clean=57.5% lift=+41.2pp drop=+1.2pp
+  seed 274: PASS  dirty_bind=56.2% dirty_both=50.0% clean=56.2% lift=+41.2pp drop=+0.0pp
+  aggregate: 3/3 seeds pass; mean_dirty=56.7% mean_both=49.6% mean_clean=56.7%
+
+=== Verdict ===
+  PASS: dirty FT keeps clean floor and lifts dirty_both toward gate.

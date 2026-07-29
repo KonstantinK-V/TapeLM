@@ -1,0 +1,53 @@
+{
+  "timestamp": "2026-07-26T22:06:26.077195+00:00",
+  "cp": 0,
+  "protocol": "understand_mid_cp0_infra",
+  "plan": "C:\\Users\\Kostya\\sote-letter-assembly\\results\\plan_sote_understand_mid_30h.md",
+  "data": {
+    "source": "wikitext-103-train",
+    "charset": "case+punct+digits+basic_specials",
+    "target_tokens": 30000000,
+    "n_tokens_used": 4002173,
+    "n_phrases": 500001,
+    "min_words": 4,
+    "max_words": 16,
+    "case_tag_counts": {
+      "title": 597310,
+      "lower": 2669802,
+      "other": 117957,
+      "punct": 568435,
+      "upper": 43931,
+      "mixed": 4738
+    },
+    "punct_counts": {
+      ",": 204214,
+      ".": 166459,
+      "\"": 54294,
+      "'": 36809,
+      "-": 34510,
+      ")": 23008,
+      "(": 22990,
+      ";": 8134,
+      ":": 7355,
+      "/": 3105,
+      "%": 1672,
+      "$": 1670,
+      "]": 1505,
+      "[": 1503,
+      "!": 717,
+      "?": 472,
+      "}": 10,
+      "{": 8
+    },
+    "token_re": "[A-Za-z0-9]+(?:'[A-Za-z]+)?|[.,!?;:\\\"'()\\[\\]{}\\-%/$]"
+  },
+  "battery": {
+    "n": 8000,
+    "n_nonmajority_gold": 4922,
+    "majority_baseline_acc_on_battery": 0.38475,
+    "path": "C:\\Users\\Kostya\\sote-letter-assembly\\results\\stage168_understanding_battery.jsonl"
+  },
+  "cue_plan_cp3": "dual_channel_separate_embedding",
+  "verdict": "CP0_READY",
+  "next": "CP1 plain CE rich thin 1L vs 0L"
+}

@@ -1,0 +1,40 @@
+SOTE scale-contract 13 FROZEN
+timestamp: 2026-07-23T11:34:53.037403+00:00
+checkpoint: scale_hold_13_FROZEN.pt
+
+Locked layers:
+  alphabet : alphabet_full_frozen.pt
+  words    : word_memory_9_2.pt
+  morph    : morph_letter_9f_plusplus_FROZEN.pt
+  phrase   : PhraseComposer @ phrase_memory_11pp / scale_hold_13
+  memory   : SoftPhraseMemory 11++ (soft-create + retrieve margin)
+  relational: HardSlotProbe @ relational_morph_12 / scale_hold_13 (no finetune)
+
+Banks:
+  TRAIN=68  HOLD=38
+
+Memory gate:
+  soft_create_below=0.7  retrieve_margin=0.05
+  create_below=0.55  lock_above=0.92  ema=0.85
+
+Metrics at freeze (Stage 13 cold):
+  HOLD QA      100.0%
+  TRAIN QA     100.0%
+  Morph-inv    100.0%
+  Shuffle gap  +98.4pp
+  Swap gap     +100.0pp
+  Unstick      91%
+  prefer_m     100%
+  probe_finetuned=False
+
+Rules:
+  - Do not retrain frozen word/morph/phrase/probe without explicit unfreeze.
+  - New work may ADD modules on top (bridge, richer QA) or expand banks with eval-first.
+  - Memory gate params in this contract are the default for soft phrase memory.
+
+Deferred:
+  - key-by-compose (keep string label + content fp)
+  - soft_variant / skeleton training
+  - text bridge / richer QA
+
+=== FREEZE_READY: True ===

@@ -1,0 +1,26 @@
+SOTE Stage 23 report (private scratch / thought-memory)
+timestamp: 2026-07-23T15:12:41.370406+00:00
+device: cuda
+contract: bridge_qa_binder_16_FROZEN.pt
+protocol: MEM_WRITE(facts) -> SCRATCH_WRITE(thought) -> MEM_READ(facts) -> ANSWER
+episode_k=3  HOLD episodes=64
+
+mode            HOLD ret  HOLD ans  TRAIN ans  scratch_d
+--------------------------------------------------------
+raw                79.7%     82.8%      95.8%       0.00
+polluted           39.1%     39.1%      58.3%       0.00
+scratch            79.7%     82.8%      95.8%       1.89
+scratch_nudge      79.7%     82.8%      95.8%       1.89
+
+HOLD samples:
+  [what] old book on car cue='on car' raw=1 pol=0 scr=1 nud=1
+  [where] pushing to car cue='pushing to' raw=1 pol=1 scr=1 nud=1
+  [what] jumps on top cue='on top' raw=1 pol=0 scr=1 nud=1
+  [where] rock to car cue='rock to' raw=1 pol=1 scr=1 nud=1
+  [what] spot on car cue='on car' raw=1 pol=0 scr=1 nud=1
+  [where] walks on car cue='walks on' raw=1 pol=1 scr=1 nud=1
+
+=== Verdict ===
+  PASS: private scratch preserves fact retrieve; polluted bank still fails.
+  Thinking channel is isolated — safe to build multi-hop scratch traces next.
+  deltas vs raw: scratch=+0.0pp  nudge=+0.0pp  polluted=-43.8pp

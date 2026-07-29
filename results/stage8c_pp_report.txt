@@ -1,0 +1,42 @@
+SOTE Stage 8c++ report (query residual + gated slot)
+timestamp: 2026-07-22T17:29:52.240385+00:00
+device: cuda
+gpu: NVIDIA GeForce RTX 3050 Laptop GPU
+steps: 3500
+word ckpt: C:\Users\Kostya\sote-letter-assembly\checkpoints\word_memory_78e.pt
+phrase ckpt: C:\Users\Kostya\sote-letter-assembly\checkpoints\phrase_memory_8b.pt
+train QA: 40 | hold QA: 10
+
+Train QA acc:            100.0%  (attn@ans 100%, side 100%)
+HOLD QA acc:             80.0%  (attn@ans 90%, side 100%)
+Shuffle control:         80.0%   gap=+0.0pp
+Swap subj/obj control:   80.0%   gap=+0.0pp
+
+HOLD by kind:
+  what_on    50%
+  what_to    67%
+  where_on   100%
+  where_to   100%
+
+Query-residual intra-kind cos (want high within kind):
+  what_to    0.562
+  where_to   0.782
+  what_on    1.000
+  where_on   0.699
+
+HOLD QA details:
+  [OK] fact='cat to car' | q='what to car' -> cat (want cat) p_left=1.00 attn@0
+  [OK] fact='cat to car' | q='where to cat' -> car (want car) p_left=0.00 attn@2
+  [OK] fact='dog to top' | q='what to top' -> dog (want dog) p_left=1.00 attn@0
+  [OK] fact='dog to top' | q='where to dog' -> top (want top) p_left=0.00 attn@2
+  [MISS] fact='go to cat' | q='what to cat' -> cat (want go) p_left=1.00 attn@2
+  [OK] fact='go to cat' | q='where to go' -> cat (want cat) p_left=0.00 attn@2
+  [MISS] fact='spot on car' | q='what on car' -> top (want spot) p_left=1.00 attn@0
+  [OK] fact='spot on car' | q='where is spot' -> car (want car) p_left=0.00 attn@2
+  [OK] fact='good dog on car' | q='what on car' -> dog (want dog) p_left=1.00 attn@1
+  [OK] fact='good dog on car' | q='where is dog' -> car (want car) p_left=0.00 attn@3
+
+How to read:
+- query_residual = query_fp - proj(content args); keeps wh-morphology
+- side gate from query_residual picks left(subj) vs right(obj) slot
+- swap control keeps the same bag but flips roles — strongest order test

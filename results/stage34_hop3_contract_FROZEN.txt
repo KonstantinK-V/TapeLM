@@ -1,0 +1,68 @@
+SOTE Stage 34 hop3 contract FROZEN
+timestamp: 2026-07-24T06:30:00+00:00
+checkpoint: stage34_hop3_FROZEN.pt
+source: stage34_hop3.pt
+parent: stage33_stress_FROZEN.pt
+bank: hop_bank_25.pt + one-shot resample_hub_balanced_bank (33b)
+report: stage34_hop3_report_FROZEN.txt
+metrics: stage34_hop3_metrics.json
+
+=== CLAIM ===
+  "hop3 holds on 32/33 contract" — observe_strict + chain-link extends
+  cleanly to A->B->C on a balanced (readable hub) bank, without FT.
+
+=== CONTRACT (inherits Stage32/33; do not regress) ===
+
+Episodic MEM_WRITE:
+  observe_strict — one phrase key -> one memory slot
+  NEVER soft-merge distinct phrases during episode write
+
+Chain-link / ROLE_BRIDGE (2-hop and 3-hop):
+  forward_links X->Y when X.right == Y.left
+  hop1: prefer chain-sourced (prefer depth>=2 for hop3 episodes)
+  hop2: follow forward_link[key1] filtered by bridge=right(key1)
+  hop3: follow forward_link[key2] filtered by bridge=right(key2)
+  Hop2LeftBinder binds both hop2 and hop3 bridge cues
+  honest metrics: no gold bridge fallback
+
+Bank surface at freeze:
+  one-shot resample_hub_balanced_bank so hub1/hub2/hub3+ all nonempty
+  hub strata by first bridge (A.right) fan-in
+  native hub2-empty noted as structural (mid-hub lefts never bridges);
+  do not loop resample
+
+NOT part of this freeze:
+  binder FT / new hop3-specific binder
+  soft-merge episode write
+  planner / multi-candidate search beyond chain-link
+
+=== GATES AT FREEZE (>=2/3 seeds, primary k=7) ===
+  clean joint3 >= 35%
+  H2|H1 >= 85%; H3|H2 >= 50%
+  dirty_bind / dirty_hard no-collapse (soft floors)
+  ctrl 2-hop joint >= 85%
+  all hub strata n>0
+
+=== METRICS AT FREEZE (3/3 seeds PASS) ===
+  primary k=7 mean:
+    H1            ~77.6%
+    H2|H1         ~94.0%
+    H3|H2         ~96.3%
+    joint2        ~73%
+    joint3        ~69.8%
+    dirty_bind j3 ~69%
+    dirty_hard j3 ~65%
+    ctrl2 joint   ~95.0%
+  hub strata joint3 (best seed):
+    hub1 ~63.6%; hub2 ~85.7%; hub3p ~61.9%
+  bank: facts=82 triples=240 hub_triples={hub1:33, hub2:49, hub3p:158}
+  pass: True (3/3)
+
+=== KNOWN LIMIT (documented, not a fail) ===
+  joint3 drop vs 2-hop freeze is mostly H1 / early-chain, not H3|H2
+  (H3|H2 stays ~96%). hub1/hub3p joint3 below hub2 — readable map,
+  not a hop3-link failure.
+
+=== FREEZE_READY: True ===
+
+Next: optional hub3p/H1 diagnosis, longer chains, or planner — only if needed.

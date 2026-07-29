@@ -1,0 +1,41 @@
+{
+  "timestamp": "2026-07-28T20:42:33.809797+00:00",
+  "protocol": "content_invariant_190",
+  "overall": "CONTENT_INV_PARTIAL_3",
+  "gates": {
+    "G1_ce_preserved": {
+      "next_tok": 0.7133333333333334,
+      "baseline_187": 0.727,
+      "ok": true
+    },
+    "G2_doclink": {
+      "model": 0.67,
+      "baseline_187": 0.59,
+      "ok": true
+    },
+    "G3_gateB": {
+      "model": {
+        "para": 0.90882803440094,
+        "hard": 0.9953581765294075,
+        "gap_hard_minus_para": 0.08653014212846755
+      },
+      "baseline_187": {
+        "para": 0.9787734341621399,
+        "hard": 0.995217353105545,
+        "gap_hard_minus_para": 0.016443918943405134
+      },
+      "gap_shrunk": false,
+      "para_gt_hard": false
+    }
+  },
+  "exam_full": {
+    "next_tok_acc": 0.7133333333333334,
+    "next_tok_n": 150,
+    "entity_acc": 0.16,
+    "entity_n": 100,
+    "ood_acc": 0.23333333333333334,
+    "ood_n": 60
+  },
+  "w_con": 0.2,
+  "steps": 3000
+}

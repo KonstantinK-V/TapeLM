@@ -1,0 +1,71 @@
+Priority digs start 2026-07-25T13:29:06.589283+00:00
+Order by chance: C′(diag) → #5 same-role rank → G′ morph-roots
+
+======== 0) C′ BPE toks/word by freq band ========
+[C′] signal=NULL ALL=1.000 head=1.000 rare=1.391
+  ALL: {"n_words": 39257, "mean_toks_per_word": 1.0004585169523907, "frac_multi_piece": 0.0004585169523906564}
+  head21p: {"n_words": 38110, "mean_toks_per_word": 1.0, "frac_multi_piece": 0.0}
+  mid6_20: {"n_words": 850, "mean_toks_per_word": 1.0, "frac_multi_piece": 0.0}
+  low2_5: {"n_words": 251, "mean_toks_per_word": 1.0, "frac_multi_piece": 0.0}
+  rare1: {"n_words": 46, "mean_toks_per_word": 1.391304347826087, "frac_multi_piece": 0.391304347826087}
+  phrase_level: {"n_words": 39257, "mean_toks_per_word": 1.0004585169523907, "frac_multi_piece": null}
+
+======== 1) #5 same-role shortlist CE + pairwise hinge ========
+[init] Stage100 warm
+[#5] right_fat=6368 right_story=28172 all_rights=984
+  [#5] step 2000: obj=44.5% rel=96.0% STORY=19.6% | obj hit1=44.5% hit5=83.8% (gap 39.3pp)
+  [#5] step 4000: obj=43.3% rel=93.8% STORY=16.1% | obj hit1=43.3% hit5=84.0% (gap 40.7pp)
+  [#5] step 6000: obj=41.0% rel=96.2% STORY=16.5% | obj hit1=41.0% hit5=84.7% (gap 43.7pp)
+  [#5] step 8000: obj=42.3% rel=96.5% STORY=16.0% | obj hit1=42.3% hit5=84.2% (gap 41.8pp)
+  [#5] step 10000: obj=42.0% rel=96.3% STORY=16.2% | obj hit1=42.0% hit5=84.2% (gap 42.2pp)
+  [#5] step 12000: obj=42.3% rel=94.3% STORY=14.1% | obj hit1=42.3% hit5=84.7% (gap 42.3pp)
+  [#5] step 14000: obj=42.7% rel=96.3% STORY=17.2% | obj hit1=42.7% hit5=85.2% (gap 42.5pp)
+  [#5] step 16000: obj=42.0% rel=95.8% STORY=16.0% | obj hit1=42.0% hit5=84.8% (gap 42.8pp)
+  [#5] step 18000: obj=44.2% rel=96.5% STORY=15.6% | obj hit1=44.2% hit5=85.8% (gap 41.7pp)
+  [#5] step 20000: obj=42.0% rel=96.5% STORY=17.1% | obj hit1=42.0% hit5=84.2% (gap 42.2pp)
+  [#5] step 22000: obj=42.2% rel=96.5% STORY=15.7% | obj hit1=42.2% hit5=83.8% (gap 41.7pp)
+  [#5] step 24000: obj=44.0% rel=95.8% STORY=16.7% | obj hit1=44.0% hit5=85.7% (gap 41.7pp)
+  [#5] step 26000: obj=45.0% rel=96.5% STORY=15.4% | obj hit1=45.0% hit5=85.5% (gap 40.5pp)
+  [#5] step 28000: obj=43.8% rel=95.8% STORY=17.2% | obj hit1=43.8% hit5=83.7% (gap 39.8pp)
+  [#5] step 30000: obj=41.8% rel=96.5% STORY=17.6% | obj hit1=41.8% hit5=84.8% (gap 43.0pp)
+  [#5] step 32000: obj=42.8% rel=96.5% STORY=17.6% | obj hit1=42.8% hit5=85.5% (gap 42.7pp)
+  [#5] step 34000: obj=42.3% rel=96.5% STORY=16.3% | obj hit1=42.3% hit5=84.5% (gap 42.2pp)
+  [#5] step 36000: obj=45.2% rel=96.3% STORY=16.7% | obj hit1=45.2% hit5=86.0% (gap 40.8pp)
+  [#5] step 38000: obj=44.0% rel=96.3% STORY=17.8% | obj hit1=44.0% hit5=86.7% (gap 42.7pp)
+  [#5] step 40000: obj=43.3% rel=96.3% STORY=16.9% | obj hit1=43.3% hit5=84.2% (gap 40.8pp)
+[#5] PARTIAL obj=45.2% lift=+2.6pp STORY=16.7%
+
+======== 2) G′ morph-root positions (stem[+affix]+surface) ========
+[G′] C′ signal was NULL — density thesis WEAK/NULL (still try stem-sharing)
+[G′] warmed surface emb from Stage100
+  [G′] step 2000: STORY=7.0% SEEN_ALL=52.4% SEEN_obj=21.8%
+  [G′] step 4000: STORY=5.6% SEEN_ALL=30.0% SEEN_obj=21.5%
+  [G′] step 6000: STORY=8.3% SEEN_ALL=22.8% SEEN_obj=36.5%
+  [G′] step 8000: STORY=12.6% SEEN_ALL=49.0% SEEN_obj=43.5%
+  [G′] step 10000: STORY=10.6% SEEN_ALL=49.8% SEEN_obj=43.0%
+  [G′] step 12000: STORY=10.6% SEEN_ALL=43.5% SEEN_obj=36.2%
+  [G′] step 14000: STORY=13.7% SEEN_ALL=60.8% SEEN_obj=42.0%
+  [G′] step 16000: STORY=12.1% SEEN_ALL=49.5% SEEN_obj=41.2%
+  [G′] step 18000: STORY=13.3% SEEN_ALL=61.4% SEEN_obj=39.8%
+  [G′] step 20000: STORY=14.6% SEEN_ALL=61.8% SEEN_obj=41.2%
+  [G′] step 22000: STORY=14.1% SEEN_ALL=63.7% SEEN_obj=41.5%
+  [G′] step 24000: STORY=16.5% SEEN_ALL=68.9% SEEN_obj=46.2%
+  [G′] step 26000: STORY=17.6% SEEN_ALL=69.8% SEEN_obj=45.2%
+  [G′] step 28000: STORY=18.3% SEEN_ALL=70.1% SEEN_obj=43.8%
+  [G′] step 30000: STORY=17.1% SEEN_ALL=66.1% SEEN_obj=43.8%
+  [G′] step 32000: STORY=16.2% SEEN_ALL=67.2% SEEN_obj=42.5%
+  [G′] step 34000: STORY=16.7% SEEN_ALL=66.1% SEEN_obj=42.8%
+  [G′] step 36000: STORY=18.0% SEEN_ALL=69.1% SEEN_obj=42.5%
+  [G′] step 38000: STORY=17.5% SEEN_ALL=67.8% SEEN_obj=45.8%
+  [G′] step 40000: STORY=19.1% SEEN_ALL=70.1% SEEN_obj=43.5%
+[G′] PARITY STORY=19.1% lift=-0.5pp obj=43.5%
+DONE priority digs
+SOTE priority digs (descending chance)
+timestamp: 2026-07-25T14:19:42.963282+00:00
+
+0 C′  signal=NULL ALL_tpw=1.0004585169523907 head=1.0 rare=1.391304347826087
+1 #5  PARTIAL obj=45.2% lift=+2.6pp STORY=16.7%
+2 G′  PARITY STORY=19.1% lift=-0.5pp
+
+Skipped: F(done PARITY/-10pp), temp, role-reweight, hybrid, multi-head, more mem
+Decision JSON: C:\Users\Kostya\sote-letter-assembly\results\stage125_127_priority_decision.json

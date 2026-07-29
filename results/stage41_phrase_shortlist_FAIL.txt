@@ -1,0 +1,28 @@
+SOTE Stage 41 phrase-shortlist — FAIL (honest)
+timestamp: 2026-07-24T07:50:42+00:00
+checkpoint: stage41_phrase_shortlist.pt
+parent: stage40_next_fp.pt
+
+=== SETUP ===
+  candidates = {B | B.left == A.right}; |cands|~3 on HOLD
+  scorers: MLP (pre/post InfoNCE), hop2 binder, raw a_fp
+  gate: gap≥12pp vs random-in-shortlist
+
+=== RESULT ===
+  All scorers HOLD: acc~33.3% ≈ chance_mean 33.3%; gap −4pp
+  MRR~0.611 = exact uniform-rank expectation for |cands|~3
+  mlp == hop2 == raw (same numbers) → no discriminative ranking among siblings
+
+=== READ ===
+  Full-vocab NN was the wrong decoder (Stage40) — AGREED.
+  Narrow shortlist does NOT revive phrase-next here: sibling phrases not separable
+  in fp under these scorers (collision / near-ties), same generation subplot.
+  Word next remains soft PASS (+21pp). D intact 100/100.
+
+=== DECISION ===
+  E phrase generative / protocol-next: NOT alive on this bank.
+  Working system: word-only dynamics + hop retrieval (observe_strict / chain-link).
+  Do not claim phrase LM. Optional later: instance/left-ink among shortlist siblings
+  (hop2 multi-link style) — only if worth another cheap probe.
+
+=== STATUS: FAIL shortlist; keep word E + hops ===

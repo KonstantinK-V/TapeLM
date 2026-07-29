@@ -1,0 +1,871 @@
+{
+  "pass": true,
+  "best_seed": 273,
+  "seeds": [
+    {
+      "seed": 272,
+      "ok": true,
+      "bind_joint": 0.5125,
+      "full_joint": 0.5875,
+      "lift": 0.16249999999999998,
+      "h1": 0.7375,
+      "hold": {
+        "n": 80,
+        "n_pairs": 24,
+        "samples": [
+          {
+            "a": "dog to cob",
+            "b": "cob on rim",
+            "which": "first",
+            "full_full_j": true,
+            "full_full_1": true,
+            "hop1_partial_raw_j": false,
+            "hop1_partial_raw_1": false,
+            "hop1_partial_probe_j": true,
+            "hop1_partial_probe_1": true,
+            "hop1_partial_bind_j": true,
+            "hop1_partial_bind_1": true
+          },
+          {
+            "a": "bird to peg",
+            "b": "peg on rim",
+            "which": "second",
+            "full_full_j": true,
+            "full_full_1": true,
+            "hop1_partial_raw_j": true,
+            "hop1_partial_raw_1": true,
+            "hop1_partial_probe_j": true,
+            "hop1_partial_probe_1": true,
+            "hop1_partial_bind_j": true,
+            "hop1_partial_bind_1": true
+          },
+          {
+            "a": "bird to peg",
+            "b": "peg on rim",
+            "which": "first",
+            "full_full_j": false,
+            "full_full_1": false,
+            "hop1_partial_raw_j": false,
+            "hop1_partial_raw_1": false,
+            "hop1_partial_probe_j": false,
+            "hop1_partial_probe_1": false,
+            "hop1_partial_bind_j": false,
+            "hop1_partial_bind_1": false
+          },
+          {
+            "a": "go to cob",
+            "b": "cob on zip",
+            "which": "second",
+            "full_full_j": true,
+            "full_full_1": true,
+            "hop1_partial_raw_j": true,
+            "hop1_partial_raw_1": true,
+            "hop1_partial_probe_j": true,
+            "hop1_partial_probe_1": true,
+            "hop1_partial_bind_j": true,
+            "hop1_partial_bind_1": true
+          },
+          {
+            "a": "washed to zip",
+            "b": "zip on yap",
+            "which": "first",
+            "full_full_j": true,
+            "full_full_1": true,
+            "hop1_partial_raw_j": true,
+            "hop1_partial_raw_1": true,
+            "hop1_partial_probe_j": true,
+            "hop1_partial_probe_1": true,
+            "hop1_partial_bind_j": true,
+            "hop1_partial_bind_1": true
+          },
+          {
+            "a": "pushes to web",
+            "b": "web on cob",
+            "which": "second",
+            "full_full_j": false,
+            "full_full_1": true,
+            "hop1_partial_raw_j": false,
+            "hop1_partial_raw_1": false,
+            "hop1_partial_probe_j": false,
+            "hop1_partial_probe_1": true,
+            "hop1_partial_bind_j": false,
+            "hop1_partial_bind_1": false
+          },
+          {
+            "a": "ball to zip",
+            "b": "zip on cob",
+            "which": "first",
+            "full_full_j": false,
+            "full_full_1": true,
+            "hop1_partial_raw_j": false,
+            "hop1_partial_raw_1": false,
+            "hop1_partial_probe_j": false,
+            "hop1_partial_probe_1": true,
+            "hop1_partial_bind_j": false,
+            "hop1_partial_bind_1": true
+          },
+          {
+            "a": "washed to zip",
+            "b": "zip on yap",
+            "which": "second",
+            "full_full_j": true,
+            "full_full_1": true,
+            "hop1_partial_raw_j": true,
+            "hop1_partial_raw_1": true,
+            "hop1_partial_probe_j": false,
+            "hop1_partial_probe_1": false,
+            "hop1_partial_bind_j": true,
+            "hop1_partial_bind_1": true
+          }
+        ],
+        "modes": {
+          "full_full": {
+            "hop1": 0.825,
+            "hop2": 0.6625,
+            "joint": 0.5875,
+            "mean_depth": 5.9875
+          },
+          "hop1_partial_raw": {
+            "hop1": 0.475,
+            "hop2": 0.5875,
+            "joint": 0.35,
+            "mean_depth": 6.8125
+          },
+          "hop1_partial_probe": {
+            "hop1": 0.625,
+            "hop2": 0.6,
+            "joint": 0.425,
+            "mean_depth": 11.85
+          },
+          "hop1_partial_bind": {
+            "hop1": 0.7375,
+            "hop2": 0.6375,
+            "joint": 0.5125,
+            "mean_depth": 6.95
+          }
+        }
+      },
+      "train": {
+        "n": 48,
+        "n_pairs": 20,
+        "samples": [
+          {
+            "a": "rock to cap",
+            "b": "cap on bin",
+            "which": "first",
+            "full_full_j": false,
+            "full_full_1": true,
+            "hop1_partial_raw_j": false,
+            "hop1_partial_raw_1": false,
+            "hop1_partial_probe_j": false,
+            "hop1_partial_probe_1": true,
+            "hop1_partial_bind_j": false,
+            "hop1_partial_bind_1": true
+          },
+          {
+            "a": "moving to bin",
+            "b": "bin on box",
+            "which": "second",
+            "full_full_j": false,
+            "full_full_1": true,
+            "hop1_partial_raw_j": false,
+            "hop1_partial_raw_1": true,
+            "hop1_partial_probe_j": false,
+            "hop1_partial_probe_1": true,
+            "hop1_partial_bind_j": false,
+            "hop1_partial_bind_1": true
+          },
+          {
+            "a": "dog to box",
+            "b": "box on lid",
+            "which": "first",
+            "full_full_j": true,
+            "full_full_1": true,
+            "hop1_partial_raw_j": true,
+            "hop1_partial_raw_1": true,
+            "hop1_partial_probe_j": true,
+            "hop1_partial_probe_1": true,
+            "hop1_partial_bind_j": true,
+            "hop1_partial_bind_1": true
+          },
+          {
+            "a": "bird to mat",
+            "b": "mat on cap",
+            "which": "second",
+            "full_full_j": true,
+            "full_full_1": true,
+            "hop1_partial_raw_j": true,
+            "hop1_partial_raw_1": true,
+            "hop1_partial_probe_j": true,
+            "hop1_partial_probe_1": true,
+            "hop1_partial_bind_j": true,
+            "hop1_partial_bind_1": true
+          },
+          {
+            "a": "talking to pad",
+            "b": "pad on log",
+            "which": "first",
+            "full_full_j": true,
+            "full_full_1": true,
+            "hop1_partial_raw_j": false,
+            "hop1_partial_raw_1": false,
+            "hop1_partial_probe_j": true,
+            "hop1_partial_probe_1": true,
+            "hop1_partial_bind_j": true,
+            "hop1_partial_bind_1": true
+          },
+          {
+            "a": "moving to bin",
+            "b": "bin on box",
+            "which": "second",
+            "full_full_j": true,
+            "full_full_1": true,
+            "hop1_partial_raw_j": true,
+            "hop1_partial_raw_1": true,
+            "hop1_partial_probe_j": false,
+            "hop1_partial_probe_1": false,
+            "hop1_partial_bind_j": true,
+            "hop1_partial_bind_1": true
+          },
+          {
+            "a": "ship to pen",
+            "b": "pen on bag",
+            "which": "first",
+            "full_full_j": true,
+            "full_full_1": true,
+            "hop1_partial_raw_j": false,
+            "hop1_partial_raw_1": false,
+            "hop1_partial_probe_j": true,
+            "hop1_partial_probe_1": true,
+            "hop1_partial_bind_j": true,
+            "hop1_partial_bind_1": true
+          },
+          {
+            "a": "ball to pen",
+            "b": "pen on pad",
+            "which": "second",
+            "full_full_j": false,
+            "full_full_1": true,
+            "hop1_partial_raw_j": false,
+            "hop1_partial_raw_1": true,
+            "hop1_partial_probe_j": false,
+            "hop1_partial_probe_1": true,
+            "hop1_partial_bind_j": false,
+            "hop1_partial_bind_1": true
+          }
+        ],
+        "modes": {
+          "full_full": {
+            "hop1": 0.8333333333333334,
+            "hop2": 0.7708333333333334,
+            "joint": 0.6875,
+            "mean_depth": 5.9375
+          },
+          "hop1_partial_raw": {
+            "hop1": 0.5416666666666666,
+            "hop2": 0.7708333333333334,
+            "joint": 0.3958333333333333,
+            "mean_depth": 6.8125
+          },
+          "hop1_partial_probe": {
+            "hop1": 0.7708333333333334,
+            "hop2": 0.7291666666666666,
+            "joint": 0.625,
+            "mean_depth": 11.875
+          },
+          "hop1_partial_bind": {
+            "hop1": 0.875,
+            "hop2": 0.8125,
+            "joint": 0.7291666666666666,
+            "mean_depth": 6.9375
+          }
+        }
+      }
+    },
+    {
+      "seed": 273,
+      "ok": true,
+      "bind_joint": 0.525,
+      "full_joint": 0.5875,
+      "lift": 0.17500000000000004,
+      "h1": 0.75,
+      "hold": {
+        "n": 80,
+        "n_pairs": 24,
+        "samples": [
+          {
+            "a": "dog to cob",
+            "b": "cob on rim",
+            "which": "first",
+            "full_full_j": true,
+            "full_full_1": true,
+            "hop1_partial_raw_j": false,
+            "hop1_partial_raw_1": false,
+            "hop1_partial_probe_j": true,
+            "hop1_partial_probe_1": true,
+            "hop1_partial_bind_j": true,
+            "hop1_partial_bind_1": true
+          },
+          {
+            "a": "bird to peg",
+            "b": "peg on rim",
+            "which": "second",
+            "full_full_j": true,
+            "full_full_1": true,
+            "hop1_partial_raw_j": true,
+            "hop1_partial_raw_1": true,
+            "hop1_partial_probe_j": true,
+            "hop1_partial_probe_1": true,
+            "hop1_partial_bind_j": true,
+            "hop1_partial_bind_1": true
+          },
+          {
+            "a": "bird to peg",
+            "b": "peg on rim",
+            "which": "first",
+            "full_full_j": false,
+            "full_full_1": false,
+            "hop1_partial_raw_j": false,
+            "hop1_partial_raw_1": false,
+            "hop1_partial_probe_j": false,
+            "hop1_partial_probe_1": false,
+            "hop1_partial_bind_j": false,
+            "hop1_partial_bind_1": false
+          },
+          {
+            "a": "go to cob",
+            "b": "cob on zip",
+            "which": "second",
+            "full_full_j": true,
+            "full_full_1": true,
+            "hop1_partial_raw_j": true,
+            "hop1_partial_raw_1": true,
+            "hop1_partial_probe_j": true,
+            "hop1_partial_probe_1": true,
+            "hop1_partial_bind_j": true,
+            "hop1_partial_bind_1": true
+          },
+          {
+            "a": "washed to zip",
+            "b": "zip on yap",
+            "which": "first",
+            "full_full_j": true,
+            "full_full_1": true,
+            "hop1_partial_raw_j": true,
+            "hop1_partial_raw_1": true,
+            "hop1_partial_probe_j": true,
+            "hop1_partial_probe_1": true,
+            "hop1_partial_bind_j": true,
+            "hop1_partial_bind_1": true
+          },
+          {
+            "a": "pushes to web",
+            "b": "web on cob",
+            "which": "second",
+            "full_full_j": false,
+            "full_full_1": true,
+            "hop1_partial_raw_j": false,
+            "hop1_partial_raw_1": false,
+            "hop1_partial_probe_j": false,
+            "hop1_partial_probe_1": true,
+            "hop1_partial_bind_j": false,
+            "hop1_partial_bind_1": false
+          },
+          {
+            "a": "ball to zip",
+            "b": "zip on cob",
+            "which": "first",
+            "full_full_j": false,
+            "full_full_1": true,
+            "hop1_partial_raw_j": false,
+            "hop1_partial_raw_1": false,
+            "hop1_partial_probe_j": false,
+            "hop1_partial_probe_1": true,
+            "hop1_partial_bind_j": false,
+            "hop1_partial_bind_1": true
+          },
+          {
+            "a": "washed to zip",
+            "b": "zip on yap",
+            "which": "second",
+            "full_full_j": true,
+            "full_full_1": true,
+            "hop1_partial_raw_j": true,
+            "hop1_partial_raw_1": true,
+            "hop1_partial_probe_j": false,
+            "hop1_partial_probe_1": false,
+            "hop1_partial_bind_j": true,
+            "hop1_partial_bind_1": true
+          }
+        ],
+        "modes": {
+          "full_full": {
+            "hop1": 0.825,
+            "hop2": 0.6625,
+            "joint": 0.5875,
+            "mean_depth": 5.9875
+          },
+          "hop1_partial_raw": {
+            "hop1": 0.475,
+            "hop2": 0.5875,
+            "joint": 0.35,
+            "mean_depth": 6.8125
+          },
+          "hop1_partial_probe": {
+            "hop1": 0.625,
+            "hop2": 0.6,
+            "joint": 0.425,
+            "mean_depth": 11.85
+          },
+          "hop1_partial_bind": {
+            "hop1": 0.75,
+            "hop2": 0.625,
+            "joint": 0.525,
+            "mean_depth": 6.9625
+          }
+        }
+      },
+      "train": {
+        "n": 48,
+        "n_pairs": 20,
+        "samples": [
+          {
+            "a": "rock to cap",
+            "b": "cap on bin",
+            "which": "first",
+            "full_full_j": false,
+            "full_full_1": true,
+            "hop1_partial_raw_j": false,
+            "hop1_partial_raw_1": false,
+            "hop1_partial_probe_j": false,
+            "hop1_partial_probe_1": true,
+            "hop1_partial_bind_j": false,
+            "hop1_partial_bind_1": true
+          },
+          {
+            "a": "moving to bin",
+            "b": "bin on box",
+            "which": "second",
+            "full_full_j": false,
+            "full_full_1": true,
+            "hop1_partial_raw_j": false,
+            "hop1_partial_raw_1": true,
+            "hop1_partial_probe_j": false,
+            "hop1_partial_probe_1": true,
+            "hop1_partial_bind_j": false,
+            "hop1_partial_bind_1": true
+          },
+          {
+            "a": "dog to box",
+            "b": "box on lid",
+            "which": "first",
+            "full_full_j": true,
+            "full_full_1": true,
+            "hop1_partial_raw_j": true,
+            "hop1_partial_raw_1": true,
+            "hop1_partial_probe_j": true,
+            "hop1_partial_probe_1": true,
+            "hop1_partial_bind_j": true,
+            "hop1_partial_bind_1": true
+          },
+          {
+            "a": "bird to mat",
+            "b": "mat on cap",
+            "which": "second",
+            "full_full_j": true,
+            "full_full_1": true,
+            "hop1_partial_raw_j": true,
+            "hop1_partial_raw_1": true,
+            "hop1_partial_probe_j": true,
+            "hop1_partial_probe_1": true,
+            "hop1_partial_bind_j": true,
+            "hop1_partial_bind_1": true
+          },
+          {
+            "a": "talking to pad",
+            "b": "pad on log",
+            "which": "first",
+            "full_full_j": true,
+            "full_full_1": true,
+            "hop1_partial_raw_j": false,
+            "hop1_partial_raw_1": false,
+            "hop1_partial_probe_j": true,
+            "hop1_partial_probe_1": true,
+            "hop1_partial_bind_j": true,
+            "hop1_partial_bind_1": true
+          },
+          {
+            "a": "moving to bin",
+            "b": "bin on box",
+            "which": "second",
+            "full_full_j": true,
+            "full_full_1": true,
+            "hop1_partial_raw_j": true,
+            "hop1_partial_raw_1": true,
+            "hop1_partial_probe_j": false,
+            "hop1_partial_probe_1": false,
+            "hop1_partial_bind_j": true,
+            "hop1_partial_bind_1": true
+          },
+          {
+            "a": "ship to pen",
+            "b": "pen on bag",
+            "which": "first",
+            "full_full_j": true,
+            "full_full_1": true,
+            "hop1_partial_raw_j": false,
+            "hop1_partial_raw_1": false,
+            "hop1_partial_probe_j": true,
+            "hop1_partial_probe_1": true,
+            "hop1_partial_bind_j": true,
+            "hop1_partial_bind_1": true
+          },
+          {
+            "a": "ball to pen",
+            "b": "pen on pad",
+            "which": "second",
+            "full_full_j": false,
+            "full_full_1": true,
+            "hop1_partial_raw_j": false,
+            "hop1_partial_raw_1": true,
+            "hop1_partial_probe_j": false,
+            "hop1_partial_probe_1": true,
+            "hop1_partial_bind_j": false,
+            "hop1_partial_bind_1": true
+          }
+        ],
+        "modes": {
+          "full_full": {
+            "hop1": 0.8333333333333334,
+            "hop2": 0.7708333333333334,
+            "joint": 0.6875,
+            "mean_depth": 5.9375
+          },
+          "hop1_partial_raw": {
+            "hop1": 0.5416666666666666,
+            "hop2": 0.7708333333333334,
+            "joint": 0.3958333333333333,
+            "mean_depth": 6.8125
+          },
+          "hop1_partial_probe": {
+            "hop1": 0.7708333333333334,
+            "hop2": 0.7291666666666666,
+            "joint": 0.625,
+            "mean_depth": 11.875
+          },
+          "hop1_partial_bind": {
+            "hop1": 0.8958333333333334,
+            "hop2": 0.8333333333333334,
+            "joint": 0.7291666666666666,
+            "mean_depth": 6.9375
+          }
+        }
+      }
+    },
+    {
+      "seed": 274,
+      "ok": true,
+      "bind_joint": 0.5125,
+      "full_joint": 0.5875,
+      "lift": 0.16249999999999998,
+      "h1": 0.7375,
+      "hold": {
+        "n": 80,
+        "n_pairs": 24,
+        "samples": [
+          {
+            "a": "dog to cob",
+            "b": "cob on rim",
+            "which": "first",
+            "full_full_j": true,
+            "full_full_1": true,
+            "hop1_partial_raw_j": false,
+            "hop1_partial_raw_1": false,
+            "hop1_partial_probe_j": true,
+            "hop1_partial_probe_1": true,
+            "hop1_partial_bind_j": true,
+            "hop1_partial_bind_1": true
+          },
+          {
+            "a": "bird to peg",
+            "b": "peg on rim",
+            "which": "second",
+            "full_full_j": true,
+            "full_full_1": true,
+            "hop1_partial_raw_j": true,
+            "hop1_partial_raw_1": true,
+            "hop1_partial_probe_j": true,
+            "hop1_partial_probe_1": true,
+            "hop1_partial_bind_j": true,
+            "hop1_partial_bind_1": true
+          },
+          {
+            "a": "bird to peg",
+            "b": "peg on rim",
+            "which": "first",
+            "full_full_j": false,
+            "full_full_1": false,
+            "hop1_partial_raw_j": false,
+            "hop1_partial_raw_1": false,
+            "hop1_partial_probe_j": false,
+            "hop1_partial_probe_1": false,
+            "hop1_partial_bind_j": false,
+            "hop1_partial_bind_1": false
+          },
+          {
+            "a": "go to cob",
+            "b": "cob on zip",
+            "which": "second",
+            "full_full_j": true,
+            "full_full_1": true,
+            "hop1_partial_raw_j": true,
+            "hop1_partial_raw_1": true,
+            "hop1_partial_probe_j": true,
+            "hop1_partial_probe_1": true,
+            "hop1_partial_bind_j": true,
+            "hop1_partial_bind_1": true
+          },
+          {
+            "a": "washed to zip",
+            "b": "zip on yap",
+            "which": "first",
+            "full_full_j": true,
+            "full_full_1": true,
+            "hop1_partial_raw_j": true,
+            "hop1_partial_raw_1": true,
+            "hop1_partial_probe_j": true,
+            "hop1_partial_probe_1": true,
+            "hop1_partial_bind_j": true,
+            "hop1_partial_bind_1": true
+          },
+          {
+            "a": "pushes to web",
+            "b": "web on cob",
+            "which": "second",
+            "full_full_j": false,
+            "full_full_1": true,
+            "hop1_partial_raw_j": false,
+            "hop1_partial_raw_1": false,
+            "hop1_partial_probe_j": false,
+            "hop1_partial_probe_1": true,
+            "hop1_partial_bind_j": false,
+            "hop1_partial_bind_1": false
+          },
+          {
+            "a": "ball to zip",
+            "b": "zip on cob",
+            "which": "first",
+            "full_full_j": false,
+            "full_full_1": true,
+            "hop1_partial_raw_j": false,
+            "hop1_partial_raw_1": false,
+            "hop1_partial_probe_j": false,
+            "hop1_partial_probe_1": true,
+            "hop1_partial_bind_j": false,
+            "hop1_partial_bind_1": true
+          },
+          {
+            "a": "washed to zip",
+            "b": "zip on yap",
+            "which": "second",
+            "full_full_j": true,
+            "full_full_1": true,
+            "hop1_partial_raw_j": true,
+            "hop1_partial_raw_1": true,
+            "hop1_partial_probe_j": false,
+            "hop1_partial_probe_1": false,
+            "hop1_partial_bind_j": true,
+            "hop1_partial_bind_1": true
+          }
+        ],
+        "modes": {
+          "full_full": {
+            "hop1": 0.825,
+            "hop2": 0.6625,
+            "joint": 0.5875,
+            "mean_depth": 5.9875
+          },
+          "hop1_partial_raw": {
+            "hop1": 0.475,
+            "hop2": 0.5875,
+            "joint": 0.35,
+            "mean_depth": 6.8125
+          },
+          "hop1_partial_probe": {
+            "hop1": 0.625,
+            "hop2": 0.6,
+            "joint": 0.425,
+            "mean_depth": 11.85
+          },
+          "hop1_partial_bind": {
+            "hop1": 0.7375,
+            "hop2": 0.6125,
+            "joint": 0.5125,
+            "mean_depth": 6.975
+          }
+        }
+      },
+      "train": {
+        "n": 48,
+        "n_pairs": 20,
+        "samples": [
+          {
+            "a": "rock to cap",
+            "b": "cap on bin",
+            "which": "first",
+            "full_full_j": false,
+            "full_full_1": true,
+            "hop1_partial_raw_j": false,
+            "hop1_partial_raw_1": false,
+            "hop1_partial_probe_j": false,
+            "hop1_partial_probe_1": true,
+            "hop1_partial_bind_j": false,
+            "hop1_partial_bind_1": true
+          },
+          {
+            "a": "moving to bin",
+            "b": "bin on box",
+            "which": "second",
+            "full_full_j": false,
+            "full_full_1": true,
+            "hop1_partial_raw_j": false,
+            "hop1_partial_raw_1": true,
+            "hop1_partial_probe_j": false,
+            "hop1_partial_probe_1": true,
+            "hop1_partial_bind_j": false,
+            "hop1_partial_bind_1": true
+          },
+          {
+            "a": "dog to box",
+            "b": "box on lid",
+            "which": "first",
+            "full_full_j": true,
+            "full_full_1": true,
+            "hop1_partial_raw_j": true,
+            "hop1_partial_raw_1": true,
+            "hop1_partial_probe_j": true,
+            "hop1_partial_probe_1": true,
+            "hop1_partial_bind_j": true,
+            "hop1_partial_bind_1": true
+          },
+          {
+            "a": "bird to mat",
+            "b": "mat on cap",
+            "which": "second",
+            "full_full_j": true,
+            "full_full_1": true,
+            "hop1_partial_raw_j": true,
+            "hop1_partial_raw_1": true,
+            "hop1_partial_probe_j": true,
+            "hop1_partial_probe_1": true,
+            "hop1_partial_bind_j": true,
+            "hop1_partial_bind_1": true
+          },
+          {
+            "a": "talking to pad",
+            "b": "pad on log",
+            "which": "first",
+            "full_full_j": true,
+            "full_full_1": true,
+            "hop1_partial_raw_j": false,
+            "hop1_partial_raw_1": false,
+            "hop1_partial_probe_j": true,
+            "hop1_partial_probe_1": true,
+            "hop1_partial_bind_j": true,
+            "hop1_partial_bind_1": true
+          },
+          {
+            "a": "moving to bin",
+            "b": "bin on box",
+            "which": "second",
+            "full_full_j": true,
+            "full_full_1": true,
+            "hop1_partial_raw_j": true,
+            "hop1_partial_raw_1": true,
+            "hop1_partial_probe_j": false,
+            "hop1_partial_probe_1": false,
+            "hop1_partial_bind_j": true,
+            "hop1_partial_bind_1": true
+          },
+          {
+            "a": "ship to pen",
+            "b": "pen on bag",
+            "which": "first",
+            "full_full_j": true,
+            "full_full_1": true,
+            "hop1_partial_raw_j": false,
+            "hop1_partial_raw_1": false,
+            "hop1_partial_probe_j": true,
+            "hop1_partial_probe_1": true,
+            "hop1_partial_bind_j": true,
+            "hop1_partial_bind_1": true
+          },
+          {
+            "a": "ball to pen",
+            "b": "pen on pad",
+            "which": "second",
+            "full_full_j": false,
+            "full_full_1": true,
+            "hop1_partial_raw_j": false,
+            "hop1_partial_raw_1": true,
+            "hop1_partial_probe_j": false,
+            "hop1_partial_probe_1": true,
+            "hop1_partial_bind_j": false,
+            "hop1_partial_bind_1": true
+          }
+        ],
+        "modes": {
+          "full_full": {
+            "hop1": 0.8333333333333334,
+            "hop2": 0.7708333333333334,
+            "joint": 0.6875,
+            "mean_depth": 5.9375
+          },
+          "hop1_partial_raw": {
+            "hop1": 0.5416666666666666,
+            "hop2": 0.7708333333333334,
+            "joint": 0.3958333333333333,
+            "mean_depth": 6.8125
+          },
+          "hop1_partial_probe": {
+            "hop1": 0.7708333333333334,
+            "hop2": 0.7291666666666666,
+            "joint": 0.625,
+            "mean_depth": 11.875
+          },
+          "hop1_partial_bind": {
+            "hop1": 0.8958333333333334,
+            "hop2": 0.8333333333333334,
+            "joint": 0.7291666666666666,
+            "mean_depth": 6.9375
+          }
+        }
+      }
+    }
+  ],
+  "config": {
+    "dim": 64,
+    "seed": 272,
+    "episode_k": 3,
+    "steps": 2800,
+    "batch_size": 32,
+    "lr": 0.0015,
+    "temperature": 0.07,
+    "n_hold_episodes": 80,
+    "n_train_episodes": 48,
+    "create_below": 0.55,
+    "stabilize_lo": 0.55,
+    "lock_above": 0.92,
+    "ema": 0.85,
+    "retrieve_margin": 0.05,
+    "max_phrase_len": 5,
+    "max_word_len": 11,
+    "joint_min": 0.45,
+    "lift_vs_raw_pp": 0.15,
+    "teach_w": 0.9,
+    "bridge_w": 0.45,
+    "bridge_mix": 0.4,
+    "neg_w": 0.85,
+    "pass_seeds_min": 2
+  }
+}

@@ -1,0 +1,206 @@
+{
+  "stage": 94,
+  "verdict": "FAIL",
+  "stability": "SIMILAR_SWING",
+  "best_step": 6500,
+  "seen": {
+    "obj": 0.2733333333333333,
+    "rel": 0.0,
+    "all": 0.13666666666666666,
+    "head": 0.13666666666666666
+  },
+  "rare": {
+    "obj": 0.11666666666666667
+  },
+  "story": {
+    "obj": 0.08923076923076922
+  },
+  "swing": 0.2733333333333333,
+  "late_drop": 0.013333333333333308,
+  "curve": [
+    {
+      "step": 0,
+      "obj_seen": 0.0,
+      "all_seen": 0.0,
+      "rel_seen": 0.0,
+      "obj_rare": 0.0,
+      "obj_story": 0.0,
+      "head_seen": 0.0,
+      "lr": 0.0
+    },
+    {
+      "step": 500,
+      "obj_seen": 0.0,
+      "all_seen": 0.0,
+      "rel_seen": 0.0,
+      "obj_rare": 0.0,
+      "obj_story": 0.08307692307692308,
+      "head_seen": 0.0,
+      "lr": 0.001
+    },
+    {
+      "step": 1000,
+      "obj_seen": 0.0,
+      "all_seen": 0.0,
+      "rel_seen": 0.0,
+      "obj_rare": 0.0,
+      "obj_story": 0.06153846153846154,
+      "head_seen": 0.0,
+      "lr": 0.001
+    },
+    {
+      "step": 1500,
+      "obj_seen": 0.0,
+      "all_seen": 0.0,
+      "rel_seen": 0.0,
+      "obj_rare": 0.0,
+      "obj_story": 0.10153846153846154,
+      "head_seen": 0.0,
+      "lr": 0.001
+    },
+    {
+      "step": 2000,
+      "obj_seen": 0.0,
+      "all_seen": 0.0,
+      "rel_seen": 0.0,
+      "obj_rare": 0.0,
+      "obj_story": 0.08307692307692308,
+      "head_seen": 0.0,
+      "lr": 0.001
+    },
+    {
+      "step": 2500,
+      "obj_seen": 0.0,
+      "all_seen": 0.0,
+      "rel_seen": 0.0,
+      "obj_rare": 0.0,
+      "obj_story": 0.052307692307692305,
+      "head_seen": 0.0,
+      "lr": 0.001
+    },
+    {
+      "step": 3000,
+      "obj_seen": 0.0,
+      "all_seen": 0.0,
+      "rel_seen": 0.0,
+      "obj_rare": 0.0,
+      "obj_story": 0.055384615384615386,
+      "head_seen": 0.0,
+      "lr": 0.001
+    },
+    {
+      "step": 3500,
+      "obj_seen": 0.0,
+      "all_seen": 0.0,
+      "rel_seen": 0.0,
+      "obj_rare": 0.0,
+      "obj_story": 0.07384615384615385,
+      "head_seen": 0.0,
+      "lr": 0.001
+    },
+    {
+      "step": 4000,
+      "obj_seen": 0.0,
+      "all_seen": 0.0,
+      "rel_seen": 0.0,
+      "obj_rare": 0.0,
+      "obj_story": 0.12615384615384614,
+      "head_seen": 0.0,
+      "lr": 0.001
+    },
+    {
+      "step": 4500,
+      "obj_seen": 0.0,
+      "all_seen": 0.0,
+      "rel_seen": 0.0,
+      "obj_rare": 0.0,
+      "obj_story": 0.12307692307692308,
+      "head_seen": 0.0,
+      "lr": 0.001
+    },
+    {
+      "step": 5000,
+      "obj_seen": 0.0,
+      "all_seen": 0.0,
+      "rel_seen": 0.0,
+      "obj_rare": 0.0,
+      "obj_story": 0.06769230769230769,
+      "head_seen": 0.0,
+      "lr": 0.001
+    },
+    {
+      "step": 5500,
+      "obj_seen": 0.0,
+      "all_seen": 0.0,
+      "rel_seen": 0.0,
+      "obj_rare": 0.0,
+      "obj_story": 0.04923076923076923,
+      "head_seen": 0.0,
+      "lr": 0.001
+    },
+    {
+      "step": 6000,
+      "obj_seen": 0.013333333333333334,
+      "all_seen": 0.03666666666666667,
+      "rel_seen": 0.06,
+      "obj_rare": 0.0,
+      "obj_story": 0.052307692307692305,
+      "head_seen": 0.03666666666666667,
+      "lr": 0.001
+    },
+    {
+      "step": 6500,
+      "obj_seen": 0.2733333333333333,
+      "all_seen": 0.13666666666666666,
+      "rel_seen": 0.0,
+      "obj_rare": 0.11666666666666667,
+      "obj_story": 0.08923076923076922,
+      "head_seen": 0.13666666666666666,
+      "lr": 0.001
+    },
+    {
+      "step": 7000,
+      "obj_seen": 0.22,
+      "all_seen": 0.11,
+      "rel_seen": 0.0,
+      "obj_rare": 0.11666666666666667,
+      "obj_story": 0.12,
+      "head_seen": 0.11,
+      "lr": 0.001
+    },
+    {
+      "step": 7500,
+      "obj_seen": 0.22,
+      "all_seen": 0.11,
+      "rel_seen": 0.0,
+      "obj_rare": 0.11666666666666667,
+      "obj_story": 0.15076923076923077,
+      "head_seen": 0.11,
+      "lr": 0.001
+    },
+    {
+      "step": 8000,
+      "obj_seen": 0.26,
+      "all_seen": 0.13,
+      "rel_seen": 0.0,
+      "obj_rare": 0.11666666666666667,
+      "obj_story": 0.15384615384615385,
+      "head_seen": 0.13,
+      "lr": 0.001
+    }
+  ],
+  "cfg": {
+    "warmup": 200,
+    "lr": 0.001,
+    "batch": 32,
+    "emb_lr_mult": 0.2
+  },
+  "ref93": {
+    "obj": 0.333,
+    "rel": 0.74
+  },
+  "ref90": {
+    "obj": 0.28,
+    "rel": 0.86
+  }
+}

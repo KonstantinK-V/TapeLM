@@ -1,0 +1,35 @@
+SOTE Stage 27c report (both-partial + mandatory bridge)
+timestamp: 2026-07-23T18:18:52.269370+00:00
+device: cuda
+parents: thought_scratch_26_FROZEN.pt + hop_bank_25.pt + stage27b_plus_hop1_partial.pt
+CueBinder FROZEN; Hop1PartialBinder from 27b+; hop2 left_only from scratch.bridge
+HOLD pairs=24 episodes=80 HOLD_EVAL_SEED=10027
+
+mode                        H1      H2    JOINT   depth
+--------------------------------------------------------
+full_full                82.5%   66.2%    58.8%    5.99
+both_partial_raw         47.5%   37.5%    22.5%    5.66
+both_partial_probe       62.5%   60.0%    42.5%   13.85
+both_partial_bind        75.0%   62.5%    52.5%    8.96
+hop1_bind_hop2_full      75.0%   62.5%    52.5%    6.96
+
+samples:
+  [first] dog to cob => cob on rim  full=1 raw=0 probe=1 bind=1 h1full2=1
+  [second] bird to peg => peg on rim  full=1 raw=1 probe=1 bind=1 h1full2=1
+  [first] bird to peg => peg on rim  full=0 raw=0 probe=0 bind=0 h1full2=0
+  [second] go to cob => cob on zip  full=1 raw=1 probe=1 bind=1 h1full2=1
+  [first] washed to zip => zip on yap  full=1 raw=0 probe=1 bind=1 h1full2=1
+  [second] pushes to web => web on cob  full=0 raw=0 probe=0 bind=0 h1full2=0
+
+=== Best-seed detail ===
+  joint full=58.8% raw=22.5% probe=42.5% bind=52.5% h1bind_h2full=52.5% lift_vs_raw=+30.0pp near_ceiling=False
+
+=== Multi-seed ===
+  seed 272: PASS  bind=51.2% full=58.8% raw=22.5% lift=+28.7pp  drop_vs_h2full=+0.0pp
+  seed 273: PASS  bind=52.5% full=58.8% raw=22.5% lift=+30.0pp  drop_vs_h2full=+0.0pp
+  seed 274: PASS  bind=51.2% full=58.8% raw=22.5% lift=+28.7pp  drop_vs_h2full=+0.0pp
+  aggregate: 3/3 seeds pass; mean_joint=51.7% mean_lift=+29.2pp (need >=2)
+
+=== Verdict ===
+  PASS: both-partial with 27b+ hop1 binder + bridge→hop2 probe hits gates.
+  Next: dirty partial stress / denser bank (deferred).

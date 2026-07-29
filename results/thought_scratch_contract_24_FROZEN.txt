@@ -1,0 +1,44 @@
+SOTE thought-scratch contract 24 FROZEN
+timestamp: 2026-07-23T15:27:39.907411+00:00
+checkpoint: thought_scratch_24_FROZEN.pt
+parent: bridge_qa_binder_16_FROZEN.pt
+
+Axiom:
+  thinking != next-token
+  thinking = chain of memory ops:
+    MEM_WRITE(facts) -> SCRATCH_WRITE(thought) -> MEM_READ(facts) -> ANSWER
+    (+ multi-hop bridge cells in scratch)
+
+Locked channels:
+  facts   : SoftPhraseMemory 11++ (soft_create_below=0.70, retrieve_margin=0.05)
+  thought : ThoughtScratch (private stack + named cells; NEVER in fact retrieve)
+  structure parent : alphabet/words/morph/PhraseComposer/CueBinder (bridge 16)
+
+ThoughtScratch API:
+  write(tag, fp, cell=None, meta=None)
+  peek / read_cell / read_meta / depth / tags / clear
+  canonical cells: cue1, attended_1, bridge_entity, cue2*, attended_2
+
+Canonical protocols:
+  [single] MEM_WRITE -> SCRATCH binder(cue) -> MEM_READ -> ANSWER
+  [multi]  hop1 WHAT(A) -> scratch.bridge=A.right -> where-probe -> hop2 WHAT(B)
+           chain rule: A.right == B.left
+
+Metrics at freeze:
+  [23] HOLD ans raw=82.8%  scratch=82.8%  polluted=39.1%
+  [24] HOLD hop1=70.8%  hop2=95.8%  joint=66.7% (=oracle2)
+  [24] polluted joint=0.0%  HOLD chains=5 (thin)
+
+Rules:
+  - Do not merge scratch into fact-bank retrieve.
+  - Do not retrain frozen structure/binder without explicit unfreeze.
+  - New modules ADD on top; keep facts/thought split.
+  - thought::* in SoftPhraseMemory is a known FAIL mode.
+
+Deferred:
+  - expand chain/interference banks (eval-first)
+  - partial cue -> scratch -> CueBinder complete -> MEM_READ
+  - richer ops (ROLE_BRIDGE) / step planner
+  - next-token path stays deprioritized
+
+=== FREEZE_READY: True ===

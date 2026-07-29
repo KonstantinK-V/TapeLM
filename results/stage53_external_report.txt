@@ -1,0 +1,22 @@
+SOTE Stage 53 report (tiny external transfer after freeze 52)
+timestamp: 2026-07-24T09:30:25.542252+00:00
+device: cuda
+parent: stage52_beyond_FROZEN.pt  data: data\tiny_external.txt
+lines train/hold=21/13  V=113 new=['bed', 'fox', 'hat', 'jump', 'play', 'walk']
+Freeze 52 untouched: beyond-core + path soft-green.
+
+=== D grown codebook exact=100.0% ===
+
+=== Zero-shot (frozen atom) HOLD ===
+  L1  7.7%/+0.0pp n=13
+  L2+ 21.4%/-3.6pp n=28
+
+=== Light FT on external train → HOLD ===
+  L1  15.4%/+7.7pp n=13
+  L2+ 46.4%/+32.1pp n=28
+  order_drop=+21.4pp
+
+=== Verdict ===
+  PASS: external transfer after light FT (L≥2 46%/+32pp). Axis portable.
+  Note: zero-shot weak (expected); FT is the transfer claim.
+  No phrase/char trunk.

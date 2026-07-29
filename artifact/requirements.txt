@@ -1,0 +1,5 @@
+# Minimal deps for TapeLM artifact scripts (Stages 196, 203, 204, …)
+torch>=2.0
+tokenizers>=0.15
+transformers>=4.36
+numpy>=1.24

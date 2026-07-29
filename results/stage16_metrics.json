@@ -1,0 +1,164 @@
+{
+  "pass": true,
+  "identity": {
+    "by_k": {
+      "2": {
+        "n_episodes": 40,
+        "retrieve_acc": 1.0,
+        "answer_acc": 1.0,
+        "joint_acc": 1.0
+      },
+      "3": {
+        "n_episodes": 40,
+        "retrieve_acc": 1.0,
+        "answer_acc": 1.0,
+        "joint_acc": 1.0
+      },
+      "4": {
+        "n_episodes": 40,
+        "retrieve_acc": 1.0,
+        "answer_acc": 1.0,
+        "joint_acc": 1.0
+      }
+    },
+    "retrieve_acc": 1.0,
+    "answer_acc": 1.0,
+    "joint_acc": 1.0,
+    "n": 720
+  },
+  "cue_raw": {
+    "by_k": {
+      "2": {
+        "n_episodes": 40,
+        "retrieve_acc": 0.825,
+        "answer_acc": 0.84375,
+        "joint_acc": 0.825
+      },
+      "3": {
+        "n_episodes": 40,
+        "retrieve_acc": 0.7541666666666665,
+        "answer_acc": 0.7625,
+        "joint_acc": 0.7541666666666665
+      },
+      "4": {
+        "n_episodes": 40,
+        "retrieve_acc": 0.715625,
+        "answer_acc": 0.725,
+        "joint_acc": 0.715625
+      }
+    },
+    "retrieve_acc": 0.7527777777777778,
+    "answer_acc": 0.7638888888888888,
+    "joint_acc": 0.7527777777777778,
+    "n": 720
+  },
+  "cue_bound": {
+    "by_k": {
+      "2": {
+        "n_episodes": 40,
+        "retrieve_acc": 0.9125,
+        "answer_acc": 0.91875,
+        "joint_acc": 0.9125
+      },
+      "3": {
+        "n_episodes": 40,
+        "retrieve_acc": 0.8458333333333332,
+        "answer_acc": 0.8541666666666664,
+        "joint_acc": 0.8458333333333332
+      },
+      "4": {
+        "n_episodes": 40,
+        "retrieve_acc": 0.8375,
+        "answer_acc": 0.85,
+        "joint_acc": 0.8375
+      }
+    },
+    "retrieve_acc": 0.8569444444444444,
+    "answer_acc": 0.8666666666666667,
+    "joint_acc": 0.8569444444444444,
+    "n": 720
+  },
+  "inter_raw": {
+    "n": 38,
+    "n_packs": 6,
+    "retrieve_acc": 0.631578947368421,
+    "answer_acc": 0.7631578947368421,
+    "joint_acc": 0.631578947368421
+  },
+  "inter_bound": {
+    "n": 38,
+    "n_packs": 6,
+    "retrieve_acc": 0.7631578947368421,
+    "answer_acc": 0.7631578947368421,
+    "joint_acc": 0.7631578947368421
+  },
+  "history": [
+    {
+      "step": 1,
+      "loss": 2.9178316593170166
+    },
+    {
+      "step": 250,
+      "loss": 0.5545291900634766
+    },
+    {
+      "step": 500,
+      "loss": 0.5943347811698914
+    },
+    {
+      "step": 750,
+      "loss": 0.5616227984428406
+    },
+    {
+      "step": 1000,
+      "loss": 0.5177357792854309
+    },
+    {
+      "step": 1250,
+      "loss": 0.5269376635551453
+    },
+    {
+      "step": 1500,
+      "loss": 0.5975031852722168
+    },
+    {
+      "step": 1750,
+      "loss": 0.5216730833053589
+    },
+    {
+      "step": 2000,
+      "loss": 0.5845908522605896
+    }
+  ],
+  "config": {
+    "dim": 64,
+    "seed": 16,
+    "lr": 0.002,
+    "steps": 2000,
+    "batch_episodes": 16,
+    "episode_k": 4,
+    "temperature": 0.07,
+    "max_phrase_len": 5,
+    "max_word_len": 11,
+    "fewshot_exposures": 5,
+    "create_below": 0.55,
+    "stabilize_lo": 0.55,
+    "stabilize_hi": 0.88,
+    "lock_above": 0.92,
+    "ema": 0.85,
+    "soft_create_below": 0.7,
+    "retrieve_margin": 0.05,
+    "n_episodes": 40,
+    "ks": [
+      2,
+      3,
+      4
+    ],
+    "baseline_cue_joint": 0.756,
+    "baseline_inter_cue": 0.632,
+    "cue_joint_min": 0.85,
+    "inter_cue_min": 0.74,
+    "identity_keep_min": 0.98,
+    "min_lift_pp": 0.05
+  }
+}

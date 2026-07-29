@@ -1,0 +1,1539 @@
+{
+  "stage": "10",
+  "timestamp": "2026-07-23T08:47:42.074529+00:00",
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "config": {
+    "dim": 64,
+    "lr": 0.003,
+    "steps": 3500,
+    "seed": 0,
+    "temperature": 0.07,
+    "batch_phrases": 16,
+    "max_phrase_len": 5,
+    "w_phrase_ce": 1.0,
+    "w_phrase_cos": 1.0,
+    "w_trace": 0.55,
+    "w_order": 0.75,
+    "w_prefix": 0.45,
+    "w_peel": 0.4,
+    "w_morph_swap": 0.55,
+    "w_rel": 0.7,
+    "margin": 0.08
+  },
+  "metrics": {
+    "word_ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\word_memory_9_2.pt",
+    "morph_ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\morph_letter_9f_plusplus_FROZEN.pt",
+    "n_train": 43,
+    "n_hold": 16,
+    "train_phrases": [
+      "cat on top",
+      "dog on top",
+      "cat on car",
+      "dog on car",
+      "go to car",
+      "go to dog",
+      "go to top",
+      "go on top",
+      "cat to dog",
+      "dog to cat",
+      "no good dog",
+      "not good cat",
+      "stop on top",
+      "spot on top",
+      "post to top",
+      "act on top",
+      "pot on top",
+      "card on top",
+      "not on top",
+      "not to go",
+      "no cat on top",
+      "no dog on car",
+      "good dog on top",
+      "good cat on car",
+      "cats on top",
+      "dogs on car",
+      "cat plays",
+      "dog runs",
+      "cat playing",
+      "dog running",
+      "going to car",
+      "stopping on top",
+      "acting on car",
+      "cat played",
+      "dog stopped",
+      "posted on top",
+      "books on top",
+      "fishing on top",
+      "cat makes",
+      "dog takes",
+      "cat gives",
+      "spots on car",
+      "cat on tops"
+    ],
+    "hold_phrases": [
+      "cat to car",
+      "dog to top",
+      "go to cat",
+      "spot on car",
+      "good dog on car",
+      "no good cat",
+      "jumps on top",
+      "walks on car",
+      "cat jumping",
+      "dog walking",
+      "reading on top",
+      "cat writes",
+      "dog jumped",
+      "walked on car",
+      "good jumps",
+      "no walking"
+    ],
+    "train": {
+      "n": 43,
+      "acc": 1.0,
+      "mean_trace": 0.9956549366777256,
+      "order_acc": 1.0,
+      "peel_acc": 1.0,
+      "details": [
+        {
+          "phrase": "cat on top",
+          "pred": "cat on top",
+          "ok": true,
+          "sim": 0.9984955787658691,
+          "trace": 0.999533454577128,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "dog on top",
+          "pred": "dog on top",
+          "ok": true,
+          "sim": 0.9975731372833252,
+          "trace": 0.9992061654726664,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "cat on car",
+          "pred": "cat on car",
+          "ok": true,
+          "sim": 0.9989075064659119,
+          "trace": 0.9992929895718893,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "dog on car",
+          "pred": "dog on car",
+          "ok": true,
+          "sim": 0.9970036745071411,
+          "trace": 0.9989657004674276,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "go to car",
+          "pred": "go to car",
+          "ok": true,
+          "sim": 0.9979500770568848,
+          "trace": 0.9986976583798727,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "go to dog",
+          "pred": "go to dog",
+          "ok": true,
+          "sim": 0.9979075193405151,
+          "trace": 0.9969958265622457,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "go to top",
+          "pred": "go to top",
+          "ok": true,
+          "sim": 0.9982590675354004,
+          "trace": 0.9989381233851115,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "go on top",
+          "pred": "go on top",
+          "ok": true,
+          "sim": 0.9975343942642212,
+          "trace": 0.9990154107411703,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "cat to dog",
+          "pred": "cat to dog",
+          "ok": true,
+          "sim": 0.9951658248901367,
+          "trace": 0.9975138703982035,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "dog to cat",
+          "pred": "dog to cat",
+          "ok": true,
+          "sim": 0.9967677593231201,
+          "trace": 0.9966637889544169,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "no good dog",
+          "pred": "no good dog",
+          "ok": true,
+          "sim": 0.9981509447097778,
+          "trace": 0.9967646797498068,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "not good cat",
+          "pred": "not good cat",
+          "ok": true,
+          "sim": 0.9993073344230652,
+          "trace": 0.9959386785825094,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "stop on top",
+          "pred": "stop on top",
+          "ok": true,
+          "sim": 0.9982592463493347,
+          "trace": 0.9909862478574117,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "spot on top",
+          "pred": "spot on top",
+          "ok": true,
+          "sim": 0.994670569896698,
+          "trace": 0.995518962542216,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "post to top",
+          "pred": "post to top",
+          "ok": true,
+          "sim": 0.9990049600601196,
+          "trace": 0.9969250559806824,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "act on top",
+          "pred": "act on top",
+          "ok": true,
+          "sim": 0.9972617626190186,
+          "trace": 0.997270405292511,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "pot on top",
+          "pred": "pot on top",
+          "ok": true,
+          "sim": 0.998224139213562,
+          "trace": 0.9982749819755554,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "card on top",
+          "pred": "card on top",
+          "ok": true,
+          "sim": 0.9978647232055664,
+          "trace": 0.9934826294581095,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "not on top",
+          "pred": "not on top",
+          "ok": true,
+          "sim": 0.9957054257392883,
+          "trace": 0.9992224971453348,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "not to go",
+          "pred": "not to go",
+          "ok": true,
+          "sim": 0.9991196393966675,
+          "trace": 0.997491717338562,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "no cat on top",
+          "pred": "no cat on top",
+          "ok": true,
+          "sim": 0.9970468878746033,
+          "trace": 0.9972162693738937,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "no dog on car",
+          "pred": "no dog on car",
+          "ok": true,
+          "sim": 0.9959473609924316,
+          "trace": 0.9962311387062073,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "good dog on top",
+          "pred": "good dog on top",
+          "ok": true,
+          "sim": 0.9957482814788818,
+          "trace": 0.9951970875263214,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "good cat on car",
+          "pred": "good cat on car",
+          "ok": true,
+          "sim": 0.9978899359703064,
+          "trace": 0.9963239878416061,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "cats on top",
+          "pred": "cats on top",
+          "ok": true,
+          "sim": 0.9953429698944092,
+          "trace": 0.9843746026357015,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "dogs on car",
+          "pred": "dogs on car",
+          "ok": true,
+          "sim": 0.9975959062576294,
+          "trace": 0.9931798378626505,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "cat plays",
+          "pred": "cat plays",
+          "ok": true,
+          "sim": 0.9990233182907104,
+          "trace": 0.9939932227134705,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "dog runs",
+          "pred": "dog runs",
+          "ok": true,
+          "sim": 0.9980289340019226,
+          "trace": 0.9931155145168304,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "cat playing",
+          "pred": "cat playing",
+          "ok": true,
+          "sim": 0.9997836947441101,
+          "trace": 0.9945585131645203,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "dog running",
+          "pred": "dog running",
+          "ok": true,
+          "sim": 0.9989262223243713,
+          "trace": 0.9894825220108032,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "going to car",
+          "pred": "going to car",
+          "ok": true,
+          "sim": 0.9969740509986877,
+          "trace": 0.9871735771497091,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "stopping on top",
+          "pred": "stopping on top",
+          "ok": true,
+          "sim": 0.9981389045715332,
+          "trace": 0.9940618475278219,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "acting on car",
+          "pred": "acting on car",
+          "ok": true,
+          "sim": 0.9966520667076111,
+          "trace": 0.9921543796857198,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "cat played",
+          "pred": "cat played",
+          "ok": true,
+          "sim": 0.9995269179344177,
+          "trace": 0.994865894317627,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "dog stopped",
+          "pred": "dog stopped",
+          "ok": true,
+          "sim": 0.9980237483978271,
+          "trace": 0.9904635846614838,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "posted on top",
+          "pred": "posted on top",
+          "ok": true,
+          "sim": 0.9985111355781555,
+          "trace": 0.9970484375953674,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "books on top",
+          "pred": "books on top",
+          "ok": true,
+          "sim": 0.9975594878196716,
+          "trace": 0.9972712794939677,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "fishing on top",
+          "pred": "fishing on top",
+          "ok": true,
+          "sim": 0.998414933681488,
+          "trace": 0.9982939759890238,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "cat makes",
+          "pred": "cat makes",
+          "ok": true,
+          "sim": 0.9978711009025574,
+          "trace": 0.9959146082401276,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "dog takes",
+          "pred": "dog takes",
+          "ok": true,
+          "sim": 0.9986449480056763,
+          "trace": 0.9972986876964569,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "cat gives",
+          "pred": "cat gives",
+          "ok": true,
+          "sim": 0.9942697882652283,
+          "trace": 0.9954240024089813,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "spots on car",
+          "pred": "spots on car",
+          "ok": true,
+          "sim": 0.9954622983932495,
+          "trace": 0.9946967959403992,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "cat on tops",
+          "pred": "cat on tops",
+          "ok": true,
+          "sim": 0.9990700483322144,
+          "trace": 0.9981236656506857,
+          "order_ok": true,
+          "peel_ok": true
+        }
+      ]
+    },
+    "hold": {
+      "n": 16,
+      "acc": 1.0,
+      "mean_trace": 0.8594765840098262,
+      "order_acc": 1.0,
+      "peel_acc": 1.0,
+      "details": [
+        {
+          "phrase": "cat to car",
+          "pred": "cat to car",
+          "ok": true,
+          "sim": 0.9999999403953552,
+          "trace": 0.9992157022158304,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "dog to top",
+          "pred": "dog to top",
+          "ok": true,
+          "sim": 1.0,
+          "trace": 0.9991288781166077,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "go to cat",
+          "pred": "go to cat",
+          "ok": true,
+          "sim": 1.0,
+          "trace": 0.9964730342229208,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "spot on car",
+          "pred": "spot on car",
+          "ok": true,
+          "sim": 1.0,
+          "trace": 0.9952784975369772,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "good dog on car",
+          "pred": "good dog on car",
+          "ok": true,
+          "sim": 1.0,
+          "trace": 0.9952679723501205,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "no good cat",
+          "pred": "no good cat",
+          "ok": true,
+          "sim": 1.0,
+          "trace": 0.9962418874104818,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "jumps on top",
+          "pred": "jumps on top",
+          "ok": true,
+          "sim": 1.0,
+          "trace": 0.7626694440841675,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "walks on car",
+          "pred": "walks on car",
+          "ok": true,
+          "sim": 0.9999998807907104,
+          "trace": 0.7576159636179606,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "cat jumping",
+          "pred": "cat jumping",
+          "ok": true,
+          "sim": 1.0,
+          "trace": 0.8146746456623077,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "dog walking",
+          "pred": "dog walking",
+          "ok": true,
+          "sim": 0.9999999403953552,
+          "trace": 0.8525098562240601,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "reading on top",
+          "pred": "reading on top",
+          "ok": true,
+          "sim": 1.0,
+          "trace": 0.8343302607536316,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "cat writes",
+          "pred": "cat writes",
+          "ok": true,
+          "sim": 1.0,
+          "trace": 0.6351494789123535,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "dog jumped",
+          "pred": "dog jumped",
+          "ok": true,
+          "sim": 1.0,
+          "trace": 0.7841767072677612,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "walked on car",
+          "pred": "walked on car",
+          "ok": true,
+          "sim": 1.0,
+          "trace": 0.7943105498949686,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "good jumps",
+          "pred": "good jumps",
+          "ok": true,
+          "sim": 1.0,
+          "trace": 0.6815932989120483,
+          "order_ok": true,
+          "peel_ok": true
+        },
+        {
+          "phrase": "no walking",
+          "pred": "no walking",
+          "ok": true,
+          "sim": 1.0,
+          "trace": 0.8529891669750214,
+          "order_ok": true,
+          "peel_ok": true
+        }
+      ]
+    },
+    "prefix": {
+      "n": 9,
+      "acc": 1.0,
+      "details": [
+        {
+          "prefix": "cat",
+          "family": 0.49162495136260986,
+          "other": -0.057684388011693954,
+          "ok": true
+        },
+        {
+          "prefix": "cat on",
+          "family": 0.7151352167129517,
+          "other": -0.021725881844758987,
+          "ok": true
+        },
+        {
+          "prefix": "dog",
+          "family": 0.5007117390632629,
+          "other": -0.09282668679952621,
+          "ok": true
+        },
+        {
+          "prefix": "dog on",
+          "family": 0.7119737863540649,
+          "other": -0.04021900147199631,
+          "ok": true
+        },
+        {
+          "prefix": "go",
+          "family": 0.6057152152061462,
+          "other": -0.03326008468866348,
+          "ok": true
+        },
+        {
+          "prefix": "go to",
+          "family": 0.6952898502349854,
+          "other": 0.06467373669147491,
+          "ok": true
+        },
+        {
+          "prefix": "no",
+          "family": 0.48170989751815796,
+          "other": -0.10772912949323654,
+          "ok": true
+        },
+        {
+          "prefix": "not",
+          "family": 0.6022853851318359,
+          "other": -0.07423160970211029,
+          "ok": true
+        },
+        {
+          "prefix": "good",
+          "family": 0.5428266525268555,
+          "other": 0.026507675647735596,
+          "ok": true
+        }
+      ]
+    },
+    "morph_swap_hold": {
+      "n": 10,
+      "moved_off_acc": 1.0,
+      "prefer_new_acc": 0.1,
+      "details": [
+        {
+          "phrase": "jumps on top",
+          "from": "jumps",
+          "to": "jumped",
+          "moved_off": true,
+          "prefer_new": false,
+          "new_phrase": "jumped on top"
+        },
+        {
+          "phrase": "walks on car",
+          "from": "walks",
+          "to": "walked",
+          "moved_off": true,
+          "prefer_new": true,
+          "new_phrase": "walked on car"
+        },
+        {
+          "phrase": "cat jumping",
+          "from": "jumping",
+          "to": "jumped",
+          "moved_off": true,
+          "prefer_new": false,
+          "new_phrase": "cat jumped"
+        },
+        {
+          "phrase": "dog walking",
+          "from": "walking",
+          "to": "walked",
+          "moved_off": true,
+          "prefer_new": false,
+          "new_phrase": "dog walked"
+        },
+        {
+          "phrase": "reading on top",
+          "from": "reading",
+          "to": "readed",
+          "moved_off": true,
+          "prefer_new": false,
+          "new_phrase": "readed on top"
+        },
+        {
+          "phrase": "cat writes",
+          "from": "writes",
+          "to": "writed",
+          "moved_off": true,
+          "prefer_new": false,
+          "new_phrase": "cat writed"
+        },
+        {
+          "phrase": "dog jumped",
+          "from": "jumped",
+          "to": "jumping",
+          "moved_off": true,
+          "prefer_new": false,
+          "new_phrase": "dog jumping"
+        },
+        {
+          "phrase": "walked on car",
+          "from": "walked",
+          "to": "walking",
+          "moved_off": true,
+          "prefer_new": false,
+          "new_phrase": "walking on car"
+        },
+        {
+          "phrase": "good jumps",
+          "from": "jumps",
+          "to": "jumped",
+          "moved_off": true,
+          "prefer_new": false,
+          "new_phrase": "good jumped"
+        },
+        {
+          "phrase": "no walking",
+          "from": "walking",
+          "to": "walked",
+          "moved_off": true,
+          "prefer_new": false,
+          "new_phrase": "no walked"
+        }
+      ]
+    },
+    "rel_train": {
+      "n": 64,
+      "acc": 1.0,
+      "details": [
+        {
+          "fact": "cat on top",
+          "kind": "what",
+          "want": "cat",
+          "pred": "cat",
+          "ok": true,
+          "p_left": 0.9999957084655762,
+          "sim": 1.0
+        },
+        {
+          "fact": "cat on top",
+          "kind": "where",
+          "want": "top",
+          "pred": "top",
+          "ok": true,
+          "p_left": 6.145516181277344e-06,
+          "sim": 1.0
+        },
+        {
+          "fact": "dog on top",
+          "kind": "what",
+          "want": "dog",
+          "pred": "dog",
+          "ok": true,
+          "p_left": 0.9999957084655762,
+          "sim": 0.9999999403953552
+        },
+        {
+          "fact": "dog on top",
+          "kind": "where",
+          "want": "top",
+          "pred": "top",
+          "ok": true,
+          "p_left": 8.774238722253358e-07,
+          "sim": 1.0000001192092896
+        },
+        {
+          "fact": "cat on car",
+          "kind": "what",
+          "want": "cat",
+          "pred": "cat",
+          "ok": true,
+          "p_left": 0.999994158744812,
+          "sim": 1.0000001192092896
+        },
+        {
+          "fact": "cat on car",
+          "kind": "where",
+          "want": "car",
+          "pred": "car",
+          "ok": true,
+          "p_left": 6.145516181277344e-06,
+          "sim": 1.0
+        },
+        {
+          "fact": "dog on car",
+          "kind": "what",
+          "want": "dog",
+          "pred": "dog",
+          "ok": true,
+          "p_left": 0.999994158744812,
+          "sim": 0.9999999403953552
+        },
+        {
+          "fact": "dog on car",
+          "kind": "where",
+          "want": "car",
+          "pred": "car",
+          "ok": true,
+          "p_left": 8.774238722253358e-07,
+          "sim": 1.0000001192092896
+        },
+        {
+          "fact": "go to car",
+          "kind": "what",
+          "want": "go",
+          "pred": "go",
+          "ok": true,
+          "p_left": 0.9999914169311523,
+          "sim": 1.0
+        },
+        {
+          "fact": "go to car",
+          "kind": "where",
+          "want": "car",
+          "pred": "car",
+          "ok": true,
+          "p_left": 1.7352298527839594e-05,
+          "sim": 1.0
+        },
+        {
+          "fact": "go to dog",
+          "kind": "what",
+          "want": "go",
+          "pred": "go",
+          "ok": true,
+          "p_left": 0.999976634979248,
+          "sim": 1.0
+        },
+        {
+          "fact": "go to dog",
+          "kind": "where",
+          "want": "dog",
+          "pred": "dog",
+          "ok": true,
+          "p_left": 1.7352298527839594e-05,
+          "sim": 1.0
+        },
+        {
+          "fact": "go to top",
+          "kind": "what",
+          "want": "go",
+          "pred": "go",
+          "ok": true,
+          "p_left": 0.9999994039535522,
+          "sim": 1.0000001192092896
+        },
+        {
+          "fact": "go to top",
+          "kind": "where",
+          "want": "top",
+          "pred": "top",
+          "ok": true,
+          "p_left": 1.7352298527839594e-05,
+          "sim": 1.0000001192092896
+        },
+        {
+          "fact": "go on top",
+          "kind": "what",
+          "want": "go",
+          "pred": "go",
+          "ok": true,
+          "p_left": 0.9999957084655762,
+          "sim": 1.0
+        },
+        {
+          "fact": "go on top",
+          "kind": "where",
+          "want": "top",
+          "pred": "top",
+          "ok": true,
+          "p_left": 8.204744517570361e-06,
+          "sim": 1.0
+        },
+        {
+          "fact": "cat to dog",
+          "kind": "what",
+          "want": "cat",
+          "pred": "cat",
+          "ok": true,
+          "p_left": 0.999976634979248,
+          "sim": 1.0000001192092896
+        },
+        {
+          "fact": "cat to dog",
+          "kind": "where",
+          "want": "dog",
+          "pred": "dog",
+          "ok": true,
+          "p_left": 2.3679616788285784e-05,
+          "sim": 1.0
+        },
+        {
+          "fact": "dog to cat",
+          "kind": "what",
+          "want": "dog",
+          "pred": "dog",
+          "ok": true,
+          "p_left": 0.9999943971633911,
+          "sim": 1.0
+        },
+        {
+          "fact": "dog to cat",
+          "kind": "where",
+          "want": "cat",
+          "pred": "cat",
+          "ok": true,
+          "p_left": 1.6307460555253783e-06,
+          "sim": 1.0000001192092896
+        },
+        {
+          "fact": "stop on top",
+          "kind": "what",
+          "want": "stop",
+          "pred": "stop",
+          "ok": true,
+          "p_left": 0.9999957084655762,
+          "sim": 1.0
+        },
+        {
+          "fact": "stop on top",
+          "kind": "where",
+          "want": "top",
+          "pred": "top",
+          "ok": true,
+          "p_left": 5.166458777239313e-06,
+          "sim": 1.0000001192092896
+        },
+        {
+          "fact": "spot on top",
+          "kind": "what",
+          "want": "spot",
+          "pred": "spot",
+          "ok": true,
+          "p_left": 0.9999957084655762,
+          "sim": 0.9999999403953552
+        },
+        {
+          "fact": "spot on top",
+          "kind": "where",
+          "want": "top",
+          "pred": "top",
+          "ok": true,
+          "p_left": 3.4820782275346573e-06,
+          "sim": 1.0
+        },
+        {
+          "fact": "post to top",
+          "kind": "what",
+          "want": "post",
+          "pred": "post",
+          "ok": true,
+          "p_left": 0.9999994039535522,
+          "sim": 1.0
+        },
+        {
+          "fact": "post to top",
+          "kind": "where",
+          "want": "top",
+          "pred": "top",
+          "ok": true,
+          "p_left": 7.346049187617609e-06,
+          "sim": 1.0000001192092896
+        },
+        {
+          "fact": "act on top",
+          "kind": "what",
+          "want": "act",
+          "pred": "act",
+          "ok": true,
+          "p_left": 0.9999957084655762,
+          "sim": 1.0
+        },
+        {
+          "fact": "act on top",
+          "kind": "where",
+          "want": "top",
+          "pred": "top",
+          "ok": true,
+          "p_left": 7.562742894151597e-07,
+          "sim": 1.0
+        },
+        {
+          "fact": "pot on top",
+          "kind": "what",
+          "want": "pot",
+          "pred": "pot",
+          "ok": true,
+          "p_left": 0.9999957084655762,
+          "sim": 1.0
+        },
+        {
+          "fact": "pot on top",
+          "kind": "where",
+          "want": "top",
+          "pred": "top",
+          "ok": true,
+          "p_left": 4.386351065477356e-06,
+          "sim": 1.0
+        },
+        {
+          "fact": "card on top",
+          "kind": "what",
+          "want": "card",
+          "pred": "card",
+          "ok": true,
+          "p_left": 0.9999957084655762,
+          "sim": 1.0
+        },
+        {
+          "fact": "card on top",
+          "kind": "where",
+          "want": "top",
+          "pred": "top",
+          "ok": true,
+          "p_left": 8.249508027802221e-07,
+          "sim": 1.0
+        },
+        {
+          "fact": "not on top",
+          "kind": "what",
+          "want": "not",
+          "pred": "not",
+          "ok": true,
+          "p_left": 0.9999957084655762,
+          "sim": 1.0000001192092896
+        },
+        {
+          "fact": "not on top",
+          "kind": "where",
+          "want": "top",
+          "pred": "top",
+          "ok": true,
+          "p_left": 2.8002368708257563e-06,
+          "sim": 1.0
+        },
+        {
+          "fact": "not to go",
+          "kind": "what",
+          "want": "not",
+          "pred": "not",
+          "ok": true,
+          "p_left": 0.9999914169311523,
+          "sim": 1.0
+        },
+        {
+          "fact": "not to go",
+          "kind": "where",
+          "want": "go",
+          "pred": "go",
+          "ok": true,
+          "p_left": 3.2779369121271884e-06,
+          "sim": 1.0000001192092896
+        },
+        {
+          "fact": "no cat on top",
+          "kind": "what",
+          "want": "cat",
+          "pred": "cat",
+          "ok": true,
+          "p_left": 0.9999957084655762,
+          "sim": 1.0
+        },
+        {
+          "fact": "no cat on top",
+          "kind": "where",
+          "want": "top",
+          "pred": "top",
+          "ok": true,
+          "p_left": 6.145516181277344e-06,
+          "sim": 1.0
+        },
+        {
+          "fact": "no dog on car",
+          "kind": "what",
+          "want": "dog",
+          "pred": "dog",
+          "ok": true,
+          "p_left": 0.999994158744812,
+          "sim": 0.9999999403953552
+        },
+        {
+          "fact": "no dog on car",
+          "kind": "where",
+          "want": "car",
+          "pred": "car",
+          "ok": true,
+          "p_left": 8.774238722253358e-07,
+          "sim": 1.0000001192092896
+        },
+        {
+          "fact": "good dog on top",
+          "kind": "what",
+          "want": "dog",
+          "pred": "dog",
+          "ok": true,
+          "p_left": 0.9999957084655762,
+          "sim": 0.9999999403953552
+        },
+        {
+          "fact": "good dog on top",
+          "kind": "where",
+          "want": "top",
+          "pred": "top",
+          "ok": true,
+          "p_left": 8.774238722253358e-07,
+          "sim": 1.0000001192092896
+        },
+        {
+          "fact": "good cat on car",
+          "kind": "what",
+          "want": "cat",
+          "pred": "cat",
+          "ok": true,
+          "p_left": 0.999994158744812,
+          "sim": 1.0000001192092896
+        },
+        {
+          "fact": "good cat on car",
+          "kind": "where",
+          "want": "car",
+          "pred": "car",
+          "ok": true,
+          "p_left": 6.145516181277344e-06,
+          "sim": 1.0
+        },
+        {
+          "fact": "cats on top",
+          "kind": "what",
+          "want": "cats",
+          "pred": "cats",
+          "ok": true,
+          "p_left": 0.9999957084655762,
+          "sim": 1.0
+        },
+        {
+          "fact": "cats on top",
+          "kind": "where",
+          "want": "top",
+          "pred": "top",
+          "ok": true,
+          "p_left": 4.825191354029812e-06,
+          "sim": 1.0000001192092896
+        },
+        {
+          "fact": "dogs on car",
+          "kind": "what",
+          "want": "dogs",
+          "pred": "dogs",
+          "ok": true,
+          "p_left": 0.999994158744812,
+          "sim": 1.0
+        },
+        {
+          "fact": "dogs on car",
+          "kind": "where",
+          "want": "car",
+          "pred": "car",
+          "ok": true,
+          "p_left": 2.0623581804102287e-05,
+          "sim": 1.0000001192092896
+        },
+        {
+          "fact": "going to car",
+          "kind": "what",
+          "want": "going",
+          "pred": "going",
+          "ok": true,
+          "p_left": 0.9999914169311523,
+          "sim": 1.0
+        },
+        {
+          "fact": "going to car",
+          "kind": "where",
+          "want": "car",
+          "pred": "car",
+          "ok": true,
+          "p_left": 1.4266198377299588e-05,
+          "sim": 1.0
+        },
+        {
+          "fact": "stopping on top",
+          "kind": "what",
+          "want": "stopping",
+          "pred": "stopping",
+          "ok": true,
+          "p_left": 0.9999957084655762,
+          "sim": 0.9999999403953552
+        },
+        {
+          "fact": "stopping on top",
+          "kind": "where",
+          "want": "top",
+          "pred": "top",
+          "ok": true,
+          "p_left": 4.66322899228544e-06,
+          "sim": 1.0
+        },
+        {
+          "fact": "acting on car",
+          "kind": "what",
+          "want": "acting",
+          "pred": "acting",
+          "ok": true,
+          "p_left": 0.999994158744812,
+          "sim": 1.0000001192092896
+        },
+        {
+          "fact": "acting on car",
+          "kind": "where",
+          "want": "car",
+          "pred": "car",
+          "ok": true,
+          "p_left": 3.0276214602054097e-06,
+          "sim": 1.0
+        },
+        {
+          "fact": "posted on top",
+          "kind": "what",
+          "want": "posted",
+          "pred": "posted",
+          "ok": true,
+          "p_left": 0.9999957084655762,
+          "sim": 1.0000001192092896
+        },
+        {
+          "fact": "posted on top",
+          "kind": "where",
+          "want": "top",
+          "pred": "top",
+          "ok": true,
+          "p_left": 3.840511908492772e-06,
+          "sim": 1.0
+        },
+        {
+          "fact": "books on top",
+          "kind": "what",
+          "want": "books",
+          "pred": "books",
+          "ok": true,
+          "p_left": 0.9999957084655762,
+          "sim": 1.0
+        },
+        {
+          "fact": "books on top",
+          "kind": "where",
+          "want": "top",
+          "pred": "top",
+          "ok": true,
+          "p_left": 5.6451658565492835e-06,
+          "sim": 1.0
+        },
+        {
+          "fact": "fishing on top",
+          "kind": "what",
+          "want": "fishing",
+          "pred": "fishing",
+          "ok": true,
+          "p_left": 0.9999957084655762,
+          "sim": 1.0
+        },
+        {
+          "fact": "fishing on top",
+          "kind": "where",
+          "want": "top",
+          "pred": "top",
+          "ok": true,
+          "p_left": 4.458111561689293e-06,
+          "sim": 1.0
+        },
+        {
+          "fact": "spots on car",
+          "kind": "what",
+          "want": "spots",
+          "pred": "spots",
+          "ok": true,
+          "p_left": 0.999994158744812,
+          "sim": 1.0000001192092896
+        },
+        {
+          "fact": "spots on car",
+          "kind": "where",
+          "want": "car",
+          "pred": "car",
+          "ok": true,
+          "p_left": 8.585128057347902e-07,
+          "sim": 1.0
+        },
+        {
+          "fact": "cat on tops",
+          "kind": "what",
+          "want": "cat",
+          "pred": "cat",
+          "ok": true,
+          "p_left": 0.9999994039535522,
+          "sim": 1.0000001192092896
+        },
+        {
+          "fact": "cat on tops",
+          "kind": "where",
+          "want": "tops",
+          "pred": "tops",
+          "ok": true,
+          "p_left": 6.145516181277344e-06,
+          "sim": 1.0
+        }
+      ]
+    },
+    "rel_hold": {
+      "n": 18,
+      "acc": 1.0,
+      "details": [
+        {
+          "fact": "cat to car",
+          "kind": "what",
+          "want": "cat",
+          "pred": "cat",
+          "ok": true,
+          "p_left": 0.9999914169311523,
+          "sim": 1.0
+        },
+        {
+          "fact": "cat to car",
+          "kind": "where",
+          "want": "car",
+          "pred": "car",
+          "ok": true,
+          "p_left": 2.3679616788285784e-05,
+          "sim": 1.0
+        },
+        {
+          "fact": "dog to top",
+          "kind": "what",
+          "want": "dog",
+          "pred": "dog",
+          "ok": true,
+          "p_left": 0.9999994039535522,
+          "sim": 1.0
+        },
+        {
+          "fact": "dog to top",
+          "kind": "where",
+          "want": "top",
+          "pred": "top",
+          "ok": true,
+          "p_left": 1.6307460555253783e-06,
+          "sim": 1.0
+        },
+        {
+          "fact": "go to cat",
+          "kind": "what",
+          "want": "go",
+          "pred": "go",
+          "ok": true,
+          "p_left": 0.9999943971633911,
+          "sim": 1.0
+        },
+        {
+          "fact": "go to cat",
+          "kind": "where",
+          "want": "cat",
+          "pred": "cat",
+          "ok": true,
+          "p_left": 1.7352298527839594e-05,
+          "sim": 1.0
+        },
+        {
+          "fact": "spot on car",
+          "kind": "what",
+          "want": "spot",
+          "pred": "spot",
+          "ok": true,
+          "p_left": 0.999994158744812,
+          "sim": 1.0
+        },
+        {
+          "fact": "spot on car",
+          "kind": "where",
+          "want": "car",
+          "pred": "car",
+          "ok": true,
+          "p_left": 3.4820782275346573e-06,
+          "sim": 1.0
+        },
+        {
+          "fact": "good dog on car",
+          "kind": "what",
+          "want": "dog",
+          "pred": "dog",
+          "ok": true,
+          "p_left": 0.999994158744812,
+          "sim": 0.9999999403953552
+        },
+        {
+          "fact": "good dog on car",
+          "kind": "where",
+          "want": "car",
+          "pred": "car",
+          "ok": true,
+          "p_left": 8.774238722253358e-07,
+          "sim": 1.0000001192092896
+        },
+        {
+          "fact": "jumps on top",
+          "kind": "what",
+          "want": "jumps",
+          "pred": "jumps",
+          "ok": true,
+          "p_left": 0.9999957084655762,
+          "sim": 1.0
+        },
+        {
+          "fact": "jumps on top",
+          "kind": "where",
+          "want": "top",
+          "pred": "top",
+          "ok": true,
+          "p_left": 0.0004663077415898442,
+          "sim": 0.9999999403953552
+        },
+        {
+          "fact": "walks on car",
+          "kind": "what",
+          "want": "walks",
+          "pred": "walks",
+          "ok": true,
+          "p_left": 0.999994158744812,
+          "sim": 0.9999999403953552
+        },
+        {
+          "fact": "walks on car",
+          "kind": "where",
+          "want": "car",
+          "pred": "car",
+          "ok": true,
+          "p_left": 1.7396372413713834e-06,
+          "sim": 1.0000001192092896
+        },
+        {
+          "fact": "reading on top",
+          "kind": "what",
+          "want": "reading",
+          "pred": "reading",
+          "ok": true,
+          "p_left": 0.9999957084655762,
+          "sim": 1.0
+        },
+        {
+          "fact": "reading on top",
+          "kind": "where",
+          "want": "top",
+          "pred": "top",
+          "ok": true,
+          "p_left": 1.240785150002921e-05,
+          "sim": 1.0
+        },
+        {
+          "fact": "walked on car",
+          "kind": "what",
+          "want": "walked",
+          "pred": "walked",
+          "ok": true,
+          "p_left": 0.999994158744812,
+          "sim": 1.0000001192092896
+        },
+        {
+          "fact": "walked on car",
+          "kind": "where",
+          "want": "car",
+          "pred": "car",
+          "ok": true,
+          "p_left": 9.328608143732708e-07,
+          "sim": 1.0000001192092896
+        }
+      ]
+    }
+  }
+}

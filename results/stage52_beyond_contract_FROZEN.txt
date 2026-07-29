@@ -1,0 +1,27 @@
+SOTE Stage 52 beyond-path contract FROZEN (core + path)
+timestamp: 2026-07-24T09:21:39+00:00
+checkpoint: stage52_beyond_FROZEN.pt
+corpus: fp_language_corpus_beyond_FROZEN.pt
+report: stage52_beyond_report_FROZEN.txt
+metrics: stage52_beyond_metrics_FROZEN.json
+
+=== CLAIM ===
+  Structured beyond-path next-atom is soft-green when verb_rel 3-grams excluded.
+  Path channel held. verb_rel ~chance = template/overlap issue, not freeze blocker.
+
+=== METRICS (HOLD) ===
+  Beyond-core L≥2 (excl. verb_rel): **26.0% / +12.5pp**  ← frozen soft-green
+  Beyond-all L≥2: 23.8% / +12.6pp (pulled by verb_rel ~2%)
+  Path L≥2: **38.1% / +24.1pp**  ← held
+  D word: 100%
+  Order drop beyond: ~+5pp (weak; not claimed solved)
+
+=== CONTRACT ===
+  Atom = word id/fp; decode = D codebook
+  Beyond-core frames (frame_grid, polarity, list, adj_*, verb_noun_chain) learnable
+  verb_rel open 3-grams NOT frozen green
+  Path / hops channels remain primary fact path
+
+=== FREEZE_READY: True (core+path) ===
+Next: Stage 53 tiny external dataset — transfer test of encode→next-atom→D.
+No phrase/char trunk.

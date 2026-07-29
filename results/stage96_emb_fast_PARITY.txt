@@ -1,0 +1,23 @@
+SOTE Stage 96 — emb_lr x2.0 (adapt Foundation85 emb to TinyStories)
+timestamp: 2026-07-24T19:27:03.273133+00:00
+device: cuda
+foundation: stage85_foundation.pt dim=256
+train: batch=8 steps=8000 peak_lr=0.001 warmup=200 emb_lr_mult=2.0
+hyp: F85 emb under-adapted; faster emb lr improves rel/joint
+ref Stage95 batch8: obj=40% rel=95%
+ref Stage94 embx0.2: obj=27% rel=0% (FAIL)
+ref Stage93 batch32: obj=33% rel=74%
+
+=== FT best (joint-aware) ===
+  step=7500
+  SEEN  obj=40.7% rel=96.7% ALL=68.7% head=68.7%
+  RARE  obj=13.3%
+  STORY obj=24.0% ALL=14.1%
+  swing=40.7pp late_obj_drop=4.0pp (final obj=36.7%)
+  emb drift vs F85 init (mean L2)=1.2397
+
+=== vs 95 === TF@96 obj=40.7% rel=96.7% | 95 obj=40% rel=95%
+
+=== Verdict: PARITY ===
+  Read: emb spectrum x0.2 FAIL_rel | x1.0 OK@95 | x2.0 this run
+  next: if lift keep x2; if parity/fail stick x1 + batch8; then hops

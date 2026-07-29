@@ -1,0 +1,4794 @@
+{
+  "stage": "9d",
+  "timestamp": "2026-07-22T20:54:44.562569+00:00",
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "config": {
+    "dim": 64,
+    "lr": 0.003,
+    "steps": 4000,
+    "seed": 0,
+    "temperature": 0.07,
+    "batch_pairs": 24,
+    "w_ce": 1.0,
+    "w_cos": 1.0,
+    "w_peel": 1.0,
+    "w_cycle": 0.75,
+    "w_stem_margin": 0.35,
+    "w_add": 0.35,
+    "w_delta": 0.1,
+    "w_basin_sep": 0.15,
+    "margin": 0.1,
+    "warm_b_blend": 0.25
+  },
+  "metrics": {
+    "word_ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\word_memory_9_2.pt",
+    "n_train": 42,
+    "n_hold": 14,
+    "basin_sims": {
+      "ing_s": 0.0011528823524713516,
+      "ing_ed": 0.003695756196975708,
+      "ing_ly": 4.7031790018081665e-05,
+      "s_ed": 0.0009026899933815002,
+      "s_ly": -0.000587858259677887,
+      "ed_ly": -0.0013719946146011353
+    },
+    "train_pairs": [
+      [
+        "play",
+        "ing",
+        "playing"
+      ],
+      [
+        "go",
+        "ing",
+        "going"
+      ],
+      [
+        "act",
+        "ing",
+        "acting"
+      ],
+      [
+        "fish",
+        "ing",
+        "fishing"
+      ],
+      [
+        "post",
+        "ing",
+        "posting"
+      ],
+      [
+        "book",
+        "ing",
+        "booking"
+      ],
+      [
+        "light",
+        "ing",
+        "lighting"
+      ],
+      [
+        "make",
+        "ing",
+        "making"
+      ],
+      [
+        "take",
+        "ing",
+        "taking"
+      ],
+      [
+        "give",
+        "ing",
+        "giving"
+      ],
+      [
+        "run",
+        "ing",
+        "running"
+      ],
+      [
+        "stop",
+        "ing",
+        "stopping"
+      ],
+      [
+        "spot",
+        "ing",
+        "spotting"
+      ],
+      [
+        "top",
+        "ing",
+        "topping"
+      ],
+      [
+        "play",
+        "s",
+        "plays"
+      ],
+      [
+        "run",
+        "s",
+        "runs"
+      ],
+      [
+        "make",
+        "s",
+        "makes"
+      ],
+      [
+        "take",
+        "s",
+        "takes"
+      ],
+      [
+        "give",
+        "s",
+        "gives"
+      ],
+      [
+        "cat",
+        "s",
+        "cats"
+      ],
+      [
+        "dog",
+        "s",
+        "dogs"
+      ],
+      [
+        "book",
+        "s",
+        "books"
+      ],
+      [
+        "act",
+        "s",
+        "acts"
+      ],
+      [
+        "post",
+        "s",
+        "posts"
+      ],
+      [
+        "go",
+        "s",
+        "goes"
+      ],
+      [
+        "fish",
+        "s",
+        "fishes"
+      ],
+      [
+        "play",
+        "ed",
+        "played"
+      ],
+      [
+        "stop",
+        "ed",
+        "stopped"
+      ],
+      [
+        "post",
+        "ed",
+        "posted"
+      ],
+      [
+        "act",
+        "ed",
+        "acted"
+      ],
+      [
+        "fish",
+        "ed",
+        "fished"
+      ],
+      [
+        "book",
+        "ed",
+        "booked"
+      ],
+      [
+        "top",
+        "ed",
+        "topped"
+      ],
+      [
+        "spot",
+        "ed",
+        "spotted"
+      ],
+      [
+        "light",
+        "ed",
+        "lighted"
+      ],
+      [
+        "water",
+        "ed",
+        "waterred"
+      ],
+      [
+        "quick",
+        "ly",
+        "quickly"
+      ],
+      [
+        "slow",
+        "ly",
+        "slowly"
+      ],
+      [
+        "night",
+        "ly",
+        "nightly"
+      ],
+      [
+        "man",
+        "ly",
+        "manly"
+      ],
+      [
+        "god",
+        "ly",
+        "godly"
+      ],
+      [
+        "green",
+        "ly",
+        "greenly"
+      ]
+    ],
+    "hold_pairs": [
+      [
+        "jump",
+        "ing",
+        "jumping"
+      ],
+      [
+        "walk",
+        "ing",
+        "walking"
+      ],
+      [
+        "read",
+        "ing",
+        "reading"
+      ],
+      [
+        "write",
+        "ing",
+        "writing"
+      ],
+      [
+        "jump",
+        "s",
+        "jumps"
+      ],
+      [
+        "walk",
+        "s",
+        "walks"
+      ],
+      [
+        "read",
+        "s",
+        "reads"
+      ],
+      [
+        "write",
+        "s",
+        "writes"
+      ],
+      [
+        "jump",
+        "ed",
+        "jumped"
+      ],
+      [
+        "walk",
+        "ed",
+        "walked"
+      ],
+      [
+        "read",
+        "ed",
+        "readed"
+      ],
+      [
+        "write",
+        "ed",
+        "writed"
+      ],
+      [
+        "happy",
+        "ly",
+        "happily"
+      ],
+      [
+        "friend",
+        "ly",
+        "friendly"
+      ]
+    ],
+    "hold": {
+      "apply": {
+        "all": {
+          "label": "all",
+          "n": 14,
+          "acc": 0.07142857142857142,
+          "naive_acc": 1.0,
+          "stem_acc": 0.0,
+          "mean_agree": 0.470937328679221,
+          "details": [
+            {
+              "stem": "jump",
+              "affix": "ing",
+              "form": "jumping",
+              "pred": "jump",
+              "ok": false,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.32068637013435364,
+              "score": 0.7096761465072632
+            },
+            {
+              "stem": "walk",
+              "affix": "ing",
+              "form": "walking",
+              "pred": "walk",
+              "ok": false,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.42377522587776184,
+              "score": 0.7817793488502502
+            },
+            {
+              "stem": "read",
+              "affix": "ing",
+              "form": "reading",
+              "pred": "read",
+              "ok": false,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.39003005623817444,
+              "score": 0.665673017501831
+            },
+            {
+              "stem": "write",
+              "affix": "ing",
+              "form": "writing",
+              "pred": "write",
+              "ok": false,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.41838786005973816,
+              "score": 0.7339862585067749
+            },
+            {
+              "stem": "jump",
+              "affix": "s",
+              "form": "jumps",
+              "pred": "jump",
+              "ok": false,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.20841974020004272,
+              "score": 0.7133796215057373
+            },
+            {
+              "stem": "walk",
+              "affix": "s",
+              "form": "walks",
+              "pred": "walk",
+              "ok": false,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.42570751905441284,
+              "score": 0.7496845722198486
+            },
+            {
+              "stem": "read",
+              "affix": "s",
+              "form": "reads",
+              "pred": "read",
+              "ok": false,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.45434999465942383,
+              "score": 0.7251908779144287
+            },
+            {
+              "stem": "write",
+              "affix": "s",
+              "form": "writes",
+              "pred": "write",
+              "ok": false,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.40906310081481934,
+              "score": 0.7668377161026001
+            },
+            {
+              "stem": "jump",
+              "affix": "ed",
+              "form": "jumped",
+              "pred": "jump",
+              "ok": false,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.6469773650169373,
+              "score": 0.7619539499282837
+            },
+            {
+              "stem": "walk",
+              "affix": "ed",
+              "form": "walked",
+              "pred": "walk",
+              "ok": false,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.5974200963973999,
+              "score": 0.7824704051017761
+            },
+            {
+              "stem": "read",
+              "affix": "ed",
+              "form": "readed",
+              "pred": "read",
+              "ok": false,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.5981733798980713,
+              "score": 0.7459491491317749
+            },
+            {
+              "stem": "write",
+              "affix": "ed",
+              "form": "writed",
+              "pred": "write",
+              "ok": false,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.5176376700401306,
+              "score": 0.7468085885047913
+            },
+            {
+              "stem": "happy",
+              "affix": "ly",
+              "form": "happily",
+              "pred": "happy",
+              "ok": false,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.5816101431846619,
+              "score": 0.6563543677330017
+            },
+            {
+              "stem": "friend",
+              "affix": "ly",
+              "form": "friendly",
+              "pred": "friendly",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.6008840799331665,
+              "score": 0.6008840203285217
+            }
+          ]
+        },
+        "ing": {
+          "label": "ing",
+          "n": 4,
+          "acc": 0.0,
+          "naive_acc": 1.0,
+          "stem_acc": 0.0,
+          "mean_agree": 0.388219878077507,
+          "details": [
+            {
+              "stem": "jump",
+              "affix": "ing",
+              "form": "jumping",
+              "pred": "jump",
+              "ok": false,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.32068637013435364,
+              "score": 0.7096761465072632
+            },
+            {
+              "stem": "walk",
+              "affix": "ing",
+              "form": "walking",
+              "pred": "walk",
+              "ok": false,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.42377522587776184,
+              "score": 0.7817793488502502
+            },
+            {
+              "stem": "read",
+              "affix": "ing",
+              "form": "reading",
+              "pred": "read",
+              "ok": false,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.39003005623817444,
+              "score": 0.665673017501831
+            },
+            {
+              "stem": "write",
+              "affix": "ing",
+              "form": "writing",
+              "pred": "write",
+              "ok": false,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.41838786005973816,
+              "score": 0.7339862585067749
+            }
+          ]
+        },
+        "s": {
+          "label": "s",
+          "n": 4,
+          "acc": 0.0,
+          "naive_acc": 1.0,
+          "stem_acc": 0.0,
+          "mean_agree": 0.3743850886821747,
+          "details": [
+            {
+              "stem": "jump",
+              "affix": "s",
+              "form": "jumps",
+              "pred": "jump",
+              "ok": false,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.20841974020004272,
+              "score": 0.7133796215057373
+            },
+            {
+              "stem": "walk",
+              "affix": "s",
+              "form": "walks",
+              "pred": "walk",
+              "ok": false,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.42570751905441284,
+              "score": 0.7496845722198486
+            },
+            {
+              "stem": "read",
+              "affix": "s",
+              "form": "reads",
+              "pred": "read",
+              "ok": false,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.45434999465942383,
+              "score": 0.7251908779144287
+            },
+            {
+              "stem": "write",
+              "affix": "s",
+              "form": "writes",
+              "pred": "write",
+              "ok": false,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.40906310081481934,
+              "score": 0.7668377161026001
+            }
+          ]
+        },
+        "ed": {
+          "label": "ed",
+          "n": 4,
+          "acc": 0.0,
+          "naive_acc": 1.0,
+          "stem_acc": 0.0,
+          "mean_agree": 0.5900521278381348,
+          "details": [
+            {
+              "stem": "jump",
+              "affix": "ed",
+              "form": "jumped",
+              "pred": "jump",
+              "ok": false,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.6469773650169373,
+              "score": 0.7619539499282837
+            },
+            {
+              "stem": "walk",
+              "affix": "ed",
+              "form": "walked",
+              "pred": "walk",
+              "ok": false,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.5974200963973999,
+              "score": 0.7824704051017761
+            },
+            {
+              "stem": "read",
+              "affix": "ed",
+              "form": "readed",
+              "pred": "read",
+              "ok": false,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.5981733798980713,
+              "score": 0.7459491491317749
+            },
+            {
+              "stem": "write",
+              "affix": "ed",
+              "form": "writed",
+              "pred": "write",
+              "ok": false,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.5176376700401306,
+              "score": 0.7468085885047913
+            }
+          ]
+        },
+        "ly": {
+          "label": "ly",
+          "n": 2,
+          "acc": 0.5,
+          "naive_acc": 1.0,
+          "stem_acc": 0.0,
+          "mean_agree": 0.5912471115589142,
+          "details": [
+            {
+              "stem": "happy",
+              "affix": "ly",
+              "form": "happily",
+              "pred": "happy",
+              "ok": false,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.5816101431846619,
+              "score": 0.6563543677330017
+            },
+            {
+              "stem": "friend",
+              "affix": "ly",
+              "form": "friendly",
+              "pred": "friendly",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.6008840799331665,
+              "score": 0.6008840203285217
+            }
+          ]
+        }
+      },
+      "peel": {
+        "acc": 0.07142857142857142,
+        "sub_acc": 0.9285714285714286,
+        "mean_agree": 0.32138402706810404,
+        "details": [
+          {
+            "stem": "jump",
+            "affix": "ing",
+            "form": "jumping",
+            "pred": "light",
+            "ok": false,
+            "sub_ok": true,
+            "agree": 0.14021942019462585,
+            "score": 0.570888102054596
+          },
+          {
+            "stem": "walk",
+            "affix": "ing",
+            "form": "walking",
+            "pred": "spot",
+            "ok": false,
+            "sub_ok": true,
+            "agree": 0.3833909034729004,
+            "score": 0.5175660848617554
+          },
+          {
+            "stem": "read",
+            "affix": "ing",
+            "form": "reading",
+            "pred": "fish",
+            "ok": false,
+            "sub_ok": true,
+            "agree": 0.3609679639339447,
+            "score": 0.5463624000549316
+          },
+          {
+            "stem": "write",
+            "affix": "ing",
+            "form": "writing",
+            "pred": "light",
+            "ok": false,
+            "sub_ok": true,
+            "agree": 0.1703513264656067,
+            "score": 0.45171236991882324
+          },
+          {
+            "stem": "jump",
+            "affix": "s",
+            "form": "jumps",
+            "pred": "play",
+            "ok": false,
+            "sub_ok": true,
+            "agree": 0.15126456320285797,
+            "score": 0.44211718440055847
+          },
+          {
+            "stem": "walk",
+            "affix": "s",
+            "form": "walks",
+            "pred": "spot",
+            "ok": false,
+            "sub_ok": true,
+            "agree": 0.38611680269241333,
+            "score": 0.43535953760147095
+          },
+          {
+            "stem": "read",
+            "affix": "s",
+            "form": "reads",
+            "pred": "fish",
+            "ok": false,
+            "sub_ok": true,
+            "agree": 0.3261178731918335,
+            "score": 0.3985816538333893
+          },
+          {
+            "stem": "write",
+            "affix": "s",
+            "form": "writes",
+            "pred": "take",
+            "ok": false,
+            "sub_ok": true,
+            "agree": 0.09862721711397171,
+            "score": 0.4960651993751526
+          },
+          {
+            "stem": "jump",
+            "affix": "ed",
+            "form": "jumped",
+            "pred": "fish",
+            "ok": false,
+            "sub_ok": false,
+            "agree": 0.38434934616088867,
+            "score": 0.46027255058288574
+          },
+          {
+            "stem": "walk",
+            "affix": "ed",
+            "form": "walked",
+            "pred": "play",
+            "ok": false,
+            "sub_ok": true,
+            "agree": 0.41388851404190063,
+            "score": 0.45820352435112
+          },
+          {
+            "stem": "read",
+            "affix": "ed",
+            "form": "readed",
+            "pred": "fish",
+            "ok": false,
+            "sub_ok": true,
+            "agree": 0.3438026010990143,
+            "score": 0.8071215748786926
+          },
+          {
+            "stem": "write",
+            "affix": "ed",
+            "form": "writed",
+            "pred": "top",
+            "ok": false,
+            "sub_ok": true,
+            "agree": 0.3168981671333313,
+            "score": 0.5703191161155701
+          },
+          {
+            "stem": "happy",
+            "affix": "ly",
+            "form": "happily",
+            "pred": "spot",
+            "ok": false,
+            "sub_ok": true,
+            "agree": 0.42958542704582214,
+            "score": 0.5169658660888672
+          },
+          {
+            "stem": "friend",
+            "affix": "ly",
+            "form": "friendly",
+            "pred": "friend",
+            "ok": true,
+            "sub_ok": true,
+            "agree": 0.5937962532043457,
+            "score": 0.5937963128089905
+          }
+        ]
+      },
+      "cycle": {
+        "reapply_acc": 1.0,
+        "repeel_acc": 0.7142857142857143,
+        "mean_reapply": 0.7150558318410601,
+        "mean_repeel": 0.5566181881087167,
+        "details": [
+          {
+            "stem": "jump",
+            "affix": "ing",
+            "form": "jumping",
+            "cos_reapply_form": 0.6635184288024902,
+            "cos_repeel_stem": 0.5072873830795288,
+            "ok_reapply": true,
+            "ok_repeel": false
+          },
+          {
+            "stem": "walk",
+            "affix": "ing",
+            "form": "walking",
+            "cos_reapply_form": 0.8364999294281006,
+            "cos_repeel_stem": 0.5125055313110352,
+            "ok_reapply": true,
+            "ok_repeel": false
+          },
+          {
+            "stem": "read",
+            "affix": "ing",
+            "form": "reading",
+            "cos_reapply_form": 0.7089337110519409,
+            "cos_repeel_stem": 0.6098853349685669,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "write",
+            "affix": "ing",
+            "form": "writing",
+            "cos_reapply_form": 0.8493123650550842,
+            "cos_repeel_stem": 0.44862842559814453,
+            "ok_reapply": true,
+            "ok_repeel": false
+          },
+          {
+            "stem": "jump",
+            "affix": "s",
+            "form": "jumps",
+            "cos_reapply_form": 0.6174999475479126,
+            "cos_repeel_stem": 0.5947462320327759,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "walk",
+            "affix": "s",
+            "form": "walks",
+            "cos_reapply_form": 0.664483904838562,
+            "cos_repeel_stem": 0.5560768842697144,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "read",
+            "affix": "s",
+            "form": "reads",
+            "cos_reapply_form": 0.600750207901001,
+            "cos_repeel_stem": 0.6338927149772644,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "write",
+            "affix": "s",
+            "form": "writes",
+            "cos_reapply_form": 0.713506281375885,
+            "cos_repeel_stem": 0.47185903787612915,
+            "ok_reapply": true,
+            "ok_repeel": false
+          },
+          {
+            "stem": "jump",
+            "affix": "ed",
+            "form": "jumped",
+            "cos_reapply_form": 0.7532261610031128,
+            "cos_repeel_stem": 0.5508468151092529,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "walk",
+            "affix": "ed",
+            "form": "walked",
+            "cos_reapply_form": 0.7139198184013367,
+            "cos_repeel_stem": 0.5561913251876831,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "read",
+            "affix": "ed",
+            "form": "readed",
+            "cos_reapply_form": 0.8640119433403015,
+            "cos_repeel_stem": 0.6024967432022095,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "write",
+            "affix": "ed",
+            "form": "writed",
+            "cos_reapply_form": 0.6657348871231079,
+            "cos_repeel_stem": 0.5549741983413696,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "happy",
+            "affix": "ly",
+            "form": "happily",
+            "cos_reapply_form": 0.7755745649337769,
+            "cos_repeel_stem": 0.6251035928726196,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "friend",
+            "affix": "ly",
+            "form": "friendly",
+            "cos_reapply_form": 0.583809494972229,
+            "cos_repeel_stem": 0.5681604146957397,
+            "ok_reapply": true,
+            "ok_repeel": true
+          }
+        ]
+      },
+      "swap": {
+        "right_acc": 0.07142857142857142,
+        "right_beats_wrong_acc": 0.6428571428571429,
+        "mean_margin": 0.009221348379339491,
+        "mean_wrong_hit_gold": 0.023809523809523808,
+        "details": [
+          {
+            "stem": "jump",
+            "affix": "ing",
+            "form": "jumping",
+            "right_pred": "jump",
+            "right_ok": false,
+            "cos_right": 0.32068637013435364,
+            "best_wrong_affix": "ed",
+            "cos_best_wrong": 0.1987467259168625,
+            "margin": 0.12193964421749115,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 0.0,
+            "wrongs": [
+              {
+                "other": "s",
+                "cos": 0.16806557774543762,
+                "pred": "jump",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.15262079238891602
+              },
+              {
+                "other": "ed",
+                "cos": 0.1987467259168625,
+                "pred": "jump",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.12193964421749115
+              },
+              {
+                "other": "ly",
+                "cos": 0.18846642971038818,
+                "pred": "jump",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.13221994042396545
+              }
+            ]
+          },
+          {
+            "stem": "walk",
+            "affix": "ing",
+            "form": "walking",
+            "right_pred": "walk",
+            "right_ok": false,
+            "cos_right": 0.42377522587776184,
+            "best_wrong_affix": "ly",
+            "cos_best_wrong": 0.37234732508659363,
+            "margin": 0.05142790079116821,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 0.0,
+            "wrongs": [
+              {
+                "other": "s",
+                "cos": 0.3610087037086487,
+                "pred": "walk",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.06276652216911316
+              },
+              {
+                "other": "ed",
+                "cos": 0.336809366941452,
+                "pred": "walk",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.08696585893630981
+              },
+              {
+                "other": "ly",
+                "cos": 0.37234732508659363,
+                "pred": "walk",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.05142790079116821
+              }
+            ]
+          },
+          {
+            "stem": "read",
+            "affix": "ing",
+            "form": "reading",
+            "right_pred": "read",
+            "right_ok": false,
+            "cos_right": 0.39003005623817444,
+            "best_wrong_affix": "ed",
+            "cos_best_wrong": 0.29310134053230286,
+            "margin": 0.09692871570587158,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 0.0,
+            "wrongs": [
+              {
+                "other": "s",
+                "cos": 0.28583672642707825,
+                "pred": "read",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.10419332981109619
+              },
+              {
+                "other": "ed",
+                "cos": 0.29310134053230286,
+                "pred": "read",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.09692871570587158
+              },
+              {
+                "other": "ly",
+                "cos": 0.2666130065917969,
+                "pred": "read",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.12341704964637756
+              }
+            ]
+          },
+          {
+            "stem": "write",
+            "affix": "ing",
+            "form": "writing",
+            "right_pred": "write",
+            "right_ok": false,
+            "cos_right": 0.41838786005973816,
+            "best_wrong_affix": "s",
+            "cos_best_wrong": 0.35947316884994507,
+            "margin": 0.05891469120979309,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 0.0,
+            "wrongs": [
+              {
+                "other": "s",
+                "cos": 0.35947316884994507,
+                "pred": "write",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.05891469120979309
+              },
+              {
+                "other": "ed",
+                "cos": 0.254670649766922,
+                "pred": "write",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.16371721029281616
+              },
+              {
+                "other": "ly",
+                "cos": 0.3188684284687042,
+                "pred": "write",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.09951943159103394
+              }
+            ]
+          },
+          {
+            "stem": "jump",
+            "affix": "s",
+            "form": "jumps",
+            "right_pred": "jump",
+            "right_ok": false,
+            "cos_right": 0.20841974020004272,
+            "best_wrong_affix": "ing",
+            "cos_best_wrong": 0.2761960029602051,
+            "margin": -0.06777626276016235,
+            "right_beats_all_wrong": false,
+            "wrong_hit_gold_rate": 0.0,
+            "wrongs": [
+              {
+                "other": "ing",
+                "cos": 0.2761960029602051,
+                "pred": "jump",
+                "hit_gold": false,
+                "margin_right_minus_wrong": -0.06777626276016235
+              },
+              {
+                "other": "ed",
+                "cos": 0.2556675374507904,
+                "pred": "jump",
+                "hit_gold": false,
+                "margin_right_minus_wrong": -0.04724779725074768
+              },
+              {
+                "other": "ly",
+                "cos": 0.2000819444656372,
+                "pred": "jump",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.008337795734405518
+              }
+            ]
+          },
+          {
+            "stem": "walk",
+            "affix": "s",
+            "form": "walks",
+            "right_pred": "walk",
+            "right_ok": false,
+            "cos_right": 0.42570751905441284,
+            "best_wrong_affix": "ing",
+            "cos_best_wrong": 0.3836284279823303,
+            "margin": 0.04207909107208252,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 0.0,
+            "wrongs": [
+              {
+                "other": "ing",
+                "cos": 0.3836284279823303,
+                "pred": "walk",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.04207909107208252
+              },
+              {
+                "other": "ed",
+                "cos": 0.34727004170417786,
+                "pred": "walk",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.07843747735023499
+              },
+              {
+                "other": "ly",
+                "cos": 0.34484371542930603,
+                "pred": "walk",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.08086380362510681
+              }
+            ]
+          },
+          {
+            "stem": "read",
+            "affix": "s",
+            "form": "reads",
+            "right_pred": "read",
+            "right_ok": false,
+            "cos_right": 0.45434999465942383,
+            "best_wrong_affix": "ing",
+            "cos_best_wrong": 0.4026336967945099,
+            "margin": 0.05171629786491394,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 0.0,
+            "wrongs": [
+              {
+                "other": "ing",
+                "cos": 0.4026336967945099,
+                "pred": "read",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.05171629786491394
+              },
+              {
+                "other": "ed",
+                "cos": 0.35817641019821167,
+                "pred": "read",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.09617358446121216
+              },
+              {
+                "other": "ly",
+                "cos": 0.37480825185775757,
+                "pred": "read",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.07954174280166626
+              }
+            ]
+          },
+          {
+            "stem": "write",
+            "affix": "s",
+            "form": "writes",
+            "right_pred": "write",
+            "right_ok": false,
+            "cos_right": 0.40906310081481934,
+            "best_wrong_affix": "ing",
+            "cos_best_wrong": 0.43070805072784424,
+            "margin": -0.021644949913024902,
+            "right_beats_all_wrong": false,
+            "wrong_hit_gold_rate": 0.0,
+            "wrongs": [
+              {
+                "other": "ing",
+                "cos": 0.43070805072784424,
+                "pred": "write",
+                "hit_gold": false,
+                "margin_right_minus_wrong": -0.021644949913024902
+              },
+              {
+                "other": "ed",
+                "cos": 0.37339672446250916,
+                "pred": "write",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.03566637635231018
+              },
+              {
+                "other": "ly",
+                "cos": 0.4113531708717346,
+                "pred": "write",
+                "hit_gold": false,
+                "margin_right_minus_wrong": -0.002290070056915283
+              }
+            ]
+          },
+          {
+            "stem": "jump",
+            "affix": "ed",
+            "form": "jumped",
+            "right_pred": "jump",
+            "right_ok": false,
+            "cos_right": 0.6469773650169373,
+            "best_wrong_affix": "ly",
+            "cos_best_wrong": 0.6354948878288269,
+            "margin": 0.011482477188110352,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 0.0,
+            "wrongs": [
+              {
+                "other": "ing",
+                "cos": 0.5173302292823792,
+                "pred": "jump",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.1296471357345581
+              },
+              {
+                "other": "s",
+                "cos": 0.4441935122013092,
+                "pred": "jump",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.20278385281562805
+              },
+              {
+                "other": "ly",
+                "cos": 0.6354948878288269,
+                "pred": "jump",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.011482477188110352
+              }
+            ]
+          },
+          {
+            "stem": "walk",
+            "affix": "ed",
+            "form": "walked",
+            "right_pred": "walk",
+            "right_ok": false,
+            "cos_right": 0.5974200963973999,
+            "best_wrong_affix": "ly",
+            "cos_best_wrong": 0.594150185585022,
+            "margin": 0.0032699108123779297,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 0.0,
+            "wrongs": [
+              {
+                "other": "ing",
+                "cos": 0.512723982334137,
+                "pred": "walk",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.08469611406326294
+              },
+              {
+                "other": "s",
+                "cos": 0.4949783682823181,
+                "pred": "walk",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.10244172811508179
+              },
+              {
+                "other": "ly",
+                "cos": 0.594150185585022,
+                "pred": "walk",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.0032699108123779297
+              }
+            ]
+          },
+          {
+            "stem": "read",
+            "affix": "ed",
+            "form": "readed",
+            "right_pred": "read",
+            "right_ok": false,
+            "cos_right": 0.5981733798980713,
+            "best_wrong_affix": "s",
+            "cos_best_wrong": 0.525978147983551,
+            "margin": 0.07219523191452026,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 0.0,
+            "wrongs": [
+              {
+                "other": "ing",
+                "cos": 0.41966503858566284,
+                "pred": "read",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.17850834131240845
+              },
+              {
+                "other": "s",
+                "cos": 0.525978147983551,
+                "pred": "read",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.07219523191452026
+              },
+              {
+                "other": "ly",
+                "cos": 0.507412850856781,
+                "pred": "read",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.09076052904129028
+              }
+            ]
+          },
+          {
+            "stem": "write",
+            "affix": "ed",
+            "form": "writed",
+            "right_pred": "write",
+            "right_ok": false,
+            "cos_right": 0.5176376700401306,
+            "best_wrong_affix": "ly",
+            "cos_best_wrong": 0.5546241998672485,
+            "margin": -0.03698652982711792,
+            "right_beats_all_wrong": false,
+            "wrong_hit_gold_rate": 0.0,
+            "wrongs": [
+              {
+                "other": "ing",
+                "cos": 0.4825694262981415,
+                "pred": "write",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.035068243741989136
+              },
+              {
+                "other": "s",
+                "cos": 0.4843934178352356,
+                "pred": "write",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.03324425220489502
+              },
+              {
+                "other": "ly",
+                "cos": 0.5546241998672485,
+                "pred": "write",
+                "hit_gold": false,
+                "margin_right_minus_wrong": -0.03698652982711792
+              }
+            ]
+          },
+          {
+            "stem": "happy",
+            "affix": "ly",
+            "form": "happily",
+            "right_pred": "happy",
+            "right_ok": false,
+            "cos_right": 0.5816101431846619,
+            "best_wrong_affix": "ed",
+            "cos_best_wrong": 0.6837254762649536,
+            "margin": -0.10211533308029175,
+            "right_beats_all_wrong": false,
+            "wrong_hit_gold_rate": 0.0,
+            "wrongs": [
+              {
+                "other": "ing",
+                "cos": 0.654796302318573,
+                "pred": "happy",
+                "hit_gold": false,
+                "margin_right_minus_wrong": -0.07318615913391113
+              },
+              {
+                "other": "s",
+                "cos": 0.5975933074951172,
+                "pred": "happy",
+                "hit_gold": false,
+                "margin_right_minus_wrong": -0.015983164310455322
+              },
+              {
+                "other": "ed",
+                "cos": 0.6837254762649536,
+                "pred": "happy",
+                "hit_gold": false,
+                "margin_right_minus_wrong": -0.10211533308029175
+              }
+            ]
+          },
+          {
+            "stem": "friend",
+            "affix": "ly",
+            "form": "friendly",
+            "right_pred": "friendly",
+            "right_ok": true,
+            "cos_right": 0.6008840799331665,
+            "best_wrong_affix": "ed",
+            "cos_best_wrong": 0.7532160878181458,
+            "margin": -0.15233200788497925,
+            "right_beats_all_wrong": false,
+            "wrong_hit_gold_rate": 0.3333333333333333,
+            "wrongs": [
+              {
+                "other": "ing",
+                "cos": 0.6113383769989014,
+                "pred": "friend",
+                "hit_gold": false,
+                "margin_right_minus_wrong": -0.010454297065734863
+              },
+              {
+                "other": "s",
+                "cos": 0.6761186718940735,
+                "pred": "friendly",
+                "hit_gold": true,
+                "margin_right_minus_wrong": -0.07523459196090698
+              },
+              {
+                "other": "ed",
+                "cos": 0.7532160878181458,
+                "pred": "friend",
+                "hit_gold": false,
+                "margin_right_minus_wrong": -0.15233200788497925
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "train": {
+      "apply": {
+        "all": {
+          "label": "all",
+          "n": 42,
+          "acc": 1.0,
+          "naive_acc": 1.0,
+          "stem_acc": 0.0,
+          "mean_agree": 0.9806375858329591,
+          "details": [
+            {
+              "stem": "play",
+              "affix": "ing",
+              "form": "playing",
+              "pred": "playing",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9866791367530823,
+              "score": 0.9866790771484375
+            },
+            {
+              "stem": "go",
+              "affix": "ing",
+              "form": "going",
+              "pred": "going",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9744584560394287,
+              "score": 0.9744584560394287
+            },
+            {
+              "stem": "act",
+              "affix": "ing",
+              "form": "acting",
+              "pred": "acting",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9854937195777893,
+              "score": 0.9854936003684998
+            },
+            {
+              "stem": "fish",
+              "affix": "ing",
+              "form": "fishing",
+              "pred": "fishing",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9892435073852539,
+              "score": 0.9892435073852539
+            },
+            {
+              "stem": "post",
+              "affix": "ing",
+              "form": "posting",
+              "pred": "posting",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9854922294616699,
+              "score": 0.9854922890663147
+            },
+            {
+              "stem": "book",
+              "affix": "ing",
+              "form": "booking",
+              "pred": "booking",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9884285926818848,
+              "score": 0.9884285926818848
+            },
+            {
+              "stem": "light",
+              "affix": "ing",
+              "form": "lighting",
+              "pred": "lighting",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9831797480583191,
+              "score": 0.9831798076629639
+            },
+            {
+              "stem": "make",
+              "affix": "ing",
+              "form": "making",
+              "pred": "making",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9878839254379272,
+              "score": 0.987883985042572
+            },
+            {
+              "stem": "take",
+              "affix": "ing",
+              "form": "taking",
+              "pred": "taking",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.980141282081604,
+              "score": 0.9801413416862488
+            },
+            {
+              "stem": "give",
+              "affix": "ing",
+              "form": "giving",
+              "pred": "giving",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9868332147598267,
+              "score": 0.9868332147598267
+            },
+            {
+              "stem": "run",
+              "affix": "ing",
+              "form": "running",
+              "pred": "running",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9860643148422241,
+              "score": 0.9860643148422241
+            },
+            {
+              "stem": "stop",
+              "affix": "ing",
+              "form": "stopping",
+              "pred": "stopping",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9886186122894287,
+              "score": 0.9886186122894287
+            },
+            {
+              "stem": "spot",
+              "affix": "ing",
+              "form": "spotting",
+              "pred": "spotting",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.989832878112793,
+              "score": 0.9898329377174377
+            },
+            {
+              "stem": "top",
+              "affix": "ing",
+              "form": "topping",
+              "pred": "topping",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9852182865142822,
+              "score": 0.985218346118927
+            },
+            {
+              "stem": "play",
+              "affix": "s",
+              "form": "plays",
+              "pred": "plays",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9865264892578125,
+              "score": 0.9865264892578125
+            },
+            {
+              "stem": "run",
+              "affix": "s",
+              "form": "runs",
+              "pred": "runs",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9810303449630737,
+              "score": 0.9810303449630737
+            },
+            {
+              "stem": "make",
+              "affix": "s",
+              "form": "makes",
+              "pred": "makes",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9849122762680054,
+              "score": 0.9849122762680054
+            },
+            {
+              "stem": "take",
+              "affix": "s",
+              "form": "takes",
+              "pred": "takes",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9794701933860779,
+              "score": 0.9794702529907227
+            },
+            {
+              "stem": "give",
+              "affix": "s",
+              "form": "gives",
+              "pred": "gives",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.983291506767273,
+              "score": 0.9832915663719177
+            },
+            {
+              "stem": "cat",
+              "affix": "s",
+              "form": "cats",
+              "pred": "cats",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9792077541351318,
+              "score": 0.9792077541351318
+            },
+            {
+              "stem": "dog",
+              "affix": "s",
+              "form": "dogs",
+              "pred": "dogs",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9813573360443115,
+              "score": 0.9813573956489563
+            },
+            {
+              "stem": "book",
+              "affix": "s",
+              "form": "books",
+              "pred": "books",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9823974370956421,
+              "score": 0.9823974967002869
+            },
+            {
+              "stem": "act",
+              "affix": "s",
+              "form": "acts",
+              "pred": "acts",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9835855960845947,
+              "score": 0.9835854768753052
+            },
+            {
+              "stem": "post",
+              "affix": "s",
+              "form": "posts",
+              "pred": "posts",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9812020063400269,
+              "score": 0.9812020659446716
+            },
+            {
+              "stem": "go",
+              "affix": "s",
+              "form": "goes",
+              "pred": "goes",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9778212904930115,
+              "score": 0.9778212904930115
+            },
+            {
+              "stem": "fish",
+              "affix": "s",
+              "form": "fishes",
+              "pred": "fishes",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.989681601524353,
+              "score": 0.989681601524353
+            },
+            {
+              "stem": "play",
+              "affix": "ed",
+              "form": "played",
+              "pred": "played",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9646201133728027,
+              "score": 0.9646199941635132
+            },
+            {
+              "stem": "stop",
+              "affix": "ed",
+              "form": "stopped",
+              "pred": "stopped",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9753440618515015,
+              "score": 0.9753441214561462
+            },
+            {
+              "stem": "post",
+              "affix": "ed",
+              "form": "posted",
+              "pred": "posted",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9846885204315186,
+              "score": 0.9846885204315186
+            },
+            {
+              "stem": "act",
+              "affix": "ed",
+              "form": "acted",
+              "pred": "acted",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9866272807121277,
+              "score": 0.9866272807121277
+            },
+            {
+              "stem": "fish",
+              "affix": "ed",
+              "form": "fished",
+              "pred": "fished",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9896458387374878,
+              "score": 0.9896459579467773
+            },
+            {
+              "stem": "book",
+              "affix": "ed",
+              "form": "booked",
+              "pred": "booked",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9875667095184326,
+              "score": 0.9875667095184326
+            },
+            {
+              "stem": "top",
+              "affix": "ed",
+              "form": "topped",
+              "pred": "topped",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9808306694030762,
+              "score": 0.9808306694030762
+            },
+            {
+              "stem": "spot",
+              "affix": "ed",
+              "form": "spotted",
+              "pred": "spotted",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9827342629432678,
+              "score": 0.9827343225479126
+            },
+            {
+              "stem": "light",
+              "affix": "ed",
+              "form": "lighted",
+              "pred": "lighted",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9794719815254211,
+              "score": 0.9794719219207764
+            },
+            {
+              "stem": "water",
+              "affix": "ed",
+              "form": "waterred",
+              "pred": "waterred",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.978492021560669,
+              "score": 0.978492021560669
+            },
+            {
+              "stem": "quick",
+              "affix": "ly",
+              "form": "quickly",
+              "pred": "quickly",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9537152051925659,
+              "score": 0.9537152647972107
+            },
+            {
+              "stem": "slow",
+              "affix": "ly",
+              "form": "slowly",
+              "pred": "slowly",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9404308795928955,
+              "score": 0.9404309391975403
+            },
+            {
+              "stem": "night",
+              "affix": "ly",
+              "form": "nightly",
+              "pred": "nightly",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9807750582695007,
+              "score": 0.9807750582695007
+            },
+            {
+              "stem": "man",
+              "affix": "ly",
+              "form": "manly",
+              "pred": "manly",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9647542834281921,
+              "score": 0.9647542834281921
+            },
+            {
+              "stem": "god",
+              "affix": "ly",
+              "form": "godly",
+              "pred": "godly",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9676637053489685,
+              "score": 0.9676637053489685
+            },
+            {
+              "stem": "green",
+              "affix": "ly",
+              "form": "greenly",
+              "pred": "greenly",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9813662767410278,
+              "score": 0.9813662767410278
+            }
+          ]
+        },
+        "ing": {
+          "label": "ing",
+          "n": 14,
+          "acc": 1.0,
+          "naive_acc": 1.0,
+          "stem_acc": 0.0,
+          "mean_agree": 0.9855405645711082,
+          "details": [
+            {
+              "stem": "play",
+              "affix": "ing",
+              "form": "playing",
+              "pred": "playing",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9866791367530823,
+              "score": 0.9866790771484375
+            },
+            {
+              "stem": "go",
+              "affix": "ing",
+              "form": "going",
+              "pred": "going",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9744584560394287,
+              "score": 0.9744584560394287
+            },
+            {
+              "stem": "act",
+              "affix": "ing",
+              "form": "acting",
+              "pred": "acting",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9854937195777893,
+              "score": 0.9854936003684998
+            },
+            {
+              "stem": "fish",
+              "affix": "ing",
+              "form": "fishing",
+              "pred": "fishing",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9892435073852539,
+              "score": 0.9892435073852539
+            },
+            {
+              "stem": "post",
+              "affix": "ing",
+              "form": "posting",
+              "pred": "posting",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9854922294616699,
+              "score": 0.9854922890663147
+            },
+            {
+              "stem": "book",
+              "affix": "ing",
+              "form": "booking",
+              "pred": "booking",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9884285926818848,
+              "score": 0.9884285926818848
+            },
+            {
+              "stem": "light",
+              "affix": "ing",
+              "form": "lighting",
+              "pred": "lighting",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9831797480583191,
+              "score": 0.9831798076629639
+            },
+            {
+              "stem": "make",
+              "affix": "ing",
+              "form": "making",
+              "pred": "making",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9878839254379272,
+              "score": 0.987883985042572
+            },
+            {
+              "stem": "take",
+              "affix": "ing",
+              "form": "taking",
+              "pred": "taking",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.980141282081604,
+              "score": 0.9801413416862488
+            },
+            {
+              "stem": "give",
+              "affix": "ing",
+              "form": "giving",
+              "pred": "giving",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9868332147598267,
+              "score": 0.9868332147598267
+            },
+            {
+              "stem": "run",
+              "affix": "ing",
+              "form": "running",
+              "pred": "running",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9860643148422241,
+              "score": 0.9860643148422241
+            },
+            {
+              "stem": "stop",
+              "affix": "ing",
+              "form": "stopping",
+              "pred": "stopping",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9886186122894287,
+              "score": 0.9886186122894287
+            },
+            {
+              "stem": "spot",
+              "affix": "ing",
+              "form": "spotting",
+              "pred": "spotting",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.989832878112793,
+              "score": 0.9898329377174377
+            },
+            {
+              "stem": "top",
+              "affix": "ing",
+              "form": "topping",
+              "pred": "topping",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9852182865142822,
+              "score": 0.985218346118927
+            }
+          ]
+        },
+        "s": {
+          "label": "s",
+          "n": 12,
+          "acc": 1.0,
+          "naive_acc": 1.0,
+          "stem_acc": 0.0,
+          "mean_agree": 0.9825403193632761,
+          "details": [
+            {
+              "stem": "play",
+              "affix": "s",
+              "form": "plays",
+              "pred": "plays",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9865264892578125,
+              "score": 0.9865264892578125
+            },
+            {
+              "stem": "run",
+              "affix": "s",
+              "form": "runs",
+              "pred": "runs",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9810303449630737,
+              "score": 0.9810303449630737
+            },
+            {
+              "stem": "make",
+              "affix": "s",
+              "form": "makes",
+              "pred": "makes",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9849122762680054,
+              "score": 0.9849122762680054
+            },
+            {
+              "stem": "take",
+              "affix": "s",
+              "form": "takes",
+              "pred": "takes",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9794701933860779,
+              "score": 0.9794702529907227
+            },
+            {
+              "stem": "give",
+              "affix": "s",
+              "form": "gives",
+              "pred": "gives",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.983291506767273,
+              "score": 0.9832915663719177
+            },
+            {
+              "stem": "cat",
+              "affix": "s",
+              "form": "cats",
+              "pred": "cats",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9792077541351318,
+              "score": 0.9792077541351318
+            },
+            {
+              "stem": "dog",
+              "affix": "s",
+              "form": "dogs",
+              "pred": "dogs",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9813573360443115,
+              "score": 0.9813573956489563
+            },
+            {
+              "stem": "book",
+              "affix": "s",
+              "form": "books",
+              "pred": "books",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9823974370956421,
+              "score": 0.9823974967002869
+            },
+            {
+              "stem": "act",
+              "affix": "s",
+              "form": "acts",
+              "pred": "acts",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9835855960845947,
+              "score": 0.9835854768753052
+            },
+            {
+              "stem": "post",
+              "affix": "s",
+              "form": "posts",
+              "pred": "posts",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9812020063400269,
+              "score": 0.9812020659446716
+            },
+            {
+              "stem": "go",
+              "affix": "s",
+              "form": "goes",
+              "pred": "goes",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9778212904930115,
+              "score": 0.9778212904930115
+            },
+            {
+              "stem": "fish",
+              "affix": "s",
+              "form": "fishes",
+              "pred": "fishes",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.989681601524353,
+              "score": 0.989681601524353
+            }
+          ]
+        },
+        "ed": {
+          "label": "ed",
+          "n": 10,
+          "acc": 1.0,
+          "naive_acc": 1.0,
+          "stem_acc": 0.0,
+          "mean_agree": 0.9810021460056305,
+          "details": [
+            {
+              "stem": "play",
+              "affix": "ed",
+              "form": "played",
+              "pred": "played",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9646201133728027,
+              "score": 0.9646199941635132
+            },
+            {
+              "stem": "stop",
+              "affix": "ed",
+              "form": "stopped",
+              "pred": "stopped",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9753440618515015,
+              "score": 0.9753441214561462
+            },
+            {
+              "stem": "post",
+              "affix": "ed",
+              "form": "posted",
+              "pred": "posted",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9846885204315186,
+              "score": 0.9846885204315186
+            },
+            {
+              "stem": "act",
+              "affix": "ed",
+              "form": "acted",
+              "pred": "acted",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9866272807121277,
+              "score": 0.9866272807121277
+            },
+            {
+              "stem": "fish",
+              "affix": "ed",
+              "form": "fished",
+              "pred": "fished",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9896458387374878,
+              "score": 0.9896459579467773
+            },
+            {
+              "stem": "book",
+              "affix": "ed",
+              "form": "booked",
+              "pred": "booked",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9875667095184326,
+              "score": 0.9875667095184326
+            },
+            {
+              "stem": "top",
+              "affix": "ed",
+              "form": "topped",
+              "pred": "topped",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9808306694030762,
+              "score": 0.9808306694030762
+            },
+            {
+              "stem": "spot",
+              "affix": "ed",
+              "form": "spotted",
+              "pred": "spotted",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9827342629432678,
+              "score": 0.9827343225479126
+            },
+            {
+              "stem": "light",
+              "affix": "ed",
+              "form": "lighted",
+              "pred": "lighted",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9794719815254211,
+              "score": 0.9794719219207764
+            },
+            {
+              "stem": "water",
+              "affix": "ed",
+              "form": "waterred",
+              "pred": "waterred",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.978492021560669,
+              "score": 0.978492021560669
+            }
+          ]
+        },
+        "ly": {
+          "label": "ly",
+          "n": 6,
+          "acc": 1.0,
+          "naive_acc": 1.0,
+          "stem_acc": 0.0,
+          "mean_agree": 0.9647842347621918,
+          "details": [
+            {
+              "stem": "quick",
+              "affix": "ly",
+              "form": "quickly",
+              "pred": "quickly",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9537152051925659,
+              "score": 0.9537152647972107
+            },
+            {
+              "stem": "slow",
+              "affix": "ly",
+              "form": "slowly",
+              "pred": "slowly",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9404308795928955,
+              "score": 0.9404309391975403
+            },
+            {
+              "stem": "night",
+              "affix": "ly",
+              "form": "nightly",
+              "pred": "nightly",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9807750582695007,
+              "score": 0.9807750582695007
+            },
+            {
+              "stem": "man",
+              "affix": "ly",
+              "form": "manly",
+              "pred": "manly",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9647542834281921,
+              "score": 0.9647542834281921
+            },
+            {
+              "stem": "god",
+              "affix": "ly",
+              "form": "godly",
+              "pred": "godly",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9676637053489685,
+              "score": 0.9676637053489685
+            },
+            {
+              "stem": "green",
+              "affix": "ly",
+              "form": "greenly",
+              "pred": "greenly",
+              "ok": true,
+              "naive_ok": true,
+              "stem_ok": false,
+              "agree": 0.9813662767410278,
+              "score": 0.9813662767410278
+            }
+          ]
+        }
+      },
+      "peel": {
+        "acc": 1.0,
+        "sub_acc": 0.9523809523809523,
+        "mean_agree": 0.9981620978741419,
+        "details": [
+          {
+            "stem": "play",
+            "affix": "ing",
+            "form": "playing",
+            "pred": "play",
+            "ok": true,
+            "sub_ok": true,
+            "agree": 0.9985732436180115,
+            "score": 0.9985733032226562
+          },
+          {
+            "stem": "go",
+            "affix": "ing",
+            "form": "going",
+            "pred": "go",
+            "ok": true,
+            "sub_ok": true,
+            "agree": 0.997650146484375,
+            "score": 0.9976502060890198
+          },
+          {
+            "stem": "act",
+            "affix": "ing",
+            "form": "acting",
+            "pred": "act",
+            "ok": true,
+            "sub_ok": true,
+            "agree": 0.9983965754508972,
+            "score": 0.9983965754508972
+          },
+          {
+            "stem": "fish",
+            "affix": "ing",
+            "form": "fishing",
+            "pred": "fish",
+            "ok": true,
+            "sub_ok": true,
+            "agree": 0.9989418983459473,
+            "score": 0.9989420771598816
+          },
+          {
+            "stem": "post",
+            "affix": "ing",
+            "form": "posting",
+            "pred": "post",
+            "ok": true,
+            "sub_ok": true,
+            "agree": 0.9985236525535583,
+            "score": 0.9985237121582031
+          },
+          {
+            "stem": "book",
+            "affix": "ing",
+            "form": "booking",
+            "pred": "book",
+            "ok": true,
+            "sub_ok": true,
+            "agree": 0.9986377954483032,
+            "score": 0.9986377954483032
+          },
+          {
+            "stem": "light",
+            "affix": "ing",
+            "form": "lighting",
+            "pred": "light",
+            "ok": true,
+            "sub_ok": true,
+            "agree": 0.998023271560669,
+            "score": 0.9980233907699585
+          },
+          {
+            "stem": "make",
+            "affix": "ing",
+            "form": "making",
+            "pred": "make",
+            "ok": true,
+            "sub_ok": true,
+            "agree": 0.9980924129486084,
+            "score": 0.9980924129486084
+          },
+          {
+            "stem": "take",
+            "affix": "ing",
+            "form": "taking",
+            "pred": "take",
+            "ok": true,
+            "sub_ok": false,
+            "agree": 0.9974260330200195,
+            "score": 0.9974260330200195
+          },
+          {
+            "stem": "give",
+            "affix": "ing",
+            "form": "giving",
+            "pred": "give",
+            "ok": true,
+            "sub_ok": true,
+            "agree": 0.99875408411026,
+            "score": 0.9987541437149048
+          },
+          {
+            "stem": "run",
+            "affix": "ing",
+            "form": "running",
+            "pred": "run",
+            "ok": true,
+            "sub_ok": false,
+            "agree": 0.9982430934906006,
+            "score": 0.9982431530952454
+          },
+          {
+            "stem": "stop",
+            "affix": "ing",
+            "form": "stopping",
+            "pred": "stop",
+            "ok": true,
+            "sub_ok": true,
+            "agree": 0.998178243637085,
+            "score": 0.9981783032417297
+          },
+          {
+            "stem": "spot",
+            "affix": "ing",
+            "form": "spotting",
+            "pred": "spot",
+            "ok": true,
+            "sub_ok": true,
+            "agree": 0.9986035823822021,
+            "score": 0.9986037015914917
+          },
+          {
+            "stem": "top",
+            "affix": "ing",
+            "form": "topping",
+            "pred": "top",
+            "ok": true,
+            "sub_ok": true,
+            "agree": 0.9983049631118774,
+            "score": 0.9983049631118774
+          },
+          {
+            "stem": "play",
+            "affix": "s",
+            "form": "plays",
+            "pred": "play",
+            "ok": true,
+            "sub_ok": true,
+            "agree": 0.9985049962997437,
+            "score": 0.9985050559043884
+          },
+          {
+            "stem": "run",
+            "affix": "s",
+            "form": "runs",
+            "pred": "run",
+            "ok": true,
+            "sub_ok": true,
+            "agree": 0.99854576587677,
+            "score": 0.99854576587677
+          },
+          {
+            "stem": "make",
+            "affix": "s",
+            "form": "makes",
+            "pred": "make",
+            "ok": true,
+            "sub_ok": true,
+            "agree": 0.9986543655395508,
+            "score": 0.9986543655395508
+          },
+          {
+            "stem": "take",
+            "affix": "s",
+            "form": "takes",
+            "pred": "take",
+            "ok": true,
+            "sub_ok": true,
+            "agree": 0.9983604550361633,
+            "score": 0.9983604550361633
+          },
+          {
+            "stem": "give",
+            "affix": "s",
+            "form": "gives",
+            "pred": "give",
+            "ok": true,
+            "sub_ok": true,
+            "agree": 0.9985401630401611,
+            "score": 0.9985401630401611
+          },
+          {
+            "stem": "cat",
+            "affix": "s",
+            "form": "cats",
+            "pred": "cat",
+            "ok": true,
+            "sub_ok": true,
+            "agree": 0.9974989891052246,
+            "score": 0.9974989295005798
+          },
+          {
+            "stem": "dog",
+            "affix": "s",
+            "form": "dogs",
+            "pred": "dog",
+            "ok": true,
+            "sub_ok": true,
+            "agree": 0.9984325766563416,
+            "score": 0.998432457447052
+          },
+          {
+            "stem": "book",
+            "affix": "s",
+            "form": "books",
+            "pred": "book",
+            "ok": true,
+            "sub_ok": true,
+            "agree": 0.9985866546630859,
+            "score": 0.9985866546630859
+          },
+          {
+            "stem": "act",
+            "affix": "s",
+            "form": "acts",
+            "pred": "act",
+            "ok": true,
+            "sub_ok": true,
+            "agree": 0.9988554120063782,
+            "score": 0.998855471611023
+          },
+          {
+            "stem": "post",
+            "affix": "s",
+            "form": "posts",
+            "pred": "post",
+            "ok": true,
+            "sub_ok": true,
+            "agree": 0.9988736510276794,
+            "score": 0.9988736510276794
+          },
+          {
+            "stem": "go",
+            "affix": "s",
+            "form": "goes",
+            "pred": "go",
+            "ok": true,
+            "sub_ok": true,
+            "agree": 0.9980496168136597,
+            "score": 0.9980496168136597
+          },
+          {
+            "stem": "fish",
+            "affix": "s",
+            "form": "fishes",
+            "pred": "fish",
+            "ok": true,
+            "sub_ok": true,
+            "agree": 0.9987950325012207,
+            "score": 0.9987951517105103
+          },
+          {
+            "stem": "play",
+            "affix": "ed",
+            "form": "played",
+            "pred": "play",
+            "ok": true,
+            "sub_ok": true,
+            "agree": 0.9959375262260437,
+            "score": 0.9959375858306885
+          },
+          {
+            "stem": "stop",
+            "affix": "ed",
+            "form": "stopped",
+            "pred": "stop",
+            "ok": true,
+            "sub_ok": true,
+            "agree": 0.997986912727356,
+            "score": 0.9979870319366455
+          },
+          {
+            "stem": "post",
+            "affix": "ed",
+            "form": "posted",
+            "pred": "post",
+            "ok": true,
+            "sub_ok": true,
+            "agree": 0.998448371887207,
+            "score": 0.998448371887207
+          },
+          {
+            "stem": "act",
+            "affix": "ed",
+            "form": "acted",
+            "pred": "act",
+            "ok": true,
+            "sub_ok": true,
+            "agree": 0.9985969662666321,
+            "score": 0.9985970258712769
+          },
+          {
+            "stem": "fish",
+            "affix": "ed",
+            "form": "fished",
+            "pred": "fish",
+            "ok": true,
+            "sub_ok": true,
+            "agree": 0.9988988637924194,
+            "score": 0.998898983001709
+          },
+          {
+            "stem": "book",
+            "affix": "ed",
+            "form": "booked",
+            "pred": "book",
+            "ok": true,
+            "sub_ok": true,
+            "agree": 0.9986499547958374,
+            "score": 0.9986499547958374
+          },
+          {
+            "stem": "top",
+            "affix": "ed",
+            "form": "topped",
+            "pred": "top",
+            "ok": true,
+            "sub_ok": true,
+            "agree": 0.9978682994842529,
+            "score": 0.9978684186935425
+          },
+          {
+            "stem": "spot",
+            "affix": "ed",
+            "form": "spotted",
+            "pred": "spot",
+            "ok": true,
+            "sub_ok": true,
+            "agree": 0.9981400966644287,
+            "score": 0.9981400966644287
+          },
+          {
+            "stem": "light",
+            "affix": "ed",
+            "form": "lighted",
+            "pred": "light",
+            "ok": true,
+            "sub_ok": true,
+            "agree": 0.9975166320800781,
+            "score": 0.9975167512893677
+          },
+          {
+            "stem": "water",
+            "affix": "ed",
+            "form": "waterred",
+            "pred": "water",
+            "ok": true,
+            "sub_ok": true,
+            "agree": 0.9975377917289734,
+            "score": 0.9975377917289734
+          },
+          {
+            "stem": "quick",
+            "affix": "ly",
+            "form": "quickly",
+            "pred": "quick",
+            "ok": true,
+            "sub_ok": true,
+            "agree": 0.9970946311950684,
+            "score": 0.9970948100090027
+          },
+          {
+            "stem": "slow",
+            "affix": "ly",
+            "form": "slowly",
+            "pred": "slow",
+            "ok": true,
+            "sub_ok": true,
+            "agree": 0.9959324598312378,
+            "score": 0.9959324598312378
+          },
+          {
+            "stem": "night",
+            "affix": "ly",
+            "form": "nightly",
+            "pred": "night",
+            "ok": true,
+            "sub_ok": true,
+            "agree": 0.9974837899208069,
+            "score": 0.9974837899208069
+          },
+          {
+            "stem": "man",
+            "affix": "ly",
+            "form": "manly",
+            "pred": "man",
+            "ok": true,
+            "sub_ok": true,
+            "agree": 0.9983384609222412,
+            "score": 0.9983384609222412
+          },
+          {
+            "stem": "god",
+            "affix": "ly",
+            "form": "godly",
+            "pred": "god",
+            "ok": true,
+            "sub_ok": true,
+            "agree": 0.9981593489646912,
+            "score": 0.9981594085693359
+          },
+          {
+            "stem": "green",
+            "affix": "ly",
+            "form": "greenly",
+            "pred": "green",
+            "ok": true,
+            "sub_ok": true,
+            "agree": 0.998171329498291,
+            "score": 0.9981712698936462
+          }
+        ]
+      },
+      "cycle": {
+        "reapply_acc": 1.0,
+        "repeel_acc": 1.0,
+        "mean_reapply": 0.9979886809984843,
+        "mean_repeel": 0.9995069361868358,
+        "details": [
+          {
+            "stem": "play",
+            "affix": "ing",
+            "form": "playing",
+            "cos_reapply_form": 0.998741865158081,
+            "cos_repeel_stem": 0.9991799592971802,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "go",
+            "affix": "ing",
+            "form": "going",
+            "cos_reapply_form": 0.9985389709472656,
+            "cos_repeel_stem": 0.9993959069252014,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "act",
+            "affix": "ing",
+            "form": "acting",
+            "cos_reapply_form": 0.9984492063522339,
+            "cos_repeel_stem": 0.9995271563529968,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "fish",
+            "affix": "ing",
+            "form": "fishing",
+            "cos_reapply_form": 0.9984739422798157,
+            "cos_repeel_stem": 0.9994617700576782,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "post",
+            "affix": "ing",
+            "form": "posting",
+            "cos_reapply_form": 0.9987544417381287,
+            "cos_repeel_stem": 0.9996592998504639,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "book",
+            "affix": "ing",
+            "form": "booking",
+            "cos_reapply_form": 0.998151421546936,
+            "cos_repeel_stem": 0.9994197487831116,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "light",
+            "affix": "ing",
+            "form": "lighting",
+            "cos_reapply_form": 0.9963670969009399,
+            "cos_repeel_stem": 0.9996148347854614,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "make",
+            "affix": "ing",
+            "form": "making",
+            "cos_reapply_form": 0.9967726469039917,
+            "cos_repeel_stem": 0.9992721080780029,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "take",
+            "affix": "ing",
+            "form": "taking",
+            "cos_reapply_form": 0.9956916570663452,
+            "cos_repeel_stem": 0.9990735054016113,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "give",
+            "affix": "ing",
+            "form": "giving",
+            "cos_reapply_form": 0.9983663558959961,
+            "cos_repeel_stem": 0.999663233757019,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "run",
+            "affix": "ing",
+            "form": "running",
+            "cos_reapply_form": 0.9981763362884521,
+            "cos_repeel_stem": 0.9994475841522217,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "stop",
+            "affix": "ing",
+            "form": "stopping",
+            "cos_reapply_form": 0.996565580368042,
+            "cos_repeel_stem": 0.9993332624435425,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "spot",
+            "affix": "ing",
+            "form": "spotting",
+            "cos_reapply_form": 0.9979987144470215,
+            "cos_repeel_stem": 0.9994066953659058,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "top",
+            "affix": "ing",
+            "form": "topping",
+            "cos_reapply_form": 0.9986824989318848,
+            "cos_repeel_stem": 0.9994439482688904,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "play",
+            "affix": "s",
+            "form": "plays",
+            "cos_reapply_form": 0.998993992805481,
+            "cos_repeel_stem": 0.9989044666290283,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "run",
+            "affix": "s",
+            "form": "runs",
+            "cos_reapply_form": 0.9985222220420837,
+            "cos_repeel_stem": 0.9995782971382141,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "make",
+            "affix": "s",
+            "form": "makes",
+            "cos_reapply_form": 0.9987306594848633,
+            "cos_repeel_stem": 0.9997549057006836,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "take",
+            "affix": "s",
+            "form": "takes",
+            "cos_reapply_form": 0.9986149072647095,
+            "cos_repeel_stem": 0.9996044635772705,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "give",
+            "affix": "s",
+            "form": "gives",
+            "cos_reapply_form": 0.9989582300186157,
+            "cos_repeel_stem": 0.9996208548545837,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "cat",
+            "affix": "s",
+            "form": "cats",
+            "cos_reapply_form": 0.9985301494598389,
+            "cos_repeel_stem": 0.9996470212936401,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "dog",
+            "affix": "s",
+            "form": "dogs",
+            "cos_reapply_form": 0.9978485703468323,
+            "cos_repeel_stem": 0.9997767210006714,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "book",
+            "affix": "s",
+            "form": "books",
+            "cos_reapply_form": 0.9986259341239929,
+            "cos_repeel_stem": 0.9997352957725525,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "act",
+            "affix": "s",
+            "form": "acts",
+            "cos_reapply_form": 0.9992457628250122,
+            "cos_repeel_stem": 0.9998760223388672,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "post",
+            "affix": "s",
+            "form": "posts",
+            "cos_reapply_form": 0.9992687702178955,
+            "cos_repeel_stem": 0.9997951984405518,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "go",
+            "affix": "s",
+            "form": "goes",
+            "cos_reapply_form": 0.999112069606781,
+            "cos_repeel_stem": 0.9996293783187866,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "fish",
+            "affix": "s",
+            "form": "fishes",
+            "cos_reapply_form": 0.9989343881607056,
+            "cos_repeel_stem": 0.9998775720596313,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "play",
+            "affix": "ed",
+            "form": "played",
+            "cos_reapply_form": 0.9972514510154724,
+            "cos_repeel_stem": 0.9987894296646118,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "stop",
+            "affix": "ed",
+            "form": "stopped",
+            "cos_reapply_form": 0.9991761445999146,
+            "cos_repeel_stem": 0.9996852874755859,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "post",
+            "affix": "ed",
+            "form": "posted",
+            "cos_reapply_form": 0.9992432594299316,
+            "cos_repeel_stem": 0.9994649291038513,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "act",
+            "affix": "ed",
+            "form": "acted",
+            "cos_reapply_form": 0.999509871006012,
+            "cos_repeel_stem": 0.9998540878295898,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "fish",
+            "affix": "ed",
+            "form": "fished",
+            "cos_reapply_form": 0.9993648529052734,
+            "cos_repeel_stem": 0.9996715188026428,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "book",
+            "affix": "ed",
+            "form": "booked",
+            "cos_reapply_form": 0.9986754655838013,
+            "cos_repeel_stem": 0.9997799396514893,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "top",
+            "affix": "ed",
+            "form": "topped",
+            "cos_reapply_form": 0.9982988834381104,
+            "cos_repeel_stem": 0.9996232986450195,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "spot",
+            "affix": "ed",
+            "form": "spotted",
+            "cos_reapply_form": 0.997835636138916,
+            "cos_repeel_stem": 0.999476432800293,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "light",
+            "affix": "ed",
+            "form": "lighted",
+            "cos_reapply_form": 0.9969438314437866,
+            "cos_repeel_stem": 0.9997177124023438,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "water",
+            "affix": "ed",
+            "form": "waterred",
+            "cos_reapply_form": 0.9967255592346191,
+            "cos_repeel_stem": 0.9995347857475281,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "quick",
+            "affix": "ly",
+            "form": "quickly",
+            "cos_reapply_form": 0.9945788383483887,
+            "cos_repeel_stem": 0.9992242455482483,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "slow",
+            "affix": "ly",
+            "form": "slowly",
+            "cos_reapply_form": 0.9963219165802002,
+            "cos_repeel_stem": 0.9991269111633301,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "night",
+            "affix": "ly",
+            "form": "nightly",
+            "cos_reapply_form": 0.9978361129760742,
+            "cos_repeel_stem": 0.9993988275527954,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "man",
+            "affix": "ly",
+            "form": "manly",
+            "cos_reapply_form": 0.9940031170845032,
+            "cos_repeel_stem": 0.9993768930435181,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "god",
+            "affix": "ly",
+            "form": "godly",
+            "cos_reapply_form": 0.9984378218650818,
+            "cos_repeel_stem": 0.9992966651916504,
+            "ok_reapply": true,
+            "ok_repeel": true
+          },
+          {
+            "stem": "green",
+            "affix": "ly",
+            "form": "greenly",
+            "cos_reapply_form": 0.9962054491043091,
+            "cos_repeel_stem": 0.9995711445808411,
+            "ok_reapply": true,
+            "ok_repeel": true
+          }
+        ]
+      },
+      "swap": {
+        "right_acc": 1.0,
+        "right_beats_wrong_acc": 1.0,
+        "mean_margin": 0.322580309850829,
+        "mean_wrong_hit_gold": 0.3333333333333333,
+        "details": [
+          {
+            "stem": "play",
+            "affix": "ing",
+            "form": "playing",
+            "right_pred": "playing",
+            "right_ok": true,
+            "cos_right": 0.9866791367530823,
+            "best_wrong_affix": "ly",
+            "cos_best_wrong": 0.667553186416626,
+            "margin": 0.3191259503364563,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 0.0,
+            "wrongs": [
+              {
+                "other": "s",
+                "cos": 0.6333631277084351,
+                "pred": "plays",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.3533160090446472
+              },
+              {
+                "other": "ed",
+                "cos": 0.547462522983551,
+                "pred": "played",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.43921661376953125
+              },
+              {
+                "other": "ly",
+                "cos": 0.667553186416626,
+                "pred": "play",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.3191259503364563
+              }
+            ]
+          },
+          {
+            "stem": "go",
+            "affix": "ing",
+            "form": "going",
+            "right_pred": "going",
+            "right_ok": true,
+            "cos_right": 0.9744584560394287,
+            "best_wrong_affix": "ed",
+            "cos_best_wrong": 0.8341261148452759,
+            "margin": 0.14033234119415283,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 0.6666666666666666,
+            "wrongs": [
+              {
+                "other": "s",
+                "cos": 0.5902600884437561,
+                "pred": "goes",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.3841983675956726
+              },
+              {
+                "other": "ed",
+                "cos": 0.8341261148452759,
+                "pred": "going",
+                "hit_gold": true,
+                "margin_right_minus_wrong": 0.14033234119415283
+              },
+              {
+                "other": "ly",
+                "cos": 0.7869319319725037,
+                "pred": "going",
+                "hit_gold": true,
+                "margin_right_minus_wrong": 0.18752652406692505
+              }
+            ]
+          },
+          {
+            "stem": "act",
+            "affix": "ing",
+            "form": "acting",
+            "right_pred": "acting",
+            "right_ok": true,
+            "cos_right": 0.9854937195777893,
+            "best_wrong_affix": "ly",
+            "cos_best_wrong": 0.5000078678131104,
+            "margin": 0.48548585176467896,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 0.0,
+            "wrongs": [
+              {
+                "other": "s",
+                "cos": 0.34443122148513794,
+                "pred": "acts",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.6410624980926514
+              },
+              {
+                "other": "ed",
+                "cos": 0.4413069784641266,
+                "pred": "acted",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.5441867411136627
+              },
+              {
+                "other": "ly",
+                "cos": 0.5000078678131104,
+                "pred": "acts",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.48548585176467896
+              }
+            ]
+          },
+          {
+            "stem": "fish",
+            "affix": "ing",
+            "form": "fishing",
+            "right_pred": "fishing",
+            "right_ok": true,
+            "cos_right": 0.9892435073852539,
+            "best_wrong_affix": "s",
+            "cos_best_wrong": 0.5836617350578308,
+            "margin": 0.4055817723274231,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 0.0,
+            "wrongs": [
+              {
+                "other": "s",
+                "cos": 0.5836617350578308,
+                "pred": "fishes",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.4055817723274231
+              },
+              {
+                "other": "ed",
+                "cos": 0.3639240562915802,
+                "pred": "fished",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.6253194510936737
+              },
+              {
+                "other": "ly",
+                "cos": 0.3845903277397156,
+                "pred": "fishes",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.6046531796455383
+              }
+            ]
+          },
+          {
+            "stem": "post",
+            "affix": "ing",
+            "form": "posting",
+            "right_pred": "posting",
+            "right_ok": true,
+            "cos_right": 0.9854922294616699,
+            "best_wrong_affix": "ly",
+            "cos_best_wrong": 0.6168904304504395,
+            "margin": 0.36860179901123047,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 0.0,
+            "wrongs": [
+              {
+                "other": "s",
+                "cos": 0.5827038288116455,
+                "pred": "posts",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.4027884006500244
+              },
+              {
+                "other": "ed",
+                "cos": 0.44639867544174194,
+                "pred": "posted",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.539093554019928
+              },
+              {
+                "other": "ly",
+                "cos": 0.6168904304504395,
+                "pred": "posted",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.36860179901123047
+              }
+            ]
+          },
+          {
+            "stem": "book",
+            "affix": "ing",
+            "form": "booking",
+            "right_pred": "booking",
+            "right_ok": true,
+            "cos_right": 0.9884285926818848,
+            "best_wrong_affix": "s",
+            "cos_best_wrong": 0.46955186128616333,
+            "margin": 0.5188767313957214,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 0.0,
+            "wrongs": [
+              {
+                "other": "s",
+                "cos": 0.46955186128616333,
+                "pred": "books",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.5188767313957214
+              },
+              {
+                "other": "ed",
+                "cos": 0.18629497289657593,
+                "pred": "booked",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.8021336197853088
+              },
+              {
+                "other": "ly",
+                "cos": 0.3347809910774231,
+                "pred": "book",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.6536476016044617
+              }
+            ]
+          },
+          {
+            "stem": "light",
+            "affix": "ing",
+            "form": "lighting",
+            "right_pred": "lighting",
+            "right_ok": true,
+            "cos_right": 0.9831797480583191,
+            "best_wrong_affix": "s",
+            "cos_best_wrong": 0.6707772612571716,
+            "margin": 0.31240248680114746,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 0.3333333333333333,
+            "wrongs": [
+              {
+                "other": "s",
+                "cos": 0.6707772612571716,
+                "pred": "lighting",
+                "hit_gold": true,
+                "margin_right_minus_wrong": 0.31240248680114746
+              },
+              {
+                "other": "ed",
+                "cos": 0.6491632461547852,
+                "pred": "lighted",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.33401650190353394
+              },
+              {
+                "other": "ly",
+                "cos": 0.5023475885391235,
+                "pred": "lighted",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.48083215951919556
+              }
+            ]
+          },
+          {
+            "stem": "make",
+            "affix": "ing",
+            "form": "making",
+            "right_pred": "making",
+            "right_ok": true,
+            "cos_right": 0.9878839254379272,
+            "best_wrong_affix": "ly",
+            "cos_best_wrong": 0.40809401869773865,
+            "margin": 0.5797899067401886,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 0.0,
+            "wrongs": [
+              {
+                "other": "s",
+                "cos": 0.3150166869163513,
+                "pred": "makes",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.6728672385215759
+              },
+              {
+                "other": "ed",
+                "cos": 0.38779449462890625,
+                "pred": "make",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.600089430809021
+              },
+              {
+                "other": "ly",
+                "cos": 0.40809401869773865,
+                "pred": "make",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.5797899067401886
+              }
+            ]
+          },
+          {
+            "stem": "take",
+            "affix": "ing",
+            "form": "taking",
+            "right_pred": "taking",
+            "right_ok": true,
+            "cos_right": 0.980141282081604,
+            "best_wrong_affix": "ed",
+            "cos_best_wrong": 0.42904385924339294,
+            "margin": 0.5510974228382111,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 0.0,
+            "wrongs": [
+              {
+                "other": "s",
+                "cos": 0.2658921778202057,
+                "pred": "takes",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.7142491042613983
+              },
+              {
+                "other": "ed",
+                "cos": 0.42904385924339294,
+                "pred": "takes",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.5510974228382111
+              },
+              {
+                "other": "ly",
+                "cos": 0.3665972054004669,
+                "pred": "take",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.6135440766811371
+              }
+            ]
+          },
+          {
+            "stem": "give",
+            "affix": "ing",
+            "form": "giving",
+            "right_pred": "giving",
+            "right_ok": true,
+            "cos_right": 0.9868332147598267,
+            "best_wrong_affix": "ly",
+            "cos_best_wrong": 0.46621188521385193,
+            "margin": 0.5206213295459747,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 0.0,
+            "wrongs": [
+              {
+                "other": "s",
+                "cos": 0.25454097986221313,
+                "pred": "gives",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.7322922348976135
+              },
+              {
+                "other": "ed",
+                "cos": 0.4034575819969177,
+                "pred": "give",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.5833756327629089
+              },
+              {
+                "other": "ly",
+                "cos": 0.46621188521385193,
+                "pred": "gives",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.5206213295459747
+              }
+            ]
+          },
+          {
+            "stem": "run",
+            "affix": "ing",
+            "form": "running",
+            "right_pred": "running",
+            "right_ok": true,
+            "cos_right": 0.9860643148422241,
+            "best_wrong_affix": "ed",
+            "cos_best_wrong": 0.755393385887146,
+            "margin": 0.23067092895507812,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 0.0,
+            "wrongs": [
+              {
+                "other": "s",
+                "cos": 0.6419737935066223,
+                "pred": "runs",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.3440905213356018
+              },
+              {
+                "other": "ed",
+                "cos": 0.755393385887146,
+                "pred": "runs",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.23067092895507812
+              },
+              {
+                "other": "ly",
+                "cos": 0.622484564781189,
+                "pred": "runs",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.36357975006103516
+              }
+            ]
+          },
+          {
+            "stem": "stop",
+            "affix": "ing",
+            "form": "stopping",
+            "right_pred": "stopping",
+            "right_ok": true,
+            "cos_right": 0.9886186122894287,
+            "best_wrong_affix": "ly",
+            "cos_best_wrong": 0.5324262380599976,
+            "margin": 0.45619237422943115,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 0.3333333333333333,
+            "wrongs": [
+              {
+                "other": "s",
+                "cos": 0.4718589186668396,
+                "pred": "stopped",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.5167596936225891
+              },
+              {
+                "other": "ed",
+                "cos": 0.32140427827835083,
+                "pred": "stopped",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.6672143340110779
+              },
+              {
+                "other": "ly",
+                "cos": 0.5324262380599976,
+                "pred": "stopping",
+                "hit_gold": true,
+                "margin_right_minus_wrong": 0.45619237422943115
+              }
+            ]
+          },
+          {
+            "stem": "spot",
+            "affix": "ing",
+            "form": "spotting",
+            "right_pred": "spotting",
+            "right_ok": true,
+            "cos_right": 0.989832878112793,
+            "best_wrong_affix": "s",
+            "cos_best_wrong": 0.7359136343002319,
+            "margin": 0.25391924381256104,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 0.6666666666666666,
+            "wrongs": [
+              {
+                "other": "s",
+                "cos": 0.7359136343002319,
+                "pred": "spotting",
+                "hit_gold": true,
+                "margin_right_minus_wrong": 0.25391924381256104
+              },
+              {
+                "other": "ed",
+                "cos": 0.6191344261169434,
+                "pred": "spotted",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.3706984519958496
+              },
+              {
+                "other": "ly",
+                "cos": 0.7248936891555786,
+                "pred": "spotting",
+                "hit_gold": true,
+                "margin_right_minus_wrong": 0.26493918895721436
+              }
+            ]
+          },
+          {
+            "stem": "top",
+            "affix": "ing",
+            "form": "topping",
+            "right_pred": "topping",
+            "right_ok": true,
+            "cos_right": 0.9852182865142822,
+            "best_wrong_affix": "s",
+            "cos_best_wrong": 0.6884393692016602,
+            "margin": 0.29677891731262207,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 0.6666666666666666,
+            "wrongs": [
+              {
+                "other": "s",
+                "cos": 0.6884393692016602,
+                "pred": "topping",
+                "hit_gold": true,
+                "margin_right_minus_wrong": 0.29677891731262207
+              },
+              {
+                "other": "ed",
+                "cos": 0.5097274780273438,
+                "pred": "topped",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.4754908084869385
+              },
+              {
+                "other": "ly",
+                "cos": 0.6445200443267822,
+                "pred": "topping",
+                "hit_gold": true,
+                "margin_right_minus_wrong": 0.3406982421875
+              }
+            ]
+          },
+          {
+            "stem": "play",
+            "affix": "s",
+            "form": "plays",
+            "right_pred": "plays",
+            "right_ok": true,
+            "cos_right": 0.9865264892578125,
+            "best_wrong_affix": "ing",
+            "cos_best_wrong": 0.6050161719322205,
+            "margin": 0.38151031732559204,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 0.0,
+            "wrongs": [
+              {
+                "other": "ing",
+                "cos": 0.6050161719322205,
+                "pred": "playing",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.38151031732559204
+              },
+              {
+                "other": "ed",
+                "cos": 0.4355827569961548,
+                "pred": "played",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.5509437322616577
+              },
+              {
+                "other": "ly",
+                "cos": 0.5609562993049622,
+                "pred": "play",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.42557018995285034
+              }
+            ]
+          },
+          {
+            "stem": "run",
+            "affix": "s",
+            "form": "runs",
+            "right_pred": "runs",
+            "right_ok": true,
+            "cos_right": 0.9810303449630737,
+            "best_wrong_affix": "ed",
+            "cos_best_wrong": 0.7717797756195068,
+            "margin": 0.2092505693435669,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 0.6666666666666666,
+            "wrongs": [
+              {
+                "other": "ing",
+                "cos": 0.679272472858429,
+                "pred": "running",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.3017578721046448
+              },
+              {
+                "other": "ed",
+                "cos": 0.7717797756195068,
+                "pred": "runs",
+                "hit_gold": true,
+                "margin_right_minus_wrong": 0.2092505693435669
+              },
+              {
+                "other": "ly",
+                "cos": 0.649587869644165,
+                "pred": "runs",
+                "hit_gold": true,
+                "margin_right_minus_wrong": 0.3314424753189087
+              }
+            ]
+          },
+          {
+            "stem": "make",
+            "affix": "s",
+            "form": "makes",
+            "right_pred": "makes",
+            "right_ok": true,
+            "cos_right": 0.9849122762680054,
+            "best_wrong_affix": "ed",
+            "cos_best_wrong": 0.6802829504013062,
+            "margin": 0.3046293258666992,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 0.0,
+            "wrongs": [
+              {
+                "other": "ing",
+                "cos": 0.3660828769207001,
+                "pred": "making",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.6188293993473053
+              },
+              {
+                "other": "ed",
+                "cos": 0.6802829504013062,
+                "pred": "make",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.3046293258666992
+              },
+              {
+                "other": "ly",
+                "cos": 0.2585299611091614,
+                "pred": "make",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.726382315158844
+              }
+            ]
+          },
+          {
+            "stem": "take",
+            "affix": "s",
+            "form": "takes",
+            "right_pred": "takes",
+            "right_ok": true,
+            "cos_right": 0.9794701933860779,
+            "best_wrong_affix": "ed",
+            "cos_best_wrong": 0.6516174077987671,
+            "margin": 0.3278527855873108,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 0.3333333333333333,
+            "wrongs": [
+              {
+                "other": "ing",
+                "cos": 0.347714364528656,
+                "pred": "taking",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.6317558288574219
+              },
+              {
+                "other": "ed",
+                "cos": 0.6516174077987671,
+                "pred": "takes",
+                "hit_gold": true,
+                "margin_right_minus_wrong": 0.3278527855873108
+              },
+              {
+                "other": "ly",
+                "cos": 0.48728111386299133,
+                "pred": "take",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.49218907952308655
+              }
+            ]
+          },
+          {
+            "stem": "give",
+            "affix": "s",
+            "form": "gives",
+            "right_pred": "gives",
+            "right_ok": true,
+            "cos_right": 0.983291506767273,
+            "best_wrong_affix": "ly",
+            "cos_best_wrong": 0.6772158145904541,
+            "margin": 0.30607569217681885,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 0.3333333333333333,
+            "wrongs": [
+              {
+                "other": "ing",
+                "cos": 0.23660622537136078,
+                "pred": "giving",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.7466852813959122
+              },
+              {
+                "other": "ed",
+                "cos": 0.6444923281669617,
+                "pred": "give",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.3387991786003113
+              },
+              {
+                "other": "ly",
+                "cos": 0.6772158145904541,
+                "pred": "gives",
+                "hit_gold": true,
+                "margin_right_minus_wrong": 0.30607569217681885
+              }
+            ]
+          },
+          {
+            "stem": "cat",
+            "affix": "s",
+            "form": "cats",
+            "right_pred": "cats",
+            "right_ok": true,
+            "cos_right": 0.9792077541351318,
+            "best_wrong_affix": "ed",
+            "cos_best_wrong": 0.8725743293762207,
+            "margin": 0.10663342475891113,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 1.0,
+            "wrongs": [
+              {
+                "other": "ing",
+                "cos": 0.8484203219413757,
+                "pred": "cats",
+                "hit_gold": true,
+                "margin_right_minus_wrong": 0.1307874321937561
+              },
+              {
+                "other": "ed",
+                "cos": 0.8725743293762207,
+                "pred": "cats",
+                "hit_gold": true,
+                "margin_right_minus_wrong": 0.10663342475891113
+              },
+              {
+                "other": "ly",
+                "cos": 0.8158796429634094,
+                "pred": "cats",
+                "hit_gold": true,
+                "margin_right_minus_wrong": 0.1633281111717224
+              }
+            ]
+          },
+          {
+            "stem": "dog",
+            "affix": "s",
+            "form": "dogs",
+            "right_pred": "dogs",
+            "right_ok": true,
+            "cos_right": 0.9813573360443115,
+            "best_wrong_affix": "ed",
+            "cos_best_wrong": 0.7579938769340515,
+            "margin": 0.22336345911026,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 1.0,
+            "wrongs": [
+              {
+                "other": "ing",
+                "cos": 0.6885217428207397,
+                "pred": "dogs",
+                "hit_gold": true,
+                "margin_right_minus_wrong": 0.2928355932235718
+              },
+              {
+                "other": "ed",
+                "cos": 0.7579938769340515,
+                "pred": "dogs",
+                "hit_gold": true,
+                "margin_right_minus_wrong": 0.22336345911026
+              },
+              {
+                "other": "ly",
+                "cos": 0.6802772283554077,
+                "pred": "dogs",
+                "hit_gold": true,
+                "margin_right_minus_wrong": 0.3010801076889038
+              }
+            ]
+          },
+          {
+            "stem": "book",
+            "affix": "s",
+            "form": "books",
+            "right_pred": "books",
+            "right_ok": true,
+            "cos_right": 0.9823974370956421,
+            "best_wrong_affix": "ing",
+            "cos_best_wrong": 0.5012357234954834,
+            "margin": 0.4811617136001587,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 0.0,
+            "wrongs": [
+              {
+                "other": "ing",
+                "cos": 0.5012357234954834,
+                "pred": "booking",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.4811617136001587
+              },
+              {
+                "other": "ed",
+                "cos": 0.08630722761154175,
+                "pred": "booked",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.8960902094841003
+              },
+              {
+                "other": "ly",
+                "cos": 0.37442272901535034,
+                "pred": "book",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.6079747080802917
+              }
+            ]
+          },
+          {
+            "stem": "act",
+            "affix": "s",
+            "form": "acts",
+            "right_pred": "acts",
+            "right_ok": true,
+            "cos_right": 0.9835855960845947,
+            "best_wrong_affix": "ly",
+            "cos_best_wrong": 0.6875900030136108,
+            "margin": 0.2959955930709839,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 0.3333333333333333,
+            "wrongs": [
+              {
+                "other": "ing",
+                "cos": 0.4111342430114746,
+                "pred": "acting",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.5724513530731201
+              },
+              {
+                "other": "ed",
+                "cos": 0.5870300531387329,
+                "pred": "acted",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.3965555429458618
+              },
+              {
+                "other": "ly",
+                "cos": 0.6875900030136108,
+                "pred": "acts",
+                "hit_gold": true,
+                "margin_right_minus_wrong": 0.2959955930709839
+              }
+            ]
+          },
+          {
+            "stem": "post",
+            "affix": "s",
+            "form": "posts",
+            "right_pred": "posts",
+            "right_ok": true,
+            "cos_right": 0.9812020063400269,
+            "best_wrong_affix": "ing",
+            "cos_best_wrong": 0.60374915599823,
+            "margin": 0.3774528503417969,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 0.0,
+            "wrongs": [
+              {
+                "other": "ing",
+                "cos": 0.60374915599823,
+                "pred": "posting",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.3774528503417969
+              },
+              {
+                "other": "ed",
+                "cos": 0.4519939720630646,
+                "pred": "posted",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.5292080342769623
+              },
+              {
+                "other": "ly",
+                "cos": 0.523331880569458,
+                "pred": "posted",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.45787012577056885
+              }
+            ]
+          },
+          {
+            "stem": "go",
+            "affix": "s",
+            "form": "goes",
+            "right_pred": "goes",
+            "right_ok": true,
+            "cos_right": 0.9778212904930115,
+            "best_wrong_affix": "ed",
+            "cos_best_wrong": 0.6441707611083984,
+            "margin": 0.33365052938461304,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 0.0,
+            "wrongs": [
+              {
+                "other": "ing",
+                "cos": 0.5835567116737366,
+                "pred": "going",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.3942645788192749
+              },
+              {
+                "other": "ed",
+                "cos": 0.6441707611083984,
+                "pred": "going",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.33365052938461304
+              },
+              {
+                "other": "ly",
+                "cos": 0.6393086910247803,
+                "pred": "going",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.3385125994682312
+              }
+            ]
+          },
+          {
+            "stem": "fish",
+            "affix": "s",
+            "form": "fishes",
+            "right_pred": "fishes",
+            "right_ok": true,
+            "cos_right": 0.989681601524353,
+            "best_wrong_affix": "ly",
+            "cos_best_wrong": 0.5861716270446777,
+            "margin": 0.4035099744796753,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 0.3333333333333333,
+            "wrongs": [
+              {
+                "other": "ing",
+                "cos": 0.5397042036056519,
+                "pred": "fishing",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.44997739791870117
+              },
+              {
+                "other": "ed",
+                "cos": 0.439199298620224,
+                "pred": "fished",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.550482302904129
+              },
+              {
+                "other": "ly",
+                "cos": 0.5861716270446777,
+                "pred": "fishes",
+                "hit_gold": true,
+                "margin_right_minus_wrong": 0.4035099744796753
+              }
+            ]
+          },
+          {
+            "stem": "play",
+            "affix": "ed",
+            "form": "played",
+            "right_pred": "played",
+            "right_ok": true,
+            "cos_right": 0.9646201133728027,
+            "best_wrong_affix": "ly",
+            "cos_best_wrong": 0.666050136089325,
+            "margin": 0.2985699772834778,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 0.0,
+            "wrongs": [
+              {
+                "other": "ing",
+                "cos": 0.6219119429588318,
+                "pred": "playing",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.34270817041397095
+              },
+              {
+                "other": "s",
+                "cos": 0.5403589606285095,
+                "pred": "plays",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.4242611527442932
+              },
+              {
+                "other": "ly",
+                "cos": 0.666050136089325,
+                "pred": "play",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.2985699772834778
+              }
+            ]
+          },
+          {
+            "stem": "stop",
+            "affix": "ed",
+            "form": "stopped",
+            "right_pred": "stopped",
+            "right_ok": true,
+            "cos_right": 0.9753440618515015,
+            "best_wrong_affix": "s",
+            "cos_best_wrong": 0.5225989818572998,
+            "margin": 0.45274507999420166,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 0.3333333333333333,
+            "wrongs": [
+              {
+                "other": "ing",
+                "cos": 0.39888817071914673,
+                "pred": "stopping",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.5764558911323547
+              },
+              {
+                "other": "s",
+                "cos": 0.5225989818572998,
+                "pred": "stopped",
+                "hit_gold": true,
+                "margin_right_minus_wrong": 0.45274507999420166
+              },
+              {
+                "other": "ly",
+                "cos": 0.4566318392753601,
+                "pred": "stopping",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.5187122225761414
+              }
+            ]
+          },
+          {
+            "stem": "post",
+            "affix": "ed",
+            "form": "posted",
+            "right_pred": "posted",
+            "right_ok": true,
+            "cos_right": 0.9846885204315186,
+            "best_wrong_affix": "ly",
+            "cos_best_wrong": 0.6783121228218079,
+            "margin": 0.3063763976097107,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 0.3333333333333333,
+            "wrongs": [
+              {
+                "other": "ing",
+                "cos": 0.4967772960662842,
+                "pred": "posting",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.4879112243652344
+              },
+              {
+                "other": "s",
+                "cos": 0.45175695419311523,
+                "pred": "posts",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.5329315662384033
+              },
+              {
+                "other": "ly",
+                "cos": 0.6783121228218079,
+                "pred": "posted",
+                "hit_gold": true,
+                "margin_right_minus_wrong": 0.3063763976097107
+              }
+            ]
+          },
+          {
+            "stem": "act",
+            "affix": "ed",
+            "form": "acted",
+            "right_pred": "acted",
+            "right_ok": true,
+            "cos_right": 0.9866272807121277,
+            "best_wrong_affix": "ly",
+            "cos_best_wrong": 0.6832700967788696,
+            "margin": 0.30335718393325806,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 0.0,
+            "wrongs": [
+              {
+                "other": "ing",
+                "cos": 0.47555011510849,
+                "pred": "acting",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.5110771656036377
+              },
+              {
+                "other": "s",
+                "cos": 0.5939141511917114,
+                "pred": "acts",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.39271312952041626
+              },
+              {
+                "other": "ly",
+                "cos": 0.6832700967788696,
+                "pred": "acts",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.30335718393325806
+              }
+            ]
+          },
+          {
+            "stem": "fish",
+            "affix": "ed",
+            "form": "fished",
+            "right_pred": "fished",
+            "right_ok": true,
+            "cos_right": 0.9896458387374878,
+            "best_wrong_affix": "s",
+            "cos_best_wrong": 0.48845553398132324,
+            "margin": 0.5011903047561646,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 0.0,
+            "wrongs": [
+              {
+                "other": "ing",
+                "cos": 0.4006964862346649,
+                "pred": "fishing",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.5889493525028229
+              },
+              {
+                "other": "s",
+                "cos": 0.48845553398132324,
+                "pred": "fishes",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.5011903047561646
+              },
+              {
+                "other": "ly",
+                "cos": 0.23298761248588562,
+                "pred": "fishes",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.7566582262516022
+              }
+            ]
+          },
+          {
+            "stem": "book",
+            "affix": "ed",
+            "form": "booked",
+            "right_pred": "booked",
+            "right_ok": true,
+            "cos_right": 0.9875667095184326,
+            "best_wrong_affix": "ly",
+            "cos_best_wrong": 0.4235924482345581,
+            "margin": 0.5639742612838745,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 0.0,
+            "wrongs": [
+              {
+                "other": "ing",
+                "cos": 0.20023579895496368,
+                "pred": "booking",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.7873309105634689
+              },
+              {
+                "other": "s",
+                "cos": 0.07339516282081604,
+                "pred": "books",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.9141715466976166
+              },
+              {
+                "other": "ly",
+                "cos": 0.4235924482345581,
+                "pred": "book",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.5639742612838745
+              }
+            ]
+          },
+          {
+            "stem": "top",
+            "affix": "ed",
+            "form": "topped",
+            "right_pred": "topped",
+            "right_ok": true,
+            "cos_right": 0.9808306694030762,
+            "best_wrong_affix": "ly",
+            "cos_best_wrong": 0.5350615978240967,
+            "margin": 0.4457690715789795,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 0.0,
+            "wrongs": [
+              {
+                "other": "ing",
+                "cos": 0.4825308322906494,
+                "pred": "topping",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.49829983711242676
+              },
+              {
+                "other": "s",
+                "cos": 0.44147247076034546,
+                "pred": "topping",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.5393581986427307
+              },
+              {
+                "other": "ly",
+                "cos": 0.5350615978240967,
+                "pred": "topping",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.4457690715789795
+              }
+            ]
+          },
+          {
+            "stem": "spot",
+            "affix": "ed",
+            "form": "spotted",
+            "right_pred": "spotted",
+            "right_ok": true,
+            "cos_right": 0.9827342629432678,
+            "best_wrong_affix": "s",
+            "cos_best_wrong": 0.7316069602966309,
+            "margin": 0.25112730264663696,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 0.0,
+            "wrongs": [
+              {
+                "other": "ing",
+                "cos": 0.6438491344451904,
+                "pred": "spotting",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.3388851284980774
+              },
+              {
+                "other": "s",
+                "cos": 0.7316069602966309,
+                "pred": "spotting",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.25112730264663696
+              },
+              {
+                "other": "ly",
+                "cos": 0.5366526246070862,
+                "pred": "spotting",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.44608163833618164
+              }
+            ]
+          },
+          {
+            "stem": "light",
+            "affix": "ed",
+            "form": "lighted",
+            "right_pred": "lighted",
+            "right_ok": true,
+            "cos_right": 0.9794719815254211,
+            "best_wrong_affix": "ing",
+            "cos_best_wrong": 0.6390161514282227,
+            "margin": 0.3404558300971985,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 0.3333333333333333,
+            "wrongs": [
+              {
+                "other": "ing",
+                "cos": 0.6390161514282227,
+                "pred": "lighting",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.3404558300971985
+              },
+              {
+                "other": "s",
+                "cos": 0.5206586122512817,
+                "pred": "lighting",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.4588133692741394
+              },
+              {
+                "other": "ly",
+                "cos": 0.6159170866012573,
+                "pred": "lighted",
+                "hit_gold": true,
+                "margin_right_minus_wrong": 0.3635548949241638
+              }
+            ]
+          },
+          {
+            "stem": "water",
+            "affix": "ed",
+            "form": "waterred",
+            "right_pred": "waterred",
+            "right_ok": true,
+            "cos_right": 0.978492021560669,
+            "best_wrong_affix": "ing",
+            "cos_best_wrong": 0.8530548810958862,
+            "margin": 0.12543714046478271,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 1.0,
+            "wrongs": [
+              {
+                "other": "ing",
+                "cos": 0.8530548810958862,
+                "pred": "waterred",
+                "hit_gold": true,
+                "margin_right_minus_wrong": 0.12543714046478271
+              },
+              {
+                "other": "s",
+                "cos": 0.795874834060669,
+                "pred": "waterred",
+                "hit_gold": true,
+                "margin_right_minus_wrong": 0.1826171875
+              },
+              {
+                "other": "ly",
+                "cos": 0.7482026219367981,
+                "pred": "waterred",
+                "hit_gold": true,
+                "margin_right_minus_wrong": 0.23028939962387085
+              }
+            ]
+          },
+          {
+            "stem": "quick",
+            "affix": "ly",
+            "form": "quickly",
+            "right_pred": "quickly",
+            "right_ok": true,
+            "cos_right": 0.9537152051925659,
+            "best_wrong_affix": "s",
+            "cos_best_wrong": 0.9068033695220947,
+            "margin": 0.04691183567047119,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 1.0,
+            "wrongs": [
+              {
+                "other": "ing",
+                "cos": 0.8892502784729004,
+                "pred": "quickly",
+                "hit_gold": true,
+                "margin_right_minus_wrong": 0.06446492671966553
+              },
+              {
+                "other": "s",
+                "cos": 0.9068033695220947,
+                "pred": "quickly",
+                "hit_gold": true,
+                "margin_right_minus_wrong": 0.04691183567047119
+              },
+              {
+                "other": "ed",
+                "cos": 0.8474575281143188,
+                "pred": "quickly",
+                "hit_gold": true,
+                "margin_right_minus_wrong": 0.10625767707824707
+              }
+            ]
+          },
+          {
+            "stem": "slow",
+            "affix": "ly",
+            "form": "slowly",
+            "right_pred": "slowly",
+            "right_ok": true,
+            "cos_right": 0.9404308795928955,
+            "best_wrong_affix": "s",
+            "cos_best_wrong": 0.8727667331695557,
+            "margin": 0.06766414642333984,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 1.0,
+            "wrongs": [
+              {
+                "other": "ing",
+                "cos": 0.8677059412002563,
+                "pred": "slowly",
+                "hit_gold": true,
+                "margin_right_minus_wrong": 0.07272493839263916
+              },
+              {
+                "other": "s",
+                "cos": 0.8727667331695557,
+                "pred": "slowly",
+                "hit_gold": true,
+                "margin_right_minus_wrong": 0.06766414642333984
+              },
+              {
+                "other": "ed",
+                "cos": 0.8661646842956543,
+                "pred": "slowly",
+                "hit_gold": true,
+                "margin_right_minus_wrong": 0.07426619529724121
+              }
+            ]
+          },
+          {
+            "stem": "night",
+            "affix": "ly",
+            "form": "nightly",
+            "right_pred": "nightly",
+            "right_ok": true,
+            "cos_right": 0.9807750582695007,
+            "best_wrong_affix": "ing",
+            "cos_best_wrong": 0.7474949359893799,
+            "margin": 0.23328012228012085,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 0.3333333333333333,
+            "wrongs": [
+              {
+                "other": "ing",
+                "cos": 0.7474949359893799,
+                "pred": "nightly",
+                "hit_gold": true,
+                "margin_right_minus_wrong": 0.23328012228012085
+              },
+              {
+                "other": "s",
+                "cos": 0.6686339974403381,
+                "pred": "night",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.3121410608291626
+              },
+              {
+                "other": "ed",
+                "cos": 0.6957366466522217,
+                "pred": "night",
+                "hit_gold": false,
+                "margin_right_minus_wrong": 0.28503841161727905
+              }
+            ]
+          },
+          {
+            "stem": "man",
+            "affix": "ly",
+            "form": "manly",
+            "right_pred": "manly",
+            "right_ok": true,
+            "cos_right": 0.9647542834281921,
+            "best_wrong_affix": "ed",
+            "cos_best_wrong": 0.8088425397872925,
+            "margin": 0.15591174364089966,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 1.0,
+            "wrongs": [
+              {
+                "other": "ing",
+                "cos": 0.761878252029419,
+                "pred": "manly",
+                "hit_gold": true,
+                "margin_right_minus_wrong": 0.2028760313987732
+              },
+              {
+                "other": "s",
+                "cos": 0.7594395279884338,
+                "pred": "manly",
+                "hit_gold": true,
+                "margin_right_minus_wrong": 0.2053147554397583
+              },
+              {
+                "other": "ed",
+                "cos": 0.8088425397872925,
+                "pred": "manly",
+                "hit_gold": true,
+                "margin_right_minus_wrong": 0.15591174364089966
+              }
+            ]
+          },
+          {
+            "stem": "god",
+            "affix": "ly",
+            "form": "godly",
+            "right_pred": "godly",
+            "right_ok": true,
+            "cos_right": 0.9676637053489685,
+            "best_wrong_affix": "ing",
+            "cos_best_wrong": 0.8441422581672668,
+            "margin": 0.12352144718170166,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 1.0,
+            "wrongs": [
+              {
+                "other": "ing",
+                "cos": 0.8441422581672668,
+                "pred": "godly",
+                "hit_gold": true,
+                "margin_right_minus_wrong": 0.12352144718170166
+              },
+              {
+                "other": "s",
+                "cos": 0.7945139408111572,
+                "pred": "godly",
+                "hit_gold": true,
+                "margin_right_minus_wrong": 0.17314976453781128
+              },
+              {
+                "other": "ed",
+                "cos": 0.8189654350280762,
+                "pred": "godly",
+                "hit_gold": true,
+                "margin_right_minus_wrong": 0.14869827032089233
+              }
+            ]
+          },
+          {
+            "stem": "green",
+            "affix": "ly",
+            "form": "greenly",
+            "right_pred": "greenly",
+            "right_ok": true,
+            "cos_right": 0.9813662767410278,
+            "best_wrong_affix": "s",
+            "cos_best_wrong": 0.8398483991622925,
+            "margin": 0.14151787757873535,
+            "right_beats_all_wrong": true,
+            "wrong_hit_gold_rate": 1.0,
+            "wrongs": [
+              {
+                "other": "ing",
+                "cos": 0.8264971375465393,
+                "pred": "greenly",
+                "hit_gold": true,
+                "margin_right_minus_wrong": 0.15486913919448853
+              },
+              {
+                "other": "s",
+                "cos": 0.8398483991622925,
+                "pred": "greenly",
+                "hit_gold": true,
+                "margin_right_minus_wrong": 0.14151787757873535
+              },
+              {
+                "other": "ed",
+                "cos": 0.832876443862915,
+                "pred": "greenly",
+                "hit_gold": true,
+                "margin_right_minus_wrong": 0.1484898328781128
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "verdict": {
+      "apply": "HOLD apply op 7% vs naive 100% (Δ -93pp)",
+      "peel": "HOLD peel 7% (sub-only 93%) — peel ≈/≤ sub",
+      "cycle": "reapply 100% / repeel 71%",
+      "swap": "right>wrong 64% margin +0.009 wrong→gold 2%",
+      "overall": "No strong multi-affix operator yet — swap/peel weak or apply still spelling-dominated."
+    }
+  }
+}

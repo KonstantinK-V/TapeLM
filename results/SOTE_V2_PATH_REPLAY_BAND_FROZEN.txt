@@ -1,0 +1,49 @@
+SOTE V2 Path Replay band — FROZEN (exact@1 only; no top-5 claims)
+timestamp: 2026-07-24T14:12:00+00:00
+
+=== INTENT ===
+  Replay V1 ladder carefully under V2 slot contract.
+  Metrics = hit@1 + role tables + hop joints. Soft@5 not a gate/claim.
+  V1 weights stay RESERVE (read-only). Replay = eval + protocol, no overwrite.
+
+=== ARTIFACTS ===
+  R0  results/sote_v2_charter.md
+      results/SOTE_V1_RESERVE_FROZEN.txt
+      results/sote_v2_path_replay.md
+  R1-R3  results/stage78_v2_r1r2_report.txt
+          results/stage78_v2_r1r2_metrics.json
+          checkpoints/stage78_v2_r1r2.pt
+  R4-R6  results/stage79_v2_r4r6_report.txt
+          results/stage79_v2_r4r6_metrics.json
+          checkpoints/stage79_v2_r4r6.pt
+  R7     results/stage80_v2_r7_report.txt
+          results/stage80_v2_r7_metrics.json
+          checkpoints/stage80_v2_r7.pt
+  R8     results/stage81_v2_r8_report.txt
+          results/stage81_v2_r8_metrics.json
+          checkpoints/stage81_v2_r8.pt
+  R9     this file
+
+=== LIVE CLAIMS (V2 replay, exact) ===
+  1. Encode/morph + decode D hold (R1-R2): recon/word/phrase exact ~100% in-lex; holdout OOV~0.
+  2. Path next@1 (R3/R5): noun_rel ALL ~29% @1, rel ~54%; 1k ALL L2 ~27.9%; order_drop ~+14pp (R4).
+  3. Scale ZS (R6): 2k ALL ~26.6% (d1k -1.3pp); path ~28.1%; no >5pp regress.
+  4. Hops (R7): hop2 joint ~84–88%, hop3 ~93%; polarity ~nounish; dirty green.
+  5. Right protocol (R8): HOPS_PRIMARY_FOR_RIGHT — next@1 right ~4% residual NOT LIVE;
+     what_tail fact retrieve ~98%; protect path/rel next floors.
+
+=== EXPLICIT RESIDUALS ===
+  right-after-rel next@1 wall (~4% noun_rel, ~3% @2k)
+  verb_ing path weaker (~18% ALL); not hop LIVE requirement
+  true-neg / logical NOT not claimed
+  left_fp object route collision-bound when left repeats in bank (multi hubs)
+
+=== NON-CLAIMS ===
+  Soft@5 / hit@5 as success
+  Phrase-LM generative next
+  Next@1 object LIVE
+  Overwrite of V1 FROZEN weights
+
+=== FREEZE_READY: True ===
+Next work = cue redesign for generative right IF desired; else hold and harden hops-primary UX.
+Do not soft-disambig the next@1 right hole.

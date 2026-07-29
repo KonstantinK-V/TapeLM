@@ -1,0 +1,176 @@
+{
+  "timestamp": "2026-07-25T13:24:13.114689+00:00",
+  "signals_ABCD": {
+    "A": {
+      "signal": "NULL",
+      "gain_pp": 0.004999000199960024,
+      "local": 0.20815836832633472,
+      "mem": 0.21315736852629474,
+      "verdict120": "NULL_MEM"
+    },
+    "B": {
+      "signal": "LIVE",
+      "speed": {
+        "verdict": "SPEED",
+        "ratio_ms_sote_over_bpe": 0.6548627357975954
+      }
+    },
+    "C": {
+      "signal": "WEAK",
+      "available": true,
+      "n_windows": 2000,
+      "mean_toks_per_word": 1.0005096190597529,
+      "median_toks_per_word": 1.0,
+      "p90": 1.0
+    },
+    "D": {
+      "signal": "NULL",
+      "cmp": {
+        "rare1": {
+          "sote": 0.0,
+          "bpe": 0.0,
+          "delta_pp": 0.0
+        },
+        "low2_5": {
+          "sote": 0.0,
+          "bpe": 0.05263157894736842,
+          "delta_pp": 0.05263157894736842
+        },
+        "mid6_20": {
+          "sote": 0.0,
+          "bpe": 0.08270676691729323,
+          "delta_pp": 0.08270676691729323
+        },
+        "head21p": {
+          "sote": 0.21407451212300413,
+          "bpe": 0.34598825831702545,
+          "delta_pp": 0.13191374619402133
+        }
+      }
+    }
+  },
+  "H": {
+    "dig": "H",
+    "tag": "top5_morph_diag",
+    "verdict": "NEAR_MISS_LIVE",
+    "gate": "exact@1_only_unchanged",
+    "sote_seen": {
+      "rel": {
+        "n": 600,
+        "hit1": 0.9566666666666667,
+        "hit5": 1.0,
+        "morph_in_top5": 1.0,
+        "hit5_minus_hit1_pp": 0.043333333333333335
+      },
+      "ALL": {
+        "n": 1200,
+        "hit1": 0.6966666666666667,
+        "hit5": 0.9166666666666666,
+        "morph_in_top5": 0.9166666666666666,
+        "hit5_minus_hit1_pp": 0.22
+      },
+      "right": {
+        "n": 600,
+        "hit1": 0.43666666666666665,
+        "hit5": 0.8333333333333334,
+        "morph_in_top5": 0.8333333333333334,
+        "hit5_minus_hit1_pp": 0.39666666666666667
+      },
+      "obj": {
+        "n": 600,
+        "hit1": 0.43666666666666665,
+        "hit5": 0.8333333333333334,
+        "morph_in_top5": 0.8333333333333334,
+        "hit5_minus_hit1_pp": 0.39666666666666667
+      }
+    },
+    "sote_story": {
+      "other": {
+        "n": 3285,
+        "hit1": 0.13515981735159818,
+        "hit5": 0.30776255707762556,
+        "morph_in_top5": 0.3095890410958904,
+        "hit5_minus_hit1_pp": 0.1726027397260274
+      },
+      "ALL": {
+        "n": 4111,
+        "hit1": 0.20287034784723912,
+        "hit5": 0.380442714667964,
+        "morph_in_top5": 0.3819022135733398,
+        "hit5_minus_hit1_pp": 0.1775723668207249
+      },
+      "rel": {
+        "n": 419,
+        "hit1": 0.7279236276849642,
+        "hit5": 0.9331742243436754,
+        "morph_in_top5": 0.9331742243436754,
+        "hit5_minus_hit1_pp": 0.2052505966587112
+      },
+      "right": {
+        "n": 407,
+        "hit1": 0.20884520884520885,
+        "hit5": 0.39803439803439805,
+        "morph_in_top5": 0.39803439803439805,
+        "hit5_minus_hit1_pp": 0.1891891891891892
+      },
+      "obj": {
+        "n": 407,
+        "hit1": 0.20884520884520885,
+        "hit5": 0.39803439803439805,
+        "morph_in_top5": 0.39803439803439805,
+        "hit5_minus_hit1_pp": 0.1891891891891892
+      }
+    },
+    "bpe_story": {
+      "available": true,
+      "n": 2061,
+      "hit1": 0.3056768558951965,
+      "hit5": 0.5832120329936924,
+      "morph_in_beam5": 0.5851528384279476,
+      "hit5_minus_hit1_pp": 0.2775351770984959,
+      "note": "word-level beam@5 first words; STORY hold"
+    },
+    "supported_by": {
+      "C": "WEAK",
+      "D": "NULL"
+    }
+  },
+  "E": {
+    "dig": "E",
+    "tag": "entity_who_where",
+    "verdict": "PARTIAL",
+    "local": 0.0009689922480620155,
+    "ent_mem": 0.021560077519379845,
+    "gain_pp": 0.02059108527131783,
+    "supported_by": "NULL",
+    "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage121_E_entity_slots.pt"
+  },
+  "F": {
+    "dig": "F",
+    "tag": "fp_proj_adapter",
+    "verdict": "PARITY",
+    "seen": {
+      "obj": 0.3466666666666667,
+      "rel": 0.9333333333333333
+    },
+    "story_all": 0.09497616428309498,
+    "story_lift_pp": -0.10102383571690503,
+    "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage122_F_proj_adapter.pt",
+    "supported_by_C_D": {
+      "C": "WEAK",
+      "D": "NULL"
+    }
+  },
+  "G": {
+    "dig": "G",
+    "tag": "char_piece_dense_steps",
+    "verdict": "PARITY",
+    "story_all": 0.16721672167216722,
+    "seen_all": 0.69375,
+    "story_lift_pp": -0.028783278327832784,
+    "mean_expand_hint": "up_to_+2_pieces_per_word",
+    "supported_by_C": "WEAK",
+    "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage123_G_dense_steps.pt"
+  },
+  "verdict_file": "C:\\Users\\Kostya\\sote-letter-assembly\\results\\POST120_VERDICT_ABCD.txt"
+}

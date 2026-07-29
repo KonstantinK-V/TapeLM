@@ -1,0 +1,461 @@
+{
+  "oracle": {
+    "n": 74,
+    "acc": 0.6216216216216216,
+    "mean_rank": 7.472972972972973
+  },
+  "results": [
+    {
+      "name": "3b_ComposeRank",
+      "train_acc": 0.5615384615384615,
+      "hold_acc": 0.08108108108108109,
+      "shuffle_acc": 0.08108108108108109,
+      "gap": 0.0,
+      "lift": -0.24291891891891892,
+      "hold_mean_rank": 75.14864864864865,
+      "pass": false,
+      "train": {
+        "n": 130,
+        "acc": 0.5615384615384615,
+        "mean_rank": 22.323076923076922
+      },
+      "hold": {
+        "n": 74,
+        "acc": 0.08108108108108109,
+        "mean_rank": 75.14864864864865
+      },
+      "shuffle": {
+        "n": 74,
+        "acc": 0.08108108108108109,
+        "mean_rank": 74.36486486486487
+      },
+      "hold_samples": [
+        {
+          "prefix": "cat",
+          "want": "to",
+          "pred": "take",
+          "ok": false,
+          "score": 0.8853397965431213,
+          "true_score": 0.23921573162078857,
+          "rank": 129,
+          "mode": "normal"
+        },
+        {
+          "prefix": "cat to",
+          "want": "car",
+          "pred": "dog",
+          "ok": false,
+          "score": 0.9956805109977722,
+          "true_score": 0.39851877093315125,
+          "rank": 79,
+          "mode": "normal"
+        },
+        {
+          "prefix": "dog",
+          "want": "to",
+          "pred": "work",
+          "ok": false,
+          "score": 0.9131211638450623,
+          "true_score": 0.6920681595802307,
+          "rank": 82,
+          "mode": "normal"
+        },
+        {
+          "prefix": "dog to",
+          "want": "top",
+          "pred": "cat",
+          "ok": false,
+          "score": 0.993414580821991,
+          "true_score": 0.7795108556747437,
+          "rank": 22,
+          "mode": "normal"
+        },
+        {
+          "prefix": "go",
+          "want": "to",
+          "pred": "to",
+          "ok": true,
+          "score": 0.9069526195526123,
+          "true_score": 0.9069526195526123,
+          "rank": 1,
+          "mode": "normal"
+        },
+        {
+          "prefix": "go to",
+          "want": "cat",
+          "pred": "writing",
+          "ok": false,
+          "score": 0.9633098840713501,
+          "true_score": 0.7252596616744995,
+          "rank": 122,
+          "mode": "normal"
+        },
+        {
+          "prefix": "spot",
+          "want": "on",
+          "pred": "old",
+          "ok": false,
+          "score": 0.7866519689559937,
+          "true_score": 0.6858204007148743,
+          "rank": 21,
+          "mode": "normal"
+        },
+        {
+          "prefix": "spot on",
+          "want": "car",
+          "pred": "top",
+          "ok": false,
+          "score": 0.9954193830490112,
+          "true_score": 0.3806579113006592,
+          "rank": 147,
+          "mode": "normal"
+        }
+      ],
+      "history": [
+        {
+          "step": 1,
+          "loss": 1.9105826616287231
+        },
+        {
+          "step": 300,
+          "loss": 0.1874477118253708
+        },
+        {
+          "step": 600,
+          "loss": 0.13401861488819122
+        },
+        {
+          "step": 900,
+          "loss": 0.0908660963177681
+        },
+        {
+          "step": 1200,
+          "loss": 0.23208987712860107
+        },
+        {
+          "step": 1500,
+          "loss": 0.07024208456277847
+        },
+        {
+          "step": 1800,
+          "loss": 0.21323899924755096
+        }
+      ]
+    },
+    {
+      "name": "3c_SoftTeacherRank",
+      "train_acc": 0.8,
+      "hold_acc": 0.2702702702702703,
+      "shuffle_acc": 0.20270270270270271,
+      "gap": 0.06756756756756757,
+      "lift": -0.053729729729729725,
+      "hold_mean_rank": 33.554054054054056,
+      "pass": false,
+      "train": {
+        "n": 130,
+        "acc": 0.8,
+        "mean_rank": 1.6
+      },
+      "hold": {
+        "n": 74,
+        "acc": 0.2702702702702703,
+        "mean_rank": 33.554054054054056
+      },
+      "shuffle": {
+        "n": 74,
+        "acc": 0.20270270270270271,
+        "mean_rank": 42.391891891891895
+      },
+      "hold_samples": [
+        {
+          "prefix": "cat",
+          "want": "to",
+          "pred": "helps",
+          "ok": false,
+          "score": 1.158522367477417,
+          "rank": 13,
+          "mode": "normal"
+        },
+        {
+          "prefix": "cat to",
+          "want": "car",
+          "pred": "dog",
+          "ok": false,
+          "score": 1.3607722520828247,
+          "rank": 5,
+          "mode": "normal"
+        },
+        {
+          "prefix": "dog",
+          "want": "to",
+          "pred": "on",
+          "ok": false,
+          "score": 1.0174760818481445,
+          "rank": 8,
+          "mode": "normal"
+        },
+        {
+          "prefix": "dog to",
+          "want": "top",
+          "pred": "cat",
+          "ok": false,
+          "score": 1.1907848119735718,
+          "rank": 14,
+          "mode": "normal"
+        },
+        {
+          "prefix": "go",
+          "want": "to",
+          "pred": "on",
+          "ok": false,
+          "score": 1.020295262336731,
+          "rank": 2,
+          "mode": "normal"
+        },
+        {
+          "prefix": "go to",
+          "want": "cat",
+          "pred": "car",
+          "ok": false,
+          "score": 1.0541937351226807,
+          "rank": 30,
+          "mode": "normal"
+        },
+        {
+          "prefix": "spot",
+          "want": "on",
+          "pred": "on",
+          "ok": true,
+          "score": 0.9209692478179932,
+          "rank": 1,
+          "mode": "normal"
+        },
+        {
+          "prefix": "spot on",
+          "want": "car",
+          "pred": "top",
+          "ok": false,
+          "score": 1.1119811534881592,
+          "rank": 12,
+          "mode": "normal"
+        }
+      ],
+      "history": [
+        {
+          "step": 1,
+          "loss": 5.208017349243164
+        },
+        {
+          "step": 300,
+          "loss": 1.4179649353027344
+        },
+        {
+          "step": 600,
+          "loss": 1.3461639881134033
+        },
+        {
+          "step": 900,
+          "loss": 1.6647300720214844
+        },
+        {
+          "step": 1200,
+          "loss": 1.6864852905273438
+        },
+        {
+          "step": 1500,
+          "loss": 1.4077500104904175
+        },
+        {
+          "step": 1800,
+          "loss": 1.2801811695098877
+        }
+      ]
+    },
+    {
+      "name": "1_OrderAux+Rank",
+      "train_acc": 0.5,
+      "hold_acc": 0.12162162162162163,
+      "shuffle_acc": 0.0945945945945946,
+      "gap": 0.02702702702702703,
+      "lift": -0.20237837837837838,
+      "hold_mean_rank": 60.25675675675676,
+      "pass": false,
+      "train": {
+        "n": 130,
+        "acc": 0.5,
+        "mean_rank": 24.83076923076923
+      },
+      "hold": {
+        "n": 74,
+        "acc": 0.12162162162162163,
+        "mean_rank": 60.25675675675676
+      },
+      "shuffle": {
+        "n": 74,
+        "acc": 0.0945945945945946,
+        "mean_rank": 59.41891891891892
+      },
+      "hold_samples": [
+        {
+          "prefix": "cat",
+          "want": "to",
+          "pred": "making",
+          "ok": false,
+          "score": 0.8985933661460876,
+          "true_score": 0.1738244891166687,
+          "rank": 142,
+          "mode": "normal"
+        },
+        {
+          "prefix": "cat to",
+          "want": "car",
+          "pred": "dog",
+          "ok": false,
+          "score": 0.9941330552101135,
+          "true_score": 0.6042566299438477,
+          "rank": 126,
+          "mode": "normal"
+        },
+        {
+          "prefix": "dog",
+          "want": "to",
+          "pred": "take",
+          "ok": false,
+          "score": 0.944058895111084,
+          "true_score": 0.7804297208786011,
+          "rank": 68,
+          "mode": "normal"
+        },
+        {
+          "prefix": "dog to",
+          "want": "top",
+          "pred": "cat",
+          "ok": false,
+          "score": 0.9931304454803467,
+          "true_score": 0.5701586008071899,
+          "rank": 88,
+          "mode": "normal"
+        },
+        {
+          "prefix": "go",
+          "want": "to",
+          "pred": "dogging",
+          "ok": false,
+          "score": 0.8335533142089844,
+          "true_score": 0.7225979566574097,
+          "rank": 7,
+          "mode": "normal"
+        },
+        {
+          "prefix": "go to",
+          "want": "cat",
+          "pred": "reading",
+          "ok": false,
+          "score": 0.9665105938911438,
+          "true_score": 0.5396418571472168,
+          "rank": 137,
+          "mode": "normal"
+        },
+        {
+          "prefix": "spot",
+          "want": "on",
+          "pred": "on",
+          "ok": true,
+          "score": 0.6756640076637268,
+          "true_score": 0.6756640076637268,
+          "rank": 1,
+          "mode": "normal"
+        },
+        {
+          "prefix": "spot on",
+          "want": "car",
+          "pred": "top",
+          "ok": false,
+          "score": 0.9949758052825928,
+          "true_score": 0.6820460557937622,
+          "rank": 67,
+          "mode": "normal"
+        }
+      ],
+      "history": [
+        {
+          "step": 1,
+          "loss": 0.003358794143423438
+        },
+        {
+          "step": 300,
+          "loss": 0.009585676714777946
+        },
+        {
+          "step": 600,
+          "loss": 0.003588663414120674
+        },
+        {
+          "step": 900,
+          "loss": 0.007088943850249052
+        },
+        {
+          "step": 1200,
+          "loss": 0.0030375716742128134
+        },
+        {
+          "step": 1,
+          "loss": 1.9395015239715576
+        },
+        {
+          "step": 300,
+          "loss": 0.09206832200288773
+        },
+        {
+          "step": 600,
+          "loss": 0.113652803003788
+        },
+        {
+          "step": 900,
+          "loss": 0.08005233108997345
+        },
+        {
+          "step": 1200,
+          "loss": 0.0976836159825325
+        },
+        {
+          "step": 1500,
+          "loss": 0.08042094111442566
+        },
+        {
+          "step": 1800,
+          "loss": 0.1330026090145111
+        }
+      ]
+    }
+  ],
+  "best": "3c_SoftTeacherRank",
+  "config": {
+    "dim": 64,
+    "seed": 19,
+    "steps_head": 1800,
+    "steps_order": 1200,
+    "steps_rank": 1800,
+    "batch_size": 48,
+    "lr_head": 0.002,
+    "lr_phrase": 0.0003,
+    "lr_rank": 0.002,
+    "temperature": 0.07,
+    "teacher_temp": 0.05,
+    "margin": 0.08,
+    "max_phrase_len": 5,
+    "max_word_len": 11,
+    "n_bag": 4,
+    "rank_chunk": 96,
+    "w_cos": 1.0,
+    "w_bag": 0.9,
+    "w_foil": 0.6,
+    "w_swap": 0.7,
+    "w_kl": 1.0,
+    "w_ce": 0.5,
+    "hold_acc_min": 0.55,
+    "gap_min": 0.15,
+    "baseline_hold": 0.324,
+    "baseline_oracle": 0.78
+  }
+}

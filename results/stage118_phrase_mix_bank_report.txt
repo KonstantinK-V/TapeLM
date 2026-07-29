@@ -1,0 +1,7 @@
+SOTE Stage 118 — phrase_mix_bank
+timestamp: 2026-07-25T11:33:58.930971+00:00
+mode=phrase_mix alpha=5.0 tau=1.0 bank_frac=0.25
+SEEN obj=40.9% obj+hop=40.9% rel=94.8%
+STORY ALL=16.8%
+vs100 obj+hop -1.7pp
+Verdict: PARITY

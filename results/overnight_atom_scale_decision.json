@@ -1,0 +1,38 @@
+{
+  "timestamp": "2026-07-24T21:49:36.013447+00:00",
+  "ref100": {
+    "obj": 0.426,
+    "rel": 0.958,
+    "story_all": 0.196,
+    "rare_obj": 0.117
+  },
+  "stage101": {
+    "verdict": "CEILING",
+    "story_all": 0.20646221248630886,
+    "lift_vs_100": 0.010462212486308853,
+    "seen": {
+      "obj": 0.4066666666666667,
+      "rel": 0.9708333333333333,
+      "all": 0.68875
+    },
+    "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage101_scale_500k.pt"
+  },
+  "branch": "capacity",
+  "stage102": {
+    "verdict": "CEILING",
+    "tag": "capacity_4L8H",
+    "story_all": 0.20700985761226726,
+    "lift_vs_ref": 0.0005476451259583959,
+    "seen": {
+      "obj": 0.41583333333333333,
+      "rel": 0.9633333333333334,
+      "all": 0.6895833333333333
+    },
+    "arch": {
+      "d_model": 256,
+      "n_layers": 4,
+      "n_heads": 8
+    },
+    "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage102_capacity_4L8H.pt"
+  }
+}

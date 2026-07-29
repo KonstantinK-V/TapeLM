@@ -1,0 +1,8 @@
+SOTE Stage 117 — hops_loss (hops as path/object prior)
+timestamp: 2026-07-25T10:02:02.262104+00:00
+mode=loss alpha=2.0 lam=0.3
+SEEN exact obj=41.8% rel=91.7%
+SEEN morph obj=42.0% (+0.0pp vs exact)
+STORY exact ALL=17.6% morph ALL=17.8%
+vs100 obj -0.8pp
+Verdict: PARITY (GATE=exact only; morph is diagnostic)

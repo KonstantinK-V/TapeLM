@@ -1,0 +1,16 @@
+SOTE Stage 82a — noun_rel object-slot dig (no FT)
+timestamp: 2026-07-24T14:28:50.178426+00:00
+device: cuda
+parent: stage57_rehearsal_FROZEN.pt
+scope: noun_rel HOLD object-after-rel only
+
+  n=213 hit@1=4.2% mean_rank=48.5 median_rank=40
+  V=135 n_rights~63 chance_full=0.74% chance_rights~1.59%
+  confusion_n={'right_correct': 9, 'other_rightish': 185, 'rel': 1, 'left': 3, 'other': 15}
+  confusion_frac: right_correct=4.2%, other_rightish=86.9%, rel=0.5%, left=1.4%, other=7.0%
+  ZS path ALL=29.3% rel=54.0% right=4.2%
+  go_82b=True
+
+=== Read ===
+  Low hit@1 + mid rank => try RightHead. Soft@5 not a claim.
+  other_rightish => object collisions; rel/left => slot-type confusion.

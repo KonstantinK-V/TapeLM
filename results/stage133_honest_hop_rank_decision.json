@@ -1,0 +1,161 @@
+{
+  "timestamp": "2026-07-25T16:25:10.303355+00:00",
+  "protocol": "honest_pure_hop_rank_then_FT_fingerprint",
+  "not_tested_as": [
+    "128_filter_plus_atom_argmax",
+    "130_mlp_with_atom_logit_feat"
+  ],
+  "upstream": "132",
+  "a_eval_only": {
+    "seen": {
+      "atom": {
+        "all_hit1": 0.7075,
+        "n": 1200,
+        "obj_hit1": 0.45166666666666666,
+        "n_right": 600,
+        "oracle_k_all": 0.93,
+        "frac_fallback_atom_on_right": 0.0
+      },
+      "pure_fp": {
+        "all_hit1": 0.5666666666666667,
+        "n": 1200,
+        "obj_hit1": 0.17,
+        "n_right": 600,
+        "oracle_k_all": 0.43,
+        "frac_fallback_atom_on_right": 0.0
+      },
+      "pure_mem": {
+        "all_hit1": 0.6391666666666667,
+        "n": 1200,
+        "obj_hit1": 0.315,
+        "n_right": 600,
+        "oracle_k_all": 0.43,
+        "frac_fallback_atom_on_right": 0.24166666666666667
+      },
+      "ft_fp": {
+        "all_hit1": 0.7075,
+        "n": 1200,
+        "obj_hit1": 0.45166666666666666,
+        "n_right": 600,
+        "oracle_k_all": 0.43,
+        "frac_fallback_atom_on_right": 1.0
+      }
+    },
+    "story": {
+      "atom": {
+        "all_hit1": 0.16721672167216722,
+        "n": 2727,
+        "obj_hit1": 0.2491103202846975,
+        "n_right": 281,
+        "oracle_k_all": 0.3296662999633297,
+        "frac_fallback_atom_on_right": 0.0
+      },
+      "pure_fp": {
+        "all_hit1": 0.14778144481114777,
+        "n": 2727,
+        "obj_hit1": 0.060498220640569395,
+        "n_right": 281,
+        "oracle_k_all": 0.0462046204620462,
+        "frac_fallback_atom_on_right": 0.0
+      },
+      "pure_mem": {
+        "all_hit1": 0.16354968830216354,
+        "n": 2727,
+        "obj_hit1": 0.21352313167259787,
+        "n_right": 281,
+        "oracle_k_all": 0.0462046204620462,
+        "frac_fallback_atom_on_right": 0.1708185053380783
+      },
+      "ft_fp": {
+        "all_hit1": 0.16721672167216722,
+        "n": 2727,
+        "obj_hit1": 0.2491103202846975,
+        "n_right": 281,
+        "oracle_k_all": 0.0462046204620462,
+        "frac_fallback_atom_on_right": 1.0
+      }
+    }
+  },
+  "c_final": {
+    "seen": {
+      "atom": {
+        "all_hit1": 0.7075,
+        "n": 1200,
+        "obj_hit1": 0.45166666666666666,
+        "n_right": 600,
+        "oracle_k_all": 0.93,
+        "frac_fallback_atom_on_right": 0.0
+      },
+      "pure_fp": {
+        "all_hit1": 0.5666666666666667,
+        "n": 1200,
+        "obj_hit1": 0.17,
+        "n_right": 600,
+        "oracle_k_all": 0.43,
+        "frac_fallback_atom_on_right": 0.0
+      },
+      "pure_mem": {
+        "all_hit1": 0.6391666666666667,
+        "n": 1200,
+        "obj_hit1": 0.315,
+        "n_right": 600,
+        "oracle_k_all": 0.43,
+        "frac_fallback_atom_on_right": 0.24166666666666667
+      },
+      "ft_fp": {
+        "all_hit1": 0.6883333333333334,
+        "n": 1200,
+        "obj_hit1": 0.41333333333333333,
+        "n_right": 600,
+        "oracle_k_all": 0.43,
+        "frac_fallback_atom_on_right": 0.0
+      }
+    },
+    "story": {
+      "atom": {
+        "all_hit1": 0.16721672167216722,
+        "n": 2727,
+        "obj_hit1": 0.2491103202846975,
+        "n_right": 281,
+        "oracle_k_all": 0.3296662999633297,
+        "frac_fallback_atom_on_right": 0.0
+      },
+      "pure_fp": {
+        "all_hit1": 0.14778144481114777,
+        "n": 2727,
+        "obj_hit1": 0.060498220640569395,
+        "n_right": 281,
+        "oracle_k_all": 0.0462046204620462,
+        "frac_fallback_atom_on_right": 0.0
+      },
+      "pure_mem": {
+        "all_hit1": 0.16354968830216354,
+        "n": 2727,
+        "obj_hit1": 0.21352313167259787,
+        "n_right": 281,
+        "oracle_k_all": 0.0462046204620462,
+        "frac_fallback_atom_on_right": 0.1708185053380783
+      },
+      "ft_fp": {
+        "all_hit1": 0.1551155115511551,
+        "n": 2727,
+        "obj_hit1": 0.13167259786476868,
+        "n_right": 281,
+        "oracle_k_all": 0.0462046204620462,
+        "frac_fallback_atom_on_right": 0.0
+      }
+    }
+  },
+  "seen_obj": {
+    "atom": 0.45166666666666666,
+    "pure_fp": 0.17,
+    "pure_mem": 0.315,
+    "ft_fp": 0.41333333333333333,
+    "best_hop": 0.41333333333333333,
+    "lift_vs_atom_pp": -0.03833333333333333
+  },
+  "rel_atom": 0.9633333333333334,
+  "verdict": "PARITY",
+  "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage133_honest_hop_rank.pt",
+  "note": "Arbiter only on right slot; non-right = atom. Supervise FT only when gold in atom top5."
+}

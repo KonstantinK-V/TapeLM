@@ -1,0 +1,23 @@
+SOTE Stage 94 — emb_lr x0.2 isolate (warmup200->constant 1e-3, no cosine)
+timestamp: 2026-07-24T18:42:21.071641+00:00
+device: cuda
+foundation: stage85_foundation.pt dim=256
+train: batch=32 steps=8000 peak_lr=0.001 warmup=200 emb_lr_mult=0.2
+ablate: ONLY emb slow vs Stage93; cosine still off
+ref Stage93: obj=33.3% rel=74% (full emb)
+ref Stage90: obj=28% rel=86%
+ref Stage92: obj~0.7% (cosine+emb slow FAIL)
+
+=== FT best ===
+  step=6500
+  SEEN  obj=27.3% rel=0.0% ALL=13.7% head=13.7%
+  RARE  obj=11.7%
+  STORY obj=8.9% ALL=7.6%
+  swing=27.3pp [SIMILAR_SWING] late_obj_drop=1.3pp (final obj=26.0%)
+
+=== vs 93 === TF@94 obj=27.3% rel=0.0% | 93 obj=33.3% rel=74%
+
+=== Verdict: FAIL ===
+  stability: SIMILAR_SWING
+  Read: if FAIL_EMB_KILL -> slow emb alone hurts; if PARITY -> cosine was 92 killer
+  next: batch {8,16,64} on Stage93 recipe (full emb)

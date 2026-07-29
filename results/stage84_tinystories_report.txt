@@ -1,0 +1,21 @@
+SOTE Stage 84 — TinyStories real chunk + a-z filter
+timestamp: 2026-07-24T15:16:18.762765+00:00
+device: cuda
+source: _tinystories_raw_chunk.txt (HF roneneldan/TinyStories TinyStoriesV2-GPT4 ~2MB head)
+filtered: external_tinystories_mini.txt meta={'source': '_tinystories_raw_chunk.txt', 'n_pathish': 2800, 'n_other': 1200, 'n_out': 3974, 'min_words': 3, 'max_words': 8}
+train=2981 hold=993 V=2297 new_words=2162
+parent: stage57_rehearsal_FROZEN.pt; NO soft@5
+
+=== ZS ===
+  ALL@1=1.9% rel=19.1% right=0.0% obj_slot=0.0% (n=609)
+  hold subkinds: {'noun_rel': 603, 'other': 247, 'polarity': 43, 'verb_ing': 100}
+
+=== FT best ===
+  best step=500 ALL@1=8.0% right=0.0% obj=0.0%
+  final ALL@1=8.0% (dZS +6.0pp) rel=78.4% right=0.0% obj=0.0% n=609
+  obj confusion={'right_correct': 0, 'other_rightish': 4, 'rel': 475, 'left': 0, 'other': 130}
+
+=== Verdict: WEAK ===
+  Soft: ALL lift on filtered TinyStories mini (not LIVE path claim).
+  Compare to 83b: fat repeats unlocked SEEN right; natural stories harder.
+  Right residual expected unless on|to frames are dense/repeated.

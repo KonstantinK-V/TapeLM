@@ -1,0 +1,67 @@
+{
+  "timestamp": "2026-07-28T17:54:16.641653+00:00",
+  "protocol": "dataset_answer_exam_183_fast",
+  "overall": "EXAM_NO_SIGNAL_YET",
+  "exam": "data\\stage183_exam.jsonl",
+  "counts": {
+    "cloze_in": 40,
+    "ood": 5,
+    "doc_link": 48
+  },
+  "results": {
+    "ce_gpt_181": {
+      "cloze_in_acc": 0.225,
+      "cloze_in_n": 40,
+      "cloze_ood_acc": 0.2,
+      "cloze_ood_n": 5,
+      "chance": 0.25,
+      "doc_acc": 0.6041666666666666,
+      "doc_n": 48,
+      "mean_same": 0.1572748472293218,
+      "mean_diff": 0.11300177103839815,
+      "gap_same_minus_diff": 0.04427307619092366,
+      "verdict": "NO_DATASET_ANSWER"
+    },
+    "dual_180": {
+      "cloze_in_acc": 0.275,
+      "cloze_in_n": 40,
+      "cloze_ood_acc": 0.0,
+      "cloze_ood_n": 5,
+      "chance": 0.25,
+      "doc_acc": 0.4375,
+      "doc_n": 48,
+      "mean_same": 0.42294739310940105,
+      "mean_diff": 0.44822631155451137,
+      "gap_same_minus_diff": -0.02527891844511032,
+      "verdict": "NO_DATASET_ANSWER"
+    },
+    "hybrid_182": {
+      "cloze_in_acc": 0.325,
+      "cloze_in_n": 40,
+      "cloze_ood_acc": 0.2,
+      "cloze_ood_n": 5,
+      "chance": 0.25,
+      "doc_acc": 0.4791666666666667,
+      "doc_n": 48,
+      "mean_same": 0.31034577265381813,
+      "mean_diff": 0.33952317014336586,
+      "gap_same_minus_diff": -0.02917739748954773,
+      "verdict": "NO_DATASET_ANSWER"
+    },
+    "random_hash": {
+      "cloze_in_acc": 0.3,
+      "cloze_in_n": 40,
+      "cloze_ood_acc": 0.4,
+      "cloze_ood_n": 5,
+      "chance": 0.25,
+      "doc_acc": 0.5208333333333334,
+      "doc_n": 48,
+      "mean_same": 0.022587503617008526,
+      "mean_diff": -0.004521391975382964,
+      "gap_same_minus_diff": 0.02710889559239149,
+      "verdict": "NO_DATASET_ANSWER"
+    }
+  },
+  "note": "Win = cloze_in≫chance and OOD~chance. LM ceiling (CE/ablation) is NOT this exam.",
+  "next": "If NO_SIGNAL on all: strengthen fact-oriented non-text teacher or richer exam. If only GPT signals: principle gap. If dual/hybrid signal: north star alive."
+}

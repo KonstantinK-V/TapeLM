@@ -1,0 +1,45 @@
+{
+  "timestamp": "2026-07-29T07:25:43.718789+00:00",
+  "protocol": "hybrid_rare_word_head_208",
+  "overall": "HYBRID_NO_GAIN",
+  "A_only": {
+    "common": 0.6694915254237288,
+    "rare": 0.430635838150289,
+    "all": 0.5514285714285714
+  },
+  "fp_only": {
+    "common": 0.4350282485875706,
+    "rare": 0.3554913294797688,
+    "all": 0.39571428571428574
+  },
+  "combined": {
+    "weight": 0.25,
+    "common": 0.6666666666666666,
+    "rare": 0.41329479768786126,
+    "all": 0.5414285714285715
+  },
+  "gated": {
+    "weights_low_high": [
+      0.0,
+      0.5
+    ],
+    "surprise_threshold": 0.06727368384599686,
+    "common": 0.6694915254237288,
+    "rare": 0.4161849710982659,
+    "all": 0.5442857142857143
+  },
+  "gates": {
+    "g1_no_degrade": true,
+    "g2_rare_win": false,
+    "g3_read_only": true
+  },
+  "config": {
+    "N_TRAIN_POS": 12000,
+    "STEPS": 2500,
+    "N_EVAL_BAND": 700,
+    "V_COMMON": 8000,
+    "V_RARE": 40000,
+    "chance": 0.25
+  },
+  "note": "candidates are frequency-matched within band (no unigram shortcut); the fp side is a discriminative reranker over the frozen context state, not a generative fp predictor (cf. 207)"
+}

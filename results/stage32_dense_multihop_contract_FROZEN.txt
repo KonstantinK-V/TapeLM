@@ -1,0 +1,41 @@
+SOTE Stage 32 dense multi-hop stress-contract FROZEN
+timestamp: 2026-07-24T05:52:00+00:00
+checkpoint: stage32_dense_multihop_FROZEN.pt
+source: stage32_edge_hop2.pt
+parents: stage31_chain_link.pt (+ hop_bank_25.pt, binders from 29d lineage)
+bank: hop_bank_25.pt
+
+=== CONTRACT (do not regress) ===
+
+Episodic MEM_WRITE:
+  observe_strict — one phrase key -> one memory slot
+  NEVER soft-merge distinct phrases into another slot during episode write
+  (soft SoftPhraseMemory.observe may exist for other regimes; not for this eval)
+
+Chain-link / ROLE_BRIDGE:
+  After episode write, build forward_links A->B when A.right == B.left
+  hop1: prefer chain-sourced candidates among partial-consistent facts
+  hop2: follow forward_link[key1] filtered by bridge=A.right (honest; no gold fallback)
+
+Honest metrics:
+  no gold bridge fallback for scored hop2 / joint / H2|H1
+  report H1, H2, H2|H1, joint on clean_bind (and dirty modes)
+
+Frozen binders at freeze:
+  CueBinder (16), Hop1PartialBinder + Hop2LeftBinder from stage32 binders_by_seed
+  stack / morph / phrase composers frozen as usual
+
+NOT part of the winning contract:
+  edge_fp A*B fan-out break — ablation showed edge_hop2 == chain_link
+  (fan-out was not the bottleneck once observe_strict held)
+
+=== METRICS AT FREEZE (3/3 seeds, dense clean_bind mean) ===
+  dense H1      ~85.9%
+  dense H2|H1   ~98.2%
+  dense joint   ~84.4%
+  ctrl joint    ~95.0%
+  pass: True
+
+=== FREEZE_READY: True ===
+
+Next: Stage 33 stress+ under this same contract (dirty_both / denser k / hubbier).

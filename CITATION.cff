@@ -1,0 +1,35 @@
+cff-version: 1.2.0
+title: "TapeLM: unified fingerprint memory on a frozen dual-channel curve encoder"
+message: "If you use this artifact, please cite it using the metadata from this file."
+type: software
+authors:
+  - family-names: "Kostya"
+    given-names: ""
+repository-code: "https://github.com/KonstantinK-V/TapeLM"
+license: MIT
+keywords:
+  - TapeLM
+  - character-level language model
+  - curve encoder
+  - dual-channel memory
+  - word fingerprint
+  - fingerprint lexicon
+  - episodic memory
+  - zero-train retrieval
+  - vector binding
+  - multi-hop retrieval
+  - retrieval-augmented generation
+  - knowledge editing
+  - machine unlearning
+  - OOD calibration
+  - reproducible research
+  - negative results
+abstract: >-
+  TapeLM (variant A) couples a frozen dual-channel character-curve encoder with
+  zero-training fingerprint modules—lexicon calibration, episodic slots, subject writes,
+  and hop/bind composition—in the same normalized fp-space as next-token generation.
+  The artifact documents matched-GPT parity, honest fair GPT+RAG comparisons, capability
+  wins on noisy/OOV text and slot unlearn, and explicit falsifications (generative
+  fingerprints, hybrid rerankers, internalization attempts Stages 210–212). Not a
+  monolithic SOTA language-model claim; an alternative memory contract with a staged
+  evidence trail.

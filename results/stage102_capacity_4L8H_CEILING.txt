@@ -1,0 +1,20 @@
+SOTE Stage 102 — capacity_4L8H
+timestamp: 2026-07-24T21:49:35.780298+00:00
+device: cuda
+foundation: stage85_foundation_FROZEN.pt
+n_phrases=460421 V=7063 params=4971520
+arch: d=256 L=4 H=8
+train: batch=8 steps=80000 warmup=200 lr=0.001 fat_frac=0.75
+mix: {'n_story_train': 162068, 'n_story_hold': 22100, 'n_fat_triples': 200, 'fat_copies': 40, 'n_train': 168468, 'n_hold_seen': 1600, 'n_hold_rare': 160, 'n_path_triples_avail': 30196}
+NO soft@5. F85 FROZEN not overwritten.
+
+=== Final ===
+  best_step=72000
+  SEEN  obj=41.6% rel=96.3% ALL=69.0%
+  RARE  obj=11.2%
+  STORY ALL=20.7% obj=17.8%
+
+=== vs ref {'obj': 0.4066666666666667, 'rel': 0.9708333333333333, 'story_all': 0.20646221248630886, 'rare_obj': 0.1375} ===
+  STORY lift +0.1pp  seen_held=True
+
+=== Verdict: CEILING ===

@@ -1,0 +1,33 @@
+{
+  "timestamp": "2026-07-28T19:20:48.251412+00:00",
+  "protocol": "self_model_surprise_187",
+  "overall": "SELF_MODEL_PARTIAL_3",
+  "gates": {
+    "G1_ce_preserved": {
+      "next_tok": 0.7266666666666667,
+      "baseline": 0.7066666666666667,
+      "ok": true
+    },
+    "G2_novelty": {
+      "surprise_seen_train": 0.055613648369908335,
+      "surprise_unseen_hold": 0.05819223318248987,
+      "ok": true
+    },
+    "G3_calibration": {
+      "entropy_after_real": 4.929898402094841,
+      "entropy_after_fake": 4.6081025242805485,
+      "ok": false
+    }
+  },
+  "exam_full": {
+    "next_tok_acc": 0.7266666666666667,
+    "next_tok_n": 150,
+    "entity_acc": 0.17,
+    "entity_n": 100,
+    "ood_acc": 0.18333333333333332,
+    "ood_n": 60
+  },
+  "k_final": 4.030536651611328,
+  "steps": 3000,
+  "note": "aux loss = predictor only (detached target); no representation pushing"
+}

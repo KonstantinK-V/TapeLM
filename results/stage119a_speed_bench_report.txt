@@ -1,0 +1,17 @@
+Stage 119a speed_bench
+{
+  "sote": {
+    "ms_per_step": 10.291707500000484,
+    "tok_per_s": 4010.9962316746814,
+    "params": 2989056,
+    "unit": "word_positions_in_batch"
+  },
+  "bpe": {
+    "available": true,
+    "ms_per_step": 15.715824000071734,
+    "tok_per_s": 4669.179293409309,
+    "params": 5223936
+  },
+  "ratio_ms_sote_over_bpe": 0.6548627357975954,
+  "verdict": "SPEED"
+}

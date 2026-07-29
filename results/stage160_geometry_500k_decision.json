@@ -1,0 +1,634 @@
+{
+  "timestamp": "2026-07-26T17:40:30.696566+00:00",
+  "protocol": "geometry_at_500k_under_Sstar",
+  "framing": "Lock S\u2605 ritual; vary only layer geometry at N\u2248460k. Tests wide-shallow / thin-deep / pyramid vs baseline.",
+  "n_phrases": 460000,
+  "ritual": {
+    "batch": 8,
+    "lr": 0.001,
+    "opt": "Adam",
+    "wd": 0.0,
+    "fat_frac": 0.75,
+    "word_max_len": 16
+  },
+  "geoms": {
+    "base_2L_d256": {
+      "kind": "uniform",
+      "d": 256,
+      "n_layer": 2,
+      "n_head": 4,
+      "note": "S\u2605 baseline"
+    },
+    "wide_2L_d512": {
+      "kind": "uniform",
+      "d": 512,
+      "n_layer": 2,
+      "n_head": 8,
+      "note": "wide-shallow"
+    },
+    "deep_4L_d256": {
+      "kind": "uniform",
+      "d": 256,
+      "n_layer": 4,
+      "n_head": 4,
+      "note": "thin-deep"
+    },
+    "pyramid_up": {
+      "kind": "pyramid",
+      "dims": [
+        256,
+        384,
+        512
+      ],
+      "heads": [
+        4,
+        6,
+        8
+      ],
+      "note": "expand 256\u2192384\u2192512"
+    },
+    "pyramid_down": {
+      "kind": "pyramid",
+      "dims": [
+        512,
+        384,
+        256
+      ],
+      "heads": [
+        8,
+        6,
+        4
+      ],
+      "note": "funnel 512\u2192384\u2192256"
+    }
+  },
+  "arms": {
+    "base_2L_d256": {
+      "arm": "base_2L_d256",
+      "unit": "word_fp",
+      "trunk": {
+        "batch": 8,
+        "lr": 0.001,
+        "opt": "Adam",
+        "wd": 0.0,
+        "d": 256,
+        "n_layer": 2,
+        "n_head": 4,
+        "fat_frac": 0.75
+      },
+      "V": 7301,
+      "params": 3452928,
+      "steps": 40000,
+      "mix_meta": {
+        "n_train": 201900,
+        "n_hold_seen": 1600,
+        "n_story_hold": 34500
+      },
+      "curve": [
+        {
+          "step": 0,
+          "obj": 0.0,
+          "rel": 0.0,
+          "story_all": 0.0
+        },
+        {
+          "step": 4000,
+          "obj": 0.3225,
+          "rel": 0.5625,
+          "story_all": 0.0943579766536965
+        },
+        {
+          "step": 8000,
+          "obj": 0.2775,
+          "rel": 0.9275,
+          "story_all": 0.08803501945525292
+        },
+        {
+          "step": 12000,
+          "obj": 0.3475,
+          "rel": 0.9575,
+          "story_all": 0.11964980544747082
+        },
+        {
+          "step": 16000,
+          "obj": 0.39,
+          "rel": 0.9725,
+          "story_all": 0.13229571984435798
+        },
+        {
+          "step": 20000,
+          "obj": 0.3925,
+          "rel": 0.9575,
+          "story_all": 0.1605058365758755
+        },
+        {
+          "step": 24000,
+          "obj": 0.4,
+          "rel": 0.895,
+          "story_all": 0.15904669260700388
+        },
+        {
+          "step": 28000,
+          "obj": 0.3725,
+          "rel": 0.9725,
+          "story_all": 0.1833657587548638
+        },
+        {
+          "step": 32000,
+          "obj": 0.4,
+          "rel": 0.97,
+          "story_all": 0.17169260700389105
+        },
+        {
+          "step": 36000,
+          "obj": 0.3875,
+          "rel": 0.9625,
+          "story_all": 0.20282101167315175
+        },
+        {
+          "step": 40000,
+          "obj": 0.415,
+          "rel": 0.735,
+          "story_all": 0.1921206225680934
+        }
+      ],
+      "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage160_base_2L_d256.pt",
+      "story_all_last": 0.1921206225680934,
+      "seen_obj_last": 0.415,
+      "ckpt_select": "best_ev_story_then_obj",
+      "seen_obj": 0.4025,
+      "seen_rel": 0.9675,
+      "story_all": 0.19055995309293464,
+      "story_obj": 0.20670391061452514
+    },
+    "wide_2L_d512": {
+      "arm": "wide_2L_d512",
+      "unit": "word_fp",
+      "trunk": {
+        "batch": 8,
+        "lr": 0.001,
+        "opt": "Adam",
+        "wd": 0.0,
+        "d": 512,
+        "n_layer": 2,
+        "n_head": 8,
+        "fat_frac": 0.75
+      },
+      "V": 7301,
+      "params": 10051584,
+      "steps": 40000,
+      "mix_meta": {
+        "n_train": 201900,
+        "n_hold_seen": 1600,
+        "n_story_hold": 34500
+      },
+      "curve": [
+        {
+          "step": 0,
+          "obj": 0.0,
+          "rel": 0.0,
+          "story_all": 0.0
+        },
+        {
+          "step": 4000,
+          "obj": 0.0,
+          "rel": 0.8475,
+          "story_all": 0.017123287671232876
+        },
+        {
+          "step": 8000,
+          "obj": 0.245,
+          "rel": 0.965,
+          "story_all": 0.09099804305283757
+        },
+        {
+          "step": 12000,
+          "obj": 0.25,
+          "rel": 0.87,
+          "story_all": 0.12181996086105674
+        },
+        {
+          "step": 16000,
+          "obj": 0.34,
+          "rel": 0.955,
+          "story_all": 0.12964774951076322
+        },
+        {
+          "step": 20000,
+          "obj": 0.36,
+          "rel": 0.1825,
+          "story_all": 0.11007827788649706
+        },
+        {
+          "step": 24000,
+          "obj": 0.4025,
+          "rel": 0.9575,
+          "story_all": 0.1487279843444227
+        },
+        {
+          "step": 28000,
+          "obj": 0.4075,
+          "rel": 0.965,
+          "story_all": 0.17123287671232876
+        },
+        {
+          "step": 32000,
+          "obj": 0.41,
+          "rel": 0.955,
+          "story_all": 0.1560665362035225
+        },
+        {
+          "step": 36000,
+          "obj": 0.4125,
+          "rel": 0.96,
+          "story_all": 0.1834637964774951
+        },
+        {
+          "step": 40000,
+          "obj": 0.3925,
+          "rel": 0.9775,
+          "story_all": 0.162426614481409
+        }
+      ],
+      "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage160_wide_2L_d512.pt",
+      "story_all_last": 0.162426614481409,
+      "seen_obj_last": 0.3925,
+      "ckpt_select": "best_ev_story_then_obj",
+      "seen_obj": 0.39875,
+      "seen_rel": 0.96625,
+      "story_all": 0.18533845699083654,
+      "story_obj": 0.2215568862275449
+    },
+    "deep_4L_d256": {
+      "arm": "deep_4L_d256",
+      "unit": "word_fp",
+      "trunk": {
+        "batch": 8,
+        "lr": 0.001,
+        "opt": "Adam",
+        "wd": 0.0,
+        "d": 256,
+        "n_layer": 4,
+        "n_head": 4,
+        "fat_frac": 0.75
+      },
+      "V": 7301,
+      "params": 5032448,
+      "steps": 40000,
+      "mix_meta": {
+        "n_train": 201900,
+        "n_hold_seen": 1600,
+        "n_story_hold": 34500
+      },
+      "curve": [
+        {
+          "step": 0,
+          "obj": 0.0,
+          "rel": 0.0,
+          "story_all": 0.0
+        },
+        {
+          "step": 4000,
+          "obj": 0.155,
+          "rel": 0.1225,
+          "story_all": 0.07718780727630285
+        },
+        {
+          "step": 8000,
+          "obj": 0.2775,
+          "rel": 0.9675,
+          "story_all": 0.0855457227138643
+        },
+        {
+          "step": 12000,
+          "obj": 0.3475,
+          "rel": 0.9625,
+          "story_all": 0.10865290068829891
+        },
+        {
+          "step": 16000,
+          "obj": 0.3525,
+          "rel": 0.9375,
+          "story_all": 0.14454277286135694
+        },
+        {
+          "step": 20000,
+          "obj": 0.395,
+          "rel": 0.9675,
+          "story_all": 0.14454277286135694
+        },
+        {
+          "step": 24000,
+          "obj": 0.4,
+          "rel": 0.95,
+          "story_all": 0.15339233038348082
+        },
+        {
+          "step": 28000,
+          "obj": 0.405,
+          "rel": 0.955,
+          "story_all": 0.14650934119960668
+        },
+        {
+          "step": 32000,
+          "obj": 0.405,
+          "rel": 0.8975,
+          "story_all": 0.16125860373647985
+        },
+        {
+          "step": 36000,
+          "obj": 0.4025,
+          "rel": 0.96,
+          "story_all": 0.17453294001966568
+        },
+        {
+          "step": 40000,
+          "obj": 0.3975,
+          "rel": 0.96,
+          "story_all": 0.17649950835791545
+        }
+      ],
+      "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage160_deep_4L_d256.pt",
+      "story_all_last": 0.17649950835791545,
+      "seen_obj_last": 0.3975,
+      "ckpt_select": "best_ev_story_then_obj",
+      "seen_obj": 0.38875,
+      "seen_rel": 0.9725,
+      "story_all": 0.18208430913348947,
+      "story_obj": 0.18155619596541786
+    },
+    "pyramid_up": {
+      "arm": "pyramid_up",
+      "unit": "word_fp",
+      "geom": {
+        "kind": "pyramid",
+        "dims": [
+          256,
+          384,
+          512
+        ],
+        "heads": [
+          4,
+          6,
+          8
+        ],
+        "note": "expand 256\u2192384\u2192512"
+      },
+      "trunk": {
+        "batch": 8,
+        "lr": 0.001,
+        "opt": "Adam",
+        "wd": 0.0,
+        "fat_frac": 0.75,
+        "word_max_len": 16,
+        "d": 256,
+        "n_layer": 3,
+        "n_head": 4,
+        "pyramid_dims": [
+          256,
+          384,
+          512
+        ],
+        "pyramid_heads": [
+          4,
+          6,
+          8
+        ]
+      },
+      "V": 7301,
+      "params": 11623936,
+      "steps": 40000,
+      "curve": [
+        {
+          "step": 0,
+          "obj": 0.0,
+          "rel": 0.0,
+          "story_all": 0.00048355899419729207
+        },
+        {
+          "step": 4000,
+          "obj": 0.2775,
+          "rel": 0.965,
+          "story_all": 0.05705996131528046
+        },
+        {
+          "step": 8000,
+          "obj": 0.1125,
+          "rel": 0.8675,
+          "story_all": 0.07446808510638298
+        },
+        {
+          "step": 12000,
+          "obj": 0.315,
+          "rel": 0.9325,
+          "story_all": 0.11605415860735009
+        },
+        {
+          "step": 16000,
+          "obj": 0.3475,
+          "rel": 0.925,
+          "story_all": 0.12427466150870406
+        },
+        {
+          "step": 20000,
+          "obj": 0.385,
+          "rel": 0.9575,
+          "story_all": 0.12040618955512572
+        },
+        {
+          "step": 24000,
+          "obj": 0.345,
+          "rel": 0.98,
+          "story_all": 0.14168278529980657
+        },
+        {
+          "step": 28000,
+          "obj": 0.3825,
+          "rel": 0.955,
+          "story_all": 0.13297872340425532
+        },
+        {
+          "step": 32000,
+          "obj": 0.395,
+          "rel": 0.7,
+          "story_all": 0.15715667311411993
+        },
+        {
+          "step": 36000,
+          "obj": 0.4025,
+          "rel": 0.9725,
+          "story_all": 0.17166344294003869
+        },
+        {
+          "step": 40000,
+          "obj": 0.39,
+          "rel": 0.9025,
+          "story_all": 0.16924564796905223
+        }
+      ],
+      "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage160_pyramid_up.pt",
+      "story_all_last": 0.16924564796905223,
+      "seen_obj_last": 0.39,
+      "ckpt_select": "best_ev_story_then_obj",
+      "n_phrases": 460000,
+      "mix_meta": {
+        "n_train": 201900,
+        "n_hold_seen": 1600,
+        "n_story_hold": 34500
+      },
+      "seen_obj": 0.4075,
+      "seen_rel": 0.96375,
+      "story_all": 0.1772966647162083,
+      "story_obj": 0.1921921921921922
+    },
+    "pyramid_down": {
+      "arm": "pyramid_down",
+      "unit": "word_fp",
+      "geom": {
+        "kind": "pyramid",
+        "dims": [
+          512,
+          384,
+          256
+        ],
+        "heads": [
+          8,
+          6,
+          4
+        ],
+        "note": "funnel 512\u2192384\u2192256"
+      },
+      "trunk": {
+        "batch": 8,
+        "lr": 0.001,
+        "opt": "Adam",
+        "wd": 0.0,
+        "fat_frac": 0.75,
+        "word_max_len": 16,
+        "d": 512,
+        "n_layer": 3,
+        "n_head": 8,
+        "pyramid_dims": [
+          512,
+          384,
+          256
+        ],
+        "pyramid_heads": [
+          8,
+          6,
+          4
+        ]
+      },
+      "V": 7301,
+      "params": 11628032,
+      "steps": 40000,
+      "curve": [
+        {
+          "step": 0,
+          "obj": 0.0,
+          "rel": 0.0,
+          "story_all": 0.0
+        },
+        {
+          "step": 4000,
+          "obj": 0.0075,
+          "rel": 0.9625,
+          "story_all": 0.04717898832684825
+        },
+        {
+          "step": 8000,
+          "obj": 0.2275,
+          "rel": 0.7525,
+          "story_all": 0.04328793774319066
+        },
+        {
+          "step": 12000,
+          "obj": 0.06,
+          "rel": 0.655,
+          "story_all": 0.030155642023346304
+        },
+        {
+          "step": 16000,
+          "obj": 0.015,
+          "rel": 0.8175,
+          "story_all": 0.038910505836575876
+        },
+        {
+          "step": 20000,
+          "obj": 0.04,
+          "rel": 0.925,
+          "story_all": 0.015077821011673152
+        },
+        {
+          "step": 24000,
+          "obj": 0.18,
+          "rel": 0.965,
+          "story_all": 0.07538910505836575
+        },
+        {
+          "step": 28000,
+          "obj": 0.24,
+          "rel": 0.98,
+          "story_all": 0.08511673151750973
+        },
+        {
+          "step": 32000,
+          "obj": 0.335,
+          "rel": 0.815,
+          "story_all": 0.07684824902723736
+        },
+        {
+          "step": 36000,
+          "obj": 0.3725,
+          "rel": 0.8125,
+          "story_all": 0.1269455252918288
+        },
+        {
+          "step": 40000,
+          "obj": 0.39,
+          "rel": 0.935,
+          "story_all": 0.14153696498054474
+        }
+      ],
+      "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage160_pyramid_down.pt",
+      "story_all_last": 0.14153696498054474,
+      "seen_obj_last": 0.39,
+      "ckpt_select": "best_ev_story_then_obj",
+      "n_phrases": 460000,
+      "mix_meta": {
+        "n_train": 201900,
+        "n_hold_seen": 1600,
+        "n_story_hold": 34500
+      },
+      "seen_obj": 0.3575,
+      "seen_rel": 0.92875,
+      "story_all": 0.13262910798122066,
+      "story_obj": 0.14868804664723032
+    }
+  },
+  "deltas_story_vs_base": {
+    "base_2L_d256": 0.0,
+    "wide_2L_d512": -0.0052214961020981,
+    "deep_4L_d256": -0.008475643959445167,
+    "pyramid_up": -0.013263288376726329,
+    "pyramid_down": -0.05793084511171398
+  },
+  "best_arm": "base_2L_d256",
+  "best_lift_vs_base": 0.0,
+  "ranked": [
+    "base_2L_d256",
+    "wide_2L_d512",
+    "deep_4L_d256",
+    "pyramid_up",
+    "pyramid_down"
+  ],
+  "verdict": "PARITY_TABLE",
+  "ref100": {
+    "obj": 0.426,
+    "rel": 0.958,
+    "story_all": 0.196,
+    "rare_obj": 0.117
+  },
+  "ref154_460k_hist_word_story": 0.194,
+  "note": "Promote into S\u2605 only on PASS_PROMOTE (>=+3pp). Do not sum with 151 deltas; this is the geometry factorial at scale."
+}

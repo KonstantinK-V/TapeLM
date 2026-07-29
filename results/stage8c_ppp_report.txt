@@ -1,0 +1,42 @@
+SOTE Stage 8c+++ report (hard slot from query residual)
+timestamp: 2026-07-22T17:41:58.972295+00:00
+device: cuda
+gpu: NVIDIA GeForce RTX 3050 Laptop GPU
+steps: 2500
+word ckpt: C:\Users\Kostya\sote-letter-assembly\checkpoints\word_memory_78e.pt
+phrase ckpt: C:\Users\Kostya\sote-letter-assembly\checkpoints\phrase_memory_8b.pt
+train QA: 40 | hold QA: 10
+
+Train QA acc:            100.0%  (hard-slot 100%, side 100%)
+HOLD QA acc:             100.0%  (hard-slot 100%, side 100%)
+Shuffle control:         30.0%   gap=+70.0pp
+Swap subj/obj control:   0.0%   gap=+100.0pp
+
+HOLD by kind:
+  what_on    100%
+  what_to    100%
+  where_on   100%
+  where_to   100%
+
+Query-residual intra-kind cos (want high within kind):
+  what_to    0.562
+  where_to   0.782
+  what_on    1.000
+  where_on   0.699
+
+HOLD QA details:
+  [OK] fact='cat to car' | q='what to car' -> cat (want cat, hard=cat) p_left=1.00
+  [OK] fact='cat to car' | q='where to cat' -> car (want car, hard=car) p_left=0.00
+  [OK] fact='dog to top' | q='what to top' -> dog (want dog, hard=dog) p_left=1.00
+  [OK] fact='dog to top' | q='where to dog' -> top (want top, hard=top) p_left=0.00
+  [OK] fact='go to cat' | q='what to cat' -> go (want go, hard=go) p_left=1.00
+  [OK] fact='go to cat' | q='where to go' -> cat (want cat, hard=cat) p_left=0.00
+  [OK] fact='spot on car' | q='what on car' -> spot (want spot, hard=spot) p_left=1.00
+  [OK] fact='spot on car' | q='where is spot' -> car (want car, hard=car) p_left=0.00
+  [OK] fact='good dog on car' | q='what on car' -> dog (want dog, hard=dog) p_left=1.00
+  [OK] fact='good dog on car' | q='where is dog' -> car (want car, hard=car) p_left=0.00
+
+How to read:
+- answer ≈ gated left/right neighbor of relation (hard slot)
+- side gate from query_residual (wh-morphology)
+- positive swap/shuffle gap => role structure, not bag/prior

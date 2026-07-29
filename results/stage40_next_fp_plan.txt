@@ -1,0 +1,22 @@
+SOTE Stage 40 plan — E next-fp (soft vs chance)
+
+Parent: stage39_decode_stress_FROZEN (+ freeze38 decode).
+Only after D stress green.
+
+E
+  1. Word next-fp: prefix word_fps → predict next word_fp → word NN decode
+  2. Phrase next-fp: phrase_fp A → predict next phrase_fp B (A.right==B.left) → phrase NN decode
+  Train thin MLP only; compose/decode frozen.
+  Controls: shuffle target baseline (chance)
+
+Soft gates (NOT GPT)
+  hold_acc - shuffle_acc >= 10pp
+  hold_acc >= 25% absolute floor (above ~1/V chance)
+  D regression: closed-set word/phrase decode still >=95% on hold bank
+
+Out
+  results/stage40_next_fp_report.txt
+  results/stage40_next_fp_metrics.json
+  checkpoints/stage40_next_fp.pt
+
+Run: python train.py

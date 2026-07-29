@@ -1,0 +1,22 @@
+SOTE Stages 57+59 external band — FROZEN
+timestamp: 2026-07-24T11:00:00+00:00
+
+=== BUNDLE ===
+  mid joint:  stage57_rehearsal_FROZEN.pt
+              stage57_rehearsal_contract_FROZEN.txt
+  1k ZS:      stage59_scale_1k_FROZEN.pt
+              stage59_scale_1k_contract_FROZEN.txt
+
+=== FROZEN CLAIMS ===
+  1. Mid (~618): L2 29.5%/+17pp AND order_drop +12.9pp (joint hard gate)
+  2. 1k ZS:      L2 27.9%/+20pp AND order_drop +14.0pp (≥25% soft)
+  3. Scale = parent ZS, not FT-dependent
+
+=== NOT CLAIMED ===
+  L1 phrase-start (≥15%) — majority ceiling ~9–12%
+  FT lift on 1k (dilutes)
+  hops-on-external dual-channel
+  phrase/char trunk
+
+=== FREEZE_READY: True ===
+Next: kinds dig B (path vs tail on 1k) → hops-on-external A.

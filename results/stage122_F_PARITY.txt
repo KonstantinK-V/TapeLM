@@ -1,0 +1,16 @@
+{
+  "dig": "F",
+  "tag": "fp_proj_adapter",
+  "verdict": "PARITY",
+  "seen": {
+    "obj": 0.3466666666666667,
+    "rel": 0.9333333333333333
+  },
+  "story_all": 0.09497616428309498,
+  "story_lift_pp": -0.10102383571690503,
+  "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage122_F_proj_adapter.pt",
+  "supported_by_C_D": {
+    "C": "WEAK",
+    "D": "NULL"
+  }
+}

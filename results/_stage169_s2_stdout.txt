@@ -1,0 +1,16 @@
+S2 start 2026-07-28T06:34:20.799957+00:00
+[s2] resume from stage169_s2_primary.pt @ step=220000
+##### S2 full primary 4L d256 seq=512 micro=8 steps=300000 opt=Adam wd=0.0 schedule=warmup_constant resume=220000 #####
+  [s2_primary] opt=Adam wd=0.0 lr=0.001->0.001 schedule=warmup_constant warmup=3000 steps=300000 resume_from=220000
+  [s2_primary] resume: skip step0 eval, continue from 220001
+  [s2_primary] step 230000: hold@last=27.3% bat=32.2% lift_maj=-4.7pp loss~4.444 lr=1.00e-03
+  [s2_primary] ckpt stage169_s2_primary.pt @ 230000
+  [s2_primary] step 240000: hold@last=27.3% bat=30.6% lift_maj=-6.4pp loss~4.475 lr=1.00e-03
+  [s2_primary] ckpt stage169_s2_primary.pt @ 240000
+  [s2_primary] step 250000: hold@last=24.7% bat=32.6% lift_maj=-4.4pp loss~4.472 lr=1.00e-03
+  [s2_primary] ckpt stage169_s2_primary.pt @ 250000
+  [s2_primary] step 260000: hold@last=23.3% bat=32.4% lift_maj=-4.6pp loss~4.467 lr=1.00e-03
+  [s2_primary] ckpt stage169_s2_primary.pt @ 260000
+  [s2_primary] step 270000: hold@last=20.7% bat=32.6% lift_maj=-4.4pp loss~4.447 lr=1.00e-03
+[s2_primary] EARLY_STOP @ 270000: lift<0 and flat
+[S2] S2_CONTINUE

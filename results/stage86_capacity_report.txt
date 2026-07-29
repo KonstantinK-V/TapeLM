@@ -1,0 +1,45 @@
+SOTE Stage 86 — capacity dig (TinyStories + stage85 foundation)
+timestamp: 2026-07-24T16:31:30.954875+00:00
+device: cuda
+foundation: stage85_foundation.pt dim=256 digits+letters max_word_len=24
+corpus: external_tinystories_mini_85.txt meta={'source': '_tinystories_raw_chunk.txt', 'n_pathish': 3500, 'n_other': 1500, 'n_out': 4956, 'min_words': 3, 'max_words': 8, 'digits_kept': True, 'max_word_len': 24}
+train=3717 hold=1239 V=2467
+NO object-FT curriculum. Exact codebook decode.
+
+=== ZS ===
+  SOTE ALL@1=0.0% rel=0.0% right=0.0% obj_slot=0.0% (n=843)
+  bigram ALL=24.0% rel=64.4% right=21.5%
+  by target freq (train count):  SOTE / bigram / hypBPE~
+    head21p  n= 6369  sote=  0.0%  bigram= 31.1%  hypBPE~ 34.2%
+    mid6_20  n=  896  sote=  0.0%  bigram=  2.8%  hypBPE~  3.1%
+    low2_5   n=  598  sote=  0.0%  bigram=  1.0%  hypBPE~  1.1%
+    rare1    n=  526  sote=  0.0%  bigram=  0.6%  hypBPE~  0.6%
+  target seen  : sote=0.0% bigram=24.8% n=8127
+  target unseen: sote=0.0% bigram=0.0% n=262
+
+=== FT best step=6000 ===
+  SOTE ALL@1=8.6% rel=83.7% right=0.0% obj_slot=0.0% (n=843)
+  bigram ALL=24.0% rel=64.4% right=21.5%
+  by target freq (train count):  SOTE / bigram / hypBPE~
+    head21p  n= 6369  sote= 11.3%  bigram= 31.1%  hypBPE~ 34.2%
+    mid6_20  n=  896  sote=  0.0%  bigram=  2.8%  hypBPE~  3.1%
+    low2_5   n=  598  sote=  0.0%  bigram=  1.0%  hypBPE~  1.1%
+    rare1    n=  526  sote=  0.0%  bigram=  0.6%  hypBPE~  0.6%
+  target seen  : sote=8.9% bigram=24.8% n=8127
+  target unseen: sote=0.0% bigram=0.0% n=262
+
+=== Adequacy: what SOTE handles vs not (this dataset) ===
+  HANDLES: rel@84%
+  FAILS:   head-freq, rare1 targets@0%, object-after-rel@0%, unseen targets
+  ALL@1 lift dZS=+8.6pp
+
+=== vs same-data baselines ===
+  bigram = majority next|prev on train (statistical floor).
+  hypBPE~ = theoretical small Transformer/BPE soft@1 on SAME lines
+            (heuristic: ~bigram + partial credit toward SOTE on head;
+             slight lift on rare via subword — not a trained model).
+  Read: On THIS mini corpus, SOTE tracks the same frequency cliff as a tiny LM would: head/rel learnable, rare/object/unseen stay near chance. hypBPE soft@1 would sit slightly above bigram on mid/rare via subword sharing, but would NOT invent rare story objects without repeats — same failure mode as SOTE, softer metric. Gap SOTE vs hypBPE here is capacity/decode hardness, not a different task.
+
+=== Verdict: WEAK ===
+  soft ALL gates: PARTIAL>=12% PASS>=20% + lift
+  Capacity claim is about frequency cliff / roles — not LIVE path band.

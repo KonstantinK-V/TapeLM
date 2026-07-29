@@ -1,0 +1,13 @@
+{
+  "dig": "5_same_role_rank",
+  "verdict": "PARTIAL",
+  "seen": {
+    "obj": 0.45166666666666666,
+    "rel": 0.9633333333333334,
+    "obj_hit5": 0.86
+  },
+  "story_all": 0.16721672167216722,
+  "obj_lift_pp": 0.02566666666666667,
+  "near_miss_gap_pp": 0.4083333333333333,
+  "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage125_same_role_rank.pt"
+}

@@ -1,0 +1,24 @@
+SOTE Stage 43 report (indexed fp-language corpus)
+timestamp: 2026-07-24T08:20:58.894279+00:00
+device: cuda
+contract: fp_language_contract.md
+Unit: space-split word ↔ word_id ↔ word_fp; phrase/edges = memory objects.
+
+=== Lexicon ===
+  words=107  phrases=215
+  token_rows=637  seq_rows=215
+  graph_edges=401  next_word_pairs=422 (train=232 hold=190)
+  source phrases train/hold=119/96
+
+=== D sanity (codebook self-decode) ===
+  word exact=100.0%  phrase exact=100.0%
+
+=== Preview (first 5 seqs) ===
+  seq 0 [train] phrase_id=0 word_ids=[0, 1, 2]  'cat on top'
+  seq 1 [train] phrase_id=1 word_ids=[3, 1, 2]  'dog on top'
+  seq 2 [train] phrase_id=2 word_ids=[0, 1, 4]  'cat on car'
+  seq 3 [train] phrase_id=3 word_ids=[3, 1, 4]  'dog on car'
+  seq 4 [train] phrase_id=4 word_ids=[5, 6, 4]  'go to car'
+
+=== Verdict ===
+  PASS: fp-corpus indexed; lexicon self-consistent. Next: train next/mask on word_id sequences (contract §5–7).

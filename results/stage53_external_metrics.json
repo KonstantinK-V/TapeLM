@@ -1,0 +1,80 @@
+{
+  "pass": true,
+  "zero_shot": {
+    "all": {
+      "acc": 0.17073170731707318,
+      "shuffle_tgt": 0.07317073170731707,
+      "gap": 0.09756097560975611,
+      "cos": 0.3478499438795375,
+      "n": 41
+    },
+    "L1": {
+      "acc": 0.07692307692307693,
+      "shuffle_tgt": 0.07692307692307693,
+      "gap": 0.0,
+      "cos": 0.29324857618373174,
+      "n": 13
+    },
+    "L2p": {
+      "acc": 0.21428571428571427,
+      "shuffle_tgt": 0.25,
+      "gap": -0.035714285714285726,
+      "cos": 0.37320057888116154,
+      "n": 28
+    }
+  },
+  "ft": {
+    "all": {
+      "acc": 0.36585365853658536,
+      "shuffle_tgt": 0.024390243902439025,
+      "gap": 0.3414634146341463,
+      "cos": 0.4060804837542336,
+      "n": 41
+    },
+    "L1": {
+      "acc": 0.15384615384615385,
+      "shuffle_tgt": 0.07692307692307693,
+      "gap": 0.07692307692307693,
+      "cos": 0.2241323424073366,
+      "n": 13
+    },
+    "L2p": {
+      "acc": 0.4642857142857143,
+      "shuffle_tgt": 0.14285714285714285,
+      "gap": 0.32142857142857145,
+      "cos": 0.4905564065224358,
+      "n": 28
+    }
+  },
+  "order": {
+    "clean": 0.4642857142857143,
+    "shuffled": 0.25,
+    "drop": 0.2142857142857143
+  },
+  "d_grown": 1.0,
+  "new_words": [
+    "bed",
+    "fox",
+    "hat",
+    "jump",
+    "play",
+    "walk"
+  ],
+  "n_train": 21,
+  "n_hold": 13,
+  "hold_phrases": [
+    "red hat to box",
+    "old dog on bed",
+    "new cat to hut",
+    "no ship to land",
+    "good bird on rim to peg",
+    "old dog on bed to car",
+    "reading to book",
+    "pushing on door",
+    "big playing on mat",
+    "good walking on road",
+    "no fox on mat",
+    "cat dog fox to bed",
+    "play playing played"
+  ]
+}

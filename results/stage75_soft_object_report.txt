@@ -1,0 +1,20 @@
+SOTE Stage 75 report (soft object shortlist + hops probe)
+timestamp: 2026-07-24T13:25:00+00:00
+parent: stage57_rehearsal_FROZEN.pt  dense: data/external_verb_dense.txt
+Policy: exact next on object not required; soft/hops OK (BPE-honest).
+
+=== ZS ===
+  shortlist 12.1% chance~11.8% gap=+0.3pp n=1008 |c|=8.0
+  exact-full 6.2%
+
+=== After soft InfoNCE (best protect-aware) ===
+  shortlist ~12.7%/+0.9pp (stuck at chance/8)
+  exact-full ~11-12% peak under protect
+  Soft InfoNCE did NOT unlock binding.
+
+=== Hops probe (what_tail -> phrase on dense atoms) ===
+  retrieve 81.2% n=64
+
+=== Verdict: PASS hops-side ===
+  Next soft weak (~13%) but hops retrieve 81% - route object via memory, not exact next.
+  Working axis kept; verb_ing object via hops not exact-only / not soft-shortlist.

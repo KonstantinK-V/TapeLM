@@ -1,0 +1,36 @@
+SOTE Stage 9b+ report (harder generative morph probe)
+timestamp: 2026-07-22T20:10:19.900427+00:00
+device: cuda
+gpu: NVIDIA GeForce RTX 3050 Laptop GPU
+steps: 2500
+word ckpt: C:\Users\Kostya\sote-letter-assembly\checkpoints\word_memory_9_2.pt
+train -ing pairs: 10 | HOLD morph stems: 4
+ing basin updates: 6750
+
+HOLD COLD compose trace/perm/path/stab: 88/88/100/100%
+Morph TRAIN bind/add/stem: 100/40/0%  (agree 100%)
+Morph HOLD  bind/add/stem: 0/100/0%  (agree 0%)
+HOLD bind-add gap: -100pp  (want bind > add)
+
+Morph HOLD details (stems NEVER in morph CE):
+  [MISS] jump+ing -> taking (want jumping, add=jumping, stem=jump) agree=0.25
+  [MISS] walk+ing -> making (want walking, add=walking, stem=walk) agree=0.22
+  [MISS] read+ing -> making (want reading, add=reading, stem=read) agree=0.40
+  [MISS] write+ing -> posting (want writing, add=writing, stem=write) agree=0.28
+
+Morph TRAIN details:
+  [OK] play+ing -> playing (want playing) score=0.99 add=play
+  [OK] run+ing -> running (want running) score=0.99 add=run
+  [OK] make+ing -> making (want making) score=0.99 add=making
+  [OK] take+ing -> taking (want taking) score=0.99 add=take
+  [OK] give+ing -> giving (want giving) score=1.00 add=giving
+  [OK] stop+ing -> stopping (want stopping) score=1.00 add=stop
+  [OK] post+ing -> posting (want posting) score=1.00 add=post
+  [OK] go+ing -> going (want going) score=0.98 add=going
+  [OK] act+ing -> acting (want acting) score=1.00 add=acting
+  [OK] fish+ing -> fishing (want fishing) score=1.00 add=fish
+
+How to read:
+- HOLD stems are morph-OOV (not just compose-OOV forms)
+- success: HOLD bind high, stem~0, bind ideally > add
+- compose COLD must stay ~88%; no population churn

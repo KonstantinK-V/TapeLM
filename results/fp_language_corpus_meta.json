@@ -1,0 +1,26 @@
+{
+  "pass": true,
+  "n_words": 107,
+  "n_phrases": 215,
+  "n_token_rows": 637,
+  "n_seq_rows": 215,
+  "n_edges": 401,
+  "n_next_word": 422,
+  "n_next_word_train": 232,
+  "n_next_word_hold": 190,
+  "splits_source": {
+    "train": 119,
+    "hold": 96
+  },
+  "sanity": {
+    "word_exact": 1.0,
+    "phrase_exact": 1.0,
+    "n_words": 107,
+    "n_phrases": 215
+  },
+  "artifacts": {
+    "corpus": "fp_language_corpus.pt",
+    "preview": "fp_language_corpus_preview.jsonl",
+    "contract": "fp_language_contract.md"
+  }
+}

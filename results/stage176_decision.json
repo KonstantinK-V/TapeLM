@@ -1,0 +1,27 @@
+{
+  "timestamp": "2026-07-28T14:10:53.166240+00:00",
+  "protocol": "curve_as_tokens_176",
+  "overall": "CURVE_TOKENS_CONTEXT_WEAK",
+  "practical": "STILL_LAST_UNIT_WIPE",
+  "steps": 15000,
+  "arc_definition": "whitespace-separated non-space chunks (word/punct-like)",
+  "unit": "arc vector from local char mean-pool; sequence model = causal Transformer",
+  "loss": "next-arc cosine + arc-Delta cosine (no CE)",
+  "A": {
+    "verdict": "A_WEAK_PARTIAL",
+    "mean_cos_same_last_arc": 0.9630459144711494,
+    "mean_cos_diff_last_arc": 0.02524192159762606,
+    "n_same": 80,
+    "n_diff": 80
+  },
+  "init_A": {
+    "verdict": "A_PASS_PREFIX_VISIBLE",
+    "mean_cos_same_last_arc": 0.7935587082058191,
+    "mean_cos_diff_last_arc": 0.696884299442172,
+    "n_same": 80,
+    "n_diff": 80
+  },
+  "trajectory": "init 0.79 -> @1.5k 0.991 FAIL -> @15k 0.963 WEAK (still last-arc dominated)",
+  "note": "Analog of BPE tokens but continuous arc embeddings. Unit change != context.",
+  "next": "Do not soak next-arc. Need retention / predict-across-arcs / instance channel — next-arc alone relearns suffix wipe."
+}

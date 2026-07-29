@@ -1,0 +1,126 @@
+{
+  "timestamp": "2026-07-26T15:31:04.384634+00:00",
+  "protocol": "shared_morph_in_one_codebook_words_kept",
+  "framing": "Codebook=one indexing entity; add data-driven morph atoms so endings are shared ids; words remain atoms.",
+  "ctrl_word": {
+    "arm": "ctrl_word_splus",
+    "V": 5489,
+    "seen_obj": 0.39625,
+    "story_all": 0.13820192027931336,
+    "story_obj": 0.1558073654390935,
+    "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage156_ctrl_word_splus.pt",
+    "trunk": {
+      "batch": 8,
+      "lr": 0.001,
+      "opt": "Adam",
+      "wd": 0.0,
+      "d": 512,
+      "n_layer": 4,
+      "n_head": 8,
+      "fat_frac": 0.75,
+      "max_len": 40
+    }
+  },
+  "shared_morph": {
+    "arm": "156_shared_morph",
+    "mode": "shared_morph",
+    "drop_rare": false,
+    "codebook": {
+      "n_word_atoms": 5489,
+      "n_stem_atoms": 420,
+      "n_affix_atoms": 3,
+      "V": 5912,
+      "n_dropped_rare_words": 0
+    },
+    "mine": {
+      "n_affix_types_kept": 3,
+      "n_stem_types_kept": 420,
+      "min_support": 8,
+      "n_decomp_tokens": 30110
+    },
+    "morph_expand_coverage": 0.07958814526227911,
+    "seen_obj": 0.3525,
+    "story_all": 0.1294151708164447,
+    "story_obj": 0.2072072072072072,
+    "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage156_157_156_shared_morph.pt",
+    "curve": [
+      {
+        "step": 0,
+        "story_all": 0.0,
+        "obj": 0.0
+      },
+      {
+        "step": 4000,
+        "story_all": 0.04613890237979602,
+        "obj": 0.014150943396226415
+      },
+      {
+        "step": 8000,
+        "story_all": 0.06508013598834386,
+        "obj": 0.06132075471698113
+      },
+      {
+        "step": 12000,
+        "story_all": 0.08742107819329771,
+        "obj": 0.04716981132075472
+      },
+      {
+        "step": 16000,
+        "story_all": 0.09422049538610976,
+        "obj": 0.1320754716981132
+      },
+      {
+        "step": 20000,
+        "story_all": 0.1146187469645459,
+        "obj": 0.15566037735849056
+      },
+      {
+        "step": 24000,
+        "story_all": 0.11024769305488101,
+        "obj": 0.1509433962264151
+      },
+      {
+        "step": 28000,
+        "story_all": 0.12287518212724624,
+        "obj": 0.15566037735849056
+      },
+      {
+        "step": 32000,
+        "story_all": 0.1345313258863526,
+        "obj": 0.1792452830188679
+      },
+      {
+        "step": 36000,
+        "story_all": 0.09762020398251578,
+        "obj": 0.07075471698113207
+      },
+      {
+        "step": 40000,
+        "story_all": 0.11510441962117533,
+        "obj": 0.10849056603773585
+      }
+    ],
+    "trunk": {
+      "batch": 8,
+      "lr": 0.001,
+      "opt": "Adam",
+      "wd": 0.0,
+      "d": 512,
+      "n_layer": 4,
+      "n_head": 8,
+      "fat_frac": 0.75,
+      "max_len": 40
+    }
+  },
+  "story_lift_vs_ctrl": -0.008786749462868643,
+  "verdict": "PARITY",
+  "upstream": {
+    "pipe": "PIPELINE_DONE"
+  },
+  "ref100": {
+    "obj": 0.426,
+    "rel": 0.958,
+    "story_all": 0.196,
+    "rare_obj": 0.117
+  }
+}

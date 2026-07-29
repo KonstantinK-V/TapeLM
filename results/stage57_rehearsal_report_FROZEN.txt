@@ -1,0 +1,32 @@
+SOTE Stage 57 report (mid rehearsal path/tiny + order — chase hard PASS)
+timestamp: 2026-07-24T10:26:42.609520+00:00
+device: cuda
+parent: stage55_ft_curve.pt  data: data\external_mid.txt + tiny rehearsal
+lines=618 train/hold=402/216 pairs=1231/650 V=135 new=28
+rehearsal: frac=0.55 path=345 tiny=34
+budget=3000 eval_every=150 lrs=[0.0005, 0.001]
+harden: n_perm=2 margin=0.15 w=1.0
+gates: PASS order≥10pp AND L2≥28%; PARTIAL L2≥25%+order (L1 diagnostic; no scale)
+
+=== D grown exact=100.0% ===
+
+=== Parent HOLD (pre-rehearsal) ===
+  L1  7.4%/+5.1pp n=216
+  L2+ 28.3%/+15.7pp n=434
+  order_drop=+3.2pp
+
+=== Curve arms (joint peak restored) ===
+  lr=0.0005: peak@ 3000 tier=3 L2=29.0%/+16.8pp drop=+11.1pp | end L2=29.0% drop=+11.1pp
+  lr=0.001: peak@ 3000 tier=3 L2=29.5%/+17.3pp drop=+12.9pp | end L2=29.5% drop=+12.9pp
+
+=== Selected lr=0.001 @step=3000 tier=3 → HOLD ===
+  L1  8.8%/+7.4pp n=216  (diagnostic)
+  L2+ 29.5%/+17.3pp n=434
+  L3+ 10.6%/+9.2pp n=218
+  order clean=29.5% shuf=16.6% drop=+12.9pp
+
+=== Walls: ['order_stretch_15pp', 'L1_soft_9pct'] ===
+
+=== Verdict ===
+  PASS: rehearsal recovered hard gate — order +13pp with L2 29% ≥28% (stretch 15pp not met). Next: L1 dig or ~1k scale.
+  No phrase/char trunk. No hops-external.

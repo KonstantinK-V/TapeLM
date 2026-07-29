@@ -1,0 +1,42 @@
+SOTE bridge+QA+binder contract 16 FROZEN
+timestamp: 2026-07-23T12:35:57.481208+00:00
+checkpoint: bridge_qa_binder_16_FROZEN.pt
+parent: scale_hold_13_FROZEN.pt
+
+Locked layers:
+  alphabet      : alphabet_full_frozen.pt
+  words         : word_memory_9_2.pt
+  morph         : morph_letter_9f_plusplus_FROZEN.pt
+  phrase        : PhraseComposer (scale-contract 13)
+  memory_gate   : SoftPhraseMemory 11++ (soft-create + retrieve margin)
+  relational    : HardSlotProbe (scale-contract 13)
+  text_bridge   : NN word codebook decode (Stage 14)
+  multi_fact_qa : identity + cue retrieve episodes (Stage 15)
+  cue_binder    : CueBinder residual MLP (Stage 16)
+
+Banks:
+  TRAIN=68  HOLD=38  word_codebook=149
+
+Cue protocol:
+  what  -> {rel} {right}
+  where -> {left} {rel}
+
+Metrics at freeze:
+  [13] HOLD QA 100.0%  unstick 91%
+  [14] word recon 100.0%  phrase HOLD 100.0%  rel 100.0%
+  [15] identity joint 100.0%  cue joint 75.6%
+  [16] cue bound 85.7%  (raw 75.3%, lift +10.4pp)
+  [16] inter bound 76.3%  (raw 63.2%, lift +13.2pp)
+
+Rules:
+  - Do not retrain frozen word/morph/phrase/probe/binder without explicit unfreeze.
+  - Text IO goes through bridge encode/decode; cue retrieve uses CueBinder.
+  - Identity multi-fact path remains the high-confidence QA route.
+  - New work may ADD modules on top; expand banks eval-first.
+
+Deferred:
+  - key-by-compose (keep string label + content fp)
+  - soft_variant / skeleton training
+  - stronger shared-object what disambiguation
+
+=== FREEZE_READY: True ===

@@ -1,0 +1,43 @@
+SOTE Stage 86 — capacity dig (TinyStories + dim256 foundation) — WEAK
+timestamp: 2026-07-24T16:31:30+00:00
+
+=== SETUP ===
+  foundation: stage85_foundation.pt (dim256, a-z+digits, max_word_len24)
+  corpus: external_tinystories_mini_85.txt (~4956 lines, digits kept)
+  train 3717 / hold 1239 / V=2467
+  TinySeq FT 6k steps; NO object-FT curriculum
+
+=== SOTE FT (best) ===
+  ALL@1 8.6% (dZS +8.6pp)   rel 83.7%   right 0%   obj_slot 0%
+
+=== SAME-DATA COMPARISON ===
+  metric              SOTE     bigram    hypBPE~
+  ALL                 8.6%     24.0%     ~bigram+
+  rel                 83.7%    64.4%     ~high (SOTE wins slot type)
+  right / object      0%       21.5%     ~low–mid (SOTE worse: exact NN)
+  head21p targets     11.3%    31.1%     ~34%
+  mid / low / rare1   0%       1–3%      ~same cliff
+  unseen targets      0%       0%        ~0%
+
+=== ADEQUACY ===
+  HANDLES: rel (frequent closed class)
+  FAILS:   head content beyond rel, rare1, object-after-rel, unseen
+  dim256 + digits did NOT unlock story capacity on this mini set.
+  Plateau from step 500: model latches onto on|to.
+
+=== vs hypothetical BPE/Transformer (same data) ===
+  Same frequency cliff. BPE would beat SOTE on soft@1 for content words
+  (subword + soft decode) and beat exact NN collisions — still would not
+  invent rare story objects without repeats. Task identity = next-atom;
+  gap here = capacity/decode, not "BPE magic".
+
+=== Verdict: WEAK ===
+  Capacity dig only. Not LIVE path claim. Not object-FT.
+
+=== ARTIFACTS ===
+  results/stage86_capacity_report.txt
+  results/stage86_capacity_metrics.json
+  checkpoints/stage86_capacity.pt
+  data/external_tinystories_mini_85.txt
+
+=== FREEZE_READY: True (WEAK dig) ===

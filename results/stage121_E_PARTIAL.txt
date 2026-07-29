@@ -1,0 +1,10 @@
+{
+  "dig": "E",
+  "tag": "entity_who_where",
+  "verdict": "PARTIAL",
+  "local": 0.0009689922480620155,
+  "ent_mem": 0.021560077519379845,
+  "gain_pp": 0.02059108527131783,
+  "supported_by": "NULL",
+  "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage121_E_entity_slots.pt"
+}

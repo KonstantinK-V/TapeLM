@@ -1,0 +1,68 @@
+SOTE F85 dual-channel band — FROZEN (dim256 lineage; do not train over)
+timestamp: 2026-07-24T20:05:00+00:00
+
+=== INTENT ===
+  Lock the working F85 stack after Stages 85-99:
+  foundation encode (dim256) + WordIdTransformer next-atom + SoftPhraseMemory hops.
+  Dual channel (contract §11): atom = local next-id; facts = hops graph.
+  Exact@1 only. Soft@5 not a gate/claim.
+  V1 RESERVE and V2 path-replay band stay untouched (separate lineages / dim64).
+
+=== DO NOT ===
+  Overwrite *_FROZEN.pt below in place for new experiments — copy first.
+  Mix V1 dim64 binders into this dim256 stack without a new labeled stage.
+  Claim TinyStories-mini STORY/RARE as LIVE (soft ceiling on this data budget).
+
+=== CORE WEIGHTS (freeze) ===
+  foundation:     checkpoints/stage85_foundation_FROZEN.pt
+  atom (best):    checkpoints/stage98_swing_FROZEN.pt
+                  (recipe: batch8, warmup200->1e-3, emb x1, fat_frac=0.75)
+  atom ref:       checkpoints/stage95_batch_sweep_FROZEN.pt  (batch8 winner)
+  dual smoke:     checkpoints/stage97_atom_hops_FROZEN.pt
+  dirty hops FT:  checkpoints/stage99_dirty_hop_ft_FROZEN.pt
+                  (DirtyWhatRefine + Hop2LeftBinder@256)
+
+=== DATA (freeze) ===
+  data/external_facts_live_exp_FROZEN.txt     (818 noun_rel|polarity; hops)
+  data/external_tinystories_mini_85.txt       (atom capacity dig)
+  data/external_tinystories_repeat_mix.txt    (fat path mix; rebuildable seed=272)
+
+=== REPORTS / METRICS (freeze copies) ===
+  results/stage85_foundation_PASS_FROZEN.txt   (if present)
+  results/stage95_batch_sweep_PARTIAL_FROZEN.txt
+  results/stage97_atom_hops_PASS_FROZEN.txt
+  results/stage97_atom_hops_metrics_FROZEN.json
+  results/stage98_swing_STABLER_PARTIAL_FROZEN.txt
+  results/stage98_swing_report_FROZEN.txt
+  results/stage98_swing_metrics_FROZEN.json
+  results/stage99_dirty_hop_ft_PASS_FROZEN.txt
+  results/stage99_dirty_hop_ft_report_FROZEN.txt
+  results/stage99_dirty_hop_ft_metrics_FROZEN.json
+  results/sote_v2_path_replay.md              (log through Stage 99; living index)
+  results/fp_language_contract.md             (living contract; see freeze pointer below)
+
+=== LIVE CLAIMS (this band, exact@1) ===
+  1. Foundation 85: charset a-z+0-9+space, dim=256, max_word_len=24;
+     word/digit/morph/encode_B gates 100% (PASS).
+  2. Atom WordIdTransformer on fat+story mix (batch8 recipe + swing knobs):
+     SEEN obj ~41%, rel ~96%; swing_when_rel>=50% ~13pp (STABLER_PARTIAL vs ~38pp@95).
+  3. Dual channel: SoftPhraseMemory hops via F85 CueBinder — clean hop2 joint ~95%.
+  4. Dirty-hop FT @256: dirty_bind/hard joint ~96%/92%; clears V1 Stage64 soft floors
+     (dirty_bind>=55% or within 25pp of clean; dirty_hard>=50%; clean>=70%).
+     Eval dirty = last-token noise (V1-style), not whole-cue string smash.
+
+=== EXPLICIT RESIDUALS / NON-CLAIMS ===
+  TinyStories-mini STORY ALL ~10%, RARE obj ~13% — soft ceiling on this budget
+    (same frequency cliff as hyp BPE); NOT LIVE generative story LM.
+  Soft@5 / hit@5 as success
+  V1 dim64 stack compatibility with F85 (incompatible; keep separate)
+  verb_ing hop LIVE; true logical negation / NLI
+  Overwrite of V1 RESERVE or V2 path-replay FROZEN bands
+
+=== RECIPE LOCK (atom default) ===
+  batch=8, warmup=200 -> constant lr=1e-3, emb_lr_mult=1.0, fat_frac=0.75
+  No cosine decay as default; emb x0.2 FAIL; lr 2e-3 FAIL; batch 64 FAIL
+
+=== FREEZE_READY: True ===
+Next work = new labeled stages only (copy FROZEN weights first).
+Do not silently retrain stage85/98/99 FROZEN in place.

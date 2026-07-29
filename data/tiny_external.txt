@@ -1,0 +1,51 @@
+# Tiny external SOTE-compatible lines (a-z + spaces).
+# Novel compositions + a few new encodable words for transfer probe.
+# Split: lines marked [train] / [hold] below are assigned in code by tag or hash.
+
+# --- in-lexicon novel frames ---
+big fox on mat
+red hat to box
+old dog on bed
+new cat to hut
+good bird on rim
+no ship to land
+not ball on sand
+big rock on road
+red book to shop
+old hand on door
+
+# --- longer paths-ish external ---
+big fox on mat to bed
+red hat to box on land
+good bird on rim to peg
+old dog on bed to car
+new cat to hut on sand
+
+# --- verb-ish beyond ---
+looking to fox
+walking on road
+reading to book
+pushing on door
+helping to hand
+
+# --- adj verb frames ---
+big playing on mat
+red jumping to box
+good walking on road
+old reading to book
+
+# --- polarity ---
+no fox on mat
+not hat to box
+no bird on rim
+not dog to bed
+
+# --- list-like ---
+fox hat bird on mat
+cat dog fox to bed
+ship rock road on land
+
+# --- morph snippets ---
+play playing played
+walk walking walked
+jump jumping jumped

@@ -1,0 +1,55 @@
+{
+  "timestamp": "2026-07-29T13:13:30.560338+00:00",
+  "protocol": "softfollow_forward_tokens_210",
+  "overall": "THESIS_NO",
+  "soft_follow_token": {
+    "train": {
+      "1": 0.2222222222222222,
+      "2": 0.23333333333333334,
+      "3": 0.17222222222222222
+    },
+    "test": {
+      "1": 0.2833333333333333,
+      "2": 0.25,
+      "3": 0.3
+    }
+  },
+  "free_form_token": {
+    "train": {
+      "1": 0.2388888888888889,
+      "2": 0.2777777777777778,
+      "3": 0.2833333333333333
+    },
+    "test": {
+      "1": 0.25,
+      "2": 0.3333333333333333,
+      "3": 0.21666666666666667
+    }
+  },
+  "no_memory_test": {
+    "1": 0.2,
+    "2": 0.31666666666666665,
+    "3": 0.2
+  },
+  "external_loop_cosine_test": {
+    "1": 1.0,
+    "2": 1.0,
+    "3": 1.0
+  },
+  "next_tok": {
+    "p1_acc": 0.825,
+    "inject_mem0_acc": 0.825,
+    "delta": 0.0
+  },
+  "bit_identity_max_diff": 0.0,
+  "gates": {
+    "g1_generalize": false,
+    "g2_structure": false,
+    "g3_no_ce_cost": true,
+    "g4_bit_identity": true,
+    "g5_needs_memory": true
+  },
+  "anticf_encoder_frozen": true,
+  "chance": 0.25,
+  "interpretation": "THESIS_YES = structured hops inside forward answer via CE tokens without P1 grad"
+}

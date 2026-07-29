@@ -1,0 +1,11 @@
+SOTE Stage 108 — ce_reweight_rel_only (word-level CE reweight)
+timestamp: 2026-07-24T23:57:49.179327+00:00
+mode=rel_only rel_w=0.15 fat_frac=0.75 steps=60000
+RELS=['on', 'to']
+best_step=48000
+SEEN obj=40.1% rel=91.9%
+STORY ALL=17.5% obj=16.1%
+RARE obj=13.8%
+vs101: obj -0.6pp story -3.1pp
+Verdict: PARITY
+Hypothesis: downweight easy rel targets frees gradient for obj/rare.

@@ -1,0 +1,26 @@
+SOTE Stage 83b — denser noun_rel repeats — PASS (SEEN right LIVE)
+timestamp: 2026-07-24T15:05:07+00:00
+
+=== SETUP ===
+  same 120 fat triples as 83a (seed 272); copies 30 -> 80; FT steps 4k -> 8k
+  corpus: data/external_noun_rel_repeat_83b.txt
+  train 7680 / hold_seen 1920 / hold_rare 180
+
+=== RESULT ===
+  SEEN right@1: 3.3% ZS -> **50.8%** FT (best step 7600); rel 78.3%; protect OK
+  vs 83a SEEN right 25%: **+25.8pp**
+  RARE right@1: ~0–2% stuck (RARE_STILL_HARD)
+  Verdict: **PASS** (LIVE gate SEEN right >=50%)
+
+=== LOCKED READ ===
+  More repeats => LIVE generative right on **seen** triples (TinySeq dim64 enough).
+  Rare/unseen triples do not follow — hops-primary / more overlap still required there.
+  Scale thesis strengthened: density per triple is the lever for next@1 object.
+
+=== ARTIFACTS ===
+  results/stage83b_nr_dense_report.txt
+  results/stage83b_nr_dense_metrics.json
+  checkpoints/stage83b_nr_dense.pt
+
+=== FREEZE_READY: True (PASS dig; toy fat corpus, not natural 1k claim) ===
+Next optional: mix fat curriculum into external_1k (proposal 2).

@@ -1,0 +1,13 @@
+SOTE Stage 58 — FAIL L1 (data ceiling / majority)
+timestamp: 2026-07-24T10:34:17+00:00
+parent: stage57_rehearsal.pt
+checkpoint: stage58_l1_dig.pt (keeps parent weights @step0)
+
+=== RESULT ===
+  majority L1 baseline 9.3%
+  parent/best L1 8.8% — no arm beat protect tier with L1≥15%
+  L1 FT lifts briefly (~12%) only when L2/order regress
+  wall: L1 ≈ majority; not schedule
+
+=== READ ===
+  Accept soft L1 residual. Do not block scale. Next: ~1k + peak-restore.

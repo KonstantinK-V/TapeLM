@@ -1,0 +1,8 @@
+SOTE Stage 117 — hops_rerank (hops as path/object prior)
+timestamp: 2026-07-25T09:35:51.651485+00:00
+mode=rerank alpha=2.0 lam=0.3
+SEEN exact obj=42.6% rel=95.8%
+SEEN morph obj=42.7% (+0.0pp vs exact)
+STORY exact ALL=19.2% morph ALL=19.3%
+vs100 obj -0.0pp
+Verdict: PARITY (GATE=exact only; morph is diagnostic)

@@ -1,0 +1,37 @@
+SOTE Stage 60 report (kinds dig — path vs tail on frozen 1k HOLD)
+timestamp: 2026-07-24T11:03:13.904217+00:00
+device: cuda
+parent: stage57_rehearsal_FROZEN.pt  data: data\external_1k.txt
+hold_frac=0.3 hold_lines=300 pairs=935
+kind_line_counts={'path_short': 252, 'path_long': 45, 'no_rel': 3}
+subkind_line_counts={'noun_rel': 168, 'verb_ing': 91, 'polarity': 41}
+No FT. Soft live: L2≥25% AND gap≥10pp (n_L2≥20).
+
+=== Overall HOLD ===
+  L1  11.0%/+8.3pp n=300
+  L2+ 27.9%/+19.8pp n=635
+  order_drop=+14.0pp
+
+=== By kind (L2 pairs) ===
+  path_short     [LIVE] L2=27.2%/+16.8pp order=+10.2pp nL2=452 L1=13.1% n_lines=252
+  path_long      [LIVE] L2=29.4%/+15.6pp order=+18.3pp nL2=180 L1=0.0% n_lines=45
+  no_rel         [thin] L2=33.3%/+33.3pp order=+33.3pp nL2=3 L1=0.0% n_lines=3
+  PATH_ANY       [LIVE] L2=27.8%/+17.7pp order=+13.9pp nL2=632 L1=11.1% n_lines=—
+  TAIL_no_rel    [thin] L2=33.3%/+33.3pp order=+33.3pp nL2=3 L1=0.0% n_lines=—
+
+=== By subkind ===
+  noun_rel       [LIVE] L2=29.3%/+15.9pp order=+14.5pp nL2=427 n_lines=168
+  polarity       [LIVE] L2=35.4%/+24.4pp order=+15.9pp nL2=82 n_lines=41
+  verb_ing       [DEAD] L2=18.3%/+13.5pp order=+10.3pp nL2=126 n_lines=91
+
+=== Live kinds: ['path_long', 'path_short'] ===
+=== Dead kinds: none ===
+=== Live subkinds: ['noun_rel', 'polarity'] ===
+=== Dead subkinds: ['verb_ing'] ===
+
+=== Verdict ===
+  Corpus note: HOLD is 99% path (on|to); no_rel tail n=3 — true non-path tail not tested.
+  PATH carries freeze L2 (28%/+18pp). TAIL no_rel thin/untested (nL2=3). Hops-on-external: path-structured facts first.
+  Inside path, DEAD subkinds=['verb_ing'] — avoid as first hops surface.
+  Inside path, LIVE subkinds=['noun_rel', 'polarity'] — prefer for hops facts.
+  No phrase/char trunk. Freeze 57/59 unchanged.

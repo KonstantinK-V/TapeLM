@@ -1,0 +1,15 @@
+SOTE Stage 60 kinds dig — DONE
+timestamp: 2026-07-24T11:03:13+00:00
+parent: stage57_rehearsal_FROZEN.pt
+data: data/external_1k.txt HOLD (same split as 59)
+
+=== FINDINGS ===
+  HOLD composition: path_short 252, path_long 45, no_rel 3 (~99% path)
+  LIVE: path_short 27.2%/+17, path_long 29.4%/+16
+  LIVE sub: noun_rel 29.3%/+16, polarity 35.4%/+24
+  DEAD sub: verb_ing 18.3%/+14 (abs <25%)
+
+=== READ ===
+  Freeze L2 is path/noun_rel(+polarity) channel.
+  Non-path tail not in corpus (n=3) — not a DEAD claim.
+  Next A hops-on-external: seed facts as noun_rel / polarity path frames; defer verb_ing.

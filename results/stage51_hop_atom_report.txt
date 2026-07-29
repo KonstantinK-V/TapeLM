@@ -1,0 +1,8 @@
+SOTE Stage 51 report (junction: next-atom local + hops facts)
+timestamp: 2026-07-24T09:08:22.470405+00:00
+Channels stay separate: atom=local word stream; hops=fact graph; D=decode.
+Hops HOLD-ish dense joint3=95.8% H1=97.9% (floor 70%)
+Atom on path/base hold: acc=42.5% gap=+25.3pp n=4766
+Bridge shortlist (atom ranks next rel): acc=30.7% n=140
+Stage49 L2 soft=True  Stage50 mask soft=True
+Verdict: PASS — dual channel both needed; no phrase/char trunk.

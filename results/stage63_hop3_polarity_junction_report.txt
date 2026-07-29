@@ -1,0 +1,29 @@
+SOTE Stage 63 report (hop3 stress + polarity slice + junction)
+timestamp: 2026-07-24T11:42:28.319322+00:00
+device: cuda
+bank: data\external_facts_live_exp_FROZEN.txt  atom: stage57_rehearsal_FROZEN.pt
+facts=818 polarity=143 noun_rel=675
+
+=== A) Hop3 stress (full bank) ===
+  clean joint3=85.9% H1=96.9% h2|h1=95.2% h3|h2=92.6% n_eps=128
+  h2inst joint3=87.5%
+  strata={'hub1': {'n': 0, 'joint3': 0.0}, 'hub2': {'n': 0, 'joint3': 0.0}, 'hub3p': {'n': 128, 'joint3': 0.859}}
+
+=== B) Polarity (no/not) vs noun_rel ===
+  polarity facts=143 pairs=334 triples=746
+  hop2 polarity=93.8%  noun_rel=95.3%  Δ=+1.6pp
+  hop3 polarity=100.0%  noun_rel=97.9%
+  hop2 cross pol↔noun=93.8% n_pairs=3308
+  negation data: ENOUGH for slice
+
+=== C) Junction (atom ranks next rel among hub) ===
+  acc=44.0% n=200 mean_shortlist=2.00 ~chance=50.0%
+
+=== Walls: ['junction_near_chance'] ===
+
+=== Verdict ===
+  hop3 stress PASS (≥70%): joint3 86%.
+  polarity slice PASS: hop2 94% on no/not (n_facts=143). Negation stress meaningful; hops retrieve polarity keys OK.
+  junction near chance (44%) — channels stay separate; expected.
+  Note: hops do not compute logical NOT; they retrieve 'no/not …' phrase keys. True NLI-style negation is out of scope.
+  No verb_ing. No phrase/char trunk.

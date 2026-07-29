@@ -1,0 +1,43 @@
+SOTE Stage 35a report (H1 what_tail cue fix on hop3 contract)
+timestamp: 2026-07-24T06:40:59.053456+00:00
+device: cuda
+parent: stage34_hop3_FROZEN.pt
+primary_k=7 primary_cue=what_tail
+Contract: observe_strict + chain-link hop3. Fix=what_tail cue (not soft-disambig).
+Bank: {'facts': 82, 'triples': 240, 'hub_triples': {'hub1': 33, 'hub2': 49, 'hub3p': 158}}
+
+gates: H1>=85% joint3>=55% H2|H1>=85% H3|H2>=50% ctrl2>=85%
+
+=== Cue ablation clean_bind (per seed) ===
+  seed 272: legacy_partial:H1=73%/j3=72% | what_tail:H1=88%/j3=83%
+  seed 273: legacy_partial:H1=72%/j3=70% | what_tail:H1=88%/j3=83%
+  seed 274: legacy_partial:H1=75%/j3=72% | what_tail:H1=88%/j3=83%
+
+=== Primary (what_tail) hop3 clean_bind (best seed) ===
+  H1=87.5%  H2=100.0%  H3=93.8%
+  H2|H1=100.0%  H3|H2=93.8%  H3|(H1∧H2)=94.6%
+  joint2=87.5%  joint3=82.8%
+  vs freeze34 joint3~69.8%: +13.0pp
+
+=== Hub strata @ k=7 (best seed) ===
+hub          n      H1    H2|H1    H3|H2   JOINT3
+--------------------------------------------------
+hub1        22   95.5%   100.0%   100.0%    95.5%
+hub2        21   76.2%   100.0%    95.2%    76.2%
+hub3p       21   90.5%   100.0%    85.7%    76.2%
+
+=== Modes @ k=7 (best seed) ===
+mode                H1    H2|H1    H3|H2   JOINT3
+------------------------------------------------
+clean_bind       87.5%   100.0%    93.8%    82.8%
+dirty_bind       93.8%   100.0%    93.8%    87.5%
+dirty_hard       82.8%   100.0%    93.3%    78.1%
+
+=== Multi-seed ===
+  seed 272: PASS H1=87.5% joint3=82.8% H2|H1=100.0% H3|H2=93.8% ctrl2=95.0%
+  seed 273: PASS H1=87.5% joint3=82.8% H2|H1=100.0% H3|H2=93.8% ctrl2=95.0%
+  seed 274: PASS H1=87.5% joint3=82.8% H2|H1=98.2% H3|H2=95.2% ctrl2=95.0%
+  aggregate: 3/3 pass; mean_H1=87.5% mean_j3=82.8% (legacy H1=73.4%, ΔH1=+14.1pp)
+
+=== Verdict ===
+  PASS: what_tail H1 fix holds (H1~88%, joint3~83%, vs freeze34 +13pp).

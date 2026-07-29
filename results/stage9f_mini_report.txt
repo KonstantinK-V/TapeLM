@@ -1,0 +1,39 @@
+SOTE Stage 9f-mini report (letter peel/re-attach cycle)
+timestamp: 2026-07-23T06:37:52.006040+00:00
+device: cuda
+steps: 4000
+word ckpt: word_memory_9_2.pt
+TRAIN=24 HOLD=8 affixes=['ing', 'ed']
+basin cos(ing,ed)=-0.0014
+
+Ops: peel=compose(prefix); reattach=compose(prefix+MorphMod+(suffix)); cycle=reattach(peel(form))
+
+=== HOLD ===
+realize: op 100% naive 100% agree 0.998
+  affix m +0.695 win 100% | shuffle m +0.274 win 100%
+  ing: op 100% aff_m +0.701 shuf_m +0.155
+  ed: op 100% aff_m +0.688 shuf_m +0.394
+letter-peel: 100% agree 0.951 | cycle reattach: 100% agree 0.998
+
+=== TRAIN ===
+realize: op 100% naive 100% agree 0.997
+  affix m +0.539 win 100% | shuffle m +0.354 win 100%
+  ing: op 100% aff_m +0.554 shuf_m +0.345
+  ed: op 100% aff_m +0.518 shuf_m +0.367
+letter-peel: 100% agree 0.933 | cycle reattach: 100% agree 0.997
+
+HOLD per-stem:
+  [OK] jump+ing -> jumping aff_m=+0.730 shuf_m=+0.054 | peel=Y/jump cycle=Y/jumping
+  [OK] walk+ing -> walking aff_m=+0.649 shuf_m=+0.092 | peel=Y/walk cycle=Y/walking
+  [OK] read+ing -> reading aff_m=+0.803 shuf_m=+0.254 | peel=Y/read cycle=Y/reading
+  [OK] write+ing -> writing aff_m=+0.622 shuf_m=+0.221 | peel=Y/write cycle=Y/writing
+  [OK] jump+ed -> jumped aff_m=+0.737 shuf_m=+0.316 | peel=Y/jump cycle=Y/jumped
+  [OK] walk+ed -> walked aff_m=+0.646 shuf_m=+0.388 | peel=Y/walk cycle=Y/walked
+  [OK] read+ed -> readed aff_m=+0.783 shuf_m=+0.426 | peel=Y/read cycle=Y/readed
+  [OK] write+ed -> writed aff_m=+0.588 shuf_m=+0.444 | peel=Y/write cycle=Y/writed
+
+=== Auto verdict ===
+  [realize] 100% vs naive 100%
+  [margins] affix win 100% m=+0.695; shuf win 100% m=+0.274
+  [letter_ops] peel 100% | cycle 100%
+  [overall] 9f-mini OK: letter morph ops closed (realize+peel+cycle) with affix/shuffle discrimination.

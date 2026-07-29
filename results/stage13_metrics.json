@@ -1,0 +1,100 @@
+{
+  "cold": {
+    "train": {
+      "n": 108,
+      "acc": 1.0
+    },
+    "hold": {
+      "n": 62,
+      "acc": 1.0
+    },
+    "shuffle": {
+      "n": 62,
+      "acc": 0.016129032258064516
+    },
+    "swap": {
+      "n": 62,
+      "acc": 0.0
+    },
+    "morph_inv": {
+      "n": 32,
+      "acc": 1.0
+    }
+  },
+  "warm": {
+    "train": {
+      "n": 108,
+      "acc": 1.0
+    },
+    "hold": {
+      "n": 62,
+      "acc": 1.0
+    },
+    "shuffle": {
+      "n": 62,
+      "acc": 0.016129032258064516
+    },
+    "swap": {
+      "n": 62,
+      "acc": 0.0
+    },
+    "morph_inv": {
+      "n": 32,
+      "acc": 1.0
+    }
+  },
+  "memory": {
+    "n": 22,
+    "n_distractors_pool": 12,
+    "moved_acc": 1.0,
+    "unstick_acc": 0.9090909090909091,
+    "sticky_acc": 0.09090909090909091,
+    "prefer_acc": 1.0,
+    "prefer_m_acc": 1.0,
+    "soft_create_rate": 0.7272727272727273,
+    "mean_drop": 0.4919361878525127
+  },
+  "morph_inv": {
+    "n": 32,
+    "acc": 1.0
+  },
+  "gaps": {
+    "shuffle": 0.9838709677419355,
+    "swap": 1.0
+  },
+  "tuned": false,
+  "pass": true,
+  "sizes": {
+    "train": 68,
+    "hold": 38
+  },
+  "history": [],
+  "config": {
+    "dim": 64,
+    "seed": 13,
+    "lr": 0.002,
+    "probe_steps": 1500,
+    "batch_size": 12,
+    "max_phrase_len": 5,
+    "max_word_len": 11,
+    "fewshot_exposures": 5,
+    "create_below": 0.55,
+    "stabilize_lo": 0.55,
+    "stabilize_hi": 0.88,
+    "lock_above": 0.92,
+    "ema": 0.85,
+    "soft_create_below": 0.7,
+    "retrieve_margin": 0.05,
+    "variant_delta": 0.05,
+    "soft_margin": 0.05,
+    "w_ans": 1.0,
+    "w_side": 0.75,
+    "w_anti": 0.35,
+    "margin": 0.08,
+    "cold_rel_min": 0.7,
+    "warm_rel_min": 0.85,
+    "unstick_min": 0.7,
+    "prefer_min": 0.9,
+    "gap_min": 0.2
+  }
+}

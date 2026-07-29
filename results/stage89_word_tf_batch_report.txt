@@ -1,0 +1,32 @@
+SOTE Stage 89 — batched word-id Transformer (SOTE atoms)
+timestamp: 2026-07-24T17:15:32.728355+00:00
+device: cuda
+foundation: stage85_foundation.pt dim=256
+model: WordIdTransformer d=256 L=2 H=4 max_len=16 params=2010368
+train: batch=32 steps=8000 lr=0.0003 atom-examples~256000; left-pad + causal; CE next word_id
+mix: same build_ts_repeat_mix seed=272
+ref Stage88: obj=28% head=56% swing~28pp
+ref Stage87 TinySeq: obj=22%
+
+=== FT best ===
+  step=8000
+  SEEN  obj=24.7% rel=0.0% ALL=12.3% head=12.3% rare1=0.0%
+  RARE  obj=1.7% ALL=0.8%
+  STORY obj=14.8% ALL=12.0% rel=48.7%
+  curve obj swing (post-0)=24.7pp  [SIMILAR_SWING vs ~28pp @88]
+
+=== vs bigram / Stage88 on SEEN ===
+  right bigram=22.1% ALL bigram=59.3%
+  TF@89 obj=24.7% vs TF@88 obj=28.0%  head=12.3% vs 56.0%
+  SEEN freq model/bigram:
+    head21p  n= 3600  model= 12.3%  bigram= 59.3%
+
+=== Adequacy ===
+  HANDLES: -
+  FAILS:   SEEN object@25%, curve_swing@25pp
+  Read: batch of SOTE word_id prefixes; pad is not an atom in CE.
+  Ask: does averaging gradients stabilize SEEN object vs Stage88?
+
+=== Verdict: FAIL ===
+  stability: SIMILAR_SWING
+  gates: PARTIAL SEEN obj>=25%  LIVE>=50%

@@ -1,0 +1,79 @@
+{
+  "timestamp": "2026-07-28T12:45:05.182712+00:00",
+  "protocol": "curve_dynamics_scale_172",
+  "verdict": "CURVE_DYN_SCALE_YES",
+  "early_stop": true,
+  "reason": "user stop: metrics plateaued; remaining steps not needed for gate",
+  "steps_done": 40000,
+  "steps_planned": 80000,
+  "pen_frozen": true,
+  "horizons": [
+    1,
+    2,
+    4,
+    8,
+    16
+  ],
+  "arch": {
+    "pen_d": 96,
+    "dyn_d": 128,
+    "ctx": 128,
+    "seq": 192
+  },
+  "final": {
+    "step": 40000,
+    "contrast_pref": 0.96875,
+    "probe_acc": 0.5400850819423795,
+    "k1": {
+      "cos_delta": 0.852739080786705,
+      "base_mean": 0.023325943620875478,
+      "base_copy": -0.44457298540510237,
+      "lift_mean": 0.8294131371658295,
+      "lift_copy": 1.2973120661918074
+    },
+    "k2": {
+      "cos_delta": 0.8004934852942824,
+      "base_mean": 0.017397435891325586,
+      "base_copy": -0.462528727715835,
+      "lift_mean": 0.7830960494029569,
+      "lift_copy": 1.2630222130101174
+    },
+    "k4": {
+      "cos_delta": 0.7207659480627626,
+      "base_mean": 0.03105842629156541,
+      "base_copy": -0.48711178137455136,
+      "lift_mean": 0.6897075217711972,
+      "lift_copy": 1.207877729437314
+    },
+    "k8": {
+      "cos_delta": 0.6952111618593335,
+      "base_mean": 0.018763225758448243,
+      "base_copy": -0.49829707969911397,
+      "lift_mean": 0.6764479361008853,
+      "lift_copy": 1.1935082415584475
+    },
+    "k16": {
+      "cos_delta": 0.6989439998287708,
+      "base_mean": -0.0031051618279889226,
+      "base_copy": -0.49589287117123604,
+      "lift_mean": 0.7020491616567597,
+      "lift_copy": 1.1948368710000068
+    },
+    "min_lift_mean": 0.6764479361008853,
+    "min_lift_copy": 1.1935082415584475,
+    "lift_mean_k1": 0.8294131371658295,
+    "lift_mean_k16": 0.7020491616567597,
+    "loss_ema": 4.482171979826801,
+    "energy": 3.0114552974700928,
+    "probe_train": 0.5719895362854004
+  },
+  "gates": {
+    "beat_mean": true,
+    "beat_copy": true,
+    "contrast_ok": true,
+    "far_ok": true
+  },
+  "probe_acc_hold": 0.5400850819423795,
+  "probe_role": "readout_only_stopgrad_z_never_teaches_dyn_or_pen",
+  "note": "Stopped early at plateau. SCALE gate already clear."
+}

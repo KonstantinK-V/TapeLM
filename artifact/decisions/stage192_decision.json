@@ -1,0 +1,33 @@
+{
+  "timestamp": "2026-07-29T02:19:38.867361+00:00",
+  "protocol": "fp_lexicon_192",
+  "overall": "FP_LEXICON_SURPRISE_YES",
+  "results": {
+    "fp_lexicon": {
+      "surprise_real_mean": 0.0007405474316328764,
+      "surprise_fake_mean": 0.11800717562437057,
+      "gate_fake_gt_real": true,
+      "auc": 0.990679012345679
+    },
+    "trigram_baseline": {
+      "novelty_real_mean": 7.690454273299447,
+      "novelty_fake_mean": 10.880891148748495,
+      "gate_fake_gt_real": true,
+      "auc": 0.9260493827160494
+    }
+  },
+  "diag_nn": [
+    "Natimeg → nn=Legitimate cos=0.870",
+    "Hekmizo → nn=Mozeliak cos=0.864",
+    "Likerlofsag → nn=folksinger cos=0.892",
+    "Nockonvukfut → nn=Knockout cos=0.868",
+    "Cigognuk → nn=Coughing cos=0.883",
+    "Pazetgugo → nn=Portage cos=0.847",
+    "Dipolevo → nn=Divoselo cos=0.882",
+    "Higemi → nn=Hemi cos=0.865"
+  ],
+  "lexicon_size": 149501,
+  "n_real": 108,
+  "n_fake": 150,
+  "note": "zero-training probe on frozen 191-P1; fp = normalized arc_enc(word); read-only by construction"
+}

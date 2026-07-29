@@ -1,0 +1,61 @@
+SOTE Stage 35b H1 contract FROZEN (what_tail + left_instance)
+timestamp: 2026-07-24T07:00:00+00:00
+checkpoint: stage35b_left_instance_FROZEN.pt
+source: stage35b_left_instance.pt
+parent: stage35a_h1_cue.pt (+ stage34_hop3_FROZEN lineage)
+bank: hop_bank_25.pt + one-shot resample_hub_balanced_bank (33b)
+report: stage35b_left_instance_report_FROZEN.txt
+metrics: stage35b_left_instance_metrics.json
+
+=== CLAIM ===
+  "H1 closed under hop3" — what_tail cue + left/instance channel on
+  same_tail collisions lifts H1~100% and hub2 H1~100% without FT,
+  without soft-disambig stack, without planner.
+
+=== CONTRACT (inherits 32/33/34; do not regress) ===
+
+Episodic MEM_WRITE:
+  observe_strict — one phrase key -> one memory slot
+  store left_fp on slot for instance channel
+  NEVER soft-merge distinct phrases during episode write
+
+Hop1 cue (35a):
+  what_tail = '{rel} {right}' bound via CueBinder WHAT
+  consistency = same rel+right
+  (legacy bare obj/rel partial is NOT the winning hop3 H1 cue)
+
+Hop1 same_tail collision (35b; only when |same_tail|>1):
+  1) prefer chain-source instance (phrase not in any forward_link targets)
+  2) rank by left-ink: sim(bound, normalize(phrase_fp * left_fp))
+  Do NOT add more soft-disambig score mixes for this failure mode
+
+Chain-link hop2/hop3 (unchanged from 34):
+  follow forward_link[key] filtered by honest bridge=right(key)
+  no gold bridge fallback
+
+Bank:
+  resample_hub_balanced_bank (readable hub1/2/3+)
+
+NOT part of this freeze:
+  binder FT
+  planner / multi-candidate search beyond chain-link + left-instance
+  soft-merge episode write
+  reverting to legacy_partial as primary hop3 H1 cue
+
+=== METRICS AT FREEZE (3/3 seeds PASS) ===
+  mean H1            ~100%
+  mean joint3        ~94.3%
+  mean hub2 H1       ~100%  (vs no_instance ~76%, Δ=+24pp)
+  H2|H1 / H3|H2      ~97% / ~98%
+  dirty_bind / hard  joint3 ~94% / ~91%
+  ctrl2 joint        ~95%
+  pass: True
+
+=== KNOWN LIMIT ===
+  Residual joint3 miss (~5%) is mostly post-H1 (H2|H1 / H3 on hub2),
+  not H1. Planner still optional — only if link fan-out becomes the map.
+
+=== FREEZE_READY: True ===
+
+Next options: stress (k/dirty/native bank), hop4, planner on remaining
+H2 misses, or pause on this contract plateau.

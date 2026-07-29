@@ -1,0 +1,618 @@
+{
+  "stage": "8c+",
+  "timestamp": "2026-07-22T17:14:47.223560+00:00",
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "config": {
+    "dim": 64,
+    "lr": 0.003,
+    "steps": 3500,
+    "batch_size": 24,
+    "seed": 0,
+    "temperature": 0.07,
+    "qa_weight": 1.0,
+    "margin_weight": 0.3,
+    "consistency_weight": 0.25,
+    "attn_aux_weight": 0.45,
+    "residual_agree_weight": 0.2,
+    "margin": 0.15
+  },
+  "answer_candidates": [
+    "cat",
+    "dog",
+    "car",
+    "top",
+    "go",
+    "act",
+    "card",
+    "pot",
+    "stop",
+    "spot",
+    "post"
+  ],
+  "metrics": {
+    "train_qa": {
+      "split": "train",
+      "acc": 1.0,
+      "attn_arg_acc": 1.0,
+      "kind_acc": {
+        "what_on": 1.0,
+        "what_to": 1.0,
+        "where_on": 1.0,
+        "where_to": 1.0
+      },
+      "n": 40,
+      "details": [
+        {
+          "fact": "cat on top",
+          "query": "what on top",
+          "kind": "what_on",
+          "answer": "cat",
+          "pred": "cat",
+          "score": 0.999725341796875,
+          "ok": true,
+          "attn_argmax": 0,
+          "answer_idx": 0
+        },
+        {
+          "fact": "cat on top",
+          "query": "where is cat",
+          "kind": "where_on",
+          "answer": "top",
+          "pred": "top",
+          "score": 0.9998631477355957,
+          "ok": true,
+          "attn_argmax": 2,
+          "answer_idx": 2
+        },
+        {
+          "fact": "dog on top",
+          "query": "what on top",
+          "kind": "what_on",
+          "answer": "dog",
+          "pred": "dog",
+          "score": 0.9999315738677979,
+          "ok": true,
+          "attn_argmax": 0,
+          "answer_idx": 0
+        },
+        {
+          "fact": "dog on top",
+          "query": "where is dog",
+          "kind": "where_on",
+          "answer": "top",
+          "pred": "top",
+          "score": 0.9999436140060425,
+          "ok": true,
+          "attn_argmax": 2,
+          "answer_idx": 2
+        },
+        {
+          "fact": "cat on car",
+          "query": "what on car",
+          "kind": "what_on",
+          "answer": "cat",
+          "pred": "cat",
+          "score": 0.9997681975364685,
+          "ok": true,
+          "attn_argmax": 0,
+          "answer_idx": 0
+        },
+        {
+          "fact": "cat on car",
+          "query": "where is cat",
+          "kind": "where_on",
+          "answer": "car",
+          "pred": "car",
+          "score": 0.9924993515014648,
+          "ok": true,
+          "attn_argmax": 2,
+          "answer_idx": 2
+        },
+        {
+          "fact": "dog on car",
+          "query": "what on car",
+          "kind": "what_on",
+          "answer": "dog",
+          "pred": "dog",
+          "score": 0.9999719858169556,
+          "ok": true,
+          "attn_argmax": 0,
+          "answer_idx": 0
+        },
+        {
+          "fact": "dog on car",
+          "query": "where is dog",
+          "kind": "where_on",
+          "answer": "car",
+          "pred": "car",
+          "score": 0.9919716715812683,
+          "ok": true,
+          "attn_argmax": 2,
+          "answer_idx": 2
+        },
+        {
+          "fact": "go to car",
+          "query": "what to car",
+          "kind": "what_to",
+          "answer": "go",
+          "pred": "go",
+          "score": 0.9997994303703308,
+          "ok": true,
+          "attn_argmax": 0,
+          "answer_idx": 0
+        },
+        {
+          "fact": "go to car",
+          "query": "where to go",
+          "kind": "where_to",
+          "answer": "car",
+          "pred": "car",
+          "score": 0.9920758008956909,
+          "ok": true,
+          "attn_argmax": 2,
+          "answer_idx": 2
+        },
+        {
+          "fact": "go to dog",
+          "query": "what to dog",
+          "kind": "what_to",
+          "answer": "go",
+          "pred": "go",
+          "score": 0.9997344017028809,
+          "ok": true,
+          "attn_argmax": 0,
+          "answer_idx": 0
+        },
+        {
+          "fact": "go to dog",
+          "query": "where to go",
+          "kind": "where_to",
+          "answer": "dog",
+          "pred": "dog",
+          "score": 0.9999420642852783,
+          "ok": true,
+          "attn_argmax": 2,
+          "answer_idx": 2
+        },
+        {
+          "fact": "go to top",
+          "query": "what to top",
+          "kind": "what_to",
+          "answer": "go",
+          "pred": "go",
+          "score": 0.9997169375419617,
+          "ok": true,
+          "attn_argmax": 0,
+          "answer_idx": 0
+        },
+        {
+          "fact": "go to top",
+          "query": "where to go",
+          "kind": "where_to",
+          "answer": "top",
+          "pred": "top",
+          "score": 0.9999191761016846,
+          "ok": true,
+          "attn_argmax": 2,
+          "answer_idx": 2
+        },
+        {
+          "fact": "go on top",
+          "query": "what on top",
+          "kind": "what_on",
+          "answer": "go",
+          "pred": "go",
+          "score": 0.9996702671051025,
+          "ok": true,
+          "attn_argmax": 0,
+          "answer_idx": 0
+        },
+        {
+          "fact": "go on top",
+          "query": "where is go",
+          "kind": "where_on",
+          "answer": "top",
+          "pred": "top",
+          "score": 0.9999393820762634,
+          "ok": true,
+          "attn_argmax": 2,
+          "answer_idx": 2
+        },
+        {
+          "fact": "cat to dog",
+          "query": "what to dog",
+          "kind": "what_to",
+          "answer": "cat",
+          "pred": "cat",
+          "score": 0.9996846914291382,
+          "ok": true,
+          "attn_argmax": 0,
+          "answer_idx": 0
+        },
+        {
+          "fact": "cat to dog",
+          "query": "where to cat",
+          "kind": "where_to",
+          "answer": "dog",
+          "pred": "dog",
+          "score": 0.9998505115509033,
+          "ok": true,
+          "attn_argmax": 2,
+          "answer_idx": 2
+        },
+        {
+          "fact": "dog to cat",
+          "query": "what to cat",
+          "kind": "what_to",
+          "answer": "dog",
+          "pred": "dog",
+          "score": 0.9999104738235474,
+          "ok": true,
+          "attn_argmax": 0,
+          "answer_idx": 0
+        },
+        {
+          "fact": "dog to cat",
+          "query": "where to dog",
+          "kind": "where_to",
+          "answer": "cat",
+          "pred": "cat",
+          "score": 0.9997603297233582,
+          "ok": true,
+          "attn_argmax": 2,
+          "answer_idx": 2
+        },
+        {
+          "fact": "stop on top",
+          "query": "what on top",
+          "kind": "what_on",
+          "answer": "stop",
+          "pred": "stop",
+          "score": 0.9999023079872131,
+          "ok": true,
+          "attn_argmax": 0,
+          "answer_idx": 0
+        },
+        {
+          "fact": "stop on top",
+          "query": "where is stop",
+          "kind": "where_on",
+          "answer": "top",
+          "pred": "top",
+          "score": 0.9996647238731384,
+          "ok": true,
+          "attn_argmax": 2,
+          "answer_idx": 2
+        },
+        {
+          "fact": "spot on top",
+          "query": "what on top",
+          "kind": "what_on",
+          "answer": "spot",
+          "pred": "spot",
+          "score": 0.9983341693878174,
+          "ok": true,
+          "attn_argmax": 0,
+          "answer_idx": 0
+        },
+        {
+          "fact": "spot on top",
+          "query": "where is spot",
+          "kind": "where_on",
+          "answer": "top",
+          "pred": "top",
+          "score": 0.9993835687637329,
+          "ok": true,
+          "attn_argmax": 2,
+          "answer_idx": 2
+        },
+        {
+          "fact": "post to top",
+          "query": "what to top",
+          "kind": "what_to",
+          "answer": "post",
+          "pred": "post",
+          "score": 0.9998104572296143,
+          "ok": true,
+          "attn_argmax": 0,
+          "answer_idx": 0
+        },
+        {
+          "fact": "post to top",
+          "query": "where to post",
+          "kind": "where_to",
+          "answer": "top",
+          "pred": "top",
+          "score": 0.9993453621864319,
+          "ok": true,
+          "attn_argmax": 2,
+          "answer_idx": 2
+        },
+        {
+          "fact": "act on top",
+          "query": "what on top",
+          "kind": "what_on",
+          "answer": "act",
+          "pred": "act",
+          "score": 0.9995152950286865,
+          "ok": true,
+          "attn_argmax": 0,
+          "answer_idx": 0
+        },
+        {
+          "fact": "act on top",
+          "query": "where is act",
+          "kind": "where_on",
+          "answer": "top",
+          "pred": "top",
+          "score": 0.9997209310531616,
+          "ok": true,
+          "attn_argmax": 2,
+          "answer_idx": 2
+        },
+        {
+          "fact": "pot on top",
+          "query": "what on top",
+          "kind": "what_on",
+          "answer": "pot",
+          "pred": "pot",
+          "score": 0.9997708797454834,
+          "ok": true,
+          "attn_argmax": 0,
+          "answer_idx": 0
+        },
+        {
+          "fact": "pot on top",
+          "query": "where is pot",
+          "kind": "where_on",
+          "answer": "top",
+          "pred": "top",
+          "score": 0.9992085695266724,
+          "ok": true,
+          "attn_argmax": 2,
+          "answer_idx": 2
+        },
+        {
+          "fact": "card on top",
+          "query": "what on top",
+          "kind": "what_on",
+          "answer": "card",
+          "pred": "card",
+          "score": 0.9908558130264282,
+          "ok": true,
+          "attn_argmax": 0,
+          "answer_idx": 0
+        },
+        {
+          "fact": "card on top",
+          "query": "where is card",
+          "kind": "where_on",
+          "answer": "top",
+          "pred": "top",
+          "score": 0.9994831681251526,
+          "ok": true,
+          "attn_argmax": 2,
+          "answer_idx": 2
+        },
+        {
+          "fact": "no cat on top",
+          "query": "what on top",
+          "kind": "what_on",
+          "answer": "cat",
+          "pred": "cat",
+          "score": 0.9997040033340454,
+          "ok": true,
+          "attn_argmax": 1,
+          "answer_idx": 1
+        },
+        {
+          "fact": "no cat on top",
+          "query": "where is cat",
+          "kind": "where_on",
+          "answer": "top",
+          "pred": "top",
+          "score": 0.9999417662620544,
+          "ok": true,
+          "attn_argmax": 3,
+          "answer_idx": 3
+        },
+        {
+          "fact": "no dog on car",
+          "query": "what on car",
+          "kind": "what_on",
+          "answer": "dog",
+          "pred": "dog",
+          "score": 0.9999565482139587,
+          "ok": true,
+          "attn_argmax": 1,
+          "answer_idx": 1
+        },
+        {
+          "fact": "no dog on car",
+          "query": "where is dog",
+          "kind": "where_on",
+          "answer": "car",
+          "pred": "car",
+          "score": 0.9922912120819092,
+          "ok": true,
+          "attn_argmax": 3,
+          "answer_idx": 3
+        },
+        {
+          "fact": "good dog on top",
+          "query": "what on top",
+          "kind": "what_on",
+          "answer": "dog",
+          "pred": "dog",
+          "score": 0.9998660683631897,
+          "ok": true,
+          "attn_argmax": 1,
+          "answer_idx": 1
+        },
+        {
+          "fact": "good dog on top",
+          "query": "where is dog",
+          "kind": "where_on",
+          "answer": "top",
+          "pred": "top",
+          "score": 0.9999249577522278,
+          "ok": true,
+          "attn_argmax": 3,
+          "answer_idx": 3
+        },
+        {
+          "fact": "good cat on car",
+          "query": "what on car",
+          "kind": "what_on",
+          "answer": "cat",
+          "pred": "cat",
+          "score": 0.9997125864028931,
+          "ok": true,
+          "attn_argmax": 1,
+          "answer_idx": 1
+        },
+        {
+          "fact": "good cat on car",
+          "query": "where is cat",
+          "kind": "where_on",
+          "answer": "car",
+          "pred": "car",
+          "score": 0.992381751537323,
+          "ok": true,
+          "attn_argmax": 3,
+          "answer_idx": 3
+        }
+      ]
+    },
+    "hold_qa": {
+      "split": "hold",
+      "acc": 0.9,
+      "attn_arg_acc": 0.9,
+      "kind_acc": {
+        "what_on": 1.0,
+        "what_to": 0.6666666666666666,
+        "where_on": 1.0,
+        "where_to": 1.0
+      },
+      "n": 10,
+      "details": [
+        {
+          "fact": "cat to car",
+          "query": "what to car",
+          "kind": "what_to",
+          "answer": "cat",
+          "pred": "cat",
+          "score": 0.9975043535232544,
+          "ok": true,
+          "attn_argmax": 0,
+          "answer_idx": 0
+        },
+        {
+          "fact": "cat to car",
+          "query": "where to cat",
+          "kind": "where_to",
+          "answer": "car",
+          "pred": "car",
+          "score": 0.9853529334068298,
+          "ok": true,
+          "attn_argmax": 2,
+          "answer_idx": 2
+        },
+        {
+          "fact": "dog to top",
+          "query": "what to top",
+          "kind": "what_to",
+          "answer": "dog",
+          "pred": "dog",
+          "score": 0.997685968875885,
+          "ok": true,
+          "attn_argmax": 0,
+          "answer_idx": 0
+        },
+        {
+          "fact": "dog to top",
+          "query": "where to dog",
+          "kind": "where_to",
+          "answer": "top",
+          "pred": "top",
+          "score": 0.9997749924659729,
+          "ok": true,
+          "attn_argmax": 2,
+          "answer_idx": 2
+        },
+        {
+          "fact": "go to cat",
+          "query": "what to cat",
+          "kind": "what_to",
+          "answer": "go",
+          "pred": "cat",
+          "score": 0.9835399389266968,
+          "ok": false,
+          "attn_argmax": 2,
+          "answer_idx": 0
+        },
+        {
+          "fact": "go to cat",
+          "query": "where to go",
+          "kind": "where_to",
+          "answer": "cat",
+          "pred": "cat",
+          "score": 0.9944824576377869,
+          "ok": true,
+          "attn_argmax": 2,
+          "answer_idx": 2
+        },
+        {
+          "fact": "spot on car",
+          "query": "what on car",
+          "kind": "what_on",
+          "answer": "spot",
+          "pred": "spot",
+          "score": 0.9759659171104431,
+          "ok": true,
+          "attn_argmax": 0,
+          "answer_idx": 0
+        },
+        {
+          "fact": "spot on car",
+          "query": "where is spot",
+          "kind": "where_on",
+          "answer": "car",
+          "pred": "car",
+          "score": 0.9589674472808838,
+          "ok": true,
+          "attn_argmax": 2,
+          "answer_idx": 2
+        },
+        {
+          "fact": "good dog on car",
+          "query": "what on car",
+          "kind": "what_on",
+          "answer": "dog",
+          "pred": "dog",
+          "score": 0.9943646192550659,
+          "ok": true,
+          "attn_argmax": 1,
+          "answer_idx": 1
+        },
+        {
+          "fact": "good dog on car",
+          "query": "where is dog",
+          "kind": "where_on",
+          "answer": "car",
+          "pred": "car",
+          "score": 0.9748393297195435,
+          "ok": true,
+          "attn_argmax": 3,
+          "answer_idx": 3
+        }
+      ]
+    },
+    "shuffle_control": {
+      "acc": 0.9,
+      "n": 10
+    },
+    "hold_minus_shuffle": 0.0
+  }
+}

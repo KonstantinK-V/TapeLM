@@ -1,0 +1,32 @@
+SOTE Stage 69 report (verb_ing tail as one atom)
+timestamp: 2026-07-24T12:38:57.434807+00:00
+device: cuda
+parent: stage57_rehearsal_FROZEN.pt  data: data\external_1k.txt
+hold_frac=0.3 subkind_hold={'noun_rel': 168, 'verb_ing': 91, 'polarity': 41} train_vi=216 remapped=295 tail_atoms_in_lex=101
+FT: yes  steps≤1500 protect≤5pp
+Only verb_ing lines remapped. Encode freeze. No hop bank.
+
+=== Opaque ZS (word atoms) ===
+  verb_ing   L2=18.3%/+13.5pp n=126
+  noun_rel   L2=29.3%/+15.9pp n=427
+  polarity   L2=35.4%/+24.4pp n=82
+
+=== Tail-remap ZS ===
+  verb_ing   L2=2.6%/+2.6pp n=38  Δopaque=-15.6pp
+  noun_rel   L2=29.3%/+15.9pp n=427  Δopaque=+0.0pp
+  polarity   L2=35.4%/+24.4pp n=82  Δopaque=+0.0pp
+  tail-target   L2=0.0%/+0.0pp n=35
+
+=== Final after FT (if any) ===
+  verb_ing   L2=2.6%/+2.6pp n=38
+  noun_rel   L2=29.3%/+15.9pp n=427  ΔremapZS=+0.0pp
+  polarity   L2=35.4%/+24.4pp n=82  ΔremapZS=+0.0pp
+  tail-target   L2=0.0%/+0.0pp n=35
+  best_ft_step=0
+
+=== Example ===
+  big looking to look → big looking to look
+
+=== Verdict: FAIL ===
+  tail-atom dead L2 2.6%.
+  Stage68: object hole after on|to — this dig merges that ask into one atom.

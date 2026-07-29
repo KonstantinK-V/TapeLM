@@ -1,0 +1,42 @@
+SOTE Stage 8c report (relational probes on frozen phrase contract)
+timestamp: 2026-07-22T17:00:45.990236+00:00
+device: cuda
+gpu: NVIDIA GeForce RTX 3050 Laptop GPU
+steps: 3000
+word ckpt: C:\Users\Kostya\sote-letter-assembly\checkpoints\word_memory_78e.pt
+phrase ckpt: C:\Users\Kostya\sote-letter-assembly\checkpoints\phrase_memory_8b.pt
+train QA: 40 | hold QA: 10
+word+phrase layers: FROZEN | probe: TRAINABLE
+
+Train QA acc:            100.0%
+HOLD QA acc:             40.0%
+Shuffle-fact control:    30.0% (want LOW — proves fact is read)
+
+Train by kind:
+  what_on    100%
+  what_to    100%
+  where_on   100%
+  where_to   100%
+HOLD by kind:
+  what_on    0%
+  what_to    67%
+  where_on   0%
+  where_to   67%
+
+HOLD QA details:
+  [MISS] fact='cat to car' | q='what to car' -> dog (want cat) score=0.38
+  [MISS] fact='cat to car' | q='where to cat' -> dog (want car) score=0.59
+  [OK] fact='dog to top' | q='what to top' -> dog (want dog) score=0.58
+  [OK] fact='dog to top' | q='where to dog' -> top (want top) score=0.95
+  [OK] fact='go to cat' | q='what to cat' -> go (want go) score=0.63
+  [OK] fact='go to cat' | q='where to go' -> cat (want cat) score=0.88
+  [MISS] fact='spot on car' | q='what on car' -> top (want spot) score=0.97
+  [MISS] fact='spot on car' | q='where is spot' -> top (want car) score=0.94
+  [MISS] fact='good dog on car' | q='what on car' -> top (want dog) score=0.90
+  [MISS] fact='good dog on car' | q='where is dog' -> top (want car) score=0.87
+
+How to read:
+- Fact-conditioned: probe(fact_fp, query_fp) -> word_fp answer
+- HOLD facts never used in relational CE
+- Shuffle control should be near chance if probe truly reads the fact
+- Still no free-form generation; answer is attractor over word fps

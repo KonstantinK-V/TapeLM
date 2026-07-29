@@ -1,0 +1,2361 @@
+{
+  "stage": "9c-residual+",
+  "timestamp": "2026-07-22T20:44:35.591442+00:00",
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "metrics": {
+    "word_ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\word_memory_9_2.pt",
+    "config": {
+      "dim": 64,
+      "seed": 0
+    },
+    "n_train": 17,
+    "n_hold": 4,
+    "n_non_ing": 93,
+    "basin_sims": {
+      "A_vs_B": 0.8573278188705444,
+      "A_vs_D": 0.7518757581710815,
+      "A_vs_DΔ": 0.8885166645050049,
+      "A_vs_N": -0.01551923155784607,
+      "B_vs_D": 0.9188106656074524,
+      "B_vs_DΔ": 0.761434018611908,
+      "B_vs_N": 0.08982759714126587,
+      "D_vs_DΔ": 0.8413385152816772,
+      "D_vs_N": 0.2736656665802002,
+      "DΔ_vs_N": 0.16741055250167847
+    },
+    "train_mean_cos_AD": 0.4224536804591908,
+    "train_mean_cos_BD": 0.9495362744611853,
+    "train_mean_cos_D_Dstem": 0.506632050170618,
+    "train_mean_explained": 0.39264430806917305,
+    "hold": {
+      "A": {
+        "label": "A",
+        "n": 4,
+        "add_acc": 1.0,
+        "naive_acc": 1.0,
+        "foil_acc": 0.75,
+        "mean_cos_add_form": 0.6910998374223709,
+        "mean_cos_peel_stem": 0.5792428106069565,
+        "mean_peel_gain": 0.06722275167703629,
+        "mean_margin_ing": 0.19938936829566956,
+        "lit_prefer_acc": 0.0,
+        "details": [
+          {
+            "stem": "jump",
+            "form": "jumping",
+            "add_pred": "jumping",
+            "add_ok": true,
+            "naive_ok": true,
+            "foil_ok": true,
+            "cos_add_form": 0.7297229766845703,
+            "cos_peel_stem": 0.5304047465324402,
+            "peel_gain": 0.027636408805847168,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.19073563814163208
+          },
+          {
+            "stem": "walk",
+            "form": "walking",
+            "add_pred": "walking",
+            "add_ok": true,
+            "naive_ok": true,
+            "foil_ok": true,
+            "cos_add_form": 0.7080247402191162,
+            "cos_peel_stem": 0.5746264457702637,
+            "peel_gain": 0.04177594184875488,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.2471771240234375
+          },
+          {
+            "stem": "read",
+            "form": "reading",
+            "add_pred": "reading",
+            "add_ok": true,
+            "naive_ok": true,
+            "foil_ok": true,
+            "cos_add_form": 0.681222677230835,
+            "cos_peel_stem": 0.5932216644287109,
+            "peel_gain": 0.07911789417266846,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.211259663105011
+          },
+          {
+            "stem": "write",
+            "form": "writing",
+            "add_pred": "writing",
+            "add_ok": true,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.6454289555549622,
+            "cos_peel_stem": 0.6187183856964111,
+            "peel_gain": 0.12036076188087463,
+            "prefer_true_vs_lit": false,
+            "margin_true_lit": -0.0021876096725463867,
+            "margin_vs_other_ing": 0.14838504791259766
+          }
+        ]
+      },
+      "B": {
+        "label": "B",
+        "n": 4,
+        "add_acc": 1.0,
+        "naive_acc": 1.0,
+        "foil_acc": 0.75,
+        "mean_cos_add_form": 0.6955318748950958,
+        "mean_cos_peel_stem": 0.5675075650215149,
+        "mean_peel_gain": 0.055487506091594696,
+        "mean_margin_ing": 0.1380191296339035,
+        "lit_prefer_acc": 0.0,
+        "details": [
+          {
+            "stem": "jump",
+            "form": "jumping",
+            "add_pred": "jumping",
+            "add_ok": true,
+            "naive_ok": true,
+            "foil_ok": true,
+            "cos_add_form": 0.7331528067588806,
+            "cos_peel_stem": 0.5181974172592163,
+            "peel_gain": 0.015429079532623291,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.12132757902145386
+          },
+          {
+            "stem": "walk",
+            "form": "walking",
+            "add_pred": "walking",
+            "add_ok": true,
+            "naive_ok": true,
+            "foil_ok": true,
+            "cos_add_form": 0.7036614418029785,
+            "cos_peel_stem": 0.5731667280197144,
+            "peel_gain": 0.040316224098205566,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.17443925142288208
+          },
+          {
+            "stem": "read",
+            "form": "reading",
+            "add_pred": "reading",
+            "add_ok": true,
+            "naive_ok": true,
+            "foil_ok": true,
+            "cos_add_form": 0.6941812038421631,
+            "cos_peel_stem": 0.5708425045013428,
+            "peel_gain": 0.05673873424530029,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.16805464029312134
+          },
+          {
+            "stem": "write",
+            "form": "writing",
+            "add_pred": "writing",
+            "add_ok": true,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.6511320471763611,
+            "cos_peel_stem": 0.6078236103057861,
+            "peel_gain": 0.10946598649024963,
+            "prefer_true_vs_lit": false,
+            "margin_true_lit": -0.040650129318237305,
+            "margin_vs_other_ing": 0.08825504779815674
+          }
+        ]
+      },
+      "D": {
+        "label": "D",
+        "n": 4,
+        "add_acc": 0.0,
+        "naive_acc": 1.0,
+        "foil_acc": 0.0,
+        "mean_cos_add_form": 0.5617540031671524,
+        "mean_cos_peel_stem": 0.30772968754172325,
+        "mean_peel_gain": -0.20429037138819695,
+        "mean_margin_ing": 0.08868233114480972,
+        "lit_prefer_acc": 0.0,
+        "details": [
+          {
+            "stem": "jump",
+            "form": "jumping",
+            "add_pred": "jump",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.6081535220146179,
+            "cos_peel_stem": 0.22312979400157928,
+            "peel_gain": -0.27963854372501373,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.04311966896057129
+          },
+          {
+            "stem": "walk",
+            "form": "walking",
+            "add_pred": "walk",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.5654131174087524,
+            "cos_peel_stem": 0.33249109983444214,
+            "peel_gain": -0.20035940408706665,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.12518009543418884
+          },
+          {
+            "stem": "read",
+            "form": "reading",
+            "add_pred": "read",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.561743974685669,
+            "cos_peel_stem": 0.3128620386123657,
+            "peel_gain": -0.20124173164367676,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.11662417650222778
+          },
+          {
+            "stem": "write",
+            "form": "writing",
+            "add_pred": "write",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.5117053985595703,
+            "cos_peel_stem": 0.36243581771850586,
+            "peel_gain": -0.13592180609703064,
+            "prefer_true_vs_lit": false,
+            "margin_true_lit": -0.07641637325286865,
+            "margin_vs_other_ing": 0.06980538368225098
+          }
+        ]
+      },
+      "DΔ": {
+        "label": "DΔ",
+        "n": 4,
+        "add_acc": 0.0,
+        "naive_acc": 1.0,
+        "foil_acc": 0.0,
+        "mean_cos_add_form": 0.5437633544206619,
+        "mean_cos_peel_stem": 0.29421596229076385,
+        "mean_peel_gain": -0.21780409663915634,
+        "mean_margin_ing": 0.14241409301757812,
+        "lit_prefer_acc": 0.0,
+        "details": [
+          {
+            "stem": "jump",
+            "form": "jumping",
+            "add_pred": "jump",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.5947216749191284,
+            "cos_peel_stem": 0.20289313793182373,
+            "peel_gain": -0.2998751997947693,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.11122316122055054
+          },
+          {
+            "stem": "walk",
+            "form": "walking",
+            "add_pred": "walk",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.5574875473976135,
+            "cos_peel_stem": 0.30706125497817993,
+            "peel_gain": -0.22578924894332886,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.19601017236709595
+          },
+          {
+            "stem": "read",
+            "form": "reading",
+            "add_pred": "read",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.533163845539093,
+            "cos_peel_stem": 0.3161390423774719,
+            "peel_gain": -0.19796472787857056,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.1673412322998047
+          },
+          {
+            "stem": "write",
+            "form": "writing",
+            "add_pred": "write",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.48968034982681274,
+            "cos_peel_stem": 0.35077041387557983,
+            "peel_gain": -0.14758720993995667,
+            "prefer_true_vs_lit": false,
+            "margin_true_lit": -0.053114354610443115,
+            "margin_vs_other_ing": 0.09508180618286133
+          }
+        ]
+      },
+      "N": {
+        "label": "N",
+        "n": 4,
+        "add_acc": 0.0,
+        "naive_acc": 1.0,
+        "foil_acc": 0.0,
+        "mean_cos_add_form": 0.39973122626543045,
+        "mean_cos_peel_stem": 0.12803955376148224,
+        "mean_peel_gain": -0.38398050516843796,
+        "mean_margin_ing": 0.06340394914150238,
+        "lit_prefer_acc": 1.0,
+        "details": [
+          {
+            "stem": "jump",
+            "form": "jumping",
+            "add_pred": "jump",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.3548215925693512,
+            "cos_peel_stem": 0.17088761925697327,
+            "peel_gain": -0.33188071846961975,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.07047498226165771
+          },
+          {
+            "stem": "walk",
+            "form": "walking",
+            "add_pred": "walk",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.39289164543151855,
+            "cos_peel_stem": 0.1747056245803833,
+            "peel_gain": -0.3581448793411255,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": -0.030382156372070312
+          },
+          {
+            "stem": "read",
+            "form": "reading",
+            "add_pred": "read",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.46335721015930176,
+            "cos_peel_stem": 0.03387182950973511,
+            "peel_gain": -0.4802319407463074,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.1580124795436859
+          },
+          {
+            "stem": "write",
+            "form": "writing",
+            "add_pred": "write",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.3878544569015503,
+            "cos_peel_stem": 0.13269314169883728,
+            "peel_gain": -0.3656644821166992,
+            "prefer_true_vs_lit": true,
+            "margin_true_lit": 0.03029608726501465,
+            "margin_vs_other_ing": 0.055510491132736206
+          }
+        ]
+      }
+    },
+    "train": {
+      "A": {
+        "label": "A",
+        "n": 17,
+        "add_acc": 0.29411764705882354,
+        "naive_acc": 1.0,
+        "foil_acc": 0.23529411764705882,
+        "mean_cos_add_form": 0.6667075910988975,
+        "mean_cos_peel_stem": 0.4759640351814382,
+        "mean_peel_gain": -0.051954914541805494,
+        "mean_margin_ing": 0.07787902214947869,
+        "lit_prefer_acc": 0.2857142857142857,
+        "details": [
+          {
+            "stem": "play",
+            "form": "playing",
+            "add_pred": "playing",
+            "add_ok": true,
+            "naive_ok": true,
+            "foil_ok": true,
+            "cos_add_form": 0.7879341840744019,
+            "cos_peel_stem": 0.561719536781311,
+            "peel_gain": -0.23884201049804688,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.11234337091445923
+          },
+          {
+            "stem": "go",
+            "form": "going",
+            "add_pred": "go",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.6526204347610474,
+            "cos_peel_stem": 0.6631356477737427,
+            "peel_gain": -0.19620251655578613,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": -0.018155932426452637
+          },
+          {
+            "stem": "act",
+            "form": "acting",
+            "add_pred": "act",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.6523135304450989,
+            "cos_peel_stem": 0.527327299118042,
+            "peel_gain": 0.04919669032096863,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.09057843685150146
+          },
+          {
+            "stem": "fish",
+            "form": "fishing",
+            "add_pred": "fish",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.733850359916687,
+            "cos_peel_stem": 0.49074581265449524,
+            "peel_gain": -0.09391775727272034,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.234348326921463
+          },
+          {
+            "stem": "post",
+            "form": "posting",
+            "add_pred": "post",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.6083720326423645,
+            "cos_peel_stem": 0.6382236480712891,
+            "peel_gain": 0.039812564849853516,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.07365751266479492
+          },
+          {
+            "stem": "book",
+            "form": "booking",
+            "add_pred": "book",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.5847076773643494,
+            "cos_peel_stem": 0.32398200035095215,
+            "peel_gain": -0.21725177764892578,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": -0.07819825410842896
+          },
+          {
+            "stem": "light",
+            "form": "lighting",
+            "add_pred": "lighting",
+            "add_ok": true,
+            "naive_ok": true,
+            "foil_ok": true,
+            "cos_add_form": 0.7320806980133057,
+            "cos_peel_stem": 0.46724772453308105,
+            "peel_gain": -0.014493703842163086,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.07779163122177124
+          },
+          {
+            "stem": "bird",
+            "form": "birding",
+            "add_pred": "bird",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.5790232419967651,
+            "cos_peel_stem": 0.38261404633522034,
+            "peel_gain": -0.11350727081298828,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.051458656787872314
+          },
+          {
+            "stem": "green",
+            "form": "greening",
+            "add_pred": "greening",
+            "add_ok": true,
+            "naive_ok": true,
+            "foil_ok": true,
+            "cos_add_form": 0.7313958406448364,
+            "cos_peel_stem": 0.6167435646057129,
+            "peel_gain": 0.1513957381248474,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.17934781312942505
+          },
+          {
+            "stem": "slow",
+            "form": "slowing",
+            "add_pred": "slowly",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.690885066986084,
+            "cos_peel_stem": 0.4210662841796875,
+            "peel_gain": 0.027188599109649658,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.1848161816596985
+          },
+          {
+            "stem": "make",
+            "form": "making",
+            "add_pred": "making",
+            "add_ok": true,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.7396853566169739,
+            "cos_peel_stem": 0.5462876558303833,
+            "peel_gain": 0.0785311758518219,
+            "prefer_true_vs_lit": false,
+            "margin_true_lit": -0.047010958194732666,
+            "margin_vs_other_ing": 0.1868523359298706
+          },
+          {
+            "stem": "take",
+            "form": "taking",
+            "add_pred": "take",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.5265135169029236,
+            "cos_peel_stem": 0.24865393340587616,
+            "peel_gain": 0.04511818289756775,
+            "prefer_true_vs_lit": false,
+            "margin_true_lit": -0.14141565561294556,
+            "margin_vs_other_ing": -0.054380059242248535
+          },
+          {
+            "stem": "give",
+            "form": "giving",
+            "add_pred": "giving",
+            "add_ok": true,
+            "naive_ok": true,
+            "foil_ok": true,
+            "cos_add_form": 0.7195769548416138,
+            "cos_peel_stem": 0.6827318668365479,
+            "peel_gain": 0.16866356134414673,
+            "prefer_true_vs_lit": true,
+            "margin_true_lit": 0.10052633285522461,
+            "margin_vs_other_ing": 0.1213226318359375
+          },
+          {
+            "stem": "run",
+            "form": "running",
+            "add_pred": "run",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.7384112477302551,
+            "cos_peel_stem": 0.45904943346977234,
+            "peel_gain": -0.05538424849510193,
+            "prefer_true_vs_lit": true,
+            "margin_true_lit": 0.12603753805160522,
+            "margin_vs_other_ing": 0.11111223697662354
+          },
+          {
+            "stem": "stop",
+            "form": "stopping",
+            "add_pred": "stop",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.6847062706947327,
+            "cos_peel_stem": 0.2828204035758972,
+            "peel_gain": -0.10876893997192383,
+            "prefer_true_vs_lit": false,
+            "margin_true_lit": -0.0002886056900024414,
+            "margin_vs_other_ing": 0.12699228525161743
+          },
+          {
+            "stem": "spot",
+            "form": "spotting",
+            "add_pred": "spot",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.6782010793685913,
+            "cos_peel_stem": 0.3616069257259369,
+            "peel_gain": -0.08419698476791382,
+            "prefer_true_vs_lit": false,
+            "margin_true_lit": -0.012903153896331787,
+            "margin_vs_other_ing": 0.0817866325378418
+          },
+          {
+            "stem": "top",
+            "form": "topping",
+            "add_pred": "top",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.49375155568122864,
+            "cos_peel_stem": 0.4174328148365021,
+            "peel_gain": -0.3205748498439789,
+            "prefer_true_vs_lit": false,
+            "margin_true_lit": -0.031060725450515747,
+            "margin_vs_other_ing": -0.15773043036460876
+          }
+        ]
+      },
+      "B": {
+        "label": "B",
+        "n": 17,
+        "add_acc": 0.11764705882352941,
+        "naive_acc": 1.0,
+        "foil_acc": 0.11764705882352941,
+        "mean_cos_add_form": 0.6750131600043353,
+        "mean_cos_peel_stem": 0.38787181763088,
+        "mean_peel_gain": -0.1400471320923637,
+        "mean_margin_ing": 0.060692611862631404,
+        "lit_prefer_acc": 0.42857142857142855,
+        "details": [
+          {
+            "stem": "play",
+            "form": "playing",
+            "add_pred": "play",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.7866671085357666,
+            "cos_peel_stem": 0.4694749712944031,
+            "peel_gain": -0.33108657598495483,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.07612007856369019
+          },
+          {
+            "stem": "go",
+            "form": "going",
+            "add_pred": "go",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.6455078125,
+            "cos_peel_stem": 0.5360736846923828,
+            "peel_gain": -0.323264479637146,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": -0.032958269119262695
+          },
+          {
+            "stem": "act",
+            "form": "acting",
+            "add_pred": "act",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.6175369620323181,
+            "cos_peel_stem": 0.44907814264297485,
+            "peel_gain": -0.02905246615409851,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.04650437831878662
+          },
+          {
+            "stem": "fish",
+            "form": "fishing",
+            "add_pred": "fish",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.6798233389854431,
+            "cos_peel_stem": 0.40044671297073364,
+            "peel_gain": -0.18421685695648193,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.1243780255317688
+          },
+          {
+            "stem": "post",
+            "form": "posting",
+            "add_pred": "post",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.6231138706207275,
+            "cos_peel_stem": 0.534278392791748,
+            "peel_gain": -0.0641326904296875,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.09061861038208008
+          },
+          {
+            "stem": "book",
+            "form": "booking",
+            "add_pred": "book",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.5912731885910034,
+            "cos_peel_stem": 0.27430254220962524,
+            "peel_gain": -0.2669312357902527,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": -0.11231130361557007
+          },
+          {
+            "stem": "light",
+            "form": "lighting",
+            "add_pred": "light",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.742993175983429,
+            "cos_peel_stem": 0.3706675171852112,
+            "peel_gain": -0.11107391119003296,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.0633629560470581
+          },
+          {
+            "stem": "bird",
+            "form": "birding",
+            "add_pred": "bird",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.5934069156646729,
+            "cos_peel_stem": 0.3730325698852539,
+            "peel_gain": -0.12308874726295471,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.05024451017379761
+          },
+          {
+            "stem": "green",
+            "form": "greening",
+            "add_pred": "greening",
+            "add_ok": true,
+            "naive_ok": true,
+            "foil_ok": true,
+            "cos_add_form": 0.741305410861969,
+            "cos_peel_stem": 0.4522714614868164,
+            "peel_gain": -0.013076364994049072,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.18290698528289795
+          },
+          {
+            "stem": "slow",
+            "form": "slowing",
+            "add_pred": "slowly",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.7090660333633423,
+            "cos_peel_stem": 0.3978685438632965,
+            "peel_gain": 0.003990858793258667,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.11772984266281128
+          },
+          {
+            "stem": "make",
+            "form": "making",
+            "add_pred": "make",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.7488011717796326,
+            "cos_peel_stem": 0.4133421778678894,
+            "peel_gain": -0.054414302110672,
+            "prefer_true_vs_lit": false,
+            "margin_true_lit": -0.06624293327331543,
+            "margin_vs_other_ing": 0.1633574366569519
+          },
+          {
+            "stem": "take",
+            "form": "taking",
+            "add_pred": "take",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.5613483786582947,
+            "cos_peel_stem": 0.09532666206359863,
+            "peel_gain": -0.10820908844470978,
+            "prefer_true_vs_lit": false,
+            "margin_true_lit": -0.1493855118751526,
+            "margin_vs_other_ing": -0.037570297718048096
+          },
+          {
+            "stem": "give",
+            "form": "giving",
+            "add_pred": "giving",
+            "add_ok": true,
+            "naive_ok": true,
+            "foil_ok": true,
+            "cos_add_form": 0.7674024105072021,
+            "cos_peel_stem": 0.5890827775001526,
+            "peel_gain": 0.07501447200775146,
+            "prefer_true_vs_lit": true,
+            "margin_true_lit": 0.06394380331039429,
+            "margin_vs_other_ing": 0.20479774475097656
+          },
+          {
+            "stem": "run",
+            "form": "running",
+            "add_pred": "run",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.7643246054649353,
+            "cos_peel_stem": 0.35446491837501526,
+            "peel_gain": -0.159968763589859,
+            "prefer_true_vs_lit": true,
+            "margin_true_lit": 0.11911660432815552,
+            "margin_vs_other_ing": 0.14311712980270386
+          },
+          {
+            "stem": "stop",
+            "form": "stopping",
+            "add_pred": "stop",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.7025877237319946,
+            "cos_peel_stem": 0.12927398085594177,
+            "peel_gain": -0.2623153626918793,
+            "prefer_true_vs_lit": true,
+            "margin_true_lit": 0.0013760924339294434,
+            "margin_vs_other_ing": 0.1224740743637085
+          },
+          {
+            "stem": "spot",
+            "form": "spotting",
+            "add_pred": "spot",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.6946133375167847,
+            "cos_peel_stem": 0.3240272104740143,
+            "peel_gain": -0.12177670001983643,
+            "prefer_true_vs_lit": false,
+            "margin_true_lit": -0.005352139472961426,
+            "margin_vs_other_ing": 0.04015296697616577
+          },
+          {
+            "stem": "top",
+            "form": "topping",
+            "add_pred": "top",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.5054522752761841,
+            "cos_peel_stem": 0.4308086335659027,
+            "peel_gain": -0.30719903111457825,
+            "prefer_true_vs_lit": false,
+            "margin_true_lit": -0.051296353340148926,
+            "margin_vs_other_ing": -0.21115046739578247
+          }
+        ]
+      },
+      "D": {
+        "label": "D",
+        "n": 17,
+        "add_acc": 0.058823529411764705,
+        "naive_acc": 1.0,
+        "foil_acc": 0.058823529411764705,
+        "mean_cos_add_form": 0.6420664576923146,
+        "mean_cos_peel_stem": 0.373528906965957,
+        "mean_peel_gain": -0.15439004275728674,
+        "mean_margin_ing": 0.07176235668799456,
+        "lit_prefer_acc": 0.7142857142857143,
+        "details": [
+          {
+            "stem": "play",
+            "form": "playing",
+            "add_pred": "play",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.7632279992103577,
+            "cos_peel_stem": 0.4040740132331848,
+            "peel_gain": -0.3964875340461731,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.04833453893661499
+          },
+          {
+            "stem": "go",
+            "form": "going",
+            "add_pred": "go",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.653499960899353,
+            "cos_peel_stem": 0.5577017068862915,
+            "peel_gain": -0.3016364574432373,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.011547565460205078
+          },
+          {
+            "stem": "act",
+            "form": "acting",
+            "add_pred": "act",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.5762172937393188,
+            "cos_peel_stem": 0.4548282027244568,
+            "peel_gain": -0.023302406072616577,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.07084351778030396
+          },
+          {
+            "stem": "fish",
+            "form": "fishing",
+            "add_pred": "fish",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.6498907804489136,
+            "cos_peel_stem": 0.3879363536834717,
+            "peel_gain": -0.1967272162437439,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.11492186784744263
+          },
+          {
+            "stem": "post",
+            "form": "posting",
+            "add_pred": "post",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.5727932453155518,
+            "cos_peel_stem": 0.5302567481994629,
+            "peel_gain": -0.06815433502197266,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.0873354971408844
+          },
+          {
+            "stem": "book",
+            "form": "booking",
+            "add_pred": "book",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.5167084336280823,
+            "cos_peel_stem": 0.2540189027786255,
+            "peel_gain": -0.28721487522125244,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": -0.13993370532989502
+          },
+          {
+            "stem": "light",
+            "form": "lighting",
+            "add_pred": "light",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.7462649345397949,
+            "cos_peel_stem": 0.4104863405227661,
+            "peel_gain": -0.07125508785247803,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.10473787784576416
+          },
+          {
+            "stem": "bird",
+            "form": "birding",
+            "add_pred": "bird",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.5192060470581055,
+            "cos_peel_stem": 0.36011362075805664,
+            "peel_gain": -0.13600769639015198,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.012806117534637451
+          },
+          {
+            "stem": "green",
+            "form": "greening",
+            "add_pred": "green",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.6947407722473145,
+            "cos_peel_stem": 0.47467756271362305,
+            "peel_gain": 0.009329736232757568,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.12279796600341797
+          },
+          {
+            "stem": "slow",
+            "form": "slowing",
+            "add_pred": "slowly",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.6152432560920715,
+            "cos_peel_stem": 0.2927755117416382,
+            "peel_gain": -0.10110217332839966,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.05745929479598999
+          },
+          {
+            "stem": "make",
+            "form": "making",
+            "add_pred": "make",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.7260189056396484,
+            "cos_peel_stem": 0.3508989214897156,
+            "peel_gain": -0.11685755848884583,
+            "prefer_true_vs_lit": false,
+            "margin_true_lit": -0.026278018951416016,
+            "margin_vs_other_ing": 0.18482017517089844
+          },
+          {
+            "stem": "take",
+            "form": "taking",
+            "add_pred": "take",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.5698990821838379,
+            "cos_peel_stem": 0.028508014976978302,
+            "peel_gain": -0.1750277355313301,
+            "prefer_true_vs_lit": false,
+            "margin_true_lit": -0.15285992622375488,
+            "margin_vs_other_ing": 0.03495633602142334
+          },
+          {
+            "stem": "give",
+            "form": "giving",
+            "add_pred": "giving",
+            "add_ok": true,
+            "naive_ok": true,
+            "foil_ok": true,
+            "cos_add_form": 0.7626776695251465,
+            "cos_peel_stem": 0.6114888191223145,
+            "peel_gain": 0.09742051362991333,
+            "prefer_true_vs_lit": true,
+            "margin_true_lit": 0.11674940586090088,
+            "margin_vs_other_ing": 0.27240651845932007
+          },
+          {
+            "stem": "run",
+            "form": "running",
+            "add_pred": "run",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.6812106966972351,
+            "cos_peel_stem": 0.33737534284591675,
+            "peel_gain": -0.17705833911895752,
+            "prefer_true_vs_lit": true,
+            "margin_true_lit": 0.1197657585144043,
+            "margin_vs_other_ing": 0.09303933382034302
+          },
+          {
+            "stem": "stop",
+            "form": "stopping",
+            "add_pred": "stop",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.6541496515274048,
+            "cos_peel_stem": 0.10570269823074341,
+            "peel_gain": -0.28588664531707764,
+            "prefer_true_vs_lit": true,
+            "margin_true_lit": 0.030785083770751953,
+            "margin_vs_other_ing": 0.16824620962142944
+          },
+          {
+            "stem": "spot",
+            "form": "spotting",
+            "add_pred": "spot",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.6539880037307739,
+            "cos_peel_stem": 0.31484171748161316,
+            "peel_gain": -0.13096219301223755,
+            "prefer_true_vs_lit": true,
+            "margin_true_lit": 0.04461193084716797,
+            "margin_vs_other_ing": 0.09413892030715942
+          },
+          {
+            "stem": "top",
+            "form": "topping",
+            "add_pred": "top",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.559393048286438,
+            "cos_peel_stem": 0.47430694103240967,
+            "peel_gain": -0.2637007236480713,
+            "prefer_true_vs_lit": true,
+            "margin_true_lit": 0.026103615760803223,
+            "margin_vs_other_ing": -0.11849796772003174
+          }
+        ]
+      },
+      "DΔ": {
+        "label": "DΔ",
+        "n": 17,
+        "add_acc": 0.23529411764705882,
+        "naive_acc": 1.0,
+        "foil_acc": 0.23529411764705882,
+        "mean_cos_add_form": 0.6266249838997336,
+        "mean_cos_peel_stem": 0.46378230697968426,
+        "mean_peel_gain": -0.06413664274355944,
+        "mean_margin_ing": 0.08609224768245921,
+        "lit_prefer_acc": 0.8571428571428571,
+        "details": [
+          {
+            "stem": "play",
+            "form": "playing",
+            "add_pred": "play",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.7540910243988037,
+            "cos_peel_stem": 0.4994431734085083,
+            "peel_gain": -0.3011183738708496,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.08049750328063965
+          },
+          {
+            "stem": "go",
+            "form": "going",
+            "add_pred": "go",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.6664489507675171,
+            "cos_peel_stem": 0.6894015669822693,
+            "peel_gain": -0.16993659734725952,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.04432034492492676
+          },
+          {
+            "stem": "act",
+            "form": "acting",
+            "add_pred": "act",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.5886036157608032,
+            "cos_peel_stem": 0.5317627191543579,
+            "peel_gain": 0.053632110357284546,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.10499030351638794
+          },
+          {
+            "stem": "fish",
+            "form": "fishing",
+            "add_pred": "fish",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.7085015773773193,
+            "cos_peel_stem": 0.47912704944610596,
+            "peel_gain": -0.10553652048110962,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.21326732635498047
+          },
+          {
+            "stem": "post",
+            "form": "posting",
+            "add_pred": "post",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.5419935584068298,
+            "cos_peel_stem": 0.632232129573822,
+            "peel_gain": 0.033821046352386475,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.04900628328323364
+          },
+          {
+            "stem": "book",
+            "form": "booking",
+            "add_pred": "book",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.49834877252578735,
+            "cos_peel_stem": 0.29153972864151,
+            "peel_gain": -0.24969404935836792,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": -0.10488629341125488
+          },
+          {
+            "stem": "light",
+            "form": "lighting",
+            "add_pred": "lighting",
+            "add_ok": true,
+            "naive_ok": true,
+            "foil_ok": true,
+            "cos_add_form": 0.7436773180961609,
+            "cos_peel_stem": 0.5115706324577332,
+            "peel_gain": 0.029829204082489014,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.13829827308654785
+          },
+          {
+            "stem": "bird",
+            "form": "birding",
+            "add_pred": "bird",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.4874476194381714,
+            "cos_peel_stem": 0.38165345788002014,
+            "peel_gain": -0.11446785926818848,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.016999363899230957
+          },
+          {
+            "stem": "green",
+            "form": "greening",
+            "add_pred": "greening",
+            "add_ok": true,
+            "naive_ok": true,
+            "foil_ok": true,
+            "cos_add_form": 0.6728347539901733,
+            "cos_peel_stem": 0.6354889869689941,
+            "peel_gain": 0.17014116048812866,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.10443109273910522
+          },
+          {
+            "stem": "slow",
+            "form": "slowing",
+            "add_pred": "slowly",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.5891126394271851,
+            "cos_peel_stem": 0.3225735127925873,
+            "peel_gain": -0.07130417227745056,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.13760578632354736
+          },
+          {
+            "stem": "make",
+            "form": "making",
+            "add_pred": "making",
+            "add_ok": true,
+            "naive_ok": true,
+            "foil_ok": true,
+            "cos_add_form": 0.7084410190582275,
+            "cos_peel_stem": 0.4890318214893341,
+            "peel_gain": 0.021275341510772705,
+            "prefer_true_vs_lit": true,
+            "margin_true_lit": 0.0020176172256469727,
+            "margin_vs_other_ing": 0.20936942100524902
+          },
+          {
+            "stem": "take",
+            "form": "taking",
+            "add_pred": "take",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.5255386233329773,
+            "cos_peel_stem": 0.19175788760185242,
+            "peel_gain": -0.011777862906455994,
+            "prefer_true_vs_lit": false,
+            "margin_true_lit": -0.15318912267684937,
+            "margin_vs_other_ing": 0.006221592426300049
+          },
+          {
+            "stem": "give",
+            "form": "giving",
+            "add_pred": "giving",
+            "add_ok": true,
+            "naive_ok": true,
+            "foil_ok": true,
+            "cos_add_form": 0.6995402574539185,
+            "cos_peel_stem": 0.6945830583572388,
+            "peel_gain": 0.18051475286483765,
+            "prefer_true_vs_lit": true,
+            "margin_true_lit": 0.15872502326965332,
+            "margin_vs_other_ing": 0.18889230489730835
+          },
+          {
+            "stem": "run",
+            "form": "running",
+            "add_pred": "run",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.6503109931945801,
+            "cos_peel_stem": 0.449189156293869,
+            "peel_gain": -0.06524452567100525,
+            "prefer_true_vs_lit": true,
+            "margin_true_lit": 0.14564484357833862,
+            "margin_vs_other_ing": 0.051556944847106934
+          },
+          {
+            "stem": "stop",
+            "form": "stopping",
+            "add_pred": "stop",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.6294207572937012,
+            "cos_peel_stem": 0.2664955258369446,
+            "peel_gain": -0.12509381771087646,
+            "prefer_true_vs_lit": true,
+            "margin_true_lit": 0.041264235973358154,
+            "margin_vs_other_ing": 0.15499895811080933
+          },
+          {
+            "stem": "spot",
+            "form": "spotting",
+            "add_pred": "spot",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.6374248266220093,
+            "cos_peel_stem": 0.35253167152404785,
+            "peel_gain": -0.09327223896980286,
+            "prefer_true_vs_lit": true,
+            "margin_true_lit": 0.048152923583984375,
+            "margin_vs_other_ing": 0.12139487266540527
+          },
+          {
+            "stem": "top",
+            "form": "topping",
+            "add_pred": "top",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.5508884191513062,
+            "cos_peel_stem": 0.4659171402454376,
+            "peel_gain": -0.27209052443504333,
+            "prefer_true_vs_lit": true,
+            "margin_true_lit": 0.07091870903968811,
+            "margin_vs_other_ing": -0.053395867347717285
+          }
+        ]
+      },
+      "N": {
+        "label": "N",
+        "n": 17,
+        "add_acc": 0.0,
+        "naive_acc": 1.0,
+        "foil_acc": 0.0,
+        "mean_cos_add_form": 0.40196213126182556,
+        "mean_cos_peel_stem": 0.3312756221960573,
+        "mean_peel_gain": -0.19664332752718644,
+        "mean_margin_ing": 0.06653577176963582,
+        "lit_prefer_acc": 0.2857142857142857,
+        "details": [
+          {
+            "stem": "play",
+            "form": "playing",
+            "add_pred": "play",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.7026110887527466,
+            "cos_peel_stem": 0.5183758735656738,
+            "peel_gain": -0.2821856737136841,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.21970027685165405
+          },
+          {
+            "stem": "go",
+            "form": "going",
+            "add_pred": "go",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.5973333716392517,
+            "cos_peel_stem": 0.6163448095321655,
+            "peel_gain": -0.24299335479736328,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.23124748468399048
+          },
+          {
+            "stem": "act",
+            "form": "acting",
+            "add_pred": "act",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.27049028873443604,
+            "cos_peel_stem": 0.41471290588378906,
+            "peel_gain": -0.0634177029132843,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.07932573556900024
+          },
+          {
+            "stem": "fish",
+            "form": "fishing",
+            "add_pred": "fish",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.36587733030319214,
+            "cos_peel_stem": 0.3261451721191406,
+            "peel_gain": -0.25851839780807495,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.02183431386947632
+          },
+          {
+            "stem": "post",
+            "form": "posting",
+            "add_pred": "post",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.4100472629070282,
+            "cos_peel_stem": 0.3538318872451782,
+            "peel_gain": -0.24457919597625732,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.13610023260116577
+          },
+          {
+            "stem": "book",
+            "form": "booking",
+            "add_pred": "book",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.3000947833061218,
+            "cos_peel_stem": 0.35895049571990967,
+            "peel_gain": -0.18228328227996826,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": -0.011913001537322998
+          },
+          {
+            "stem": "light",
+            "form": "lighting",
+            "add_pred": "light",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.37234658002853394,
+            "cos_peel_stem": 0.23882421851158142,
+            "peel_gain": -0.24291720986366272,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.07557341456413269
+          },
+          {
+            "stem": "bird",
+            "form": "birding",
+            "add_pred": "bird",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.32696378231048584,
+            "cos_peel_stem": 0.2303212434053421,
+            "peel_gain": -0.2658000737428665,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": -0.01768958568572998
+          },
+          {
+            "stem": "green",
+            "form": "greening",
+            "add_pred": "green",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.4421963095664978,
+            "cos_peel_stem": 0.3249225914478302,
+            "peel_gain": -0.14042523503303528,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": 0.18583035469055176
+          },
+          {
+            "stem": "slow",
+            "form": "slowing",
+            "add_pred": "slowly",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.22927698493003845,
+            "cos_peel_stem": 0.19033557176589966,
+            "peel_gain": -0.20354211330413818,
+            "prefer_true_vs_lit": null,
+            "margin_true_lit": null,
+            "margin_vs_other_ing": -0.11650504171848297
+          },
+          {
+            "stem": "make",
+            "form": "making",
+            "add_pred": "make",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.398573100566864,
+            "cos_peel_stem": 0.3032591640949249,
+            "peel_gain": -0.16449731588363647,
+            "prefer_true_vs_lit": false,
+            "margin_true_lit": -0.12082964181900024,
+            "margin_vs_other_ing": 0.10153937339782715
+          },
+          {
+            "stem": "take",
+            "form": "taking",
+            "add_pred": "take",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.27405595779418945,
+            "cos_peel_stem": -0.009244166314601898,
+            "peel_gain": -0.2127799168229103,
+            "prefer_true_vs_lit": false,
+            "margin_true_lit": -0.4167332649230957,
+            "margin_vs_other_ing": -0.11798730492591858
+          },
+          {
+            "stem": "give",
+            "form": "giving",
+            "add_pred": "give",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.4981949031352997,
+            "cos_peel_stem": 0.37834763526916504,
+            "peel_gain": -0.13572067022323608,
+            "prefer_true_vs_lit": false,
+            "margin_true_lit": -0.0711987316608429,
+            "margin_vs_other_ing": 0.31249409914016724
+          },
+          {
+            "stem": "run",
+            "form": "running",
+            "add_pred": "run",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.3327029347419739,
+            "cos_peel_stem": 0.4478788673877716,
+            "peel_gain": -0.06655481457710266,
+            "prefer_true_vs_lit": true,
+            "margin_true_lit": 0.18963667750358582,
+            "margin_vs_other_ing": -0.07784220576286316
+          },
+          {
+            "stem": "stop",
+            "form": "stopping",
+            "add_pred": "stop",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.30600398778915405,
+            "cos_peel_stem": 0.16538509726524353,
+            "peel_gain": -0.22620424628257751,
+            "prefer_true_vs_lit": false,
+            "margin_true_lit": -0.08721297979354858,
+            "margin_vs_other_ing": -0.07694169878959656
+          },
+          {
+            "stem": "spot",
+            "form": "spotting",
+            "add_pred": "spot",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.3141965866088867,
+            "cos_peel_stem": 0.2722187042236328,
+            "peel_gain": -0.1735852062702179,
+            "prefer_true_vs_lit": false,
+            "margin_true_lit": -0.024788111448287964,
+            "margin_vs_other_ing": -0.06589841842651367
+          },
+          {
+            "stem": "top",
+            "form": "topping",
+            "add_pred": "top",
+            "add_ok": false,
+            "naive_ok": true,
+            "foil_ok": false,
+            "cos_add_form": 0.6923909783363342,
+            "cos_peel_stem": 0.5010755062103271,
+            "peel_gain": -0.2369321584701538,
+            "prefer_true_vs_lit": true,
+            "margin_true_lit": 0.29136693477630615,
+            "margin_vs_other_ing": 0.2522400915622711
+          }
+        ]
+      }
+    },
+    "loo": {
+      "A": {
+        "label": "LOO-A",
+        "acc": 0.11764705882352941,
+        "mean_cos": 0.6118228155023911,
+        "details": [
+          {
+            "stem": "play",
+            "form": "playing",
+            "pred": "play",
+            "ok": false,
+            "cos": 0.7511531114578247
+          },
+          {
+            "stem": "go",
+            "form": "going",
+            "pred": "go",
+            "ok": false,
+            "cos": 0.6120951175689697
+          },
+          {
+            "stem": "act",
+            "form": "acting",
+            "pred": "act",
+            "ok": false,
+            "cos": 0.58955979347229
+          },
+          {
+            "stem": "fish",
+            "form": "fishing",
+            "pred": "fish",
+            "ok": false,
+            "cos": 0.6832157373428345
+          },
+          {
+            "stem": "post",
+            "form": "posting",
+            "pred": "post",
+            "ok": false,
+            "cos": 0.5407717823982239
+          },
+          {
+            "stem": "book",
+            "form": "booking",
+            "pred": "book",
+            "ok": false,
+            "cos": 0.5261839628219604
+          },
+          {
+            "stem": "light",
+            "form": "lighting",
+            "pred": "light",
+            "ok": false,
+            "cos": 0.6798647046089172
+          },
+          {
+            "stem": "bird",
+            "form": "birding",
+            "pred": "bird",
+            "ok": false,
+            "cos": 0.5165026783943176
+          },
+          {
+            "stem": "green",
+            "form": "greening",
+            "pred": "greening",
+            "ok": true,
+            "cos": 0.6752908229827881
+          },
+          {
+            "stem": "slow",
+            "form": "slowing",
+            "pred": "slowly",
+            "ok": false,
+            "cos": 0.6341021060943604
+          },
+          {
+            "stem": "make",
+            "form": "making",
+            "pred": "make",
+            "ok": false,
+            "cos": 0.6869202852249146
+          },
+          {
+            "stem": "take",
+            "form": "taking",
+            "pred": "take",
+            "ok": false,
+            "cos": 0.45698443055152893
+          },
+          {
+            "stem": "give",
+            "form": "giving",
+            "pred": "giving",
+            "ok": true,
+            "cos": 0.6591110229492188
+          },
+          {
+            "stem": "run",
+            "form": "running",
+            "pred": "run",
+            "ok": false,
+            "cos": 0.6873798370361328
+          },
+          {
+            "stem": "stop",
+            "form": "stopping",
+            "pred": "stop",
+            "ok": false,
+            "cos": 0.6290698051452637
+          },
+          {
+            "stem": "spot",
+            "form": "spotting",
+            "pred": "spot",
+            "ok": false,
+            "cos": 0.6214772462844849
+          },
+          {
+            "stem": "top",
+            "form": "topping",
+            "pred": "top",
+            "ok": false,
+            "cos": 0.45130541920661926
+          }
+        ]
+      },
+      "B": {
+        "label": "LOO-B",
+        "acc": 0.058823529411764705,
+        "mean_cos": 0.6255006141522351,
+        "details": [
+          {
+            "stem": "play",
+            "form": "playing",
+            "pred": "play",
+            "ok": false,
+            "cos": 0.7532904148101807
+          },
+          {
+            "stem": "go",
+            "form": "going",
+            "pred": "go",
+            "ok": false,
+            "cos": 0.589409589767456
+          },
+          {
+            "stem": "act",
+            "form": "acting",
+            "pred": "act",
+            "ok": false,
+            "cos": 0.5505796670913696
+          },
+          {
+            "stem": "fish",
+            "form": "fishing",
+            "pred": "fish",
+            "ok": false,
+            "cos": 0.6244462728500366
+          },
+          {
+            "stem": "post",
+            "form": "posting",
+            "pred": "post",
+            "ok": false,
+            "cos": 0.5568697452545166
+          },
+          {
+            "stem": "book",
+            "form": "booking",
+            "pred": "book",
+            "ok": false,
+            "cos": 0.5306878089904785
+          },
+          {
+            "stem": "light",
+            "form": "lighting",
+            "pred": "light",
+            "ok": false,
+            "cos": 0.7009502649307251
+          },
+          {
+            "stem": "bird",
+            "form": "birding",
+            "pred": "bird",
+            "ok": false,
+            "cos": 0.5313917994499207
+          },
+          {
+            "stem": "green",
+            "form": "greening",
+            "pred": "green",
+            "ok": false,
+            "cos": 0.6991539001464844
+          },
+          {
+            "stem": "slow",
+            "form": "slowing",
+            "pred": "slowly",
+            "ok": false,
+            "cos": 0.6665217876434326
+          },
+          {
+            "stem": "make",
+            "form": "making",
+            "pred": "make",
+            "ok": false,
+            "cos": 0.7091619968414307
+          },
+          {
+            "stem": "take",
+            "form": "taking",
+            "pred": "take",
+            "ok": false,
+            "cos": 0.5060954093933105
+          },
+          {
+            "stem": "give",
+            "form": "giving",
+            "pred": "giving",
+            "ok": true,
+            "cos": 0.7232773303985596
+          },
+          {
+            "stem": "run",
+            "form": "running",
+            "pred": "run",
+            "ok": false,
+            "cos": 0.7286872863769531
+          },
+          {
+            "stem": "stop",
+            "form": "stopping",
+            "pred": "stop",
+            "ok": false,
+            "cos": 0.668321967124939
+          },
+          {
+            "stem": "spot",
+            "form": "spotting",
+            "pred": "spot",
+            "ok": false,
+            "cos": 0.6494868993759155
+          },
+          {
+            "stem": "top",
+            "form": "topping",
+            "pred": "stopping",
+            "ok": false,
+            "cos": 0.4451783001422882
+          }
+        ]
+      },
+      "D": {
+        "label": "LOO-D",
+        "acc": 0.058823529411764705,
+        "mean_cos": 0.5905730058165157,
+        "details": [
+          {
+            "stem": "play",
+            "form": "playing",
+            "pred": "play",
+            "ok": false,
+            "cos": 0.7284258008003235
+          },
+          {
+            "stem": "go",
+            "form": "going",
+            "pred": "go",
+            "ok": false,
+            "cos": 0.5947587490081787
+          },
+          {
+            "stem": "act",
+            "form": "acting",
+            "pred": "act",
+            "ok": false,
+            "cos": 0.5033841133117676
+          },
+          {
+            "stem": "fish",
+            "form": "fishing",
+            "pred": "fish",
+            "ok": false,
+            "cos": 0.5906427502632141
+          },
+          {
+            "stem": "post",
+            "form": "posting",
+            "pred": "post",
+            "ok": false,
+            "cos": 0.5015888214111328
+          },
+          {
+            "stem": "book",
+            "form": "booking",
+            "pred": "book",
+            "ok": false,
+            "cos": 0.45503339171409607
+          },
+          {
+            "stem": "light",
+            "form": "lighting",
+            "pred": "light",
+            "ok": false,
+            "cos": 0.7036886215209961
+          },
+          {
+            "stem": "bird",
+            "form": "birding",
+            "pred": "bird",
+            "ok": false,
+            "cos": 0.45545437932014465
+          },
+          {
+            "stem": "green",
+            "form": "greening",
+            "pred": "green",
+            "ok": false,
+            "cos": 0.6465197801589966
+          },
+          {
+            "stem": "slow",
+            "form": "slowing",
+            "pred": "slowly",
+            "ok": false,
+            "cos": 0.5684812068939209
+          },
+          {
+            "stem": "make",
+            "form": "making",
+            "pred": "make",
+            "ok": false,
+            "cos": 0.685295581817627
+          },
+          {
+            "stem": "take",
+            "form": "taking",
+            "pred": "take",
+            "ok": false,
+            "cos": 0.5167996883392334
+          },
+          {
+            "stem": "give",
+            "form": "giving",
+            "pred": "giving",
+            "ok": true,
+            "cos": 0.717104971408844
+          },
+          {
+            "stem": "run",
+            "form": "running",
+            "pred": "run",
+            "ok": false,
+            "cos": 0.641729474067688
+          },
+          {
+            "stem": "stop",
+            "form": "stopping",
+            "pred": "stop",
+            "ok": false,
+            "cos": 0.6236928105354309
+          },
+          {
+            "stem": "spot",
+            "form": "spotting",
+            "pred": "spot",
+            "ok": false,
+            "cos": 0.6070942878723145
+          },
+          {
+            "stem": "top",
+            "form": "topping",
+            "pred": "top",
+            "ok": false,
+            "cos": 0.5000466704368591
+          }
+        ]
+      },
+      "DΔ": {
+        "label": "LOO-DΔ",
+        "acc": 0.058823529411764705,
+        "mean_cos": 0.5732694916865405,
+        "details": [
+          {
+            "stem": "play",
+            "form": "playing",
+            "pred": "play",
+            "ok": false,
+            "cos": 0.7253422141075134
+          },
+          {
+            "stem": "go",
+            "form": "going",
+            "pred": "go",
+            "ok": false,
+            "cos": 0.6237000226974487
+          },
+          {
+            "stem": "act",
+            "form": "acting",
+            "pred": "act",
+            "ok": false,
+            "cos": 0.5216916799545288
+          },
+          {
+            "stem": "fish",
+            "form": "fishing",
+            "pred": "fish",
+            "ok": false,
+            "cos": 0.6589707732200623
+          },
+          {
+            "stem": "post",
+            "form": "posting",
+            "pred": "post",
+            "ok": false,
+            "cos": 0.47845321893692017
+          },
+          {
+            "stem": "book",
+            "form": "booking",
+            "pred": "book",
+            "ok": false,
+            "cos": 0.4460456371307373
+          },
+          {
+            "stem": "light",
+            "form": "lighting",
+            "pred": "light",
+            "ok": false,
+            "cos": 0.6924868226051331
+          },
+          {
+            "stem": "bird",
+            "form": "birding",
+            "pred": "bird",
+            "ok": false,
+            "cos": 0.42984557151794434
+          },
+          {
+            "stem": "green",
+            "form": "greening",
+            "pred": "green",
+            "ok": false,
+            "cos": 0.6092263460159302
+          },
+          {
+            "stem": "slow",
+            "form": "slowing",
+            "pred": "slowly",
+            "ok": false,
+            "cos": 0.5315747261047363
+          },
+          {
+            "stem": "make",
+            "form": "making",
+            "pred": "make",
+            "ok": false,
+            "cos": 0.6551203727722168
+          },
+          {
+            "stem": "take",
+            "form": "taking",
+            "pred": "take",
+            "ok": false,
+            "cos": 0.45665308833122253
+          },
+          {
+            "stem": "give",
+            "form": "giving",
+            "pred": "giving",
+            "ok": true,
+            "cos": 0.6416301727294922
+          },
+          {
+            "stem": "run",
+            "form": "running",
+            "pred": "run",
+            "ok": false,
+            "cos": 0.6021971106529236
+          },
+          {
+            "stem": "stop",
+            "form": "stopping",
+            "pred": "stop",
+            "ok": false,
+            "cos": 0.5794839859008789
+          },
+          {
+            "stem": "spot",
+            "form": "spotting",
+            "pred": "spot",
+            "ok": false,
+            "cos": 0.5820889472961426
+          },
+          {
+            "stem": "top",
+            "form": "topping",
+            "pred": "top",
+            "ok": false,
+            "cos": 0.5110706686973572
+          }
+        ]
+      }
+    },
+    "cluster": {
+      "prefer_ing_acc": 0.75,
+      "mean_margin": 0.10392496734857559,
+      "mean_cos_D": 0.2696273885667324,
+      "mean_cos_N": 0.16570242121815681,
+      "details": [
+        {
+          "stem": "jump",
+          "form": "jumping",
+          "cos_D_basin": 0.41760140657424927,
+          "cos_N_basin": 0.2299758493900299,
+          "prefers_ing_D": true,
+          "margin_D_minus_N": 0.18762555718421936,
+          "cos_stem_res_to_D": 0.19168876111507416
+        },
+        {
+          "stem": "walk",
+          "form": "walking",
+          "cos_D_basin": 0.2560303807258606,
+          "cos_N_basin": 0.05364704132080078,
+          "prefers_ing_D": true,
+          "margin_D_minus_N": 0.20238333940505981,
+          "cos_stem_res_to_D": 0.09689395129680634
+        },
+        {
+          "stem": "read",
+          "form": "reading",
+          "cos_D_basin": 0.2371770292520523,
+          "cos_N_basin": 0.2859523892402649,
+          "prefers_ing_D": false,
+          "margin_D_minus_N": -0.048775359988212585,
+          "cos_stem_res_to_D": 0.08029542863368988
+        },
+        {
+          "stem": "write",
+          "form": "writing",
+          "cos_D_basin": 0.16770073771476746,
+          "cos_N_basin": 0.09323440492153168,
+          "prefers_ing_D": true,
+          "margin_D_minus_N": 0.07446633279323578,
+          "cos_stem_res_to_D": -0.01374143362045288
+        }
+      ]
+    },
+    "length_match": {
+      "n": 12,
+      "words": [
+        "windows",
+        "children",
+        "friends",
+        "houses",
+        "apples",
+        "tables",
+        "window",
+        "friend",
+        "school",
+        "writes",
+        "yellow",
+        "before"
+      ],
+      "mean_cos_to_D": -0.06425898180653651
+    },
+    "train_pair_diag": [
+      {
+        "stem": "play",
+        "form": "playing",
+        "cos_A_D": 0.19594499468803406,
+        "cos_B_D": 0.9565591812133789,
+        "cos_D_Dstem": 0.7523448467254639,
+        "explained_frac": 0.5336659550666809
+      },
+      {
+        "stem": "go",
+        "form": "going",
+        "cos_A_D": 0.2731230556964874,
+        "cos_B_D": 0.9988917112350464,
+        "cos_D_Dstem": 0.8586007356643677,
+        "explained_frac": 0.17649821937084198
+      },
+      {
+        "stem": "act",
+        "form": "acting",
+        "cos_A_D": 0.48091262578964233,
+        "cos_B_D": 0.9692682027816772,
+        "cos_D_Dstem": 0.47713592648506165,
+        "explained_frac": 0.27198249101638794
+      },
+      {
+        "stem": "fish",
+        "form": "fishing",
+        "cos_A_D": 0.44449272751808167,
+        "cos_B_D": 0.9716804027557373,
+        "cos_D_Dstem": 0.5761948823928833,
+        "explained_frac": 0.27834734320640564
+      },
+      {
+        "stem": "post",
+        "form": "posting",
+        "cos_A_D": 0.4534164071083069,
+        "cos_B_D": 0.9412007927894592,
+        "cos_D_Dstem": 0.52849942445755,
+        "explained_frac": 0.4085831940174103
+      },
+      {
+        "stem": "book",
+        "form": "booking",
+        "cos_A_D": 0.37126731872558594,
+        "cos_B_D": 0.9082046747207642,
+        "cos_D_Dstem": 0.5479364395141602,
+        "explained_frac": 0.455517441034317
+      },
+      {
+        "stem": "light",
+        "form": "lighting",
+        "cos_A_D": 0.536308228969574,
+        "cos_B_D": 0.9965677261352539,
+        "cos_D_Dstem": 0.42855823040008545,
+        "explained_frac": 0.3160003423690796
+      },
+      {
+        "stem": "bird",
+        "form": "birding",
+        "cos_A_D": 0.42995738983154297,
+        "cos_B_D": 0.9039420485496521,
+        "cos_D_Dstem": 0.4165492057800293,
+        "explained_frac": 0.5668573379516602
+      },
+      {
+        "stem": "green",
+        "form": "greening",
+        "cos_A_D": 0.48418065905570984,
+        "cos_B_D": 0.9982511401176453,
+        "cos_D_Dstem": 0.41420596837997437,
+        "explained_frac": 0.4349072575569153
+      },
+      {
+        "stem": "slow",
+        "form": "slowing",
+        "cos_A_D": 0.4104381203651428,
+        "cos_B_D": 0.9199719429016113,
+        "cos_D_Dstem": 0.4565674662590027,
+        "explained_frac": 0.448819637298584
+      },
+      {
+        "stem": "make",
+        "form": "making",
+        "cos_A_D": 0.44856372475624084,
+        "cos_B_D": 0.962367057800293,
+        "cos_D_Dstem": 0.46374109387397766,
+        "explained_frac": 0.3593047261238098
+      },
+      {
+        "stem": "take",
+        "form": "taking",
+        "cos_A_D": 0.6269630193710327,
+        "cos_B_D": 0.9844802618026733,
+        "cos_D_Dstem": 0.1724528819322586,
+        "explained_frac": 0.17171241343021393
+      },
+      {
+        "stem": "give",
+        "form": "giving",
+        "cos_A_D": 0.4506183862686157,
+        "cos_B_D": 0.9844012260437012,
+        "cos_D_Dstem": 0.5380655527114868,
+        "explained_frac": 0.21523858606815338
+      },
+      {
+        "stem": "run",
+        "form": "running",
+        "cos_A_D": 0.3837113380432129,
+        "cos_B_D": 0.9081041812896729,
+        "cos_D_Dstem": 0.49402832984924316,
+        "explained_frac": 0.5083112120628357
+      },
+      {
+        "stem": "stop",
+        "form": "stopping",
+        "cos_A_D": 0.40122830867767334,
+        "cos_B_D": 0.8734671473503113,
+        "cos_D_Dstem": 0.4214472770690918,
+        "explained_frac": 0.5326501131057739
+      },
+      {
+        "stem": "spot",
+        "form": "spotting",
+        "cos_A_D": 0.4575626254081726,
+        "cos_B_D": 0.9206661581993103,
+        "cos_D_Dstem": 0.41560277342796326,
+        "explained_frac": 0.48011311888694763
+      },
+      {
+        "stem": "top",
+        "form": "topping",
+        "cos_A_D": 0.33302363753318787,
+        "cos_B_D": 0.9440928101539612,
+        "cos_D_Dstem": 0.6508138179779053,
+        "explained_frac": 0.5164438486099243
+      }
+    ],
+    "verdict": {
+      "hold_add": "A=100%, B=100%, D=0%, DΔ=0%, N=0% (best A)",
+      "peel": "A=+0.067, B=+0.055, D=-0.204, DΔ=-0.218, N=-0.384 (best A)",
+      "D_vs_AB": "HOLD peel D−A=-0.272, D−B=-0.260; add D=0% A=100% B=100%",
+      "D_vs_control_N": "add D−N=+0pp; cluster prefer D>N 75% margin +0.104",
+      "cluster": "HOLD -ing form residues cluster with D more than N — composition residue has -ing-ish structure",
+      "retrieval": "retrieval has discriminative signal among basins",
+      "overall": "D shows -ing-linked composition residue (cluster + peel vs N). Still use as structure target / peel signal, not as proof over naive compose."
+    }
+  }
+}

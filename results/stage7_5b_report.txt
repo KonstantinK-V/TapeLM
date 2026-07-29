@@ -1,0 +1,62 @@
+SOTE Stage 7.5b report (visual rebalance, prefixes kept)
+timestamp: 2026-07-22T11:03:08.225950+00:00
+device: cuda
+gpu: NVIDIA GeForce RTX 3050 Laptop GPU
+steps: 2500
+alphabet: C:\Users\Kostya\sote-letter-assembly\checkpoints\alphabet_frozen.pt
+
+Compose accuracy:         100.0%
+Stream accuracy:          100.0%
+Compose~Stream agree:     100.0% (cos>=0.7)
+Letter-trace in compose:  100.0%
+Permutation probes:       100.0%
+Shared-letter traces:     100.0%
+Text/visual path acc:     100.0%
+Text/visual path agree:   100.0% (cos>=0.6)
+Prefix probes:            100.0%
+
+Permutation probes:
+  [OK] cat vs act: sim=0.30, pred=cat/act
+  [OK] dog vs god: sim=0.31, pred=dog/god
+  [OK] on vs no: sim=0.23, pred=on/no
+  [OK] top vs pot: sim=-0.18, pred=top/pot
+  [OK] stop vs spot: sim=0.35, pred=stop/spot
+  [OK] post vs spot: sim=0.11, pred=post/spot
+
+Shared-letter traces:
+  [OK] cat/car keep 'c': 0.17, 0.16
+  [OK] dog/good keep 'd': 0.16, 0.15
+  [OK] top/pot keep 't': 0.20, 0.31
+  [OK] stop/post keep 's': 0.16, 0.16
+
+Prefix probes:
+  [OK] 'ca' family=0.49 other=0.06
+  [OK] 'do' family=0.64 other=0.16
+  [OK] 'sto' family=0.67 other=0.28
+  [OK] 'go' family=0.54 other=0.00
+  [OK] 'po' family=0.53 other=0.07
+
+Text vs visual paths:
+  [OK] cat  text=cat  vis=cat  agree=0.99
+  [OK] act  text=act  vis=act  agree=0.99
+  [OK] car  text=car  vis=car  agree=0.99
+  [OK] card text=card vis=card agree=0.97
+  [OK] dog  text=dog  vis=dog  agree=0.98
+  [OK] god  text=god  vis=god  agree=0.99
+  [OK] good text=good vis=good agree=0.99
+  [OK] go   text=go   vis=go   agree=0.91
+  [OK] on   text=on   vis=on   agree=1.00
+  [OK] no   text=no   vis=no   agree=0.98
+  [OK] not  text=not  vis=not  agree=0.99
+  [OK] ton  text=ton  vis=ton  agree=0.99
+  [OK] to   text=to   vis=to   agree=0.96
+  [OK] top  text=top  vis=top  agree=1.00
+  [OK] pot  text=pot  vis=pot  agree=0.99
+  [OK] stop text=stop vis=stop agree=0.99
+  [OK] spot text=spot vis=spot agree=0.99
+  [OK] post text=post vis=post agree=0.99
+
+How to read:
+- Visual rebalance only: prefix/growth losses unchanged from 7.5.
+- Expect prefix to stay high while text/visual path recovers.
+- Growth loss pushes longer prefixes closer to the final word fp.

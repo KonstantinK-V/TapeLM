@@ -1,0 +1,50 @@
+SOTE Stage 5 report
+timestamp: 2026-07-22T08:14:23.888685+00:00
+device: cuda
+gpu: NVIDIA GeForce RTX 3050 Laptop GPU
+steps: 3500
+
+Lexicon accuracy:   100.0% (18/18)
+Anagram separation: 100.0%
+Prefix probes:      100.0%
+Quality gate:       real_q=1.000, junk_q=0.000, reject=100.0%
+Text letter basins: standalone=100.0%, contextual=100.0%, inter_basin_cos=-0.066
+Visual letters:     acc=100.0% (240 images), intra_cos=0.994, mean_max_wrong=0.064
+
+Per-letter visual accuracy:
+  [OK] a: 100.0% | ex a (0.81) | a:0.81, o:0.08, p:0.06
+  [OK] c: 100.0% | ex c (0.77) | c:0.77, o:0.12, g:0.07
+  [OK] d: 100.0% | ex d (0.74) | d:0.74, t:0.04, s:0.04
+  [OK] g: 100.0% | ex g (0.70) | g:0.70, t:0.04, n:0.00
+  [OK] n: 100.0% | ex n (0.66) | n:0.66, g:-0.01, s:-0.02
+  [OK] o: 100.0% | ex o (0.79) | o:0.79, c:0.10, r:0.04
+  [OK] p: 100.0% | ex p (0.71) | p:0.71, n:0.09, c:0.03
+  [OK] r: 100.0% | ex r (0.73) | r:0.73, t:0.08, n:0.04
+  [OK] s: 100.0% | ex s (0.69) | s:0.69, r:0.00, n:-0.02
+  [OK] t: 100.0% | ex t (0.74) | t:0.74, d:0.05, s:0.02
+
+Words:
+  [OK] cat  -> cat  (sim=0.77, q=1.00) | cat:0.77, act:0.26, pot:0.11
+  [OK] act  -> act  (sim=0.79, q=1.00) | act:0.79, cat:0.26, dog:0.16
+  [OK] car  -> car  (sim=0.72, q=1.00) | car:0.72, card:0.14, cat:0.09
+  [OK] card -> card (sim=0.75, q=1.00) | card:0.75, car:0.18, god:0.11
+  [OK] dog  -> dog  (sim=0.73, q=1.00) | dog:0.73, god:0.17, good:0.12
+  [OK] god  -> god  (sim=0.74, q=1.00) | god:0.74, dog:0.16, good:0.12
+  [OK] good -> good (sim=0.66, q=1.00) | good:0.66, dog:0.08, top:0.05
+  [OK] go   -> go   (sim=0.65, q=1.00) | go:0.65, car:0.06, god:0.05
+  [OK] on   -> on   (sim=0.68, q=1.00) | on:0.68, no:0.14, card:0.10
+  [OK] no   -> no   (sim=0.67, q=1.00) | no:0.67, on:0.11, ton:0.08
+  [OK] not  -> not  (sim=0.72, q=1.00) | not:0.72, ton:0.15, top:0.08
+  [OK] ton  -> ton  (sim=0.73, q=1.00) | ton:0.73, no:0.16, not:0.15
+  [OK] to   -> to   (sim=0.71, q=1.00) | to:0.71, top:0.16, pot:0.07
+  [OK] top  -> top  (sim=0.74, q=1.00) | top:0.74, pot:0.17, to:0.15
+  [OK] pot  -> pot  (sim=0.72, q=1.00) | pot:0.72, top:0.15, to:0.12
+  [OK] stop -> stop (sim=0.75, q=1.00) | stop:0.75, spot:0.18, post:0.17
+  [OK] spot -> spot (sim=0.73, q=1.00) | spot:0.73, stop:0.12, post:0.10
+  [OK] post -> post (sim=0.73, q=1.00) | post:0.73, spot:0.13, stop:0.12
+
+How to read:
+- Visual acc: different renderings of a letter land in the same basin.
+- intra_visual_cos: same letter, different images stay close.
+- mean_max_wrong: lower is better (less confusion with other basins).
+- Word/gate metrics: assembly still works after adding vision.

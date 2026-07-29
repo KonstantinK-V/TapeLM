@@ -1,0 +1,7 @@
+SOTE Stage 116 — morph-tolerant diagnostic (exact remains GATE)
+timestamp: 2026-07-25T08:10:42.318905+00:00
+weights: stage100_scale_100k.pt
+SEEN ALL exact=69.2% morph=69.2% stem=69.2%
+SEEN obj exact=42.7% morph=42.7% (gap +0.0pp)
+STORY ALL exact=19.6% morph=19.7% (gap +0.1pp)
+Verdict: DIAG (no gate change)

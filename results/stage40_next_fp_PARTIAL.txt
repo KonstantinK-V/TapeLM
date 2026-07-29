@@ -1,0 +1,26 @@
+SOTE Stage 40 E next-fp — PARTIAL (not full freeze)
+timestamp: 2026-07-24T07:41:20+00:00
+checkpoint: stage40_next_fp.pt
+parent: stage39_decode_stress_FROZEN.pt
+report: stage40_next_fp_report.txt
+metrics: stage40_next_fp_metrics.json
+
+=== CLAIM ===
+  Soft next-fp is real for words, weak for phrases under NN decode.
+  D decode regression intact (100%/100%).
+
+=== RESULTS ===
+  Word HOLD:  acc 36.3%  shuffle 14.8%  gap +21.4pp  (soft PASS)
+  Phrase HOLD: acc 0.0%  shuffle 0.6%  gap -0.6pp   (exact FAIL)
+  Phrase HOLD cos~0.74 with train gap — fp signal without closed-set NN hit
+    (large phrase codebook collisions; same Stage17-ish story)
+
+=== GATES (soft, not GPT) ===
+  gap>=10pp and abs>=25%: word YES, phrase NO
+  D regression: YES
+
+=== STATUS: PARTIAL ===
+Do not claim generative phrase next. Optional next:
+  - phrase next via bridge word + local candidate set (not full codebook)
+  - or ranking/cos gate instead of exact NN
+  - do NOT chase GPT-level LM

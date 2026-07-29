@@ -1,0 +1,6 @@
+SOTE Stage 62 — PASS expand (FROZEN)
+timestamp: 2026-07-24T11:33:07+00:00
+facts: 120 → 818 LIVE atoms (noun_rel/polarity)
+hop2: 79.7% → 84.4%
+hop3 joint3: 64.6% → 92.2%
+atom L2: 28.1% held

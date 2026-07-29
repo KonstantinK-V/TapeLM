@@ -1,0 +1,23 @@
+SOTE Stages 62+63 external hops band — FROZEN
+timestamp: 2026-07-24T12:00:00+00:00
+
+=== BUNDLE ===
+  bank:   data/external_facts_live_exp_FROZEN.txt (818 LIVE atoms)
+  expand: stage62_ext_hop_expand_FROZEN.pt
+          stage62_ext_hop_expand_contract_FROZEN.txt
+  stress: stage63_hop3_polarity_junction_FROZEN.pt
+          stage63_hop3_polarity_junction_contract_FROZEN.txt
+  atom:   stage57_rehearsal_FROZEN.pt (unchanged)
+  scale:  stage59_scale_1k_FROZEN.pt (unchanged)
+
+=== FROZEN CLAIMS ===
+  1. Expanded noun_rel|polarity bank: hop2 ~84%, atom L2 ~28%
+  2. Hop3 stress joint3 ~86% on that bank
+  3. Polarity no/not hop2 ~94% ≈ noun_rel (data enough; not logical NOT)
+  4. Junction near chance — dual channels stay separate
+
+=== NOT CLAIMED ===
+  verb_ing, NLI negation, forced junction, phrase/char trunk, FT-on-1k
+
+=== FREEZE_READY: True ===
+Next options: see agent proposal (dirty hop / true-neg dig / verb_ing deferred / hold).

@@ -1,0 +1,25 @@
+SOTE Stage 61 report (LIVE external facts + dual-channel probe)
+timestamp: 2026-07-24T11:24:45.009335+00:00
+device: cuda
+atom parent: stage57_rehearsal_FROZEN.pt  facts: data\external_facts_live.txt
+LIVE lines=693 atoms=120 pairs=354 triples=981
+gates: hop2 joint≥55% (stretch 70%) AND atom L2≥25%/+10pp
+
+=== Fact bank ===
+  subkinds=noun_rel|polarity  skip=verb_ing  cap=120
+  n_facts=120 n_pairs=354 n_triples=981
+
+=== Hop channel (external 2hop clean_bind) ===
+  joint=79.7%  H1=93.8%  H2=81.2%  n_eps=64
+  hop3 joint3=64.6%
+  internal hop2 regression=83.3%
+
+=== Atom channel (LIVE HOLD, TinySeq 57) ===
+  L1  1.2%/+0.8pp n=242
+  L2+ 28.1%/+14.4pp n=584
+
+=== Walls: none ===
+
+=== Verdict ===
+  PASS dual: hop2 80% ≥70% stretch AND atom L2 28%/+14pp. Expand fact bank next.
+  No phrase/char trunk. Freeze 57/59 unchanged.

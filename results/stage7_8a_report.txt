@@ -1,0 +1,74 @@
+SOTE Stage 7.8a report (full a-z alphabet + freeze)
+timestamp: 2026-07-22T11:47:43.808305+00:00
+device: cuda
+gpu: NVIDIA GeForce RTX 3050 Laptop GPU
+steps: alphabet=2500, freeze=1000, total=3500
+letters: abcdefghijklmnopqrstuvwxyz (26)
+Alphabet freeze: basin_drift_cos=1.000000, frozen=True
+
+Text letter acc:     100.0%
+Visual letter acc:   99.3%
+Visual intra-cos:    0.858
+Inter-basin cos:     -0.023
+Text/visual align:   92.3% (mean cos=0.817)
+
+Per-letter visual accuracy:
+  [OK] a: 100.0%
+  [OK] b: 100.0%
+  [OK] c: 100.0%
+  [OK] d:  93.8%
+  [OK] e: 100.0%
+  [OK] f: 100.0%
+  [OK] g: 100.0%
+  [OK] h: 100.0%
+  [OK] i: 100.0%
+  [OK] j: 100.0%
+  [OK] k: 100.0%
+  [OK] l:  87.5%
+  [OK] m: 100.0%
+  [OK] n: 100.0%
+  [OK] o: 100.0%
+  [OK] p: 100.0%
+  [OK] q: 100.0%
+  [OK] r: 100.0%
+  [OK] s: 100.0%
+  [OK] t: 100.0%
+  [OK] u: 100.0%
+  [OK] v: 100.0%
+  [OK] w: 100.0%
+  [OK] x: 100.0%
+  [OK] y: 100.0%
+  [OK] z: 100.0%
+
+Text letter -> basin:
+  [OK] a -> a (0.99) | a:0.99, i:0.09, n:0.09
+  [OK] b -> b (0.98) | b:0.98, w:0.05, u:0.04
+  [OK] c -> c (0.99) | c:0.99, t:0.06, k:0.06
+  [OK] d -> d (0.99) | d:0.99, j:0.05, p:0.05
+  [OK] e -> e (0.98) | e:0.98, h:0.08, i:0.06
+  [OK] f -> f (0.98) | f:0.98, l:0.07, h:0.06
+  [OK] g -> g (0.99) | g:0.99, p:0.06, q:0.06
+  [OK] h -> h (0.98) | h:0.98, e:0.08, n:0.07
+  [OK] i -> i (0.98) | i:0.98, e:0.08, a:0.08
+  [OK] j -> j (0.98) | j:0.98, o:0.05, d:0.04
+  [OK] k -> k (0.98) | k:0.98, t:0.06, x:0.06
+  [OK] l -> l (0.98) | l:0.98, f:0.05, w:0.04
+  [OK] m -> m (0.98) | m:0.98, x:0.08, u:0.08
+  [OK] n -> n (0.99) | n:0.99, h:0.08, a:0.06
+  [OK] o -> o (0.98) | o:0.98, j:0.06, x:0.05
+  [OK] p -> p (0.99) | p:0.99, d:0.08, k:0.07
+  [OK] q -> q (0.99) | q:0.99, k:0.04, g:0.03
+  [OK] r -> r (0.99) | r:0.99, u:0.05, p:0.03
+  [OK] s -> s (0.99) | s:0.99, l:0.02, m:0.02
+  [OK] t -> t (0.98) | t:0.98, k:0.07, d:0.07
+  [OK] u -> u (0.99) | u:0.99, m:0.07, b:0.06
+  [OK] v -> v (0.99) | v:0.99, i:0.05, a:0.04
+  [OK] w -> w (0.99) | w:0.99, l:0.08, b:0.07
+  [OK] x -> x (0.98) | x:0.98, m:0.06, k:0.05
+  [OK] y -> y (0.99) | y:0.99, m:0.05, u:0.04
+  [OK] z -> z (0.99) | z:0.99, i:0.07, t:0.06
+
+How to read:
+- This stage only builds/freeses the letter alphabet (a-z).
+- basin_drift_cos=1 means freeze held during phase B.
+- Next: 7.8b richer WordComposer on this full alphabet.

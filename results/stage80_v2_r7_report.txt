@@ -1,0 +1,25 @@
+SOTE V2 Path Replay R7 hops (exact retrieval, no top-5 next claims)
+timestamp: 2026-07-24T14:09:07.844164+00:00
+device: cuda
+plan: results/sote_v2_path_replay.md
+bank: external_facts_live_exp_FROZEN.txt n=818 pairs=11570 triples=163589
+binders: stage28_plus_dirty_ft seed=272 (V1 reserve)
+n_eps=96 episode_k=7
+NO FT. verb_ing not required.
+
+=== R7a clean ===
+  hop2 joint=84.4%  hop3 joint3=92.7%
+  Verdict R7a: PASS
+
+=== R7b polarity vs nounish ===
+  nounish hop2=88.5%  polarity hop2=86.5%
+  Verdict R7b: PASS
+
+=== R7c dirty ===
+  hop2 cb/db/dh=88.5/88.5/87.5%
+  hop3 cb/db/dh=92.7/92.7/91.7%
+  Verdict R7c: PASS
+
+=== Verdict R7: PASS ===
+  Next: R8 right-after-rel protocol (lift @1 OR hops-primary; protect rel/path).
+  No soft top-5 as success. Cue redesign if next@1 stuck.

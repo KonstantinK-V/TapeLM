@@ -1,0 +1,968 @@
+{
+  "pass": false,
+  "best_seed": 272,
+  "seeds": [
+    {
+      "seed": 272,
+      "ok": false,
+      "dense_clean": 0.15625,
+      "dense_bind": 0.15625,
+      "dense_both": 0.125,
+      "dense_h1": 0.40625,
+      "ctrl_clean": 0.6375,
+      "dense_lift": 0.109375,
+      "ctrl": {
+        "n": 80,
+        "n_pairs": 24,
+        "samples": [
+          {
+            "a": "dog to cob",
+            "b": "cob on rim",
+            "which": "first",
+            "clean_bind_j": true,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_bind_j": true,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": true,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "cob->ob[drop]"
+          },
+          {
+            "a": "bird to peg",
+            "b": "peg on rim",
+            "which": "second",
+            "clean_bind_j": true,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_bind_j": true,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": true,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "to->ot[swap]"
+          },
+          {
+            "a": "bird to peg",
+            "b": "peg on rim",
+            "which": "first",
+            "clean_bind_j": false,
+            "clean_bind_1": false,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_bind_j": false,
+            "dirty_bind_1": false,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": false,
+            "dirty_ex": "peg->pge[swap]"
+          },
+          {
+            "a": "go to cob",
+            "b": "cob on zip",
+            "which": "second",
+            "clean_bind_j": true,
+            "clean_bind_1": true,
+            "dirty_raw_j": true,
+            "dirty_raw_1": true,
+            "dirty_bind_j": true,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": true,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "to->ot[swap]"
+          },
+          {
+            "a": "washed to zip",
+            "b": "zip on yap",
+            "which": "first",
+            "clean_bind_j": true,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_bind_j": true,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": true,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "zip->zpi[swap]"
+          },
+          {
+            "a": "pushes to web",
+            "b": "web on cob",
+            "which": "second",
+            "clean_bind_j": false,
+            "clean_bind_1": false,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_bind_j": true,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "to->ot[swap]"
+          },
+          {
+            "a": "ball to zip",
+            "b": "zip on cob",
+            "which": "first",
+            "clean_bind_j": false,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_bind_j": false,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "zip->zpi[swap]"
+          },
+          {
+            "a": "washed to zip",
+            "b": "zip on yap",
+            "which": "second",
+            "clean_bind_j": true,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": true,
+            "dirty_bind_j": true,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": true,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "to->tk[sub]"
+          }
+        ],
+        "modes": {
+          "clean_bind": {
+            "hop1": 0.8,
+            "hop2": 0.7875,
+            "joint": 0.6375,
+            "mean_depth": 6.5375
+          },
+          "dirty_raw": {
+            "hop1": 0.2625,
+            "hop2": 0.3875,
+            "joint": 0.15,
+            "mean_depth": 5.7875
+          },
+          "dirty_bind": {
+            "hop1": 0.8375,
+            "hop2": 0.7875,
+            "joint": 0.6625,
+            "mean_depth": 7.9375
+          },
+          "dirty_both_bind": {
+            "hop1": 0.8375,
+            "hop2": 0.7,
+            "joint": 0.575,
+            "mean_depth": 8.8875
+          }
+        },
+        "by_kind": {
+          "drop": 0.7222222222222222,
+          "swap": 0.696969696969697,
+          "trunc": 0.46153846153846156,
+          "sub": 0.6875
+        },
+        "episode_k": 3
+      },
+      "dense": {
+        "n": 64,
+        "n_pairs": 180,
+        "samples": [
+          {
+            "a": "go on rim",
+            "b": "rim on hut",
+            "which": "first",
+            "clean_bind_j": false,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_bind_j": false,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "rim->im[drop]"
+          },
+          {
+            "a": "cob on rim",
+            "b": "rim on peg",
+            "which": "second",
+            "clean_bind_j": false,
+            "clean_bind_1": false,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_bind_j": false,
+            "dirty_bind_1": false,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": false,
+            "dirty_ex": "on->no[swap]"
+          },
+          {
+            "a": "yap on peg",
+            "b": "peg on rim",
+            "which": "first",
+            "clean_bind_j": false,
+            "clean_bind_1": false,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_bind_j": false,
+            "dirty_bind_1": false,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": false,
+            "dirty_ex": "peg->pge[swap]"
+          },
+          {
+            "a": "rim on zip",
+            "b": "zip on yap",
+            "which": "second",
+            "clean_bind_j": false,
+            "clean_bind_1": false,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_bind_j": false,
+            "dirty_bind_1": false,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": false,
+            "dirty_ex": "on->no[swap]"
+          },
+          {
+            "a": "washed to zip",
+            "b": "zip on yap",
+            "which": "first",
+            "clean_bind_j": false,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_bind_j": false,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "zip->zpi[swap]"
+          },
+          {
+            "a": "peg on yap",
+            "b": "yap on web",
+            "which": "second",
+            "clean_bind_j": false,
+            "clean_bind_1": false,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_bind_j": false,
+            "dirty_bind_1": false,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": false,
+            "dirty_ex": "on->no[swap]"
+          },
+          {
+            "a": "go to cat",
+            "b": "cat to car",
+            "which": "first",
+            "clean_bind_j": false,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_bind_j": false,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "cat->cta[swap]"
+          },
+          {
+            "a": "cob on peg",
+            "b": "peg on rim",
+            "which": "second",
+            "clean_bind_j": false,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": true,
+            "dirty_bind_j": false,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "on->ok[sub]"
+          }
+        ],
+        "modes": {
+          "clean_bind": {
+            "hop1": 0.40625,
+            "hop2": 0.515625,
+            "joint": 0.15625,
+            "mean_depth": 6.703125
+          },
+          "dirty_raw": {
+            "hop1": 0.1875,
+            "hop2": 0.34375,
+            "joint": 0.046875,
+            "mean_depth": 5.625
+          },
+          "dirty_bind": {
+            "hop1": 0.40625,
+            "hop2": 0.515625,
+            "joint": 0.15625,
+            "mean_depth": 7.890625
+          },
+          "dirty_both_bind": {
+            "hop1": 0.40625,
+            "hop2": 0.484375,
+            "joint": 0.125,
+            "mean_depth": 8.890625
+          }
+        },
+        "by_kind": {
+          "drop": 0.35714285714285715,
+          "swap": 0.10344827586206896,
+          "trunc": 0.0,
+          "sub": 0.16666666666666666
+        },
+        "episode_k": 5
+      }
+    },
+    {
+      "seed": 273,
+      "ok": false,
+      "dense_clean": 0.15625,
+      "dense_bind": 0.15625,
+      "dense_both": 0.125,
+      "dense_h1": 0.40625,
+      "ctrl_clean": 0.625,
+      "dense_lift": 0.109375,
+      "ctrl": {
+        "n": 80,
+        "n_pairs": 24,
+        "samples": [
+          {
+            "a": "dog to cob",
+            "b": "cob on rim",
+            "which": "first",
+            "clean_bind_j": false,
+            "clean_bind_1": false,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_bind_j": false,
+            "dirty_bind_1": false,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": false,
+            "dirty_ex": "cob->ob[drop]"
+          },
+          {
+            "a": "bird to peg",
+            "b": "peg on rim",
+            "which": "second",
+            "clean_bind_j": true,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_bind_j": true,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": true,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "to->ot[swap]"
+          },
+          {
+            "a": "bird to peg",
+            "b": "peg on rim",
+            "which": "first",
+            "clean_bind_j": false,
+            "clean_bind_1": false,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_bind_j": false,
+            "dirty_bind_1": false,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": false,
+            "dirty_ex": "peg->pge[swap]"
+          },
+          {
+            "a": "go to cob",
+            "b": "cob on zip",
+            "which": "second",
+            "clean_bind_j": true,
+            "clean_bind_1": true,
+            "dirty_raw_j": true,
+            "dirty_raw_1": true,
+            "dirty_bind_j": true,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": true,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "to->ot[swap]"
+          },
+          {
+            "a": "washed to zip",
+            "b": "zip on yap",
+            "which": "first",
+            "clean_bind_j": true,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_bind_j": true,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": true,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "zip->zpi[swap]"
+          },
+          {
+            "a": "pushes to web",
+            "b": "web on cob",
+            "which": "second",
+            "clean_bind_j": false,
+            "clean_bind_1": false,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_bind_j": false,
+            "dirty_bind_1": false,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": false,
+            "dirty_ex": "to->ot[swap]"
+          },
+          {
+            "a": "ball to zip",
+            "b": "zip on cob",
+            "which": "first",
+            "clean_bind_j": false,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_bind_j": false,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "zip->zpi[swap]"
+          },
+          {
+            "a": "washed to zip",
+            "b": "zip on yap",
+            "which": "second",
+            "clean_bind_j": true,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": true,
+            "dirty_bind_j": true,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": true,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "to->tk[sub]"
+          }
+        ],
+        "modes": {
+          "clean_bind": {
+            "hop1": 0.7875,
+            "hop2": 0.7875,
+            "joint": 0.625,
+            "mean_depth": 6.6125
+          },
+          "dirty_raw": {
+            "hop1": 0.2625,
+            "hop2": 0.3875,
+            "joint": 0.15,
+            "mean_depth": 5.7875
+          },
+          "dirty_bind": {
+            "hop1": 0.8125,
+            "hop2": 0.7875,
+            "joint": 0.6375,
+            "mean_depth": 7.9375
+          },
+          "dirty_both_bind": {
+            "hop1": 0.8125,
+            "hop2": 0.7125,
+            "joint": 0.5625,
+            "mean_depth": 8.8875
+          }
+        },
+        "by_kind": {
+          "drop": 0.6666666666666666,
+          "swap": 0.6666666666666666,
+          "trunc": 0.46153846153846156,
+          "sub": 0.6875
+        },
+        "episode_k": 3
+      },
+      "dense": {
+        "n": 64,
+        "n_pairs": 180,
+        "samples": [
+          {
+            "a": "go on rim",
+            "b": "rim on hut",
+            "which": "first",
+            "clean_bind_j": false,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_bind_j": false,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "rim->im[drop]"
+          },
+          {
+            "a": "cob on rim",
+            "b": "rim on peg",
+            "which": "second",
+            "clean_bind_j": false,
+            "clean_bind_1": false,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_bind_j": false,
+            "dirty_bind_1": false,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": false,
+            "dirty_ex": "on->no[swap]"
+          },
+          {
+            "a": "yap on peg",
+            "b": "peg on rim",
+            "which": "first",
+            "clean_bind_j": false,
+            "clean_bind_1": false,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_bind_j": false,
+            "dirty_bind_1": false,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": false,
+            "dirty_ex": "peg->pge[swap]"
+          },
+          {
+            "a": "rim on zip",
+            "b": "zip on yap",
+            "which": "second",
+            "clean_bind_j": false,
+            "clean_bind_1": false,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_bind_j": false,
+            "dirty_bind_1": false,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": false,
+            "dirty_ex": "on->no[swap]"
+          },
+          {
+            "a": "washed to zip",
+            "b": "zip on yap",
+            "which": "first",
+            "clean_bind_j": false,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_bind_j": false,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "zip->zpi[swap]"
+          },
+          {
+            "a": "peg on yap",
+            "b": "yap on web",
+            "which": "second",
+            "clean_bind_j": false,
+            "clean_bind_1": false,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_bind_j": false,
+            "dirty_bind_1": false,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": false,
+            "dirty_ex": "on->no[swap]"
+          },
+          {
+            "a": "go to cat",
+            "b": "cat to car",
+            "which": "first",
+            "clean_bind_j": false,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_bind_j": false,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "cat->cta[swap]"
+          },
+          {
+            "a": "cob on peg",
+            "b": "peg on rim",
+            "which": "second",
+            "clean_bind_j": false,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": true,
+            "dirty_bind_j": false,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "on->ok[sub]"
+          }
+        ],
+        "modes": {
+          "clean_bind": {
+            "hop1": 0.40625,
+            "hop2": 0.515625,
+            "joint": 0.15625,
+            "mean_depth": 6.703125
+          },
+          "dirty_raw": {
+            "hop1": 0.1875,
+            "hop2": 0.34375,
+            "joint": 0.046875,
+            "mean_depth": 5.625
+          },
+          "dirty_bind": {
+            "hop1": 0.40625,
+            "hop2": 0.5,
+            "joint": 0.15625,
+            "mean_depth": 7.78125
+          },
+          "dirty_both_bind": {
+            "hop1": 0.40625,
+            "hop2": 0.484375,
+            "joint": 0.125,
+            "mean_depth": 8.796875
+          }
+        },
+        "by_kind": {
+          "drop": 0.35714285714285715,
+          "swap": 0.10344827586206896,
+          "trunc": 0.0,
+          "sub": 0.16666666666666666
+        },
+        "episode_k": 5
+      }
+    },
+    {
+      "seed": 274,
+      "ok": false,
+      "dense_clean": 0.140625,
+      "dense_bind": 0.140625,
+      "dense_both": 0.125,
+      "dense_h1": 0.40625,
+      "ctrl_clean": 0.625,
+      "dense_lift": 0.09375,
+      "ctrl": {
+        "n": 80,
+        "n_pairs": 24,
+        "samples": [
+          {
+            "a": "dog to cob",
+            "b": "cob on rim",
+            "which": "first",
+            "clean_bind_j": false,
+            "clean_bind_1": false,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_bind_j": false,
+            "dirty_bind_1": false,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": false,
+            "dirty_ex": "cob->ob[drop]"
+          },
+          {
+            "a": "bird to peg",
+            "b": "peg on rim",
+            "which": "second",
+            "clean_bind_j": true,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_bind_j": true,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": true,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "to->ot[swap]"
+          },
+          {
+            "a": "bird to peg",
+            "b": "peg on rim",
+            "which": "first",
+            "clean_bind_j": false,
+            "clean_bind_1": false,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_bind_j": false,
+            "dirty_bind_1": false,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": false,
+            "dirty_ex": "peg->pge[swap]"
+          },
+          {
+            "a": "go to cob",
+            "b": "cob on zip",
+            "which": "second",
+            "clean_bind_j": true,
+            "clean_bind_1": true,
+            "dirty_raw_j": true,
+            "dirty_raw_1": true,
+            "dirty_bind_j": true,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": true,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "to->ot[swap]"
+          },
+          {
+            "a": "washed to zip",
+            "b": "zip on yap",
+            "which": "first",
+            "clean_bind_j": true,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_bind_j": true,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": true,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "zip->zpi[swap]"
+          },
+          {
+            "a": "pushes to web",
+            "b": "web on cob",
+            "which": "second",
+            "clean_bind_j": false,
+            "clean_bind_1": false,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_bind_j": true,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "to->ot[swap]"
+          },
+          {
+            "a": "ball to zip",
+            "b": "zip on cob",
+            "which": "first",
+            "clean_bind_j": false,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_bind_j": false,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "zip->zpi[swap]"
+          },
+          {
+            "a": "washed to zip",
+            "b": "zip on yap",
+            "which": "second",
+            "clean_bind_j": true,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": true,
+            "dirty_bind_j": true,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": true,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "to->tk[sub]"
+          }
+        ],
+        "modes": {
+          "clean_bind": {
+            "hop1": 0.7875,
+            "hop2": 0.7875,
+            "joint": 0.625,
+            "mean_depth": 6.6125
+          },
+          "dirty_raw": {
+            "hop1": 0.2625,
+            "hop2": 0.3875,
+            "joint": 0.15,
+            "mean_depth": 5.7875
+          },
+          "dirty_bind": {
+            "hop1": 0.8125,
+            "hop2": 0.8,
+            "joint": 0.65,
+            "mean_depth": 7.95
+          },
+          "dirty_both_bind": {
+            "hop1": 0.8125,
+            "hop2": 0.7125,
+            "joint": 0.575,
+            "mean_depth": 8.875
+          }
+        },
+        "by_kind": {
+          "drop": 0.6666666666666666,
+          "swap": 0.696969696969697,
+          "trunc": 0.46153846153846156,
+          "sub": 0.6875
+        },
+        "episode_k": 3
+      },
+      "dense": {
+        "n": 64,
+        "n_pairs": 180,
+        "samples": [
+          {
+            "a": "go on rim",
+            "b": "rim on hut",
+            "which": "first",
+            "clean_bind_j": false,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_bind_j": false,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "rim->im[drop]"
+          },
+          {
+            "a": "cob on rim",
+            "b": "rim on peg",
+            "which": "second",
+            "clean_bind_j": false,
+            "clean_bind_1": false,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_bind_j": false,
+            "dirty_bind_1": false,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": false,
+            "dirty_ex": "on->no[swap]"
+          },
+          {
+            "a": "yap on peg",
+            "b": "peg on rim",
+            "which": "first",
+            "clean_bind_j": false,
+            "clean_bind_1": false,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_bind_j": false,
+            "dirty_bind_1": false,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": false,
+            "dirty_ex": "peg->pge[swap]"
+          },
+          {
+            "a": "rim on zip",
+            "b": "zip on yap",
+            "which": "second",
+            "clean_bind_j": false,
+            "clean_bind_1": false,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_bind_j": false,
+            "dirty_bind_1": false,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": false,
+            "dirty_ex": "on->no[swap]"
+          },
+          {
+            "a": "washed to zip",
+            "b": "zip on yap",
+            "which": "first",
+            "clean_bind_j": false,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_bind_j": false,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "zip->zpi[swap]"
+          },
+          {
+            "a": "peg on yap",
+            "b": "yap on web",
+            "which": "second",
+            "clean_bind_j": false,
+            "clean_bind_1": false,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_bind_j": false,
+            "dirty_bind_1": false,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": false,
+            "dirty_ex": "on->no[swap]"
+          },
+          {
+            "a": "go to cat",
+            "b": "cat to car",
+            "which": "first",
+            "clean_bind_j": false,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_bind_j": false,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "cat->cta[swap]"
+          },
+          {
+            "a": "cob on peg",
+            "b": "peg on rim",
+            "which": "second",
+            "clean_bind_j": false,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": true,
+            "dirty_bind_j": false,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "on->ok[sub]"
+          }
+        ],
+        "modes": {
+          "clean_bind": {
+            "hop1": 0.40625,
+            "hop2": 0.5,
+            "joint": 0.140625,
+            "mean_depth": 6.765625
+          },
+          "dirty_raw": {
+            "hop1": 0.1875,
+            "hop2": 0.34375,
+            "joint": 0.046875,
+            "mean_depth": 5.625
+          },
+          "dirty_bind": {
+            "hop1": 0.40625,
+            "hop2": 0.5,
+            "joint": 0.140625,
+            "mean_depth": 7.875
+          },
+          "dirty_both_bind": {
+            "hop1": 0.40625,
+            "hop2": 0.484375,
+            "joint": 0.125,
+            "mean_depth": 8.875
+          }
+        },
+        "by_kind": {
+          "drop": 0.2857142857142857,
+          "swap": 0.10344827586206896,
+          "trunc": 0.0,
+          "sub": 0.16666666666666666
+        },
+        "episode_k": 5
+      }
+    }
+  ],
+  "config": {
+    "dim": 64,
+    "seed": 272,
+    "episode_k": 3,
+    "episode_k_dense": 5,
+    "steps": 900,
+    "batch_size": 32,
+    "lr": 0.001,
+    "n_hold_episodes": 80,
+    "n_dense_episodes": 64,
+    "create_below": 0.55,
+    "stabilize_lo": 0.55,
+    "lock_above": 0.92,
+    "ema": 0.85,
+    "retrieve_margin": 0.05,
+    "max_phrase_len": 5,
+    "max_word_len": 11,
+    "disambig_topk": 5,
+    "disambig_gap": 0.12,
+    "teach_w": 0.75,
+    "neg_w": 1.0,
+    "dense_clean_min": 0.25,
+    "ctrl_clean_min": 0.5,
+    "dense_lift_vs_raw_pp": 0.08,
+    "pass_seeds_min": 2
+  }
+}

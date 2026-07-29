@@ -1,0 +1,40 @@
+{"seq_id": 0, "split": "train", "phrase_id": 0, "phrase": "cat on top", "word_ids": [0, 1, 2], "words": ["cat", "on", "top"]}
+{"seq_id": 1, "split": "train", "phrase_id": 1, "phrase": "dog on top", "word_ids": [3, 1, 2], "words": ["dog", "on", "top"]}
+{"seq_id": 2, "split": "train", "phrase_id": 2, "phrase": "cat on car", "word_ids": [0, 1, 4], "words": ["cat", "on", "car"]}
+{"seq_id": 3, "split": "train", "phrase_id": 3, "phrase": "dog on car", "word_ids": [3, 1, 4], "words": ["dog", "on", "car"]}
+{"seq_id": 4, "split": "train", "phrase_id": 4, "phrase": "go to car", "word_ids": [5, 6, 4], "words": ["go", "to", "car"]}
+{"seq_id": 5, "split": "train", "phrase_id": 5, "phrase": "go to dog", "word_ids": [5, 6, 3], "words": ["go", "to", "dog"]}
+{"seq_id": 6, "split": "train", "phrase_id": 6, "phrase": "go to top", "word_ids": [5, 6, 2], "words": ["go", "to", "top"]}
+{"seq_id": 7, "split": "train", "phrase_id": 7, "phrase": "go on top", "word_ids": [5, 1, 2], "words": ["go", "on", "top"]}
+{"seq_id": 8, "split": "train", "phrase_id": 8, "phrase": "cat to dog", "word_ids": [0, 6, 3], "words": ["cat", "to", "dog"]}
+{"seq_id": 9, "split": "train", "phrase_id": 9, "phrase": "dog to cat", "word_ids": [3, 6, 0], "words": ["dog", "to", "cat"]}
+{"seq_id": 10, "split": "train", "phrase_id": 10, "phrase": "no good dog", "word_ids": [7, 8, 3], "words": ["no", "good", "dog"]}
+{"seq_id": 11, "split": "train", "phrase_id": 11, "phrase": "not good cat", "word_ids": [9, 8, 0], "words": ["not", "good", "cat"]}
+{"seq_id": 12, "split": "train", "phrase_id": 12, "phrase": "stop on top", "word_ids": [10, 1, 2], "words": ["stop", "on", "top"]}
+{"seq_id": 13, "split": "train", "phrase_id": 13, "phrase": "spot on top", "word_ids": [11, 1, 2], "words": ["spot", "on", "top"]}
+{"seq_id": 14, "split": "train", "phrase_id": 14, "phrase": "post to top", "word_ids": [12, 6, 2], "words": ["post", "to", "top"]}
+{"seq_id": 15, "split": "train", "phrase_id": 15, "phrase": "act on top", "word_ids": [13, 1, 2], "words": ["act", "on", "top"]}
+{"seq_id": 16, "split": "train", "phrase_id": 16, "phrase": "good dog on top", "word_ids": [8, 3, 1, 2], "words": ["good", "dog", "on", "top"]}
+{"seq_id": 17, "split": "train", "phrase_id": 17, "phrase": "good cat on car", "word_ids": [8, 0, 1, 4], "words": ["good", "cat", "on", "car"]}
+{"seq_id": 18, "split": "train", "phrase_id": 18, "phrase": "not on top", "word_ids": [9, 1, 2], "words": ["not", "on", "top"]}
+{"seq_id": 19, "split": "train", "phrase_id": 19, "phrase": "not to go", "word_ids": [9, 6, 5], "words": ["not", "to", "go"]}
+{"seq_id": 20, "split": "train", "phrase_id": 20, "phrase": "bird on top", "word_ids": [14, 1, 2], "words": ["bird", "on", "top"]}
+{"seq_id": 21, "split": "train", "phrase_id": 21, "phrase": "fish on car", "word_ids": [15, 1, 4], "words": ["fish", "on", "car"]}
+{"seq_id": 22, "split": "train", "phrase_id": 22, "phrase": "ball on land", "word_ids": [16, 1, 17], "words": ["ball", "on", "land"]}
+{"seq_id": 23, "split": "train", "phrase_id": 23, "phrase": "ship to land", "word_ids": [18, 6, 17], "words": ["ship", "to", "land"]}
+{"seq_id": 24, "split": "train", "phrase_id": 24, "phrase": "rock on road", "word_ids": [19, 1, 20], "words": ["rock", "on", "road"]}
+{"seq_id": 25, "split": "train", "phrase_id": 25, "phrase": "shop on road", "word_ids": [21, 1, 20], "words": ["shop", "on", "road"]}
+{"seq_id": 26, "split": "train", "phrase_id": 26, "phrase": "big dog on car", "word_ids": [22, 3, 1, 4], "words": ["big", "dog", "on", "car"]}
+{"seq_id": 27, "split": "train", "phrase_id": 27, "phrase": "red car on land", "word_ids": [23, 4, 1, 17], "words": ["red", "car", "on", "land"]}
+{"seq_id": 28, "split": "train", "phrase_id": 28, "phrase": "old cat on top", "word_ids": [24, 0, 1, 2], "words": ["old", "cat", "on", "top"]}
+{"seq_id": 29, "split": "train", "phrase_id": 29, "phrase": "new book on top", "word_ids": [25, 26, 1, 2], "words": ["new", "book", "on", "top"]}
+{"seq_id": 30, "split": "train", "phrase_id": 30, "phrase": "hand on door", "word_ids": [27, 1, 28], "words": ["hand", "on", "door"]}
+{"seq_id": 31, "split": "train", "phrase_id": 31, "phrase": "sand on road", "word_ids": [29, 1, 20], "words": ["sand", "on", "road"]}
+{"seq_id": 32, "split": "train", "phrase_id": 32, "phrase": "playing on top", "word_ids": [30, 1, 2], "words": ["playing", "on", "top"]}
+{"seq_id": 33, "split": "train", "phrase_id": 33, "phrase": "played on top", "word_ids": [31, 1, 2], "words": ["played", "on", "top"]}
+{"seq_id": 34, "split": "train", "phrase_id": 34, "phrase": "plays on top", "word_ids": [32, 1, 2], "words": ["plays", "on", "top"]}
+{"seq_id": 35, "split": "train", "phrase_id": 35, "phrase": "dog running", "word_ids": [3, 33], "words": ["dog", "running"]}
+{"seq_id": 36, "split": "train", "phrase_id": 36, "phrase": "dog runned", "word_ids": [3, 34], "words": ["dog", "runned"]}
+{"seq_id": 37, "split": "train", "phrase_id": 37, "phrase": "dog runs", "word_ids": [3, 35], "words": ["dog", "runs"]}
+{"seq_id": 38, "split": "train", "phrase_id": 38, "phrase": "cat making", "word_ids": [0, 36], "words": ["cat", "making"]}
+{"seq_id": 39, "split": "train", "phrase_id": 39, "phrase": "cat maked", "word_ids": [0, 37], "words": ["cat", "maked"]}

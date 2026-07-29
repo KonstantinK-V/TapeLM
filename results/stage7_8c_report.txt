@@ -1,0 +1,38 @@
+SOTE Stage 7.8c report (soft create + gradual word attractors)
+timestamp: 2026-07-22T13:47:23.366187+00:00
+device: cuda
+gpu: NVIDIA GeForce RTX 3050 Laptop GPU
+steps: 3500
+alphabet: C:\Users\Kostya\sote-letter-assembly\checkpoints\alphabet_full_frozen.pt
+train words: 94 | hold-out: 17
+memory size during training: 111
+
+Train compose/stream:     100.0% / 100.0%
+Related-form probes:      100.0%
+Train soft trace/mem_trace/perm/path/stab: 8/8/92/100/100%
+HOLD soft trace/mem_trace/perm/path/stab:  82/82/59/100/100%
+
+Hold-out details:
+  [OK] cards        tr=0.13 mem_tr=0.13 path=0.78 mem_agree=1.00 n=5
+  [WEAK] bookshelves  tr=0.11 mem_tr=0.11 path=0.66 mem_agree=1.00 n=5
+  [OK] jumping      tr=0.15 mem_tr=0.15 path=0.74 mem_agree=1.00 n=5
+  [WEAK] walking      tr=0.11 mem_tr=0.11 path=0.87 mem_agree=1.00 n=5
+  [OK] reading      tr=0.15 mem_tr=0.15 path=0.93 mem_agree=1.00 n=5
+  [OK] writing      tr=0.12 mem_tr=0.12 path=0.86 mem_agree=1.00 n=5
+  [OK] friendship   tr=0.13 mem_tr=0.13 path=0.72 mem_agree=1.00 n=5
+  [OK] sunshine     tr=0.12 mem_tr=0.12 path=0.71 mem_agree=1.00 n=5
+  [WEAK] moonlight    tr=0.11 mem_tr=0.11 path=0.90 mem_agree=1.00 n=5
+  [OK] playground   tr=0.12 mem_tr=0.12 path=0.79 mem_agree=1.00 n=5
+  [OK] applesauce   tr=0.14 mem_tr=0.14 path=0.92 mem_agree=1.00 n=5
+  [OK] birdhouse    tr=0.13 mem_tr=0.13 path=0.71 mem_agree=1.00 n=5
+  [OK] notebook     tr=0.13 mem_tr=0.13 path=0.91 mem_agree=1.00 n=5
+  [OK] backpack     tr=0.14 mem_tr=0.14 path=0.75 mem_agree=1.00 n=5
+  [OK] quickly      tr=0.13 mem_tr=0.13 path=0.80 mem_agree=1.00 n=5
+  [OK] slowly       tr=0.13 mem_tr=0.13 path=0.90 mem_agree=1.00 n=5
+  [OK] happily      tr=0.15 mem_tr=0.15 path=0.76 mem_agree=1.00 n=5
+
+How to read:
+- create: first compose seeds a soft word attractor
+- stabilize: repeats EMA-update attractor; compose is pulled toward it
+- HOLD never used word-class CE; only compose + soft memory
+- Compare HOLD soft vs stage 7.8b to judge if memory helps OOV

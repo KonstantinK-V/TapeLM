@@ -1,0 +1,342 @@
+{
+  "pass": true,
+  "summary_hold": {
+    "full": {
+      "answer": 0.6875,
+      "retrieve": 0.65625,
+      "mean_scratch_depth": 1.0,
+      "n": 96
+    },
+    "partial_raw": {
+      "answer": 0.5104166666666666,
+      "retrieve": 0.4739583333333333,
+      "mean_scratch_depth": 1.0,
+      "n": 192
+    },
+    "partial_scratch": {
+      "answer": 0.6354166666666666,
+      "retrieve": 0.5885416666666666,
+      "mean_scratch_depth": 5.744791666666667,
+      "n": 192
+    }
+  },
+  "hold": {
+    "n_episodes": 96,
+    "samples": [
+      {
+        "kind": "what",
+        "target": "go on peg",
+        "full": "on peg",
+        "full:na": 0,
+        "partial_raw:first": 0,
+        "partial_raw:second": 0,
+        "partial_scratch:first": 0,
+        "cue:first": "on peg",
+        "partial_scratch:second": 0,
+        "cue:second": "peg on"
+      },
+      {
+        "kind": "where",
+        "target": "go on zip",
+        "full": "go on",
+        "full:na": 1,
+        "partial_raw:first": 0,
+        "partial_raw:second": 1,
+        "partial_scratch:first": 1,
+        "cue:first": "go on",
+        "partial_scratch:second": 1,
+        "cue:second": "go on"
+      },
+      {
+        "kind": "what",
+        "target": "zip on web",
+        "full": "on web",
+        "full:na": 0,
+        "partial_raw:first": 0,
+        "partial_raw:second": 0,
+        "partial_scratch:first": 1,
+        "cue:first": "to web",
+        "partial_scratch:second": 0,
+        "cue:second": "go on"
+      },
+      {
+        "kind": "where",
+        "target": "go on rim",
+        "full": "go on",
+        "full:na": 1,
+        "partial_raw:first": 0,
+        "partial_raw:second": 1,
+        "partial_scratch:first": 1,
+        "cue:first": "go on",
+        "partial_scratch:second": 1,
+        "cue:second": "go on"
+      },
+      {
+        "kind": "what",
+        "target": "hut on web",
+        "full": "on web",
+        "full:na": 1,
+        "partial_raw:first": 1,
+        "partial_raw:second": 1,
+        "partial_scratch:first": 1,
+        "cue:first": "on web",
+        "partial_scratch:second": 1,
+        "cue:second": "hut on"
+      },
+      {
+        "kind": "where",
+        "target": "rim on peg",
+        "full": "rim on",
+        "full:na": 1,
+        "partial_raw:first": 1,
+        "partial_raw:second": 1,
+        "partial_scratch:first": 1,
+        "cue:first": "rim on",
+        "partial_scratch:second": 1,
+        "cue:second": "rim on"
+      },
+      {
+        "kind": "what",
+        "target": "bird to peg",
+        "full": "to peg",
+        "full:na": 1,
+        "partial_raw:first": 0,
+        "partial_raw:second": 1,
+        "partial_scratch:first": 1,
+        "cue:first": "to peg",
+        "partial_scratch:second": 1,
+        "cue:second": "bird to"
+      },
+      {
+        "kind": "where",
+        "target": "bird to nib",
+        "full": "bird to",
+        "full:na": 1,
+        "partial_raw:first": 1,
+        "partial_raw:second": 1,
+        "partial_scratch:first": 1,
+        "cue:first": "bird to",
+        "partial_scratch:second": 1,
+        "cue:second": "bird to"
+      }
+    ],
+    "modes": {
+      "full": {
+        "first": {
+          "n": 0,
+          "retrieve": 0.0,
+          "answer": 0.0,
+          "mean_scratch_depth": 0.0
+        },
+        "second": {
+          "n": 0,
+          "retrieve": 0.0,
+          "answer": 0.0,
+          "mean_scratch_depth": 0.0
+        },
+        "na": {
+          "n": 96,
+          "retrieve": 0.65625,
+          "answer": 0.6875,
+          "mean_scratch_depth": 1.0
+        }
+      },
+      "partial_raw": {
+        "first": {
+          "n": 96,
+          "retrieve": 0.3645833333333333,
+          "answer": 0.40625,
+          "mean_scratch_depth": 1.0
+        },
+        "second": {
+          "n": 96,
+          "retrieve": 0.5833333333333334,
+          "answer": 0.6145833333333334,
+          "mean_scratch_depth": 1.0
+        }
+      },
+      "partial_scratch": {
+        "first": {
+          "n": 96,
+          "retrieve": 0.5208333333333334,
+          "answer": 0.5833333333333334,
+          "mean_scratch_depth": 5.760416666666667
+        },
+        "second": {
+          "n": 96,
+          "retrieve": 0.65625,
+          "answer": 0.6875,
+          "mean_scratch_depth": 5.729166666666667
+        }
+      }
+    }
+  },
+  "train": {
+    "n_episodes": 64,
+    "samples": [
+      {
+        "kind": "what",
+        "target": "mug on pad",
+        "full": "on pad",
+        "full:na": 1,
+        "partial_raw:first": 0,
+        "partial_raw:second": 1,
+        "partial_scratch:first": 0,
+        "cue:first": "to pad",
+        "partial_scratch:second": 1,
+        "cue:second": "mug on"
+      },
+      {
+        "kind": "where",
+        "target": "go on pen",
+        "full": "go on",
+        "full:na": 1,
+        "partial_raw:first": 0,
+        "partial_raw:second": 1,
+        "partial_scratch:first": 1,
+        "cue:first": "go on",
+        "partial_scratch:second": 1,
+        "cue:second": "go on"
+      },
+      {
+        "kind": "what",
+        "target": "working to bin",
+        "full": "to bin",
+        "full:na": 0,
+        "partial_raw:first": 0,
+        "partial_raw:second": 0,
+        "partial_scratch:first": 0,
+        "cue:first": "to bin",
+        "partial_scratch:second": 0,
+        "cue:second": "ball to"
+      },
+      {
+        "kind": "where",
+        "target": "go on lid",
+        "full": "go on",
+        "full:na": 1,
+        "partial_raw:first": 0,
+        "partial_raw:second": 1,
+        "partial_scratch:first": 1,
+        "cue:first": "go on",
+        "partial_scratch:second": 1,
+        "cue:second": "go on"
+      },
+      {
+        "kind": "what",
+        "target": "box on lid",
+        "full": "on lid",
+        "full:na": 1,
+        "partial_raw:first": 1,
+        "partial_raw:second": 0,
+        "partial_scratch:first": 0,
+        "cue:first": "to lid",
+        "partial_scratch:second": 0,
+        "cue:second": "log on"
+      },
+      {
+        "kind": "where",
+        "target": "pad on pen",
+        "full": "pad on",
+        "full:na": 1,
+        "partial_raw:first": 1,
+        "partial_raw:second": 1,
+        "partial_scratch:first": 1,
+        "cue:first": "pad on",
+        "partial_scratch:second": 1,
+        "cue:second": "pad on"
+      },
+      {
+        "kind": "what",
+        "target": "mug on bin",
+        "full": "on bin",
+        "full:na": 1,
+        "partial_raw:first": 0,
+        "partial_raw:second": 1,
+        "partial_scratch:first": 0,
+        "cue:first": "to bin",
+        "partial_scratch:second": 1,
+        "cue:second": "mug on"
+      },
+      {
+        "kind": "where",
+        "target": "dog to box",
+        "full": "dog to",
+        "full:na": 1,
+        "partial_raw:first": 1,
+        "partial_raw:second": 1,
+        "partial_scratch:first": 1,
+        "cue:first": "dog to",
+        "partial_scratch:second": 1,
+        "cue:second": "dog to"
+      }
+    ],
+    "modes": {
+      "full": {
+        "first": {
+          "n": 0,
+          "retrieve": 0.0,
+          "answer": 0.0,
+          "mean_scratch_depth": 0.0
+        },
+        "second": {
+          "n": 0,
+          "retrieve": 0.0,
+          "answer": 0.0,
+          "mean_scratch_depth": 0.0
+        },
+        "na": {
+          "n": 64,
+          "retrieve": 0.71875,
+          "answer": 0.734375,
+          "mean_scratch_depth": 1.0
+        }
+      },
+      "partial_raw": {
+        "first": {
+          "n": 64,
+          "retrieve": 0.4375,
+          "answer": 0.46875,
+          "mean_scratch_depth": 1.0
+        },
+        "second": {
+          "n": 64,
+          "retrieve": 0.703125,
+          "answer": 0.71875,
+          "mean_scratch_depth": 1.0
+        }
+      },
+      "partial_scratch": {
+        "first": {
+          "n": 64,
+          "retrieve": 0.5,
+          "answer": 0.546875,
+          "mean_scratch_depth": 5.828125
+        },
+        "second": {
+          "n": 64,
+          "retrieve": 0.71875,
+          "answer": 0.734375,
+          "mean_scratch_depth": 5.765625
+        }
+      }
+    }
+  },
+  "config": {
+    "dim": 64,
+    "seed": 26,
+    "episode_k": 3,
+    "n_hold_episodes": 96,
+    "n_train_episodes": 64,
+    "create_below": 0.55,
+    "stabilize_lo": 0.55,
+    "lock_above": 0.92,
+    "ema": 0.85,
+    "retrieve_margin": 0.05,
+    "max_phrase_len": 5,
+    "max_word_len": 11,
+    "full_ans_min": 0.65,
+    "scratch_vs_raw_pp": 0.1,
+    "scratch_vs_full_drop_max": 0.12
+  }
+}

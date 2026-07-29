@@ -1,0 +1,11 @@
+SOTE Stage 111 — fat45_slot_dyn
+timestamp: 2026-07-25T06:28:38.905345+00:00
+sote_init=True slot_dynamic=True
+w_rel0=0.25 w_obj0=2.0 final_w_rel=0.181 final_w_obj=2.000
+params=2989056 V=5489 steps=50000
+best_step=36000
+SEEN obj=40.8% rel=87.7%
+STORY ALL=18.0% obj=19.9%
+RARE obj=13.8%
+vs100: obj -1.4pp story +1.8pp
+Verdict: PARITY

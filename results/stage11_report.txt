@@ -1,0 +1,53 @@
+SOTE Stage 11 report (soft phrase memory + curiosity, morph-aware)
+timestamp: 2026-07-23T10:23:48.392818+00:00
+device: cuda
+steps: 2500
+word ckpt: word_memory_9_2.pt
+morph ckpt: morph_letter_9f_plusplus_FROZEN.pt
+TRAIN=32 HOLD=16
+memory size: 32
+gate create/stabilize/skip/lock: 29/74/0/29897
+
+Train targets acc:     100%  trace=1.00 order=100%
+HOLD COLD:             order=100% trace=0.88
+HOLD fewshot memory:   mem=100% order=100% trace=0.88
+Bridge HOLD recon:     100%
+
+HOLD COLD:
+  [OK] 'cat to car' tr=1.00 order=Y
+  [OK] 'dog to top' tr=1.00 order=Y
+  [OK] 'go to cat' tr=1.00 order=Y
+  [OK] 'spot on car' tr=1.00 order=Y
+  [OK] 'good dog on car' tr=1.00 order=Y
+  [OK] 'no good cat' tr=1.00 order=Y
+  [OK] 'jumps on top' tr=0.81 order=Y
+  [OK] 'walks on car' tr=0.77 order=Y
+  [OK] 'cat jumping' tr=0.84 order=Y
+  [OK] 'dog walking' tr=0.84 order=Y
+  [OK] 'reading on top' tr=0.87 order=Y
+  [OK] 'cat writes' tr=0.67 order=Y
+  [OK] 'dog jumped' tr=0.81 order=Y
+  [OK] 'walked on car' tr=0.83 order=Y
+  [OK] 'good jumps' tr=0.75 order=Y
+  [OK] 'no walking' tr=0.84 order=Y
+
+HOLD fewshot:
+  [OK] 'cat to car' mem=cat to car sim=1.00 n_mem=16
+  [OK] 'dog to top' mem=dog to top sim=1.00 n_mem=16
+  [OK] 'go to cat' mem=go to cat sim=1.00 n_mem=16
+  [OK] 'spot on car' mem=spot on car sim=1.00 n_mem=16
+  [OK] 'good dog on car' mem=good dog on car sim=1.00 n_mem=16
+  [OK] 'no good cat' mem=no good cat sim=1.00 n_mem=16
+  [OK] 'jumps on top' mem=jumps on top sim=1.00 n_mem=16
+  [OK] 'walks on car' mem=walks on car sim=1.00 n_mem=16
+  [OK] 'cat jumping' mem=cat jumping sim=1.00 n_mem=16
+  [OK] 'dog walking' mem=dog walking sim=1.00 n_mem=16
+  [OK] 'reading on top' mem=reading on top sim=1.00 n_mem=16
+  [OK] 'cat writes' mem=cat writes sim=1.00 n_mem=16
+  [OK] 'dog jumped' mem=dog jumped sim=1.00 n_mem=16
+  [OK] 'walked on car' mem=walked on car sim=1.00 n_mem=16
+  [OK] 'good jumps' mem=good jumps sim=1.00 n_mem=16
+  [OK] 'no walking' mem=no walking sim=1.00 n_mem=16
+
+=== Verdict ===
+  Stage 11 OK: curiosity memory lands HOLD phrases; morph bridge intact.

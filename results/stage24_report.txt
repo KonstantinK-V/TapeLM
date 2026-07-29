@@ -1,0 +1,26 @@
+SOTE Stage 24 report (multi-hop ThoughtScratch traces)
+timestamp: 2026-07-23T15:22:33.437249+00:00
+device: cuda
+contract: bridge_qa_binder_16_FROZEN.pt
+chain rule: A.right == B.left; hop1 WHAT(A) -> bridge; hop2 WHERE-probe(bridge) -> WHAT(B)
+HOLD chains=5 episodes=48  TRAIN chains=46
+
+mode              H1      H2    JOINT   depth
+----------------------------------------------
+scratch        70.8%   95.8%    66.7%    5.83
+oracle2        70.8%   95.8%    66.7%    4.83
+polluted        0.0%   52.1%     0.0%    1.58
+hop1_only      70.8%      -    70.8%    1.00
+
+HOLD samples (joint flags):
+  go to cat => big cat on car  scr=1 ora=1 pol=0
+  pulled on door => door to car  scr=1 ora=1 pol=0
+  pulling on door => door to car  scr=1 ora=1 pol=0
+  pulling on door => door to car  scr=0 ora=0 pol=0
+  go to cat => big cat on car  scr=1 ora=1 pol=0
+  go to cat => big cat on car  scr=1 ora=1 pol=0
+
+=== Verdict ===
+  PASS: multi-hop scratch traces work; bridge entity carries hop1→hop2.
+  Private scratch depth grows; polluted bank still worse.
+  scratch joint=66.7%  oracle2=66.7%  polluted=0.0%  gap_vs_oracle=+0.0pp

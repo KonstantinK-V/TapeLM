@@ -1,0 +1,42 @@
+SOTE Stage 9f+ report (letter morph law + -s, freeze candidate)
+timestamp: 2026-07-23T07:31:57.063438+00:00
+device: cuda
+steps: 4500
+word ckpt: word_memory_9_2.pt
+TRAIN=38 HOLD=12 affixes=['ing', 'ed', 's']
+basin pairwise: {'ing_ed': 0.002673201262950897, 'ing_s': -0.00016943737864494324, 'ed_s': 0.001208726316690445}
+FREEZE_READY: False
+
+Guardrail thresholds: realize/peel/cycle>=0.95/0.95/0.95, aff_win>=0.95, shuf_win>=0.75
+
+=== HOLD ===
+realize 100% (naive 100%) | peel 100% | cycle 100%
+  affix m +0.523 win 100% | shuf m +0.232 win 75%
+  ing: PASS realize 100% peel 100% cycle 100% aff_w 100% shuf_w 100%
+   ed: PASS realize 100% peel 100% cycle 100% aff_w 100% shuf_w 100%
+    s: FAIL realize 100% peel 100% cycle 100% aff_w 100% shuf_w 25%
+
+=== TRAIN ===
+realize 100% (naive 100%) | peel 100% | cycle 100%
+  affix m +0.437 win 100% | shuf m +0.306 win 76%
+  ing: realize 100% peel 100% cycle 100% aff_w 100% shuf_w 100%
+   ed: realize 100% peel 100% cycle 100% aff_w 100% shuf_w 100%
+    s: realize 100% peel 100% cycle 100% aff_w 100% shuf_w 36%
+
+HOLD per-stem:
+  [OK] jump+ing -> jumping aff_m=+0.395 shuf_m=+0.044 | peel=Y cycle=Y
+  [OK] walk+ing -> walking aff_m=+0.420 shuf_m=+0.089 | peel=Y cycle=Y
+  [OK] read+ing -> reading aff_m=+0.459 shuf_m=+0.273 | peel=Y cycle=Y
+  [OK] write+ing -> writing aff_m=+0.626 shuf_m=+0.220 | peel=Y cycle=Y
+  [OK] jump+ed -> jumped aff_m=+0.726 shuf_m=+0.314 | peel=Y cycle=Y
+  [OK] walk+ed -> walked aff_m=+0.515 shuf_m=+0.409 | peel=Y cycle=Y
+  [OK] read+ed -> readed aff_m=+0.728 shuf_m=+0.449 | peel=Y cycle=Y
+  [OK] write+ed -> writed aff_m=+0.549 shuf_m=+0.461 | peel=Y cycle=Y
+  [OK] jump+s -> jumps aff_m=+0.402 shuf_m=+0.000 | peel=Y cycle=Y
+  [OK] walk+s -> walks aff_m=+0.417 shuf_m=+0.000 | peel=Y cycle=Y
+  [OK] read+s -> reads aff_m=+0.433 shuf_m=+0.000 | peel=Y cycle=Y
+  [OK] write+s -> writes aff_m=+0.607 shuf_m=+0.524 | peel=Y cycle=Y
+
+=== Verdict ===
+  NOT freeze-ready; weak affixes: ['s']
+    s: {'ok': False, 'checks': {'realize': True, 'peel': True, 'cycle': True, 'aff_win': True, 'shuf_win': False}, 'values': {'realize': 1.0, 'peel': 1.0, 'cycle': 1.0, 'aff_win': 1.0, 'shuf_win': 0.25, 'margin_aff': 0.46512653678655624, 'margin_shuf': 0.1310654729604721}}

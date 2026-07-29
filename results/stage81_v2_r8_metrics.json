@@ -1,0 +1,15 @@
+{
+  "stage": "81",
+  "r8_pass": true,
+  "decision": "HOPS_PRIMARY_FOR_RIGHT",
+  "path_hit1": 0.2927400468384075,
+  "rel_hit1": 0.539906103286385,
+  "right_hit1": 0.04225352112676056,
+  "phrase_retrieve": 0.9791666666666666,
+  "right_via_hop": 1.0,
+  "left_only_phrase": 1.0,
+  "left_only_right": 1.0,
+  "protect_ok": true,
+  "hops_primary_ok": true,
+  "no_top5": true
+}

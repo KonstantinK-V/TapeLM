@@ -1,0 +1,240 @@
+{
+  "pass": false,
+  "hold": {
+    "n": 80,
+    "n_pairs": 24,
+    "samples": [
+      {
+        "a": "bird to nib",
+        "b": "nib on zip",
+        "full_full_j": true,
+        "partial_raw_j": true,
+        "partial_scratch_j": true,
+        "h1_partial_scr_j": true,
+        "h2_partial_scr_j": true
+      },
+      {
+        "a": "bird to peg",
+        "b": "peg on rim",
+        "full_full_j": false,
+        "partial_raw_j": false,
+        "partial_scratch_j": false,
+        "h1_partial_scr_j": false,
+        "h2_partial_scr_j": false
+      },
+      {
+        "a": "reading to yap",
+        "b": "yap on nib",
+        "full_full_j": true,
+        "partial_raw_j": true,
+        "partial_scratch_j": false,
+        "h1_partial_scr_j": false,
+        "h2_partial_scr_j": true
+      },
+      {
+        "a": "washed to zip",
+        "b": "zip on yap",
+        "full_full_j": true,
+        "partial_raw_j": false,
+        "partial_scratch_j": true,
+        "h1_partial_scr_j": true,
+        "h2_partial_scr_j": true
+      },
+      {
+        "a": "bird to peg",
+        "b": "peg on rim",
+        "full_full_j": true,
+        "partial_raw_j": false,
+        "partial_scratch_j": true,
+        "h1_partial_scr_j": true,
+        "h2_partial_scr_j": true
+      },
+      {
+        "a": "jumps to rim",
+        "b": "rim on zip",
+        "full_full_j": false,
+        "partial_raw_j": false,
+        "partial_scratch_j": false,
+        "h1_partial_scr_j": false,
+        "h2_partial_scr_j": false
+      },
+      {
+        "a": "cat to cob",
+        "b": "cob on peg",
+        "full_full_j": false,
+        "partial_raw_j": false,
+        "partial_scratch_j": false,
+        "h1_partial_scr_j": false,
+        "h2_partial_scr_j": false
+      },
+      {
+        "a": "bird to nib",
+        "b": "nib on zip",
+        "full_full_j": true,
+        "partial_raw_j": true,
+        "partial_scratch_j": true,
+        "h1_partial_scr_j": true,
+        "h2_partial_scr_j": true
+      }
+    ],
+    "modes": {
+      "full_full": {
+        "hop1": 0.85,
+        "hop2": 0.6,
+        "joint": 0.5125,
+        "mean_depth": 5.9875
+      },
+      "partial_raw": {
+        "hop1": 0.325,
+        "hop2": 0.4875,
+        "joint": 0.175,
+        "mean_depth": 4.7375
+      },
+      "partial_scratch": {
+        "hop1": 0.4875,
+        "hop2": 0.6,
+        "joint": 0.3125,
+        "mean_depth": 10.9875
+      },
+      "h1_partial_scr": {
+        "hop1": 0.4875,
+        "hop2": 0.6,
+        "joint": 0.3125,
+        "mean_depth": 8.9875
+      },
+      "h2_partial_scr": {
+        "hop1": 0.85,
+        "hop2": 0.5875,
+        "joint": 0.5,
+        "mean_depth": 7.9875
+      }
+    }
+  },
+  "train": {
+    "n": 48,
+    "n_pairs": 20,
+    "samples": [
+      {
+        "a": "bird to mat",
+        "b": "mat on cap",
+        "full_full_j": true,
+        "partial_raw_j": false,
+        "partial_scratch_j": true,
+        "h1_partial_scr_j": true,
+        "h2_partial_scr_j": true
+      },
+      {
+        "a": "ship to pen",
+        "b": "pen on bag",
+        "full_full_j": true,
+        "partial_raw_j": false,
+        "partial_scratch_j": false,
+        "h1_partial_scr_j": false,
+        "h2_partial_scr_j": true
+      },
+      {
+        "a": "working to bin",
+        "b": "bin on mat",
+        "full_full_j": true,
+        "partial_raw_j": false,
+        "partial_scratch_j": true,
+        "h1_partial_scr_j": true,
+        "h2_partial_scr_j": true
+      },
+      {
+        "a": "moving to bin",
+        "b": "bin on box",
+        "full_full_j": true,
+        "partial_raw_j": false,
+        "partial_scratch_j": true,
+        "h1_partial_scr_j": true,
+        "h2_partial_scr_j": true
+      },
+      {
+        "a": "ball to pen",
+        "b": "pen on pad",
+        "full_full_j": false,
+        "partial_raw_j": false,
+        "partial_scratch_j": false,
+        "h1_partial_scr_j": false,
+        "h2_partial_scr_j": false
+      },
+      {
+        "a": "cat to mat",
+        "b": "mat on bag",
+        "full_full_j": false,
+        "partial_raw_j": false,
+        "partial_scratch_j": false,
+        "h1_partial_scr_j": false,
+        "h2_partial_scr_j": false
+      },
+      {
+        "a": "fish to log",
+        "b": "log on bin",
+        "full_full_j": false,
+        "partial_raw_j": true,
+        "partial_scratch_j": false,
+        "h1_partial_scr_j": false,
+        "h2_partial_scr_j": false
+      },
+      {
+        "a": "book to cap",
+        "b": "cap on pad",
+        "full_full_j": false,
+        "partial_raw_j": true,
+        "partial_scratch_j": false,
+        "h1_partial_scr_j": false,
+        "h2_partial_scr_j": false
+      }
+    ],
+    "modes": {
+      "full_full": {
+        "hop1": 0.7291666666666666,
+        "hop2": 0.7708333333333334,
+        "joint": 0.5833333333333334,
+        "mean_depth": 5.916666666666667
+      },
+      "partial_raw": {
+        "hop1": 0.3541666666666667,
+        "hop2": 0.5625,
+        "joint": 0.22916666666666666,
+        "mean_depth": 4.625
+      },
+      "partial_scratch": {
+        "hop1": 0.6458333333333334,
+        "hop2": 0.75,
+        "joint": 0.5,
+        "mean_depth": 10.9375
+      },
+      "h1_partial_scr": {
+        "hop1": 0.6458333333333334,
+        "hop2": 0.7708333333333334,
+        "joint": 0.5,
+        "mean_depth": 8.958333333333334
+      },
+      "h2_partial_scr": {
+        "hop1": 0.7291666666666666,
+        "hop2": 0.7708333333333334,
+        "joint": 0.5833333333333334,
+        "mean_depth": 7.916666666666667
+      }
+    }
+  },
+  "config": {
+    "dim": 64,
+    "seed": 27,
+    "episode_k": 3,
+    "n_hold_episodes": 80,
+    "n_train_episodes": 48,
+    "create_below": 0.55,
+    "stabilize_lo": 0.55,
+    "lock_above": 0.92,
+    "ema": 0.85,
+    "retrieve_margin": 0.05,
+    "max_phrase_len": 5,
+    "max_word_len": 11,
+    "joint_min": 0.45,
+    "lift_vs_raw_pp": 0.08,
+    "drop_vs_full_max": 0.2
+  }
+}

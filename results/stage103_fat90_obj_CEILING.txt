@@ -1,0 +1,20 @@
+SOTE Stage 103 — fat90_obj
+timestamp: 2026-07-24T22:07:13.034943+00:00
+device: cuda
+foundation: stage85_foundation_FROZEN.pt
+n_phrases=460421 V=7063 params=3392000
+arch: d=256 L=2 H=4
+train: batch=8 steps=60000 warmup=200 lr=0.001 fat_frac=0.9
+mix: {'n_story_train': 162068, 'n_story_hold': 22100, 'n_fat_triples': 200, 'fat_copies': 40, 'n_train': 168468, 'n_hold_seen': 1600, 'n_hold_rare': 160, 'n_path_triples_avail': 30196}
+NO soft@5. F85 FROZEN not overwritten.
+
+=== Final ===
+  best_step=58000
+  SEEN  obj=40.5% rel=96.2% ALL=68.4%
+  RARE  obj=11.2%
+  STORY ALL=19.4% obj=19.6%
+
+=== vs ref {'obj': 0.4066666666666667, 'rel': 0.9708333333333333, 'story_all': 0.20646221248630886, 'rare_obj': 0.138} ===
+  STORY lift -1.3pp  seen_held=True
+
+=== Verdict: CEILING ===

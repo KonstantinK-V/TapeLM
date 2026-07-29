@@ -1,0 +1,40 @@
+{
+  "dig": "C_prime",
+  "signal": "NULL",
+  "bands": {
+    "head21p": {
+      "n_words": 38110,
+      "mean_toks_per_word": 1.0,
+      "frac_multi_piece": 0.0
+    },
+    "ALL": {
+      "n_words": 39257,
+      "mean_toks_per_word": 1.0004585169523907,
+      "frac_multi_piece": 0.0004585169523906564
+    },
+    "phrase_level": {
+      "n_words": 39257,
+      "mean_toks_per_word": 1.0004585169523907,
+      "frac_multi_piece": null
+    },
+    "mid6_20": {
+      "n_words": 850,
+      "mean_toks_per_word": 1.0,
+      "frac_multi_piece": 0.0
+    },
+    "low2_5": {
+      "n_words": 251,
+      "mean_toks_per_word": 1.0,
+      "frac_multi_piece": 0.0
+    },
+    "rare1": {
+      "n_words": 46,
+      "mean_toks_per_word": 1.391304347826087,
+      "frac_multi_piece": 0.391304347826087
+    }
+  },
+  "note": "per-word BPE encode; phrase_level = whole-string ids / n_words",
+  "head_tpw": 1.0,
+  "rare_tpw": 1.391304347826087,
+  "all_tpw": 1.0004585169523907
+}

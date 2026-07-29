@@ -1,0 +1,29 @@
+SOTE Stage 82 — noun_rel RightStep dig — FAIL (residual lock reinforce)
+timestamp: 2026-07-24T14:29:11+00:00
+
+=== 82a DIG (no FT) ===
+  noun_rel HOLD object n=213
+  hit@1=4.2%  mean_rank=48.5  median_rank=40  V=135  rights~63
+  confusion: other_rightish 86.9% | right_correct 4.2% | other 7% | left 1.4% | rel 0.5%
+  Read: not slot-type bleed (rel/left rare) — **collision among object nouns**.
+
+=== 82b RightHead ===
+  TinySeq frozen; RightHead(h, left_fp, rel_fp) residual; full-vocab CE
+  best: right@1 5.6% (dZS +1.4pp) path 30.0% rel 54.0% protect OK
+  PARTIAL gate 15% NOT hit. Verdict: **FAIL**
+
+=== LOCKED READ ===
+  Soft ADD-on on frozen next does not unlock noun_rel right@1.
+  Confirms R8: HOPS_PRIMARY_FOR_RIGHT. Generative exact object stays residual.
+  Next levers (if any): stronger instance/cue redesign OR repeatable (left,rel,right)
+  data — NOT more soft disambig / shortlist / SideHint / same-head FT.
+
+=== ARTIFACTS ===
+  results/stage82a_right_dig_report.txt
+  results/stage82a_right_dig_metrics.json
+  results/stage82b_right_head_report.txt
+  results/stage82b_right_head_metrics.json
+  checkpoints/stage82b_right_head.pt
+
+=== FREEZE_READY: True (FAIL dig; trunk unchanged) ===
+V1/V2 reserve bands untouched.

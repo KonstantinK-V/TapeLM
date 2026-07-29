@@ -1,0 +1,207 @@
+{
+  "timestamp": "2026-07-26T07:49:07.327592+00:00",
+  "protocol": "dual_trunk_plus_headroom",
+  "plan": "C:\\Users\\Kostya\\sote-letter-assembly\\results\\plan_150_plus_clean_compare.md",
+  "arms": {
+    "G_word_fp": {
+      "arm": "G_word_fp",
+      "unit": "word_fp",
+      "trunk": {
+        "batch": 16,
+        "lr": 0.0003,
+        "opt": "AdamW",
+        "wd": 0.01,
+        "d": 256,
+        "n_layer": 4,
+        "n_head": 4,
+        "fat_frac": 0.75
+      },
+      "V": 5489,
+      "params": 4568576,
+      "steps": 40000,
+      "seen_obj": 0.40125,
+      "seen_rel": 0.96625,
+      "story_all": 0.19488817891373802,
+      "story_obj": 0.21428571428571427,
+      "story_all_last": 0.19066147859922178,
+      "seen_obj_last": 0.4075,
+      "ckpt_select": "best_ev_story_then_obj",
+      "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage150_155_G_word_fp.pt"
+    },
+    "G_ws_bpe_rand": {
+      "arm": "G_ws_bpe_rand",
+      "unit": "ws_bpe_rand",
+      "trunk": {
+        "batch": 16,
+        "lr": 0.0003,
+        "opt": "AdamW",
+        "wd": 0.01,
+        "d": 256,
+        "n_layer": 4,
+        "n_head": 4,
+        "fat_frac": 0.75
+      },
+      "V": 8000,
+      "params": 5223936,
+      "steps": 40000,
+      "seen_obj": 0.42625,
+      "seen_rel": 0.95875,
+      "story_all": 0.2862961885365144,
+      "story_obj": 0.24477611940298508,
+      "story_all_last": 0.28335759340126154,
+      "seen_obj_last": 0.4075,
+      "ckpt_select": "best_ev_story_then_obj",
+      "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage150_155_G_ws_bpe_rand.pt",
+      "bpe_max_len": 48,
+      "n_positions": 64
+    },
+    "S_word_fp": {
+      "arm": "S_word_fp",
+      "unit": "word_fp",
+      "trunk": {
+        "batch": 8,
+        "lr": 0.001,
+        "opt": "Adam",
+        "wd": 0.0,
+        "d": 256,
+        "n_layer": 2,
+        "n_head": 4,
+        "fat_frac": 0.75
+      },
+      "V": 5489,
+      "params": 2989056,
+      "steps": 40000,
+      "seen_obj": 0.41625,
+      "seen_rel": 0.89875,
+      "story_all": 0.18627737226277372,
+      "story_obj": 0.21451104100946372,
+      "story_all_last": 0.19559902200489,
+      "seen_obj_last": 0.4075,
+      "ckpt_select": "best_ev_story_then_obj",
+      "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage150_155_S_word_fp.pt"
+    },
+    "S_ws_bpe_rand": {
+      "arm": "S_ws_bpe_rand",
+      "unit": "ws_bpe_rand",
+      "trunk": {
+        "batch": 8,
+        "lr": 0.001,
+        "opt": "Adam",
+        "wd": 0.0,
+        "d": 256,
+        "n_layer": 2,
+        "n_head": 4,
+        "fat_frac": 0.75
+      },
+      "V": 8000,
+      "params": 3644416,
+      "steps": 40000,
+      "seen_obj": 0.41375,
+      "seen_rel": 0.95625,
+      "story_all": 0.22901433167592863,
+      "story_obj": 0.23668639053254437,
+      "story_all_last": 0.23768115942028986,
+      "seen_obj_last": 0.415,
+      "ckpt_select": "best_ev_story_then_obj",
+      "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage150_155_S_ws_bpe_rand.pt",
+      "bpe_max_len": 48,
+      "n_positions": 64
+    },
+    "Splus_word_fp": {
+      "arm": "Splus_word_fp",
+      "unit": "word_fp",
+      "trunk": {
+        "batch": 8,
+        "lr": 0.001,
+        "opt": "Adam",
+        "wd": 0.0,
+        "d": 512,
+        "n_layer": 4,
+        "n_head": 8,
+        "fat_frac": 0.75
+      },
+      "V": 5489,
+      "params": 15428608,
+      "steps": 40000,
+      "seen_obj": 0.42125,
+      "seen_rel": 0.96875,
+      "story_all": 0.1472822910578609,
+      "story_obj": 0.22,
+      "story_all_last": 0.13821532492725508,
+      "seen_obj_last": 0.4225,
+      "ckpt_select": "best_ev_story_then_obj",
+      "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage150_155_Splus_word_fp.pt"
+    },
+    "Splus_ws_bpe_rand": {
+      "arm": "Splus_ws_bpe_rand",
+      "unit": "ws_bpe_rand",
+      "trunk": {
+        "batch": 8,
+        "lr": 0.001,
+        "opt": "Adam",
+        "wd": 0.0,
+        "d": 512,
+        "n_layer": 4,
+        "n_head": 8,
+        "fat_frac": 0.75
+      },
+      "V": 8000,
+      "params": 16739328,
+      "steps": 40000,
+      "seen_obj": 0.425,
+      "seen_rel": 0.955,
+      "story_all": 0.21626348003497523,
+      "story_obj": 0.1724137931034483,
+      "story_all_last": 0.2185526954832443,
+      "seen_obj_last": 0.4425,
+      "ckpt_select": "best_ev_story_then_obj",
+      "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage150_155_Splus_ws_bpe_rand.pt",
+      "bpe_max_len": 48,
+      "n_positions": 64
+    }
+  },
+  "table_story": {
+    "G": {
+      "word_story": 0.19488817891373802,
+      "bpe_story": 0.2862961885365144,
+      "word_story_last": 0.19066147859922178,
+      "bpe_story_last": 0.28335759340126154,
+      "unit_gap_bpe_minus_word": 0.09140800962277637,
+      "unit_gap_last": 0.09269611480203976
+    },
+    "S": {
+      "word_story": 0.18627737226277372,
+      "bpe_story": 0.22901433167592863,
+      "word_story_last": 0.19559902200489,
+      "bpe_story_last": 0.23768115942028986,
+      "unit_gap_bpe_minus_word": 0.04273695941315492,
+      "unit_gap_last": 0.04208213741539987
+    },
+    "Splus": {
+      "word_story": 0.1472822910578609,
+      "bpe_story": 0.21626348003497523,
+      "word_story_last": 0.13821532492725508,
+      "bpe_story_last": 0.2185526954832443,
+      "unit_gap_bpe_minus_word": 0.06898118897711433,
+      "unit_gap_last": 0.08033737055598922
+    }
+  },
+  "headroom_Splus_minus_S_word_story": -0.038995081204912824,
+  "default_primary_trunk": "S",
+  "note_primary": "S+ STORY worse than S by >2pp @100k; primary=S but dim NOT closed",
+  "story_protocol_notes": [
+    "BPE uses same fat_frac mix as word (was uniform \u2014 STORY confound).",
+    "Matched EV/FIN hold sizes word=BPE.",
+    "ckpt = best on ev_story; also report story_all_last for optimism check.",
+    "149 G not reused (149 BPE lacked fat lock).",
+    "149_ref_word_story=0.19413813116656994",
+    "149_ref_bpe_story=0.3241943241943242"
+  ],
+  "ref100": {
+    "obj": 0.426,
+    "rel": 0.958,
+    "story_all": 0.196,
+    "rare_obj": 0.117
+  },
+  "verdict": "DUAL_TRUNK_TABLE"
+}

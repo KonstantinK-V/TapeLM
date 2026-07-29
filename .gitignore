@@ -1,0 +1,44 @@
+# Checkpoints (large; see docs/CHECKPOINTS.md)
+checkpoints/
+*.pt
+*.pth
+
+# Data caches (large — never push)
+data/*.npz
+data/_wikitext*
+data/_tinystories*
+data/_owt_tokens_cache.txt*
+data/*.zip
+data/*.bin
+data/*.mmap
+data/external_wikitext*
+data/external_tinystories_1m*
+data/external_tinystories_500k*
+data/external_tinystories_100k*
+data/external_tinystories_bpe*
+data/sote_ids*.bin
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# Run logs (decisions + mini reports are kept)
+results/_stage*_log.txt
+results/_stage*_console.txt
+results/_stage*_run*.txt
+results/_tmp*
+
+# Large mmap artifacts from local runs
+results/*.mmap
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+Thumbs.db
+
+# Accidental copies
+*copy*.py

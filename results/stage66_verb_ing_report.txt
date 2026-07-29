@@ -1,0 +1,24 @@
+SOTE Stage 66 report (isolated verb_ing next-atom dig)
+timestamp: 2026-07-24T12:11:36.545051+00:00
+device: cuda
+parent: stage57_rehearsal_FROZEN.pt  data: data\external_1k.txt
+hold_frac=0.3 hold_lines=300 subkind_hold={'noun_rel': 168, 'verb_ing': 91, 'polarity': 41} train_verb_ing=216
+FT: yes  steps≤1200 protect≤5pp
+No hop bank. No true-neg.
+
+=== ZS L2 by subkind ===
+  verb_ing   L2=18.3%/+13.5pp n=126 order=+10.3pp
+  noun_rel   L2=29.3%/+15.9pp n=427 order=+14.5pp
+  polarity   L2=35.4%/+24.4pp n=82 order=+15.9pp
+  ALL        L2=27.9%/+19.8pp n=635
+
+=== Final (after FT restore if any) ===
+  verb_ing   L2=17.5%/+14.3pp n=126
+  noun_rel   L2=28.8%/+16.2pp n=427  ΔZS=+0.5pp
+  polarity   L2=36.6%/+26.8pp n=82  ΔZS=-1.2pp
+  ALL        L2=27.6%/+19.5pp n=635
+  best_ft_step=100
+
+=== Verdict: RESIDUAL ===
+  verb_ing gap OK (+14.3pp) but abs 17.5% <25%. Honest residual — not hop surface.
+  Parent 57 freeze unchanged. Hop bank stays noun_rel|polarity.

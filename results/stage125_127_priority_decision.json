@@ -1,0 +1,73 @@
+{
+  "timestamp": "2026-07-25T14:19:42.963282+00:00",
+  "order": [
+    "C_prime",
+    "5_same_role_rank",
+    "G_prime_morph_roots"
+  ],
+  "C_prime": {
+    "dig": "C_prime",
+    "signal": "NULL",
+    "bands": {
+      "head21p": {
+        "n_words": 38110,
+        "mean_toks_per_word": 1.0,
+        "frac_multi_piece": 0.0
+      },
+      "ALL": {
+        "n_words": 39257,
+        "mean_toks_per_word": 1.0004585169523907,
+        "frac_multi_piece": 0.0004585169523906564
+      },
+      "phrase_level": {
+        "n_words": 39257,
+        "mean_toks_per_word": 1.0004585169523907,
+        "frac_multi_piece": null
+      },
+      "mid6_20": {
+        "n_words": 850,
+        "mean_toks_per_word": 1.0,
+        "frac_multi_piece": 0.0
+      },
+      "low2_5": {
+        "n_words": 251,
+        "mean_toks_per_word": 1.0,
+        "frac_multi_piece": 0.0
+      },
+      "rare1": {
+        "n_words": 46,
+        "mean_toks_per_word": 1.391304347826087,
+        "frac_multi_piece": 0.391304347826087
+      }
+    },
+    "note": "per-word BPE encode; phrase_level = whole-string ids / n_words",
+    "head_tpw": 1.0,
+    "rare_tpw": 1.391304347826087,
+    "all_tpw": 1.0004585169523907
+  },
+  "dig5": {
+    "dig": "5_same_role_rank",
+    "verdict": "PARTIAL",
+    "seen": {
+      "obj": 0.45166666666666666,
+      "rel": 0.9633333333333334,
+      "obj_hit5": 0.86
+    },
+    "story_all": 0.16721672167216722,
+    "obj_lift_pp": 0.02566666666666667,
+    "near_miss_gap_pp": 0.4083333333333333,
+    "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage125_same_role_rank.pt"
+  },
+  "G_prime": {
+    "dig": "G_prime_morph_roots",
+    "verdict": "PARITY",
+    "story_all": 0.1906857352401907,
+    "seen_all": 0.70125,
+    "seen_obj": 0.435,
+    "story_lift_pp": -0.005314264759809312,
+    "c_prime_signal": "NULL",
+    "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage126_Gprime_morph_roots.pt",
+    "expand": "[$stem, +affix?, surface] per word; predict surface only"
+  },
+  "next_if_fail": "stop densify/rank soft ideas; revisit data/curriculum not temp/hybrid/reweight"
+}

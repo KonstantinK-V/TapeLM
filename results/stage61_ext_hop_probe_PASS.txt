@@ -1,0 +1,16 @@
+SOTE Stage 61 — PASS dual (stretch)
+timestamp: 2026-07-24T11:24:45+00:00
+facts: data/external_facts_live.txt (120)
+parent atom: stage57_rehearsal_FROZEN.pt
+checkpoint: stage61_ext_hop_probe.pt
+
+=== RESULT ===
+  hop2 external joint 79.7% (H1 93.8% H2 81.2%)  ≥70% stretch
+  hop3 joint3 64.6% (diagnostic)
+  atom LIVE L2 28.1%/+14.4pp
+  internal hop2 83.3%
+  dual PASS
+
+=== READ ===
+  Tiny LIVE fact bank + hops works beside atom on external path facts.
+  Next: expand fact bank (more LIVE atoms / chains); keep skip verb_ing.

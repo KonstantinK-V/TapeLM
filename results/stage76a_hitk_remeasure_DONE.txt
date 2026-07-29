@@ -1,0 +1,18 @@
+SOTE Stage 76a hit@k remeasure (no FT) — DONE
+timestamp: 2026-07-24T13:40:00+00:00
+parent: stage57_rehearsal_FROZEN.pt  codebook V=135  chance@5=3.7%
+
+=== 1k HOLD L2+ ===
+  noun_rel:     hit@1 29.3%  hit@5 47.8%  mean_rank~27
+  verb_ing all: hit@1 18.3%  hit@5 38.9%
+  vi role=rel:  hit@1 48.6%  hit@5 97.1%  mean_rank~1.8
+  vi role=right:hit@1  5.7%  hit@5 15.9%  mean_rank~46
+
+=== dense object-slot ===
+  hit@1 6.3%  hit@5 18.9%  (>> chance@5 3.7%; still soft-weak)
+
+=== READ ===
+  Path freeze: keep exact@1 primary; @5 useful side column (already >> chance).
+  Object-after-rel: NOT pure zero — @5 ~4x chance but @1 dead => ranking/geometry/head,
+  not total absence of signal. Soft top-k metric justified; exact-only 6% too harsh alone.
+  Aligns with v2: roles + hit@1/@5 from day one; do not rewrite encode/hops trunk.

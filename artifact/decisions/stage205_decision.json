@@ -1,0 +1,51 @@
+{
+  "timestamp": "2026-07-29T06:18:16.254018+00:00",
+  "protocol": "unlearn_provenance_audit_205",
+  "overall": "UNLEARN_PROVENANCE_WIN",
+  "curve": {
+    "target_recall": {
+      "before": 1.0,
+      "after": 0.0
+    },
+    "retained_recall": {
+      "before": 1.0,
+      "after": 1.0
+    },
+    "next_tok": {
+      "before": 0.825,
+      "after": 0.825
+    },
+    "provenance_attribution": 1.0,
+    "delete_seconds": 0.0,
+    "slots_deleted": 20
+  },
+  "gpt_parametric": {
+    "target_recall": {
+      "after_memorize": 1.0,
+      "after_unlearn": 0.0
+    },
+    "retained_recall": {
+      "after_memorize": 1.0,
+      "after_unlearn": 0.2
+    },
+    "next_tok": {
+      "after_memorize": 0.8083333333333333,
+      "after_unlearn": 0.7333333333333333
+    },
+    "unlearn_grad_steps": 30,
+    "unlearn_seconds": 2.123511791229248
+  },
+  "conflict_audit": {
+    "detection": 1.0,
+    "false_positive": 0.0
+  },
+  "gates": {
+    "g_forget": true,
+    "g_no_collateral": true,
+    "g_gpt_collateral": true,
+    "g_provenance": true,
+    "g_conflict": true
+  },
+  "chance": 0.25,
+  "note": "vs parametric GPT this is capability (no gradient-free deletion, no attribution); vs GPT+RAG it is architectural — a RAG index can also delete and attribute"
+}

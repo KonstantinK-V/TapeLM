@@ -1,0 +1,44 @@
+{
+  "timestamp": "2026-07-28T18:21:16.994145+00:00",
+  "protocol": "exam_logprob_184",
+  "overall": "CALIBRATED_NO_ENTITY_SIGNAL",
+  "calibrated": true,
+  "gate": "GPT next_tok >= chance+0.20",
+  "chance": 0.25,
+  "counts": {
+    "next_tok": 120,
+    "entity": 100,
+    "ood": 60
+  },
+  "results": {
+    "ce_gpt_181": {
+      "next_tok_acc": 0.7583333333333333,
+      "next_tok_n": 120,
+      "entity_acc": 0.18,
+      "entity_n": 100,
+      "ood_acc": 0.2,
+      "ood_n": 60,
+      "chance": 0.25
+    },
+    "hybrid_182": {
+      "next_tok_acc": 0.65,
+      "next_tok_n": 120,
+      "entity_acc": 0.19,
+      "entity_n": 100,
+      "ood_acc": 0.26666666666666666,
+      "ood_n": 60,
+      "chance": 0.25
+    },
+    "random": {
+      "next_tok_acc": 0.275,
+      "next_tok_n": 120,
+      "entity_acc": 0.19,
+      "entity_n": 100,
+      "ood_acc": 0.2,
+      "ood_n": 60,
+      "chance": 0.25
+    }
+  },
+  "note": "next_tok = harness calibration (LM must win). entity = dataset-answer. ood must stay ~chance.",
+  "next": "If HARNESS_STILL_BROKEN: fix scorer/data before any curve claim. If CALIBRATED: entity_acc is now a trustworthy dataset-answer number; proceed to S2 (addressable tape)."
+}

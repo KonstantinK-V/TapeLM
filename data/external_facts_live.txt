@@ -1,0 +1,121 @@
+# External LIVE atomic facts (noun_rel + polarity). Stage 61.
+big fox on mat
+mat to bed
+big mat on hill
+mat on rim
+new mat to rug
+no mat to door
+no mat to pin
+no mat to well
+not mat to mill
+mat to cob
+red mat to fox
+red mat to key
+mat to rim
+big mat on jar
+mat on fox
+mat to key
+old mat on yard
+mat to sand
+red hat to box
+box on land
+big box on fish
+big box to cup
+box on cap
+box on pad
+box on bell
+new box to bird
+no box to web
+box on road
+red box on shop
+red box to bell
+red box to hat
+red box to pad
+big box on book
+box on fish
+good box on pad
+good box on pin
+good box to bell
+good box to pen
+new box on bell
+new box on peg
+no box on help
+old dog on bed
+bed to car
+big bed on top
+bed to ship
+red bed on bell
+bed on fox
+new cat to hut
+hut on sand
+hut to bird
+hut on bin
+good hut to book
+good hut to mug
+good hut to sand
+hut on door
+new hut to bed
+new hut to well
+no hut to mug
+not hut to cap
+old hut to cob
+red hut on water
+red hut to book
+hut to ball
+big hut on bin
+hut on cat
+new hut on look
+not hut to map
+old hut to cat
+hut on rock
+red hut to peg
+good bird on rim
+rim to peg
+good rim to rock
+old rim to box
+rim on land
+red rim on ball
+rim on walk
+big rim to help
+rim on fox
+rim to dog
+new rim on moved
+new rim to walk
+not rim on moved
+old rim to fish
+no ship to land
+land on map
+big land on dog
+land on pad
+good land to top
+land to ship
+no land to map
+not land on key
+not land on water
+old land on road
+old land to ship
+red land on lid
+land on cup
+good land on jump
+no land on sand
+red land on jar
+red land on yard
+red land to bell
+red land to pull
+land to rim
+not ball on sand
+big sand on key
+big sand to bell
+sand to car
+sand on jar
+good sand to pin
+no sand on box
+no sand on pen
+old sand on jar
+old sand to mill
+sand on door
+not sand to bed
+sand to call
+big rock on road
+road on land
+road on mat

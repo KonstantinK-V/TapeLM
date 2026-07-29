@@ -1,0 +1,35 @@
+{
+  "timestamp": "2026-07-29T04:30:36.042674+00:00",
+  "protocol": "fact_composition_200",
+  "overall": "COMPOSE_CHAINS_BUT_RAG_PARITY",
+  "gates": {
+    "g_external": true,
+    "g_chain": true,
+    "g_vs_rag": false,
+    "g_vectornative": true
+  },
+  "results": {
+    "curve_string": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 1.0
+    },
+    "curve_vector": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 1.0
+    },
+    "rag_index": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 1.0
+    },
+    "binding_2hop": 1.0,
+    "gpt_incontext_2hop": 0.2,
+    "slots": 6180,
+    "chains": 60,
+    "K": 3,
+    "chance_exact": 0.0042
+  },
+  "note": "in-space fp chaining (string & vector-native) + binding one-shot vs GPT-embedding index-RAG and vanilla in-context GPT; tests whether facts are OPERABLE vectors vs READ-by-index documents"
+}

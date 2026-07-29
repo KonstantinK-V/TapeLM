@@ -1,0 +1,26 @@
+SOTE Stage 27 report (multi-hop + partial on frozen scratch-26)
+timestamp: 2026-07-23T15:52:03.278757+00:00
+device: cuda
+contracts: thought_scratch_26_FROZEN.pt + hop_bank_25.pt
+hop1 WHAT(A) [full|partial] -> bridge -> hop2 [full where-probe|partial complete] -> WHAT(B)
+HOLD pairs=24 episodes=80
+
+mode                  H1      H2    JOINT   depth
+--------------------------------------------------
+full_full          85.0%   60.0%    51.2%    5.99
+partial_raw        32.5%   48.8%    17.5%    4.74
+partial_scratch    48.8%   60.0%    31.2%   10.99
+h1_partial_scr     48.8%   60.0%    31.2%    8.99
+h2_partial_scr     85.0%   58.8%    50.0%    7.99
+
+samples (joint):
+  bird to nib => nib on zip  full=1 raw=1 scr=1 h1p=1 h2p=1
+  bird to peg => peg on rim  full=0 raw=0 scr=0 h1p=0 h2p=0
+  reading to yap => yap on nib  full=1 raw=1 scr=0 h1p=0 h2p=1
+  washed to zip => zip on yap  full=1 raw=0 scr=1 h1p=1 h2p=1
+  bird to peg => peg on rim  full=1 raw=0 scr=1 h1p=1 h2p=1
+  jumps to rim => rim on zip  full=0 raw=0 scr=0 h1p=0 h2p=0
+
+=== Verdict ===
+  PARTIAL: lifts raw partial multi-hop, but below full/gates.
+  joint full=51.2% raw=17.5% scratch=31.2% lift=+13.8pp drop_vs_full=+20.0pp

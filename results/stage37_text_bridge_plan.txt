@@ -1,0 +1,39 @@
+SOTE Stage 37 plan — text bridge ladder on freeze 36
+
+Parent: stage36a_stress_FROZEN + stage36b_h2_residual_FROZEN
+         (core: observe_strict + chain-link + what_tail + left_instance)
+Do NOT regress hop3 ctrl on balanced bank.
+
+=== Ladder (agree with A→E; refinements) ===
+
+A. Lexicon lookup (smoke)
+   External string → normalize → exact key in episode/bank lexicon.
+   If fail: string/token hygiene, not model.
+   Gate: ≥99% key hit on in-bank strings.
+
+B. Encode-only bridge (frozen stack)
+   text → split → Letter/Word/Morph/PhraseComposer → phrase_fp
+   NN retrieve into slots written by same stack.
+   Also: text what_tail QA → hop1..hop3 protocol (answer = right of C or slot key).
+   Gate soft: in-bank reconstruct ≥95%; text-QA joint3 within ~15pp of internal ctrl.
+   Note: B is NOT a new encoder — it IS the frozen compose path from outside.
+
+C. Thin trained projector (optional same stage)
+   Small MLP: bag-char / hashed ngram → dim64, cosine align to frozen phrase_fp.
+   Train on (text, fp) bank pairs only. Retrieve core untouched.
+   Ablate C vs B. Gate: C ≥ B − 2pp on reconstruct; if C << B, projector is noise.
+
+D. Decode codebook — DEFER
+   Stage14 already had word codebook decode; revisit after B/C green
+   for answer-as-text, not slot id.
+
+E. Next-fp / mini-seq — DEFER
+   Only if A–C green and D usable.
+
+=== This run (37) ===
+  Implement A + B + light C ablate + hop3 ctrl regression.
+  External text = bank phrases fed as raw strings (and mild space/case variants for A/B hygiene).
+  No hop4, no planner, no soft-merge.
+
+Done this run: A+B+C PASS. Text-QA == ctrl (Δ0). C −3.7pp vs B — keep B as primary path.
+Next when ready: D decode (answer as text), then E next-fp only if D usable.

@@ -1,0 +1,27 @@
+{
+  "counts": {
+    "next_tok": 300,
+    "entity": 150,
+    "ood": 100
+  },
+  "unigram": {
+    "next_tok_acc": 0.27,
+    "next_tok_n": 300,
+    "entity_acc": 0.22666666666666666,
+    "entity_n": 150,
+    "ood_acc": 0.18,
+    "ood_n": 100
+  },
+  "random": {
+    "next_tok_acc": 0.24,
+    "next_tok_n": 300,
+    "entity_acc": 0.2733333333333333,
+    "entity_n": 150,
+    "ood_acc": 0.19,
+    "ood_n": 100
+  },
+  "docs": 202029,
+  "tokens": 40167271,
+  "charset": 977,
+  "timestamp": "2026-07-28T21:04:18.300234+00:00"
+}

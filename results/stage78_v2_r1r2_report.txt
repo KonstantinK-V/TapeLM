@@ -1,0 +1,55 @@
+SOTE V2 Path Replay R1-R3 (exact@1 only, no top-5)
+timestamp: 2026-07-24T14:03:05.866910+00:00
+device: cuda
+plan: results/sote_v2_path_replay.md
+v1_reserve: results/SOTE_V1_RESERVE_FROZEN.txt
+NO FT. Weights from V1 RESERVE read-only.
+
+=== R1 encode/morph ===
+  encode_B recon=100.0% n=400
+  word codebook exact=100.0% n=97
+  morph -ing NN=100.0% types=14
+  Verdict R1: PASS
+
+=== R2 decode D ===
+  word exact=100.0%
+  phrase exact=100.0% token=100.0% n=800
+  holdout exact=0.0% (OOV~0 expected)
+  Verdict R2: PASS
+
+=== R3 next exact@1 + roles (1k HOLD L2+) ===
+=== ALL subkinds ===
+  role           n    hit@1
+  ALL          635    27.9%
+  rel          289    54.0%
+  right        342     5.6%
+  other          4    50.0%
+
+=== subkind=noun_rel ===
+  role           n    hit@1
+  ALL          427    29.3%
+  rel          213    54.0%
+  right        213     4.2%
+  other          1   100.0%
+
+=== subkind=polarity ===
+  role           n    hit@1
+  ALL           82    35.4%
+  rel           41    58.5%
+  right         41    12.2%
+
+=== subkind=verb_ing ===
+  role           n    hit@1
+  ALL          126    18.3%
+  rel           35    48.6%
+  right         88     5.7%
+  other          3    33.3%
+
+  noun_rel order_drop=+14.5pp
+  path ALL hit@1=29.3%  rel=54.0%  right=4.2% (RESIDUAL)
+  Verdict R3 path: PASS
+
+=== Replay status ===
+  R1=PASS R2=PASS R3=PASS
+  Next: R4 order harden check, R5-R6 scale ZS+roles, R7 hops, R8 right protocol.
+  No top-5 claims. Right-after-rel residual explicit.

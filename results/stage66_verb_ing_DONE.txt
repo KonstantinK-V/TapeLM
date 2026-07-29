@@ -1,0 +1,18 @@
+SOTE Stage 66 verb_ing isolated dig — DONE (RESIDUAL)
+timestamp: 2026-07-24T12:11:36+00:00
+checkpoint: stage66_verb_ing.pt
+parent: stage57_rehearsal_FROZEN.pt
+data: data/external_1k.txt
+report: stage66_verb_ing_report.txt
+
+=== CLAIM ===
+  verb_ing next-atom: gap real, abs below soft floor. Residual, not LIVE.
+  Light FT on verb_ing-only did not lift abs (best ≤ ZS band).
+  Do not add verb_ing to hop bank.
+
+=== METRICS ===
+  ZS verb_ing L2 18.3%/+13.5pp (n=126)
+  FT best     L2 17.5%/+14.3pp (step 100; protect OK)
+  noun_rel / polarity protect held
+
+=== FREEZE_READY: dig only (no LIVE claim) ===

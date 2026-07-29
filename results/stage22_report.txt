@@ -1,0 +1,42 @@
+SOTE Stage 22 report (A masked-span smoke -> B memory-as-thought)
+timestamp: 2026-07-23T15:00:39.341446+00:00
+device: cuda
+contract: bridge_qa_binder_16_FROZEN.pt
+
+=== A) Masked span recovery ===
+  TRAIN 98.4%  cos=0.987  beats_bag=100.0%
+  HOLD  69.4%  cos=0.692  beats_bag=80.6%
+  SHUF  69.4%  gap=+0.0pp  (NOTE: most items have |L|=|R|=1, shuffle is near no-op)
+  post-hoc: swapL<->R=66.7% (gap=+2.8pp)  foilR=47.2% (drop=-22.2pp)
+  gates: hold>=50% gap>=10pp  -> FAIL on order-gap; ACC itself is STRONG vs next-token
+  samples:
+    [MISS] cat [?] car -> on (want to)
+    [MISS] dog [?] top -> on (want to)
+    [OK] go [?] cat -> to (want to)
+    [OK] spot [?] car -> on (want on)
+    [MISS] good [?] on car -> cat (want dog)
+    [OK] good dog [?] car -> on (want on)
+    [OK] no [?] cat -> good (want good)
+    [MISS] bird [?] top -> on (want to)
+
+=== B) Memory-as-thought (MEM_WRITE xK -> [thought] -> MEM_READ -> ANSWER) ===
+  episode_k=3  HOLD episodes=48
+  HOLD raw     retrieve=83.3%  answer=87.5%
+  HOLD thought retrieve=35.4%  answer=35.4%
+  lift thought retrieve=-47.9pp  answer=-52.1pp
+  TRAIN thought retrieve=52.5%  answer=55.0%
+  samples:
+    [what] pulling on door cue='on door' raw_ret=0 th_ret=0 raw_ans=0 th_ans=0
+    [where] reading on top cue='reading on' raw_ret=1 th_ret=0 raw_ans=1 th_ans=0
+    [what] go to cat cue='to cat' raw_ret=0 th_ret=0 raw_ans=0 th_ans=0
+    [where] rock to car cue='rock to' raw_ret=1 th_ret=1 raw_ans=1 th_ans=1
+    [what] lived on land cue='on land' raw_ret=1 th_ret=1 raw_ans=1 th_ans=1
+    [where] living on land cue='living on' raw_ret=1 th_ret=1 raw_ans=1 th_ans=1
+
+=== Verdict ===
+  A MIXED: HOLD mask-acc 69% >> next-token ~32% (bi-context recovery works),
+    but order-gap weak (swap ~+3pp); content/roles dominate. Not a LM path.
+  Autoregression stays deprioritized; bi-mask is diagnostic not the product goal.
+  B OK raw: mem-step protocol answers well WITHOUT next-token (HOLD ans 87.5%).
+  Thought-write into SAME bank HURTS (-48pp retrieve) — use private thought channel
+    (separate memory namespace / non-retrieveable scratch), not shared SoftPhraseMemory keys.

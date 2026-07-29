@@ -1,0 +1,6 @@
+SOTE Stage 72 report (object shortlist after *ing on|to)
+timestamp: 2026-07-24T12:51:03.230603+00:00
+Candidates = train verb_ing rights for same rel (fallback: all vi rights).
+full-vocab object-slot: 5.7%/+4.5pp n=88
+shortlist: acc=5.7%  chance~1.1%  gap=+4.5pp  n=88 mean|cands|=43.2
+=== Verdict: FAIL ===

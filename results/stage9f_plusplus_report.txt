@@ -1,0 +1,42 @@
+SOTE Stage 9f++ report (letter morph + -s order harden)
+timestamp: 2026-07-23T07:55:49.767456+00:00
+device: cuda
+steps: 5000
+word ckpt: word_memory_9_2.pt
+TRAIN=38 HOLD=12 affixes=['ing', 'ed', 's']
+basin pairwise: {'ing_ed': -0.0008931141346693039, 'ing_s': 0.0006182119250297546, 'ed_s': -0.0006224513053894043}
+FREEZE_READY: True
+
+Order foil: multi-char=suffix shuffle; len-1(-s)=affix_first (MorphMod+stem)
+Guardrail thresholds: realize/peel/cycle>=0.95/0.95/0.95, aff_win>=0.95, order_win>=0.75
+
+=== HOLD ===
+realize 100% (naive 100%) | peel 100% | cycle 100%
+  affix m +0.523 win 100% | order m +0.530 win 100%
+  ing: PASS realize 100% peel 100% cycle 100% aff_w 100% ord_w 100%
+   ed: PASS realize 100% peel 100% cycle 100% aff_w 100% ord_w 100%
+    s: PASS realize 100% peel 100% cycle 100% aff_w 100% ord_w 100%
+
+=== TRAIN ===
+realize 100% (naive 100%) | peel 100% | cycle 100%
+  affix m +0.438 win 100% | order m +0.545 win 100%
+  ing: realize 100% peel 100% cycle 100% aff_w 100% ord_w 100%
+   ed: realize 100% peel 100% cycle 100% aff_w 100% ord_w 100%
+    s: realize 100% peel 100% cycle 100% aff_w 100% ord_w 100%
+
+HOLD per-stem:
+  [OK] jump+ing -> jumping aff_m=+0.396 ord_m=+0.152 (shuffle) | peel=Y cycle=Y
+  [OK] walk+ing -> walking aff_m=+0.418 ord_m=+0.159 (shuffle) | peel=Y cycle=Y
+  [OK] read+ing -> reading aff_m=+0.458 ord_m=+0.310 (shuffle) | peel=Y cycle=Y
+  [OK] write+ing -> writing aff_m=+0.622 ord_m=+0.214 (shuffle) | peel=Y cycle=Y
+  [OK] jump+ed -> jumped aff_m=+0.730 ord_m=+0.316 (shuffle) | peel=Y cycle=Y
+  [OK] walk+ed -> walked aff_m=+0.517 ord_m=+0.417 (shuffle) | peel=Y cycle=Y
+  [OK] read+ed -> readed aff_m=+0.727 ord_m=+0.442 (shuffle) | peel=Y cycle=Y
+  [OK] write+ed -> writed aff_m=+0.549 ord_m=+0.458 (shuffle) | peel=Y cycle=Y
+  [OK] jump+s -> jumps aff_m=+0.408 ord_m=+1.325 (affix_first) | peel=Y cycle=Y
+  [OK] walk+s -> walks aff_m=+0.415 ord_m=+1.080 (affix_first) | peel=Y cycle=Y
+  [OK] read+s -> reads aff_m=+0.436 ord_m=+0.989 (affix_first) | peel=Y cycle=Y
+  [OK] write+s -> writes aff_m=+0.605 ord_m=+0.491 (shuffle) | peel=Y cycle=Y
+
+=== Verdict ===
+  FREEZE MorphMod as letter-morph law; next = Stage 10 phrases on word_fp.

@@ -1,0 +1,103 @@
+Followups start 2026-07-24T21:33:38.768531+00:00
+[wait] for C:\Users\Kostya\sote-letter-assembly\results\overnight_atom_scale_decision.json ...
+[wait] still ... 300s
+[wait] still ... 600s
+[wait] still ... 900s
+[wait] overnight done branch=capacity
+[103] obj_lift=-0.2pp verdict→PARITY_OBJ
+[104] obj_lift=-7.4pp verdict→CEILING
+[105] obj_lift=-2.3pp verdict→PARITY
+[106] ensure larger raw for ~1M windows ...
+[106] STORY=20.5% SEEN obj=38.6% verdict=CEILING
+DONE best_obj_stage=101 obj=40.7%
+{
+  "timestamp": "2026-07-24T23:19:48.007228+00:00",
+  "overnight_branch": "capacity",
+  "stage102": {
+    "verdict": "CEILING",
+    "tag": "capacity_4L8H",
+    "story_all": 0.20700985761226726,
+    "lift_vs_ref": 0.0005476451259583959,
+    "seen": {
+      "obj": 0.41583333333333333,
+      "rel": 0.9633333333333334,
+      "all": 0.6895833333333333
+    },
+    "arch": {
+      "d_model": 256,
+      "n_layers": 4,
+      "n_heads": 8
+    },
+    "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage102_capacity_4L8H.pt"
+  },
+  "ref101_obj": 0.4066666666666667,
+  "stage103": {
+    "verdict": "PARITY_OBJ",
+    "seen": {
+      "obj": 0.405,
+      "rel": 0.9625,
+      "all": 0.68375
+    },
+    "story": {
+      "all": 0.19350127783862722,
+      "obj": 0.1963302752293578
+    },
+    "obj_lift_pp": -0.0016666666666666496,
+    "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage103_fat90_obj.pt"
+  },
+  "stage104": {
+    "verdict": "CEILING",
+    "seen": {
+      "obj": 0.3325,
+      "rel": 0.9025,
+      "all": 0.6175
+    },
+    "story": {
+      "all": 0.19978066167062694,
+      "obj": 0.18470149253731344
+    },
+    "obj_lift_pp": -0.07416666666666666,
+    "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage104_fat_dense400.pt"
+  },
+  "stage105": {
+    "verdict": "PARITY",
+    "seen": {
+      "obj": 0.38416666666666666,
+      "rel": 0.9525,
+      "all": 0.6683333333333333
+    },
+    "story": {
+      "all": 0.08157653528872594,
+      "obj": 0.03684210526315789
+    },
+    "obj_lift_pp": -0.02250000000000002,
+    "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage105_fat95_push.pt"
+  },
+  "stage106": {
+    "verdict": "CEILING",
+    "tag": "scale_1m_4L8H",
+    "n_phrases": 897769,
+    "params": 5304320,
+    "arch": {
+      "d_model": 256,
+      "n_layers": 4,
+      "n_heads": 8
+    },
+    "seen": {
+      "obj": 0.3858333333333333,
+      "rel": 0.955,
+      "all": 0.6704166666666667
+    },
+    "story": {
+      "all": 0.20541926034419628,
+      "obj": 0.19005328596802842
+    },
+    "lift_story_pp": -0.0015905972680709812,
+    "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage106_scale_1m_4L8H.pt"
+  },
+  "best_seen_obj": {
+    "stage": "101",
+    "obj": 0.4066666666666667
+  },
+  "note": "103-105 obj digs (fatter SEEN); 106 = 1M \u00d7 4L8H capacity"
+}

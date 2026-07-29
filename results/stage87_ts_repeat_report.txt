@@ -1,0 +1,28 @@
+SOTE Stage 87 — TinyStories + fat path repeats (pull object/head)
+timestamp: 2026-07-24T16:42:58.548594+00:00
+device: cuda
+foundation: stage85_foundation.pt dim=256
+mix: external_tinystories_repeat_mix.txt meta={'n_story_train': 1487, 'n_story_hold': 495, 'n_fat_triples': 150, 'fat_copies': 60, 'n_train': 8687, 'n_hold_seen': 1800, 'n_hold_rare': 120, 'n_path_triples_avail': 1688}
+ref Stage86: ALL~8.6% rel~84% obj=0%
+NO soft@5. Fat repeats on path triples mined from TinyStories.
+
+=== FT best ===
+  step=8000
+  SEEN  obj=22.0% rel=84.0% ALL=53.0% head=53.0% rare1=0.0%
+  RARE  obj=11.7% ALL=48.3%
+  STORY obj=13.8% ALL=6.6% rel=22.0%
+
+=== vs bigram on SEEN ===
+  SEEN right bigram=22.1% ALL bigram=59.3% | SOTE obj=22.0%
+  SEEN freq SOTE/bigram/hypBPE:
+    head21p  n= 3600  sote= 53.0%  bigram= 59.3%  hypBPE~ 65.3%
+
+=== Adequacy ===
+  HANDLES: SEEN rel@84%, SEEN head-content@53%
+  FAILS:   SEEN object@22%
+  Read: repeats pull SEEN object (83b thesis on story-mined triples);
+  RARE/natural story windows stay hard — same as hyp BPE without overlap.
+
+=== Verdict: WEAK_LIFT ===
+  gates: PARTIAL SEEN obj>=25%  LIVE>=50%
+  Compare lift vs Stage86 obj=0%.

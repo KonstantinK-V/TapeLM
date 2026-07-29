@@ -1,0 +1,44 @@
+SOTE Stage 9c report (position-aware morph + curriculum)
+timestamp: 2026-07-22T20:24:43.016917+00:00
+device: cuda
+gpu: NVIDIA GeForce RTX 3050 Laptop GPU
+steps: 3000
+word ckpt: C:\Users\Kostya\sote-letter-assembly\checkpoints\word_memory_9_2.pt
+train -ing pairs: 17 (easy=10 / med=3 / hard=4) | HOLD morph stems: 4
+curriculum: easy<= 800, med<= 1800, then all
+operator letter/morph/gate: 0.329/0.430/0.332
+
+HOLD COLD compose trace/perm/path/stab: 88/88/100/100%
+Morph TRAIN bind/add/stem/naive: 100/6/0/100%  (agree 100%)
+Morph HOLD  bind/add/stem/naive: 100/100/0/100%  (agree 100%)
+HOLD op-add gap: +0pp  (want >=0 without memorizing)
+
+Morph HOLD details (stems NEVER in morph CE):
+  [OK] jump+ing -> jumping (want jumping, pref=jump, add=jumping, stem=jump, naive=jumping) agree=1.00
+  [OK] walk+ing -> walking (want walking, pref=walk, add=walking, stem=walk, naive=walking) agree=1.00
+  [OK] read+ing -> reading (want reading, pref=read, add=reading, stem=read, naive=reading) agree=1.00
+  [OK] write+ing -> writing (want writing, pref=writ, add=writing, stem=write, naive=writing) agree=1.00
+
+Morph TRAIN details:
+  [OK] play+ing -> playing (want playing, pref=play) score=1.00 add=playing
+  [OK] go+ing -> going (want going, pref=go) score=0.99 add=go
+  [OK] act+ing -> acting (want acting, pref=act) score=0.99 add=act
+  [OK] fish+ing -> fishing (want fishing, pref=fish) score=0.99 add=fish
+  [OK] post+ing -> posting (want posting, pref=post) score=0.99 add=post
+  [OK] book+ing -> booking (want booking, pref=book) score=1.00 add=book
+  [OK] light+ing -> lighting (want lighting, pref=light) score=0.99 add=light
+  [OK] bird+ing -> birding (want birding, pref=bird) score=1.00 add=bird
+  [OK] green+ing -> greening (want greening, pref=green) score=0.99 add=green
+  [OK] slow+ing -> slowing (want slowing, pref=slow) score=0.99 add=slowly
+  [OK] make+ing -> making (want making, pref=mak) score=0.99 add=make
+  [OK] take+ing -> taking (want taking, pref=tak) score=1.00 add=take
+  [OK] give+ing -> giving (want giving, pref=giv) score=0.99 add=give
+  [OK] run+ing -> running (want running, pref=runn) score=1.00 add=run
+  [OK] stop+ing -> stopping (want stopping, pref=stopp) score=0.99 add=stop
+  [OK] spot+ing -> spotting (want spotting, pref=spott) score=0.99 add=spot
+  [OK] top+ing -> topping (want topping, pref=topp) score=1.00 add=top
+
+How to read:
+- morph modulates only suffix letter slots, then frozen composer
+- naive = compose(ing_surface(stem)) without morph modulation
+- success: HOLD bind > 9b++ (25%), not below add, COLD ~88%

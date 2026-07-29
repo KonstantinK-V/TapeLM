@@ -1,0 +1,15 @@
+SOTE Stage 59 — PASS (zero-shot scale); FT dilutes if order-maxed
+timestamp: 2026-07-24T10:42:01+00:00
+data: data/external_1k.txt (1000)  parent: stage57_rehearsal.pt
+checkpoint: stage59_scale_1k.pt
+
+=== RESULT ===
+  ZS (57→1k HOLD): L2 27.9%/+19.8pp  order_drop +14.0pp  ≥25% soft
+  FT peak (order-biased select): L2 25.0%/+16pp  drop +14.5pp  < ZS
+  Selection bug: same soft tier, +0.5pp order beat −2.9pp L2
+
+=== READ ===
+  Scale holds via parent zero-shot — FT not required on this 1k.
+  Accept PASS on ZS gate. Keep 57 weights as scale parent.
+  L1 residual ~11–12%. Next optional: freeze 57/59 ZS, hops-on-external, or kinds dig.
+  No layers. No phrase/char trunk.

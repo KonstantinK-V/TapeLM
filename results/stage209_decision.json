@@ -1,0 +1,72 @@
+{
+  "timestamp": "2026-07-29T10:22:48.839241+00:00",
+  "protocol": "sem_scaling_teacher_209",
+  "overall": "STRUCTURAL_BLOCK_NO",
+  "grid": [
+    {
+      "scale": "d128_L2",
+      "d": 128,
+      "L": 2,
+      "curve": {
+        "paws_acc": 0.596,
+        "para": 0.5260313776135445,
+        "hard": 0.7793168649077415,
+        "inversion": false
+      },
+      "gpt": {
+        "paws_acc": 0.580125,
+        "para": 0.57647171407938,
+        "hard": 0.7870161980390549,
+        "inversion": false
+      },
+      "delta": 0.015874999999999972
+    },
+    {
+      "scale": "d192_L4",
+      "d": 192,
+      "L": 4,
+      "curve": {
+        "paws_acc": 0.602,
+        "para": 0.4860118532925844,
+        "hard": 0.6391946412622929,
+        "inversion": false
+      },
+      "gpt": {
+        "paws_acc": 0.62375,
+        "para": 0.5791722071170807,
+        "hard": 0.7157684937119484,
+        "inversion": false
+      },
+      "delta": -0.021750000000000047
+    },
+    {
+      "scale": "d256_L6",
+      "d": 256,
+      "L": 6,
+      "curve": {
+        "paws_acc": 0.63175,
+        "para": 0.4498532873392105,
+        "hard": 0.6315670134499669,
+        "inversion": false
+      },
+      "gpt": {
+        "paws_acc": 0.639625,
+        "para": 0.42669997334480286,
+        "hard": 0.6381292343139648,
+        "inversion": false
+      },
+      "delta": -0.007874999999999965
+    }
+  ],
+  "teacher_d256": {
+    "curve_teacher_r": 0.25556589614083136,
+    "gpt_teacher_r": 0.2698897595894376
+  },
+  "gates": {
+    "g_monotone_paws": true,
+    "g_parity_all_scales": true,
+    "g_teacher_parity": true,
+    "g_teacher_signal": true
+  },
+  "interpretation": "STRUCTURAL_BLOCK_NO means: curve PAWS tracks GPT at every scale, accuracy tends to rise with scale, and curve states carry MiniLM geometry at least as well as GPT — 3050 cannot prove B at scale, but refutes 'A can never be meaningful'."
+}

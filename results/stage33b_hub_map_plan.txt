@@ -1,0 +1,36 @@
+SOTE Stage 33b plan — hub-bank resample (short diagnostic)
+
+Parent freeze: checkpoints/stage33_stress_FROZEN.pt
+Contract: results/stage33_stress_contract_FROZEN.txt
+Claim to test: joint falls smoothly hub1→hub2→hub3+, or cliff only on thick hubs.
+
+=== WHY ===
+Stage33 strata used eval quotas on a skewed bank (hub1=3, hub2=0, hub3p=177).
+Without mid-hub pairs, cannot read the 1→2→3+ curve before hop3.
+
+=== DO (eval-only; no FT; no hop3) ===
+1) Resample / filter dense chain pairs so all three buckets nonempty:
+   targets (soft): hub1 ≥20, hub2 ≥20, hub3p ≥40 pairs (or best effort from bank)
+2) Keep observe_strict + chain-link + honest metrics
+3) Stratified eval @ primary k=7: report H1 / H2|H1 / joint per hub
+4) Optional: one dirty_hard column @ k=7 (no full k-sweep unless cheap)
+
+=== GATES (diagnostic, soft) ===
+  All three strata n>0
+  hub1 joint stays high (≥ stage33 hub1 ballpark)
+  Report Δ: hub1→hub2 and hub2→hub3p (smooth vs cliff)
+  No regression vs stage33 primary clean joint beyond noise (~5pp)
+
+=== OUT ===
+  results/stage33b_hub_map_report.txt
+  results/stage33b_hub_map_metrics.json
+  checkpoints/stage33b_hub_map.pt  (eval snapshot; binders unchanged)
+
+=== NOT THIS STAGE ===
+  hop3, binder FT, changing observe_strict
+
+Done: one-shot subset created hub2=26 pairs (native was structural:
+hub2 lefts never bridges). Curve on resampled bank: smooth (~73/76/76).
+Do not loop resample. Native note kept: "hub2 bank structural, not sampling".
+
+Next: hop3 optional now that mid-hub map is readable; or freeze 33b map.

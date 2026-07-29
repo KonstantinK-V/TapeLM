@@ -1,0 +1,43 @@
+SOTE Stage 17 report (next-fp + semantic probes)
+timestamp: 2026-07-23T12:41:52.451074+00:00
+device: cuda
+contract: bridge_qa_binder_16_FROZEN.pt
+next-fp steps=2000
+
+=== (1) Next word_fp (internal step) ===
+  TRAIN next acc:   83.1%  cos=0.843
+  HOLD next acc:    32.4%  cos=0.406
+  Shuffle control:  31.1%  gap=+1.4pp
+  HOLD samples:
+    [MISS] 'cat' -> on (want to)
+    [MISS] 'cat to' -> dog (want car)
+    [MISS] 'dog' -> on (want to)
+    [MISS] 'dog to' -> cat (want top)
+    [OK] 'go' -> to (want to)
+    [MISS] 'go to' -> car (want cat)
+    [OK] 'spot' -> on (want on)
+    [MISS] 'spot on' -> top (want car)
+
+=== (3) Semantic probes (frozen QA, no train) ===
+  Core HOLD on/to:     100.0%
+  Novel in/under/near: 100.0%  by_rel={'in': 1.0, 'under': 1.0, 'near': 1.0}
+  Attribute facts:     100.0%
+  2-fact chain mem:    joint 100.0%  (ret 100.0% / ans 100.0%)
+
+  Novel samples:
+    [OK] 'cat in box' what -> cat (want cat)
+    [OK] 'cat in box' where -> box (want box)
+    [OK] 'dog in car' what -> dog (want dog)
+    [OK] 'dog in car' where -> car (want car)
+    [OK] 'ball under bed' what -> ball (want ball)
+    [OK] 'ball under bed' where -> bed (want bed)
+    [OK] 'hat under mat' what -> hat (want hat)
+    [OK] 'hat under mat' where -> mat (want mat)
+
+=== What this means ===
+  NEXT-FP: weak/absent (HOLD 32%, gap +1pp) - representations may be too bag-like for stepwise thought yet.
+  SEMANTIC: core roles OK; novel rel generalizes; attributes OK; chains OK.
+
+=== Verdict ===
+  Diagnostic complete (not a freeze stage).
+  Read: fix/strengthen compose-order signal before heavy generation.

@@ -1,0 +1,48 @@
+{
+  "timestamp": "2026-07-29T04:02:30.222830+00:00",
+  "protocol": "semantic_invariance_199",
+  "overall": "SEM_INV_PARTIAL",
+  "gates": {
+    "g_nondestruct": true,
+    "g_scale_monotone": false,
+    "inversion_at_full": false,
+    "head_beats_raw": true
+  },
+  "raw_frozen_baseline": {
+    "para": 0.7045877659320832,
+    "hard": 0.8891366943717003,
+    "gap_hard_minus_para": 0.18454892843961712,
+    "inversion": false
+  },
+  "scale_trend": {
+    "0.05": {
+      "docs": 9594,
+      "budget_tokens": 2008363,
+      "cpc_loss": 3.452286137834519,
+      "para": 0.6482825708389283,
+      "hard": 0.8203097730875015,
+      "gap_hard_minus_para": 0.17202720224857326,
+      "inversion": false
+    },
+    "0.25": {
+      "docs": 47479,
+      "budget_tokens": 10041817,
+      "cpc_loss": 3.6606688461173458,
+      "para": 0.7038451218605042,
+      "hard": 0.8773361817002296,
+      "gap_hard_minus_para": 0.17349105983972546,
+      "inversion": false
+    },
+    "1.00": {
+      "docs": 189658,
+      "budget_tokens": 40167271,
+      "cpc_loss": 3.64851004780002,
+      "para": 0.7137240588665008,
+      "hard": 0.8767009973526001,
+      "gap_hard_minus_para": 0.1629769384860993,
+      "inversion": false
+    }
+  },
+  "next_tok_parity_frozen": 0.825,
+  "note": "frozen P1 encoder + separate CPC-trained semantic head; consequence-prediction route to B; scale probe = same head at 5/25/100% token budgets"
+}

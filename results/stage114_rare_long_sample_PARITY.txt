@@ -1,0 +1,10 @@
+SOTE Stage 114 — rare_long_sample (sample composition, not CE weight)
+timestamp: 2026-07-25T07:28:33.489405+00:00
+mode=rare_long rel_rate=1.0 nat_rel_frac=0.120 mean_batch_rel=0.188 fat_frac=0.75
+best_step=50000 params=2989056
+SEEN obj=39.7% rel=91.5%
+STORY ALL=4.9% obj=5.5%
+RARE obj=7.5%
+vs100: obj -2.9pp story -14.7pp
+Verdict: PARITY
+Contrast 107/108: those reweighted CE; this changes batch mixture.

@@ -1,0 +1,60 @@
+SOTE Stage 6 report (phrases on frozen alphabet)
+timestamp: 2026-07-22T09:56:52.272280+00:00
+device: cuda
+gpu: NVIDIA GeForce RTX 3050 Laptop GPU
+steps: 2500
+alphabet: C:\Users\Kostya\sote-letter-assembly\checkpoints\alphabet_frozen.pt
+delimiter: SPACE between words, '.' ends sentence
+
+Word accuracy:        100.0%
+Anagram separation:   100.0%
+Letter-trace in words:94.5%
+Phrase accuracy:      100.0% (24 phrases)
+Phrase order probes:  100.0%
+Phrase prefix probes: 100.0%
+Visual letters:       100.0%
+
+Phrase prefix probes:
+  [OK] 'cat on' family=0.48 other=0.10 family=['cat on top', 'cat on car']
+  [OK] 'go to' family=0.34 other=0.04 family=['go to car', 'go to dog', 'go to top']
+  [OK] 'no' family=0.43 other=0.16 family=['no good dog', 'no cat on top', 'no dog on car']
+  [OK] 'good dog' family=0.63 other=0.19 family=['good dog on top']
+  [OK] 'not on' family=0.62 other=0.18 family=['not on top']
+
+Phrase order probes (expect low sim):
+  [OK] 'cat on top' vs 'top on cat' sim=-0.00
+  [OK] 'go to dog' vs 'dog to go' sim=0.03
+  [OK] 'cat to dog' vs 'dog to cat' sim=0.03
+  [OK] 'no good dog' vs 'dog good no' sim=0.21
+
+Phrases:
+  [OK] 'cat on top'           -> 'cat on top'           (sim=0.63, q=1.00)
+  [OK] 'dog on top'           -> 'dog on top'           (sim=0.56, q=1.00)
+  [OK] 'go to car'            -> 'go to car'            (sim=0.63, q=1.00)
+  [OK] 'go to dog'            -> 'go to dog'            (sim=0.59, q=1.00)
+  [OK] 'cat on car'           -> 'cat on car'           (sim=0.66, q=1.00)
+  [OK] 'dog on car'           -> 'dog on car'           (sim=0.67, q=1.00)
+  [OK] 'no good dog'          -> 'no good dog'          (sim=0.65, q=1.00)
+  [OK] 'not good cat'         -> 'not good cat'         (sim=0.70, q=1.00)
+  [OK] 'stop on top'          -> 'stop on top'          (sim=0.61, q=1.00)
+  [OK] 'spot on top'          -> 'spot on top'          (sim=0.68, q=1.00)
+  [OK] 'post to top'          -> 'post to top'          (sim=0.66, q=1.00)
+  [OK] 'go on top'            -> 'go on top'            (sim=0.62, q=1.00)
+  [OK] 'cat to dog'           -> 'cat to dog'           (sim=0.58, q=1.00)
+  [OK] 'dog to cat'           -> 'dog to cat'           (sim=0.58, q=1.00)
+  [OK] 'no cat on top'        -> 'no cat on top'        (sim=0.66, q=1.00)
+  [OK] 'not on top'           -> 'not on top'           (sim=0.63, q=1.00)
+  [OK] 'good dog on top'      -> 'good dog on top'      (sim=0.63, q=1.00)
+  [OK] 'good cat on car'      -> 'good cat on car'      (sim=0.66, q=1.00)
+  [OK] 'go to top'            -> 'go to top'            (sim=0.61, q=1.00)
+  [OK] 'act on top'           -> 'act on top'           (sim=0.60, q=1.00)
+  [OK] 'pot on top'           -> 'pot on top'           (sim=0.60, q=1.00)
+  [OK] 'card on top'          -> 'card on top'          (sim=0.64, q=1.00)
+  [OK] 'no dog on car'        -> 'no dog on car'        (sim=0.69, q=1.00)
+  [OK] 'not to go'            -> 'not to go'            (sim=0.66, q=1.00)
+
+How to read:
+- Alphabet is frozen from stage 5.5; stage 6 tests composition above it.
+- Letter-trace: each letter basin remains detectable inside the word fp.
+- '.' closes the sentence; phrase prefix probes check partial streams.
+- Order probes: swapped word order must not collapse to the same fp.

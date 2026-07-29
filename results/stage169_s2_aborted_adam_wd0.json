@@ -1,0 +1,8 @@
+﻿{
+  "timestamp": "2026-07-27T22:36:56.4983662+03:00",
+  "verdict": "S2_ABORTED_FOR_ADAMW",
+  "reason": "user: restart from scratch with AdamW wd=1e-2 + cosine LR decay",
+  "prior_best_approx": {"bat": 0.336, "lift_maj": -0.034, "step": 210000},
+  "archived_ckpt": "checkpoints/stage169_s2_primary_adam_wd0_210k.pt",
+  "archived_log": "results/_stage169_s2_log_adam_wd0.txt"
+}

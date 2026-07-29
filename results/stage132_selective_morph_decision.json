@@ -1,0 +1,16 @@
+{
+  "dig": "132_selective_morph_aux",
+  "verdict": "PARITY",
+  "story_all": 0.20572057205720573,
+  "story_lift_vs_ref100_pp": 0.009720572057205723,
+  "story_lift_vs_131_pp": -0.03887055372203885,
+  "seen_all": 0.70875,
+  "seen_obj": 0.4525,
+  "expand_rule": "unigram bucket != head21p",
+  "aux": {
+    "lam_stem": 0.3,
+    "lam_affix": 0.15
+  },
+  "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage132_selective_morph_aux.pt",
+  "note": "Completes SOTE-BPE-principle table: selective + aux piece CE + word gate"
+}

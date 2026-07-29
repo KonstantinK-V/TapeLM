@@ -1,0 +1,23 @@
+SOTE Stage 45 report (masked-word + longer prefix, word units)
+timestamp: 2026-07-24T08:35:05.380336+00:00
+device: cuda
+corpus: fp_language_corpus.pt  max_prefix=8
+meta: {'vocab': 107, 'next_train': 232, 'next_hold': 190, 'next_hold_L1': 96, 'next_hold_L2p': 94, 'mask_train': 351, 'mask_hold': 286}
+
+=== D regression ===
+  word exact=100.0%
+
+=== Next-word HOLD (by prefix length) ===
+  all    acc=35.8% gap=+24.2pp n=190
+  L=1    acc=63.5% gap=+31.2pp n=96
+  L≥2    acc=7.4% gap=+4.3pp n=94
+
+=== Masked-word ===
+  TRAIN acc=63.8% gap=+57.5pp cos=0.725 n=351
+  HOLD  acc=25.5% gap=+18.9pp cos=0.329 n=286
+
+=== Gates: gap>=10% abs>=25% D>=95% ===
+
+=== Verdict ===
+  PASS (soft): longer-prefix next + masked-word both above chance (next 36%/+24pp, mask 26%/+19pp).
+  Prefix note: L≥2 gap +4pp vs L=1 +31pp (no clear length gain).

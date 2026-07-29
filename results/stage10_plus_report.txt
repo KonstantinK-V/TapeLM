@@ -1,0 +1,46 @@
+SOTE Stage 10+ report (morph-swap prefer_new harden)
+timestamp: 2026-07-23T09:29:05.964064+00:00
+device: cuda
+steps: 3000
+word ckpt: word_memory_9_2.pt
+morph ckpt: morph_letter_9f_plusplus_FROZEN.pt
+TRAIN=69 HOLD=26 HOLD_BANK=30
+Frozen: encoder + WordComposer + MorphMod
+
+Train phrase acc:   100.0%  trace=0.99 order=100% peel=100%
+HOLD invariants:    trace=0.83 order=100% peel=100%
+Prefix probes:      100%
+Morph-swap TRAIN:   moved=100% prefer_new=100% cover=100% (learned targets)
+Morph-swap HOLD:    moved=100% prefer_new=100% cover=100% (family bank)
+Rel TRAIN / HOLD:   100% / 100%
+
+HOLD morph-swap details:
+  OK jumps on top: jumps->jumped moved=True prefer=True in_bank=True
+  OK jumping on top: jumping->jumped moved=True prefer=True in_bank=True
+  OK jumped on top: jumped->jumping moved=True prefer=True in_bank=True
+  OK walks on car: walks->walked moved=True prefer=True in_bank=True
+  OK walking on car: walking->walked moved=True prefer=True in_bank=True
+  OK walked on car: walked->walking moved=True prefer=True in_bank=True
+  OK cat jumps: jumps->jumped moved=True prefer=True in_bank=True
+  OK cat jumping: jumping->jumped moved=True prefer=True in_bank=True
+  OK cat jumped: jumped->jumping moved=True prefer=True in_bank=True
+  OK dog walks: walks->walked moved=True prefer=True in_bank=True
+  OK dog walking: walking->walked moved=True prefer=True in_bank=True
+  OK dog walked: walked->walking moved=True prefer=True in_bank=True
+  OK reading on top: reading->readed moved=True prefer=True in_bank=True
+  OK cat writes: writes->writed moved=True prefer=True in_bank=True
+
+HOLD relational (sample):
+  [OK] 'cat to car' what -> cat (want cat)
+  [OK] 'cat to car' where -> car (want car)
+  [OK] 'dog to top' what -> dog (want dog)
+  [OK] 'dog to top' where -> top (want top)
+  [OK] 'go to cat' what -> go (want go)
+  [OK] 'go to cat' where -> cat (want cat)
+  [OK] 'spot on car' what -> spot (want spot)
+  [OK] 'spot on car' where -> car (want car)
+  [OK] 'good dog on car' what -> dog (want dog)
+  [OK] 'good dog on car' where -> car (want car)
+
+=== Verdict ===
+  Stage 10+ OK: morph swap moves off old and prefers new attractor.

@@ -1,0 +1,534 @@
+{
+  "stage": "83",
+  "verdict": "PASS",
+  "scale_read": "SCALE_HELPS_SEEN",
+  "rare_read": "RARE_STILL_HARD",
+  "meta": {
+    "n_fat_triples": 120,
+    "n_rare_triples": 60,
+    "fat_copies": 80,
+    "rare_copies": 3,
+    "n_train": 7680,
+    "n_hold_seen": 1920,
+    "n_hold_rare": 180,
+    "n_nouns": 86
+  },
+  "zs_seen_roles": {
+    "rel": {
+      "n": 1920,
+      "hit1": 0.041666666666666664
+    },
+    "ALL": {
+      "n": 3840,
+      "hit1": 0.0375
+    },
+    "right": {
+      "n": 1920,
+      "hit1": 0.03333333333333333
+    }
+  },
+  "zs_rare_roles": {
+    "rel": {
+      "n": 180,
+      "hit1": 0.03333333333333333
+    },
+    "ALL": {
+      "n": 360,
+      "hit1": 0.025
+    },
+    "right": {
+      "n": 180,
+      "hit1": 0.016666666666666666
+    }
+  },
+  "zs_seen_obj": {
+    "n": 1920,
+    "hit1": 0.03333333333333333,
+    "mean_rank": 63.825,
+    "median_rank": 66,
+    "chance": 0.006993006993006993,
+    "V": 143,
+    "confusion": {
+      "right_correct": 0.03333333333333333,
+      "other_rightish": 0.8833333333333333,
+      "rel": 0.008333333333333333,
+      "left": 0.016666666666666666,
+      "other": 0.058333333333333334
+    },
+    "confusion_n": {
+      "right_correct": 64,
+      "other_rightish": 1696,
+      "rel": 16,
+      "left": 32,
+      "other": 112
+    }
+  },
+  "zs_rare_obj": {
+    "n": 180,
+    "hit1": 0.016666666666666666,
+    "mean_rank": 68.83333333333333,
+    "median_rank": 61,
+    "chance": 0.006993006993006993,
+    "V": 143,
+    "confusion": {
+      "right_correct": 0.016666666666666666,
+      "other_rightish": 0.31666666666666665,
+      "rel": 0.0,
+      "left": 0.016666666666666666,
+      "other": 0.65
+    },
+    "confusion_n": {
+      "right_correct": 3,
+      "other_rightish": 57,
+      "rel": 0,
+      "left": 3,
+      "other": 117
+    }
+  },
+  "final_seen_roles": {
+    "rel": {
+      "n": 1920,
+      "hit1": 0.7833333333333333
+    },
+    "ALL": {
+      "n": 3840,
+      "hit1": 0.6458333333333334
+    },
+    "right": {
+      "n": 1920,
+      "hit1": 0.5083333333333333
+    }
+  },
+  "final_rare_roles": {
+    "rel": {
+      "n": 180,
+      "hit1": 0.45
+    },
+    "ALL": {
+      "n": 360,
+      "hit1": 0.225
+    },
+    "right": {
+      "n": 180,
+      "hit1": 0.0
+    }
+  },
+  "final_seen_obj": {
+    "n": 1920,
+    "hit1": 0.5083333333333333,
+    "mean_rank": 8.216666666666667,
+    "median_rank": 1,
+    "chance": 0.006993006993006993,
+    "V": 143,
+    "confusion": {
+      "right_correct": 0.5083333333333333,
+      "other_rightish": 0.475,
+      "rel": 0.0,
+      "left": 0.0,
+      "other": 0.016666666666666666
+    },
+    "confusion_n": {
+      "right_correct": 976,
+      "other_rightish": 912,
+      "rel": 0,
+      "left": 0,
+      "other": 32
+    }
+  },
+  "final_rare_obj": {
+    "n": 180,
+    "hit1": 0.0,
+    "mean_rank": 71.35,
+    "median_rank": 66,
+    "chance": 0.006993006993006993,
+    "V": 143,
+    "confusion": {
+      "right_correct": 0.0,
+      "other_rightish": 0.5833333333333334,
+      "rel": 0.0,
+      "left": 0.016666666666666666,
+      "other": 0.4
+    },
+    "confusion_n": {
+      "right_correct": 0,
+      "other_rightish": 105,
+      "rel": 0,
+      "left": 3,
+      "other": 72
+    }
+  },
+  "best": {
+    "step": 7600,
+    "right_seen": 0.5083333333333333,
+    "rel_seen": 0.7833333333333333,
+    "right_rare": 0.0,
+    "protect_ok": true
+  },
+  "curve": [
+    {
+      "step": 0,
+      "right_seen": 0.03333333333333333,
+      "rel_seen": 0.041666666666666664,
+      "path_seen": 0.0375,
+      "right_rare": 0.016666666666666666,
+      "rel_rare": 0.03333333333333333,
+      "protect_ok": true,
+      "mean_rank_seen": 63.825
+    },
+    {
+      "step": 400,
+      "right_seen": 0.05,
+      "rel_seen": 0.575,
+      "path_seen": 0.3125,
+      "right_rare": 0.0,
+      "rel_rare": 0.5166666666666667,
+      "protect_ok": true,
+      "mean_rank_seen": 50.475
+    },
+    {
+      "step": 800,
+      "right_seen": 0.0,
+      "rel_seen": 0.575,
+      "path_seen": 0.2875,
+      "right_rare": 0.0,
+      "rel_rare": 0.5,
+      "protect_ok": true,
+      "mean_rank_seen": 38.53333333333333
+    },
+    {
+      "step": 1200,
+      "right_seen": 0.041666666666666664,
+      "rel_seen": 0.5416666666666666,
+      "path_seen": 0.2916666666666667,
+      "right_rare": 0.016666666666666666,
+      "rel_rare": 0.45,
+      "protect_ok": true,
+      "mean_rank_seen": 37.53333333333333
+    },
+    {
+      "step": 1600,
+      "right_seen": 0.05,
+      "rel_seen": 0.6083333333333333,
+      "path_seen": 0.32916666666666666,
+      "right_rare": 0.0,
+      "rel_rare": 0.5,
+      "protect_ok": true,
+      "mean_rank_seen": 38.266666666666666
+    },
+    {
+      "step": 2000,
+      "right_seen": 0.06666666666666667,
+      "rel_seen": 0.6083333333333333,
+      "path_seen": 0.3375,
+      "right_rare": 0.05,
+      "rel_rare": 0.5333333333333333,
+      "protect_ok": true,
+      "mean_rank_seen": 27.575
+    },
+    {
+      "step": 2400,
+      "right_seen": 0.058333333333333334,
+      "rel_seen": 0.5166666666666667,
+      "path_seen": 0.2875,
+      "right_rare": 0.0,
+      "rel_rare": 0.48333333333333334,
+      "protect_ok": true,
+      "mean_rank_seen": 31.116666666666667
+    },
+    {
+      "step": 2800,
+      "right_seen": 0.13333333333333333,
+      "rel_seen": 0.6666666666666666,
+      "path_seen": 0.4,
+      "right_rare": 0.05,
+      "rel_rare": 0.4666666666666667,
+      "protect_ok": true,
+      "mean_rank_seen": 24.025
+    },
+    {
+      "step": 3200,
+      "right_seen": 0.09166666666666666,
+      "rel_seen": 0.6833333333333333,
+      "path_seen": 0.3875,
+      "right_rare": 0.0,
+      "rel_rare": 0.5166666666666667,
+      "protect_ok": true,
+      "mean_rank_seen": 22.683333333333334
+    },
+    {
+      "step": 3600,
+      "right_seen": 0.15833333333333333,
+      "rel_seen": 0.7166666666666667,
+      "path_seen": 0.4375,
+      "right_rare": 0.0,
+      "rel_rare": 0.4166666666666667,
+      "protect_ok": true,
+      "mean_rank_seen": 17.475
+    },
+    {
+      "step": 4000,
+      "right_seen": 0.15833333333333333,
+      "rel_seen": 0.6333333333333333,
+      "path_seen": 0.3958333333333333,
+      "right_rare": 0.016666666666666666,
+      "rel_rare": 0.5,
+      "protect_ok": true,
+      "mean_rank_seen": 16.866666666666667
+    },
+    {
+      "step": 4400,
+      "right_seen": 0.21666666666666667,
+      "rel_seen": 0.7,
+      "path_seen": 0.4583333333333333,
+      "right_rare": 0.0,
+      "rel_rare": 0.48333333333333334,
+      "protect_ok": true,
+      "mean_rank_seen": 16.333333333333332
+    },
+    {
+      "step": 4800,
+      "right_seen": 0.24166666666666667,
+      "rel_seen": 0.7333333333333333,
+      "path_seen": 0.4875,
+      "right_rare": 0.0,
+      "rel_rare": 0.4166666666666667,
+      "protect_ok": true,
+      "mean_rank_seen": 13.266666666666667
+    },
+    {
+      "step": 5200,
+      "right_seen": 0.20833333333333334,
+      "rel_seen": 0.6916666666666667,
+      "path_seen": 0.45,
+      "right_rare": 0.0,
+      "rel_rare": 0.5166666666666667,
+      "protect_ok": true,
+      "mean_rank_seen": 16.591666666666665
+    },
+    {
+      "step": 5600,
+      "right_seen": 0.2833333333333333,
+      "rel_seen": 0.775,
+      "path_seen": 0.5291666666666667,
+      "right_rare": 0.0,
+      "rel_rare": 0.48333333333333334,
+      "protect_ok": true,
+      "mean_rank_seen": 12.591666666666667
+    },
+    {
+      "step": 6000,
+      "right_seen": 0.31666666666666665,
+      "rel_seen": 0.7333333333333333,
+      "path_seen": 0.525,
+      "right_rare": 0.0,
+      "rel_rare": 0.45,
+      "protect_ok": true,
+      "mean_rank_seen": 10.766666666666667
+    },
+    {
+      "step": 6400,
+      "right_seen": 0.44166666666666665,
+      "rel_seen": 0.775,
+      "path_seen": 0.6083333333333333,
+      "right_rare": 0.0,
+      "rel_rare": 0.48333333333333334,
+      "protect_ok": true,
+      "mean_rank_seen": 8.05
+    },
+    {
+      "step": 6800,
+      "right_seen": 0.4166666666666667,
+      "rel_seen": 0.7833333333333333,
+      "path_seen": 0.6,
+      "right_rare": 0.016666666666666666,
+      "rel_rare": 0.4666666666666667,
+      "protect_ok": true,
+      "mean_rank_seen": 7.575
+    },
+    {
+      "step": 7200,
+      "right_seen": 0.425,
+      "rel_seen": 0.7666666666666667,
+      "path_seen": 0.5958333333333333,
+      "right_rare": 0.0,
+      "rel_rare": 0.43333333333333335,
+      "protect_ok": true,
+      "mean_rank_seen": 9.408333333333333
+    },
+    {
+      "step": 7600,
+      "right_seen": 0.5083333333333333,
+      "rel_seen": 0.7833333333333333,
+      "path_seen": 0.6458333333333334,
+      "right_rare": 0.0,
+      "rel_rare": 0.45,
+      "protect_ok": true,
+      "mean_rank_seen": 8.216666666666667
+    },
+    {
+      "step": 8000,
+      "right_seen": 0.49166666666666664,
+      "rel_seen": 0.7833333333333333,
+      "path_seen": 0.6375,
+      "right_rare": 0.0,
+      "rel_rare": 0.5333333333333333,
+      "protect_ok": true,
+      "mean_rank_seen": 8.983333333333333
+    }
+  ],
+  "surfaces": [
+    "cat",
+    "on",
+    "top",
+    "dog",
+    "car",
+    "go",
+    "to",
+    "no",
+    "good",
+    "not",
+    "stop",
+    "spot",
+    "post",
+    "act",
+    "bird",
+    "fish",
+    "ball",
+    "land",
+    "ship",
+    "rock",
+    "road",
+    "shop",
+    "big",
+    "red",
+    "old",
+    "new",
+    "book",
+    "hand",
+    "door",
+    "sand",
+    "playing",
+    "played",
+    "plays",
+    "running",
+    "runned",
+    "runs",
+    "making",
+    "maked",
+    "makes",
+    "taking",
+    "taked",
+    "takes",
+    "looking",
+    "looked",
+    "looks",
+    "talking",
+    "talked",
+    "talks",
+    "openning",
+    "openned",
+    "opens",
+    "helping",
+    "helped",
+    "helps",
+    "moving",
+    "moved",
+    "moves",
+    "calling",
+    "called",
+    "calls",
+    "working",
+    "worked",
+    "works",
+    "stopping",
+    "stopped",
+    "stops",
+    "box",
+    "mat",
+    "lid",
+    "bag",
+    "cap",
+    "log",
+    "mug",
+    "bin",
+    "pen",
+    "pad",
+    "water",
+    "jumps",
+    "jumping",
+    "jumped",
+    "walks",
+    "walking",
+    "walked",
+    "reading",
+    "readed",
+    "writes",
+    "writing",
+    "writed",
+    "living",
+    "lived",
+    "pulls",
+    "pulling",
+    "pulled",
+    "pushes",
+    "pushing",
+    "pushed",
+    "washes",
+    "washing",
+    "washed",
+    "hut",
+    "rim",
+    "peg",
+    "cob",
+    "nib",
+    "web",
+    "yap",
+    "zip",
+    "bell",
+    "bed",
+    "hill",
+    "yard",
+    "cup",
+    "pan",
+    "jar",
+    "fox",
+    "park",
+    "well",
+    "hat",
+    "map",
+    "rug",
+    "net",
+    "key",
+    "pin",
+    "call",
+    "mill",
+    "help",
+    "jump",
+    "look",
+    "move",
+    "play",
+    "pull",
+    "push",
+    "walk",
+    "wash",
+    "work",
+    "make",
+    "house",
+    "tree",
+    "take",
+    "give",
+    "pot",
+    "card",
+    "run"
+  ],
+  "parent": "stage57_rehearsal_FROZEN.pt",
+  "corpus": "external_noun_rel_repeat_83b.txt",
+  "no_top5": true,
+  "config": {
+    "nr_n_fat": 120,
+    "nr_fat_copies": 80,
+    "nr_n_rare": 60,
+    "nr_ft_steps": 8000,
+    "nr_ft_lr": 0.001
+  }
+}

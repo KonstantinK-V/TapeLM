@@ -1,0 +1,29 @@
+SOTE Stage 97 — atom (WordId TF batch8) + hops (F85 SoftPhraseMemory/CueBinder)
+timestamp: 2026-07-24T19:32:59.875809+00:00
+device: cuda
+foundation: stage85_foundation.pt dim=256
+atom: reused_stage95=True batch=8 warmup=200 lr=0.001 emb=x1
+hops: bank=external_facts_live_exp_FROZEN.txt n=818 n_eps=96 k=7
+NO V1 dim64 binders; CueBinder-only hop1/hop2. NO soft@5.
+ref Stage95 atom: obj=40% rel=95%
+ref Stage80 V1 hop2 clean joint~84% (dim64 lineage)
+
+=== Atom (next-word exact@1) ===
+  SEEN  obj=40.0% rel=95.3% ALL=67.7%
+  RARE  obj=11.7%
+  STORY ALL=10.3% obj=20.0%
+
+=== Hops 2 (CueBinder) ===
+  clean_bind  H1=99.0% H2=95.8% joint=94.8%
+  dirty_bind  H1=16.7% H2=20.8% joint=16.7%
+  dirty_hard  H1=20.8% H2=26.0% joint=18.8%
+  noun clean joint=87.5%  polarity clean joint=97.9%
+
+=== Adequacy ===
+  Atom = local next-id; hops = fact graph. Dual channel; not stuffed into TF weights.
+  Expect hops ZS on F85 < V1 Stage80 until dim256 hop binders / FT.
+
+=== Verdict: PASS ===
+  atom gates: obj>=25% + rel>=50%
+  hop2 clean joint: PARTIAL>=40% LIVE>=70%
+  next: swing reduction on atom; then hop2 binder@256 if hops weak

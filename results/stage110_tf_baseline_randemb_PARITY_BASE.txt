@@ -1,0 +1,11 @@
+SOTE Stage 110 — tf_baseline_randemb
+timestamp: 2026-07-25T06:07:14.490183+00:00
+sote_init=False slot_dynamic=False
+w_rel0=1.0 w_obj0=1.0 final_w_rel=1.000 final_w_obj=1.000
+params=2989056 V=5489 steps=50000
+best_step=41000
+SEEN obj=42.2% rel=94.8%
+STORY ALL=18.7% obj=18.6%
+RARE obj=13.8%
+vs100: obj -0.4pp story -0.9pp
+Verdict: PARITY_BASE

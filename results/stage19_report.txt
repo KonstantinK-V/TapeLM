@@ -1,0 +1,29 @@
+SOTE Stage 19 report (3-way next bakeoff)
+timestamp: 2026-07-23T13:50:04.221429+00:00
+device: cuda
+contract: bridge_qa_binder_16_FROZEN.pt
+baselines: Stage17=32.4%  Stage18~28%  oracle17b~78%
+oracle compose-rank (true full target) HOLD: 62.2%  mean_rank=7.47
+
+path                     TRAIN    HOLD    SHUF      GAP     LIFT  PASS
+------------------------------------------------------------------------
+3b_ComposeRank           56.2%    8.1%    8.1%    +0.0pp   -24.3pp    no
+3c_SoftTeacherRank       80.0%   27.0%   20.3%    +6.8pp    -5.4pp    no
+1_OrderAux+Rank          50.0%   12.2%    9.5%    +2.7pp   -20.2pp    no
+
+=== Paths ===
+  3b ComposeRank: TargetHead -> pred_full; decode via compose-rank (Phrase frozen)
+  1  OrderAux: light PhraseComposer unfreeze (bag+swap) then same ComposeRank
+  3c SoftTeacherRank: distill compose-oracle soft labels into fast scorer
+
+=== Best by HOLD: 3c_SoftTeacherRank (27.0%) ===
+  [MISS] 'cat' -> helps (want to)
+  [MISS] 'cat to' -> dog (want car)
+  [MISS] 'dog' -> on (want to)
+  [MISS] 'dog to' -> cat (want top)
+  [MISS] 'go' -> on (want to)
+  [MISS] 'go to' -> car (want cat)
+
+=== Verdict ===
+  None fully PASS vs gates (HOLD>=55%, gap>=15pp, +10pp over Stage17).
+  Take relative winner: 3c_SoftTeacherRank and iterate.

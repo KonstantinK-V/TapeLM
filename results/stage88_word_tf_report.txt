@@ -1,0 +1,30 @@
+SOTE Stage 88 — word-id Transformer smoke (SOTE dict + CE)
+timestamp: 2026-07-24T17:01:21.667620+00:00
+device: cuda
+foundation: stage85_foundation.pt dim=256
+model: WordIdTransformer d=256 L=2 H=4 max_len=16 params=2010112
+emb: init from SOTE word_fp, trainable; decode=argmax id (no soft@5)
+mix: same build_ts_repeat_mix seed=272 meta={'n_story_train': 1487, 'n_story_hold': 495, 'n_fat_triples': 150, 'fat_copies': 60, 'n_train': 8687, 'n_hold_seen': 1800, 'n_hold_rare': 120, 'n_path_triples_avail': 1688}
+ref Stage87 TinySeq: obj=22% head=53% rel=84% ALL=53%
+
+=== FT best ===
+  step=7000
+  SEEN  obj=28.0% rel=84.0% ALL=56.0% head=56.0% rare1=0.0%
+  RARE  obj=13.3% ALL=49.2%
+  STORY obj=1.8% ALL=2.7% rel=18.8%
+
+=== vs bigram / TinySeq@87 on SEEN ===
+  right bigram=22.1% ALL bigram=59.3%
+  TF obj=28.0% vs TinySeq obj=22.0%  TF head=56.0% vs TinySeq head=53.0%
+  SEEN freq model/bigram:
+    head21p  n= 3600  model= 56.0%  bigram= 59.3%
+
+=== Adequacy ===
+  HANDLES: SEEN rel@84%, SEEN object@28%, SEEN head@56%
+  FAILS:   -
+  Read: SOTE=tokenizer+codebook (fp encode OOV into D); Transformer=next-id head.
+  Same data cliff expected on RARE; question is SEEN head/object vs TinySeq.
+
+=== Verdict: PARTIAL ===
+  gates: PARTIAL SEEN obj>=25%  LIVE>=50%
+  vs TinySeq@87: LIFT if obj>+5pp; PARITY if within ~2pp.

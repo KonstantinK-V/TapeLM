@@ -1,0 +1,42 @@
+SOTE Stage 8c+ report (attn + residual + slot relational probe)
+timestamp: 2026-07-22T17:14:47.223560+00:00
+device: cuda
+gpu: NVIDIA GeForce RTX 3050 Laptop GPU
+steps: 3500
+word ckpt: C:\Users\Kostya\sote-letter-assembly\checkpoints\word_memory_78e.pt
+phrase ckpt: C:\Users\Kostya\sote-letter-assembly\checkpoints\phrase_memory_8b.pt
+train QA: 40 | hold QA: 10
+word+phrase: FROZEN | probe: attn+residual+slot
+
+Train QA acc:            100.0%  (attn@answer 100%)
+HOLD QA acc:             90.0%  (attn@answer 90%)
+Shuffle-fact control:    90.0%
+HOLD - shuffle gap:      +0.0pp  (want >= +20)
+
+Train by kind:
+  what_on    100%
+  what_to    100%
+  where_on   100%
+  where_to   100%
+HOLD by kind:
+  what_on    100%
+  what_to    67%
+  where_on   100%
+  where_to   100%
+
+HOLD QA details:
+  [OK] fact='cat to car' | q='what to car' -> cat (want cat) attn@0 (ans@0)
+  [OK] fact='cat to car' | q='where to cat' -> car (want car) attn@2 (ans@2)
+  [OK] fact='dog to top' | q='what to top' -> dog (want dog) attn@0 (ans@0)
+  [OK] fact='dog to top' | q='where to dog' -> top (want top) attn@2 (ans@2)
+  [MISS] fact='go to cat' | q='what to cat' -> cat (want go) attn@2 (ans@0)
+  [OK] fact='go to cat' | q='where to go' -> cat (want cat) attn@2 (ans@2)
+  [OK] fact='spot on car' | q='what on car' -> spot (want spot) attn@0 (ans@0)
+  [OK] fact='spot on car' | q='where is spot' -> car (want car) attn@2 (ans@2)
+  [OK] fact='good dog on car' | q='what on car' -> dog (want dog) attn@1 (ans@1)
+  [OK] fact='good dog on car' | q='where is dog' -> car (want car) attn@3 (ans@3)
+
+How to read:
+- probe reads fact tokens via cross-attn + slot (left,rel,right) + residual
+- attn aux trains attention onto the answer token
+- shuffle control must stay clearly below HOLD if fact is truly used

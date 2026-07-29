@@ -1,0 +1,68 @@
+SOTE Stage 9d report (multi-affix MorphOp + peel/cycle/swap)
+timestamp: 2026-07-22T20:54:44.561569+00:00
+device: cuda
+steps: 4000
+word ckpt: word_memory_9_2.pt
+affixes: ['ing', 's', 'ed', 'ly']
+TRAIN pairs: 42 | HOLD pairs: 14 | HOLD stems: ['friend', 'happy', 'jump', 'read', 'walk', 'write']
+basin pairwise cos: {'ing_s': 0.0011528823524713516, 'ing_ed': 0.003695756196975708, 'ing_ly': 4.7031790018081665e-05, 's_ed': 0.0009026899933815002, 's_ly': -0.000587858259677887, 'ed_ly': -0.0013719946146011353}
+
+Note: multi-affix is a better *bet* than redoing -ing alone because swap/peel tests are unavailable to a single-affix spelling shortcut — not a guarantee of higher -ing HIT@1.
+
+=== HOLD ===
+apply all: op 7% | naive 100% | stem 0% | agree 0.471
+  apply ing: op 0% naive 100% (n=4)
+  apply   s: op 0% naive 100% (n=4)
+  apply  ed: op 0% naive 100% (n=4)
+  apply  ly: op 50% naive 100% (n=2)
+peel: op 7% | sub-only 93% | agree 0.321
+cycle: reapply 100% (0.715) | repeel 71% (0.557)
+swap: right_acc 7% | right>all_wrong 64% | mean margin +0.009 | wrong→gold 2%
+
+=== TRAIN ===
+apply all: op 100% | naive 100% | stem 0% | agree 0.981
+  apply ing: op 100% naive 100% (n=14)
+  apply   s: op 100% naive 100% (n=12)
+  apply  ed: op 100% naive 100% (n=10)
+  apply  ly: op 100% naive 100% (n=6)
+peel: op 100% | sub-only 95% | agree 0.998
+cycle: reapply 100% (0.998) | repeel 100% (1.000)
+swap: right_acc 100% | right>all_wrong 100% | mean margin +0.323 | wrong→gold 33%
+
+HOLD apply misses / swap margins:
+  [MISS] jump+ing -> jump (want jumping, naive_ok=True) agree=0.32
+  [MISS] walk+ing -> walk (want walking, naive_ok=True) agree=0.42
+  [MISS] read+ing -> read (want reading, naive_ok=True) agree=0.39
+  [MISS] write+ing -> write (want writing, naive_ok=True) agree=0.42
+  [MISS] jump+s -> jump (want jumps, naive_ok=True) agree=0.21
+  [MISS] walk+s -> walk (want walks, naive_ok=True) agree=0.43
+  [MISS] read+s -> read (want reads, naive_ok=True) agree=0.45
+  [MISS] write+s -> write (want writes, naive_ok=True) agree=0.41
+  [MISS] jump+ed -> jump (want jumped, naive_ok=True) agree=0.65
+  [MISS] walk+ed -> walk (want walked, naive_ok=True) agree=0.60
+  [MISS] read+ed -> read (want readed, naive_ok=True) agree=0.60
+  [MISS] write+ed -> write (want writed, naive_ok=True) agree=0.52
+  [MISS] happy+ly -> happy (want happily, naive_ok=True) agree=0.58
+  [OK] friend+ly -> friendly (want friendly, naive_ok=True) agree=0.60
+
+  [OK] jump+ing: margin=+0.122 (best_wrong=ed, right_ok=False)
+  [OK] walk+ing: margin=+0.051 (best_wrong=ly, right_ok=False)
+  [OK] read+ing: margin=+0.097 (best_wrong=ed, right_ok=False)
+  [OK] write+ing: margin=+0.059 (best_wrong=s, right_ok=False)
+  [WEAK] jump+s: margin=-0.068 (best_wrong=ing, right_ok=False)
+  [OK] walk+s: margin=+0.042 (best_wrong=ing, right_ok=False)
+  [OK] read+s: margin=+0.052 (best_wrong=ing, right_ok=False)
+  [WEAK] write+s: margin=-0.022 (best_wrong=ing, right_ok=False)
+  [OK] jump+ed: margin=+0.011 (best_wrong=ly, right_ok=False)
+  [OK] walk+ed: margin=+0.003 (best_wrong=ly, right_ok=False)
+  [OK] read+ed: margin=+0.072 (best_wrong=s, right_ok=False)
+  [WEAK] write+ed: margin=-0.037 (best_wrong=ly, right_ok=False)
+  [WEAK] happy+ly: margin=-0.102 (best_wrong=ed, right_ok=False)
+  [WEAK] friend+ly: margin=-0.152 (best_wrong=ed, right_ok=True)
+
+=== Auto verdict ===
+  [apply] HOLD apply op 7% vs naive 100% (Δ -93pp)
+  [peel] HOLD peel 7% (sub-only 93%) — peel ≈/≤ sub
+  [cycle] reapply 100% / repeel 71%
+  [swap] right>wrong 64% margin +0.009 wrong→gold 2%
+  [overall] No strong multi-affix operator yet — swap/peel weak or apply still spelling-dominated.

@@ -1,0 +1,48 @@
+SOTE Stage 29c report (honest H2|H1 + hop2 disambig + role ablation)
+timestamp: 2026-07-23T20:11:43.494586+00:00
+device: cuda
+parents: stage29b_disambig.pt + hop_bank_25.pt
+knobs: topk=5 disambig_gap=0.12
+gates: dense_joint>=22% OR H2|H1>=45%; ctrl>=50%
+
+Honest protocol: no gold bridge fallback for hop2/joint/H2|H1.
+
+=== Best seed 272 DENSE clean_bind ===
+ablation            H1      H2    H2|H1    JOINT    H2leg
+--------------------------------------------------------
+base             40.6%   51.6%    38.5%    15.6%    51.6%
+h2_disambig      40.6%   56.2%    50.0%    20.3%    56.2%
+role_partial     40.6%   50.0%    38.5%    15.6%    51.6%
+both             40.6%   54.7%    50.0%    20.3%    56.2%
+
+=== Best seed 272 CTRL clean_bind ===
+ablation            H1      H2    H2|H1    JOINT
+------------------------------------------------
+base             80.0%   78.8%    79.7%    63.7%
+h2_disambig      80.0%   78.8%    79.7%    63.7%
+role_partial     80.0%   77.5%    79.7%    63.7%
+both             80.0%   77.5%    79.7%    63.7%
+
+=== Best seed dense (primary=h2_disambig) all modes ===
+  clean_bind         H1= 40.6% H2= 56.2% H2|H1= 50.0% joint= 20.3%
+  dirty_raw          H1= 18.8% H2= 23.4% H2|H1= 25.0% joint=  4.7%
+  dirty_bind         H1= 40.6% H2= 56.2% H2|H1= 50.0% joint= 20.3%
+  dirty_both_bind    H1= 40.6% H2= 56.2% H2|H1= 50.0% joint= 20.3%
+
+=== Multi-seed (primary=h2_disambig) ===
+  seed 272: PASS  joint=20.3% H1=40.6% H2|H1=50.0% ctrl=63.7%
+    h2_disambig  joint=20.3% (+4.7pp) H2|H1=50.0%
+    role_partial joint=15.6% (+0.0pp) H2|H1=38.5%
+    both         joint=20.3% (+4.7pp) H2|H1=50.0%
+  seed 273: PASS  joint=20.3% H1=40.6% H2|H1=50.0% ctrl=62.5%
+    h2_disambig  joint=20.3% (+4.7pp) H2|H1=50.0%
+    role_partial joint=17.2% (+1.6pp) H2|H1=39.3%
+    both         joint=23.4% (+7.8pp) H2|H1=53.6%
+  seed 274: PASS  joint=20.3% H1=40.6% H2|H1=50.0% ctrl=62.5%
+    h2_disambig  joint=20.3% (+6.2pp) H2|H1=50.0%
+    role_partial joint=14.1% (+0.0pp) H2|H1=34.6%
+    both         joint=20.3% (+6.2pp) H2|H1=50.0%
+  aggregate: 3/3 pass; mean_joint=20.3% mean_H2|H1=50.0% mean_ctrl=62.9%
+
+=== Verdict ===
+  PASS: hop2/bridge disambig lifts honest joint or H2|H1 under gates.

@@ -1,0 +1,12 @@
+Can +2–3pp digs sum to BPE STORY (~34%)?
+ref100 STORY=19.6%  BPE112~34%  gap~14pp
+131 story (if done)=24.5%
+132 story=20.6% lift_ref=+1.0pp
+
+Reality check:
+- Gains rarely orthogonal: fat/CE/hops/morph often move the SAME margin.
+- Many digs were 0 or negative (F -10pp, G/G′ ~0, 130 cmp ≤ atom).
+- Need ~5 independent +3pp without SEEN destroy — historically not observed.
+- Honest path: one dig that moves STORY ≥5–8pp, not arithmetic sum of PARTIALs.
+
+132 verdict=PARITY

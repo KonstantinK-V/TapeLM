@@ -1,0 +1,90 @@
+{
+  "timestamp": "2026-07-26T16:00:00.296427+00:00",
+  "protocol": "compose_layer_separate_preprocess",
+  "framing": "ComposeLayer freezes composition at dataset indexing; LM sees only composed ids. Word identity remains for HOLD decode/confirm.",
+  "compose_lm": {
+    "arm": "158_compose_lm",
+    "protocol": "compose_layer_preprocess_then_lm",
+    "compose_index": "C:\\Users\\Kostya\\sote-letter-assembly\\results\\stage158_compose_index.json",
+    "compose_corpus": "C:\\Users\\Kostya\\sote-letter-assembly\\data\\stage158_composed_sequences.jsonl",
+    "V": 5253,
+    "n_word": 4830,
+    "seen_obj": 0.40625,
+    "story_all": 0.13822326125073056,
+    "story_obj": 0.18208955223880596,
+    "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage158_158_compose_lm.pt",
+    "curve": [
+      {
+        "step": 0,
+        "story_all": 0.0,
+        "obj": 0.0
+      },
+      {
+        "step": 4000,
+        "story_all": 0.01270772238514174,
+        "obj": 0.02926829268292683
+      },
+      {
+        "step": 8000,
+        "story_all": 0.09090909090909091,
+        "obj": 0.07317073170731707
+      },
+      {
+        "step": 12000,
+        "story_all": 0.12218963831867058,
+        "obj": 0.14634146341463414
+      },
+      {
+        "step": 16000,
+        "story_all": 0.10410557184750734,
+        "obj": 0.12682926829268293
+      },
+      {
+        "step": 20000,
+        "story_all": 0.12267839687194526,
+        "obj": 0.17073170731707318
+      },
+      {
+        "step": 24000,
+        "story_all": 0.10459433040078202,
+        "obj": 0.11707317073170732
+      },
+      {
+        "step": 28000,
+        "story_all": 0.12218963831867058,
+        "obj": 0.08780487804878048
+      },
+      {
+        "step": 32000,
+        "story_all": 0.13929618768328444,
+        "obj": 0.12195121951219512
+      },
+      {
+        "step": 36000,
+        "story_all": 0.12267839687194526,
+        "obj": 0.12682926829268293
+      },
+      {
+        "step": 40000,
+        "story_all": 0.15053763440860216,
+        "obj": 0.1902439024390244
+      }
+    ],
+    "trunk": {
+      "batch": 8,
+      "lr": 0.001,
+      "opt": "Adam",
+      "wd": 0.0,
+      "d": 512,
+      "n_layer": 4,
+      "n_head": 8,
+      "fat_frac": 0.75,
+      "max_len": 40
+    }
+  },
+  "story_lift_vs_ctrl": 2.1340971417205257e-05,
+  "story_lift_vs_157": 0.020161587241919993,
+  "verdict": "PARITY",
+  "ref_ctrl_story": 0.13820192027931336,
+  "ref_157_story": 0.11806167400881057
+}

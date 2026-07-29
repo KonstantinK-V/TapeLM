@@ -1,0 +1,27 @@
+{
+  "stage": "87",
+  "verdict": "WEAK_LIFT",
+  "obj_seen": 0.22,
+  "obj_rare": 0.11666666666666667,
+  "obj_story": 0.13846153846153847,
+  "rel_seen": 0.84,
+  "head_seen": 0.53,
+  "meta": {
+    "n_story_train": 1487,
+    "n_story_hold": 495,
+    "n_fat_triples": 150,
+    "fat_copies": 60,
+    "n_train": 8687,
+    "n_hold_seen": 1800,
+    "n_hold_rare": 120,
+    "n_path_triples_avail": 1688
+  },
+  "handles": [
+    "SEEN rel@84%",
+    "SEEN head-content@53%"
+  ],
+  "fails": [
+    "SEEN object@22%"
+  ],
+  "best_step": 8000
+}

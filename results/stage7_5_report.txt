@@ -1,0 +1,62 @@
+SOTE Stage 7.5 report (prefix/partial compose + stronger consistency)
+timestamp: 2026-07-22T10:56:51.370114+00:00
+device: cuda
+gpu: NVIDIA GeForce RTX 3050 Laptop GPU
+steps: 2500
+alphabet: C:\Users\Kostya\sote-letter-assembly\checkpoints\alphabet_frozen.pt
+
+Compose accuracy:         100.0%
+Stream accuracy:          100.0%
+Compose~Stream agree:     100.0% (cos>=0.7)
+Letter-trace in compose:  87.0%
+Permutation probes:       100.0%
+Shared-letter traces:     50.0%
+Text/visual path acc:     16.7%
+Text/visual path agree:   0.0% (cos>=0.6)
+Prefix probes:            100.0%
+
+Permutation probes:
+  [OK] cat vs act: sim=0.29, pred=cat/act
+  [OK] dog vs god: sim=0.24, pred=dog/god
+  [OK] on vs no: sim=0.20, pred=on/no
+  [OK] top vs pot: sim=0.28, pred=top/pot
+  [OK] stop vs spot: sim=0.24, pred=stop/spot
+  [OK] post vs spot: sim=0.07, pred=post/spot
+
+Shared-letter traces:
+  [OK] cat/car keep 'c': 0.16, 0.21
+  [FAIL] dog/good keep 'd': 0.15, 0.16
+  [FAIL] top/pot keep 't': 0.25, 0.15
+  [OK] stop/post keep 's': 0.17, 0.18
+
+Prefix probes:
+  [OK] 'ca' family=0.48 other=0.06
+  [OK] 'do' family=0.64 other=0.19
+  [OK] 'sto' family=0.69 other=0.25
+  [OK] 'go' family=0.51 other=0.04
+  [OK] 'po' family=0.49 other=0.11
+
+Text vs visual paths:
+  [FAIL] cat  text=cat  vis=pot  agree=0.31
+  [FAIL] act  text=act  vis=pot  agree=0.12
+  [FAIL] car  text=car  vis=pot  agree=0.09
+  [OK] card text=card vis=card agree=0.21
+  [FAIL] dog  text=dog  vis=pot  agree=0.38
+  [FAIL] god  text=god  vis=pot  agree=0.31
+  [FAIL] good text=good vis=card agree=0.44
+  [FAIL] go   text=go   vis=on   agree=0.48
+  [OK] on   text=on   vis=on   agree=0.52
+  [FAIL] no   text=no   vis=on   agree=0.57
+  [FAIL] not  text=not  vis=pot  agree=0.37
+  [FAIL] ton  text=ton  vis=pot  agree=0.37
+  [FAIL] to   text=to   vis=on   agree=0.48
+  [FAIL] top  text=top  vis=pot  agree=0.35
+  [OK] pot  text=pot  vis=pot  agree=0.35
+  [FAIL] stop text=stop vis=card agree=0.56
+  [FAIL] spot text=spot vis=card agree=0.29
+  [FAIL] post text=post vis=card agree=0.46
+
+How to read:
+- Prefix probes should jump vs stage 7 after partial-compose loss.
+- Growth loss pushes longer prefixes closer to the final word fp.
+- Stronger consistency keeps explicit compose aligned with stream assembly.

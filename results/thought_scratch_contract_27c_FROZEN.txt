@@ -1,0 +1,18 @@
+SOTE thought-scratch contract 27c FROZEN (both-partial + bridge)
+timestamp: 2026-07-23T18:26:17.812657+00:00
+checkpoint: thought_scratch_27c_FROZEN.pt
+parent: thought_scratch_26_FROZEN.pt  (+ bridge_qa_binder_16_FROZEN.pt)
+sources: stage27c_both_partial.pt, stage27b_plus_hop1_partial.pt, hop_bank_25.pt
+
+Inherits thought_scratch_26 partial-cue addendum.
+
+ADDENDUM — both-partial multi-hop:
+  hop1 partial -> Hop1PartialBinder -> MEM_READ
+  SCRATCH bridge_entity = A.right
+  hop2 left_only(bridge) -> CueBinder complete -> MEM_READ
+
+Metrics at freeze: pass=True mean_bind_joint=51.7%
+
+Deferred next: dirty partial stress; denser bank.
+
+=== FREEZE_READY: True ===

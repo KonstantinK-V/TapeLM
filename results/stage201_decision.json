@@ -1,0 +1,23 @@
+{
+  "timestamp": "2026-07-29T04:34:57.331579+00:00",
+  "protocol": "semantic_hardneg_201",
+  "overall": "SEM_HARDNEG_NO",
+  "baseline_B": {
+    "para": 0.7045877659320832,
+    "hard": 0.8891367018222809,
+    "inversion": false
+  },
+  "after_B": {
+    "para": 0.7317908596992493,
+    "hard": 0.9021749570965767,
+    "inversion": false
+  },
+  "next_tok_product_p1": 0.825,
+  "next_tok_finetuned_copy": 0.7166666666666667,
+  "minimal_pairs": 20000,
+  "gates": {
+    "g_invert": false,
+    "g_trend": false
+  },
+  "note": "arc_enc COPY fine-tuned with edit-distance-1 hard negatives + anchor-to-P1; product P1 frozen"
+}

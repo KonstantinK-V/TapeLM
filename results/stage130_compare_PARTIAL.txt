@@ -1,0 +1,12 @@
+{
+  "dig": "130_topk_compare",
+  "verdict": "PARTIAL",
+  "seen_obj_atom": 0.45166666666666666,
+  "seen_obj_cmp": 0.4483333333333333,
+  "cmp_minus_atom_pp": -0.003333333333333355,
+  "obj_lift_vs_ref_pp": 0.022333333333333316,
+  "rel": 0.9633333333333334,
+  "story_cmp": 0.17198386505317198,
+  "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage130_topk_compare.pt",
+  "feats": "z_logit,rank,in_left_rel,log_count,mem_sim,in_hop_soft,log_uni,is_func"
+}

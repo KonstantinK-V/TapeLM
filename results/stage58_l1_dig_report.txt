@@ -1,0 +1,30 @@
+SOTE Stage 58 report (mid L1 dig — phrase-start, protect L2/order)
+timestamp: 2026-07-24T10:34:17.096928+00:00
+device: cuda
+parent: stage57_rehearsal.pt  data: data\external_mid.txt
+lines=618 train/hold=402/216 V=135
+l1_frac=0.65 budget=3000 lrs=[0.0005, 0.001]
+gates: L1≥15% (stretch 20%) AND L2≥28% AND order≥10pp
+
+=== D grown=100.0%  majority L1=9.3% ===
+
+=== Parent ===
+  L1  8.8%/+7.4pp
+  L2+ 29.5%/+17.3pp
+  order_drop=+12.9pp
+
+=== Arms (peak restored) ===
+  lr=0.0005: @0 tier=3 L1=8.8% L2=29.5% drop=+12.9pp
+  lr=0.001: @0 tier=3 L1=8.8% L2=29.5% drop=+12.9pp
+
+=== Selected lr=0.0005 @0 tier=3 ===
+  L1  8.8%/+7.4pp  (Δ vs parent +0.0pp; maj=9.3%)
+  L2+ 29.5%/+17.3pp
+  L3+ 10.6%/+9.2pp
+  order_drop=+12.9pp
+
+=== Walls: ['L1_soft', 'L1_stretch_20'] ===
+
+=== Verdict ===
+  FAIL L1: 9% (maj=9%). Accept soft L1 wall; proceed to scale with L1 as residual.
+  No phrase/char trunk. No hops-external.

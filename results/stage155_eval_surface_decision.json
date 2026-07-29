@@ -1,0 +1,13 @@
+{
+  "timestamp": "2026-07-26T15:01:00.655521+00:00",
+  "protocol": "eval_surface_note",
+  "verdict": "EVAL_NOTE",
+  "note": "Word arms: word-argmax exact@1. BPE arms: greedy piece->word HOLD (same as 112/149). No oracle word-boundary CE implemented; if unit gap collapses under 152 matched context but remains under residual 48-len BPE, residual is decode/context not atom.",
+  "pointers": {
+    "stage150": "stage150_dual_trunk_decision.json",
+    "stage152": "stage152_context_budget_decision.json",
+    "stage154": "stage154_capacity_data_decision.json",
+    "primary_trunk": "S",
+    "capacity_note": "Flat at both N under this V/window; capacity not the bottleneck (may thin S+)."
+  }
+}

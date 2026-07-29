@@ -1,0 +1,144 @@
+{
+  "timestamp": "2026-07-28T14:26:31.365631+00:00",
+  "protocol": "curve_bpe_177",
+  "overall": "CURVE_BPE_CONTEXT_WEAK",
+  "practical": "STILL_LAST_UNIT_WIPE",
+  "steps": 15000,
+  "bpe": {
+    "style": "ByteLevel BPE (GPT-2-like); space inside tokens",
+    "vocab_size": 4096,
+    "tokenizer": "results\\stage177_curve_bpe_tokenizer.json",
+    "stats": {
+      "freq_mean_pieces": 1.35,
+      "rare_mean_pieces": 2.875,
+      "freq_frac_single": 0.825,
+      "rare_frac_single": 0.35,
+      "note": "freq should be closer to 1 piece; rare more fragmented; space inside pieces"
+    },
+    "examples": [
+      {
+        "word": "the",
+        "pieces": [
+          " the"
+        ],
+        "n": 1
+      },
+      {
+        "word": ",",
+        "pieces": [
+          " ,"
+        ],
+        "n": 1
+      },
+      {
+        "word": ".",
+        "pieces": [
+          " ."
+        ],
+        "n": 1
+      },
+      {
+        "word": "to",
+        "pieces": [
+          " to"
+        ],
+        "n": 1
+      },
+      {
+        "word": "of",
+        "pieces": [
+          " of"
+        ],
+        "n": 1
+      },
+      {
+        "word": "Senjō",
+        "pieces": [
+          " Sen",
+          "j",
+          "�",
+          "�"
+        ],
+        "n": 4
+      },
+      {
+        "word": "no",
+        "pieces": [
+          " no"
+        ],
+        "n": 1
+      },
+      {
+        "word": "戦場のヴァルキュリア3",
+        "pieces": [
+          " ",
+          "�",
+          "�",
+          "�",
+          "�",
+          "�",
+          "�",
+          "�",
+          "�",
+          "�",
+          "�",
+          "�",
+          "�",
+          "�",
+          "�",
+          "�",
+          "�",
+          "�",
+          "�",
+          "�",
+          "�",
+          "�",
+          "�",
+          "�",
+          "�",
+          "�",
+          "�",
+          "�",
+          "�",
+          "�",
+          "�",
+          "3"
+        ],
+        "n": 32
+      },
+      {
+        "word": "lit",
+        "pieces": [
+          " l",
+          "it"
+        ],
+        "n": 2
+      },
+      {
+        "word": "Battlefield",
+        "pieces": [
+          " Battle",
+          "field"
+        ],
+        "n": 2
+      }
+    ]
+  },
+  "vs_176": "176=whitespace words; 177=statistical merges + space-in-token",
+  "loss": "next-piece cosine + piece-Delta cosine (no BPE-id CE)",
+  "A": {
+    "verdict": "A_WEAK_PARTIAL",
+    "mean_cos_same_last_piece": 0.9626098930835724,
+    "mean_cos_diff_last_piece": 0.02552069118246436,
+    "n_same": 80,
+    "n_diff": 80
+  },
+  "init_A": {
+    "verdict": "A_PASS_PREFIX_VISIBLE",
+    "mean_cos_same_last_piece": 0.7870589192956686,
+    "mean_cos_diff_last_piece": 0.7101044718176126,
+    "n_same": 80,
+    "n_diff": 80
+  },
+  "next": "If still wipe: retention/instance channel. If PASS: gate B paraphrase."
+}

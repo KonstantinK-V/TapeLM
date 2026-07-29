@@ -1,0 +1,38 @@
+SOTE Stage 16 report (light CueBinder)
+timestamp: 2026-07-23T12:32:57.992197+00:00
+device: cuda
+steps: 2000  lr=0.002  episode_k=4
+baseline Stage15 cue joint=75.6%  inter=63.2%
+
+Identity (sanity, binder unused):
+  joint 100.0%  ret 100.0%
+
+Cue RAW (no binder, Stage15-style):
+  joint 75.3%  ret 75.3%
+  K=2: joint 82.5%
+  K=3: joint 75.4%
+  K=4: joint 71.6%
+
+Cue BOUND (CueBinder):
+  joint 85.7%  ret 85.7%  (d vs raw +10.4pp, d vs S15 +10.1pp)
+  K=2: joint 91.2%
+  K=3: joint 84.6%
+  K=4: joint 83.8%
+
+Interference packs:
+  raw cue joint:   63.2%
+  bound cue joint: 76.3%  (d +13.2pp, d vs S15 +13.1pp)
+
+Samples (bound interference):
+  [OK] cat to car what ret=cat to car -> cat (want cat)
+  [OK] cat to car where ret=cat to car -> car (want car)
+  [MISS] spot on car what ret=good dog on car -> dog (want spot)
+  [OK] spot on car where ret=spot on car -> car (want car)
+  [OK] good dog on car what ret=good dog on car -> dog (want dog)
+  [OK] good dog on car where ret=good dog on car -> car (want car)
+  [MISS] ball on car what ret=good dog on car -> dog (want ball)
+  [OK] ball on car where ret=ball on car -> car (want car)
+
+=== Verdict ===
+  PASS: CueBinder lifts cue-retrieve without hurting identity.
+  Next: freeze bridge+QA+binder contract, or stop.

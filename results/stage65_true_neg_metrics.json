@@ -1,0 +1,368 @@
+{
+  "stage": "65",
+  "verdict": "DONE wall + surface soft",
+  "note": "Conflict collision confirmed; full-surface disambig weak \u2014 even phrase text does not cleanly pick polarity mate.",
+  "tallies": {
+    "conflict_tail": {
+      "pos": 43,
+      "neg": 52,
+      "other": 1,
+      "abstain": 0,
+      "n": 96,
+      "mean_margin": 0.10451236666024973,
+      "pos_rate": 0.4479166666666667,
+      "neg_rate": 0.5416666666666666,
+      "other_rate": 0.010416666666666666,
+      "abstain_rate": 0.0,
+      "pos_among_pn": 0.45263157894736844
+    },
+    "pos_only": {
+      "ok": 95,
+      "n": 96,
+      "acc": 0.9895833333333334
+    },
+    "neg_only": {
+      "ok": 95,
+      "n": 96,
+      "acc": 0.9895833333333334
+    },
+    "full_pos_cue": {
+      "ok": 72,
+      "n": 96,
+      "acc": 0.75
+    },
+    "full_neg_cue": {
+      "ok": 65,
+      "n": 96,
+      "acc": 0.6770833333333334
+    },
+    "natural_n": 6,
+    "synth_used": 90,
+    "examples": [
+      {
+        "pos": "pen to bed",
+        "neg": "not pen to bed",
+        "tail": "to bed",
+        "pick": "pen to bed",
+        "label": "pos",
+        "margin": 0.2085,
+        "top": [
+          [
+            "pen to bed",
+            0.2205333411693573
+          ],
+          [
+            "not pen to bed",
+            0.01198628917336464
+          ],
+          [
+            "old well on net",
+            -0.10063343495130539
+          ]
+        ],
+        "natural": true
+      },
+      {
+        "pos": "cap to lid",
+        "neg": "not cap to lid",
+        "tail": "to lid",
+        "pick": "not cap to lid",
+        "label": "neg",
+        "margin": 0.2179,
+        "top": [
+          [
+            "mill to box",
+            0.37809306383132935
+          ],
+          [
+            "cob to pen",
+            0.16019435226917267
+          ],
+          [
+            "new push on road",
+            0.12215860188007355
+          ]
+        ],
+        "natural": true
+      },
+      {
+        "pos": "jar to fish",
+        "neg": "no jar to fish",
+        "tail": "to fish",
+        "pick": "jar to fish",
+        "label": "pos",
+        "margin": 0.3247,
+        "top": [
+          [
+            "jar to fish",
+            0.5040478706359863
+          ],
+          [
+            "big web to road",
+            0.17931123077869415
+          ],
+          [
+            "no jar to fish",
+            0.09178921580314636
+          ]
+        ],
+        "natural": true
+      },
+      {
+        "pos": "dog to bed",
+        "neg": "not dog to bed",
+        "tail": "to bed",
+        "pick": "dog to bed",
+        "label": "pos",
+        "margin": 0.0557,
+        "top": [
+          [
+            "dog to bed",
+            0.19440947473049164
+          ],
+          [
+            "red cat to top",
+            0.1386943757534027
+          ],
+          [
+            "big rock to yard",
+            0.03689168393611908
+          ]
+        ],
+        "natural": true
+      },
+      {
+        "pos": "cat on mill",
+        "neg": "no cat on mill",
+        "tail": "on mill",
+        "pick": "no cat on mill",
+        "label": "neg",
+        "margin": 0.1979,
+        "top": [
+          [
+            "good book on fish",
+            0.13400061428546906
+          ],
+          [
+            "cat on mill",
+            -0.06393347680568695
+          ],
+          [
+            "hut on sand",
+            -0.07852648943662643
+          ]
+        ],
+        "natural": true
+      },
+      {
+        "pos": "bag on door",
+        "neg": "no bag on door",
+        "tail": "on door",
+        "pick": "bag on door",
+        "label": "pos",
+        "margin": 0.1098,
+        "top": [
+          [
+            "land on pad",
+            0.5104684829711914
+          ],
+          [
+            "nib on mat",
+            0.4006355404853821
+          ],
+          [
+            "bag on door",
+            0.10840639472007751
+          ]
+        ],
+        "natural": true
+      },
+      {
+        "pos": "jar to rock",
+        "neg": "no jar to rock",
+        "tail": "to rock",
+        "pick": "no jar to rock",
+        "label": "neg",
+        "margin": 0.0519,
+        "top": [
+          [
+            "jar to rock",
+            0.35482287406921387
+          ],
+          [
+            "hut to ball",
+            0.3029317259788513
+          ],
+          [
+            "no jar to rock",
+            0.20716945827007294
+          ]
+        ],
+        "natural": false
+      },
+      {
+        "pos": "net on pin",
+        "neg": "no net on pin",
+        "tail": "on pin",
+        "pick": "no net on pin",
+        "label": "neg",
+        "margin": 0.1146,
+        "top": [
+          [
+            "ship on pad",
+            0.29456210136413574
+          ],
+          [
+            "net on pin",
+            0.1800048053264618
+          ],
+          [
+            "good box on pad",
+            0.1554032266139984
+          ]
+        ],
+        "natural": false
+      }
+    ],
+    "n_pairs": 96,
+    "n_available": 360
+  },
+  "baseline_ok": true,
+  "logical_not_claim": false,
+  "collision": true,
+  "surface_disambig": false,
+  "n_facts": 818,
+  "bank": "data\\external_facts_live_exp_FROZEN.txt",
+  "parent64": "stage64_dirty_hop_FROZEN.pt",
+  "config": {
+    "dim": 64,
+    "seed": 272,
+    "episode_k": 3,
+    "episode_k_dense": 7,
+    "n_hold_episodes": 80,
+    "n_dense_episodes": 64,
+    "create_below": 0.55,
+    "stabilize_lo": 0.55,
+    "lock_above": 0.92,
+    "ema": 0.85,
+    "retrieve_margin": 0.05,
+    "max_phrase_len": 5,
+    "max_word_len": 11,
+    "disambig_topk": 5,
+    "disambig_gap": 0.12,
+    "edge_w": 0.5,
+    "where_w": 0.3,
+    "bind_w": 0.2,
+    "dense_joint_min": 0.7,
+    "dense_h1_min": 0.9,
+    "dense_h2_given_h1_min": 0.85,
+    "dense_h3_given_h2_min": 0.85,
+    "dirty_bind_min": 0.55,
+    "dirty_bind_within_clean_pp": 0.25,
+    "dirty_hard_min": 0.5,
+    "ctrl_joint_min": 0.85,
+    "pass_seeds_min": 2,
+    "hubby_sample": true,
+    "dirty_both_min": 0.4,
+    "h1_cue_mode": "what_tail",
+    "use_left_instance": true,
+    "hub2_h1_min": 0.85,
+    "k9_joint_min": 0.65,
+    "native_joint_min": 0.55,
+    "lexicon_min": 0.99,
+    "encode_recon_min": 0.95,
+    "text_qa_joint_floor": 0.55,
+    "text_qa_within_ctrl_pp": 0.2,
+    "projector_steps": 2500,
+    "projector_lr": 0.001,
+    "word_decode_min": 0.95,
+    "phrase_decode_min": 0.95,
+    "answer_text_min": 0.7,
+    "answer_text_stress_min": 0.55,
+    "answer_text_within_bal_pp": 0.2,
+    "holdout_decode_floor": 0.0,
+    "n_dense_episodes_stress": 48,
+    "next_fp_steps": 2500,
+    "next_fp_lr": 0.001,
+    "next_fp_gap_min": 0.1,
+    "next_fp_abs_min": 0.25,
+    "next_fp_batch": 64,
+    "shortlist_gap_min": 0.12,
+    "shortlist_abs_min": 0.35,
+    "shortlist_ft_steps": 1500,
+    "shortlist_min_cands": 2,
+    "char_steps": 3000,
+    "char_lr": 0.001,
+    "char_batch": 64,
+    "char_acc_gap_min": 0.2,
+    "char_exact_floor": 0.05,
+    "long_prefix_max": 8,
+    "mask_steps": 2500,
+    "mask_batch": 64,
+    "seq_steps": 3000,
+    "seq_batch": 32,
+    "seq_layers": 2,
+    "seq_l2_gap_min": 0.1,
+    "seq_l1_abs_min": 0.25,
+    "seq_order_drop_min": 0.05,
+    "order_steps": 3500,
+    "order_margin": 0.15,
+    "order_drop_gate": 0.1,
+    "order_n_perm": 2,
+    "beyond_steps": 5000,
+    "beyond_sample_frac": 0.8,
+    "beyond_l2_gap_min": 0.1,
+    "beyond_l2_abs_min": 0.25,
+    "path_l2_floor": 0.28,
+    "ext_ft_steps": 1500,
+    "ext_hold_frac": 0.4,
+    "ext_l2_gap_min": 0.1,
+    "ext_l2_abs_min": 0.25,
+    "ext_d_min": 0.95,
+    "mid_ft_steps": 3000,
+    "mid_hold_frac": 0.35,
+    "mid_ft_lr": 0.001,
+    "mid_ft_eval_every": 150,
+    "mid_ft_lrs": [
+      0.001,
+      0.0005
+    ],
+    "mid_order_n_perm": 2,
+    "mid_order_margin": 0.15,
+    "mid_order_weight": 1.0,
+    "mid_order_drop_gate": 0.1,
+    "mid_order_l2_floor": 0.28,
+    "mid_order_l2_soft": 0.25,
+    "mid_rehearse_frac": 0.55,
+    "mid_tiny_repeat": 6,
+    "mid_ft_lrs_57": [
+      0.0005,
+      0.001
+    ],
+    "mid_rehearse_from_55": true,
+    "mid_l1_frac": 0.65,
+    "mid_l1_abs_min": 0.15,
+    "mid_l1_stretch": 0.2,
+    "mid_l1_steps": 3000,
+    "mid_l1_lrs": [
+      0.0005,
+      0.001
+    ],
+    "mid_l1_protect_w": 0.5,
+    "scale_ft_steps": 3500,
+    "scale_hold_frac": 0.3,
+    "scale_ft_lrs": [
+      0.0005,
+      0.001
+    ],
+    "scale_rehearse_frac": 0.5,
+    "scale_l2_abs_min": 0.25,
+    "scale_l2_gap_min": 0.1,
+    "ext_hop_joint_min": 0.55,
+    "ext_hop_joint_stretch": 0.7,
+    "ext_hop_n_eps": 96,
+    "ext_hop_episode_k": 7,
+    "ext_fact_cap": 120,
+    "ext_fact_cap_exp": 0
+  }
+}

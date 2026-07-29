@@ -1,0 +1,43 @@
+SOTE Stage 14 report (text bridge on scale-contract 13)
+timestamp: 2026-07-23T11:44:35.730803+00:00
+device: cuda
+contract: scale_hold_13_FROZEN.pt
+codebook=149 TRAIN=68 HOLD=38
+Decode: NN over morph-aware word codebook (no new training)
+
+Word recon ALL:       100.0%  (plain 100% / morph 100%)
+Phrase TRAIN exact:   100.0%  token=100%
+Phrase HOLD exact:    100.0%  token=100%
+Morph identity:       100%
+Morph swap->alt:      100%  (changed 100%)
+Morph peel->stem:     100%
+Phrase-fp closed:     train 100% / hold 100%
+Memory fewshot:       top1 100%  exact 95%  conf_exact 100%  ambiguous=2
+Rel QA via bridge:    TRAIN 100.0% / HOLD 100.0%
+
+HOLD phrase recon sample:
+  [OK] 'cat to car' -> 'cat to car' tok=100%
+  [OK] 'dog to top' -> 'dog to top' tok=100%
+  [OK] 'go to cat' -> 'go to cat' tok=100%
+  [OK] 'spot on car' -> 'spot on car' tok=100%
+  [OK] 'good dog on car' -> 'good dog on car' tok=100%
+  [OK] 'no good cat' -> 'no good cat' tok=100%
+  [OK] 'bird to top' -> 'bird to top' tok=100%
+  [OK] 'fish on land' -> 'fish on land' tok=100%
+  [OK] 'ball on car' -> 'ball on car' tok=100%
+  [OK] 'ship on water' -> 'ship on water' tok=100%
+
+HOLD rel via bridge sample:
+  [OK] 'cat to car' what -> cat (want cat)
+  [OK] 'cat to car' where -> car (want car)
+  [OK] 'dog to top' what -> dog (want dog)
+  [OK] 'dog to top' where -> top (want top)
+  [OK] 'go to cat' what -> go (want go)
+  [OK] 'go to cat' where -> cat (want cat)
+  [OK] 'spot on car' what -> spot (want spot)
+  [OK] 'spot on car' where -> car (want car)
+
+=== Verdict ===
+  PASS: text bridge usable on scale-contract 13 (recon + memory + rel).
+  Next: richer QA (multi-fact memory).
+  Note: 2 retrieve(s) ambiguous under margin (near morph siblings) - refuse is correct; top1 still right.

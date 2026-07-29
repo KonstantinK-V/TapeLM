@@ -1,0 +1,34 @@
+SOTE Stage 83 — noun_rel LARGE repeat corpus — PARTIAL (scale thesis)
+timestamp: 2026-07-24T14:57:24+00:00
+
+=== CORPUS ===
+  data/external_noun_rel_repeat.txt
+  fat: 120 triples x 30 copies (train 2880 / hold_seen 720)
+  rare-hold: 60 triples x 3 (never in train) = 180
+  nouns pool 86; codebook V=143; left rel right only; no ing
+
+=== RESULT ===
+  ZS SEEN: right@1 3.3%  rel 4.2%
+  FT SEEN: right@1 25.0% (d +21.7pp)  rel 75.0%  ALL 50%  protect OK
+  FT RARE: right@1 1.7% (stuck)  rel 45.0%
+  Verdict: PARTIAL (seen right >=25%; LIVE 50% not hit)
+  read: SCALE_HELPS_SEEN; RARE_STILL_HARD
+
+=== LOCKED READ ===
+  Repeats unlock generative right@1 on **seen** triples — LM-scale thesis holds in miniature.
+  Unseen rare triples stay ~chance on right — volume alone without overlap does not generalize.
+  Rel learns fast on this toy; object needs density per triple.
+  Does NOT revive soft@5. Does NOT unlock 1k natural rare right without more repeats.
+  Hops-primary still right for rare facts; next can own fat/repeated path.
+
+=== NEXT (optional) ===
+  More copies / more fat triples toward LIVE 50% seen
+  Or mix natural 1k with repeat curriculum
+  Not: verb_ing first; not soft disambig
+
+=== ARTIFACTS ===
+  results/stage83_nr_repeat_report.txt
+  results/stage83_nr_repeat_metrics.json
+  checkpoints/stage83_nr_repeat.pt
+
+=== FREEZE_READY: True (PARTIAL dig) ===

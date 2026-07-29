@@ -1,0 +1,35 @@
+C:\Users\Kostya\AppData\Local\Programs\Python\Python311\Lib\site-packages\torch\nn\modules\transformer.py:385: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  warnings.warn(
+Traceback (most recent call last):
+  File "C:\Users\Kostya\sote-letter-assembly\_stage169_context_scale_pipeline.py", line 1260, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "C:\Users\Kostya\sote-letter-assembly\_stage169_context_scale_pipeline.py", line 1253, in main
+    rc = runners[s]()
+         ^^^^^^^^^^^^
+  File "C:\Users\Kostya\sote-letter-assembly\_stage169_context_scale_pipeline.py", line 1027, in run_s1
+    write_json(RES / "stage169_s1_decision.json", out)
+  File "C:\Users\Kostya\sote-letter-assembly\_stage169_context_scale_pipeline.py", line 94, in write_json
+    path.write_text(json.dumps(obj, indent=2), encoding="utf-8")
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Kostya\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "C:\Users\Kostya\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 202, in encode
+    chunks = list(chunks)
+             ^^^^^^^^^^^^
+  File "C:\Users\Kostya\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "C:\Users\Kostya\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "C:\Users\Kostya\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "C:\Users\Kostya\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  [Previous line repeated 1 more time]
+  File "C:\Users\Kostya\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "C:\Users\Kostya\AppData\Local\Programs\Python\Python311\Lib\json\encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type Tensor is not JSON serializable

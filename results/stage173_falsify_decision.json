@@ -1,0 +1,164 @@
+{
+  "timestamp": "2026-07-28T12:48:31.345807+00:00",
+  "protocol": "curve_falsify_ortho_vs_language",
+  "verdict_reading": "LETTER_SEQUENCE_SENSITIVE",
+  "detail": "Real letter order helps beyond skeleton \u2014 still may be orthographic n-grams, not semantics.",
+  "gaps_k1_vs_natural": {
+    "gap_shuffle_all": 0.21022761644174648,
+    "gap_random_letters_skel": 0.18198354418079055,
+    "gap_flat_skel": 0.2910606569591133,
+    "gap_destroy_spaces": 0.20552662573754787,
+    "gap_shuffle_letters": 0.18921509695549799
+  },
+  "conditions": {
+    "natural": {
+      "desc": "real text",
+      "contrast_pref": 0.8854166666666666,
+      "k1": {
+        "cos_delta": 0.8475477198759714,
+        "lift_mean": 0.8454336473563064,
+        "lift_copy": 1.2782755565519133
+      },
+      "k8": {
+        "cos_delta": 0.6839568650757428,
+        "lift_mean": 0.6674703938091019,
+        "lift_copy": 1.1867422956759888
+      },
+      "k16": {
+        "cos_delta": 0.6950252107344568,
+        "lift_mean": 0.673200650974953,
+        "lift_copy": 1.1871869221407299
+      },
+      "score": 1.4606853252431997
+    },
+    "shuffle_all": {
+      "desc": "destroy order entirely",
+      "contrast_pref": 0.7708333333333334,
+      "k1": {
+        "cos_delta": 0.637320103434225,
+        "lift_mean": 0.6472354345799735,
+        "lift_copy": 1.027607405364203
+      },
+      "k8": {
+        "cos_delta": 0.6779507047807177,
+        "lift_mean": 0.6564428132260218,
+        "lift_copy": 1.1682448463204007
+      },
+      "k16": {
+        "cos_delta": 0.675787030874441,
+        "lift_mean": 0.685940993251279,
+        "lift_copy": 1.1673204994294792
+      },
+      "score": 1.2064636188714455
+    },
+    "shuffle_letters_keep_skel": {
+      "desc": "keep spaces/punct; scramble letters",
+      "contrast_pref": 0.8645833333333334,
+      "k1": {
+        "cos_delta": 0.6583326229204735,
+        "lift_mean": 0.6821388678993875,
+        "lift_copy": 1.0827610730193555
+      },
+      "k8": {
+        "cos_delta": 0.6915055988356471,
+        "lift_mean": 0.723106199526228,
+        "lift_copy": 1.194206025529032
+      },
+      "k16": {
+        "cos_delta": 0.694455920252949,
+        "lift_mean": 0.7338633151763739,
+        "lift_copy": 1.19137720191308
+      },
+      "score": 1.264935583046948
+    },
+    "random_letters_keep_skel": {
+      "desc": "same skeleton; random letters",
+      "contrast_pref": 0.8020833333333334,
+      "k1": {
+        "cos_delta": 0.6655641756951809,
+        "lift_mean": 0.6698786188305045,
+        "lift_copy": 1.0435720758590226
+      },
+      "k8": {
+        "cos_delta": 0.6964505488673846,
+        "lift_mean": 0.6832980864467875,
+        "lift_copy": 1.2078230863553472
+      },
+      "k16": {
+        "cos_delta": 0.67071489795732,
+        "lift_mean": 0.6682408987350451,
+        "lift_copy": 1.183476909995079
+      },
+      "score": 1.241546624673841
+    },
+    "only_skel_flat_letters": {
+      "desc": "skeleton + all letters='a'",
+      "contrast_pref": 0.75,
+      "k1": {
+        "cos_delta": 0.5564870629168581,
+        "lift_mean": 0.5412679100118112,
+        "lift_copy": 0.8117268360704959
+      },
+      "k8": {
+        "cos_delta": 0.4956387967104092,
+        "lift_mean": 0.5056104992787974,
+        "lift_copy": 0.8668623691385922
+      },
+      "k16": {
+        "cos_delta": 0.4947087400748084,
+        "lift_mean": 0.4912915349026056,
+        "lift_copy": 0.9366376732941717
+      },
+      "score": 1.0288414329542623
+    },
+    "destroy_spaces": {
+      "desc": "spaces \u2192 random letters",
+      "contrast_pref": 0.7604166666666666,
+      "k1": {
+        "cos_delta": 0.6420210941384236,
+        "lift_mean": 0.6455154608993325,
+        "lift_copy": 1.056792993331328
+      },
+      "k8": {
+        "cos_delta": 0.6453544354687134,
+        "lift_mean": 0.6411980514725049,
+        "lift_copy": 1.1442665021556118
+      },
+      "k16": {
+        "cos_delta": 0.6260156078884999,
+        "lift_mean": 0.6281683968942767,
+        "lift_copy": 1.1258467940303185
+      },
+      "score": 1.1831538980826735
+    },
+    "reverse": {
+      "desc": "reversed string",
+      "contrast_pref": 0.7708333333333334,
+      "k1": {
+        "cos_delta": 0.6940829968079925,
+        "lift_mean": 0.6981813804789757,
+        "lift_copy": 1.1042684726417065
+      },
+      "k8": {
+        "cos_delta": 0.68557667452842,
+        "lift_mean": 0.6885410492153218,
+        "lift_copy": 1.1620455878825549
+      },
+      "k16": {
+        "cos_delta": 0.6819136216460416,
+        "lift_mean": 0.6792447095698055,
+        "lift_copy": 1.1479838002317895
+      },
+      "score": 1.2662898076310132
+    }
+  },
+  "natural_k1": 0.8475477198759714,
+  "flags": {
+    "skel_close_to_natural": false,
+    "shuffle_kills": true,
+    "spaces_matter": true,
+    "letters_matter": true
+  },
+  "caveat": "LETTER_SEQUENCE_SENSITIVE \u2260 language understanding. It only means char-order of real text affects \u0394 predictability under this pen.",
+  "next": "If MOSTLY_ORTHOGRAPHIC_*: need non-char pen or semantic probes. If LETTER_SEQUENCE_SENSITIVE: still need meaning falsify (paraphrase/cross-lingual) later."
+}

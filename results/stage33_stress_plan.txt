@@ -1,0 +1,74 @@
+SOTE Stage 33 sketch — stress+ on Stage32 dense multi-hop contract
+
+Parent freeze: checkpoints/stage32_dense_multihop_FROZEN.pt
+Contract: results/stage32_dense_multihop_contract_FROZEN.txt
+  observe_strict + chain-link + honest H1/H2|H1/joint
+
+Goal:
+  Keep the 32 protocol fixed; raise stress until something breaks.
+  Do NOT reopen soft-merge for episode write. Do NOT long FT first.
+  Do NOT jump to hop3 until denser-k and hub-strata are clear.
+
+=== Order (fixed) ===
+  1) denser k (5 -> 7 -> 9) under clean + standard dirty
+  2) hubbier bank + **joint stratified by hub size**
+  3) harder dirty as separate mode (dirty_hard)
+  4) only then consider hop3 / longer chains
+
+=== Stress knobs ===
+
+A) Denser episodes
+   - episode_k_dense: 5 -> 7 -> 9
+   - more distractors; same observe_strict + chain-link
+   - report clean joint / H1 / H2|H1 at each k
+
+B) Hubbier + strata (primary diagnostic report)
+   - prefer / sample toward high fan-in bridge entities
+   - **stratify joint (and H1, H2|H1) by hub size**:
+       hub=1, hub=2, hub>=3  (fan-in on bridge / shared left or right)
+   - interpretation map:
+       hub=1 ~90% but hub>=3 ~50% => planner / richer disambig needed later
+       flat high across strata => contract holds under density
+
+C) Dirty modes (keep numbers separate)
+   - dirty_raw, dirty_bind, dirty_both_bind — standard DIRTY_KINDS (as now)
+   - **dirty_hard** — separate flag/mode (longer trunc, multi-edit, etc.)
+     NEVER fold dirty_hard into dirty_bind headline metric
+
+D) Hop3 — deferred
+   - only after k=7–9 curves and hub-strata table are readable
+   - not in first 33 eval pass
+
+=== Eval protocol ===
+  Always: observe_strict, chain-link, honest metrics (no gold bridge)
+  Modes: clean_bind | dirty_raw | dirty_bind | dirty_both_bind | dirty_hard
+  Optional guard ablation: soft-merge ON vs OFF (expect OFF >> ON)
+  Seeds: 272, 273, 274; compare to frozen 32 means at k=5
+
+=== Draft gates (>=2/3 seeds) ===
+  dense clean (k=7 or primary stress k): joint >= 70%
+  dense H2|H1 >= 90%
+  dirty_bind (standard): joint >= 55% OR within 20pp of clean
+  dirty_both: **no collapse** — joint >= 40% (softer; not 55%)
+  dirty_hard: reported separately; soft gate = no collapse (>=35%) or vs dirty_bind delta
+  ctrl clean joint >= 85%
+  soft-merge ablation must NOT beat strict on joint (contract guard)
+
+=== Report must include ===
+  1) k-sweep table (5/7/9): H1, H2|H1, joint
+  2) **hub-strata table**: hub=1 / 2 / >=3 for joint (+ H1, H2|H1)
+  3) dirty_bind vs dirty_both vs dirty_hard as distinct columns
+  4) vs Stage32 freeze deltas at k=5
+
+=== Non-goals for 33 ===
+  handwriting / ID channel
+  overnight Hop1 FT
+  hop3 in the first pass
+  claiming edge fan-out as the 32 win
+
+=== Deliverables ===
+  results/stage33_stress_report.txt
+  results/stage33_stress_metrics.json
+  checkpoints/stage33_stress.pt
+
+Run: eval-first when implementing; FT only if standard dirty binder clearly fails under contract.

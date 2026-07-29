@@ -1,0 +1,41 @@
+SOTE Stage 28 report (dirty-partial stress + 27c freeze)
+timestamp: 2026-07-23T18:26:50.901345+00:00
+device: cuda
+parents: thought_scratch_27c_FROZEN.pt + stage27b_plus_hop1_partial.pt + hop_bank_25.pt
+dirty kinds: drop, swap, trunc, sub on hop1 partial (+ bridge for dirty_both_bind)
+HOLD pairs=24 episodes=80 HOLD_EVAL_SEED=10027
+
+mode                    H1      H2    JOINT   depth
+----------------------------------------------------
+clean_bind           73.8%   63.7%    51.2%    7.95
+dirty_raw            26.2%   38.8%    15.0%    5.79
+dirty_probe          53.8%   60.0%    36.2%   12.85
+dirty_bind           77.5%   65.0%    55.0%    8.96
+dirty_both_bind      77.5%   38.8%    30.0%    9.96
+
+dirty_bind joint by kind:
+  drop     66.7%
+  swap     51.5%
+  trunc    46.2%
+  sub      56.2%
+
+samples:
+  [first] dog to cob => cob on rim  cob->ob[drop]  clean=1 raw=0 probe=0 bind=1 both=0
+  [second] bird to peg => peg on rim  to->ot[swap]  clean=1 raw=0 probe=0 bind=1 both=0
+  [first] bird to peg => peg on rim  peg->pge[swap]  clean=0 raw=0 probe=0 bind=0 both=0
+  [second] go to cob => cob on zip  to->ot[swap]  clean=1 raw=1 probe=1 bind=1 both=0
+  [first] washed to zip => zip on yap  zip->zpi[swap]  clean=1 raw=0 probe=1 bind=1 both=1
+  [second] pushes to web => web on cob  to->ot[swap]  clean=0 raw=0 probe=0 bind=0 both=0
+
+=== Best-seed detail ===
+  clean=51.2% dirty_raw=15.0% probe=36.2% dirty_bind=55.0% dirty_both=30.0% lift=+40.0pp drop_vs_clean=-3.8pp
+
+=== Multi-seed ===
+  seed 272: PASS  dirty_bind=55.0% clean=51.2% raw=15.0% lift=+40.0pp drop=-3.8pp
+  seed 273: PASS  dirty_bind=55.0% clean=52.5% raw=15.0% lift=+40.0pp drop=-2.5pp
+  seed 274: PASS  dirty_bind=55.0% clean=51.2% raw=15.0% lift=+40.0pp drop=-3.8pp
+  aggregate: 3/3 seeds pass; mean_dirty_joint=55.0% mean_lift=+40.0pp mean_drop=-3.3pp (need >=2)
+
+=== Verdict ===
+  PASS: dirty-partial stress — binder still lifts raw and drop vs clean within gate.
+  Next optional: denser bank stress / harden binder on dirty.

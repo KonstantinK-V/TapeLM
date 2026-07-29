@@ -1,0 +1,19 @@
+{
+  "timestamp": "2026-07-28T16:45:00+00:00",
+  "protocol": "dual_channel_180",
+  "overall": "DUAL_A_YES_B_MICRO_PEAK_THEN_FADE",
+  "stopped_early": true,
+  "steps_seen": 7500,
+  "target_steps": 10000,
+  "reason_stop": "para peaked ~4500 then declined; no further soak value — go matched CE control (181)",
+  "trajectory": {
+    "1500": {"para": 0.826, "hard": 0.947, "gap": 0.121, "A_slow": 0.055},
+    "3000": {"para": 0.854, "hard": 0.962, "gap": 0.108, "A_slow": 0.245},
+    "4500": {"para": 0.878, "hard": 0.970, "gap": 0.092, "A_slow": 0.444},
+    "6000": {"para": 0.871, "hard": 0.979, "gap": 0.108, "A_slow": 0.385},
+    "7500": {"para": 0.841, "hard": 0.972, "gap": 0.131, "A_slow": 0.346}
+  },
+  "architecture_ok": "slow write-budget prevents wipe (A_slow was 0.055 early); anti-coil works",
+  "b_micro": "weak rise then fade — not a stable meaning signal at this scale",
+  "next": "Stage181 matched GPT2 CE on same BPE+corpus — dataset context ceiling"
+}

@@ -1,0 +1,8 @@
+SOTE Stages 70–72 bundle (verb_ing follow-ups)
+timestamp: 2026-07-24T12:51:03.231604+00:00
+70 ing+rehearse:     PARTIAL lift
+71 side-hint object: FAIL
+72 object shortlist: FAIL
+
+Details: stage70_ing_rehearse_report.txt / stage71_side_hint_report.txt / stage72_object_shortlist_report.txt
+No hop bank. Parent 57 unchanged.

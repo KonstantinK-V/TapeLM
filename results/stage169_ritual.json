@@ -1,0 +1,18 @@
+{
+  "d": 256,
+  "n_layer": 4,
+  "n_head": 4,
+  "seq_len": 512,
+  "micro_batch": 8,
+  "effective_batch": 64,
+  "lr": 0.001,
+  "lr_min": 0.001,
+  "lr_schedule": "warmup_constant",
+  "opt": "Adam",
+  "wd": 0.0,
+  "warmup": 3000,
+  "ckpt_every": 10000,
+  "smoke_steps": 20000,
+  "full_steps": 300000,
+  "eval_every": 10000
+}

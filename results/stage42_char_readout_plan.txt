@@ -1,0 +1,9 @@
+SOTE Stage 42 plan — char readout (fp → letters)
+
+Honest probe, not LM freeze.
+  word_fp / phrase_fp → thin GRU char head
+  Soft: teacher-force char acc vs 1/27; free-run exact diagnostic
+  D NN closed-set remains primary answer decode
+
+Run: python train.py
+Out: results/stage42_char_readout_*; checkpoints/stage42_char_readout.pt

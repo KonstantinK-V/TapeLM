@@ -1,0 +1,36 @@
+SOTE Stage 65 report (true-neg dig)
+timestamp: 2026-07-24T12:00:08.286136+00:00
+device: cuda
+bank: data\external_facts_live_exp_FROZEN.txt  binders_seed=272
+facts=818  true_neg_pairs_avail=360  natural_both_in_bank=6  eval_n=96 synth_used=90
+
+=== Setup ===
+  Episode writes pos+neg mates sharing (left,rel,right); cue what_tail='{rel} {right}'.
+  parse_rel drops leading no/not → same structured left — left_instance cannot split.
+
+=== Conflict what_tail ===
+  pos=44.8%  neg=54.2%  other=1.0%  abstain=0.0%
+  pos_among_pos|neg=45.3%  mean_top2_margin=0.105
+
+=== Baselines (single mate + fillers) ===
+  pos_only → pos  99.0%  (n=96)
+  neg_only → neg  99.0%  (n=96)
+
+=== Full-surface cue (both mates present; top1 by WHAT bind) ===
+  cue=pos phrase → pos  75.0%
+  cue=neg phrase → neg  67.7%
+
+=== Examples ===
+  to bed: pick=pen to bed (pos) pos=pen to bed neg=not pen to bed margin=0.2085 nat=True
+  to lid: pick=not cap to lid (neg) pos=cap to lid neg=not cap to lid margin=0.2179 nat=True
+  to fish: pick=jar to fish (pos) pos=jar to fish neg=no jar to fish margin=0.3247 nat=True
+  to bed: pick=dog to bed (pos) pos=dog to bed neg=not dog to bed margin=0.0557 nat=True
+  on mill: pick=no cat on mill (neg) pos=cat on mill neg=no cat on mill margin=0.1979 nat=True
+  on door: pick=bag on door (pos) pos=bag on door neg=no bag on door margin=0.1098 nat=True
+  to rock: pick=no jar to rock (neg) pos=jar to rock neg=no jar to rock margin=0.0519 nat=False
+  on pin: pick=no net on pin (neg) pos=net on pin neg=no net on pin margin=0.1146 nat=False
+
+=== Verdict: DONE wall + surface soft ===
+  Conflict collision confirmed; full-surface disambig weak — even phrase text does not cleanly pick polarity mate.
+  Do NOT claim NLI / logical NOT. Stage63 polarity hops = key retrieval only.
+  No FT. verb_ing still deferred. Dirty 64 freeze unchanged.

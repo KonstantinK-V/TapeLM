@@ -1,0 +1,14 @@
+{
+  "best_mid": 0.825,
+  "best_step": 7500,
+  "exam": {
+    "next_tok_acc": 0.8433333333333334,
+    "entity_acc": 0.3,
+    "ood_acc": 0.2,
+    "next_tok_n": 300,
+    "entity_n": 150,
+    "ood_n": 100
+  },
+  "params_m": 5.804032,
+  "timestamp": "2026-07-28T22:22:59.420879+00:00"
+}

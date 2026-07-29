@@ -1,0 +1,25 @@
+{
+  "train": {
+    "best_mid": 0.8375,
+    "best_step": 7500,
+    "ce": 4.323549803586784,
+    "wall_s": 2837.6578850746155
+  },
+  "exam": {
+    "next_tok_acc": 0.8533333333333334,
+    "entity_acc": 0.29333333333333333,
+    "ood_acc": 0.24,
+    "next_tok_n": 300,
+    "entity_n": 150,
+    "ood_n": 100
+  },
+  "g3": {
+    "entropy_real": 4.946852380037308,
+    "entropy_fake": 4.99720795750618,
+    "surprise_real": 0.024830721679609268,
+    "surprise_fake": 0.022052408987656237,
+    "entropy_ok": true,
+    "surprise_ok": false
+  },
+  "timestamp": "2026-07-28T23:12:05.074827+00:00"
+}

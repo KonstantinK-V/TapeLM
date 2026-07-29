@@ -1,0 +1,1517 @@
+{
+  "stage": "7.75",
+  "timestamp": "2026-07-22T11:45:39.501055+00:00",
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "config": {
+    "dim": 64,
+    "lr": 0.003,
+    "steps": 4000,
+    "batch_words": 48,
+    "batch_visual_words": 12,
+    "visual_every": 2,
+    "seed": 0,
+    "temperature": 0.07,
+    "letter_temperature": 0.07,
+    "word_weight": 1.0,
+    "consistency_weight": 0.7,
+    "trace_weight": 0.45,
+    "perm_weight": 0.35,
+    "prefix_weight": 0.5,
+    "growth_weight": 0.3,
+    "related_weight": 0.45,
+    "path_agree_weight": 0.5,
+    "letter_weight": 0.25,
+    "visual_letter_weight": 0.4,
+    "stability_weight": 0.15,
+    "algorithm_weight": 0.4,
+    "noise_std": 0.12,
+    "trace_margin": 0.12,
+    "perm_margin": 0.35,
+    "growth_gap": 0.05,
+    "related_margin": 0.08
+  },
+  "train_words": [
+    "cat",
+    "act",
+    "car",
+    "card",
+    "dog",
+    "god",
+    "good",
+    "go",
+    "on",
+    "no",
+    "not",
+    "ton",
+    "to",
+    "top",
+    "pot",
+    "stop",
+    "spot",
+    "post",
+    "cats",
+    "acts",
+    "cars",
+    "dogs",
+    "tops",
+    "pots",
+    "stops",
+    "spots",
+    "posts",
+    "tag",
+    "tags",
+    "tap",
+    "taps",
+    "gap",
+    "gaps",
+    "gas",
+    "nap",
+    "cost",
+    "costs",
+    "cart",
+    "carts",
+    "part",
+    "parts",
+    "sand",
+    "song",
+    "songs",
+    "coat",
+    "goat",
+    "toast",
+    "trap",
+    "traps",
+    "sport",
+    "start",
+    "grant",
+    "pond",
+    "grand",
+    "cargo",
+    "coast",
+    "across"
+  ],
+  "hold_words": [
+    "cards",
+    "gods",
+    "naps",
+    "sands",
+    "stands",
+    "coats",
+    "goats",
+    "toasts",
+    "scraps",
+    "sports",
+    "starts",
+    "grants",
+    "ponds",
+    "postcard",
+    "catnap",
+    "strong"
+  ],
+  "metrics": {
+    "n_train": 57,
+    "n_hold": 16,
+    "compose_acc": 1.0,
+    "stream_acc": 1.0,
+    "compose_stream_agree": 1.0,
+    "related_acc": 0.9642857142857143,
+    "prefix_acc": 1.0,
+    "train_soft": {
+      "trace_acc": 0.3793103448275862,
+      "perm_acc": 0.9310344827586207,
+      "path_acc": 0.10344827586206896,
+      "details": [
+        {
+          "word": "cat",
+          "trace_ok": true,
+          "min_trace": 0.15619078278541565,
+          "perm_ok": true,
+          "path_agree": 0.5039994120597839,
+          "path_ok": false
+        },
+        {
+          "word": "car",
+          "trace_ok": false,
+          "min_trace": 0.1132468432188034,
+          "perm_ok": true,
+          "path_agree": 0.1907958984375,
+          "path_ok": false
+        },
+        {
+          "word": "dog",
+          "trace_ok": true,
+          "min_trace": 0.12289480119943619,
+          "perm_ok": true,
+          "path_agree": 0.21479910612106323,
+          "path_ok": false
+        },
+        {
+          "word": "good",
+          "trace_ok": true,
+          "min_trace": 0.14705662429332733,
+          "perm_ok": true,
+          "path_agree": 0.1959645003080368,
+          "path_ok": false
+        },
+        {
+          "word": "on",
+          "trace_ok": true,
+          "min_trace": 0.13543005287647247,
+          "perm_ok": true,
+          "path_agree": 0.7007664442062378,
+          "path_ok": true
+        },
+        {
+          "word": "not",
+          "trace_ok": true,
+          "min_trace": 0.12786908447742462,
+          "perm_ok": true,
+          "path_agree": 0.49801966547966003,
+          "path_ok": false
+        },
+        {
+          "word": "to",
+          "trace_ok": false,
+          "min_trace": 0.11466124653816223,
+          "perm_ok": true,
+          "path_agree": 0.6115337610244751,
+          "path_ok": true
+        },
+        {
+          "word": "pot",
+          "trace_ok": true,
+          "min_trace": 0.13986916840076447,
+          "perm_ok": true,
+          "path_agree": 0.3672794997692108,
+          "path_ok": false
+        },
+        {
+          "word": "spot",
+          "trace_ok": false,
+          "min_trace": 0.11283256858587265,
+          "perm_ok": true,
+          "path_agree": 0.2391367256641388,
+          "path_ok": false
+        },
+        {
+          "word": "cats",
+          "trace_ok": false,
+          "min_trace": 0.10401221364736557,
+          "perm_ok": true,
+          "path_agree": 0.34897303581237793,
+          "path_ok": false
+        },
+        {
+          "word": "cars",
+          "trace_ok": false,
+          "min_trace": 0.11934231966733932,
+          "perm_ok": true,
+          "path_agree": 0.19260822236537933,
+          "path_ok": false
+        },
+        {
+          "word": "tops",
+          "trace_ok": true,
+          "min_trace": 0.12306034564971924,
+          "perm_ok": true,
+          "path_agree": 0.29341214895248413,
+          "path_ok": false
+        },
+        {
+          "word": "stops",
+          "trace_ok": true,
+          "min_trace": 0.12103984504938126,
+          "perm_ok": true,
+          "path_agree": 0.3028092384338379,
+          "path_ok": false
+        },
+        {
+          "word": "posts",
+          "trace_ok": false,
+          "min_trace": 0.06711985915899277,
+          "perm_ok": true,
+          "path_agree": 0.3889803886413574,
+          "path_ok": false
+        },
+        {
+          "word": "tags",
+          "trace_ok": false,
+          "min_trace": 0.11594919860363007,
+          "perm_ok": true,
+          "path_agree": 0.4464026689529419,
+          "path_ok": false
+        },
+        {
+          "word": "taps",
+          "trace_ok": true,
+          "min_trace": 0.13603314757347107,
+          "perm_ok": true,
+          "path_agree": 0.2838701903820038,
+          "path_ok": false
+        },
+        {
+          "word": "gaps",
+          "trace_ok": true,
+          "min_trace": 0.13998612761497498,
+          "perm_ok": true,
+          "path_agree": 0.3009260892868042,
+          "path_ok": false
+        },
+        {
+          "word": "nap",
+          "trace_ok": true,
+          "min_trace": 0.12087291479110718,
+          "perm_ok": true,
+          "path_agree": 0.5312995314598083,
+          "path_ok": false
+        },
+        {
+          "word": "costs",
+          "trace_ok": false,
+          "min_trace": 0.043672241270542145,
+          "perm_ok": true,
+          "path_agree": 0.3382984399795532,
+          "path_ok": false
+        },
+        {
+          "word": "carts",
+          "trace_ok": false,
+          "min_trace": 0.08881303668022156,
+          "perm_ok": true,
+          "path_agree": 0.39936769008636475,
+          "path_ok": false
+        },
+        {
+          "word": "parts",
+          "trace_ok": false,
+          "min_trace": 0.10015477240085602,
+          "perm_ok": true,
+          "path_agree": 0.3032575249671936,
+          "path_ok": false
+        },
+        {
+          "word": "song",
+          "trace_ok": false,
+          "min_trace": 0.07911990582942963,
+          "perm_ok": true,
+          "path_agree": 0.20223133265972137,
+          "path_ok": false
+        },
+        {
+          "word": "coat",
+          "trace_ok": false,
+          "min_trace": 0.08615101128816605,
+          "perm_ok": true,
+          "path_agree": 0.19702878594398499,
+          "path_ok": false
+        },
+        {
+          "word": "toast",
+          "trace_ok": false,
+          "min_trace": 0.09321776777505875,
+          "perm_ok": true,
+          "path_agree": 0.3125075399875641,
+          "path_ok": false
+        },
+        {
+          "word": "traps",
+          "trace_ok": false,
+          "min_trace": 0.07921139150857925,
+          "perm_ok": true,
+          "path_agree": 0.27513888478279114,
+          "path_ok": false
+        },
+        {
+          "word": "start",
+          "trace_ok": false,
+          "min_trace": 0.08866017311811447,
+          "perm_ok": false,
+          "path_agree": 0.16355794668197632,
+          "path_ok": false
+        },
+        {
+          "word": "pond",
+          "trace_ok": false,
+          "min_trace": 0.11056623607873917,
+          "perm_ok": false,
+          "path_agree": 0.25291725993156433,
+          "path_ok": false
+        },
+        {
+          "word": "cargo",
+          "trace_ok": false,
+          "min_trace": 0.1015244871377945,
+          "perm_ok": true,
+          "path_agree": 0.42923635244369507,
+          "path_ok": false
+        },
+        {
+          "word": "across",
+          "trace_ok": false,
+          "min_trace": 0.0978432148694992,
+          "perm_ok": true,
+          "path_agree": 0.8711756467819214,
+          "path_ok": true
+        }
+      ]
+    },
+    "hold_soft": {
+      "trace_acc": 0.0,
+      "perm_acc": 0.625,
+      "path_acc": 0.0625,
+      "details": [
+        {
+          "word": "cards",
+          "trace_ok": false,
+          "min_trace": -0.06669313460588455,
+          "perm_ok": true,
+          "path_agree": 0.49506285786628723,
+          "path_ok": false
+        },
+        {
+          "word": "gods",
+          "trace_ok": false,
+          "min_trace": -0.034543368965387344,
+          "perm_ok": true,
+          "path_agree": -0.42523837089538574,
+          "path_ok": false
+        },
+        {
+          "word": "naps",
+          "trace_ok": false,
+          "min_trace": -0.058426275849342346,
+          "perm_ok": false,
+          "path_agree": -0.2816252112388611,
+          "path_ok": false
+        },
+        {
+          "word": "sands",
+          "trace_ok": false,
+          "min_trace": -0.02235981449484825,
+          "perm_ok": true,
+          "path_agree": 0.36045771837234497,
+          "path_ok": false
+        },
+        {
+          "word": "stands",
+          "trace_ok": false,
+          "min_trace": -0.10559511929750443,
+          "perm_ok": false,
+          "path_agree": 0.016028080135583878,
+          "path_ok": false
+        },
+        {
+          "word": "coats",
+          "trace_ok": false,
+          "min_trace": 0.08951321989297867,
+          "perm_ok": true,
+          "path_agree": 0.6469177007675171,
+          "path_ok": true
+        },
+        {
+          "word": "goats",
+          "trace_ok": false,
+          "min_trace": 0.08250068128108978,
+          "perm_ok": true,
+          "path_agree": 0.49203264713287354,
+          "path_ok": false
+        },
+        {
+          "word": "toasts",
+          "trace_ok": false,
+          "min_trace": -0.03465356305241585,
+          "perm_ok": true,
+          "path_agree": -0.07651299238204956,
+          "path_ok": false
+        },
+        {
+          "word": "scraps",
+          "trace_ok": false,
+          "min_trace": -0.01902950555086136,
+          "perm_ok": false,
+          "path_agree": 0.10316234081983566,
+          "path_ok": false
+        },
+        {
+          "word": "sports",
+          "trace_ok": false,
+          "min_trace": -0.043986476957798004,
+          "perm_ok": true,
+          "path_agree": 0.2373771071434021,
+          "path_ok": false
+        },
+        {
+          "word": "starts",
+          "trace_ok": false,
+          "min_trace": -0.11545445024967194,
+          "perm_ok": false,
+          "path_agree": 0.0025570616126060486,
+          "path_ok": false
+        },
+        {
+          "word": "grants",
+          "trace_ok": false,
+          "min_trace": -0.09255705773830414,
+          "perm_ok": false,
+          "path_agree": 0.09856866300106049,
+          "path_ok": false
+        },
+        {
+          "word": "ponds",
+          "trace_ok": false,
+          "min_trace": -0.1559966802597046,
+          "perm_ok": true,
+          "path_agree": 0.4770094156265259,
+          "path_ok": false
+        },
+        {
+          "word": "postcard",
+          "trace_ok": false,
+          "min_trace": -0.1636226773262024,
+          "perm_ok": true,
+          "path_agree": -0.8443971872329712,
+          "path_ok": false
+        },
+        {
+          "word": "catnap",
+          "trace_ok": false,
+          "min_trace": 0.030383393168449402,
+          "perm_ok": false,
+          "path_agree": 0.004861116409301758,
+          "path_ok": false
+        },
+        {
+          "word": "strong",
+          "trace_ok": false,
+          "min_trace": -0.3198642134666443,
+          "perm_ok": true,
+          "path_agree": 0.150721475481987,
+          "path_ok": false
+        }
+      ]
+    },
+    "oov_related_acc": 0.45454545454545453,
+    "oov_neighbor": [
+      {
+        "word": "cards",
+        "nearest_train": "nap",
+        "score": 0.46108540892601013,
+        "related_hit": false,
+        "top3": [
+          [
+            "nap",
+            0.46108540892601013
+          ],
+          [
+            "carts",
+            0.3537499010562897
+          ],
+          [
+            "card",
+            0.30057528614997864
+          ]
+        ]
+      },
+      {
+        "word": "gods",
+        "nearest_train": "gap",
+        "score": 0.3708350360393524,
+        "related_hit": false,
+        "top3": [
+          [
+            "gap",
+            0.3708350360393524
+          ],
+          [
+            "god",
+            0.35917162895202637
+          ],
+          [
+            "good",
+            0.31425124406814575
+          ]
+        ]
+      },
+      {
+        "word": "naps",
+        "nearest_train": "nap",
+        "score": 0.45906442403793335,
+        "related_hit": true,
+        "top3": [
+          [
+            "nap",
+            0.45906442403793335
+          ],
+          [
+            "gaps",
+            0.4143584370613098
+          ],
+          [
+            "cat",
+            0.2921062111854553
+          ]
+        ]
+      },
+      {
+        "word": "sands",
+        "nearest_train": "sand",
+        "score": 0.49757325649261475,
+        "related_hit": true,
+        "top3": [
+          [
+            "sand",
+            0.49757325649261475
+          ],
+          [
+            "songs",
+            0.31766313314437866
+          ],
+          [
+            "toast",
+            0.2464229017496109
+          ]
+        ]
+      },
+      {
+        "word": "stands",
+        "nearest_train": "god",
+        "score": 0.3091086447238922,
+        "related_hit": null,
+        "top3": [
+          [
+            "god",
+            0.3091086447238922
+          ],
+          [
+            "across",
+            0.2517422139644623
+          ],
+          [
+            "nap",
+            0.23977182805538177
+          ]
+        ]
+      },
+      {
+        "word": "coats",
+        "nearest_train": "coast",
+        "score": 0.3923415243625641,
+        "related_hit": false,
+        "top3": [
+          [
+            "coast",
+            0.3923415243625641
+          ],
+          [
+            "costs",
+            0.3868259787559509
+          ],
+          [
+            "carts",
+            0.3169446587562561
+          ]
+        ]
+      },
+      {
+        "word": "goats",
+        "nearest_train": "goat",
+        "score": 0.437289834022522,
+        "related_hit": true,
+        "top3": [
+          [
+            "goat",
+            0.437289834022522
+          ],
+          [
+            "carts",
+            0.3550545871257782
+          ],
+          [
+            "start",
+            0.29664790630340576
+          ]
+        ]
+      },
+      {
+        "word": "toasts",
+        "nearest_train": "toast",
+        "score": 0.5293576121330261,
+        "related_hit": true,
+        "top3": [
+          [
+            "toast",
+            0.5293576121330261
+          ],
+          [
+            "gap",
+            0.3683934509754181
+          ],
+          [
+            "to",
+            0.36350977420806885
+          ]
+        ]
+      },
+      {
+        "word": "scraps",
+        "nearest_train": "across",
+        "score": 0.34599995613098145,
+        "related_hit": null,
+        "top3": [
+          [
+            "across",
+            0.34599995613098145
+          ],
+          [
+            "nap",
+            0.29300135374069214
+          ],
+          [
+            "grand",
+            0.26343977451324463
+          ]
+        ]
+      },
+      {
+        "word": "sports",
+        "nearest_train": "across",
+        "score": 0.27037516236305237,
+        "related_hit": false,
+        "top3": [
+          [
+            "across",
+            0.27037516236305237
+          ],
+          [
+            "on",
+            0.21884819865226746
+          ],
+          [
+            "nap",
+            0.21485263109207153
+          ]
+        ]
+      },
+      {
+        "word": "starts",
+        "nearest_train": "start",
+        "score": 0.3408130407333374,
+        "related_hit": true,
+        "top3": [
+          [
+            "start",
+            0.3408130407333374
+          ],
+          [
+            "to",
+            0.2531498670578003
+          ],
+          [
+            "god",
+            0.2506282329559326
+          ]
+        ]
+      },
+      {
+        "word": "grants",
+        "nearest_train": "on",
+        "score": 0.3015756607055664,
+        "related_hit": false,
+        "top3": [
+          [
+            "on",
+            0.3015756607055664
+          ],
+          [
+            "cost",
+            0.24975118041038513
+          ],
+          [
+            "gaps",
+            0.21747471392154694
+          ]
+        ]
+      },
+      {
+        "word": "ponds",
+        "nearest_train": "posts",
+        "score": 0.33850938081741333,
+        "related_hit": false,
+        "top3": [
+          [
+            "posts",
+            0.33850938081741333
+          ],
+          [
+            "across",
+            0.2858928442001343
+          ],
+          [
+            "pond",
+            0.2288295328617096
+          ]
+        ]
+      },
+      {
+        "word": "postcard",
+        "nearest_train": "nap",
+        "score": 0.39742571115493774,
+        "related_hit": null,
+        "top3": [
+          [
+            "nap",
+            0.39742571115493774
+          ],
+          [
+            "god",
+            0.35600370168685913
+          ],
+          [
+            "cat",
+            0.2246883362531662
+          ]
+        ]
+      },
+      {
+        "word": "catnap",
+        "nearest_train": "nap",
+        "score": 0.39193785190582275,
+        "related_hit": null,
+        "top3": [
+          [
+            "nap",
+            0.39193785190582275
+          ],
+          [
+            "cat",
+            0.3780260980129242
+          ],
+          [
+            "act",
+            0.26854291558265686
+          ]
+        ]
+      },
+      {
+        "word": "strong",
+        "nearest_train": "on",
+        "score": 0.38701939582824707,
+        "related_hit": null,
+        "top3": [
+          [
+            "on",
+            0.38701939582824707
+          ],
+          [
+            "no",
+            0.33949798345565796
+          ],
+          [
+            "nap",
+            0.3338976204395294
+          ]
+        ]
+      }
+    ],
+    "related": [
+      {
+        "a": "cat",
+        "b": "cats",
+        "unrelated": "costs",
+        "sim_rel": 0.6843479871749878,
+        "sim_un": -0.009553372859954834,
+        "ok": true
+      },
+      {
+        "a": "act",
+        "b": "acts",
+        "unrelated": "pot",
+        "sim_rel": 0.7303225994110107,
+        "sim_un": 0.17857186496257782,
+        "ok": true
+      },
+      {
+        "a": "car",
+        "b": "cars",
+        "unrelated": "cats",
+        "sim_rel": 0.6222339868545532,
+        "sim_un": 0.30162686109542847,
+        "ok": true
+      },
+      {
+        "a": "dog",
+        "b": "dogs",
+        "unrelated": "tag",
+        "sim_rel": 0.6157981753349304,
+        "sim_un": 0.16183649003505707,
+        "ok": true
+      },
+      {
+        "a": "top",
+        "b": "tops",
+        "unrelated": "goat",
+        "sim_rel": 0.6458770632743835,
+        "sim_un": -0.032972972840070724,
+        "ok": true
+      },
+      {
+        "a": "pot",
+        "b": "pots",
+        "unrelated": "card",
+        "sim_rel": 0.5520823001861572,
+        "sim_un": -0.22538164258003235,
+        "ok": true
+      },
+      {
+        "a": "stop",
+        "b": "stops",
+        "unrelated": "cost",
+        "sim_rel": 0.5197039842605591,
+        "sim_un": -0.17156554758548737,
+        "ok": true
+      },
+      {
+        "a": "spot",
+        "b": "spots",
+        "unrelated": "cat",
+        "sim_rel": 0.6747424006462097,
+        "sim_un": 0.01755620166659355,
+        "ok": true
+      },
+      {
+        "a": "post",
+        "b": "posts",
+        "unrelated": "not",
+        "sim_rel": 0.6625463962554932,
+        "sim_un": 0.1653950810432434,
+        "ok": true
+      },
+      {
+        "a": "tag",
+        "b": "tags",
+        "unrelated": "goat",
+        "sim_rel": 0.4956880509853363,
+        "sim_un": -0.18846061825752258,
+        "ok": true
+      },
+      {
+        "a": "tap",
+        "b": "taps",
+        "unrelated": "across",
+        "sim_rel": 0.7170450687408447,
+        "sim_un": -0.32383936643600464,
+        "ok": true
+      },
+      {
+        "a": "gap",
+        "b": "gaps",
+        "unrelated": "god",
+        "sim_rel": 0.6191721558570862,
+        "sim_un": 0.191247820854187,
+        "ok": true
+      },
+      {
+        "a": "cost",
+        "b": "costs",
+        "unrelated": "carts",
+        "sim_rel": 0.6258842945098877,
+        "sim_un": -0.018353112041950226,
+        "ok": true
+      },
+      {
+        "a": "cart",
+        "b": "carts",
+        "unrelated": "coast",
+        "sim_rel": 0.6231776475906372,
+        "sim_un": -0.015156302601099014,
+        "ok": true
+      },
+      {
+        "a": "part",
+        "b": "parts",
+        "unrelated": "part",
+        "sim_rel": 0.6706584692001343,
+        "sim_un": 0.9999998807907104,
+        "ok": false
+      },
+      {
+        "a": "song",
+        "b": "songs",
+        "unrelated": "to",
+        "sim_rel": 0.6895440816879272,
+        "sim_un": -0.03254450857639313,
+        "ok": true
+      },
+      {
+        "a": "trap",
+        "b": "traps",
+        "unrelated": "grant",
+        "sim_rel": 0.673998236656189,
+        "sim_un": 0.018789537250995636,
+        "ok": true
+      },
+      {
+        "a": "card",
+        "b": "cards",
+        "unrelated": "tap",
+        "sim_rel": 0.36534583568573,
+        "sim_un": -0.035788264125585556,
+        "ok": true
+      },
+      {
+        "a": "god",
+        "b": "gods",
+        "unrelated": "acts",
+        "sim_rel": 0.6210915446281433,
+        "sim_un": -0.22203882038593292,
+        "ok": true
+      },
+      {
+        "a": "nap",
+        "b": "naps",
+        "unrelated": "coat",
+        "sim_rel": 0.7375166416168213,
+        "sim_un": 0.05336308479309082,
+        "ok": true
+      },
+      {
+        "a": "sand",
+        "b": "sands",
+        "unrelated": "pond",
+        "sim_rel": 0.7055900692939758,
+        "sim_un": 0.14713600277900696,
+        "ok": true
+      },
+      {
+        "a": "coat",
+        "b": "coats",
+        "unrelated": "dogs",
+        "sim_rel": 0.5989638566970825,
+        "sim_un": -0.18663784861564636,
+        "ok": true
+      },
+      {
+        "a": "goat",
+        "b": "goats",
+        "unrelated": "tap",
+        "sim_rel": 0.7547433972358704,
+        "sim_un": -0.10596630722284317,
+        "ok": true
+      },
+      {
+        "a": "toast",
+        "b": "toasts",
+        "unrelated": "gap",
+        "sim_rel": 0.6317950487136841,
+        "sim_un": -0.044758640229701996,
+        "ok": true
+      },
+      {
+        "a": "sport",
+        "b": "sports",
+        "unrelated": "god",
+        "sim_rel": 0.46722209453582764,
+        "sim_un": -0.007982324808835983,
+        "ok": true
+      },
+      {
+        "a": "start",
+        "b": "starts",
+        "unrelated": "pots",
+        "sim_rel": 0.5380890965461731,
+        "sim_un": -0.007092390209436417,
+        "ok": true
+      },
+      {
+        "a": "grant",
+        "b": "grants",
+        "unrelated": "post",
+        "sim_rel": 0.3569200932979584,
+        "sim_un": -0.028397411108016968,
+        "ok": true
+      },
+      {
+        "a": "pond",
+        "b": "ponds",
+        "unrelated": "grant",
+        "sim_rel": 0.37135952711105347,
+        "sim_un": -0.17455321550369263,
+        "ok": true
+      }
+    ],
+    "prefixes": [
+      {
+        "prefix": "ca",
+        "family": [
+          "cat",
+          "cats",
+          "car",
+          "cars",
+          "card"
+        ],
+        "family_sim": 0.2905099391937256,
+        "other_sim": 0.2767835557460785,
+        "ok": true
+      },
+      {
+        "prefix": "do",
+        "family": [
+          "dog",
+          "dogs"
+        ],
+        "family_sim": 0.607741117477417,
+        "other_sim": 0.22434861958026886,
+        "ok": true
+      },
+      {
+        "prefix": "sto",
+        "family": [
+          "stop",
+          "stops"
+        ],
+        "family_sim": 0.5735551118850708,
+        "other_sim": 0.22575803101062775,
+        "ok": true
+      },
+      {
+        "prefix": "go",
+        "family": [
+          "go",
+          "god",
+          "good",
+          "goat"
+        ],
+        "family_sim": 0.5505766868591309,
+        "other_sim": 0.14658315479755402,
+        "ok": true
+      },
+      {
+        "prefix": "to",
+        "family": [
+          "to",
+          "top",
+          "tops",
+          "ton",
+          "toast"
+        ],
+        "family_sim": 0.5372980237007141,
+        "other_sim": 0.16500766575336456,
+        "ok": true
+      },
+      {
+        "prefix": "co",
+        "family": [
+          "coat",
+          "coast",
+          "cost",
+          "costs"
+        ],
+        "family_sim": 0.41407275199890137,
+        "other_sim": 0.11365363001823425,
+        "ok": true
+      }
+    ],
+    "train_rows": [
+      {
+        "word": "cat",
+        "compose": "cat",
+        "stream": "cat",
+        "agree": 0.9857727885246277,
+        "ok": true
+      },
+      {
+        "word": "act",
+        "compose": "act",
+        "stream": "act",
+        "agree": 0.9861088991165161,
+        "ok": true
+      },
+      {
+        "word": "car",
+        "compose": "car",
+        "stream": "car",
+        "agree": 0.9796302318572998,
+        "ok": true
+      },
+      {
+        "word": "card",
+        "compose": "card",
+        "stream": "card",
+        "agree": 0.9880800247192383,
+        "ok": true
+      },
+      {
+        "word": "dog",
+        "compose": "dog",
+        "stream": "dog",
+        "agree": 0.9583852887153625,
+        "ok": true
+      },
+      {
+        "word": "god",
+        "compose": "god",
+        "stream": "god",
+        "agree": 0.9925181865692139,
+        "ok": true
+      },
+      {
+        "word": "good",
+        "compose": "good",
+        "stream": "good",
+        "agree": 0.9905807971954346,
+        "ok": true
+      },
+      {
+        "word": "go",
+        "compose": "go",
+        "stream": "go",
+        "agree": 0.9817093014717102,
+        "ok": true
+      },
+      {
+        "word": "on",
+        "compose": "on",
+        "stream": "on",
+        "agree": 0.9948282241821289,
+        "ok": true
+      },
+      {
+        "word": "no",
+        "compose": "no",
+        "stream": "no",
+        "agree": 0.986940860748291,
+        "ok": true
+      },
+      {
+        "word": "not",
+        "compose": "not",
+        "stream": "not",
+        "agree": 0.9955933690071106,
+        "ok": true
+      },
+      {
+        "word": "ton",
+        "compose": "ton",
+        "stream": "ton",
+        "agree": 0.9916350841522217,
+        "ok": true
+      },
+      {
+        "word": "to",
+        "compose": "to",
+        "stream": "to",
+        "agree": 0.971160888671875,
+        "ok": true
+      },
+      {
+        "word": "top",
+        "compose": "top",
+        "stream": "top",
+        "agree": 0.9774702787399292,
+        "ok": true
+      },
+      {
+        "word": "pot",
+        "compose": "pot",
+        "stream": "pot",
+        "agree": 0.9872625470161438,
+        "ok": true
+      },
+      {
+        "word": "stop",
+        "compose": "stop",
+        "stream": "stop",
+        "agree": 0.9876818656921387,
+        "ok": true
+      },
+      {
+        "word": "spot",
+        "compose": "spot",
+        "stream": "spot",
+        "agree": 0.9752358198165894,
+        "ok": true
+      },
+      {
+        "word": "post",
+        "compose": "post",
+        "stream": "post",
+        "agree": 0.9895185828208923,
+        "ok": true
+      },
+      {
+        "word": "cats",
+        "compose": "cats",
+        "stream": "cats",
+        "agree": 0.988696813583374,
+        "ok": true
+      },
+      {
+        "word": "acts",
+        "compose": "acts",
+        "stream": "acts",
+        "agree": 0.9921060800552368,
+        "ok": true
+      },
+      {
+        "word": "cars",
+        "compose": "cars",
+        "stream": "cars",
+        "agree": 0.9724256992340088,
+        "ok": true
+      },
+      {
+        "word": "dogs",
+        "compose": "dogs",
+        "stream": "dogs",
+        "agree": 0.987300455570221,
+        "ok": true
+      },
+      {
+        "word": "tops",
+        "compose": "tops",
+        "stream": "tops",
+        "agree": 0.9914317727088928,
+        "ok": true
+      },
+      {
+        "word": "pots",
+        "compose": "pots",
+        "stream": "pots",
+        "agree": 0.9850257635116577,
+        "ok": true
+      },
+      {
+        "word": "stops",
+        "compose": "stops",
+        "stream": "stops",
+        "agree": 0.9839691519737244,
+        "ok": true
+      },
+      {
+        "word": "spots",
+        "compose": "spots",
+        "stream": "spots",
+        "agree": 0.9900383949279785,
+        "ok": true
+      },
+      {
+        "word": "posts",
+        "compose": "posts",
+        "stream": "posts",
+        "agree": 0.9855833649635315,
+        "ok": true
+      },
+      {
+        "word": "tag",
+        "compose": "tag",
+        "stream": "tag",
+        "agree": 0.9855695962905884,
+        "ok": true
+      },
+      {
+        "word": "tags",
+        "compose": "tags",
+        "stream": "tags",
+        "agree": 0.9925292134284973,
+        "ok": true
+      },
+      {
+        "word": "tap",
+        "compose": "tap",
+        "stream": "tap",
+        "agree": 0.9829552173614502,
+        "ok": true
+      },
+      {
+        "word": "taps",
+        "compose": "taps",
+        "stream": "taps",
+        "agree": 0.990864634513855,
+        "ok": true
+      },
+      {
+        "word": "gap",
+        "compose": "gap",
+        "stream": "gap",
+        "agree": 0.9894694089889526,
+        "ok": true
+      },
+      {
+        "word": "gaps",
+        "compose": "gaps",
+        "stream": "gaps",
+        "agree": 0.9959511756896973,
+        "ok": true
+      },
+      {
+        "word": "gas",
+        "compose": "gas",
+        "stream": "gas",
+        "agree": 0.9947445392608643,
+        "ok": true
+      },
+      {
+        "word": "nap",
+        "compose": "nap",
+        "stream": "nap",
+        "agree": 0.993258535861969,
+        "ok": true
+      },
+      {
+        "word": "cost",
+        "compose": "cost",
+        "stream": "cost",
+        "agree": 0.9844735860824585,
+        "ok": true
+      },
+      {
+        "word": "costs",
+        "compose": "costs",
+        "stream": "costs",
+        "agree": 0.9808969497680664,
+        "ok": true
+      },
+      {
+        "word": "cart",
+        "compose": "cart",
+        "stream": "cart",
+        "agree": 0.9781171083450317,
+        "ok": true
+      },
+      {
+        "word": "carts",
+        "compose": "carts",
+        "stream": "carts",
+        "agree": 0.9899147748947144,
+        "ok": true
+      },
+      {
+        "word": "part",
+        "compose": "part",
+        "stream": "part",
+        "agree": 0.9883164167404175,
+        "ok": true
+      },
+      {
+        "word": "parts",
+        "compose": "parts",
+        "stream": "parts",
+        "agree": 0.9921232461929321,
+        "ok": true
+      },
+      {
+        "word": "sand",
+        "compose": "sand",
+        "stream": "sand",
+        "agree": 0.9914411902427673,
+        "ok": true
+      },
+      {
+        "word": "song",
+        "compose": "song",
+        "stream": "song",
+        "agree": 0.9901349544525146,
+        "ok": true
+      },
+      {
+        "word": "songs",
+        "compose": "songs",
+        "stream": "songs",
+        "agree": 0.9901062846183777,
+        "ok": true
+      },
+      {
+        "word": "coat",
+        "compose": "coat",
+        "stream": "coat",
+        "agree": 0.9717910289764404,
+        "ok": true
+      },
+      {
+        "word": "goat",
+        "compose": "goat",
+        "stream": "goat",
+        "agree": 0.9943299889564514,
+        "ok": true
+      },
+      {
+        "word": "toast",
+        "compose": "toast",
+        "stream": "toast",
+        "agree": 0.9926199316978455,
+        "ok": true
+      },
+      {
+        "word": "trap",
+        "compose": "trap",
+        "stream": "trap",
+        "agree": 0.9890691041946411,
+        "ok": true
+      },
+      {
+        "word": "traps",
+        "compose": "traps",
+        "stream": "traps",
+        "agree": 0.9939918518066406,
+        "ok": true
+      },
+      {
+        "word": "sport",
+        "compose": "sport",
+        "stream": "sport",
+        "agree": 0.9910320043563843,
+        "ok": true
+      },
+      {
+        "word": "start",
+        "compose": "start",
+        "stream": "start",
+        "agree": 0.9917200207710266,
+        "ok": true
+      },
+      {
+        "word": "grant",
+        "compose": "grant",
+        "stream": "grant",
+        "agree": 0.9944095611572266,
+        "ok": true
+      },
+      {
+        "word": "pond",
+        "compose": "pond",
+        "stream": "pond",
+        "agree": 0.9944472312927246,
+        "ok": true
+      },
+      {
+        "word": "grand",
+        "compose": "grand",
+        "stream": "grand",
+        "agree": 0.9929192662239075,
+        "ok": true
+      },
+      {
+        "word": "cargo",
+        "compose": "cargo",
+        "stream": "cargo",
+        "agree": 0.9850819706916809,
+        "ok": true
+      },
+      {
+        "word": "coast",
+        "compose": "coast",
+        "stream": "coast",
+        "agree": 0.9905279278755188,
+        "ok": true
+      },
+      {
+        "word": "across",
+        "compose": "across",
+        "stream": "across",
+        "agree": 0.9865652322769165,
+        "ok": true
+      }
+    ],
+    "alphabet_path": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\alphabet_frozen.pt"
+  }
+}

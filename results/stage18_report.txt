@@ -1,0 +1,26 @@
+SOTE Stage 18 report (Path-3 next readout + bag contrastive)
+timestamp: 2026-07-23T13:29:40.702015+00:00
+device: cuda
+contract: bridge_qa_binder_16_FROZEN.pt
+steps=2500  baseline Stage17 HOLD=32.4%
+
+TRAIN next acc:   83.1%  cos=0.832  comp=0.855
+HOLD next acc:    28.4%  cos=0.376  comp=0.589
+Shuffle control:  18.9%  gap=+9.5pp
+Lift vs Stage17:  -4.0pp
+
+HOLD samples:
+  [MISS] 'cat' -> on (want to) cos=0.22 comp=0.59
+  [MISS] 'cat to' -> dog (want car) cos=0.09 comp=0.33
+  [MISS] 'dog' -> on (want to) cos=0.39 comp=0.34
+  [MISS] 'dog to' -> cat (want top) cos=0.27 comp=0.81
+  [OK] 'go' -> to (want to) cos=0.76 comp=0.71
+  [MISS] 'go to' -> top (want cat) cos=0.26 comp=0.67
+  [OK] 'spot' -> on (want on) cos=0.89 comp=0.50
+  [MISS] 'spot on' -> top (want car) cos=0.12 comp=0.41
+  [MISS] 'good' -> cat (want dog) cos=0.56 comp=0.77
+  [OK] 'good dog' -> on (want on) cos=0.94 comp=0.89
+
+=== Verdict ===
+  FAIL/partial: readout still weak — then consider Path-1 phrase order aux.
+    hold=0.28 gap=0.09 lift=-0.04 shuffle=0.19

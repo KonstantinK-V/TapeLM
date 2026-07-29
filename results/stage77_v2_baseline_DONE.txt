@@ -1,0 +1,19 @@
+SOTE Stage 77 / V2.1 — PASS (baseline)
+timestamp: 2026-07-24T13:49:50+00:00
+charter: results/sote_v2_charter.md
+v1_reserve: results/SOTE_V1_RESERVE_FROZEN.txt
+checkpoint: stage77_v2_baseline_FROZEN.pt
+report: stage77_v2_baseline_report_FROZEN.txt
+
+=== DONE ===
+  V2.0 reserve label + charter
+  V2.1 role + hit@1/@5 on V1 weights (no FT)
+
+=== KEY BASELINE ===
+  noun_rel ALL hit@1 29.3% hit@5 47.8%  (path LIVE-shaped)
+  noun_rel right hit@1 4.2% hit@5 10.8%  (!! object hole is not only verb_ing)
+  verb_ing right hit@1 5.7% hit@5 15.9%  RESIDUAL + soft signal
+  rel roles strong (~50%+ @1, ~85-100% @5)
+
+=== NEXT ===
+  V2.2 harness module; V2.3 right-after-rel protocol (all path frames)

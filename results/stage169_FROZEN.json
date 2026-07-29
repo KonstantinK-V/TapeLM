@@ -1,0 +1,14 @@
+{
+  "timestamp": "2026-07-28T09:30:00+00:00",
+  "status": "FROZEN",
+  "reason": "word-CE / battery-vs-majority dead-end for original leave-text-as-only-foundation goal",
+  "closing_adam": {
+    "early_stop_step": 270000,
+    "bat_approx": 0.326,
+    "lift_maj_approx": -0.044,
+    "verdict_logged": "S2_CONTINUE"
+  },
+  "adamw_arm": "S2_EARLY_OR_NULL @90k (worse)",
+  "successor": "results/plan_curve_dynamics.md / Stage170",
+  "do_not": ["S3", "S4", "more WD on word-CE"]
+}

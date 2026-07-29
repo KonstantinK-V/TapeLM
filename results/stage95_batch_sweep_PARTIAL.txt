@@ -1,0 +1,26 @@
+SOTE Stage 95 — batch sweep on Stage93 recipe
+timestamp: 2026-07-24T19:15:55.508893+00:00
+device: cuda
+foundation: stage85_foundation.pt dim=256
+recipe: warmup200->const 0.001, full emb, no cosine, steps=8000
+ref Stage93 batch32: obj=33.3% rel=74% swing~33pp
+ref Stage90 batch32: obj=28% rel=86%
+
+=== Sweep (best checkpoint each) ===
+  batch     obj     rel     ALL    head   swing  step
+      8   40.0%   95.3%   67.7%   67.7%   38.0pp  8000
+     16   42.0%   38.0%   40.0%   40.0%   42.0pp  6000
+     64    0.0%    0.0%    0.0%    0.0%    0.0pp  8000
+     32   33.3%     74%   53.7%   53.7%     33pp   ref93
+
+=== Winner: batch=8 ===
+  SEEN obj=40.0% rel=95.3% ALL=67.7% head=67.7% swing=38.0pp step=8000
+  RARE obj=11.7%  STORY obj=20.0% ALL=10.3%
+
+=== Adequacy ===
+  Prefer: rel>=50% and obj>=25%, then higher obj / lower swing.
+  Read: small batch ~ memorization noise; large ~ smoother, may underfit fat-SEEN.
+
+=== Verdict: PARTIAL ===
+  gates: PARTIAL obj>=25%+rel>=50%; LIVE obj>=50%+rel>=50%
+  next: hops once a batch+recipe holds with less swing

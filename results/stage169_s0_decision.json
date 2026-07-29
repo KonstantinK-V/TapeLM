@@ -1,0 +1,31 @@
+{
+  "timestamp": "2026-07-27T08:08:13.938688+00:00",
+  "step": 0,
+  "protocol": "context_scale_s0_pretok",
+  "plan": "C:\\Users\\Kostya\\sote-letter-assembly\\results\\plan_sote_context_0p5b_1b.md",
+  "target_tokens": 500000000,
+  "n_tokens_written": 500000000,
+  "by_src": {
+    "wikitext103": 100140108,
+    "openwebtext": 399859892
+  },
+  "vocab": {
+    "V": 32000,
+    "coverage": 0.952791372,
+    "unk_rate": 0.04720862800000003,
+    "dtype": "uint16"
+  },
+  "paths": {
+    "ids": "C:\\Users\\Kostya\\sote-letter-assembly\\data\\sote_ids_0p5b.bin",
+    "codebook": "C:\\Users\\Kostya\\sote-letter-assembly\\data\\sote_codebook_169.json",
+    "battery": "C:\\Users\\Kostya\\sote-letter-assembly\\results\\stage169_understanding_battery.jsonl"
+  },
+  "battery": {
+    "n": 10000,
+    "n_nonmajority_gold": 6256,
+    "majority_baseline": 0.3744
+  },
+  "verdict": "S0_READY",
+  "wall_hours": 0.22144405808713702,
+  "next": "S1 VRAM smoke 4L/d256 seq512"
+}

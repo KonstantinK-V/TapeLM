@@ -1,0 +1,36 @@
+SOTE Stage 11++ report (memory soft-create + retrieve margin)
+timestamp: 2026-07-23T11:02:34.928851+00:00
+device: cuda
+soft_create_below=0.7 retrieve_margin=0.05
+create_below=0.55 fewshot=5
+
+Legacy gate (polish=False, no soft-create):
+  moved_off:     100%
+  unstick:       30%  (sticky=70%)
+  prefer_new:    100% / margin 100%
+
+11++ polish:
+  moved_off:     100%
+  unstick:       80%  (sticky=20%)
+  soft_create:   80% of swaps
+  prefer_new:    100% / margin 100%
+  retrieve conf: 100%  (mean_gap=0.543)
+  mean_drop_mem: +0.446
+
+Stage 12 smoke HOLD QA: 100.0% (n=18)
+
+Details (11++):
+  [OK] jumps on top: jumps->jumped | act=soft_create ret=jumped on top gap=0.547 conf=1 drop=+0.615 prefer=1
+  [OK] walks on car: walks->walked | act=soft_create ret=walked on car gap=0.377 conf=1 drop=+0.377 prefer=1
+  [OK] cat jumping: jumping->jumped | act=soft_create ret=cat jumped gap=0.538 conf=1 drop=+0.538 prefer=1
+  [OK] dog walking: walking->walked | act=soft_create ret=dog walked gap=0.367 conf=1 drop=+0.367 prefer=1
+  [OK] reading on top: reading->readed | act=soft_create ret=readed on top gap=0.743 conf=1 drop=+0.743 prefer=1
+  [OK] cat writes: writes->writed | act=soft_create ret=cat writed gap=0.351 conf=1 drop=+0.354 prefer=1
+  [OK] dog jumped: jumped->jumping | act=soft_create ret=dog jumping gap=0.572 conf=1 drop=+0.629 prefer=1
+  [OK] walked on car: walked->walking | act=soft_create ret=walking on car gap=0.576 conf=1 drop=+0.576 prefer=1
+  [STICK] good jumps: jumps->jumped | act=lock ret=good jumps gap=0.770 conf=1 drop=+0.147 prefer=1
+  [STICK] no walking: walking->walked | act=lock ret=no walking gap=0.585 conf=1 drop=+0.116 prefer=1
+
+=== Verdict ===
+  PASS: soft-create+margin lifts unstick without hurting prefer_new / Stage12.
+  Next: scale HOLD/lexicon.

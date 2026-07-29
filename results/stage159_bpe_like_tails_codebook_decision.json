@@ -1,0 +1,240 @@
+{
+  "timestamp": "2026-07-26T16:16:00.867364+00:00",
+  "protocol": "bpe_like_tails_in_one_codebook",
+  "framing": "Rich shared character-suffix inventory (not only AFFIXES ed/s/ing). Same codebook entity: words kept + $stem + +tail; longest-match expand.",
+  "bpe_like_tails": {
+    "arm": "159_bpe_like_tails",
+    "mode": "bpe_like_tails",
+    "codebook": {
+      "n_word_atoms": 5489,
+      "n_stem_atoms": 1531,
+      "n_tail_atoms": 128,
+      "V": 7148
+    },
+    "mine": {
+      "n_decomp_tokens": 160454,
+      "n_tail_types_kept": 128,
+      "n_stem_types_kept": 1531,
+      "min_tail_types": 8,
+      "min_stem_support": 8,
+      "max_tails": 128,
+      "tail_lens": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "top_tails": [
+        [
+          "s",
+          896,
+          11195
+        ],
+        [
+          "d",
+          735,
+          32477
+        ],
+        [
+          "e",
+          685,
+          28636
+        ],
+        [
+          "ed",
+          580,
+          20363
+        ],
+        [
+          "g",
+          481,
+          7306
+        ],
+        [
+          "ng",
+          460,
+          6834
+        ],
+        [
+          "y",
+          444,
+          18907
+        ],
+        [
+          "ing",
+          441,
+          5505
+        ],
+        [
+          "t",
+          369,
+          15980
+        ],
+        [
+          "r",
+          311,
+          8782
+        ],
+        [
+          "n",
+          258,
+          8919
+        ],
+        [
+          "es",
+          239,
+          1925
+        ],
+        [
+          "er",
+          230,
+          5291
+        ],
+        [
+          "l",
+          173,
+          6136
+        ],
+        [
+          "k",
+          130,
+          5749
+        ],
+        [
+          "h",
+          126,
+          6444
+        ],
+        [
+          "ly",
+          121,
+          2167
+        ],
+        [
+          "le",
+          106,
+          2852
+        ],
+        [
+          "rs",
+          93,
+          889
+        ],
+        [
+          "ts",
+          90,
+          615
+        ],
+        [
+          "on",
+          84,
+          650
+        ],
+        [
+          "ted",
+          83,
+          5874
+        ],
+        [
+          "ns",
+          71,
+          342
+        ],
+        [
+          "nt",
+          70,
+          1288
+        ]
+      ],
+      "n_word_types_scanned": 5301
+    },
+    "tail_expand_coverage": 0.4540420203144567,
+    "seen_obj": 0.335,
+    "story_all": 0.13563752541388324,
+    "story_obj": 0.17302052785923755,
+    "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage159_159_bpe_like_tails.pt",
+    "curve": [
+      {
+        "step": 0,
+        "story_all": 0.000970873786407767,
+        "obj": 0.0
+      },
+      {
+        "step": 4000,
+        "story_all": 0.053883495145631066,
+        "obj": 0.08374384236453201
+      },
+      {
+        "step": 8000,
+        "story_all": 0.07475728155339806,
+        "obj": 0.009852216748768473
+      },
+      {
+        "step": 12000,
+        "story_all": 0.09029126213592233,
+        "obj": 0.019704433497536946
+      },
+      {
+        "step": 16000,
+        "story_all": 0.0912621359223301,
+        "obj": 0.06403940886699508
+      },
+      {
+        "step": 20000,
+        "story_all": 0.07233009708737864,
+        "obj": 0.07389162561576355
+      },
+      {
+        "step": 24000,
+        "story_all": 0.10485436893203884,
+        "obj": 0.08374384236453201
+      },
+      {
+        "step": 28000,
+        "story_all": 0.08203883495145631,
+        "obj": 0.06403940886699508
+      },
+      {
+        "step": 32000,
+        "story_all": 0.09951456310679611,
+        "obj": 0.07881773399014778
+      },
+      {
+        "step": 36000,
+        "story_all": 0.12233009708737864,
+        "obj": 0.11330049261083744
+      },
+      {
+        "step": 40000,
+        "story_all": 0.13009708737864079,
+        "obj": 0.1330049261083744
+      }
+    ],
+    "trunk": {
+      "batch": 8,
+      "lr": 0.001,
+      "opt": "Adam",
+      "wd": 0.0,
+      "d": 512,
+      "n_layer": 4,
+      "n_head": 8,
+      "fat_frac": 0.75,
+      "max_len": 40
+    }
+  },
+  "story_lift_vs_156_ctrl": -0.002564394865430114,
+  "story_lift_vs_156_shared_morph": 0.006222354597438529,
+  "verdict": "PARITY",
+  "ref_156_ctrl_story": 0.13820192027931336,
+  "ref_156_shared_morph_story": 0.1294151708164447,
+  "upstream": {
+    "158_or_pipe": "PARITY"
+  },
+  "ref100": {
+    "obj": 0.426,
+    "rel": 0.958,
+    "story_all": 0.196,
+    "rare_obj": 0.117
+  },
+  "vs_156_note": "156 used crude_stem\u21923 affixes; 159 mines char tails by type-support. Coverage should be much higher if BPE-like reuse matters."
+}

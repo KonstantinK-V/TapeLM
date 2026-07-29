@@ -1,0 +1,287 @@
+{
+  "stage": "variant_probes",
+  "timestamp": "2026-07-22T14:03:52.981851+00:00",
+  "morphology_discovery": {
+    "n_pairs": 33,
+    "k": 4,
+    "purity": 0.6363636363636364,
+    "nmi": 0.25954584608379666,
+    "clusters": [
+      {
+        "id": 0,
+        "size": 4,
+        "dominant_tag": "~an+en",
+        "dominant_frac": 0.5,
+        "intra_cos": 0.12664233148097992,
+        "members": [
+          "dog->dogs",
+          "man->men",
+          "woman->women",
+          "read->reading"
+        ]
+      },
+      {
+        "id": 1,
+        "size": 8,
+        "dominant_tag": "s",
+        "dominant_frac": 0.875,
+        "intra_cos": 0.15144702792167664,
+        "members": [
+          "cat->cats",
+          "bird->birds",
+          "walk->walks",
+          "apple->apples",
+          "table->tables",
+          "read->reads",
+          "card->cards",
+          "happy->happily"
+        ]
+      },
+      {
+        "id": 2,
+        "size": 9,
+        "dominant_tag": "s",
+        "dominant_frac": 0.7777777777777778,
+        "intra_cos": 0.13863448798656464,
+        "members": [
+          "book->books",
+          "tree->trees",
+          "make->makes",
+          "take->takes",
+          "give->gives",
+          "write->writes",
+          "play->plays",
+          "walk->walking",
+          "slow->slowly"
+        ]
+      },
+      {
+        "id": 3,
+        "size": 12,
+        "dominant_tag": "s",
+        "dominant_frac": 0.4166666666666667,
+        "intra_cos": 0.20609194040298462,
+        "members": [
+          "run->runs",
+          "jump->jumps",
+          "house->houses",
+          "window->windows",
+          "friend->friends",
+          "leaf->leaves",
+          "mouse->mice",
+          "child->children",
+          "jump->jumping",
+          "write->writing",
+          "quick->quickly",
+          "friend->friendship"
+        ]
+      }
+    ],
+    "tag_readiness": [
+      {
+        "tag": "~an+en",
+        "n": 2,
+        "best_f1": 0.6666666666662222
+      },
+      {
+        "tag": "s",
+        "n": 20,
+        "best_f1": 0.4999999999995917
+      },
+      {
+        "tag": "ing",
+        "n": 4,
+        "best_f1": 0.24999999999962502
+      },
+      {
+        "tag": "ly",
+        "n": 3,
+        "best_f1": 0.18181818181778514
+      }
+    ],
+    "pairwise_intra": [
+      {
+        "tag": "ing",
+        "n": 4,
+        "intra_cos": 0.4034048318862915
+      },
+      {
+        "tag": "~an+en",
+        "n": 2,
+        "intra_cos": 0.24699701368808746
+      },
+      {
+        "tag": "ly",
+        "n": 3,
+        "intra_cos": 0.13555331528186798
+      },
+      {
+        "tag": "s",
+        "n": 20,
+        "intra_cos": 0.0748591497540474
+      }
+    ],
+    "verdict": "seeded prior OK for: ing; full unsupervised discovery weak (class imbalance)"
+  },
+  "residual_as_feature": {
+    "related_compose_cos": 0.5999447305997213,
+    "random_compose_cos": 0.05872820633830446,
+    "compose_gap": 0.5412165242614169,
+    "related_rspan_cos": 0.5828940534230435,
+    "random_rspan_cos": 0.04279950622356299,
+    "rspan_gap": 0.5400945471994805,
+    "retrieve_compose_acc": 0.9310344827586207,
+    "retrieve_rspan_acc": 0.896551724137931,
+    "verdict": "residual ≈ compose for relatedness — use as aux loss / morph proto, not replace compose"
+  },
+  "curiosity": {
+    "n_memory": 111,
+    "hold_mean_novelty": 0.3294031620025635,
+    "train_mean_novelty": 0.4137090777463101,
+    "hold_create_rate": 0.17647058823529413,
+    "train_create_rate": 0.2978723404255319,
+    "hold_stabilize_rate": 0.35294117647058826,
+    "hold_ambiguous_rate": 0.47058823529411764,
+    "always_ema_updates_per_word": {
+      "hold_mean_count": 7411.764705882353,
+      "note": "7.8c writes every exposure — not selective"
+    },
+    "examples": [
+      {
+        "word": "playground",
+        "set": "hold",
+        "max_sim_other": 0.48230159282684326,
+        "novelty": 0.5176984071731567,
+        "gate_create": true,
+        "gate_stabilize": false,
+        "ambiguous": false,
+        "mem_count": 7560
+      },
+      {
+        "word": "backpack",
+        "set": "hold",
+        "max_sim_other": 0.511223316192627,
+        "novelty": 0.48877668380737305,
+        "gate_create": true,
+        "gate_stabilize": false,
+        "ambiguous": false,
+        "mem_count": 7239
+      },
+      {
+        "word": "birdhouse",
+        "set": "hold",
+        "max_sim_other": 0.5315481424331665,
+        "novelty": 0.4684518575668335,
+        "gate_create": true,
+        "gate_stabilize": false,
+        "ambiguous": false,
+        "mem_count": 7605
+      },
+      {
+        "word": "sunshine",
+        "set": "hold",
+        "max_sim_other": 0.5748635530471802,
+        "novelty": 0.4251364469528198,
+        "gate_create": false,
+        "gate_stabilize": false,
+        "ambiguous": true,
+        "mem_count": 7530
+      },
+      {
+        "word": "notebook",
+        "set": "hold",
+        "max_sim_other": 0.6034435629844666,
+        "novelty": 0.39655643701553345,
+        "gate_create": false,
+        "gate_stabilize": false,
+        "ambiguous": true,
+        "mem_count": 7404
+      },
+      {
+        "word": "slowly",
+        "set": "hold",
+        "max_sim_other": 0.9573814272880554,
+        "novelty": 0.04261857271194458,
+        "gate_create": false,
+        "gate_stabilize": true,
+        "ambiguous": false,
+        "mem_count": 7332
+      },
+      {
+        "word": "quickly",
+        "set": "hold",
+        "max_sim_other": 0.9209155440330505,
+        "novelty": 0.07908445596694946,
+        "gate_create": false,
+        "gate_stabilize": true,
+        "ambiguous": false,
+        "mem_count": 7335
+      },
+      {
+        "word": "friendship",
+        "set": "hold",
+        "max_sim_other": 0.8020801544189453,
+        "novelty": 0.1979198455810547,
+        "gate_create": false,
+        "gate_stabilize": true,
+        "ambiguous": false,
+        "mem_count": 7371
+      }
+    ],
+    "verdict": "implement curiosity gate next train — always-EMA overwrites (~7412 updates/HOLD word); novelty signal mid but selectivity still needed"
+  },
+  "hierarchical": {
+    "levels": {
+      "letter": {
+        "status": "frozen",
+        "evidence": "alphabet_full_frozen.pt",
+        "ready": true
+      },
+      "subword": {
+        "status": "partial",
+        "ing_intra": 0.4034048318862915,
+        "s_intra": 0.0748591497540474,
+        "ready": true,
+        "note": "seed soft -ing only; unsupervised -s mixed; no full subword layer yet"
+      },
+      "word": {
+        "status": "soft memory (7.8c)",
+        "ready": true,
+        "note": "create+EMA works; freeze only after cold-OOV ok"
+      },
+      "phrase": {
+        "status": "not ready",
+        "compound_mean_part_cos": 0.36028666980564594,
+        "ready": false,
+        "note": "compounds not additive; need word contract first"
+      }
+    },
+    "verdict": "letter OK → soft subword(-ing) only → word soft → phrase later"
+  },
+  "context_shift": {
+    "curves": [
+      {
+        "alpha": 0.0,
+        "mean_self_cos": 1.0000000399477937,
+        "mean_min_trace_delta": -1.5852299142391123e-10
+      },
+      {
+        "alpha": 0.1,
+        "mean_self_cos": 0.9951949373204657,
+        "mean_min_trace_delta": 0.0017518674201787785
+      },
+      {
+        "alpha": 0.25,
+        "mean_self_cos": 0.9710673518637394,
+        "mean_min_trace_delta": -0.004553974942958101
+      },
+      {
+        "alpha": 0.5,
+        "mean_self_cos": 0.8951369777638861,
+        "mean_min_trace_delta": -0.021747725807685168
+      }
+    ],
+    "max_safe_alpha": 0.25,
+    "verdict": "allow weak context alpha<=0.25"
+  }
+}

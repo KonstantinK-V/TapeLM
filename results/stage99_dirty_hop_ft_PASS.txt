@@ -1,0 +1,26 @@
+SOTE Stage 99 — dirty-hop FT (F85 DirtyWhatRefine + Hop2@256)
+timestamp: 2026-07-24T19:58:16.708806+00:00
+device: cuda
+foundation: stage85_foundation.pt dim=256
+bank: external_facts_live_exp_FROZEN.txt n=818
+FT steps=4000 lr=0.001 dirty_mix=0.6 best_step=4000
+Atom frozen (Stage98). NO TinyStories retrain. NO soft@5.
+
+=== Ceiling note (atom / data) ===
+  TinyStories-mini + fat repeats is small; SEEN~40% obj / STORY~10% may be near
+  soft ceiling for next-atom on this budget (same cliff as hyp BPE). Dirty hops are
+  a binder/FT problem on the 818-fact graph — not limited by TinyStories size the same way.
+
+=== Hops 2 ===
+  ZS    clean=94.8% dirty_bind=94.8% dirty_hard=88.5%
+  FT    clean=95.8% (H1=99.0% H2=96.9%)
+        dirty_bind=95.8% (H1=99.0% H2=96.9%)
+        dirty_hard=91.7% (H1=94.8% H2=92.7%)
+
+  ref Stage97 CueBinder-only: clean=95% dirty_bind=17% dirty_hard=19%
+  ref Stage64 V1 dirty FT: clean=84% dirty_bind=86% dirty_hard=78%
+
+=== Gates (V1 Stage64 soft) ===
+  dirty_bind>=55% OR within 25pp of clean; dirty_hard>=50%; clean>=70%
+
+=== Verdict: PASS ===

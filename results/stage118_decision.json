@@ -1,0 +1,54 @@
+{
+  "timestamp": "2026-07-25T11:33:58.995986+00:00",
+  "branch": "inert_aggressive",
+  "prior_117": {
+    "a": "PARITY",
+    "b": "PARITY"
+  },
+  "stage118a": {
+    "verdict": "PARITY",
+    "tag": "hop_conflict_rerank",
+    "mode": "conflict",
+    "seen": {
+      "obj": 0.395,
+      "obj_hop": 0.41722408026755853,
+      "rel": 0.8866666666666667
+    },
+    "story": {
+      "all": 0.1527777777777778
+    },
+    "obj_lift_pp": -0.008775919732441462,
+    "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage118_hop_conflict_rerank.pt"
+  },
+  "stage118b": {
+    "verdict": "PARITY",
+    "tag": "hop_hard_mask",
+    "mode": "hard_mask",
+    "seen": {
+      "obj": 0.24833333333333332,
+      "obj_hop": 0.4222408026755853,
+      "rel": 0.9575
+    },
+    "story": {
+      "all": 0.17086988304093567
+    },
+    "obj_lift_pp": -0.0037591973244147092,
+    "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage118_hop_hard_mask.pt"
+  },
+  "stage118c": {
+    "verdict": "PARITY",
+    "tag": "phrase_mix_bank",
+    "mode": "phrase_mix",
+    "seen": {
+      "obj": 0.4091666666666667,
+      "obj_hop": 0.4091666666666667,
+      "rel": 0.9483333333333334
+    },
+    "story": {
+      "all": 0.1684941520467836
+    },
+    "obj_lift_pp": -0.01683333333333331,
+    "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage118_phrase_mix_bank.pt"
+  },
+  "note": "118a=hop only when top1-top2 gap<\u03c4; 118b=hard mask to hop set on right; 118c=mix fact-bank phrases into CE next-word"
+}

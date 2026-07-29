@@ -1,0 +1,23 @@
+SOTE Stage 64 report (dirty hop stress on expanded LIVE bank)
+timestamp: 2026-07-24T11:55:21.866706+00:00
+device: cuda
+bank: data\external_facts_live_exp_FROZEN.txt  binders_seed=272
+facts=818 pairs=11570 triples=163589
+gates: dirty_bind≥55% OR within 25pp of clean; dirty_hard≥50%; clean hop2≥70% hop3≥70%
+
+=== Hop2 (n_eps=96) ===
+  clean_bind  joint=84.4%  H1=88.5%  H2=89.6%
+  dirty_bind  joint=86.5%  Δclean=+2.1pp
+  dirty_hard  joint=78.1%  Δclean=-6.2pp
+
+=== Hop3 (n_eps=96) ===
+  clean_bind  joint3=92.7%  H1=100.0%
+  dirty_bind  joint3=92.7%  Δclean=+0.0pp
+  dirty_hard  joint3=91.7%  Δclean=-1.0pp
+  strata_clean={'hub1': {'n': 0, 'joint3': 0.0}, 'hub2': {'n': 0, 'joint3': 0.0}, 'hub3p': {'n': 96, 'joint3': 0.927}}
+
+=== Walls: none ===
+
+=== Verdict ===
+  PASS full dirty: hop2/3 dirty_bind+hard green (db2=86% dh2=78% db3=93% dh3=92%). Freeze dirty claim; true-neg dig optional next.
+  No FT. No verb_ing. No true-neg / NLI. Freeze 62/63 bank unchanged.

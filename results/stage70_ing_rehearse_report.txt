@@ -1,0 +1,7 @@
+SOTE Stage 70 report (ing-atom + rehearsal protect)
+timestamp: 2026-07-24T12:50:52.184962+00:00
+steps≤2000 rehearse_frac=0.45 protect≤5pp
+ZS vi L2=8.3%/+0.5pp n=217
+best step=1600 vi L2=23.5%/+10.6pp protect=True
+noun_rel 26.9% (ΔZS=+2.3pp)  polarity 32.9% (ΔZS=+2.4pp)
+=== Verdict: PARTIAL lift ===

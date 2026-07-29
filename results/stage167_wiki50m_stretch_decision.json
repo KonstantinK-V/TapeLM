@@ -1,0 +1,6 @@
+﻿{
+    "upstream_166_verdict":  "STILL_REDUNDANT",
+    "verdict":  "ABORTED_USER",
+    "timestamp":  "2026-07-26T21:38:11.6029112Z",
+    "note":  "User cancelled stretch: further CE/width/depth/500k soak low-EV for understanding; 166 already STILL_REDUNDANT"
+}

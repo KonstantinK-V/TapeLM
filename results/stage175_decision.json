@@ -1,0 +1,39 @@
+{
+  "timestamp": "2026-07-28T13:54:39.392226+00:00",
+  "protocol": "attn_pen_context_gate_175",
+  "overall": "ATTN_PEN_CONTEXT_NULL",
+  "early_stop": true,
+  "reason": "A_same stayed ~0.99 through 6k steps; Transformer capacity alone does not fix suffix wipe under Delta-only loss",
+  "steps_observed": 6000,
+  "arch": {
+    "pen": "causal_transformer",
+    "d": 96,
+    "layers": 2,
+    "heads": 4
+  },
+  "A_trajectory": [
+    {
+      "step": 0,
+      "same": 0.989,
+      "diff": 0.541
+    },
+    {
+      "step": 2000,
+      "same": 0.999,
+      "diff": 0.712
+    },
+    {
+      "step": 4000,
+      "same": 0.994,
+      "diff": 0.726
+    },
+    {
+      "step": 6000,
+      "same": 0.992,
+      "diff": 0.71
+    }
+  ],
+  "B": null,
+  "reading": "Causal Transformer pen CAN attend to prefix, but Delta/next-z training makes it behave like a local script model; endpoint z collapses across same-suffix pairs (cos~1), same failure mode as GRU for context gate A.",
+  "next": "Do not deepen attn blindly. Add an explicit context-retention objective on the pen (e.g. same-suffix different-prefix: push z_end apart; or info bottleneck / contrastive prefix id) THEN re-gate A/B. Architecture without that objective is not enough."
+}

@@ -1,0 +1,10 @@
+SOTE Stage 35b plan — left/instance on same_tail H1
+
+Parent: stage35a_h1_cue.pt / what_tail
+Dig: results/stage35a_hub2_h1_dig.txt
+
+When |same_tail|>1 among hop1 cands:
+  1) prefer chain-source (not forward_link target)
+  2) rank by left-ink sim(bound, phrase_fp * left_fp)
+
+Ablate: no_instance vs left_instance (both what_tail).

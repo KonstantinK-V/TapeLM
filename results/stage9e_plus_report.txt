@@ -1,0 +1,45 @@
+SOTE Stage 9e+ report (hybrid + letter peel + -s)
+timestamp: 2026-07-22T21:36:29.879317+00:00
+device: cuda
+steps: 4000
+word ckpt: word_memory_9_2.pt
+TRAIN=38 HOLD=12 affixes=['ing', 'ed', 's']
+basin sims: {'ing_ed': -0.004376709461212158, 'ing_s': -0.008271042257547379, 'ed_s': -0.006517369300127029}
+
+=== HOLD ===
+realize: op 100% naive 100% agree 0.998
+  affix m +0.524 win 100% | shuffle m +0.225 win 75%
+  ing: op 100% naive 100% aff_m +0.473 shuf_m +0.143
+   ed: op 100% naive 100% aff_m +0.630 shuf_m +0.398
+    s: op 100% naive 100% aff_m +0.469 shuf_m +0.134
+peel: letter 100% | fp 8% | sub 75% | peel-aff win 75% (m +0.072)
+cycle: reapply 50% repeel 8%
+
+=== TRAIN ===
+realize: op 100% naive 100% agree 0.998
+  affix m +0.440 win 100% | shuffle m +0.281 win 76%
+  ing: op 100% naive 100% aff_m +0.453 shuf_m +0.284
+   ed: op 100% naive 100% aff_m +0.457 shuf_m +0.372
+    s: op 100% naive 100% aff_m +0.414 shuf_m +0.214
+peel: letter 100% | fp 100% | sub 89% | peel-aff win 100% (m +0.706)
+cycle: reapply 100% repeel 100%
+
+HOLD per-stem realize / peel:
+  [OK] jump+ing -> jumping aff_m=+0.396 shuf_m=+0.040 | peel_let=Y/jump peel_fp=N/cat
+  [OK] walk+ing -> walking aff_m=+0.420 shuf_m=+0.084 | peel_let=Y/walk peel_fp=N/play
+  [OK] read+ing -> reading aff_m=+0.455 shuf_m=+0.242 | peel_let=Y/read peel_fp=Y/read
+  [OK] write+ing -> writing aff_m=+0.621 shuf_m=+0.204 | peel_let=Y/write peel_fp=N/cat
+  [OK] jump+ed -> jumped aff_m=+0.731 shuf_m=+0.326 | peel_let=Y/jump peel_fp=N/fish
+  [OK] walk+ed -> walked aff_m=+0.513 shuf_m=+0.395 | peel_let=Y/walk peel_fp=N/play
+  [OK] read+ed -> readed aff_m=+0.730 shuf_m=+0.422 | peel_let=Y/read peel_fp=N/take
+  [OK] write+ed -> writed aff_m=+0.546 shuf_m=+0.448 | peel_let=Y/write peel_fp=N/cat
+  [OK] jump+s -> jumps aff_m=+0.416 shuf_m=+0.000 | peel_let=Y/jump peel_fp=N/cat
+  [OK] walk+s -> walks aff_m=+0.419 shuf_m=+0.000 | peel_let=Y/walk peel_fp=N/cat
+  [OK] read+s -> reads aff_m=+0.434 shuf_m=+0.000 | peel_let=Y/read peel_fp=N/spot
+  [OK] write+s -> writes aff_m=+0.607 shuf_m=+0.534 | peel_let=Y/write peel_fp=N/take
+
+=== Auto verdict ===
+  [realize] 100% vs naive 100%
+  [margins] affix win 100% m=+0.524; shuf win 75% m=+0.225
+  [peel] letter 100% / fp 8% / sub 75% (mini fp was ~25%)
+  [overall] Partial: margins good, letter peel improved, check weak affixes.

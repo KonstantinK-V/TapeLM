@@ -1,0 +1,1083 @@
+{
+  "pass": true,
+  "best_seed": 272,
+  "seeds": [
+    {
+      "seed": 272,
+      "ok": true,
+      "bind_joint": 0.55,
+      "clean_joint": 0.5125,
+      "raw_joint": 0.15,
+      "lift": 0.4,
+      "drop": -0.03750000000000009,
+      "hold": {
+        "n": 80,
+        "n_pairs": 24,
+        "samples": [
+          {
+            "a": "dog to cob",
+            "b": "cob on rim",
+            "which": "first",
+            "clean_bind_j": true,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_probe_j": false,
+            "dirty_probe_1": false,
+            "dirty_bind_j": true,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "cob->ob[drop]"
+          },
+          {
+            "a": "bird to peg",
+            "b": "peg on rim",
+            "which": "second",
+            "clean_bind_j": true,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_probe_j": false,
+            "dirty_probe_1": false,
+            "dirty_bind_j": true,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "to->ot[swap]"
+          },
+          {
+            "a": "bird to peg",
+            "b": "peg on rim",
+            "which": "first",
+            "clean_bind_j": false,
+            "clean_bind_1": false,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_probe_j": false,
+            "dirty_probe_1": false,
+            "dirty_bind_j": false,
+            "dirty_bind_1": false,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": false,
+            "dirty_ex": "peg->pge[swap]"
+          },
+          {
+            "a": "go to cob",
+            "b": "cob on zip",
+            "which": "second",
+            "clean_bind_j": true,
+            "clean_bind_1": true,
+            "dirty_raw_j": true,
+            "dirty_raw_1": true,
+            "dirty_probe_j": true,
+            "dirty_probe_1": true,
+            "dirty_bind_j": true,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "to->ot[swap]"
+          },
+          {
+            "a": "washed to zip",
+            "b": "zip on yap",
+            "which": "first",
+            "clean_bind_j": true,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_probe_j": true,
+            "dirty_probe_1": true,
+            "dirty_bind_j": true,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": true,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "zip->zpi[swap]"
+          },
+          {
+            "a": "pushes to web",
+            "b": "web on cob",
+            "which": "second",
+            "clean_bind_j": false,
+            "clean_bind_1": false,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_probe_j": false,
+            "dirty_probe_1": true,
+            "dirty_bind_j": false,
+            "dirty_bind_1": false,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": false,
+            "dirty_ex": "to->ot[swap]"
+          },
+          {
+            "a": "ball to zip",
+            "b": "zip on cob",
+            "which": "first",
+            "clean_bind_j": false,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_probe_j": false,
+            "dirty_probe_1": true,
+            "dirty_bind_j": false,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "zip->zpi[swap]"
+          },
+          {
+            "a": "washed to zip",
+            "b": "zip on yap",
+            "which": "second",
+            "clean_bind_j": true,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": true,
+            "dirty_probe_j": false,
+            "dirty_probe_1": false,
+            "dirty_bind_j": true,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": true,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "to->tk[sub]"
+          }
+        ],
+        "modes": {
+          "clean_bind": {
+            "hop1": 0.7375,
+            "hop2": 0.6375,
+            "joint": 0.5125,
+            "mean_depth": 7.95
+          },
+          "dirty_raw": {
+            "hop1": 0.2625,
+            "hop2": 0.3875,
+            "joint": 0.15,
+            "mean_depth": 5.7875
+          },
+          "dirty_probe": {
+            "hop1": 0.5375,
+            "hop2": 0.6,
+            "joint": 0.3625,
+            "mean_depth": 12.85
+          },
+          "dirty_bind": {
+            "hop1": 0.775,
+            "hop2": 0.65,
+            "joint": 0.55,
+            "mean_depth": 8.9625
+          },
+          "dirty_both_bind": {
+            "hop1": 0.775,
+            "hop2": 0.3875,
+            "joint": 0.3,
+            "mean_depth": 9.9625
+          }
+        },
+        "by_kind": {
+          "drop": 0.6666666666666666,
+          "swap": 0.5151515151515151,
+          "trunc": 0.46153846153846156,
+          "sub": 0.5625
+        }
+      },
+      "train": {
+        "n": 48,
+        "n_pairs": 20,
+        "samples": [
+          {
+            "a": "rock to cap",
+            "b": "cap on bin",
+            "which": "first",
+            "clean_bind_j": false,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": true,
+            "dirty_probe_j": false,
+            "dirty_probe_1": true,
+            "dirty_bind_j": false,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": true,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "cap->ap[drop]"
+          },
+          {
+            "a": "moving to bin",
+            "b": "bin on box",
+            "which": "second",
+            "clean_bind_j": false,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_probe_j": false,
+            "dirty_probe_1": false,
+            "dirty_bind_j": false,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "to->ot[swap]"
+          },
+          {
+            "a": "dog to box",
+            "b": "box on lid",
+            "which": "first",
+            "clean_bind_j": true,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": true,
+            "dirty_probe_j": true,
+            "dirty_probe_1": true,
+            "dirty_bind_j": true,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": true,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "box->bxo[swap]"
+          },
+          {
+            "a": "bird to mat",
+            "b": "mat on cap",
+            "which": "second",
+            "clean_bind_j": true,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_probe_j": false,
+            "dirty_probe_1": false,
+            "dirty_bind_j": true,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "to->ot[swap]"
+          },
+          {
+            "a": "talking to pad",
+            "b": "pad on log",
+            "which": "first",
+            "clean_bind_j": true,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_probe_j": true,
+            "dirty_probe_1": true,
+            "dirty_bind_j": true,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": true,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "pad->pda[swap]"
+          },
+          {
+            "a": "moving to bin",
+            "b": "bin on box",
+            "which": "second",
+            "clean_bind_j": true,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_probe_j": false,
+            "dirty_probe_1": false,
+            "dirty_bind_j": true,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "to->ot[swap]"
+          },
+          {
+            "a": "ship to pen",
+            "b": "pen on bag",
+            "which": "first",
+            "clean_bind_j": true,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_probe_j": false,
+            "dirty_probe_1": false,
+            "dirty_bind_j": true,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "pen->pne[swap]"
+          },
+          {
+            "a": "ball to pen",
+            "b": "pen on pad",
+            "which": "second",
+            "clean_bind_j": false,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": true,
+            "dirty_probe_j": false,
+            "dirty_probe_1": true,
+            "dirty_bind_j": false,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "to->tk[sub]"
+          }
+        ],
+        "modes": {
+          "clean_bind": {
+            "hop1": 0.875,
+            "hop2": 0.8125,
+            "joint": 0.7291666666666666,
+            "mean_depth": 7.9375
+          },
+          "dirty_raw": {
+            "hop1": 0.22916666666666666,
+            "hop2": 0.5,
+            "joint": 0.08333333333333333,
+            "mean_depth": 5.625
+          },
+          "dirty_probe": {
+            "hop1": 0.4375,
+            "hop2": 0.6666666666666666,
+            "joint": 0.3333333333333333,
+            "mean_depth": 12.895833333333334
+          },
+          "dirty_bind": {
+            "hop1": 0.7708333333333334,
+            "hop2": 0.7916666666666666,
+            "joint": 0.625,
+            "mean_depth": 8.958333333333334
+          },
+          "dirty_both_bind": {
+            "hop1": 0.7708333333333334,
+            "hop2": 0.4791666666666667,
+            "joint": 0.3958333333333333,
+            "mean_depth": 9.9375
+          }
+        },
+        "by_kind": {
+          "drop": 0.36363636363636365,
+          "swap": 0.9090909090909091,
+          "trunc": 0.42857142857142855,
+          "sub": 0.375
+        }
+      }
+    },
+    {
+      "seed": 273,
+      "ok": true,
+      "bind_joint": 0.55,
+      "clean_joint": 0.525,
+      "raw_joint": 0.15,
+      "lift": 0.4,
+      "drop": -0.025000000000000022,
+      "hold": {
+        "n": 80,
+        "n_pairs": 24,
+        "samples": [
+          {
+            "a": "dog to cob",
+            "b": "cob on rim",
+            "which": "first",
+            "clean_bind_j": true,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_probe_j": false,
+            "dirty_probe_1": false,
+            "dirty_bind_j": true,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "cob->ob[drop]"
+          },
+          {
+            "a": "bird to peg",
+            "b": "peg on rim",
+            "which": "second",
+            "clean_bind_j": true,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_probe_j": false,
+            "dirty_probe_1": false,
+            "dirty_bind_j": true,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "to->ot[swap]"
+          },
+          {
+            "a": "bird to peg",
+            "b": "peg on rim",
+            "which": "first",
+            "clean_bind_j": false,
+            "clean_bind_1": false,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_probe_j": false,
+            "dirty_probe_1": false,
+            "dirty_bind_j": false,
+            "dirty_bind_1": false,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": false,
+            "dirty_ex": "peg->pge[swap]"
+          },
+          {
+            "a": "go to cob",
+            "b": "cob on zip",
+            "which": "second",
+            "clean_bind_j": true,
+            "clean_bind_1": true,
+            "dirty_raw_j": true,
+            "dirty_raw_1": true,
+            "dirty_probe_j": true,
+            "dirty_probe_1": true,
+            "dirty_bind_j": true,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "to->ot[swap]"
+          },
+          {
+            "a": "washed to zip",
+            "b": "zip on yap",
+            "which": "first",
+            "clean_bind_j": true,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_probe_j": true,
+            "dirty_probe_1": true,
+            "dirty_bind_j": true,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": true,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "zip->zpi[swap]"
+          },
+          {
+            "a": "pushes to web",
+            "b": "web on cob",
+            "which": "second",
+            "clean_bind_j": false,
+            "clean_bind_1": false,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_probe_j": false,
+            "dirty_probe_1": true,
+            "dirty_bind_j": false,
+            "dirty_bind_1": false,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": false,
+            "dirty_ex": "to->ot[swap]"
+          },
+          {
+            "a": "ball to zip",
+            "b": "zip on cob",
+            "which": "first",
+            "clean_bind_j": false,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_probe_j": false,
+            "dirty_probe_1": true,
+            "dirty_bind_j": false,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "zip->zpi[swap]"
+          },
+          {
+            "a": "washed to zip",
+            "b": "zip on yap",
+            "which": "second",
+            "clean_bind_j": true,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": true,
+            "dirty_probe_j": false,
+            "dirty_probe_1": false,
+            "dirty_bind_j": true,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": true,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "to->tk[sub]"
+          }
+        ],
+        "modes": {
+          "clean_bind": {
+            "hop1": 0.75,
+            "hop2": 0.625,
+            "joint": 0.525,
+            "mean_depth": 7.9625
+          },
+          "dirty_raw": {
+            "hop1": 0.2625,
+            "hop2": 0.3875,
+            "joint": 0.15,
+            "mean_depth": 5.7875
+          },
+          "dirty_probe": {
+            "hop1": 0.5375,
+            "hop2": 0.6,
+            "joint": 0.3625,
+            "mean_depth": 12.85
+          },
+          "dirty_bind": {
+            "hop1": 0.775,
+            "hop2": 0.6375,
+            "joint": 0.55,
+            "mean_depth": 8.975
+          },
+          "dirty_both_bind": {
+            "hop1": 0.775,
+            "hop2": 0.375,
+            "joint": 0.2875,
+            "mean_depth": 9.975
+          }
+        },
+        "by_kind": {
+          "drop": 0.6666666666666666,
+          "swap": 0.5151515151515151,
+          "trunc": 0.46153846153846156,
+          "sub": 0.5625
+        }
+      },
+      "train": {
+        "n": 48,
+        "n_pairs": 20,
+        "samples": [
+          {
+            "a": "rock to cap",
+            "b": "cap on bin",
+            "which": "first",
+            "clean_bind_j": false,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": true,
+            "dirty_probe_j": false,
+            "dirty_probe_1": true,
+            "dirty_bind_j": false,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": true,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "cap->ap[drop]"
+          },
+          {
+            "a": "moving to bin",
+            "b": "bin on box",
+            "which": "second",
+            "clean_bind_j": false,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_probe_j": false,
+            "dirty_probe_1": false,
+            "dirty_bind_j": false,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "to->ot[swap]"
+          },
+          {
+            "a": "dog to box",
+            "b": "box on lid",
+            "which": "first",
+            "clean_bind_j": true,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": true,
+            "dirty_probe_j": true,
+            "dirty_probe_1": true,
+            "dirty_bind_j": true,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": true,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "box->bxo[swap]"
+          },
+          {
+            "a": "bird to mat",
+            "b": "mat on cap",
+            "which": "second",
+            "clean_bind_j": true,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_probe_j": false,
+            "dirty_probe_1": false,
+            "dirty_bind_j": true,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "to->ot[swap]"
+          },
+          {
+            "a": "talking to pad",
+            "b": "pad on log",
+            "which": "first",
+            "clean_bind_j": true,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_probe_j": true,
+            "dirty_probe_1": true,
+            "dirty_bind_j": true,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": true,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "pad->pda[swap]"
+          },
+          {
+            "a": "moving to bin",
+            "b": "bin on box",
+            "which": "second",
+            "clean_bind_j": true,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_probe_j": false,
+            "dirty_probe_1": false,
+            "dirty_bind_j": true,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "to->ot[swap]"
+          },
+          {
+            "a": "ship to pen",
+            "b": "pen on bag",
+            "which": "first",
+            "clean_bind_j": true,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_probe_j": false,
+            "dirty_probe_1": false,
+            "dirty_bind_j": true,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "pen->pne[swap]"
+          },
+          {
+            "a": "ball to pen",
+            "b": "pen on pad",
+            "which": "second",
+            "clean_bind_j": false,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": true,
+            "dirty_probe_j": false,
+            "dirty_probe_1": true,
+            "dirty_bind_j": false,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "to->tk[sub]"
+          }
+        ],
+        "modes": {
+          "clean_bind": {
+            "hop1": 0.8958333333333334,
+            "hop2": 0.8333333333333334,
+            "joint": 0.7291666666666666,
+            "mean_depth": 7.9375
+          },
+          "dirty_raw": {
+            "hop1": 0.22916666666666666,
+            "hop2": 0.5,
+            "joint": 0.08333333333333333,
+            "mean_depth": 5.625
+          },
+          "dirty_probe": {
+            "hop1": 0.4375,
+            "hop2": 0.6666666666666666,
+            "joint": 0.3333333333333333,
+            "mean_depth": 12.895833333333334
+          },
+          "dirty_bind": {
+            "hop1": 0.7708333333333334,
+            "hop2": 0.8125,
+            "joint": 0.625,
+            "mean_depth": 8.9375
+          },
+          "dirty_both_bind": {
+            "hop1": 0.7708333333333334,
+            "hop2": 0.5,
+            "joint": 0.3958333333333333,
+            "mean_depth": 9.916666666666666
+          }
+        },
+        "by_kind": {
+          "drop": 0.36363636363636365,
+          "swap": 0.9090909090909091,
+          "trunc": 0.42857142857142855,
+          "sub": 0.375
+        }
+      }
+    },
+    {
+      "seed": 274,
+      "ok": true,
+      "bind_joint": 0.55,
+      "clean_joint": 0.5125,
+      "raw_joint": 0.15,
+      "lift": 0.4,
+      "drop": -0.03750000000000009,
+      "hold": {
+        "n": 80,
+        "n_pairs": 24,
+        "samples": [
+          {
+            "a": "dog to cob",
+            "b": "cob on rim",
+            "which": "first",
+            "clean_bind_j": true,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_probe_j": false,
+            "dirty_probe_1": false,
+            "dirty_bind_j": true,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "cob->ob[drop]"
+          },
+          {
+            "a": "bird to peg",
+            "b": "peg on rim",
+            "which": "second",
+            "clean_bind_j": true,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_probe_j": false,
+            "dirty_probe_1": false,
+            "dirty_bind_j": true,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "to->ot[swap]"
+          },
+          {
+            "a": "bird to peg",
+            "b": "peg on rim",
+            "which": "first",
+            "clean_bind_j": false,
+            "clean_bind_1": false,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_probe_j": false,
+            "dirty_probe_1": false,
+            "dirty_bind_j": false,
+            "dirty_bind_1": false,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": false,
+            "dirty_ex": "peg->pge[swap]"
+          },
+          {
+            "a": "go to cob",
+            "b": "cob on zip",
+            "which": "second",
+            "clean_bind_j": true,
+            "clean_bind_1": true,
+            "dirty_raw_j": true,
+            "dirty_raw_1": true,
+            "dirty_probe_j": true,
+            "dirty_probe_1": true,
+            "dirty_bind_j": true,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "to->ot[swap]"
+          },
+          {
+            "a": "washed to zip",
+            "b": "zip on yap",
+            "which": "first",
+            "clean_bind_j": true,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_probe_j": true,
+            "dirty_probe_1": true,
+            "dirty_bind_j": true,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": true,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "zip->zpi[swap]"
+          },
+          {
+            "a": "pushes to web",
+            "b": "web on cob",
+            "which": "second",
+            "clean_bind_j": false,
+            "clean_bind_1": false,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_probe_j": false,
+            "dirty_probe_1": true,
+            "dirty_bind_j": false,
+            "dirty_bind_1": false,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": false,
+            "dirty_ex": "to->ot[swap]"
+          },
+          {
+            "a": "ball to zip",
+            "b": "zip on cob",
+            "which": "first",
+            "clean_bind_j": false,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_probe_j": false,
+            "dirty_probe_1": true,
+            "dirty_bind_j": false,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "zip->zpi[swap]"
+          },
+          {
+            "a": "washed to zip",
+            "b": "zip on yap",
+            "which": "second",
+            "clean_bind_j": true,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": true,
+            "dirty_probe_j": false,
+            "dirty_probe_1": false,
+            "dirty_bind_j": true,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": true,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "to->tk[sub]"
+          }
+        ],
+        "modes": {
+          "clean_bind": {
+            "hop1": 0.7375,
+            "hop2": 0.6125,
+            "joint": 0.5125,
+            "mean_depth": 7.975
+          },
+          "dirty_raw": {
+            "hop1": 0.2625,
+            "hop2": 0.3875,
+            "joint": 0.15,
+            "mean_depth": 5.7875
+          },
+          "dirty_probe": {
+            "hop1": 0.5375,
+            "hop2": 0.6,
+            "joint": 0.3625,
+            "mean_depth": 12.85
+          },
+          "dirty_bind": {
+            "hop1": 0.775,
+            "hop2": 0.6375,
+            "joint": 0.55,
+            "mean_depth": 8.975
+          },
+          "dirty_both_bind": {
+            "hop1": 0.775,
+            "hop2": 0.375,
+            "joint": 0.2875,
+            "mean_depth": 9.975
+          }
+        },
+        "by_kind": {
+          "drop": 0.6666666666666666,
+          "swap": 0.5151515151515151,
+          "trunc": 0.46153846153846156,
+          "sub": 0.5625
+        }
+      },
+      "train": {
+        "n": 48,
+        "n_pairs": 20,
+        "samples": [
+          {
+            "a": "rock to cap",
+            "b": "cap on bin",
+            "which": "first",
+            "clean_bind_j": false,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": true,
+            "dirty_probe_j": false,
+            "dirty_probe_1": true,
+            "dirty_bind_j": false,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": true,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "cap->ap[drop]"
+          },
+          {
+            "a": "moving to bin",
+            "b": "bin on box",
+            "which": "second",
+            "clean_bind_j": false,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_probe_j": false,
+            "dirty_probe_1": false,
+            "dirty_bind_j": false,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "to->ot[swap]"
+          },
+          {
+            "a": "dog to box",
+            "b": "box on lid",
+            "which": "first",
+            "clean_bind_j": true,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": true,
+            "dirty_probe_j": true,
+            "dirty_probe_1": true,
+            "dirty_bind_j": true,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": true,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "box->bxo[swap]"
+          },
+          {
+            "a": "bird to mat",
+            "b": "mat on cap",
+            "which": "second",
+            "clean_bind_j": true,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_probe_j": false,
+            "dirty_probe_1": false,
+            "dirty_bind_j": true,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "to->ot[swap]"
+          },
+          {
+            "a": "talking to pad",
+            "b": "pad on log",
+            "which": "first",
+            "clean_bind_j": true,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_probe_j": true,
+            "dirty_probe_1": true,
+            "dirty_bind_j": true,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": true,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "pad->pda[swap]"
+          },
+          {
+            "a": "moving to bin",
+            "b": "bin on box",
+            "which": "second",
+            "clean_bind_j": true,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_probe_j": false,
+            "dirty_probe_1": false,
+            "dirty_bind_j": true,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "to->ot[swap]"
+          },
+          {
+            "a": "ship to pen",
+            "b": "pen on bag",
+            "which": "first",
+            "clean_bind_j": true,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": false,
+            "dirty_probe_j": false,
+            "dirty_probe_1": false,
+            "dirty_bind_j": true,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "pen->pne[swap]"
+          },
+          {
+            "a": "ball to pen",
+            "b": "pen on pad",
+            "which": "second",
+            "clean_bind_j": false,
+            "clean_bind_1": true,
+            "dirty_raw_j": false,
+            "dirty_raw_1": true,
+            "dirty_probe_j": false,
+            "dirty_probe_1": true,
+            "dirty_bind_j": false,
+            "dirty_bind_1": true,
+            "dirty_both_bind_j": false,
+            "dirty_both_bind_1": true,
+            "dirty_ex": "to->tk[sub]"
+          }
+        ],
+        "modes": {
+          "clean_bind": {
+            "hop1": 0.8958333333333334,
+            "hop2": 0.8333333333333334,
+            "joint": 0.7291666666666666,
+            "mean_depth": 7.9375
+          },
+          "dirty_raw": {
+            "hop1": 0.22916666666666666,
+            "hop2": 0.5,
+            "joint": 0.08333333333333333,
+            "mean_depth": 5.625
+          },
+          "dirty_probe": {
+            "hop1": 0.4375,
+            "hop2": 0.6666666666666666,
+            "joint": 0.3333333333333333,
+            "mean_depth": 12.895833333333334
+          },
+          "dirty_bind": {
+            "hop1": 0.7708333333333334,
+            "hop2": 0.8125,
+            "joint": 0.625,
+            "mean_depth": 8.916666666666666
+          },
+          "dirty_both_bind": {
+            "hop1": 0.7708333333333334,
+            "hop2": 0.5208333333333334,
+            "joint": 0.3958333333333333,
+            "mean_depth": 9.895833333333334
+          }
+        },
+        "by_kind": {
+          "drop": 0.36363636363636365,
+          "swap": 0.9090909090909091,
+          "trunc": 0.42857142857142855,
+          "sub": 0.375
+        }
+      }
+    }
+  ],
+  "config": {
+    "dim": 64,
+    "seed": 272,
+    "episode_k": 3,
+    "n_hold_episodes": 80,
+    "n_train_episodes": 48,
+    "create_below": 0.55,
+    "stabilize_lo": 0.55,
+    "lock_above": 0.92,
+    "ema": 0.85,
+    "retrieve_margin": 0.05,
+    "max_phrase_len": 5,
+    "max_word_len": 11,
+    "dirty_joint_min": 0.3,
+    "dirty_lift_vs_raw_pp": 0.1,
+    "dirty_drop_vs_clean_max": 0.2,
+    "pass_seeds_min": 2
+  }
+}

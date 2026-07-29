@@ -1,0 +1,20 @@
+SOTE Stage 104 — fat_dense400
+timestamp: 2026-07-24T22:24:55.596405+00:00
+device: cuda
+foundation: stage85_foundation_FROZEN.pt
+n_phrases=460421 V=7063 params=3392000
+arch: d=256 L=2 H=4
+train: batch=8 steps=60000 warmup=200 lr=0.001 fat_frac=0.85
+mix: {'n_story_train': 162068, 'n_story_hold': 22100, 'n_fat_triples': 400, 'fat_copies': 60, 'n_train': 181268, 'n_hold_seen': 4800, 'n_hold_rare': 160, 'n_path_triples_avail': 30196}
+NO soft@5. F85 FROZEN not overwritten.
+
+=== Final ===
+  best_step=60000
+  SEEN  obj=33.2% rel=90.2% ALL=61.8%
+  RARE  obj=11.2%
+  STORY ALL=20.0% obj=18.5%
+
+=== vs ref {'obj': 0.4066666666666667, 'rel': 0.9708333333333333, 'story_all': 0.20646221248630886, 'rare_obj': 0.138} ===
+  STORY lift -0.7pp  seen_held=True
+
+=== Verdict: CEILING ===

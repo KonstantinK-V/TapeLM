@@ -1,0 +1,32 @@
+SOTE Stage 11+ diag (morph-swap under phrase memory)
+timestamp: 2026-07-23T10:34:00.316788+00:00
+device: cuda
+ckpt: phrase_memory_11.pt
+HOLD phrases=16 morph-tested=10
+fewshot=5 delta=0.05 soft_margin=0.05
+
+Core (memory stickiness):
+  moved_off vs mem[old]:     100%  (mean_drop=+0.446)
+  unstick w/ distractors:    30%  (sticky=70%, mean_sim=0.566)
+  prefer_new retrieve:       100%
+  prefer_new margin:         100%
+
+Aux:
+  soft_variant:              30%  (mean_anti_drop=+0.430)
+  skeleton_kept:             60%
+
+Details:
+  [OK] jumps on top: jumps->jumped | ret=go to cat drop_mem=+0.615 prefer_ret=1 prefer_m=1 soft=0 skel=0
+  [STICK] walks on car: walks->walked | ret=walks on car drop_mem=+0.377 prefer_ret=1 prefer_m=1 soft=0 skel=1
+  [STICK] cat jumping: jumping->jumped | ret=cat jumping drop_mem=+0.538 prefer_ret=1 prefer_m=1 soft=0 skel=0
+  [STICK] dog walking: walking->walked | ret=dog walking drop_mem=+0.367 prefer_ret=1 prefer_m=1 soft=0 skel=1
+  [STICK] reading on top: reading->readed | ret=reading on top drop_mem=+0.743 prefer_ret=1 prefer_m=1 soft=1 skel=1
+  [OK] cat writes: writes->writed | ret=cat to car drop_mem=+0.354 prefer_ret=1 prefer_m=1 soft=1 skel=1
+  [OK] dog jumped: jumped->jumping | ret=cat to car drop_mem=+0.629 prefer_ret=1 prefer_m=1 soft=0 skel=0
+  [STICK] walked on car: walked->walking | ret=walked on car drop_mem=+0.576 prefer_ret=1 prefer_m=1 soft=1 skel=0
+  [STICK] good jumps: jumps->jumped | ret=good jumps drop_mem=+0.147 prefer_ret=1 prefer_m=1 soft=0 skel=1
+  [STICK] no walking: walking->walked | ret=no walking drop_mem=+0.116 prefer_ret=1 prefer_m=1 soft=0 skel=1
+
+=== Verdict ===
+  FAIL/partial: memory stickiness or weak prefer_new — fix gate/update before QA.
+    moved=1.00 unstick=0.30 prefer_m=1.00 sticky=0.70

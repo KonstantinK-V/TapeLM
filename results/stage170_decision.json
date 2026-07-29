@@ -1,0 +1,208 @@
+{
+  "timestamp": "2026-07-28T09:34:55.549021+00:00",
+  "protocol": "curve_dynamics_smoke",
+  "plan": "C:\\Users\\Kostya\\sote-letter-assembly\\results\\plan_curve_dynamics.md",
+  "verdict": "CURVE_DYN_SMOKE_YES",
+  "wall_hours": 0.06616158412562476,
+  "steps": 30000,
+  "arch": {
+    "d": 96,
+    "gru_layers": 1,
+    "ctx": 96,
+    "seq": 128,
+    "micro": 32
+  },
+  "corpus_chars": 20000000,
+  "char_vocab": 487,
+  "final": {
+    "step": 30000,
+    "cos_z": 0.7837206947151572,
+    "cos_delta": 0.8575980765745044,
+    "base_zero_delta": 0.0,
+    "base_mean_delta": -0.024788217764580622,
+    "base_copy_delta": -0.4433912148233503,
+    "lift_vs_mean_delta": 0.882386294339085,
+    "lift_vs_copy_delta": 1.3009892913978547,
+    "loss_ema": 0.5205497030881276
+  },
+  "curve": [
+    {
+      "step": 0,
+      "cos_z": -0.02445215723128058,
+      "cos_delta": 0.03177173587027937,
+      "base_zero_delta": 0.0,
+      "base_mean_delta": 0.003847046726150438,
+      "base_copy_delta": -0.2896358176949434,
+      "lift_vs_mean_delta": 0.027924689144128934,
+      "lift_vs_copy_delta": 0.32140755356522277
+    },
+    {
+      "step": 2000,
+      "cos_z": 0.7611693809740245,
+      "cos_delta": 0.8242200221866369,
+      "base_zero_delta": 0.0,
+      "base_mean_delta": -0.008351884462172166,
+      "base_copy_delta": -0.4218619812745601,
+      "lift_vs_mean_delta": 0.8325719066488091,
+      "lift_vs_copy_delta": 1.246082003461197,
+      "loss_ema": 0.5666272677172179
+    },
+    {
+      "step": 4000,
+      "cos_z": 0.7726937625557184,
+      "cos_delta": 0.8336304035037756,
+      "base_zero_delta": 0.0,
+      "base_mean_delta": -0.006826286640716717,
+      "base_copy_delta": -0.42059142841026187,
+      "lift_vs_mean_delta": 0.8404566901444923,
+      "lift_vs_copy_delta": 1.2542218319140375,
+      "loss_ema": 0.5443079550775118
+    },
+    {
+      "step": 6000,
+      "cos_z": 0.7776622590608895,
+      "cos_delta": 0.8377544328104705,
+      "base_zero_delta": 0.0,
+      "base_mean_delta": -0.0073084077157545835,
+      "base_copy_delta": -0.42179186700377613,
+      "lift_vs_mean_delta": 0.845062840526225,
+      "lift_vs_copy_delta": 1.2595462998142466,
+      "loss_ema": 0.5324724347399616
+    },
+    {
+      "step": 8000,
+      "cos_z": 0.7788729257881641,
+      "cos_delta": 0.843524212948978,
+      "base_zero_delta": 0.0,
+      "base_mean_delta": -0.009666935016866773,
+      "base_copy_delta": -0.4250087959226221,
+      "lift_vs_mean_delta": 0.8531911479658447,
+      "lift_vs_copy_delta": 1.2685330088716,
+      "loss_ema": 0.5265059055222485
+    },
+    {
+      "step": 10000,
+      "cos_z": 0.7739657154306769,
+      "cos_delta": 0.8421913674101233,
+      "base_zero_delta": 0.0,
+      "base_mean_delta": -0.012602975402842276,
+      "base_copy_delta": -0.42274858243763447,
+      "lift_vs_mean_delta": 0.8547943428129656,
+      "lift_vs_copy_delta": 1.2649399498477578,
+      "loss_ema": 0.5220030695250061
+    },
+    {
+      "step": 12000,
+      "cos_z": 0.7732839912641793,
+      "cos_delta": 0.8444035025313497,
+      "base_zero_delta": 0.0,
+      "base_mean_delta": -0.013421699273749255,
+      "base_copy_delta": -0.42687521848711185,
+      "lift_vs_mean_delta": 0.8578252018050989,
+      "lift_vs_copy_delta": 1.2712787210184615,
+      "loss_ema": 0.5241061256962193
+    },
+    {
+      "step": 14000,
+      "cos_z": 0.7739450028166175,
+      "cos_delta": 0.8465501160826534,
+      "base_zero_delta": 0.0,
+      "base_mean_delta": -0.014146869943942875,
+      "base_copy_delta": -0.4281554442131892,
+      "lift_vs_mean_delta": 0.8606969860265963,
+      "lift_vs_copy_delta": 1.2747055602958426,
+      "loss_ema": 0.5191449133973918
+    },
+    {
+      "step": 16000,
+      "cos_z": 0.7697006945963949,
+      "cos_delta": 0.8452689805999398,
+      "base_zero_delta": 0.0,
+      "base_mean_delta": -0.017166505858767778,
+      "base_copy_delta": -0.43000974360620603,
+      "lift_vs_mean_delta": 0.8624354864587076,
+      "lift_vs_copy_delta": 1.2752787242061459,
+      "loss_ema": 0.5178782780136096
+    },
+    {
+      "step": 18000,
+      "cos_z": 0.7737919024657458,
+      "cos_delta": 0.8479113555513322,
+      "base_zero_delta": 0.0,
+      "base_mean_delta": -0.017234300830750726,
+      "base_copy_delta": -0.4304506367770955,
+      "lift_vs_mean_delta": 0.865145656382083,
+      "lift_vs_copy_delta": 1.2783619923284277,
+      "loss_ema": 0.5190299273841958
+    },
+    {
+      "step": 20000,
+      "cos_z": 0.7754319696687162,
+      "cos_delta": 0.8495155384298414,
+      "base_zero_delta": 0.0,
+      "base_mean_delta": -0.01821363071212545,
+      "base_copy_delta": -0.43313658330589533,
+      "lift_vs_mean_delta": 0.8677291691419668,
+      "lift_vs_copy_delta": 1.2826521217357367,
+      "loss_ema": 0.5165097136745662
+    },
+    {
+      "step": 22000,
+      "cos_z": 0.7732938975095749,
+      "cos_delta": 0.8490463660564274,
+      "base_zero_delta": 0.0,
+      "base_mean_delta": -0.018212864830275066,
+      "base_copy_delta": -0.43466783012263477,
+      "lift_vs_mean_delta": 0.8672592308867024,
+      "lift_vs_copy_delta": 1.2837141961790621,
+      "loss_ema": 0.5116457578140817
+    },
+    {
+      "step": 24000,
+      "cos_z": 0.7775707743130624,
+      "cos_delta": 0.8520746384747326,
+      "base_zero_delta": 0.0,
+      "base_mean_delta": -0.018457366822985932,
+      "base_copy_delta": -0.437416450411547,
+      "lift_vs_mean_delta": 0.8705320052977186,
+      "lift_vs_copy_delta": 1.2894910888862796,
+      "loss_ema": 0.5135357441683973
+    },
+    {
+      "step": 26000,
+      "cos_z": 0.7762013748288155,
+      "cos_delta": 0.8523951654788107,
+      "base_zero_delta": 0.0,
+      "base_mean_delta": -0.020734109275508672,
+      "base_copy_delta": -0.4388996339403093,
+      "lift_vs_mean_delta": 0.8731292747543193,
+      "lift_vs_copy_delta": 1.29129479941912,
+      "loss_ema": 0.514852209081869
+    },
+    {
+      "step": 28000,
+      "cos_z": 0.7840927161742002,
+      "cos_delta": 0.8570331349037588,
+      "base_zero_delta": 0.0,
+      "base_mean_delta": -0.022312269546091557,
+      "base_copy_delta": -0.4397190921008587,
+      "lift_vs_mean_delta": 0.8793454044498503,
+      "lift_vs_copy_delta": 1.2967522270046175,
+      "loss_ema": 0.5118332430778193
+    },
+    {
+      "step": 30000,
+      "cos_z": 0.7837206947151572,
+      "cos_delta": 0.8575980765745044,
+      "base_zero_delta": 0.0,
+      "base_mean_delta": -0.024788217764580622,
+      "base_copy_delta": -0.4433912148233503,
+      "lift_vs_mean_delta": 0.882386294339085,
+      "lift_vs_copy_delta": 1.3009892913978547,
+      "loss_ema": 0.5205497030881276
+    }
+  ],
+  "note": "No char/word CE. Gate = latent delta prediction vs mean/copy baselines.",
+  "next": "If YES/MIXED: stronger pen / longer soak. If NULL: redesign dynamics loss, not revive 169 CE.",
+  "frozen_prior": "stage169 word-CE FROZEN"
+}

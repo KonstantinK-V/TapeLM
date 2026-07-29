@@ -1,0 +1,284 @@
+{
+  "timestamp": "2026-07-26T19:25:49.385986+00:00",
+  "protocol": "onelayer_d128_50k",
+  "framing": "Single-layer word LM at d128 with 50k steps; paired 1L d256@50k tests whether 40k was a false plateau. User preference: 1L LM path.",
+  "n_phrases": 460000,
+  "steps": 50000,
+  "ritual": {
+    "batch": 8,
+    "lr": 0.001,
+    "opt": "Adam",
+    "wd": 0.0,
+    "fat_frac": 0.75,
+    "word_max_len": 16
+  },
+  "arms": {
+    "shallow_1L_d128_50k": {
+      "arm": "shallow_1L_d128_50k",
+      "unit": "word_fp",
+      "trunk": {
+        "batch": 8,
+        "lr": 0.001,
+        "opt": "Adam",
+        "wd": 0.0,
+        "d": 128,
+        "n_layer": 1,
+        "n_head": 4,
+        "fat_frac": 0.75
+      },
+      "V": 7301,
+      "params": 1134976,
+      "steps": 50000,
+      "mix_meta": {
+        "n_train": 201900,
+        "n_hold_seen": 1600,
+        "n_story_hold": 34500
+      },
+      "curve": [
+        {
+          "step": 0,
+          "obj": 0.0,
+          "rel": 0.0,
+          "story_all": 0.0
+        },
+        {
+          "step": 4000,
+          "obj": 0.2875,
+          "rel": 0.9025,
+          "story_all": 0.12310698583292623
+        },
+        {
+          "step": 8000,
+          "obj": 0.3925,
+          "rel": 0.97,
+          "story_all": 0.1348314606741573
+        },
+        {
+          "step": 12000,
+          "obj": 0.38,
+          "rel": 0.92,
+          "story_all": 0.1431362970200293
+        },
+        {
+          "step": 16000,
+          "obj": 0.425,
+          "rel": 0.89,
+          "story_all": 0.14997557401074743
+        },
+        {
+          "step": 20000,
+          "obj": 0.45,
+          "rel": 0.87,
+          "story_all": 0.15925744992672203
+        },
+        {
+          "step": 24000,
+          "obj": 0.41,
+          "rel": 0.9575,
+          "story_all": 0.16853932584269662
+        },
+        {
+          "step": 28000,
+          "obj": 0.42,
+          "rel": 0.865,
+          "story_all": 0.19247679531021006
+        },
+        {
+          "step": 32000,
+          "obj": 0.4025,
+          "rel": 0.8125,
+          "story_all": 0.19638495359062041
+        },
+        {
+          "step": 36000,
+          "obj": 0.4275,
+          "rel": 0.9675,
+          "story_all": 0.20957498778700537
+        },
+        {
+          "step": 40000,
+          "obj": 0.3775,
+          "rel": 0.875,
+          "story_all": 0.19491939423546653
+        },
+        {
+          "step": 44000,
+          "obj": 0.44,
+          "rel": 0.965,
+          "story_all": 0.2061553492916463
+        },
+        {
+          "step": 48000,
+          "obj": 0.39,
+          "rel": 0.9425,
+          "story_all": 0.20175867122618465
+        },
+        {
+          "step": 50000,
+          "obj": 0.4,
+          "rel": 0.94,
+          "story_all": 0.2144601856375183
+        }
+      ],
+      "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage162_shallow_1L_d128_50k.pt",
+      "story_all_last": 0.2144601856375183,
+      "seen_obj_last": 0.4,
+      "ckpt_select": "best_ev_story_then_obj",
+      "seen_obj": 0.37625,
+      "seen_rel": 0.94375,
+      "story_all": 0.21576642335766424,
+      "story_obj": 0.245014245014245,
+      "geom": {
+        "d": 128,
+        "n_layer": 1,
+        "n_head": 4,
+        "note": "1L half-width @50k \u2014 primary"
+      },
+      "n_phrases": 460000,
+      "steps_requested": 50000
+    },
+    "shallow_1L_d256_50k": {
+      "arm": "shallow_1L_d256_50k",
+      "unit": "word_fp",
+      "trunk": {
+        "batch": 8,
+        "lr": 0.001,
+        "opt": "Adam",
+        "wd": 0.0,
+        "d": 256,
+        "n_layer": 1,
+        "n_head": 4,
+        "fat_frac": 0.75
+      },
+      "V": 7301,
+      "params": 2663168,
+      "steps": 50000,
+      "mix_meta": {
+        "n_train": 201900,
+        "n_hold_seen": 1600,
+        "n_story_hold": 34500
+      },
+      "curve": [
+        {
+          "step": 0,
+          "obj": 0.0,
+          "rel": 0.0,
+          "story_all": 0.0004828585224529213
+        },
+        {
+          "step": 4000,
+          "obj": 0.3025,
+          "rel": 0.9325,
+          "story_all": 0.09415741187831965
+        },
+        {
+          "step": 8000,
+          "obj": 0.4125,
+          "rel": 0.03,
+          "story_all": 0.10284886528247224
+        },
+        {
+          "step": 12000,
+          "obj": 0.415,
+          "rel": 0.9125,
+          "story_all": 0.11443746982134234
+        },
+        {
+          "step": 16000,
+          "obj": 0.395,
+          "rel": 0.81,
+          "story_all": 0.15692901979719942
+        },
+        {
+          "step": 20000,
+          "obj": 0.41,
+          "rel": 0.905,
+          "story_all": 0.1796233703524867
+        },
+        {
+          "step": 24000,
+          "obj": 0.4125,
+          "rel": 0.9675,
+          "story_all": 0.18058908739739257
+        },
+        {
+          "step": 28000,
+          "obj": 0.3875,
+          "rel": 0.965,
+          "story_all": 0.21921776919362626
+        },
+        {
+          "step": 32000,
+          "obj": 0.4125,
+          "rel": 0.91,
+          "story_all": 0.19410912602607436
+        },
+        {
+          "step": 36000,
+          "obj": 0.395,
+          "rel": 0.9575,
+          "story_all": 0.20907774022211492
+        },
+        {
+          "step": 40000,
+          "obj": 0.4175,
+          "rel": 0.9675,
+          "story_all": 0.20086914534041525
+        },
+        {
+          "step": 44000,
+          "obj": 0.395,
+          "rel": 0.8375,
+          "story_all": 0.19217769193626266
+        },
+        {
+          "step": 48000,
+          "obj": 0.3925,
+          "rel": 0.9675,
+          "story_all": 0.20231772090777403
+        },
+        {
+          "step": 50000,
+          "obj": 0.4075,
+          "rel": 0.7375,
+          "story_all": 0.19314340898116852
+        }
+      ],
+      "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage162_shallow_1L_d256_50k.pt",
+      "story_all_last": 0.19314340898116852,
+      "seen_obj_last": 0.4075,
+      "ckpt_select": "best_ev_story_then_obj",
+      "seen_obj": 0.39875,
+      "seen_rel": 0.965,
+      "story_all": 0.1955890887986071,
+      "story_obj": 0.19714285714285715,
+      "geom": {
+        "d": 256,
+        "n_layer": 1,
+        "n_head": 4,
+        "note": "1L base-width @50k \u2014 longer-run ctrl vs 161@40k"
+      },
+      "n_phrases": 460000,
+      "steps_requested": 50000
+    }
+  },
+  "refs": {
+    "base_2L_d256": 0.19055995309293464,
+    "shallow_1L_d256_40k": 0.19306930693069307,
+    "thin_4L_d128_40k": 0.20157756354075373,
+    "thin_2L_d128_40k": 0.1961820851688693
+  },
+  "primary_story": 0.21576642335766424,
+  "lift_1L_d128_vs_160_base": 0.025206470264729608,
+  "lift_1L_d256_50k_vs_40k": 0.002519781867914017,
+  "lift_1L_d128_vs_thin4L_d128": 0.01418885981691051,
+  "longer_run_note": "1L_d256 flat 40k\u219250k \u2014 plateau-ish under this ritual",
+  "verdict": "PARTIAL",
+  "upstream_161": "ENVELOPE_MAPPED",
+  "ref100": {
+    "obj": 0.426,
+    "rel": 0.958,
+    "story_all": 0.196,
+    "rare_obj": 0.117
+  }
+}

@@ -1,0 +1,41 @@
+SOTE Stage 17b report (order-diagnostic suite, no training)
+timestamp: 2026-07-23T12:52:08.213007+00:00
+device: cuda
+contract: bridge_qa_binder_16_FROZEN.pt
+
+--- TRAIN ---
+  Full shuffle:     margin_acc=94%  mean_margin=+0.263  cos_bad=0.737
+  Adjacent swap:    margin_acc=87%  mean_margin=+0.173  cos_bad=0.827
+  Tail partial:     margin_acc=87%  mean_margin=+0.161  cos_bad=0.839
+  Prefix identity:  99%  mean_gap=+0.659
+  Slot word-trace:  84%  mean=0.897
+  Cont. ranking:    89%  mean_rank=1.18  beats_bag=70%  margin=+0.154
+
+--- HOLD ---
+  Full shuffle:     margin_acc=95%  mean_margin=+0.233  cos_bad=0.767
+  Adjacent swap:    margin_acc=89%  mean_margin=+0.191  cos_bad=0.809
+  Tail partial:     margin_acc=87%  mean_margin=+0.144  cos_bad=0.856
+  Prefix identity:  100%  mean_gap=+0.591
+  Slot word-trace:  79%  mean=0.839
+  Cont. ranking:    78%  mean_rank=1.36  beats_bag=58%  margin=+0.129
+
+HOLD continuation misses (sample):
+  [MISS] 'cat' want=to pred=writes rank=2 m=-0.087 bag_beat=1
+  [MISS] 'good dog' want=on pred=opens rank=3 m=-0.058 bag_beat=0
+  [MISS] 'ball' want=on pred=new rank=3 m=-0.101 bag_beat=1
+  [MISS] 'rock' want=to pred=worked rank=3 m=-0.147 bag_beat=0
+  [MISS] 'big cat' want=on pred=act rank=2 m=-0.004 bag_beat=1
+  [MISS] 'red dog' want=on pred=no rank=3 m=-0.059 bag_beat=1
+  [MISS] 'old book' want=on pred=new rank=3 m=-0.126 bag_beat=0
+  [MISS] 'hand' want=on pred=helps rank=5 m=-0.189 bag_beat=0
+
+=== Localization ===
+  Global + adjacent margins present -> phrase_fp carries local order.
+  Slot word-trace OK -> word identity survives in phrase slots.
+  Prefix identity OK -> partial compose still points at family.
+  Frozen continuation ranking OK -> order exists for ranking; Stage17 failure was mostly predictor/readout, not missing compose signal.
+
+=== Verdict / next repair ===
+  -> Path 3: improve next readout/predictor on EXISTING compose signal (frozen cont 78% >> Stage17 next-fp ~32%).
+  -> Also add bag-negative contrastive (beats_bag only 58%).
+  Unfreeze PhraseComposer only if readout still fails after that.

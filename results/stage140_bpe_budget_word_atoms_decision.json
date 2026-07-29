@@ -1,0 +1,223 @@
+{
+  "timestamp": "2026-07-25T20:02:03.798377+00:00",
+  "protocol": "bpe_budget_pack_word_atoms_inside",
+  "upstream_139": "PARITY",
+  "bpe_budget": 32,
+  "diag": {
+    "mean_words": 7.830666666666667,
+    "mean_bpe": 7.831333333333333
+  },
+  "space_punct_contract": {
+    "sote_filter": "lowercase; keep a-z 0-9 space and .!?; other punct -> space; split sentences on .!?/newline then DROP the punct chars; word boundary = whitespace; no punct tokens in vocab.",
+    "bpe_here": "Whitespace pre_tokenizer: splits on spaces; spaces are NOT model tokens; BPE merges only inside whitespace-separated pieces; no dedicated '.' ',' tokens in this pipeline (punct already stripped upstream).",
+    "vs_gpt_tiktoken": "Real GPT BPE often keeps punct as separate tokens and may attach spaces via byte-level rules (\u0120). Our mini-BPE is whitespace-BPE on already-cleaned SOTE text \u2014 fair within contract, not identical to tiktoken."
+  },
+  "word": {
+    "arm": "word",
+    "V": 5526,
+    "params": 2998528,
+    "max_len": 16,
+    "seen_obj": 0.40125,
+    "seen_rel": 0.695,
+    "hold_all": 0.18421824581988852,
+    "hold_obj": 0.19877675840978593,
+    "curve": [
+      {
+        "step": 0,
+        "obj": 0.0,
+        "rel": 0.0,
+        "story_all": 0.0
+      },
+      {
+        "step": 2000,
+        "obj": 0.0725,
+        "rel": 0.4175,
+        "story_all": 0.04512372634643377
+      },
+      {
+        "step": 4000,
+        "obj": 0.1475,
+        "rel": 0.4375,
+        "story_all": 0.049490538573508006
+      },
+      {
+        "step": 6000,
+        "obj": 0.24,
+        "rel": 0.6575,
+        "story_all": 0.06986899563318777
+      },
+      {
+        "step": 8000,
+        "obj": 0.265,
+        "rel": 0.3275,
+        "story_all": 0.052886948083454635
+      },
+      {
+        "step": 10000,
+        "obj": 0.305,
+        "rel": 0.2425,
+        "story_all": 0.05725376031052887
+      },
+      {
+        "step": 12000,
+        "obj": 0.3475,
+        "rel": 0.745,
+        "story_all": 0.09704027171276079
+      },
+      {
+        "step": 14000,
+        "obj": 0.3675,
+        "rel": 0.7875,
+        "story_all": 0.09315866084425037
+      },
+      {
+        "step": 16000,
+        "obj": 0.39,
+        "rel": 0.945,
+        "story_all": 0.1217855409995148
+      },
+      {
+        "step": 18000,
+        "obj": 0.385,
+        "rel": 0.8075,
+        "story_all": 0.09606986899563319
+      },
+      {
+        "step": 20000,
+        "obj": 0.3975,
+        "rel": 0.755,
+        "story_all": 0.13537117903930132
+      },
+      {
+        "step": 22000,
+        "obj": 0.4275,
+        "rel": 0.9525,
+        "story_all": 0.1698204754973314
+      },
+      {
+        "step": 24000,
+        "obj": 0.4125,
+        "rel": 0.9025,
+        "story_all": 0.1596312469674915
+      },
+      {
+        "step": 26000,
+        "obj": 0.4025,
+        "rel": 0.8525,
+        "story_all": 0.17321688500727803
+      },
+      {
+        "step": 28000,
+        "obj": 0.4075,
+        "rel": 0.8975,
+        "story_all": 0.17321688500727803
+      },
+      {
+        "step": 30000,
+        "obj": 0.4425,
+        "rel": 0.885,
+        "story_all": 0.16545366327025715
+      },
+      {
+        "step": 32000,
+        "obj": 0.4075,
+        "rel": 0.9475,
+        "story_all": 0.170790878214459
+      },
+      {
+        "step": 34000,
+        "obj": 0.4325,
+        "rel": 0.805,
+        "story_all": 0.17321688500727803
+      },
+      {
+        "step": 36000,
+        "obj": 0.4,
+        "rel": 0.71,
+        "story_all": 0.19116933527413876
+      },
+      {
+        "step": 38000,
+        "obj": 0.4025,
+        "rel": 0.595,
+        "story_all": 0.13876758854924795
+      },
+      {
+        "step": 40000,
+        "obj": 0.4225,
+        "rel": 0.95,
+        "story_all": 0.17806889859291605
+      }
+    ],
+    "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage140_budget_word.pt",
+    "mix": {
+      "n_story_train": 41520,
+      "n_story_hold": 7326,
+      "n_fat_triples": 200,
+      "fat_copies": 40,
+      "n_train": 47920,
+      "n_hold_seen": 1600,
+      "n_hold_rare": 160,
+      "n_path_triples_avail": 11380
+    }
+  },
+  "bpe": {
+    "arm": "bpe",
+    "V": 8000,
+    "params": 5223936,
+    "seen_obj": 0.4075,
+    "hold_all": 0.2864149092692496,
+    "hold_obj": 0.23809523809523808,
+    "curve": [
+      {
+        "step": 0,
+        "obj": 0.0,
+        "story_all": 0.0
+      },
+      {
+        "step": 5000,
+        "obj": 0.325,
+        "story_all": 0.21684414327202323
+      },
+      {
+        "step": 10000,
+        "obj": 0.38,
+        "story_all": 0.25169409486931266
+      },
+      {
+        "step": 15000,
+        "obj": 0.415,
+        "story_all": 0.25072604065827686
+      },
+      {
+        "step": 20000,
+        "obj": 0.405,
+        "story_all": 0.24975798644724104
+      },
+      {
+        "step": 25000,
+        "obj": 0.445,
+        "story_all": 0.2700871248789932
+      },
+      {
+        "step": 30000,
+        "obj": 0.415,
+        "story_all": 0.27686350435624396
+      },
+      {
+        "step": 35000,
+        "obj": 0.44,
+        "story_all": 0.28751210067763794
+      },
+      {
+        "step": 40000,
+        "obj": 0.45,
+        "story_all": 0.2807357212003872
+      }
+    ],
+    "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage140_budget_bpe.pt"
+  },
+  "gap_hold_all_pp": 0.1021966634493611,
+  "verdict": "GAP_SIMILAR",
+  "note": "Same character/BPE-token budget for context packing; SOTE still one-id-per-word. Punct/spaces: see space_punct_contract (SOTE strips punct; mini-BPE is whitespace-BPE)."
+}

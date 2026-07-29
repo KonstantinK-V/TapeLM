@@ -1,0 +1,18 @@
+SOTE Stage 74 dense (verb,rel,right) — FAIL (object still wall)
+timestamp: 2026-07-24T13:18:36+00:00
+data: data/external_verb_dense.txt (4032 lines, 224 triples)
+checkpoint: stage74_verb_dense.pt
+report: stage74_verb_dense_report.txt
+
+=== RESULT ===
+  ZS object-slot ~6%
+  FT best (protect): line-hold 12.3%, trip-hold 14.0%  (+6pp vs ZS)
+  Soft ≥25% NOT reached. Gap ~0 (≈ chance among ~8 rights).
+
+=== READ ===
+  Density alone does not unlock object-after-rel under TinySeq+NN codebook.
+  Semi-cognitive status confirmed: path+hops LIVE; verb_ing object still protocol/model wall,
+  not only sparse-1k data.
+
+=== POLICY unchanged ===
+  Hops noun_rel|polarity. Trunk 57/59/62–64/73. verb_ing residual lock stands.

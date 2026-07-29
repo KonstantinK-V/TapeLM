@@ -1,0 +1,7 @@
+SOTE Stage 118 — hop_hard_mask
+timestamp: 2026-07-25T11:21:53.896974+00:00
+mode=hard_mask alpha=5.0 tau=1.0 bank_frac=0.0
+SEEN obj=24.8% obj+hop=42.2% rel=95.8%
+STORY ALL=17.1%
+vs100 obj+hop -0.4pp
+Verdict: PARITY

@@ -1,0 +1,11 @@
+{
+  "dig": "131_func_bias",
+  "verdict": "PARTIAL",
+  "story_all": 0.24459112577924458,
+  "story_lift_pp": 0.04859112577924457,
+  "seen_obj_cmp": 0.42833333333333334,
+  "rel": 0.9633333333333334,
+  "story_top5_func_frac": 0.6016736401673639,
+  "func_drop_vs_129approx_pp": 0.018326359832636085,
+  "ckpt": "C:\\Users\\Kostya\\sote-letter-assembly\\checkpoints\\stage131_func_bias.pt"
+}

@@ -1,0 +1,67 @@
+SOTE Stage 9e-probe report (hidden morph / linear peel)
+timestamp: 2026-07-23T06:14:14.098320+00:00
+device: cuda
+ckpt: morph_hybrid_9e_plus.pt
+ridge=0.01
+
+Baselines HOLD:
+  letter-peel (compose prefix): 100% cos=0.951
+  fp MorphOp.peel: 8% cos=0.299
+
+Linear peel HOLD (fit TRAIN gold realize acts -> stem_fp):
+feature                  HOLD    cos  TRAIN  wrong   shuf
+out                        0%  0.126   100%     0%     0%
+out_mid                    0%  0.099   100%     0%     0%
+slots_pool                 0%  0.017   100%     0%     0%
+content_pool               0%  0.037   100%     0%     0%
+order_pool                 0%  0.013   100%     0%     0%
+morph_pool                 0% -0.001    11%     0%     0%
+mod_suf_pool               0% -0.001    11%     0%     0%
+form_minus_stem_out        0%  0.060   100%     0%     0%
+concat_out_morph           0%  0.146   100%     0%     0%
+
+BEST linear peel feature: out HOLD 0%
+HOLD details (best feature):
+  [MISS] jump+ing -> light cos=0.05
+  [MISS] walk+ing -> spot cos=0.23
+  [MISS] read+ing -> run cos=0.20
+  [MISS] write+ing -> spot cos=-0.07
+  [MISS] jump+ed -> fish cos=0.39
+  [MISS] walk+ed -> play cos=0.27
+  [MISS] read+ed -> fish cos=0.19
+  [MISS] write+ed -> go cos=-0.01
+  [MISS] jump+s -> light cos=-0.10
+  [MISS] walk+s -> spot cos=0.17
+  [MISS] read+s -> spot cos=0.16
+  [MISS] write+s -> give cos=0.03
+
+Affix direction separation (pairwise cos of mean dirs; lower => more distinct):
+  out: {'ing_ed': 0.04872303456068039, 'ing_s': 0.3551411032676697, 'ed_s': 0.12868830561637878}
+  out_mid: {'ing_ed': 0.05706261843442917, 'ing_s': 0.4929010272026062, 'ed_s': -0.03641822189092636}
+  slots_pool: {'ing_ed': 0.17168372869491577, 'ing_s': 0.4158514142036438, 'ed_s': -0.07607465237379074}
+  content_pool: {'ing_ed': 0.3032257556915283, 'ing_s': 0.8975237607955933, 'ed_s': 0.23611652851104736}
+  order_pool: {'ing_ed': 0.41433125734329224, 'ing_s': 0.6918243169784546, 'ed_s': 0.41446757316589355}
+  morph_pool: {'ing_ed': 0.008325919508934021, 'ing_s': 0.0729529932141304, 'ed_s': 0.09011894464492798}
+
+Top units |mean(aff)-mean(other)| on TRAIN (out / slots / morph_pool):
+  [out]
+    ing: u46:+0.137, u29:-0.120, u6:-0.118, u41:+0.099, u16:-0.095
+    ed: u47:-0.170, u46:-0.142, u57:-0.104, u17:+0.086, u52:+0.080
+    s: u6:+0.108, u29:+0.099, u55:-0.096, u1:-0.091, u8:-0.087
+  [slots_pool]
+    ing: u31:-0.265, u58:+0.177, u48:-0.169, u16:-0.116, u43:+0.114
+    ed: u48:+0.210, u25:+0.175, u59:-0.175, u42:-0.159, u7:-0.145
+    s: u31:+0.214, u58:-0.195, u42:+0.173, u33:+0.121, u16:+0.118
+  [morph_pool]
+    ing: u58:+0.370, u19:+0.343, u9:+0.306, u32:-0.288, u6:-0.259
+    ed: u48:+0.341, u59:+0.303, u27:+0.284, u9:-0.268, u18:+0.252
+    s: u19:-0.299, u36:+0.270, u18:-0.262, u63:-0.249, u48:-0.245
+
+pos_gate mean by affix: {'ing': 0.9982115030288696, 'ed': 0.698807954788208, 's': 0.9546224673589071}
+basin pairwise: {'ing_ed': -0.004376709461212158, 'ing_s': -0.008271042257547379, 'ed_s': -0.006517369300127029}
+
+=== Auto verdict ===
+  [best] out: HOLD linear-peel 0% (letter 100%, fp-op 8%)
+  [controls] same probe on wrong-affix 0% / shuffle 0%
+  [overall] Hidden linear peel does not beat fp-op much — stem not linearly readable from these acts; letter-path remains the real peel.
+  [affix_dirs] mean pairwise cos of out form-stem dirs=0.178 (lower=more separated)

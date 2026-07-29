@@ -1,0 +1,534 @@
+{
+  "stage": "83",
+  "verdict": "PARTIAL",
+  "scale_read": "SCALE_HELPS_SEEN",
+  "rare_read": "RARE_STILL_HARD",
+  "meta": {
+    "n_fat_triples": 120,
+    "n_rare_triples": 60,
+    "fat_copies": 30,
+    "rare_copies": 3,
+    "n_train": 2880,
+    "n_hold_seen": 720,
+    "n_hold_rare": 180,
+    "n_nouns": 86
+  },
+  "zs_seen_roles": {
+    "rel": {
+      "n": 720,
+      "hit1": 0.041666666666666664
+    },
+    "ALL": {
+      "n": 1440,
+      "hit1": 0.0375
+    },
+    "right": {
+      "n": 720,
+      "hit1": 0.03333333333333333
+    }
+  },
+  "zs_rare_roles": {
+    "rel": {
+      "n": 180,
+      "hit1": 0.03333333333333333
+    },
+    "ALL": {
+      "n": 360,
+      "hit1": 0.025
+    },
+    "right": {
+      "n": 180,
+      "hit1": 0.016666666666666666
+    }
+  },
+  "zs_seen_obj": {
+    "n": 720,
+    "hit1": 0.03333333333333333,
+    "mean_rank": 63.825,
+    "median_rank": 66,
+    "chance": 0.006993006993006993,
+    "V": 143,
+    "confusion": {
+      "right_correct": 0.03333333333333333,
+      "other_rightish": 0.8833333333333333,
+      "rel": 0.008333333333333333,
+      "left": 0.016666666666666666,
+      "other": 0.058333333333333334
+    },
+    "confusion_n": {
+      "right_correct": 24,
+      "other_rightish": 636,
+      "rel": 6,
+      "left": 12,
+      "other": 42
+    }
+  },
+  "zs_rare_obj": {
+    "n": 180,
+    "hit1": 0.016666666666666666,
+    "mean_rank": 68.83333333333333,
+    "median_rank": 61,
+    "chance": 0.006993006993006993,
+    "V": 143,
+    "confusion": {
+      "right_correct": 0.016666666666666666,
+      "other_rightish": 0.31666666666666665,
+      "rel": 0.0,
+      "left": 0.016666666666666666,
+      "other": 0.65
+    },
+    "confusion_n": {
+      "right_correct": 3,
+      "other_rightish": 57,
+      "rel": 0,
+      "left": 3,
+      "other": 117
+    }
+  },
+  "final_seen_roles": {
+    "rel": {
+      "n": 720,
+      "hit1": 0.75
+    },
+    "ALL": {
+      "n": 1440,
+      "hit1": 0.5
+    },
+    "right": {
+      "n": 720,
+      "hit1": 0.25
+    }
+  },
+  "final_rare_roles": {
+    "rel": {
+      "n": 180,
+      "hit1": 0.45
+    },
+    "ALL": {
+      "n": 360,
+      "hit1": 0.23333333333333334
+    },
+    "right": {
+      "n": 180,
+      "hit1": 0.016666666666666666
+    }
+  },
+  "final_seen_obj": {
+    "n": 720,
+    "hit1": 0.25,
+    "mean_rank": 15.933333333333334,
+    "median_rank": 7,
+    "chance": 0.006993006993006993,
+    "V": 143,
+    "confusion": {
+      "right_correct": 0.25,
+      "other_rightish": 0.6916666666666667,
+      "rel": 0.0,
+      "left": 0.0,
+      "other": 0.058333333333333334
+    },
+    "confusion_n": {
+      "right_correct": 180,
+      "other_rightish": 498,
+      "rel": 0,
+      "left": 0,
+      "other": 42
+    }
+  },
+  "final_rare_obj": {
+    "n": 180,
+    "hit1": 0.016666666666666666,
+    "mean_rank": 63.13333333333333,
+    "median_rank": 59,
+    "chance": 0.006993006993006993,
+    "V": 143,
+    "confusion": {
+      "right_correct": 0.016666666666666666,
+      "other_rightish": 0.4166666666666667,
+      "rel": 0.0,
+      "left": 0.0,
+      "other": 0.5666666666666667
+    },
+    "confusion_n": {
+      "right_correct": 3,
+      "other_rightish": 75,
+      "rel": 0,
+      "left": 0,
+      "other": 102
+    }
+  },
+  "best": {
+    "step": 4000,
+    "right_seen": 0.25,
+    "rel_seen": 0.75,
+    "right_rare": 0.016666666666666666,
+    "protect_ok": true
+  },
+  "curve": [
+    {
+      "step": 0,
+      "right_seen": 0.03333333333333333,
+      "rel_seen": 0.041666666666666664,
+      "path_seen": 0.0375,
+      "right_rare": 0.016666666666666666,
+      "rel_rare": 0.03333333333333333,
+      "protect_ok": true,
+      "mean_rank_seen": 63.825
+    },
+    {
+      "step": 200,
+      "right_seen": 0.008333333333333333,
+      "rel_seen": 0.575,
+      "path_seen": 0.2916666666666667,
+      "right_rare": 0.016666666666666666,
+      "rel_rare": 0.5166666666666667,
+      "protect_ok": true,
+      "mean_rank_seen": 56.166666666666664
+    },
+    {
+      "step": 400,
+      "right_seen": 0.05,
+      "rel_seen": 0.55,
+      "path_seen": 0.3,
+      "right_rare": 0.0,
+      "rel_rare": 0.5166666666666667,
+      "protect_ok": true,
+      "mean_rank_seen": 46.516666666666666
+    },
+    {
+      "step": 600,
+      "right_seen": 0.041666666666666664,
+      "rel_seen": 0.5916666666666667,
+      "path_seen": 0.31666666666666665,
+      "right_rare": 0.0,
+      "rel_rare": 0.48333333333333334,
+      "protect_ok": true,
+      "mean_rank_seen": 46.675
+    },
+    {
+      "step": 800,
+      "right_seen": 0.025,
+      "rel_seen": 0.5916666666666667,
+      "path_seen": 0.30833333333333335,
+      "right_rare": 0.0,
+      "rel_rare": 0.5166666666666667,
+      "protect_ok": true,
+      "mean_rank_seen": 41.766666666666666
+    },
+    {
+      "step": 1000,
+      "right_seen": 0.016666666666666666,
+      "rel_seen": 0.65,
+      "path_seen": 0.3333333333333333,
+      "right_rare": 0.0,
+      "rel_rare": 0.5666666666666667,
+      "protect_ok": true,
+      "mean_rank_seen": 37.25833333333333
+    },
+    {
+      "step": 1200,
+      "right_seen": 0.03333333333333333,
+      "rel_seen": 0.6,
+      "path_seen": 0.31666666666666665,
+      "right_rare": 0.016666666666666666,
+      "rel_rare": 0.5333333333333333,
+      "protect_ok": true,
+      "mean_rank_seen": 32.583333333333336
+    },
+    {
+      "step": 1400,
+      "right_seen": 0.05,
+      "rel_seen": 0.575,
+      "path_seen": 0.3125,
+      "right_rare": 0.016666666666666666,
+      "rel_rare": 0.5333333333333333,
+      "protect_ok": true,
+      "mean_rank_seen": 33.708333333333336
+    },
+    {
+      "step": 1600,
+      "right_seen": 0.058333333333333334,
+      "rel_seen": 0.6166666666666667,
+      "path_seen": 0.3375,
+      "right_rare": 0.016666666666666666,
+      "rel_rare": 0.5333333333333333,
+      "protect_ok": true,
+      "mean_rank_seen": 30.95
+    },
+    {
+      "step": 1800,
+      "right_seen": 0.05,
+      "rel_seen": 0.6583333333333333,
+      "path_seen": 0.3541666666666667,
+      "right_rare": 0.016666666666666666,
+      "rel_rare": 0.45,
+      "protect_ok": true,
+      "mean_rank_seen": 31.433333333333334
+    },
+    {
+      "step": 2000,
+      "right_seen": 0.09166666666666666,
+      "rel_seen": 0.6333333333333333,
+      "path_seen": 0.3625,
+      "right_rare": 0.016666666666666666,
+      "rel_rare": 0.4666666666666667,
+      "protect_ok": true,
+      "mean_rank_seen": 26.291666666666668
+    },
+    {
+      "step": 2200,
+      "right_seen": 0.1,
+      "rel_seen": 0.65,
+      "path_seen": 0.375,
+      "right_rare": 0.0,
+      "rel_rare": 0.38333333333333336,
+      "protect_ok": true,
+      "mean_rank_seen": 27.816666666666666
+    },
+    {
+      "step": 2400,
+      "right_seen": 0.125,
+      "rel_seen": 0.6833333333333333,
+      "path_seen": 0.4041666666666667,
+      "right_rare": 0.03333333333333333,
+      "rel_rare": 0.45,
+      "protect_ok": true,
+      "mean_rank_seen": 26.116666666666667
+    },
+    {
+      "step": 2600,
+      "right_seen": 0.10833333333333334,
+      "rel_seen": 0.6583333333333333,
+      "path_seen": 0.38333333333333336,
+      "right_rare": 0.03333333333333333,
+      "rel_rare": 0.43333333333333335,
+      "protect_ok": true,
+      "mean_rank_seen": 22.733333333333334
+    },
+    {
+      "step": 2800,
+      "right_seen": 0.08333333333333333,
+      "rel_seen": 0.6833333333333333,
+      "path_seen": 0.38333333333333336,
+      "right_rare": 0.0,
+      "rel_rare": 0.4,
+      "protect_ok": true,
+      "mean_rank_seen": 25.408333333333335
+    },
+    {
+      "step": 3000,
+      "right_seen": 0.11666666666666667,
+      "rel_seen": 0.7,
+      "path_seen": 0.4083333333333333,
+      "right_rare": 0.016666666666666666,
+      "rel_rare": 0.4666666666666667,
+      "protect_ok": true,
+      "mean_rank_seen": 21.35
+    },
+    {
+      "step": 3200,
+      "right_seen": 0.075,
+      "rel_seen": 0.6916666666666667,
+      "path_seen": 0.38333333333333336,
+      "right_rare": 0.0,
+      "rel_rare": 0.48333333333333334,
+      "protect_ok": true,
+      "mean_rank_seen": 32.49166666666667
+    },
+    {
+      "step": 3400,
+      "right_seen": 0.16666666666666666,
+      "rel_seen": 0.7333333333333333,
+      "path_seen": 0.45,
+      "right_rare": 0.0,
+      "rel_rare": 0.45,
+      "protect_ok": true,
+      "mean_rank_seen": 22.075
+    },
+    {
+      "step": 3600,
+      "right_seen": 0.225,
+      "rel_seen": 0.6583333333333333,
+      "path_seen": 0.44166666666666665,
+      "right_rare": 0.05,
+      "rel_rare": 0.4666666666666667,
+      "protect_ok": true,
+      "mean_rank_seen": 17.091666666666665
+    },
+    {
+      "step": 3800,
+      "right_seen": 0.225,
+      "rel_seen": 0.7416666666666667,
+      "path_seen": 0.48333333333333334,
+      "right_rare": 0.0,
+      "rel_rare": 0.43333333333333335,
+      "protect_ok": true,
+      "mean_rank_seen": 19.041666666666668
+    },
+    {
+      "step": 4000,
+      "right_seen": 0.25,
+      "rel_seen": 0.75,
+      "path_seen": 0.5,
+      "right_rare": 0.016666666666666666,
+      "rel_rare": 0.45,
+      "protect_ok": true,
+      "mean_rank_seen": 15.933333333333334
+    }
+  ],
+  "surfaces": [
+    "cat",
+    "on",
+    "top",
+    "dog",
+    "car",
+    "go",
+    "to",
+    "no",
+    "good",
+    "not",
+    "stop",
+    "spot",
+    "post",
+    "act",
+    "bird",
+    "fish",
+    "ball",
+    "land",
+    "ship",
+    "rock",
+    "road",
+    "shop",
+    "big",
+    "red",
+    "old",
+    "new",
+    "book",
+    "hand",
+    "door",
+    "sand",
+    "playing",
+    "played",
+    "plays",
+    "running",
+    "runned",
+    "runs",
+    "making",
+    "maked",
+    "makes",
+    "taking",
+    "taked",
+    "takes",
+    "looking",
+    "looked",
+    "looks",
+    "talking",
+    "talked",
+    "talks",
+    "openning",
+    "openned",
+    "opens",
+    "helping",
+    "helped",
+    "helps",
+    "moving",
+    "moved",
+    "moves",
+    "calling",
+    "called",
+    "calls",
+    "working",
+    "worked",
+    "works",
+    "stopping",
+    "stopped",
+    "stops",
+    "box",
+    "mat",
+    "lid",
+    "bag",
+    "cap",
+    "log",
+    "mug",
+    "bin",
+    "pen",
+    "pad",
+    "water",
+    "jumps",
+    "jumping",
+    "jumped",
+    "walks",
+    "walking",
+    "walked",
+    "reading",
+    "readed",
+    "writes",
+    "writing",
+    "writed",
+    "living",
+    "lived",
+    "pulls",
+    "pulling",
+    "pulled",
+    "pushes",
+    "pushing",
+    "pushed",
+    "washes",
+    "washing",
+    "washed",
+    "hut",
+    "rim",
+    "peg",
+    "cob",
+    "nib",
+    "web",
+    "yap",
+    "zip",
+    "bell",
+    "bed",
+    "hill",
+    "yard",
+    "cup",
+    "pan",
+    "jar",
+    "fox",
+    "park",
+    "well",
+    "hat",
+    "map",
+    "rug",
+    "net",
+    "key",
+    "pin",
+    "call",
+    "mill",
+    "help",
+    "jump",
+    "look",
+    "move",
+    "play",
+    "pull",
+    "push",
+    "walk",
+    "wash",
+    "work",
+    "make",
+    "give",
+    "take",
+    "pot",
+    "run",
+    "tree",
+    "card",
+    "house"
+  ],
+  "parent": "stage57_rehearsal_FROZEN.pt",
+  "corpus": "external_noun_rel_repeat.txt",
+  "no_top5": true,
+  "config": {
+    "nr_n_fat": 120,
+    "nr_fat_copies": 30,
+    "nr_n_rare": 60,
+    "nr_ft_steps": 4000,
+    "nr_ft_lr": 0.001
+  }
+}

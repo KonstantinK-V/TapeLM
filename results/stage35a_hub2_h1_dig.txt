@@ -1,0 +1,42 @@
+SOTE Stage 35a dig — hub2 H1 residual (~76%)
+
+Parent: stage35a what_tail (freeze34 lineage)
+Question: why hub2 H1 lags hub1 (~95%) / hub3p (~90%)?
+
+=== FINDINGS ===
+
+1) Failure mode is pure same_tail_diff_left (100% of hub2-only misses).
+   Cue 'on zip' / 'to yap' still matches multiple episode facts with
+   different lefts. Not soft-disambig gap; not hop2/hop3.
+
+2) Concentration: bridges zip (most), yap (some). cat clean.
+   Bank has 4 facts with what_tail 'on zip' (rim/cob/go/nib).
+
+3) Score bias (CueBinder): under cue 'on zip', cob on zip wins
+   systematically (sim~0.365) vs gold rim/go/nib (~0.26–0.28).
+   deep=True on both — prefer_deep does not break the tie.
+   sim≈align (full_what vs slot) so reweighting soft-disambig won't help.
+
+4) Structural aggravator: cyclic triples
+     rim on zip -> zip on cob -> cob on zip
+   A and C share what_tail; gold chain itself injects the attractor.
+   hub2 A/C same-tail rate ~8% (similar order to hub1/3p).
+
+5) Filtering random same-tail distractors only +~2pp — residual is
+   mostly attractor + chain-injected same-tail, not padding noise.
+
+=== IMPLICATION ===
+
+Hub2 H1 hole is NOT "hub=2 is hard". It is:
+  popular right (zip/yap) + CueBinder attraction to one subject (cob)
+  under what_tail, sometimes reinforced by A→…→C cycles.
+
+=== NEXT LEVERS (if fix) ===
+
+A) Instance/left channel when |same_tail|>1 (true handwriting) —
+   not more soft score mix.
+B) Eval hygiene: drop cyclic A/C same-tail triples from hop3 pool
+   (diagnostic only; documents attractor separately).
+C) Do NOT stack more soft-disambig (29b lesson).
+
+Recommended if fixing: A short, B as ablate. Planner still later.

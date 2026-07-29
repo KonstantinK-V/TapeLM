@@ -1,0 +1,44 @@
+{
+  "timestamp": "2026-07-28T18:51:27.157000+00:00",
+  "protocol": "tape_read_vs_endpoint_185",
+  "overall": "ENDPOINT_ENOUGH_HERE",
+  "gain_tape_minus_endpoint": 0.0,
+  "shuffle_drop": 0.0,
+  "gpt_ref_184": {
+    "next_tok_acc": 0.7583333333333333,
+    "next_tok_n": 120,
+    "entity_acc": 0.18,
+    "entity_n": 100,
+    "ood_acc": 0.2,
+    "ood_n": 60,
+    "chance": 0.25
+  },
+  "unigram_baseline": {
+    "next_tok_acc": 0.65,
+    "entity_acc": 0.15,
+    "ood_acc": 0.2833333333333333
+  },
+  "steps": 3000,
+  "results": {
+    "endpoint": {
+      "ce_final": 4.065226191960074,
+      "next_tok_acc": 0.7916666666666666,
+      "next_tok_n": 120,
+      "entity_acc": 0.2,
+      "entity_n": 100,
+      "ood_acc": 0.25,
+      "ood_n": 60
+    },
+    "tape": {
+      "ce_final": 4.0904622371081185,
+      "next_tok_acc": 0.7916666666666666,
+      "next_tok_n": 120,
+      "entity_acc": 0.19,
+      "entity_n": 100,
+      "ood_acc": 0.3,
+      "ood_n": 60,
+      "next_tok_shuffled": 0.7916666666666666
+    }
+  },
+  "note": "matched budget/seed/data; pure CE; no retention/hand losses"
+}

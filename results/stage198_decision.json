@@ -1,0 +1,22 @@
+{
+  "timestamp": "2026-07-29T03:40:30.209079+00:00",
+  "protocol": "stream_update_198",
+  "overall": "STREAM_ARCHITECTURAL_DISTINCT",
+  "gates": {
+    "g_beyond": true,
+    "g_budget": true,
+    "g_update": true
+  },
+  "results": {
+    "tape_gated": 0.7380952380952381,
+    "rag_uniform": 0.25,
+    "rag_novelty_bolted": 0.7261904761904762,
+    "gpt_incontext": 0.2261904761904762,
+    "tape_update_latest": 0.7777777777777778,
+    "budget": 135,
+    "stream_len": 675,
+    "updated_entities": 45,
+    "chance": 0.25
+  },
+  "note": "online in-space write (fp-surprise admission + subject-anchor + recency) vs rebuilt RAG index; rag_novelty control quantifies whether distinctness is capability or architecture"
+}
