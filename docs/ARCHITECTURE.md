@@ -2,7 +2,23 @@
 
 > **Shipping trunk:** **221 → 227 → 228c → 230 → 226c** (W → canonical + qmap → decode → resolve → cross-domain e2e). Demo: [`../artifact/scripts/run_product.py`](../artifact/scripts/run_product.py).
 
-**One product:** **character ink → curve (P1) → fp** for memory; **BPE head** for text only — plus core fp **191–205** and memory trunk **221–230** on the same `arc_enc`. Implementers: [`MEMORY_ENGINEERING.md`](MEMORY_ENGINEERING.md) (trunk API). Numbers: [`results/preprint_tapelm_draft.md`](../results/preprint_tapelm_draft.md) §4.8, [`results/plan_curve_dynamics.md`](../results/plan_curve_dynamics.md).
+**One product:** **character ink → curve (P1) → fp** for memory; **arcBPE** readout for text — plus core fp **191–205** and memory trunk **221–230** on the same `arc_enc`. Implementers: [`MEMORY_ENGINEERING.md`](MEMORY_ENGINEERING.md) (trunk API). Numbers: [`results/preprint_tapelm_draft.md`](../results/preprint_tapelm_draft.md) §4.8, [`results/plan_curve_dynamics.md`](../results/plan_curve_dynamics.md).
+
+### arcBPE — not GPT BPE
+
+People say “BPE” when they mean **text**, not byte-merge tables. TapeLM keeps that intuition but splits it from GPT’s stack:
+
+| | **GPT BPE** (token BPE) | **arcBPE** (TapeLM) |
+|---|-------------------------|---------------------|
+| **Encoder input** | BPE token ids | **Character ink** |
+| **Memory / retrieval keys** | Token embeddings | **fp** from the same ink path |
+| **Text output** | Next token id | Next **arcBPE** piece from **arc state** |
+
+**arcBPE** — BPE-style next-piece CE on the curve (train + infer). Vocabulary merges are the usual byte-level machinery (Stage 177 **Curve-BPE** in scripts); what changes is **where** BPE lives: readout from arcs after ink, not an id stream through the whole model.
+
+**ink→arcBPE** — shorthand for the product path: **ink in**, **arcBPE out**. Same idea as **inkBPE** in conversation (“BPE on the ink stack, not GPT BPE”).
+
+**Do not conflate:** fair baselines and §204 comparisons still say **GPT BPE** when the rival is token-in / token-keyed RAG.
 
 ---
 
@@ -15,7 +31,7 @@ Main path: **character stream → frozen curve encoder → optional family W at 
         │
         ▼
   ┌─────────────────┐
-  │  P1 curve enc   │  fast + slow tape; CE targets = BPE pieces
+  │  P1 curve enc   │  fast + slow tape; CE targets = arcBPE pieces
   │  (dual-channel) │
   └────────┬────────┘
            │  fp(w) = norm( arc_enc( chars of w ) )
@@ -111,14 +127,16 @@ External **multi-hop** (203) loops in fp-space beside this path — not inside t
 
 | Piece | Role |
 |-------|------|
-| **Ink** | Characters (not BPE ids) drive the forward pass. |
-| **Fast channel** | Transformer over arc embeddings → next-piece CE on BPE targets. |
+| **Ink** | Characters (not arcBPE ids as encoder input) drive the forward pass. |
+| **Fast channel** | Transformer over arc embeddings → next-piece CE on arcBPE targets. |
 | **Slow channel** | Surprise-gated writer; retention without auxiliary losses that poisoned CE (ablated 185). |
 | **Self-model surprise** | Read-only signal for calibration wiring (188–189); gradient-detached from CE (“anti-Goodhart”). |
 
 Checkpoint: `checkpoints/stage191_p1_curve.pt` (SelfModelXL d256, 6L, ~150M chars on RTX 3050 class hardware).
 
-**Why it matters:** typos and OOV degrade **character fingerprints** smoothly; BPE fragments shatter under noise — this is the mechanistic story behind Stage 204.
+**Why it matters:** typos and OOV degrade **character fingerprints** smoothly; **GPT BPE** keys re-fragment under noise — Stage 204.
+
+**arcBPE role:** the stack **trains on and emits arcBPE pieces** via the CE head. **Memory and facts** do **not** use piece ids as their primary geometry — they use **fp** from character ink on the same `arc_enc`.
 
 ---
 

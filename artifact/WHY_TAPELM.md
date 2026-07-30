@@ -4,9 +4,11 @@
 
 ## Root: characters, not tokens
 
-Most stacks — including typical RAG — key retrieval on **token embeddings**. TapeLM’s substrate is a **character stream**: symbols move a **curve**; **fingerprints** for words are built from that ink. Memory modules (slots, calibration, bind/hop, resolution) use **fp**; BPE is the **generation readout**, not the memory coordinate system.
+**Facts as fingerprints on character ink** — not a token-id store, not retrieved paragraphs.
 
-That design choice explains **204**: under noise, BPE keys **re-fragment**; character fps change more **smoothly** — measured as **0.913 vs 0.627** vs fair GPT+RAG on our exam. One encoder serves generation and memory without a separate index embedder.
+Most stacks — including typical RAG — key retrieval on **token embeddings**. TapeLM’s substrate is a **character stream**: symbols move a **curve**; **fingerprints** for words are built from that ink. Memory modules (slots, calibration, bind/hop, resolution) use **fp**; text goes out as **arcBPE** — BPE readout from the curve after ink, not **GPT BPE** (token ids in and as memory keys).
+
+That design choice explains **204**: under noise, **GPT BPE** keys **re-fragment**; character fps change more **smoothly** — measured as **0.913 vs 0.627** vs fair GPT+RAG on our exam. One encoder serves generation and memory without a separate index embedder.
 
 ---
 
@@ -36,7 +38,7 @@ Facts are **subject-anchored slots**. Relations can use **binding** (`fp_A ⊙ f
 
 On **fair GPT+RAG**, two axes break parity in our measurements:
 
-- **Noisy / OOV text (204):** hardened recall **0.913 vs 0.627** — typos shatter BPE keys; character fps degrade smoothly.
+- **Noisy / OOV text (204):** hardened recall **0.913 vs 0.627** — typos shatter **GPT BPE** keys; character fps degrade smoothly.
 - **Naive parametric unlearn (205):** slot delete leaves the rest intact; gradient unlearning destroys most retained facts.
 
 These are **capability** results on defined exams, not architecture slides.
@@ -65,7 +67,7 @@ We **closed** several seductive directions so they cannot be confused with the p
 
 - **210–212:** hops / slow tape / instance identity **inside** the transformer forward — **THESIS_NO**; external fp loops remain the hop API.
 - **207:** predict next **fingerprint** instead of token — **falsified**.
-- **208:** fp rerank on the BPE head — **no gain** on clean text.
+- **208:** fp rerank on the **arcBPE** head — **no gain** on clean text.
 - **Clean static recall:** fair GPT+RAG can **match** us — parity is not the headline; **structure + noise/unlearn + trunk utilization** are.
 
 Full map: [`docs/STAGES.md`](../docs/STAGES.md) · [`results/plan_curve_dynamics.md`](../results/plan_curve_dynamics.md).

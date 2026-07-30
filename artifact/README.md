@@ -1,6 +1,6 @@
 # TapeLM — start here
 
-Character **ink** → curve → **fp memory** (not token-ID keys). Story: [`WHY_TAPELM.md`](WHY_TAPELM.md) · trunk **221→227→228c→230→226c** · `run_product.py`
+Character **ink** → **fp** facts on one encoder (not token-id store, not chunk RAG). Text: **ink→arcBPE**. Story: [`WHY_TAPELM.md`](WHY_TAPELM.md) · trunk **221→227→228c→230→226c** · `run_product.py`
 
 **TapeLM variant A** — one **character-curve encoder** (pretrained in 191, **frozen** for memory ingest) and **fingerprint memory** in the same space.
 

@@ -13,8 +13,10 @@ Use this when creating the remote repo or editing **About** settings.
 ## Short description (GitHub “About”, ≤ 350 characters)
 
 ```text
-TapeLM: character-curve LM + structured fp memory on one encoder. Stages 191–205 + trunk 221→227→228c→230→226c. Fair GPT/RAG baselines; JSON verdicts per stage.
+TapeLM: facts as fingerprints on character ink — not token-id memory, not chunk RAG. One frozen curve encoder for generation and structured slot memory (write, bind, hop, resolve). Noisy recall, lexicon calibration, one-shot edits, clean unlearning — vs fair GPT/RAG; reproducible JSON benchmarks.
 ```
+
+*~248 characters — room for a personal tweak if you add a URL or author.*
 
 ---
 
@@ -28,32 +30,34 @@ Paste as repo topics (hyphenated slugs GitHub accepts):
 | `character-level` | Ink / curve substrate |
 | `episodic-memory` | Slot memory line |
 | `retrieval-augmented-generation` | RAG comparison readers |
-| `knowledge-editing` | Subject-anchored writes |
-| `machine-unlearning` | Slot delete vs gradient unlearn |
-| `representation-learning` | Unified fp-space |
+| `knowledge-editing` | One-shot subject writes without backbone finetune |
+| `machine-unlearning` | Slot delete vs gradient unlearn (collateral-free) |
+| `continual-learning` | Frozen encoder + living slot bank |
+| `representation-learning` | Unified fp-space (generation + memory) |
+| `memory-augmented-neural-networks` | External fp memory on one encoder |
+| `information-retrieval` | Recall, hops, cross-domain read |
 | `reproducible-research` | JSON stage decisions |
 | `pytorch` | Stack |
 | `research-code` | Expectation setting |
 
-Additional tags people might search (add if you have topic slots left):
+Additional tags if you have topic slots left:
 
-- `memory-augmented-neural-networks`
-- `information-retrieval`
 - `nlp`
+- `natural-language-processing`
 
 ---
 
-## Search keywords (README, papers, CITATION — not all are GitHub topics)
+## Search keywords (README, papers, HF `Keywords:` — not all are GitHub topics)
 
-**Architecture:** character-level language model, curve encoder, arc dynamics, dual-channel memory, slow fast writer, surprise gating, self-model calibration.
+**Pitch:** facts as fingerprints on character ink; not token-id memory; not chunk RAG; one curve encoder; ink→arcBPE readout.
 
-**Memory / retrieval:** word fingerprint, fingerprint lexicon, episodic slot memory, vector binding, multi-hop retrieval, zero-train memory, external memory loop, compositional retrieval.
+**Strong sides (search phrases):** noisy / typo-robust recall, spelling noise, lexical OOD calibration, lexicon surprise, one-shot knowledge edit, machine unlearning without collateral, fp decode when the LM head skips memory, cross-domain memory read, conflict resolution in slots, vector binding, multi-hop in fp-space, zero-train slot memory, frozen backbone.
 
-**Comparisons:** RAG baseline, matched GPT, knowledge in weights vs index, architectural unification.
+**Architecture:** character-level language model, curve encoder, arc dynamics, dual-channel memory, slow fast writer, surprise gating, self-model calibration, word fingerprint, episodic slot memory, canonical memory bank, domain remap at read.
 
-**Capabilities:** OOD lexical calibration, noisy OCR text, out-of-vocabulary, one-shot knowledge edit, streaming under memory budget, machine unlearning collateral.
+**Comparisons:** fair GPT+RAG baseline, matched GPT control, RAG alternative, knowledge in weights vs index.
 
-**Meta:** reproducible benchmarks, staged research program, axis-specific evaluation.
+**Meta:** reproducible benchmarks, staged research program, axis-specific evaluation, JSON verdicts.
 
 ---
 

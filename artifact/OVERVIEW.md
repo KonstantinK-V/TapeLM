@@ -8,9 +8,9 @@
 
 ## The pitch
 
-TapeLM reads **characters**, not BPE token IDs. The **curve encoder** builds fingerprints for memory; the **CE head** predicts BPE pieces for text. Facts live as **structured fp operations** (slots, binds, hops, resolution) on the same map — not as retrieved paragraphs, and not via backbone finetune for each edit.
+**Facts as fingerprints on character ink** — not a token-id store, not retrieved paragraphs.
 
-Fair GPT+RAG can **tie** clean retrieval in our exams; the documented separations are **substrate + structure** (§5.1 preprint), **noise/unlearn (204–205)**, and the **product trunk** (**228c** / **226c** utilization).
+One **character-curve encoder** (P1): **fp** slots and policies on the same map as text (**ink→arcBPE**, not GPT token-BPE). Fair GPT+RAG can **tie** clean retrieval in our exams; the documented separations are **substrate + structure** (§5.1 preprint), **noise/unlearn (204–205)**, and the **product trunk** (**228c** / **226c** utilization).
 
 ---
 

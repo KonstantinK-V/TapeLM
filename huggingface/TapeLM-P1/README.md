@@ -7,17 +7,20 @@ tags:
   - episodic-memory
   - retrieval-augmented-generation
   - knowledge-editing
+  - machine-unlearning
+  - continual-learning
+  - information-retrieval
   - representation-learning
   - pytorch
 library_name: tapelm
 pipeline_tag: text-generation
 ---
 
-**Keywords:** character-level language model, curve encoder, dual-channel memory, word fingerprint, episodic slot memory, zero-train retrieval, canonical memory, knowledge editing, machine unlearning, RAG alternative, PyTorch, reproducible research.
+**Keywords:** character ink, word fingerprint, curve encoder, episodic slot memory, noisy recall, lexical calibration, one-shot knowledge edit, machine unlearning, multi-hop retrieval, cross-domain memory, conflict resolution, zero-train memory, fair GPT+RAG baseline, RAG alternative, PyTorch, reproducible research.
 
 # TapeLM weights (variant A)
 
-> **Character ink → curve → fp memory** (BPE head for text). Product trunk: **221→227→228c→230→226c** · optional `w_registry/`
+> **Facts on character ink (fp), not token-id store or chunk RAG** · one encoder · noisy recall, calibration, edits, unlearning · **ink→arcBPE** · optional `w_registry/`
 
 Checkpoints for **TapeLM** — one system: **Pillar A** (P1 + core fp 191–205) and **Pillar B** (memory trunk, optional `w_registry/`).
 

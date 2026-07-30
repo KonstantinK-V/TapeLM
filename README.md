@@ -1,8 +1,8 @@
 # TapeLM
 
-**TapeLM is an LM whose input is character ink, not BPE token IDs.** The encoder draws a **curve** over the symbol stream; **word fingerprints** for memory and calibration come from that path. Text is emitted via a **BPE head** — but slots, hops, edits, and conflict resolution key on **fp**, in the **same frozen encoder** as generation.
+**Facts as fingerprints on character ink** — not a token-id store, not retrieved paragraphs.
 
-**In one sentence:** facts and relations as **operable vectors** in the generation geometry — without a second embedder (RAG) and without finetuning the backbone to edit knowledge (parametric GPT).
+One frozen **character-curve encoder** (P1) for both: **fp** memory (slots, bind, hop, edit, resolve) on the same geometry as generation. Text readout: **ink→arcBPE** ([not GPT BPE](docs/ARCHITECTURE.md#arcbpe--not-gpt-bpe)). Product trunk **221 → 227 → 228c → 230 → 226c** — demo: `artifact/scripts/run_product.py`.
 
 | Headline results (staged) | |
 |---------------------------|---|
@@ -21,10 +21,10 @@ On **clean static retrieval**, a fair GPT+RAG baseline can **match** our scores 
 
 | What TapeLM does | Why this is not “RAG + another embedder” |
 |------------------|------------------------------------------|
-| **Character ink → curve → fp** (not BPE-id memory keys) | RAG/GPT memory keys live in **token** embedding space; one typo can re-split the whole word |
+| **Character ink → curve → fp** (not GPT-style BPE-id keys) | RAG/GPT memory keys live in **token** embedding space; one typo can re-split the whole word |
 | **One encoder** for generation, memory keys, and calibration | Fair RAG still ties us on **clean** retrieval — but uses **chunk text** and often a **separate** index geometry |
 | RAG re-prompts with **text chunks** | RAG re-prompts the LM; TapeLM uses **fp slots** and policies |
-| **Lexical calibration** (OOD AUC **0.982** vs BPE surprisal **0.380**) | No native “in *my* lexicon?” signal in vanilla RAG |
+| **Lexical calibration** (OOD AUC **0.982** vs **GPT BPE** surprisal **0.380**) | No native “in *my* lexicon?” signal in vanilla RAG |
 | **One-shot edit** (**1.00** vs GPT **~0.28** on our exam) without finetune | Parametric edit needs gradients; RAG needs re-index + prompt craft |
 | **Cross-domain read** via **W_family** + canonical bank (**227**) | Full re-index when the embedder “dialect” shifts |
 | **Fp decode + resolve** (**228c**, **230**) when the CE head ignores memory | RAG has no fp-scorer or slot-level conflict policy |
@@ -35,7 +35,7 @@ Honest scope: on **clean static recall**, a **fair GPT+RAG** baseline can **matc
 
 ## How it works
 
-*Substrate: **characters**, not BPE token IDs. Memory keys fingerprints from the curve; the CE head emits BPE pieces.*
+*Memory: **ink → curve → fp**. Text: **ink→arcBPE** (BPE readout from arcs, not token-BPE substrate).*
 
 ```mermaid
 flowchart LR
@@ -61,7 +61,7 @@ flowchart LR
 
 ```text
 Characters (stream) → arc_enc → fp(word)     ← memory, calibration, hops key here
-                         └─ CE head → BPE text   ← generation readout only
+                         └─ CE head → arcBPE text   ← generation readout only
 ```
 
 Full diagram + frozen-P1 table: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
@@ -91,7 +91,7 @@ Documented in repo — not hidden in footnotes:
 |------|---------|
 | **Semantic invariance (PAWS / “B”)** | Not confirmed at RTX 3050 scale (**209**); curve ≈ matched GPT |
 | **Generate next fingerprint (variant B)** | **Falsified** (**207**) |
-| **Fp rerank on BPE head** | **No gain** on clean text (**208**) |
+| **Fp rerank on arcBPE head** | **No gain** on clean text (**208**) |
 | **Hops inside transformer forward** | **THESIS_NO** (**210–212**); external fp loop remains the hop API |
 | **Clean static recall vs fair GPT+RAG** | **Parity** — not a capability trump card (**196**, **198**) |
 

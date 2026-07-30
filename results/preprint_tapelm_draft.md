@@ -3,7 +3,7 @@
 *Authors: [TBD]*  
 *Code & stage logs: [KonstantinK-V/TapeLM](https://github.com/KonstantinK-V/TapeLM) (Stages 170–230)*
 
-> **Reader’s guide:** Substrate = **character ink → curve → fp** (BPE is readout). Motivation: [`artifact/WHY_TAPELM.md`](../artifact/WHY_TAPELM.md). Numbers: §4.2, §4.2b–c, §4.8, §5.1.
+> **Reader’s guide:** **Facts as fp on character ink** — not token-id store, not chunk RAG. Substrate **ink → curve → fp**; text **ink→arcBPE** ([vs GPT BPE](../docs/ARCHITECTURE.md#arcbpe--not-gpt-bpe)). Motivation: [`artifact/WHY_TAPELM.md`](../artifact/WHY_TAPELM.md). Numbers: §4.2, §4.2b–c, §4.8, §5.1.
 
 > **Product shipping trunk:** **221 → 227 → 228c → 230 → 226c**
 

@@ -3,7 +3,7 @@
 > **Shipping trunk:** **221 → 227 → 228c → 230 → 226c**  
 > **Публичный вход:** [`results/extension_plain_ru.md`](../../results/extension_plain_ru.md)
 
-**Один продукт (variant A):** curve encoder P1 + fp-память в **одной** геометрии. Блок **192–205** — lexicon, слоты, hop, edit. Блок **213–230** — как жить, когда encoder «поплыл», домены разные, голова не читает память, в слотах конфликты.
+**Один продукт (variant A):** **факты = fp на символьном ink** — не store по id токенов, не «вставили абзац из RAG». Один curve encoder P1; текст наружу **ink→arcBPE** (не GPT BPE). Блок **192–205** — lexicon, слоты, hop, edit. Блок **213–230** — drift, домены, decode, конфликты в слотах.
 
 ---
 
