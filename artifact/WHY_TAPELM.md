@@ -1,12 +1,14 @@
 # Why TapeLM?
 
+> **Letters in. Structure out. Not chunks. Not finetune.**
+
 > **Shipping trunk:** **221 → 227 → 228c → 230 → 226c** · try it: [`QUICKSTART.md`](QUICKSTART.md)
 
 ## Root: characters, not tokens
 
-Standard LMs **eat BPE token IDs**; memory and RAG usually key on the **same token embeddings**. TapeLM’s substrate is **characters**: each letter updates a **curve** in continuous space. **Fingerprints** for words are built from that ink; **slots, calibration, and hops** use fp — not retrieved text chunks and not a parallel token index. Generation still predicts **BPE pieces**, but that is a **head on top of the curve**, not the foundation of the memory contract.
+**Surprise #0:** In 2026 everyone still builds LMs on **BPE token IDs** — and keys memory there too. TapeLM’s substrate is **characters**: each symbol moves a **curve**; **fingerprints** for words come from ink, not from a tokenizer lookup table. Slots, calibration, bind/hop, and conflict resolution use **fp**; BPE is only how the **head speaks**.
 
-That single choice is what makes **204** (noise **0.913 vs 0.627** vs fair RAG) a mechanistic result, not a trick: misspellings re-fragment BPE; character fps move smoothly.
+That is not retro for its own sake. It is why **204** is a **capability** win: misspellings **shatter** token keys; character fps **bend** without breaking. Same encoder for **talk** and **remember** — RAG needs another geometry and a prayer the LM reads the prompt.
 
 ---
 

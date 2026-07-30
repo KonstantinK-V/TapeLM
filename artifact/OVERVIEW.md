@@ -8,9 +8,9 @@
 
 ## The pitch
 
-Language models **store** knowledge in weights or **fetch** it as text. TapeLM treats knowledge as **structure you can operate on** in fingerprint space — but that space exists because **input is character ink**, not a token ID stream. The **curve encoder** reads symbols; **BPE is only how we emit text** from the fast channel.
+### Tokens are how the world indexes language. We index **spelling**.
 
-Facts are **subject-anchored slots**, binds and hops in vector space, edits without retraining the backbone — all on the **same** map RAG would need a second embedder to approximate.
+TapeLM reads **characters**, not BPE IDs. Memory is **structure on the curve** — slots, binds, hops, resolve — in the **same** space as generation. RAG stores **paragraphs** and hopes; GPT **retrains** to edit. We **write vectors** and **decode** them when the CE head shrugs (**228c**: **~1.0** vs **~0.48**).
 
 ---
 

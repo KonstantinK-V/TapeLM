@@ -1,10 +1,21 @@
 # TapeLM
 
-**TapeLM is a language model where facts and relations live as vectors in the same space as generation.** Unlike RAG, it does not need a second embedder for memory; unlike a parametric GPT, it does not retrain the backbone to edit knowledge — new facts are **slot writes** on a **frozen** curve encoder.
+### The industry keys memory on **tokens**. We key it on **letters**.
 
-**Root idea — input is characters, not tokens.** The model reads a **character stream** (“ink”) and builds a **curve** in continuous space; **word fingerprints** come from that same path. BPE pieces are targets for the **text head**, not the substrate the memory stack keys on. That is why typos and OOV degrade **smoothly** in fp-space while BPE keys **shatter** (Stage **204**) — and why one encoder can unify generation and memory without a second token embedder.
+A typo does not “almost match” in BPE space — it **re-fragments** the word and retrieval breaks. TapeLM reads **character ink**, draws a **curve**, and fingerprints words from **that** geometry. Generation still speaks BPE; **memory, calibration, hops, and edits** live in **fp-space** on the same frozen encoder — not in pasted-in paragraphs, not in a second token index.
 
-More context: [`artifact/WHY_TAPELM.md`](artifact/WHY_TAPELM.md) · **Try in ~2 min (no weights):** [`artifact/QUICKSTART.md`](artifact/QUICKSTART.md)
+**One line:** facts and relations as **operable vectors** where generation lives; **no** retrain-the-backbone to edit knowledge; **no** RAG-style “here is a chunk, good luck.”
+
+| Surprise (measured) | Number |
+|---------------------|--------|
+| Noisy recall vs **fair GPT+RAG** | **0.913 vs 0.627** (204) |
+| “Do I know this word?” calibration | AUC **0.982** vs GPT **0.380** |
+| Memory the **head ignores** → **fp decode** fixes | **~1.0** vs **~0.48** (228c) |
+| Cross-domain **use** of memory | **~0.88** vs **~0.45** head (226c) |
+
+*Clean static retrieval? Fair RAG can **tie** us — we say so. The punch is **letters → curve → structure**, not tidy benchmark wins.*
+
+[`artifact/WHY_TAPELM.md`](artifact/WHY_TAPELM.md) · **~2 min, no weights:** [`artifact/QUICKSTART.md`](artifact/QUICKSTART.md) · **Full demo:** `run_product.py`
 
 ---
 

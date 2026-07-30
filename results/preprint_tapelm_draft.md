@@ -3,9 +3,9 @@
 *Authors: [TBD]*  
 *Code & stage logs: [KonstantinK-V/TapeLM](https://github.com/KonstantinK-V/TapeLM) (Stages 170–230)*
 
-> **Product shipping trunk:** **221 → 227 → 228c → 230 → 226c** (W → canonical bank → fp decode → resolution → cross-domain e2e). Demo: `artifact/scripts/run_product.py`.
+> **Reader hook:** Everyone keys memory on **tokens**. TapeLM keys on **letters** — character ink → curve → fingerprints; BPE is readout, not the memory substrate. Surprises with numbers: noisy recall **0.913 vs 0.627** (fair RAG); fp decode **~1.0** when the head scores **~0.48**.
 
-**Reader’s guide:** For motivation and the five strongest ideas in plain language, see [`artifact/WHY_TAPELM.md`](../artifact/WHY_TAPELM.md). For numbers, read §4.2 (scorecard), §4.2b–c (wins vs fair RAG), §4.8 (trunk), §5.1 (not RAG-with-embedder).
+> **Product shipping trunk:** **221 → 227 → 228c → 230 → 226c**
 
 ---
 

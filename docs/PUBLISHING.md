@@ -13,17 +13,22 @@ Use this when creating the remote repo or editing **About** settings.
 ## Short description (GitHub “About”, ≤ 350 characters)
 
 ```text
-TapeLM: character-curve LM + unified fp memory. Shipping trunk: 221→227→228c→230→226c. One encoder; staged evidence vs matched GPT / fair RAG.
+Memory on tokens: one typo → new pieces → wrong key.
+Memory on letters:  one typo → same curve, bent fingerprint → retrieval still works (204: 0.913 vs RAG 0.627).
 ```
 
-*(~160 characters.)*
+## Short description (GitHub “About”, ≤ 350 characters)
 
----
+```text
+TapeLM: memory on LETTERS not tokens — one curve encoder, structured fp slots, fp decode. 0.91 noisy recall vs fair RAG 0.63. Trunk 221→227→228c→230→226c.
+```
+
+*(Hook-first; trim if GitHub limits.)*
 
 ## Extended “About” / social preview (optional README excerpt)
 
 ```text
-Non-standard stack: P1 curve encoder and operable fingerprint memory in one space. Generation parity, recall, edit, cross-domain memory, contradiction resolution — reproducible stage program.
+The industry keys memory on BPE tokens. TapeLM keys on character ink → curve → fingerprints: edit without finetune, resolve conflicts, cross-domain W. Staged proofs vs GPT / fair RAG.
 ```
 
 ---
