@@ -4,6 +4,76 @@
 
 ---
 
+## System diagram (inference)
+
+Main path: **character stream → frozen curve encoder → optional family W at read → canonical slots → token decoder.** Calibration and conflict resolution attach to **fp geometry** and **slot retrieve**, not to a second embedder.
+
+```text
+  Stream (chars)
+        │
+        ▼
+  ┌─────────────────┐
+  │  P1 curve enc   │  fast + slow tape; CE targets = BPE pieces
+  │  (dual-channel) │
+  └────────┬────────┘
+           │  fp(w) = norm( arc_enc( chars of w ) )
+           │
+           ▼
+  ┌─────────────────┐
+  │  W_family       │  prose │ code │ …     read-time qmap only
+  │  (lens @ read)  │  qq = norm( W_bwd @ q_domain )
+  └────────┬────────┘
+           │
+           ▼
+  ┌─────────────────┐
+  │  Canonical      │  keys stored in P1 fp (227 write)
+  │  slot bank      │  4-way retrieve → fp decode (228c) when constrained
+  └────────┬────────┘
+           │
+           ▼
+  ┌─────────────────┐
+  │  Decoder        │  CE head (+ optional head_family, 225)
+  └─────────────────┘
+
+
+Stream ──► P1 ──► W (prose/code) ──► Slots ──► Decoder
+            ▲              ▲              ▲
+            │              │              │
+   Calibration      same fp space   Conflict resolver
+   (lexicon)        (W migrates      (230: pick among
+   192–193          coordinates)    multi-hit, 229)
+```
+
+```mermaid
+flowchart LR
+  S["Stream<br/>(chars)"]
+  P1["P1<br/>curve encoder"]
+  W["W_family<br/>prose / code"]
+  SL["Canonical<br/>slots"]
+  D["Decoder<br/>CE head"]
+
+  S --> P1 --> W --> SL --> D
+
+  CAL["Calibration<br/>lexicon surprise"]
+  RES["Conflict resolver<br/>230 policy"]
+
+  CAL -.->|"temperature / abstain"| P1
+  RES -.->|"resolve multi-hit"| SL
+
+  P1 -->|"fp(w)"| CAL
+```
+
+| Step | What happens |
+|------|----------------|
+| **Write** | Context/query fps from P1 **canonical** geometry; slot **keys** stay in that space (no W on write). |
+| **Read (other domain)** | Query fp → **W_bwd** → match keys → **228c** scores candidates with `cos(fp(c), fp(retrieved))` when the head alone underuses memory. |
+| **Calibrate** | Lexicon surprise on **fp** modulates generation confidence (193); read-only w.r.t. slot geometry. |
+| **Resolve** | After retrieve, **230** chooses among conflicting values (provenance / recency / query cue); not fixable by cosine alone (229). |
+
+External **multi-hop** (203) loops in fp-space beside this path — not inside the transformer forward (210 **THESIS_NO**). Details: [`MEMORY_ENGINEERING.md`](MEMORY_ENGINEERING.md).
+
+---
+
 ## Confirmed on variant A (single stack)
 
 **Generation & core fp (191–205):** parity; calibration, recall, hop2/bind, edit, stream; external hops (203); noise/unlearn vs fair baselines (204–205).

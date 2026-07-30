@@ -59,7 +59,7 @@ Some directions were **explored and not carried into the v1 product claim** — 
 |-------|------|
 | **Quickstart** | [`QUICKSTART.md`](QUICKSTART.md) |
 | Verdict table | `python artifact/scripts/show_map.py` |
-| Architecture | [`../docs/ARCHITECTURE.md`](../docs/ARCHITECTURE.md) |
+| Architecture (diagram) | [`../docs/ARCHITECTURE.md`](../docs/ARCHITECTURE.md) |
 | Memory API | [`../docs/MEMORY_ENGINEERING.md`](../docs/MEMORY_ENGINEERING.md) |
 | Memory narrative | [`../results/extension_memory_contract.md`](../results/extension_memory_contract.md) |
 | Long program | [`../results/plan_curve_dynamics.md`](../results/plan_curve_dynamics.md) |

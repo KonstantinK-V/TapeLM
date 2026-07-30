@@ -14,7 +14,7 @@ TapeLM (variant A) is a **non-standard LM stack** that works as **one system**: 
 Every claim is tied to **staged, reproducible exams** (JSON verdicts in [`artifact/decisions/`](artifact/decisions/)). Comparisons use **matched GPT** and **fair GPT+RAG** where the stage defines them.
 
 **Quickstart:** [`artifact/QUICKSTART.md`](artifact/QUICKSTART.md) · `python artifact/scripts/run_product.py`  
-**Docs:** [`artifact/OVERVIEW.md`](artifact/OVERVIEW.md) · [`docs/MEMORY_ENGINEERING.md`](docs/MEMORY_ENGINEERING.md) · [`docs/CHECKPOINTS.md`](docs/CHECKPOINTS.md)
+**Docs:** [`artifact/OVERVIEW.md`](artifact/OVERVIEW.md) · [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) (diagram) · [`docs/MEMORY_ENGINEERING.md`](docs/MEMORY_ENGINEERING.md) · [`docs/CHECKPOINTS.md`](docs/CHECKPOINTS.md)
 
 ---
 
