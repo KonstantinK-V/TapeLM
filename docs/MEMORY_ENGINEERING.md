@@ -88,16 +88,19 @@ Lower-level pieces: `apply_qmap`, `slot_retrieve_4way`, `fp_cos_scores`, `WFamil
 
 ---
 
-## Resolution & branches (not closed here)
+## Resolution & post-trunk ops
 
 | Track | Role | Status |
 |-------|------|--------|
-| **229 →** | Policy on multi-hit / contradictory slots (confidence, provenance, time) | **230** `RESOLUTION_POLICY_*` |
-| **226 e2e** | Generation loop calls 228c decode path | **226c** `JOINT_FP_DECODE_*` |
-| **228 algebra** | Compositional W | branch |
-| **231** | Temporal W (was 230 in queue) | branch |
-| **233** | Tool binding | branch |
-| **Pretrain** | Stronger L1 (209 note) | branch |
+| **229 →** | Policy on multi-hit / contradictory slots | **230** `RESOLUTION_POLICY_OK` |
+| **226 e2e** | Generation loop calls 228c decode path | **226c** `JOINT_FP_DECODE_OK` |
+| **231** | Temporal / era-matched qmap W | **TEMPORAL_W_OK** |
+| **232** | L3 decay + slot `w_version` | **STREAM_W_VERSION_OK** |
+| **233** | Tool binding (`fp_bind` keys) | **TOOL_BINDING_OK** |
+| **234** | Compositional W (`compose_w_bwd`) | **COMPOSITIONAL_W_OK** |
+| **235** | Mixed-domain L1 probe (bounded) | **MIXED_L1_PROBE_OK** — full pretrain open |
+
+These are **ops / algebra**, not the shipping trunk (`run_product.py`).
 
 ---
 
@@ -108,6 +111,7 @@ python _stage227_canonical_slots.py --smoke
 python _stage228c_fp_decode_fix.py --smoke
 python _stage230_slot_resolution.py --smoke
 python _stage226c_joint_fp_decode.py --smoke
+python _stage231_temporal_W.py --smoke
 python artifact/scripts/sync_decisions.py
 ```
 

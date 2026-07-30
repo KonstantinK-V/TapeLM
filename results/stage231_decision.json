@@ -1,0 +1,17 @@
+{
+  "stage": 231,
+  "overall": "TEMPORAL_W_OK",
+  "gates": {
+    "G_matched_beats_wrong_W": true,
+    "G_era_pick_beats_wrong": true,
+    "G_prose_self_qmap": true
+  },
+  "recall_wrong_W_prose_on_code": 0.6666666666666666,
+  "recall_matched_W_code_on_code": 0.9,
+  "recall_era_picked_on_code": 0.9,
+  "recall_prose_W_on_prose": 0.9333333333333333,
+  "margin_matched_minus_wrong": 0.2333333333333334,
+  "mean_cos_can_prose": 0.6789031624794006,
+  "mean_cos_can_code": 0.4488484859466553,
+  "timestamp": "2026-07-30T18:30:32.731594+00:00"
+}

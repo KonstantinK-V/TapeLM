@@ -149,6 +149,62 @@ class WFamilyPolicy:
         return (matched_recall - reuse_recall) >= drop_tol
 
 
+def fp_bind(a: torch.Tensor, b: torch.Tensor) -> torch.Tensor:
+    """Circular-convolution-style bind in fp-space (elementwise product, normalized)."""
+    if a.dim() == 1:
+        a = a.unsqueeze(0)
+    if b.dim() == 1:
+        b = b.unsqueeze(0)
+    return F.normalize(a * b, dim=-1)
+
+
+def weighted_slot_sims(
+    sims: torch.Tensor,
+    ages: list[int],
+    w_versions: list[str],
+    active_w_version: str,
+    tau: float,
+    version_penalty: float = 0.25,
+) -> torch.Tensor:
+    """L3 read: age decay × penalty when slot `w_version` ≠ active registry era."""
+    out = sims.clone()
+    for j, (age, wv) in enumerate(zip(ages, w_versions)):
+        w = math.exp(-age / max(tau, 1e-6))
+        if wv != active_w_version:
+            w *= version_penalty
+        out[j] = out[j] * w
+    return out
+
+
+def pick_w_bwd_for_era(
+    registry: dict[str, DomainAdapter],
+    era: str,
+    fallback: str = "prose_bwd",
+) -> DomainAdapter | None:
+    """Temporal W: map logical era label → persisted adapter key (e.g. prose_v2_bwd)."""
+    key = f"{era}_bwd" if not era.endswith("_bwd") else era
+    if key in registry:
+        return registry[key]
+    return registry.get(fallback)
+
+
+@torch.no_grad()
+def mean_core_cos(bank_a: FpBank, bank_b: FpBank, core: list[str]) -> float:
+    Fa = bank_a.fp(core)
+    Fb = bank_b.fp(core)
+    return float((Fa * Fb).sum(-1).mean())
+
+
+def compose_w_bwd(W_outer: DomainAdapter, W_inner: DomainAdapter) -> DomainAdapter:
+    """Compose qmap adapters: ``normalize(W_outer @ W_inner @ q)`` (227 qmap chain)."""
+    d = W_outer.w.weight.shape[0]
+    W = DomainAdapter(d).to(W_outer.w.weight.device)
+    with torch.no_grad():
+        W.w.weight.copy_(W_outer.w.weight @ W_inner.w.weight)
+    W.eval()
+    return W
+
+
 def lexicon_nearest(fp: torch.Tensor, lex_fps: torch.Tensor) -> torch.Tensor:
     """Snap batch of fp vectors to nearest row in lex_fps."""
     idx = (fp @ lex_fps.T).argmax(dim=-1)

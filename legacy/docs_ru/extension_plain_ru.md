@@ -121,10 +121,21 @@ W на диск / HF: `export_w_registry.py`, `w_registry/`.
 
 ---
 
-## Что не в v1 (честно)
+## Stages 231–235 — инженерия после trunk (не продукт)
 
-- Multi-domain **pretrain** encoder (нужен scale) — **open track**, не опровергнуто.
-- Compositional W, temporal W, tool binding — ветки, см. EN pipeline.
+Не входят в shipping trunk и не меняют headline vs RAG. Закрыты как **ops / алгебра W**:
+
+| Стадия | Итог | Зачем |
+|--------|------|-------|
+| **231** | `TEMPORAL_W_OK` | Правильный qmap W для эпохи encoder (не prose W на code) |
+| **232** | `STREAM_W_VERSION_OK` | L3: decay + `w_version` на слотах |
+| **233** | `TOOL_BINDING_OK` | ключи `fp(tool)⊙fp(entity)` |
+| **234** | `COMPOSITIONAL_W_OK` | цепочка W ≈ прямой W (алгебра 228) |
+| **235** | `MIXED_L1_PROBE_OK` | короткий mixed arc-ft **probe** — не полный pretrain |
+
+## Что ещё не в v1 (честно)
+
+- Multi-domain **pretrain** encoder на масштабе 191 — **open**, 235 только probe.
 - Internalization **210–212** — **THESIS_NO**; hops только **external fp loop** (203).
 
 ---
@@ -133,12 +144,12 @@ W на диск / HF: `export_w_registry.py`, `w_registry/`.
 
 | Что | Где |
 |-----|-----|
-| JSON verdicts | `results/stage213_decision.json` … `stage230_decision.json`, `stage226c_*`, `stage228c_*` |
+| JSON verdicts | `results/stage213_decision.json` … `stage235_*`, `stage226c_*`, `stage228c_*` |
 | Копия для artifact | `artifact/decisions/` |
 | Таблица стадий | `python artifact/scripts/show_map.py` |
 | Полный narrative (EN) | [`results/plan_curve_dynamics.md`](../../results/plan_curve_dynamics.md) — секция *Memory extension program* |
 | Preprint | [`results/preprint_tapelm_draft.md`](../../results/preprint_tapelm_draft.md) §4.8 |
 | Концепт после 221 | [`results/extension_concept_after_221.md`](../../results/extension_concept_after_221.md) |
-| Очередь прогонов | [`extension_run_queue_2h.md`](extension_run_queue_2h.md) |
+| Очередь прогонов | [`extension_run_queue_next.md`](../../results/extension_run_queue_next.md) |
 
-Обновлено: **2026-07-30** (221–230 trunk).
+Обновлено: **2026-07-30** (221–230 trunk + 231–235 ops).

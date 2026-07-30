@@ -214,7 +214,7 @@ The core stack (§2–4) keeps **one frozen P1 encoder** for canonical storage a
 
 **Contradictions (229–230).** Slots may return **multiple** conflicting values (both in top-2 ~60%; score gaps small). Resolution is a **policy layer** (provenance, recency, query cues): composite policy **~1.0** on cued exams vs raw argmax **~0.47** (230). This complements §4.2c audit (flag contradictions) with **selection**.
 
-**What remains open.** Head-only text inject without fp decode still fails to utilize memory (226, 228a). Compositional W, temporal W, and tool binding are research branches, not part of the v1 product claim. Weights: P1/P2 + optional `w_registry/` on Hugging Face; demo: `artifact/scripts/run_product.py`.
+**Post-trunk ops (231–235, not v1 headline).** Closed on staged exams: **temporal / era-matched W** (231), **stream decay + slot `w_version`** (232), **tool⊗entity bind keys** (233), **compositional qmap** (234), and a **bounded mixed-domain L1 probe** (235 — short arc steps, not 191-scale pretrain). These harden deploy hygiene and W algebra; they do **not** change the shipping trunk or the fair-RAG scorecard. Head-only text inject without fp decode still fails (226, 228a). Still open at scale: multi-domain **L1 pretrain**. Weights: P1/P2 + optional `w_registry/` on Hugging Face; demo: `artifact/scripts/run_product.py`.
 
 ---
 
@@ -353,6 +353,8 @@ We recommend framing the work around **structured knowledge as operable vectors*
 | **228c** | **4-way retrieve + fp decode:** 1.0 vs head ~0.48 |
 | **229–230** | Multi-hit slots; **resolution policy** ~1.0 vs argmax ~0.47 |
 | **226c** | Cross-domain **fp decode** ~0.88 vs head ~0.45 |
+| 231–233 | Ops: temporal W OK; stream+`w_version` OK; tool bind OK (not trunk) |
+| 234–235 | Compositional W OK; mixed L1 **probe** OK (not full pretrain) |
 
 Full narrative: [`plan_curve_dynamics.md`](plan_curve_dynamics.md) (Memory extension program), [`extension_memory_contract.md`](extension_memory_contract.md), [`../docs/ARCHITECTURE.md`](../docs/ARCHITECTURE.md). Machine-readable: `results/stage*_decision.json`, `artifact/decisions/`.
 

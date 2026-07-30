@@ -1,0 +1,15 @@
+{
+  "stage": 234,
+  "branch": "228_algebra_compositional_W",
+  "overall": "COMPOSITIONAL_W_OK",
+  "gates": {
+    "G_composed_within_0p10_of_direct": true,
+    "G_composed_recall_ge_0p70": true,
+    "G_seq_vs_direct_encoder_close": false
+  },
+  "recall_W_direct_on_code_enc": 0.8727272727272727,
+  "recall_W_composed_on_code_enc": 0.9636363636363636,
+  "recall_W_composed_on_seq_enc": 0.7636363636363637,
+  "gap_direct_minus_composed": -0.09090909090909094,
+  "timestamp": "2026-07-30T18:57:14.667311+00:00"
+}

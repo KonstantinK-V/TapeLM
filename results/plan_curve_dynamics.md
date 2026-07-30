@@ -634,7 +634,7 @@ None of the three cost anything — P1 stayed frozen and generation unchanged in
 
 **Shipping trunk (order):** **221 → 227 → 228c → 230 → 226c** (229 multi-hit → 230). Demo: `artifact/scripts/run_product.py` · `run_memory_demo.py`.
 
-**Still open (not v1 headline):** L3 decay versioned with W id; compositional / temporal W; multi-domain **pretrain** L1 (scale); tool binding. Branches: [`extension_closed_branches.md`](extension_closed_branches.md) · queue: [`../docs/EXTENSION_PIPELINE.md`](../docs/EXTENSION_PIPELINE.md).
+**Closed (231–233, 2026-07-30):** temporal W, stream+W version, tool binding. **234–235 (2026-07-30):** compositional qmap **OK** (composed ≥ direct on code read); mixed L1 **probe OK** (mixed ft closer to code, W recall **0.88** vs prose-only W **0.42** on code query — bounded steps, not full pretrain). Still open for headline: **228** product algebra, **191-scale** multi-domain L1.
 
 Paper-shaped prose: [`preprint_tapelm_draft.md`](preprint_tapelm_draft.md) **§4.8** · stage index: [`../docs/STAGES.md`](../docs/STAGES.md).
 
@@ -677,7 +677,8 @@ where BPE-GPT is structurally weak *by construction*, not just under-equipped.
   Internalization inside forward (210–212) remains **NO**; external fp loop stays the hop API.
 - **OPEN (scale frontier):** semantic invariance / meaning over spelling (B). Requires a new encoder pretrained
   with a meaning objective at scale — a separate track gated on stronger hardware.
-- **OPEN (engineering, not headline):** L3 decay versioned with W; compositional/temporal W; multi-domain L1 pretrain; tool binding.
+- **CLOSED / post-trunk ops (231–235):** temporal W, stream+`w_version`, tool bind, compositional qmap, mixed L1 **probe** — not shipping trunk.
+- **OPEN (scale, not headline):** multi-domain **L1 pretrain** at 191 scale (235 is probe only).
 
 ### PROGRAM VERDICT (2026-07-29, after 196–198): TapeLM vs BPE-GPT — honest scorecard
 | axis | tape | vanilla GPT | GPT+RAG (fair) | distinct from GPT? | distinct from RAG? |

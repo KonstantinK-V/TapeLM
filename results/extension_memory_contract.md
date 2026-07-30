@@ -122,7 +122,8 @@ W matrices between families are **not** the same (cos_flat **~0.43–0.53**) →
 1. ~~Persist `checkpoints/w_registry/` (`W_*_bwd.pt`, manifest)~~ — **done:** `export_w_registry.py` + [`docs/MEMORY_ENGINEERING.md`](../docs/MEMORY_ENGINEERING.md).  
 2. **~~229+ resolution policy~~** — `_stage230_slot_resolution.py` + `_tapelm_ext.resolve_slot_contradiction`.  
 3. **~~226 e2e~~** — `_stage226c_joint_fp_decode.py` (228c at return token).  
-4. Wire L3 decay with `W_active` version id on slots (stale + wrong family).  
-5. Branches: 228 algebra, 230 temporal W, pretrain L1, 233 tool binding.
+4. ~~Wire L3 decay with `W_active` version id on slots~~ — **232** `STREAM_W_VERSION_OK`.
+5. ~~Temporal W / tool bind / compositional W~~ — **231 / 233 / 234** OK (ops, not trunk).
+6. **Open:** full multi-domain **L1 pretrain** (235 = bounded probe only).
 
 Code: `_tapelm_ext` (`WFamilyPolicy`, decode API). Narrative: this file + [`extension_thesis_W_remap.md`](extension_thesis_W_remap.md).

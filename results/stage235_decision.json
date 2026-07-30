@@ -1,0 +1,18 @@
+{
+  "stage": 235,
+  "branch": "pretrain_L1_mixed_domain_probe",
+  "overall": "MIXED_L1_PROBE_OK",
+  "gates": {
+    "G_mixed_closer_to_code_than_prose_only": true,
+    "G_mixed_W_recall_not_worse": true,
+    "G_mixed_cos_can_not_hurt": false
+  },
+  "mean_cos_can_prose_ft": 0.7730860114097595,
+  "mean_cos_can_mixed_ft": 0.6363480091094971,
+  "mean_cos_code_vs_mixed": 0.845262885093689,
+  "mean_cos_code_vs_prose_ft": 0.43163660168647766,
+  "recall_code_query_W_mixed": 0.88,
+  "recall_code_query_W_prose_ft": 0.42,
+  "arc_steps": 400,
+  "timestamp": "2026-07-30T19:01:49.603596+00:00"
+}

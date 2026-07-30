@@ -23,6 +23,11 @@ CURATED = [
     ("228c", "Official fp decode (4-way)"),
     ("230", "Contradiction resolution"),
     ("226c", "Cross-domain gen + memory"),
+    ("231", "Temporal W (matched qmap)"),
+    ("232", "Stream decay + W version"),
+    ("233", "Tool binding keys"),
+    ("234", "Compositional W (228 algebra)"),
+    ("235", "Mixed L1 pretrain probe"),
     ("207", "Variant B (scope)"),
     ("210", "Internalization frontier (scope)"),
 ]

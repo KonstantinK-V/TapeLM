@@ -103,3 +103,15 @@ Same frozen P1; canonical slot bank; family **W** at read; **228c** fp decode; *
 Weights: `checkpoints/w_registry/` · `export_w_registry.py` · HF `Kostya03v/TapeLM-P1` (`w_registry/`).
 
 ---
+
+## Post-trunk engineering (231–235) — measured, not shipping trunk
+
+| Stage | Overall | One-line |
+|-------|---------|----------|
+| 231 | TEMPORAL_W_OK | Era-matched qmap > wrong W on code read (Δ ~0.23) |
+| 232 | STREAM_W_VERSION_OK | Decay × `w_version` when ages tie |
+| 233 | TOOL_BINDING_OK | Tool⊗entity bind keys vs entity-only |
+| 234 | COMPOSITIONAL_W_OK | Chained qmap ≥ direct W on exam |
+| 235 | MIXED_L1_PROBE_OK | Bounded mixed arc-ft probe; full L1 pretrain still open |
+
+---

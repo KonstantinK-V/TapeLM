@@ -1,20 +1,15 @@
 # Queue after typed contract (order)
 
-1. ~~**227** canonical slots + W@read~~ — `CANONICAL_STORAGE_OK`
-2. ~~**228c** official decode API~~ — `FP_DECODE_FIX_YES` + `docs/MEMORY_ENGINEERING.md`
-3. ~~**229** contradiction / multi-hit~~ — `CONTRADICTION_RAW_MEMORY_OK`
-4. **230** resolution policy — `_stage230_slot_resolution.py`
-5. **226c** joint e2e (228c in gen loop) — `_stage226c_joint_fp_decode.py`
-6. **228** compositional W — branch later
-7. **231** temporal W — branch later
-8. **233** tool binding — branch later
+1. ~~**227** … **233**~~ — trunk + engineering (231 temporal W, 232 stream+version, 233 tool bind)
+2. ~~**234** compositional W (228 algebra)~~ — `_stage234_compositional_W.py`
+3. ~~**235** mixed L1 probe~~ — `_stage235_mixed_l1_probe.py`
+
+**Still open (scale, not v1 headline):** full multi-domain **pretrain L1** at 191-scale; compositional W productization only if 234 holds on fixed exam JSON.
 
 ```bash
-python _stage230_slot_resolution.py
-python _stage226c_joint_fp_decode.py
+python _stage234_compositional_W.py
+python _stage235_mixed_l1_probe.py
 python artifact/scripts/sync_decisions.py
 ```
 
-If **230 + 226c** close on full runs → narrative upgrade from “artifact only” to **memory product contract** (persist W on HF + resolution + decode path documented).
-
-**Status (full run):** `RESOLUTION_POLICY_OK` (230) · `JOINT_FP_DECODE_OK` (226c) — trunk ready for HF `w_registry` + GitHub release narrative (not only demo artifact).
+**Latest full runs (2026-07-30):** `COMPOSITIONAL_W_OK` (234) · `MIXED_L1_PROBE_OK` (235).

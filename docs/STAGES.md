@@ -1,4 +1,4 @@
-# Stage index (TapeLM: 170–230)
+# Stage index (TapeLM: 170–235)
 
 > **Shipping trunk (product):** **221 → 227 → 228c → 230 → 226c**
 
@@ -66,6 +66,22 @@ Narrative: [`extension_memory_contract.md`](../results/extension_memory_contract
 
 ---
 
+## Post-trunk engineering (231–235) — not shipping trunk
+
+Ops and algebra after the product path. Useful for deploy hygiene and W composition; **not** headline vs RAG / not required for `run_product.py`.
+
+| Stage | Script | Verdict (full) | Value |
+|-------|--------|----------------|-------|
+| **231** | `_stage231_temporal_W.py` | **TEMPORAL_W_OK** | Matched qmap beats wrong-era W on code read (Δ ~0.23) |
+| **232** | `_stage232_stream_w_version.py` | **STREAM_W_VERSION_OK** | L3: age decay × slot `w_version` when eras tie |
+| **233** | `_stage233_tool_binding.py` | **TOOL_BINDING_OK** | `fp(tool)⊙fp(entity)` keys beat entity-only (~1.0 vs ~0.33) |
+| **234** | `_stage234_compositional_W.py` | **COMPOSITIONAL_W_OK** | Chained qmap ≈ / ≥ direct W (228 algebra) |
+| **235** | `_stage235_mixed_l1_probe.py` | **MIXED_L1_PROBE_OK** | Short mixed arc-ft probe only — **not** 191-scale pretrain |
+
+API: `_tapelm_ext` (`weighted_slot_sims`, `fp_bind`, `compose_w_bwd`, …). Still open at headline scale: full multi-domain **L1 pretrain**.
+
+---
+
 ## Paper-shaped summary
 
-[`preprint_tapelm_draft.md`](../results/preprint_tapelm_draft.md) covers **170–212** in depth and **§4.8 / Appendix A** for **221–230**. Full program: [`plan_curve_dynamics.md`](../results/plan_curve_dynamics.md).
+[`preprint_tapelm_draft.md`](../results/preprint_tapelm_draft.md) covers **170–212** in depth and **§4.8 / Appendix A** for **221–230** (+ short note on **231–235** ops). Full program: [`plan_curve_dynamics.md`](../results/plan_curve_dynamics.md).

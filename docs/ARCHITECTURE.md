@@ -2,7 +2,7 @@
 
 > **Shipping trunk:** **221 → 227 → 228c → 230 → 226c** (W → canonical + qmap → decode → resolve → cross-domain e2e). Demo: [`../artifact/scripts/run_product.py`](../artifact/scripts/run_product.py).
 
-**One product:** **character ink → curve (P1) → fp** for memory; **arcBPE** readout for text — plus core fp **191–205** and memory trunk **221–230** on the same `arc_enc`. Implementers: [`MEMORY_ENGINEERING.md`](MEMORY_ENGINEERING.md) (trunk API). Numbers: [`results/preprint_tapelm_draft.md`](../results/preprint_tapelm_draft.md) §4.8, [`results/plan_curve_dynamics.md`](../results/plan_curve_dynamics.md).
+**One product:** **character ink → curve (P1) → fp** for memory; **arcBPE** readout for text — plus core fp **191–205** and memory trunk **221–230** on the same `arc_enc`. Implementers: [`MEMORY_ENGINEERING.md`](MEMORY_ENGINEERING.md) (trunk API). Numbers: [`results/preprint_tapelm_draft.md`](../results/preprint_tapelm_draft.md) §4.8, [`results/plan_curve_dynamics.md`](../results/plan_curve_dynamics.md). Post-trunk ops **231–235** (temporal W, stream version, tool bind, compositional W, mixed L1 probe) are documented there as **engineering**, not the shipping trunk.
 
 ### arcBPE — not GPT BPE
 

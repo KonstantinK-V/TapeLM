@@ -69,6 +69,7 @@ We **closed** several seductive directions so they cannot be confused with the p
 - **207:** predict next **fingerprint** instead of token — **falsified**.
 - **208:** fp rerank on the **arcBPE** head — **no gain** on clean text.
 - **Clean static recall:** fair GPT+RAG can **match** us — parity is not the headline; **structure + noise/unlearn + trunk utilization** are.
+- **231–235:** post-trunk **ops** (temporal W, stream+`w_version`, tool bind, compositional W, mixed L1 probe) — measured, useful for deploy hygiene, **not** the product demo path.
 
 Full map: [`docs/STAGES.md`](../docs/STAGES.md) · [`results/plan_curve_dynamics.md`](../results/plan_curve_dynamics.md).
 

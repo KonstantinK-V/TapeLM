@@ -1,0 +1,13 @@
+{
+  "stage": 232,
+  "overall": "STREAM_W_VERSION_OK",
+  "gates": {
+    "G_decay_version_beats_flat": true,
+    "G_decay_version_beats_decay_only": true
+  },
+  "acc_flat": 0.45,
+  "acc_decay_only": 0.0,
+  "acc_decay_plus_w_version": 1.0,
+  "active_w_version": "prose_v2",
+  "timestamp": "2026-07-30T18:30:49.802675+00:00"
+}

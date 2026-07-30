@@ -122,6 +122,21 @@ python _stage225_family_fork.py [--smoke]
 | **230** | `_stage230_slot_resolution.py` | resolution policy (229→) |
 | **226c** | `_stage226c_joint_fp_decode.py` | 226 e2e + 228c decode |
 
+### 231–233 · temporal W, stream version, tool bind
+
+| Stage | Script | Role |
+|-------|--------|------|
+| **231** | `_stage231_temporal_W.py` | Matched vs wrong-era qmap on cross-domain read |
+| **232** | `_stage232_stream_w_version.py` | L3 decay + slot `w_version` penalty |
+| **233** | `_stage233_tool_binding.py` | `fp(tool)⊙fp(entity)` memory keys |
+
+### 234–235 · compositional W, mixed L1 probe
+
+| Stage | Script | Role |
+|-------|--------|------|
+| **234** | `_stage234_compositional_W.py` | Chained qmap vs direct W (228 algebra) |
+| **235** | `_stage235_mixed_l1_probe.py` | Short mixed arc ft vs prose-only (L1 branch) |
+
 Engineering spec: [`MEMORY_ENGINEERING.md`](MEMORY_ENGINEERING.md). Persist W: `python artifact/scripts/export_w_registry.py`.
 
 ---

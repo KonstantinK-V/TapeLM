@@ -1,0 +1,17 @@
+{
+  "stage": 233,
+  "overall": "TOOL_BINDING_OK",
+  "gates": {
+    "G_bind_acc_ge_0p85": true,
+    "G_bind_beats_entity_by_0p20": true,
+    "G_entity_baseline_le_0p55": true
+  },
+  "acc_bind_key": 1.0,
+  "acc_entity_key": 0.3333333333333333,
+  "tools": [
+    "lookup",
+    "set",
+    "hop"
+  ],
+  "timestamp": "2026-07-30T18:31:02.021268+00:00"
+}
