@@ -13,17 +13,10 @@ Use this when creating the remote repo or editing **About** settings.
 ## Short description (GitHub “About”, ≤ 350 characters)
 
 ```text
-Memory on tokens: one typo → new pieces → wrong key.
-Memory on letters:  one typo → same curve, bent fingerprint → retrieval still works (204: 0.913 vs RAG 0.627).
+TapeLM: memory on LETTERS not tokens — one curve encoder, fp slots, fp decode. Noisy recall 0.91 vs fair RAG 0.63. Trunk 221→227→228c→230→226c.
 ```
 
-## Short description (GitHub “About”, ≤ 350 characters)
-
-```text
-TapeLM: memory on LETTERS not tokens — one curve encoder, structured fp slots, fp decode. 0.91 noisy recall vs fair RAG 0.63. Trunk 221→227→228c→230→226c.
-```
-
-*(Hook-first; trim if GitHub limits.)*
+*(One-liner hook. Alt two-line for social: “Industry keys memory on tokens. We key on letters → curve → fp.”)*
 
 ## Extended “About” / social preview (optional README excerpt)
 
