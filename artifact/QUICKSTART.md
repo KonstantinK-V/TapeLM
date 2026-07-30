@@ -15,7 +15,7 @@ Read [`OVERVIEW.md`](OVERVIEW.md).
 
 ```bash
 pip install -r artifact/requirements.txt
-python artifact/scripts/download_checkpoints.py
+python artifact/scripts/download_checkpoints.py --with-w-registry
 python artifact/scripts/run_product.py
 ```
 

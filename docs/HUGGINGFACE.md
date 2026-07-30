@@ -27,7 +27,7 @@ Tokenizer: `results/stage177_curve_bpe_tokenizer.json` stays in GitHub.
 
 ```bash
 python artifact/scripts/export_w_registry.py          # creates checkpoints/w_registry/
-huggingface-cli login
+hf auth login
 python artifact/scripts/upload_w_registry.py          # -> HF .../w_registry/*
 ```
 
@@ -51,9 +51,9 @@ Hub paths: `w_registry/w_registry.json`, `w_registry/W_prose_bwd.pt`, … (folde
 
 ```bash
 pip install huggingface_hub
-huggingface-cli login
-huggingface-cli upload Kostya03v/TapeLM-P1 checkpoints/stage191_p1_curve.pt stage191_p1_curve.pt
-huggingface-cli upload Kostya03v/TapeLM-P1 checkpoints/stage191_p2_gpt.pt stage191_p2_gpt.pt
+hf auth login
+hf upload Kostya03v/TapeLM-P1 checkpoints/stage191_p1_curve.pt stage191_p1_curve.pt --repo-type model
+hf upload Kostya03v/TapeLM-P1 checkpoints/stage191_p2_gpt.pt stage191_p2_gpt.pt --repo-type model
 ```
 
 4. Ensure [`CHECKPOINTS.md`](CHECKPOINTS.md) links the Hub URL. Visitors run `python artifact/scripts/download_checkpoints.py`.
