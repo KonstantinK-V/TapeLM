@@ -632,7 +632,7 @@ None of the three cost anything — P1 stayed frozen and generation unchanged in
 
 **226c read — cross-domain product exam.** Canonical bank + code **qmap** + 228c at return token: **recall_4way ~0.88**, **fp_retrieved_4way ~0.88** vs **head_only ~0.45** (n=60, code-shift cos **~0.45**). This is the utilization number to cite alongside 227 recall — not the old 226 global-retrieve **~0.60**.
 
-**Shipping trunk (order):** 221 (W exists) → **227** (canonical + qmap) → **228c** (decode) → **229–230** (conflicts) → **226c** (cross-domain e2e). Demo: `artifact/scripts/run_product.py` · `run_memory_demo.py`.
+**Shipping trunk (order):** **221 → 227 → 228c → 230 → 226c** (229 multi-hit → 230). Demo: `artifact/scripts/run_product.py` · `run_memory_demo.py`.
 
 **Still open (not v1 headline):** L3 decay versioned with W id; compositional / temporal W; multi-domain **pretrain** L1 (scale); tool binding. Branches: [`extension_closed_branches.md`](extension_closed_branches.md) · queue: [`../docs/EXTENSION_PIPELINE.md`](../docs/EXTENSION_PIPELINE.md).
 

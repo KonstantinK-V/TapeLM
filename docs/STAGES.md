@@ -1,5 +1,7 @@
 # Stage index (TapeLM: 170–230)
 
+> **Shipping trunk (product):** **221 → 227 → 228c → 230 → 226c**
+
 Active scripts: **repo root** `_stage*.py`. Legacy pre-170: [`legacy/sote/`](../legacy/sote/).
 
 **Product headline stages:** **191–205** (core fp + 204/205 wins) and **221–230** (memory trunk — canonical, W, decode, resolve; demo in `run_product.py`). Extension **213–220** maps what *not* to ship (e.g. **215** → use **221**).
@@ -58,7 +60,7 @@ Earlier substrate: 170–191 (curve, BPE, dual-channel, night scale) — see [`p
 | 229 | `_stage229_contradiction_slots.py` | **CONTRADICTION_RAW_MEMORY_OK** |
 | **230** | `_stage230_slot_resolution.py` | **RESOLUTION_POLICY_OK** |
 
-**Shipping trunk (221 → 227 → 228c → 229 → 230 → 226c):** one canonical slot bank, **W_family** at read, **4-way retrieve + fp decode**, resolution policy, cross-domain utilization. API: `_tapelm_ext.py` · demo: `artifact/scripts/run_product.py`.
+**Shipping trunk (221 → 227 → 228c → 230 → 226c):** W (**221**) → canonical + qmap (**227**) → 4-way retrieve + fp decode (**228c**; **229** multi-hit) → resolution (**230**) → cross-domain e2e (**226c**). API: `_tapelm_ext.py` · demo: `artifact/scripts/run_product.py`.
 
 Narrative: [`extension_memory_contract.md`](../results/extension_memory_contract.md) · closed branches: [`extension_closed_branches.md`](../results/extension_closed_branches.md).
 

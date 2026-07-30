@@ -13,7 +13,7 @@ Use this when creating the remote repo or editing **About** settings.
 ## Short description (GitHub “About”, ≤ 350 characters)
 
 ```text
-TapeLM: character-curve LM + unified fp memory — structured knowledge as operable vectors (not RAG+embedder swap). One encoder; staged evidence vs matched GPT / fair RAG.
+TapeLM: character-curve LM + unified fp memory. Shipping trunk: 221→227→228c→230→226c. One encoder; staged evidence vs matched GPT / fair RAG.
 ```
 
 *(~160 characters.)*
@@ -84,7 +84,7 @@ Additional tags people might search (add if you have topic slots left):
 | **Paper** | [`results/preprint_tapelm_draft.md`](../results/preprint_tapelm_draft.md) (§3.1 frozen, §4.8 memory) | [`results/plan_curve_dynamics.md`](../results/plan_curve_dynamics.md) |
 | **Stages / JSON** | [`docs/STAGES.md`](../docs/STAGES.md) | `artifact/decisions/` |
 
-All paths should agree: **two pillars** — **191–205** (core fp + 204/205) and **221–230** (memory trunk; `run_product.py`); **P1** pretrained once (191), frozen on memory ingest; facts in **slots**; drift via **W @ read**.
+All paths should agree: **shipping trunk 221 → 227 → 228c → 230 → 226c**; **two pillars** — **191–205** + trunk; **P1** frozen on memory ingest; facts in **slots**; drift via **W @ read**.
 
 ---
 

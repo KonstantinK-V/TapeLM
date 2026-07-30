@@ -17,7 +17,9 @@ pipeline_tag: text-generation
 
 # TapeLM weights (variant A)
 
-Checkpoints for **TapeLM** — one system: **Pillar A** (P1 + core fp 191–205) and **Pillar B** (memory trunk **221–230**, optional `w_registry/`).
+> **Shipping trunk:** **221 → 227 → 228c → 230 → 226c** · load **`w_registry/`** with `--with-w-registry`
+
+Checkpoints for **TapeLM** — one system: **Pillar A** (P1 + core fp 191–205) and **Pillar B** (memory trunk, optional `w_registry/`).
 
 **Weights:** [huggingface.co/Kostya03v/TapeLM-P1](https://huggingface.co/Kostya03v/TapeLM-P1)  
 **Code:** [github.com/KonstantinK-V/TapeLM](https://github.com/KonstantinK-V/TapeLM)  

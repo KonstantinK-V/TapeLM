@@ -1,5 +1,7 @@
 # Results
 
+> **Shipping trunk:** **221 → 227 → 228c → 230 → 226c** — [`extension_memory_contract.md`](extension_memory_contract.md) · [`preprint_tapelm_draft.md`](preprint_tapelm_draft.md) §4.8 · `run_product.py`
+
 Staged evidence for TapeLM (English). Curated entry: [`../artifact/OVERVIEW.md`](../artifact/OVERVIEW.md).
 
 ---

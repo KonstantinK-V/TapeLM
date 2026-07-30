@@ -30,7 +30,7 @@ abstract: >-
   calibration, episodic slots, subject writes, and hop/bind composition—in the same normalized
   fp-space as next-token generation. Extensions 221–230 add canonical slot storage, offline-fit
   family W for domain qmap, fp decode (228c), and contradiction resolution (230) without
-  finetuning P1 on fact ingest. The artifact documents matched-GPT parity, fp capability wins
+  finetuning P1 on fact ingest. Product shipping trunk: 221 -> 227 -> 228c -> 230 -> 226c. The artifact documents matched-GPT parity, fp capability wins
   (calibration, recall, edit, stream, hops), honest fair GPT+RAG comparisons, capability wins on
   noisy/OOV text and slot unlearn, explicit limits (generative fingerprints, hybrid rerankers,
   internalization Stages 210–212), and cross-domain utilization via fp decode (226c).

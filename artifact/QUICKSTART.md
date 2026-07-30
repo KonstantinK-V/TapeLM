@@ -1,6 +1,9 @@
 # TapeLM — 5-minute quickstart
 
-**One product, two headline results:** core fp stack (191–205) + **memory trunk (221–230)** — the demo below is mostly **Pillar B** (canonical slots → conflicts → cross-domain **228c/226c**).
+> **Shipping trunk (this demo):** **221 → 227 → 228c → 230 → 226c**  
+> W · canonical slots · fp decode · resolve · cross-domain e2e
+
+**One product, two headline results:** core fp (191–205) + memory trunk above — steps 1–3 of `run_product.py` follow **227 / 230 / 226c** (W from **221** / `w_registry`).
 
 ## No GPU
 

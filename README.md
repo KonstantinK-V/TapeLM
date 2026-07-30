@@ -1,5 +1,8 @@
 # TapeLM
 
+> **Shipping trunk (product memory):** **221 → 227 → 228c → 230 → 226c**  
+> W remap · canonical bank + qmap · fp decode · conflict resolution · cross-domain e2e — `python artifact/scripts/run_product.py`
+
 **One character-curve encoder. One fingerprint space — structured knowledge as operable vectors, not RAG text chunks.**
 
 TapeLM (variant A) is **not “GPT + index with a different embedder.”** It is a **non-standard LM stack** where facts and relations live as **fp keys/values, binding, hops, edits, and resolution policies** in the **same** geometry as generation—pretrained once (Stage 191), then **frozen** for product memory ingest.
@@ -11,7 +14,7 @@ TapeLM (variant A) is **not “GPT + index with a different embedder.”** It is
 
 - **Generation** at matched-GPT parity on the P1 protocol (191).
 - **Zero-train fp layer** — calibration, episodic recall, multi-hop binding, one-shot edit, streaming under budget (192–198, 203–205).
-- **Canonical memory trunk** — one slot bank, **family W**, **228c** decode, **229–230** conflicts (221→227→228c→230→226c); **`run_product.py`** demos this path first.
+- **Canonical memory trunk** — **`221 → 227 → 228c → 230 → 226c`**; **`run_product.py`** walks this path.
 
 Every claim is tied to **staged, reproducible exams** (JSON verdicts in [`artifact/decisions/`](artifact/decisions/)). Comparisons use **matched GPT** and **fair GPT+RAG** where the stage defines them.
 
@@ -72,7 +75,7 @@ Lexical calibration; fact recall; hop2/binding; subject-anchored edit; stream; e
 | Cross-domain e2e | **226c** | ~**0.88** fp vs ~**0.45** head |
 | Conflicting slots | **230** | composite ~**1.0** vs argmax ~**0.47** |
 
-Program **213–220** maps closed branches (e.g. **215 NO**); the **shipping** line is **221→227→228c→229→230→226c**. Narrative: [`plan_curve_dynamics.md`](results/plan_curve_dynamics.md) (*Memory extension program*) · preprint **§4.8**.
+Program **213–220** maps closed branches (e.g. **215 NO**); **shipping order** is **221 → 227 → 228c → 230 → 226c**. Narrative: [`plan_curve_dynamics.md`](results/plan_curve_dynamics.md) (*Memory extension program*) · preprint **§4.8**.
 
 **Scope (what v1 does not claim):** variant B next-fingerprint generation (207); fp rerank on BPE head (208); PAWS semantic line at 3050 scale (209); latent hops / internal slow tape / instance channel inside forward (210–212). Verdicts remain in the repo for readers who want the full map; they are not the product headline.
 

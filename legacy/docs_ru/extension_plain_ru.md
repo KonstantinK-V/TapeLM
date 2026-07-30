@@ -1,7 +1,7 @@
 # TapeLM — простыми словами (RU)
 
-> **Публичный вход:** в корне репо [`results/extension_plain_ru.md`](../../results/extension_plain_ru.md) — короткий redirect сюда.  
-> **EN (paper):** [`results/preprint_tapelm_draft.md`](../../results/preprint_tapelm_draft.md) §4.8 · [`docs/STAGES.md`](../../docs/STAGES.md).
+> **Shipping trunk:** **221 → 227 → 228c → 230 → 226c**  
+> **Публичный вход:** [`results/extension_plain_ru.md`](../../results/extension_plain_ru.md)
 
 **Один продукт (variant A):** curve encoder P1 + fp-память в **одной** геометрии. Блок **192–205** — lexicon, слоты, hop, edit. Блок **213–230** — как жить, когда encoder «поплыл», домены разные, голова не читает память, в слотах конфликты.
 

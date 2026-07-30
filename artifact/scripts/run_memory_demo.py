@@ -210,7 +210,7 @@ def main() -> int:
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     rng = random.Random(SEED)
-    print("TapeLM - memory demo (one encoder, canonical slots, W, decode, resolve)")
+    print("TapeLM - memory demo (shipping trunk: 221 -> 227 -> 228c -> 230 -> 226c)")
     print(f"Device: {device}")
 
     model, bank, tok, pad_id, char_table, stoi, device = load_p1(device)

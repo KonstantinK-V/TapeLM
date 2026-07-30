@@ -34,6 +34,7 @@ def main() -> int:
     args = ap.parse_args()
 
     print("TapeLM variant A — one encoder, operable fingerprint memory\n")
+    print("Shipping trunk: 221 -> 227 -> 228c -> 230 -> 226c (see README)\n")
 
     rc = run("check_env.py")
     if rc != 0:

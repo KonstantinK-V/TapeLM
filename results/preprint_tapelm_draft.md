@@ -3,6 +3,8 @@
 *Authors: [TBD]*  
 *Code & stage logs: [KonstantinK-V/TapeLM](https://github.com/KonstantinK-V/TapeLM) (Stages 170–230)*
 
+> **Product shipping trunk:** **221 → 227 → 228c → 230 → 226c** (W → canonical bank → fp decode → resolution → cross-domain e2e). Demo: `artifact/scripts/run_product.py`.
+
 ---
 
 ## Abstract

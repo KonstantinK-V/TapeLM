@@ -1,5 +1,7 @@
 # TapeLM memory contract — three layers + family W
 
+> **Shipping trunk:** **221 → 227 → 228c → 230 → 226c**
+
 **Status:** **product contract** for TapeLM variant A (same encoder, same repo as 192–205).  
 **API grain:** `W` is **per domain-family**, not per corpus name. See also [`docs/MEMORY_ENGINEERING.md`](../docs/MEMORY_ENGINEERING.md).
 

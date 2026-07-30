@@ -1,5 +1,7 @@
 # Checkpoints & data
 
+> **Memory trunk weights:** optional **`w_registry/`** for **221 → 227 → 228c → 230 → 226c** (`download_checkpoints.py --with-w-registry`).
+
 Git does **not** store weights (see root `.gitignore`). All files below belong to **one TapeLM variant A** install — core LM weights plus optional memory registry.
 
 ## Hugging Face (recommended)

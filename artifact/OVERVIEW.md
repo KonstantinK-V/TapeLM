@@ -1,5 +1,7 @@
 # TapeLM — one page
 
+> **Shipping trunk:** **221 → 227 → 228c → 230 → 226c** · [`QUICKSTART.md`](QUICKSTART.md) · `run_product.py`
+
 ## The idea in one sentence
 
 **Not RAG with another embedder:** one frozen curve encoder; **knowledge structure** (slots, bind, hops, edit, resolve) as **operable vectors** in the same fingerprint geometry as text generation—not retrieved chunks re-fed to the model.

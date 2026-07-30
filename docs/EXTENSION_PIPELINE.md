@@ -1,5 +1,7 @@
 # TapeLM extension pipeline (Stages 213+)
 
+> **Shipping trunk (product):** **221 → 227 → 228c → 230 → 226c**
+
 Research stages for **TapeLM variant A** — the same product as 192–205, extending freeze policy, memory migration, decode, and resolution. Same frozen-P1 contract unless a stage says otherwise.  
 Run from repo root:
 
