@@ -5,6 +5,8 @@
 
 > **Product shipping trunk:** **221 → 227 → 228c → 230 → 226c** (W → canonical bank → fp decode → resolution → cross-domain e2e). Demo: `artifact/scripts/run_product.py`.
 
+**Reader’s guide:** For motivation and the five strongest ideas in plain language, see [`artifact/WHY_TAPELM.md`](../artifact/WHY_TAPELM.md). For numbers, read §4.2 (scorecard), §4.2b–c (wins vs fair RAG), §4.8 (trunk), §5.1 (not RAG-with-embedder).
+
 ---
 
 ## Abstract
@@ -24,6 +26,14 @@ This work reconnects a 2018-era **word-fingerprint** idea (normalized encodings 
 **What we do not claim:** beating GPT+RAG on raw retrieval accuracy; human-level semantic understanding; superiority of generation quality.
 
 **What we do claim:** (0) **Not RAG-with-another-embedder:** one geometry for generate + key + calibrate + compose; RAG can approximate retrieval scores with a fair index, but does not natively expose bind/hop/edit/resolution as **vector APIs** (§5.1); (1) a reproducible stack where memory/calibration/edit layers are **zero-train on P1 at inference** (facts = slot writes; no backbone gradients); domain drift uses **offline-fit family W**, not re-indexing the bank (§4.8); (2) clear wins vs **vanilla** GPT on non-generation axes; (3) honest parity vs **full** GPT+RAG on **clean** retrieval; (4) demonstrated **vector-native** structure (chaining without decode, binding, subject writes, 230 resolution) that text-RAG does not treat as first-class.
+
+### 1.1 Strongest findings (conceptual map)
+
+1. **Third contract** — structured operable vectors in the generation geometry, not weights-only and not chunk-RAG.
+2. **Capability breaks vs fair RAG** — spelling-noise / OOV recall (§4.2b) and slot unlearn vs parametric unlearning (§4.2c).
+3. **Frozen P1 + slots** — continual facts without backbone finetune; skills in weights, facts in memory (§3.1, §5.3).
+4. **Utilization trunk** — **221→227→228c→230→226c**: migrate, decode, resolve, cross-domain **use** of memory (§4.8); headline: fp decode **~1.0** vs head **~0.48**, e2e **~0.88** vs **~0.45**.
+5. **Credible negatives** — internalization (210–212), fingerprint-generation (207), hybrid rerank (208) closed so positives are not oversold.
 
 ---
 
@@ -307,9 +317,9 @@ Hop2/binding failures at d64 are **resolved at d256** with a learned fp space (1
 
 ## 6. Conclusion
 
-TapeLM demonstrates that a **single frozen curve encoder** can host a **zero-train memory and calibration stack** with GPT parity on generation and clear advantages over vanilla GPT on memory, edit, and calibration. On clean retrieval it remains **architecturally** distinct from GPT+RAG rather than dominant on scores—but under spelling noise and out-of-vocabulary input the tie breaks (§4.2b: 0.913 vs 0.627), and targeted unlearning is O(1) and collateral-free where parametric unlearning is destructive (§4.2c). **§4.8** adds a **production memory trunk**: canonical slots, migratable **W_family**, fp decode, and contradiction resolution—without unfreezing P1. Semantic invariance at PAWS-level difficulty requires **larger encoders**, shared with standard transformers at our scale.
+TapeLM is best read as a **systems result**, not a clean-retrieval SOTA claim. A **single frozen curve encoder** hosts calibration, structured memory, and generation in **one fp geometry** — the architectural opposite of bolting a second embedder and feeding retrieved text back into the LM. Against **fair GPT+RAG**, **clean** static recall is **parity**; the measured separations are **noise robustness**, **collateral-free unlearning**, and the **221→227→228c→230→226c** trunk, where the CE head often **fails to use** retrieved facts but **fp decode** and cross-domain **226c** do not.
 
-The boundaries through Stage 212 remain results, not caveats: token-internal hops (210–212), fingerprint-generative output (207), hybrid rerank (208). **Utilization** without fp decode is still bounded (226); the recommended path is **4-way retrieve → fp-scorer** (228c). We recommend publishing as a **technical report / systems paper** emphasizing unified fp-memory (192–205 **and** 221–230), noise/unlearning wins, and honest RAG comparisons—not SOTA on clean retrieval or semantic understanding.
+We recommend framing the work around **structured knowledge as operable vectors**, the **shipping trunk**, and **honest RAG comparisons** — with explicit negative results (207–212) so the positive lines (192–205, 204–205, 221–230) stay credible. Semantic PAWS-level invariance remains a **scale** problem shared with matched GPT at this hardware class.
 
 ---
 

@@ -1,6 +1,8 @@
 # TapeLM — start here
 
-> **Shipping trunk:** **221 → 227 → 228c → 230 → 226c** — run `python artifact/scripts/run_product.py`
+> **Shipping trunk:** **221 → 227 → 228c → 230 → 226c** — `python artifact/scripts/run_product.py`
+
+**Read this if you are deciding whether to care:** [`WHY_TAPELM.md`](WHY_TAPELM.md)
 
 **TapeLM variant A** — one **character-curve encoder** (pretrained in 191, **frozen** for memory ingest) and **fingerprint memory** in the same space.
 

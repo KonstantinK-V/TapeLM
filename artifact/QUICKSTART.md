@@ -1,9 +1,10 @@
 # TapeLM — 5-minute quickstart
 
-> **Shipping trunk (this demo):** **221 → 227 → 228c → 230 → 226c**  
-> W · canonical slots · fp decode · resolve · cross-domain e2e
+> **Shipping trunk:** **221 → 227 → 228c → 230 → 226c**
 
-**One product, two headline results:** core fp (191–205) + memory trunk above — steps 1–3 of `run_product.py` follow **227 / 230 / 226c** (W from **221** / `w_registry`).
+**Why this exists:** [`WHY_TAPELM.md`](WHY_TAPELM.md) — structured knowledge on one encoder, not RAG paragraphs.
+
+You will run the **memory trunk**: write canonical slots (**227**), resolve a contradiction (**230**), then cross-domain read with **W + fp decode** (**221/228c/226c**). That is the strongest product line in the repo.
 
 ## No GPU
 
@@ -12,7 +13,7 @@ pip install -r artifact/requirements.txt
 python artifact/scripts/show_map.py
 ```
 
-Read [`OVERVIEW.md`](OVERVIEW.md).
+Read [`OVERVIEW.md`](OVERVIEW.md) or [`WHY_TAPELM.md`](WHY_TAPELM.md).
 
 ## With GPU (recommended)
 
@@ -22,28 +23,24 @@ python artifact/scripts/download_checkpoints.py --with-w-registry
 python artifact/scripts/run_product.py
 ```
 
-This runs the **memory demo** (canonical slots → contradiction policy → cross-domain fp decode).
-
 Optional:
 
 ```bash
-python artifact/scripts/export_w_registry.py --smoke   # persist family W
-python artifact/scripts/run_product.py --all         # + full scorecard (196)
+python artifact/scripts/export_w_registry.py --smoke
+python artifact/scripts/run_product.py --all         # + scorecard (196)
 ```
 
-## What you just saw
+## What the demo steps mean
 
-| Step | Mechanism | Encoder |
-|------|-----------|---------|
-| Write / recall | Canonical fp slot keys | **Frozen P1** (`eval`, no weight updates) |
-| Conflicts | Multi-hit slots + `resolve_slot_contradiction` | Frozen P1 |
-| Cross-domain | `W_code` qmap + 4-way retrieve + fp decode | **Canonical bank unchanged**; query may use a **code-domain copy** of the encoder in the demo to simulate drift — product path uses **exported W**, not slot reindex |
+| Demo step | Trunk stage | Point |
+|-----------|-------------|--------|
+| Write / 4-way recall | **227** | One canonical bank; keys stay in P1 geometry |
+| Contradiction picks | **230** | Structure + policy, not “first stored wins” |
+| Code query → answer | **221 + 228c + 226c** | Domain **W**; **fp decode** uses memory (~0.88) when the head does not (~0.45) |
 
-**Frozen P1 (product claim):** checkpoint `stage191_p1_curve.pt` is **not** trained when you add or read facts. Training in the repo is **offline pretrain (191)** or **stage exams** (e.g. fit **W** after a deliberate shift). See [`../docs/ARCHITECTURE.md`](../docs/ARCHITECTURE.md#frozen-p1--precise-contract) · paper §3.1 [`../results/preprint_tapelm_draft.md`](../results/preprint_tapelm_draft.md).
+**Frozen P1:** steps 1–2 do not train the encoder. Step 3 may simulate query-side drift; product path uses exported **W** — [`../docs/ARCHITECTURE.md`](../docs/ARCHITECTURE.md#frozen-p1--precise-contract).
 
-**Read (no GPU):** [`OVERVIEW.md`](OVERVIEW.md) · [`../results/preprint_tapelm_draft.md`](../results/preprint_tapelm_draft.md) · `python artifact/scripts/show_map.py`
-
-API reference: [`../docs/MEMORY_ENGINEERING.md`](../docs/MEMORY_ENGINEERING.md)
+API: [`../docs/MEMORY_ENGINEERING.md`](../docs/MEMORY_ENGINEERING.md) · paper: [`../results/preprint_tapelm_draft.md`](../results/preprint_tapelm_draft.md) §4.8
 
 ## Publish / cite
 

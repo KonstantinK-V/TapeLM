@@ -1,29 +1,26 @@
 # TapeLM — one page
 
-> **Shipping trunk:** **221 → 227 → 228c → 230 → 226c** · [`QUICKSTART.md`](QUICKSTART.md) · `run_product.py`
+> **Shipping trunk:** **221 → 227 → 228c → 230 → 226c** · [`QUICKSTART.md`](QUICKSTART.md)
 
-## The idea in one sentence
-
-**Not RAG with another embedder:** one frozen curve encoder; **knowledge structure** (slots, bind, hops, edit, resolve) as **operable vectors** in the same fingerprint geometry as text generation—not retrieved chunks re-fed to the model.
+**Longer story for humans:** [`WHY_TAPELM.md`](WHY_TAPELM.md)
 
 ---
 
-## A non-standard stack that ships as one product
+## The pitch
 
-TapeLM variant A combines **two shipped evidence lines** on one encoder:
+Language models **store** knowledge in weights or **fetch** it as text. TapeLM treats knowledge as **structure you can operate on** — slots keyed by subjects, binds and hops in vector space, edits and deletes without retraining the backbone, migration when the encoder’s “dialect” shifts — all in the **same fingerprint geometry** the curve uses to generate text.
 
-1. **Core fp (191–205)** — calibration, slots, hops, edit, stream; wins on noise/unlearn (204–205).
-2. **Memory trunk (221–230, 226c)** — canonical bank, **W**, **228c** decode, **230** resolve; **strongest product demos** (`run_product.py`). Extension program **213–220** (incl. **215 NO**) led here; see [`docs/STAGES.md`](../docs/STAGES.md).
+That is **not** “RAG with a nicer embedder.” Fair GPT+RAG can **match clean retrieval** in our exams; we document that. The interesting part is **what else fits in one map**: calibration, composition, conflict resolution, and a **deployment trunk** where retrieval finally **turns into answers** (**228c**, **226c**).
 
-Components:
+---
 
-1. **Substrate** — dual-channel character-curve encoder (P1).
-2. **Fp operations** — shared `fp(word) = normalize(arc_enc(chars))` for calibration, slots, hops, edit, stream.
-3. **Memory trunk** — canonical bank, **W**, **228c**, **230** (Stages **221–230**).
+## Five ideas worth your time
 
-The design bet is **operable memory in the same space as generation**: vector slots and policies you can write, read, migrate, decode, and resolve—**structured knowledge**, not opaque text retrieval. On **clean** recall, fair GPT+RAG can **tie** us on score; the headline is **architecture** (one geometry + vector-native APIs), plus measured wins on noise/unlearning (204–205) and cross-domain **W + fp decode** (226c).
-
-**Staged evidence** backs each layer (191–205, 221–230, 226c). **Matched GPT** and **fair GPT+RAG** baselines are on every axis the stage defines.
+1. **Unified fp-space** — one frozen P1; no second representation learning step for memory at inference.
+2. **Structured ops** — bind, hop, subject-write, **230** resolve; not paragraph re-prompting.
+3. **Frozen skills, mutable facts** — P1 fixed; slots + **W** carry continual knowledge (205 unlearn; §3.1 preprint).
+4. **Measured breaks vs fair RAG** — noise **0.913 vs 0.627** (204); parametric unlearn vs slot delete (205).
+5. **Trunk 221→227→228c→230→226c** — canonical bank, domain **W**, **fp decode** (~1.0 vs head ~0.48), policy (~1.0 vs argmax ~0.47), cross-domain e2e (~0.88 vs ~0.45).
 
 ---
 
@@ -31,12 +28,13 @@ The design bet is **operable memory in the same space as generation**: vector sl
 
 | | Fair GPT+RAG | TapeLM |
 |---|--------------|--------|
-| Clean static recall | Often **ties or ahead** on score | Parity — not the trump card |
-| Representation | Chunk **text** + (often) second embedder | **One** `arc_enc`; fp keys/values |
-| Relations / hops | Re-prompt or tool chains | **Bind + hop** in fp-space (195, 203) |
-| Edit / unlearn / conflict | Index delete; prompt merge | Subject write, **230** policy, slot delete (197, 205, 230) |
+| Clean static recall | Often **ties or ahead** | Parity — not the sell |
+| What memory *is* | Text chunks | **Fp keys/values + policies** |
+| Relations | Prompt / tools | **Bind + hop** in fp (195, 203) |
+| Use retrieved knowledge | Hope the LM reads the prompt | **228c** scorer; **226c** e2e |
+| Conflicts | Merge in context | **230** over slot candidates |
 
-Argument in full: preprint **§5.1** · [`../results/preprint_tapelm_draft.md`](../results/preprint_tapelm_draft.md)
+Details: preprint **§5.1** · [`../results/preprint_tapelm_draft.md`](../results/preprint_tapelm_draft.md)
 
 ---
 
@@ -63,15 +61,13 @@ flowchart TB
   mem --> OUT["Recall · edit · cross-domain"]
 ```
 
-**Highlights:** **Pillar A** — parity (191); calibration & recall (192–194); hops & edit (195, 197, 203); noise/unlearn vs fair RAG (204–205). **Pillar B (221–230)** — canonical + W (227); **fp decode ~1.0 / cross-domain ~0.88** (228c, 226c); **resolution ~1.0** (230).
-
-**Frozen encoder:** P1 weights are fixed for fact write/read; continual knowledge goes into **slots** and **W**, not into finetuning `arc_enc` on the product path. Full table: [`../docs/ARCHITECTURE.md`](../docs/ARCHITECTURE.md#frozen-p1--precise-contract).
+**Frozen encoder:** fact ingest does not train P1 — [`../docs/ARCHITECTURE.md`](../docs/ARCHITECTURE.md#frozen-p1--precise-contract)
 
 ---
 
-## Research scope (for a complete picture)
+## What we closed (credibility)
 
-Some directions were **explored and not carried into the v1 product claim** — variant B fingerprint prediction (207), BPE fp rerank (208), small-scale PAWS semantic B (209), tokenized internal hops / slow tape / instance channel (210–212). Stage JSON records the outcomes; the **shipping story** is the integrated curve + fp + canonical memory path above.
+Internal hops in the forward pass (210–212), fingerprint-as-output (207), fp rerank on the token head (208) — all **negative**, all logged. The shipping story is **external structured fp memory + trunk above**.
 
 ---
 
@@ -79,10 +75,9 @@ Some directions were **explored and not carried into the v1 product claim** — 
 
 | Depth | File |
 |-------|------|
+| **Why TapeLM** | [`WHY_TAPELM.md`](WHY_TAPELM.md) |
 | **Quickstart** | [`QUICKSTART.md`](QUICKSTART.md) |
-| Verdict table | `python artifact/scripts/show_map.py` |
-| Architecture (diagram) | [`../docs/ARCHITECTURE.md`](../docs/ARCHITECTURE.md) |
+| Diagram + frozen table | [`../docs/ARCHITECTURE.md`](../docs/ARCHITECTURE.md) |
 | Memory API | [`../docs/MEMORY_ENGINEERING.md`](../docs/MEMORY_ENGINEERING.md) |
-| Memory narrative | [`../results/extension_memory_contract.md`](../results/extension_memory_contract.md) |
-| Long program | [`../results/plan_curve_dynamics.md`](../results/plan_curve_dynamics.md) |
-| Preprint draft | [`../results/preprint_tapelm_draft.md`](../results/preprint_tapelm_draft.md) (§3.1 frozen P1; §4.8 memory trunk) |
+| Preprint | [`../results/preprint_tapelm_draft.md`](../results/preprint_tapelm_draft.md) |
+| Full program | [`../results/plan_curve_dynamics.md`](../results/plan_curve_dynamics.md) |

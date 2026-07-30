@@ -79,6 +79,7 @@ Additional tags people might search (add if you have topic slots left):
 
 | Audience | Start here | Then |
 |----------|------------|------|
+| **Why should I care?** | [`artifact/WHY_TAPELM.md`](../artifact/WHY_TAPELM.md) | [`artifact/OVERVIEW.md`](../artifact/OVERVIEW.md) |
 | **5 min run** | [`artifact/QUICKSTART.md`](../artifact/QUICKSTART.md) | [`docs/ARCHITECTURE.md`](../docs/ARCHITECTURE.md) |
 | **Product** | [`artifact/OVERVIEW.md`](../artifact/OVERVIEW.md) | [`docs/MEMORY_ENGINEERING.md`](../docs/MEMORY_ENGINEERING.md) |
 | **Paper** | [`results/preprint_tapelm_draft.md`](../results/preprint_tapelm_draft.md) (§3.1 frozen, §4.8 memory) | [`results/plan_curve_dynamics.md`](../results/plan_curve_dynamics.md) |
