@@ -1,19 +1,17 @@
 # TapeLM
 
-### The industry keys memory on **tokens**. We key it on **letters**.
+**TapeLM is an LM whose input is character ink, not BPE token IDs.** The encoder draws a **curve** over the symbol stream; **word fingerprints** for memory and calibration come from that path. Text is emitted via a **BPE head** — but slots, hops, edits, and conflict resolution key on **fp**, in the **same frozen encoder** as generation.
 
-A typo does not “almost match” in BPE space — it **re-fragments** the word and retrieval breaks. TapeLM reads **character ink**, draws a **curve**, and fingerprints words from **that** geometry. Generation still speaks BPE; **memory, calibration, hops, and edits** live in **fp-space** on the same frozen encoder — not in pasted-in paragraphs, not in a second token index.
+**In one sentence:** facts and relations as **operable vectors** in the generation geometry — without a second embedder (RAG) and without finetuning the backbone to edit knowledge (parametric GPT).
 
-**One line:** facts and relations as **operable vectors** where generation lives; **no** retrain-the-backbone to edit knowledge; **no** RAG-style “here is a chunk, good luck.”
-
-| Surprise (measured) | Number |
-|---------------------|--------|
+| Headline results (staged) | |
+|---------------------------|---|
 | Noisy recall vs **fair GPT+RAG** | **0.913 vs 0.627** (204) |
-| “Do I know this word?” calibration | AUC **0.982** vs GPT **0.380** |
-| Memory the **head ignores** → **fp decode** fixes | **~1.0** vs **~0.48** (228c) |
-| Cross-domain **use** of memory | **~0.88** vs **~0.45** head (226c) |
+| Lexical OOD calibration | AUC **0.982** vs GPT **0.380** |
+| Fp decode when the CE head underuses memory | **~1.0** vs **~0.48** (228c) |
+| Cross-domain memory utilization | **~0.88** vs **~0.45** head (226c) |
 
-*Clean static retrieval? Fair RAG can **tie** us — we say so. The punch is **letters → curve → structure**, not tidy benchmark wins.*
+On **clean static retrieval**, a fair GPT+RAG baseline can **match** our scores — we report that openly. The distinctive line is **character substrate → structured fp memory → product trunk** (below), not SOTA on tidy benchmarks.
 
 [`artifact/WHY_TAPELM.md`](artifact/WHY_TAPELM.md) · **~2 min, no weights:** [`artifact/QUICKSTART.md`](artifact/QUICKSTART.md) · **Full demo:** `run_product.py`
 
@@ -25,7 +23,7 @@ A typo does not “almost match” in BPE space — it **re-fragments** the word
 |------------------|------------------------------------------|
 | **Character ink → curve → fp** (not BPE-id memory keys) | RAG/GPT memory keys live in **token** embedding space; one typo can re-split the whole word |
 | **One encoder** for generation, memory keys, and calibration | Fair RAG still ties us on **clean** retrieval — but uses **chunk text** and often a **separate** index geometry |
-| **Vector slots** (subject keys, values) instead of text chunks | RAG re-prompts the LM and hopes it uses retrieved paragraphs |
+| RAG re-prompts with **text chunks** | RAG re-prompts the LM; TapeLM uses **fp slots** and policies |
 | **Lexical calibration** (OOD AUC **0.982** vs BPE surprisal **0.380**) | No native “in *my* lexicon?” signal in vanilla RAG |
 | **One-shot edit** (**1.00** vs GPT **~0.28** on our exam) without finetune | Parametric edit needs gradients; RAG needs re-index + prompt craft |
 | **Cross-domain read** via **W_family** + canonical bank (**227**) | Full re-index when the embedder “dialect” shifts |

@@ -13,15 +13,7 @@ Use this when creating the remote repo or editing **About** settings.
 ## Short description (GitHub “About”, ≤ 350 characters)
 
 ```text
-TapeLM: memory on LETTERS not tokens — one curve encoder, fp slots, fp decode. Noisy recall 0.91 vs fair RAG 0.63. Trunk 221→227→228c→230→226c.
-```
-
-*(One-liner hook. Alt two-line for social: “Industry keys memory on tokens. We key on letters → curve → fp.”)*
-
-## Extended “About” / social preview (optional README excerpt)
-
-```text
-The industry keys memory on BPE tokens. TapeLM keys on character ink → curve → fingerprints: edit without finetune, resolve conflicts, cross-domain W. Staged proofs vs GPT / fair RAG.
+TapeLM: character-curve LM + structured fp memory on one encoder. Stages 191–205 + trunk 221→227→228c→230→226c. Fair GPT/RAG baselines; JSON verdicts per stage.
 ```
 
 ---

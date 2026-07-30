@@ -3,7 +3,7 @@
 *Authors: [TBD]*  
 *Code & stage logs: [KonstantinK-V/TapeLM](https://github.com/KonstantinK-V/TapeLM) (Stages 170–230)*
 
-> **Reader hook:** Everyone keys memory on **tokens**. TapeLM keys on **letters** — character ink → curve → fingerprints; BPE is readout, not the memory substrate. Surprises with numbers: noisy recall **0.913 vs 0.627** (fair RAG); fp decode **~1.0** when the head scores **~0.48**.
+> **Reader’s guide:** Substrate = **character ink → curve → fp** (BPE is readout). Motivation: [`artifact/WHY_TAPELM.md`](../artifact/WHY_TAPELM.md). Numbers: §4.2, §4.2b–c, §4.8, §5.1.
 
 > **Product shipping trunk:** **221 → 227 → 228c → 230 → 226c**
 

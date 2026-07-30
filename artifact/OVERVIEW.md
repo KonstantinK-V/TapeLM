@@ -8,9 +8,9 @@
 
 ## The pitch
 
-### Tokens are how the world indexes language. We index **spelling**.
+TapeLM reads **characters**, not BPE token IDs. The **curve encoder** builds fingerprints for memory; the **CE head** predicts BPE pieces for text. Facts live as **structured fp operations** (slots, binds, hops, resolution) on the same map — not as retrieved paragraphs, and not via backbone finetune for each edit.
 
-TapeLM reads **characters**, not BPE IDs. Memory is **structure on the curve** — slots, binds, hops, resolve — in the **same** space as generation. RAG stores **paragraphs** and hopes; GPT **retrains** to edit. We **write vectors** and **decode** them when the CE head shrugs (**228c**: **~1.0** vs **~0.48**).
+Fair GPT+RAG can **tie** clean retrieval in our exams; the documented separations are **substrate + structure** (§5.1 preprint), **noise/unlearn (204–205)**, and the **product trunk** (**228c** / **226c** utilization).
 
 ---
 

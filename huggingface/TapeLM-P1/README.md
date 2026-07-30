@@ -17,7 +17,7 @@ pipeline_tag: text-generation
 
 # TapeLM weights (variant A)
 
-> **Letters in, not token IDs.** One curve encoder → fingerprints → memory. BPE is the speech head. Trunk: **221→227→228c→230→226c** · `w_registry/` via `--with-w-registry`
+> **Character ink → curve → fp memory** (BPE head for text). Product trunk: **221→227→228c→230→226c** · optional `w_registry/`
 
 Checkpoints for **TapeLM** — one system: **Pillar A** (P1 + core fp 191–205) and **Pillar B** (memory trunk, optional `w_registry/`).
 
