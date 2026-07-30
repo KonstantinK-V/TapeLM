@@ -13,6 +13,7 @@ After upload, weights live at:
 ```bash
 pip install huggingface_hub
 python artifact/scripts/download_checkpoints.py
+python artifact/scripts/download_checkpoints.py --with-w-registry   # after HF upload
 ```
 
 Step-by-step upload: [`HUGGINGFACE.md`](HUGGINGFACE.md).
@@ -34,6 +35,8 @@ Not required for Stages 192–212 demos. Built after P1 download:
 
 ```bash
 python artifact/scripts/export_w_registry.py
+python artifact/scripts/upload_w_registry.py       # once, to Hugging Face
+python artifact/scripts/download_checkpoints.py --with-w-registry
 ```
 
 | File | Role |
@@ -42,7 +45,7 @@ python artifact/scripts/export_w_registry.py
 | `checkpoints/w_registry/W_prose_bwd.pt` | qmap prose-class → canonical |
 | `checkpoints/w_registry/W_code_bwd.pt` | qmap code-class → canonical |
 
-See [`MEMORY_ENGINEERING.md`](MEMORY_ENGINEERING.md). Optional HF upload alongside P1 when releasing.
+See [`MEMORY_ENGINEERING.md`](MEMORY_ENGINEERING.md). Upload: [`HUGGINGFACE.md`](HUGGINGFACE.md).
 
 ## BPE tokenizer
 

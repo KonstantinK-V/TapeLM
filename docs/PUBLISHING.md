@@ -81,3 +81,14 @@ Additional tags people might search (add if you have topic slots left):
 - Python: `![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)`
 
 No PyPI package — badges are informational only.
+
+---
+
+## Hugging Face model card (`Kostya03v/TapeLM-P1`)
+
+Edit **two places** on the Hub (copy from [`huggingface/TapeLM-P1/README.md`](../huggingface/TapeLM-P1/README.md)):
+
+1. **YAML `tags`** — fixed slugs for discovery (see [`HUGGINGFACE.md`](HUGGINGFACE.md)).
+2. **`Keywords:` line** — first line of the README body; comma-separated phrases for humans and search.
+
+You do **not** need new tags for every stage run — only when the **public product claim** changes (e.g. after promoting a research branch).
