@@ -14,9 +14,22 @@ TapeLM variant A combines:
 2. **Fp operations** — shared `fp(word) = normalize(arc_enc(chars))` for calibration, slots, hops, edit, stream.
 3. **Memory system** — canonical slot bank, **W_prose / W_code**, **228c** decode, **230** resolution when writes disagree.
 
-The design bet is **operable memory in the same space as generation**: vector slots and policies you can write, read, migrate, decode, and resolve — on one encoder.
+The design bet is **operable memory in the same space as generation**: vector slots and policies you can write, read, migrate, decode, and resolve—**structured knowledge**, not opaque text retrieval. On **clean** recall, fair GPT+RAG can **tie** us on score; the headline is **architecture** (one geometry + vector-native APIs), plus measured wins on noise/unlearning (204–205) and cross-domain **W + fp decode** (226c).
 
-**Staged evidence** backs each layer (191–205, 221–230, 226c). We report **matched GPT** and **fair GPT+RAG** baselines on the axes each stage defines.
+**Staged evidence** backs each layer (191–205, 221–230, 226c). **Matched GPT** and **fair GPT+RAG** baselines are on every axis the stage defines.
+
+---
+
+## vs RAG (honest)
+
+| | Fair GPT+RAG | TapeLM |
+|---|--------------|--------|
+| Clean static recall | Often **ties or ahead** on score | Parity — not the trump card |
+| Representation | Chunk **text** + (often) second embedder | **One** `arc_enc`; fp keys/values |
+| Relations / hops | Re-prompt or tool chains | **Bind + hop** in fp-space (195, 203) |
+| Edit / unlearn / conflict | Index delete; prompt merge | Subject write, **230** policy, slot delete (197, 205, 230) |
+
+Argument in full: preprint **§5.1** · [`../results/preprint_tapelm_draft.md`](../results/preprint_tapelm_draft.md)
 
 ---
 
