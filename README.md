@@ -2,7 +2,7 @@
 
 **One character-curve encoder. One fingerprint space for generation, memory, calibration, and edit.**
 
-TapeLM (variant A) is a **non-standard LM stack** that works as **one system**: dual-channel **character-curve** pretraining (P1) and **operable fingerprint memory** on the same frozen `arc_enc` — unified geometry instead of weights-plus-chunk-RAG.
+TapeLM (variant A) is a **non-standard LM stack** that works as **one system**: dual-channel **character-curve** encoder **pretrained once (Stage 191)**, then **frozen** for product use, with **operable fingerprint memory** on the same `arc_enc` geometry — unified fp-space instead of weights-plus-chunk-RAG.
 
 **What you get**
 

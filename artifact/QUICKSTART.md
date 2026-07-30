@@ -30,11 +30,13 @@ python artifact/scripts/run_product.py --all         # + full scorecard (196)
 
 ## What you just saw
 
-| Step | Mechanism |
-|------|-----------|
-| Write / recall | Canonical fp slot keys |
-| Conflicts | Multi-hit slots + `resolve_slot_contradiction` |
-| Cross-domain | `W_code` qmap + 4-way retrieve + fp decode |
+| Step | Mechanism | Encoder |
+|------|-----------|---------|
+| Write / recall | Canonical fp slot keys | **Frozen P1** (`eval`, no weight updates) |
+| Conflicts | Multi-hit slots + `resolve_slot_contradiction` | Frozen P1 |
+| Cross-domain | `W_code` qmap + 4-way retrieve + fp decode | **Canonical bank unchanged**; query may use a **code-domain copy** of the encoder in the demo to simulate drift — product path uses **exported W**, not slot reindex |
+
+**Frozen P1 (product claim):** checkpoint `stage191_p1_curve.pt` is **not** trained when you add or read facts. Training in the repo is **offline pretrain (191)** or **stage exams** (e.g. fit **W** after a deliberate shift). See [`../docs/ARCHITECTURE.md`](../docs/ARCHITECTURE.md#frozen-p1--precise-contract).
 
 API reference: [`../docs/MEMORY_ENGINEERING.md`](../docs/MEMORY_ENGINEERING.md)
 

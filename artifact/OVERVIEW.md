@@ -45,6 +45,8 @@ flowchart TB
 
 **Highlights:** generation parity (191); calibration & recall (192–194); hops & edit (195, 197, 203); noise/unlearn vs fair RAG (204–205); **canonical + W** (227); **fp decode utilization** (228c, 226c); **contradiction policy** (230).
 
+**Frozen encoder:** P1 weights are fixed for fact write/read; continual knowledge goes into **slots** and **W**, not into finetuning `arc_enc` on the product path. Full table: [`../docs/ARCHITECTURE.md`](../docs/ARCHITECTURE.md#frozen-p1--precise-contract).
+
 ---
 
 ## Research scope (for a complete picture)

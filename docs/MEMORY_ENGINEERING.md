@@ -1,6 +1,6 @@
 # TapeLM memory engineering (variant A)
 
-Part of the **same product** as P1 generation and the 192–205 fp stack — not a separate memory artifact. Implementer spec for **canonical slots**, **family W @ read**, **228c decode**, and **230 resolution**. Narrative: [`results/extension_memory_contract.md`](../results/extension_memory_contract.md). Tour: [`artifact/OVERVIEW.md`](../artifact/OVERVIEW.md).
+Part of the **same product** as P1 generation and the 192–205 fp stack — not a separate memory artifact. **Frozen P1 contract** (what trains vs what does not): [`ARCHITECTURE.md`](ARCHITECTURE.md#frozen-p1--precise-contract). Implementer spec for **canonical slots**, **family W @ read**, **228c decode**, and **230 resolution**. Narrative: [`results/extension_memory_contract.md`](../results/extension_memory_contract.md). Tour: [`artifact/OVERVIEW.md`](../artifact/OVERVIEW.md).
 
 ---
 

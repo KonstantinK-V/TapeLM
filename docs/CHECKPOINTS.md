@@ -24,7 +24,7 @@ Step-by-step upload: [`HUGGINGFACE.md`](HUGGINGFACE.md).
 
 | File | Role |
 |------|------|
-| `checkpoints/stage191_p1_curve.pt` | **P1** frozen curve encoder (d256, 6L) |
+| `checkpoints/stage191_p1_curve.pt` | **P1** canonical curve encoder (d256, 6L) — **pretrained in 191, frozen for product** (no grad on memory ingest) |
 | `checkpoints/stage191_p2_gpt.pt` | Matched GPT control |
 
 Optional scaling ablations: `checkpoints/stage209_curve_d*_L*.pt`, `stage209_gpt_*`.

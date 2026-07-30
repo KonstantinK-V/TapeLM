@@ -148,6 +148,8 @@ def demo_fp_decode_cross_domain(
     smoke: bool,
 ) -> None:
     banner("3 - Cross-domain read (prose slots, code query + fp decode)")
+    print("  Note: simulates encoder drift for query-side fp (stage-221 protocol).")
+    print("  Canonical slot keys stay in frozen P1 geometry; W_bwd qmap + fp decode at read.")
     W_bwd = None
     try:
         adapters, _ = load_w_registry(REPO / W_REGISTRY_DIR, device)

@@ -74,6 +74,29 @@ External **multi-hop** (203) loops in fp-space beside this path — not inside t
 
 ---
 
+## Frozen P1 — precise contract
+
+**Strong claim (variant A product):** the **canonical** curve encoder weights in `stage191_p1_curve.pt` are **not updated** when you add facts, run recall, calibrate, hop, edit, or resolve conflicts. Memory modules are **zero-train** on that encoder (192–205). At inference the stack runs in **`eval()`**; gradients do not flow into `arc_enc` on the product path.
+
+| Component | Trained when? | Updated during normal use? |
+|-----------|---------------|----------------------------|
+| **P1 `arc_enc` + slow/fast (191)** | Once, offline (~150M chars pretrain) | **No** — load checkpoint, freeze |
+| **CE / optional `head_family` (225)** | Pretrained with P1 (191; heads in 225 exams) | **No** on memory demo / slot ingest |
+| **Lexicon calibration (193)** | Two scalars fit on frozen fp | **No** at fact write time |
+| **Episodic slots, hop, edit (194–198)** | **Zero-train** — cosine / binding on fp | **No** — write/delete slots only |
+| **`W_family` (221–225)** | Small d×d matrix on ~800 **core words** after a measured shift | **No** online — load `w_registry/` or export offline |
+| **228c / 230 policies** | Fixed algorithms + optional exam metadata | **No** |
+
+**What “frozen” does *not* mean**
+
+- **History:** P1 was **trained** in Stage 191; “frozen” means **fixed after that** for the product contract (213: fp drift ~10⁻⁷ when upper layers alone are tuned — **default is full `arc_enc` freeze**).
+- **Research stages** (221, 226c, …) **intentionally finetune `arc_enc`** on toy corpora to **simulate domain drift** and fit **W** — that is an exam, not the shipped ingest loop. The product answer is: **keep canonical slot keys**, apply **W @ read** (227 qmap), not rebuild the bank.
+- **Cross-domain demo (step 3):** if `w_registry/` is missing, the script may **briefly finetune a copy** of the encoder to synthesize a code-domain query side — still **canonical slots unchanged**; prefer `download_checkpoints.py --with-w-registry` so only **loaded W** runs, not ad-hoc finetune. (When registry exists, step 3 may still finetune a **query-side** copy to mimic code ink; canonical **write** fp always comes from frozen P1 loaded in step 1.)
+
+**One-line summary:** **skills and geometry reference live in frozen P1; facts live in slots; domain drift is handled by W, not by retraining the canonical encoder during memory operations.**
+
+---
+
 ## Confirmed on variant A (single stack)
 
 **Generation & core fp (191–205):** parity; calibration, recall, hop2/bind, edit, stream; external hops (203); noise/unlearn vs fair baselines (204–205).
