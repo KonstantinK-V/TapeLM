@@ -2,7 +2,7 @@
 
 ## The idea in one sentence
 
-**One frozen curve encoder; one fingerprint geometry** for text generation, fact memory, calibration, editing, cross-domain recall, and principled conflict resolution — without a separate retrieval embedding pipeline.
+**Not RAG with another embedder:** one frozen curve encoder; **knowledge structure** (slots, bind, hops, edit, resolve) as **operable vectors** in the same fingerprint geometry as text generation—not retrieved chunks re-fed to the model.
 
 ---
 

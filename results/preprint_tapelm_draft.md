@@ -15,13 +15,13 @@ We study a language-model stack whose substrate is a **dual-channel curve encode
 
 ## 1. Introduction
 
-Standard causal LMs store knowledge **parametrically**; retrieval-augmented generation (RAG) stores knowledge **externally** and re-reads text at query time. We ask whether a **third contract** is viable: knowledge as **operable vectors** in the same representation space used for generation, with **editable** lexical calibration and **selective write** policies—without retraining the backbone for each new fact.
+Standard causal LMs store knowledge **parametrically**; retrieval-augmented generation (RAG) stores knowledge **externally** and re-reads **text chunks** at query time, usually through a **second** encoder or index geometry. We ask whether a **third contract** is viable: knowledge as **structured, operable vectors** in the **same** representation space used for generation—subject-anchored slot keys, binding/unbinding, multi-hop composition without serial decode, editable lexicon calibration, selective write policies, and (in §4.8) canonical banks with explicit conflict resolution—not “the same cosine retrieval with a different embedder.”
 
-This work reconnects a 2018-era **word-fingerprint** idea (normalized encodings + binding/unbinding) with a modern **curve LM** (dual fast/slow channels, clean CE, frozen after scale training). The product is **TapeLM**: one frozen encoder, multiple inference-time capabilities composed from shared fingerprints.
+This work reconnects a 2018-era **word-fingerprint** idea (normalized encodings + binding/unbinding) with a modern **curve LM** (dual fast/slow channels, clean CE, frozen after scale training). The product is **TapeLM**: one frozen encoder; **knowledge structure** (relations, hops, edits, contradictions) expressed as **fp-space operations**, not as re-ingested strings.
 
 **What we do not claim:** beating GPT+RAG on raw retrieval accuracy; human-level semantic understanding; superiority of generation quality.
 
-**What we do claim:** (1) a reproducible stack where memory/calibration/edit layers are **zero-train on P1 at inference** (facts = slot writes; no backbone gradients); domain drift uses **offline-fit family W**, not re-indexing the bank (§4.8); (2) clear wins vs **vanilla** GPT on non-generation axes; (3) honest parity vs **full** GPT+RAG on retrieval; (4) demonstrated **vector-native** operations (chaining without decode, binding) that RAG does not expose as first-class APIs.
+**What we do claim:** (0) **Not RAG-with-another-embedder:** one geometry for generate + key + calibrate + compose; RAG can approximate retrieval scores with a fair index, but does not natively expose bind/hop/edit/resolution as **vector APIs** (§5.1); (1) a reproducible stack where memory/calibration/edit layers are **zero-train on P1 at inference** (facts = slot writes; no backbone gradients); domain drift uses **offline-fit family W**, not re-indexing the bank (§4.8); (2) clear wins vs **vanilla** GPT on non-generation axes; (3) honest parity vs **full** GPT+RAG on **clean** retrieval; (4) demonstrated **vector-native** structure (chaining without decode, binding, subject writes, 230 resolution) that text-RAG does not treat as first-class.
 
 ---
 
@@ -208,9 +208,13 @@ The core stack (§2–4) keeps **one frozen P1 encoder** for canonical storage a
 
 ## 5. Discussion
 
-### 5.1 Unified fp-space vs GPT+RAG
+### 5.1 Unified fp-space vs GPT+RAG (thesis, not a second embedder)
 
-GPT+RAG can match retrieval by bolting an encoder, index, and (optionally) the **same** fp-surprise admission policy. TapeLM’s contribution is **co-location**: the encoder that generates is the encoder that fingerprints, calibrates, and keys memory—**no second representation learning step** for memory at inference, and editable lexicon semantics (“not in *my* lexicon”) rather than tokenizer surprisal alone.
+**What TapeLM is not.** A fair **GPT+RAG** baseline in this repo uses the **same** subject-anchored retrieval recipe and surprise-gated admission as the fp stack; on **clean** static recall it **ties or wins** on score (§4.2). Swapping the embedder while keeping **opaque text chunks** and **re-feeding strings** to the LM would not be a new architecture—it would be packaging.
+
+**What TapeLM is.** Knowledge is represented as **structured operations in one fp geometry**: episodic keys tied to **subjects and context**, **bind/unbind** for relational edges, **multi-hop** chains as cosine or circular-convolution steps **without** decoding intermediate entities to text, **one-shot writes** and **230 resolution** when the store holds conflicting structured values. Generation, calibration (“in *my* lexicon?”), and memory keys all read the **same** `arc_enc`—**co-location**, not a bolt-on retriever.
+
+GPT+RAG can match **point retrieval** by bolting an encoder, index, and (optionally) the **same** fp-surprise admission policy. TapeLM’s defensible headline is **operable knowledge structure** in unified space: the encoder that generates is the encoder that fingerprints, calibrates, keys, binds, and resolves—**no second representation learning step** for memory at inference, and **APIs** (hop, bind, edit, resolve) that a text index does not expose as first-class primitives—even when benchmark accuracy is parity.
 
 ### 5.2 When vanilla GPT is structurally weak
 

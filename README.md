@@ -1,8 +1,8 @@
 # TapeLM
 
-**One character-curve encoder. One fingerprint space for generation, memory, calibration, and edit.**
+**One character-curve encoder. One fingerprint space — structured knowledge as operable vectors, not RAG text chunks.**
 
-TapeLM (variant A) is a **non-standard LM stack** that works as **one system**: dual-channel **character-curve** encoder **pretrained once (Stage 191)**, then **frozen** for product use, with **operable fingerprint memory** on the same `arc_enc` geometry — unified fp-space instead of weights-plus-chunk-RAG.
+TapeLM (variant A) is **not “GPT + index with a different embedder.”** It is a **non-standard LM stack** where facts and relations live as **fp keys/values, binding, hops, edits, and resolution policies** in the **same** geometry as generation—pretrained once (Stage 191), then **frozen** for product memory ingest.
 
 **What you get**
 

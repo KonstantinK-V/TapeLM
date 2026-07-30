@@ -13,7 +13,7 @@ Use this when creating the remote repo or editing **About** settings.
 ## Short description (GitHub “About”, ≤ 350 characters)
 
 ```text
-TapeLM: character-curve LM + unified fp memory — calibration, slots, edit, canonical bank, family W, fp decode. One encoder; staged evidence vs matched GPT / fair RAG.
+TapeLM: character-curve LM + unified fp memory — structured knowledge as operable vectors (not RAG+embedder swap). One encoder; staged evidence vs matched GPT / fair RAG.
 ```
 
 *(~160 characters.)*
