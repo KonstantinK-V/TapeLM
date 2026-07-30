@@ -1,0 +1,23 @@
+{
+  "stage": "228a",
+  "overall": "HEAD_INJECT_PARTIAL",
+  "rank4_gold_target": {
+    "none": 0.425,
+    "gold_inject": 0.5,
+    "wrong_inject": 0.525
+  },
+  "sensitivity_rank_gold_minus_wrong": -0.025000000000000022,
+  "span_logprob_gold": {
+    "mean_given_none": -12.363564175764719,
+    "mean_given_gold_inject": -12.071101742982865,
+    "mean_given_wrong_inject": -12.107523831228415,
+    "sensitivity_gold_minus_wrong": 0.03642208824554949
+  },
+  "argmax_follows_inject_rate": {
+    "gold_prompt": 0.0,
+    "wrong_prompt": 0.0
+  },
+  "interpretation": "If sensitivity ~0: head ignores inject; use fp-guided decode or head_mem train.",
+  "n_items": 40,
+  "timestamp": "2026-07-30T13:19:58.079616+00:00"
+}

@@ -1,0 +1,21 @@
+{
+  "stage": 226,
+  "overall": "JOINT_GEN_MEM_NO",
+  "gates": {
+    "G_retrieve": false,
+    "G_joint": false
+  },
+  "align_W_code_fwd": 0.9935410618782043,
+  "align_W_code_bwd_qmap": 0.9929025769233704,
+  "mean_cos_code_shift": 0.44399526715278625,
+  "recall_canonical_W_code_qmap": 0.6,
+  "ret_exact_rate": 0.6,
+  "gen_rank4": {
+    "no_inject": 0.425,
+    "gold_inject": 0.425,
+    "retrieved_inject": 0.45
+  },
+  "n_items": 40,
+  "note": "Canonical slots + code query via W_code qmap (227) + head_code; joint=4-way rank after inject",
+  "timestamp": "2026-07-30T12:50:36.223794+00:00"
+}

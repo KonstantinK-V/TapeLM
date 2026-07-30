@@ -1,0 +1,12 @@
+{
+  "stage": 217,
+  "overall": "SLOW_ENDPOINT_NO",
+  "gates": {
+    "G1_noisy_dual": false
+  },
+  "acc_lex": 0.7,
+  "acc_dual": 0.12,
+  "p_noise": 0.3,
+  "n": 50,
+  "timestamp": "2026-07-30T07:29:00.352887+00:00"
+}

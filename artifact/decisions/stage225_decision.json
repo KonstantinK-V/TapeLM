@@ -1,0 +1,41 @@
+{
+  "stage": 225,
+  "overall": "DOMAIN_BUNDLE_OK",
+  "architecture": {
+    "shared": "frozen arc_enc \u2192 one fp R^d",
+    "bundle": "{W_family, head_family, slots_family*}",
+    "note": "*slots versioning deferred; A-era bank used for W tests"
+  },
+  "A_W_family_fork": {
+    "cos_stories_shift": 0.6782986521720886,
+    "cos_legal_shift": 0.932453989982605,
+    "recall_legal_query_W_prose_REUSE": 0.9166666666666666,
+    "recall_legal_query_W_legal_MATCHED": 0.9,
+    "drop_matched_minus_reuse": -0.016666666666666607,
+    "fork_W_family": false,
+    "policy_decide_legal": {
+      "action": "identity",
+      "family": "prose",
+      "mean_cos": 0.932453989982605
+    }
+  },
+  "B_multi_head_frozen_arc": {
+    "fp_drift_head_prose": 0.0,
+    "fp_drift_head_code": 0.0,
+    "generation": {
+      "stories_with_head_prose": 0.3962532606118093,
+      "stories_with_head_code": 0.0648018648018648,
+      "code_with_head_code": 0.7138434321096859,
+      "code_with_head_prose": 0.009878760664571173,
+      "baseline_stories_P1": 0.15246741154562385,
+      "baseline_code_P1": 0.009939759036144578,
+      "cross_drop_stories": 0.33145139580994454,
+      "cross_drop_code": 0.7039646714451148
+    },
+    "gates": {
+      "G_fp_shared": true,
+      "G_head_specializes": true
+    }
+  },
+  "timestamp": "2026-07-30T12:07:09.388942+00:00"
+}

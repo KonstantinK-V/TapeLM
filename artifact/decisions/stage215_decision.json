@@ -1,0 +1,14 @@
+{
+  "stage": 215,
+  "overall": "DOMAIN_ADAPTER_NO",
+  "gates": {
+    "G1_domain_recall": false,
+    "G2_old_bank_W": false,
+    "G3_calib": true
+  },
+  "acc_raw": 0.2375,
+  "acc_adapted": 0.2625,
+  "old_bank_retention": 0.3,
+  "steps": 800,
+  "timestamp": "2026-07-30T07:24:05.785223+00:00"
+}

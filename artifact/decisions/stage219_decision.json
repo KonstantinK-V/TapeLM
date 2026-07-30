@@ -1,0 +1,10 @@
+{
+  "stage": 219,
+  "overall": "STREAM_DECAY_WIN",
+  "gates": {
+    "G1_decay_vs_flat": true
+  },
+  "acc_flat": 0.48333333333333334,
+  "acc_decay": 0.9833333333333333,
+  "timestamp": "2026-07-30T07:29:26.301572+00:00"
+}

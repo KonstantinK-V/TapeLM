@@ -1,12 +1,14 @@
 # TapeLM architecture (variant A)
 
-This document is for implementers and paper readers who want the **non-standard parts** in one place. Numbers and stage gates live in [`results/preprint_tapelm_draft.md`](../results/preprint_tapelm_draft.md) and [`results/plan_curve_dynamics.md`](../results/plan_curve_dynamics.md).
+**One product:** frozen P1 curve encoder + fp modules + canonical memory policies on the **same** `arc_enc`. This doc is for implementers; numbers live in [`results/preprint_tapelm_draft.md`](../results/preprint_tapelm_draft.md), [`results/plan_curve_dynamics.md`](../results/plan_curve_dynamics.md), and [`MEMORY_ENGINEERING.md`](MEMORY_ENGINEERING.md).
 
 ---
 
-## Confirmed on frozen P1 (variant A)
+## Confirmed on variant A (single stack)
 
-Generation parity (191); zero-train fp **calibration**, **recall**, **hop2/bind**, **edit**, **stream** (192–198); external structured hops (203); noise vs fair RAG (204); slot unlearn (205).
+**Generation & core fp (191–205):** parity; calibration, recall, hop2/bind, edit, stream; external hops (203); noise/unlearn vs fair baselines (204–205).
+
+**Memory system (221–230, 226c):** W-remap; **canonical** slot bank + **qmap** read (227); **228c** fp decode; cross-domain **226c**; contradiction **230** resolution over multi-hit slots (229).
 
 ---
 
@@ -47,7 +49,23 @@ All modules below share this definition and the **same** frozen encoder.
 
 ---
 
-## Layer 2 — Baselines (fair comparison)
+## Layer 2 — Canonical memory & policies (same product)
+
+When the runtime encoder **domain** differs from write-time canonical P1, slot keys **stay** in canonical fp; queries use **`W_family_bwd`** (qmap). Utilization at constrained decode uses **228c**; conflicting writes use **230** (not the slot geometry itself).
+
+| Piece | Contract |
+|-------|----------|
+| **W registry** | `prose` / `code` (+ fork-on-drop); `checkpoints/w_registry/` |
+| **Read** | `qq = norm(W_bwd @ q_domain)`; 4-way retrieve on candidate sets (227) |
+| **Decode (228c)** | `cos(fp(c), fp(retrieved))` — official path (226c e2e) |
+| **Resolve (230)** | `resolve_slot_contradiction` on annotated multi-hit slots |
+| **Anti-pattern** | Global slot argmax + fp (228b); raw `cos(fp(c), query)` (228c `fp_query`) |
+
+API: [`MEMORY_ENGINEERING.md`](MEMORY_ENGINEERING.md), `_tapelm_ext.py`.
+
+---
+
+## Layer 3 — Baselines (fair comparison)
 
 - **Matched GPT-2** — same scale and exam protocol (191-P2).
 - **Fair GPT+RAG** — same retrieval math and surprise-gated admission as the fp stack where stages require it (196, 204).
@@ -59,7 +77,7 @@ Claims are split:
 
 ---
 
-## Closed research branches (explicit limits)
+## Research scope (explored; not part of the v1 product claim)
 
 | Attempt | Result |
 |---------|--------|
@@ -77,6 +95,9 @@ Claims are split:
 | Goal | Script |
 |------|--------|
 | Full assemble scorecard | `_stage196_tapelm.py` or `artifact/scripts/run_demo.py` |
+| Memory e2e (code + canonical) | `_stage226c_joint_fp_decode.py` |
+| Resolution policy | `_stage230_slot_resolution.py` |
+| Export family W | `artifact/scripts/export_w_registry.py` |
 | Noise vs fair RAG | `_stage204_noise_robustness.py` |
 | Structured internal hops | `_stage203_internal_hops.py` |
 | Variant B smoke | `_stage207_curve_thinking.py`, `_stage207_max.py` |

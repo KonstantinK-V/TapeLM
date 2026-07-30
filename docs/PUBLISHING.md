@@ -12,20 +12,18 @@ Use this when creating the remote repo or editing **About** settings.
 
 ## Short description (GitHub “About”, ≤ 350 characters)
 
-**Update on github.com** if you still have the old “Full negative-result map” text — it reads like every stage failed.
-
 ```text
-TapeLM: frozen curve encoder + zero-train fp memory (calibration, slots, edit, hops). Documented wins vs GPT; noise/unlearn vs fair RAG. Staged program 170–212 — positives and explicit falsifications.
+TapeLM: character-curve LM + unified fp memory — calibration, slots, edit, canonical bank, family W, fp decode. One encoder; staged evidence vs matched GPT / fair RAG.
 ```
 
-*(Character count ~195 — room for your handle or “MIT”.)*
+*(~160 characters.)*
 
 ---
 
 ## Extended “About” / social preview (optional README excerpt)
 
 ```text
-Alternative LM contract: character-curve + fp slots in one space. Wins on calibration, recall, edit, stream; capability on noisy text and unlearn. GPT/RAG parity where measured; falsified branches labeled (B, 210–212).
+Non-standard stack: P1 curve encoder and operable fingerprint memory in one space. Generation parity, recall, edit, cross-domain memory, contradiction resolution — reproducible stage program.
 ```
 
 ---
@@ -65,7 +63,7 @@ Additional tags people might search (add if you have topic slots left):
 
 **Capabilities:** OOD lexical calibration, noisy OCR text, out-of-vocabulary, one-shot knowledge edit, streaming under memory budget, machine unlearning collateral.
 
-**Meta:** falsification, negative results, reproducible benchmarks, staged research program.
+**Meta:** reproducible benchmarks, staged research program, axis-specific evaluation.
 
 ---
 

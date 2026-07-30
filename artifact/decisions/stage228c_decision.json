@@ -1,0 +1,29 @@
+{
+  "stage": "228c",
+  "overall": "FP_DECODE_FIX_YES",
+  "contract": "decode-time: 4-way slot retrieve (227) \u2192 fp-scorer vs retrieved value; not raw query\u00b7fp(c)",
+  "gates": {
+    "G_fp_ret4_ge_0p70": true,
+    "G_lift_ge_0p08": true,
+    "G_ret4_exact": true
+  },
+  "retrieve_exact": {
+    "four_way": 1.0,
+    "global_argmax": 0.6666666666666666
+  },
+  "align_W_bwd": 0.98555988073349,
+  "mean_cos_code": 0.9134427905082703,
+  "accuracy_4way": {
+    "head_only": 0.3333333333333333,
+    "fp_query": 0.16666666666666666,
+    "fp_retrieved_4way": 1.0,
+    "fp_retrieved_global": 0.6666666666666666,
+    "fp_oracle": 1.0,
+    "hybrid_query": 0.16666666666666666
+  },
+  "lift_fp_retrieved_4way_minus_head": 0.6666666666666667,
+  "lift_fp_query_minus_head": -0.16666666666666666,
+  "n_items": 12,
+  "note": "fp_retrieved_4way=YES path; fp_query fails because qq is ctx mix not value fp; fp_retrieved_global reproduces 228b (~global argmax)",
+  "timestamp": "2026-07-30T14:01:06.397125+00:00"
+}

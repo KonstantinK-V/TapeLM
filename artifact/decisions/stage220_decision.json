@@ -1,0 +1,10 @@
+{
+  "stage": 220,
+  "overall": "SEM_SIDECAR_NO",
+  "gates": {
+    "G1_sem_vs_lexical_baseline": false
+  },
+  "paws_acc_sem": 0.45875,
+  "paws_acc_lexical_proxy": 0.4375,
+  "timestamp": "2026-07-30T07:31:35.576330+00:00"
+}

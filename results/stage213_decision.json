@@ -1,0 +1,105 @@
+{
+  "stage": 213,
+  "overall": "ARC_ENC_FREEZE_PARTIAL",
+  "gates": {
+    "G1_fp_stable_upper": true,
+    "G2_fp_drifts_arc_control": true,
+    "G3_gen_ok": false
+  },
+  "baseline_next_tok": 0.855,
+  "after_upper_next_tok": 0.73,
+  "fp_drift_upper": {
+    "mean": 2.2351741790771484e-08,
+    "max": 1.1920928955078125e-07,
+    "per_word": {
+      "the": 0.0,
+      "and": -1.1920928955078125e-07,
+      "cat": 0.0,
+      "London": 5.960464477539063e-08,
+      "quantum": 0.0,
+      "Elizabeth": 1.1920928955078125e-07,
+      "running": 0.0,
+      "xyzabc": 1.1920928955078125e-07
+    }
+  },
+  "fp_drift_arc_enc": {
+    "mean": 0.3635062873363495,
+    "max": 0.4526819586753845,
+    "per_word": {
+      "the": 0.4491639733314514,
+      "and": 0.4526819586753845,
+      "cat": 0.3308217525482178,
+      "London": 0.4229849576950073,
+      "quantum": 0.3373790979385376,
+      "Elizabeth": 0.33242344856262207,
+      "running": 0.3341740369796753,
+      "xyzabc": 0.2484210729598999
+    }
+  },
+  "gelu_baseline": {
+    "the": {
+      "word": "the",
+      "gelu_sat_frac": 0.02734375,
+      "pre_linear_neg_frac": 0.58984375,
+      "out_norm": 17.944778442382812
+    },
+    "and": {
+      "word": "and",
+      "gelu_sat_frac": 0.01171875,
+      "pre_linear_neg_frac": 0.55859375,
+      "out_norm": 17.94175148010254
+    },
+    "cat": {
+      "word": "cat",
+      "gelu_sat_frac": 0.0078125,
+      "pre_linear_neg_frac": 0.5859375,
+      "out_norm": 18.059995651245117
+    },
+    "London": {
+      "word": "London",
+      "gelu_sat_frac": 0.00390625,
+      "pre_linear_neg_frac": 0.59375,
+      "out_norm": 17.96995735168457
+    }
+  },
+  "gelu_after_arc_train": {
+    "the": {
+      "word": "the",
+      "gelu_sat_frac": 0.03515625,
+      "pre_linear_neg_frac": 0.609375,
+      "out_norm": 18.16254234313965
+    },
+    "and": {
+      "word": "and",
+      "gelu_sat_frac": 0.015625,
+      "pre_linear_neg_frac": 0.59375,
+      "out_norm": 18.319692611694336
+    },
+    "cat": {
+      "word": "cat",
+      "gelu_sat_frac": 0.0078125,
+      "pre_linear_neg_frac": 0.59375,
+      "out_norm": 18.27585220336914
+    },
+    "London": {
+      "word": "London",
+      "gelu_sat_frac": 0.01953125,
+      "pre_linear_neg_frac": 0.56640625,
+      "out_norm": 18.2498722076416
+    }
+  },
+  "train_upper": {
+    "steps": 1200,
+    "ce": 2.7384846528026148,
+    "best_next_tok": 0.73,
+    "wall_s": 477.6031835079193
+  },
+  "train_arc": {
+    "steps": 1200,
+    "ce": 4.3368370734113055,
+    "best_next_tok": 0.8,
+    "wall_s": 429.5015606880188
+  },
+  "note": "Freeze arc_enc (eval) during upper finetune → fp(word) unchanged; arc_enc-only train shifts fp and GELU stats.",
+  "timestamp": "2026-07-30T06:41:03.788015+00:00"
+}

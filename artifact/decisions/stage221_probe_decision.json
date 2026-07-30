@@ -1,0 +1,69 @@
+{
+  "stage": "221-probe",
+  "overall": "W_REMAP_CHARACTERIZED",
+  "q1_W_linear_gram": {
+    "WtW_frobenius_to_I": 0.05043168365955353,
+    "WtW_asymmetry": 0.0,
+    "WtW_eig_min": 2.83948756987229e-05,
+    "WtW_eig_max": 3.8014862537384033,
+    "WtW_eig_mean": 0.6085250377655029,
+    "singular_value_min": 0.005327367689460516,
+    "singular_value_max": 1.949723720550537,
+    "singular_value_mean": 0.6499828696250916,
+    "det_W": -0.0,
+    "interpretation": "near_orthogonal"
+  },
+  "q2_oov": {
+    "train_align": 0.9968229532241821,
+    "holdout_align": 0.9934308528900146,
+    "holdout_mean_cos_raw": 0.6783214211463928,
+    "oov_align_after_W": 0.986960232257843,
+    "oov_mean_cos_raw": 0.7293213605880737,
+    "oov_words": [
+      "Zorblax",
+      "Qjxtrv",
+      "pneumonoultramicroscopicsilicovolcanoconiosis",
+      "floccinaucinihilipilification",
+      "xyzabc",
+      "next",
+      "Like",
+      "predecessor",
+      "wanting",
+      "refine"
+    ],
+    "generalizes_beyond_core": true,
+    "note": "holdout = core words not used in W train; OOV includes nonsense/long forms"
+  },
+  "q3_multi_W": {
+    "recall_W_B_stories_shift": 0.8333333333333334,
+    "recall_W_C_wiki_shift": 0.9,
+    "recall_mismatch_old_keys_new_queries_no_W": 0.9666666666666667,
+    "note": "W_B/W_C each trained for its domain shift; same A-era slot keys; 221-style W on keys+queries",
+    "one_bank_two_projections_both_ge_0p70": true
+  },
+  "q4_incremental": {
+    "curve": [
+      {
+        "n_train_words": 100,
+        "align_train_subset": 0.9998628497123718,
+        "align_hold_out": 0.9656552076339722
+      },
+      {
+        "n_train_words": 200,
+        "align_train_subset": 0.9986969828605652,
+        "align_hold_out": 0.9864646792411804
+      },
+      {
+        "n_train_words": 400,
+        "align_train_subset": 0.9973180294036865,
+        "align_hold_out": 0.992402195930481
+      }
+    ],
+    "monotone_enough": true
+  },
+  "prior_test_validation": {
+    "mean_cos_word_fp_after_B_shift": 0.6771148443222046,
+    "note": "221 exam uses 4-way MC + composite slot keys; word cos ~0.68 is real but not same as slot recall"
+  },
+  "timestamp": "2026-07-30T08:11:01.808331+00:00"
+}

@@ -1,0 +1,19 @@
+{
+  "stage": "226c",
+  "overall": "JOINT_FP_DECODE_OK",
+  "gates": {
+    "G_recall_4way": true,
+    "G_fp_decode_util": true
+  },
+  "align_W_bwd": 0.9931012988090515,
+  "mean_cos_code_shift": 0.44945505261421204,
+  "recall_4way_qmap": 0.8833333333333333,
+  "accuracy": {
+    "head_only": 0.45,
+    "fp_retrieved_4way": 0.8833333333333333
+  },
+  "lift_fp_minus_head": 0.4333333333333333,
+  "n_items": 60,
+  "note": "226 e2e: canonical bank + code qmap + 228c decode at return token",
+  "timestamp": "2026-07-30T14:32:06.301704+00:00"
+}

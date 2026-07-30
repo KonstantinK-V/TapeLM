@@ -1,0 +1,28 @@
+{
+  "stage": 221,
+  "overall": "FP_REMAP_ADAPTER_YES",
+  "gates": {
+    "G_align_core": true,
+    "G_recall_W_keys": true
+  },
+  "core_vocab_n": 800,
+  "mean_cos_before_shift": 0.6821218132972717,
+  "mean_cos_after_W": 0.9965543150901794,
+  "recall_old_fp": 0.95,
+  "recall_oracle_new": 0.8666666666666667,
+  "recall_W_remapped": 0.7833333333333333,
+  "remap_full": {
+    "align": 0.9965543150901794,
+    "recall": 0.7833333333333333,
+    "params": 65536
+  },
+  "remap_bottleneck": {
+    "r": 32,
+    "align": 0.9673460721969604,
+    "recall": 0.7,
+    "params": 16384
+  },
+  "best_remap": "full",
+  "note": "arc_enc domain shift then W on core vocab; old slots use W @ key_old",
+  "timestamp": "2026-07-30T07:45:08.219818+00:00"
+}

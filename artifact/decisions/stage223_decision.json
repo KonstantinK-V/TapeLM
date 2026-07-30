@@ -1,0 +1,14 @@
+{
+  "stage": 223,
+  "overall": "DOMAIN_W_SWITCH_PARTIAL",
+  "recall_B_new_query_W_B_keys": 0.9833333333333333,
+  "recall_B_new_query_W_C_keys_WRONG": 1.0,
+  "recall_C_new_query_W_C_keys": 0.9833333333333333,
+  "recall_C_new_query_W_B_keys_WRONG": 0.9666666666666667,
+  "recall_legacy_221_W_B": 0.9833333333333333,
+  "recall_legacy_221_W_C": 0.9833333333333333,
+  "cross_drop_B": -0.01666666666666672,
+  "cross_drop_C": 0.016666666666666607,
+  "note": "221-style: old fp extract + W on keys and queries; cross = wrong adapter",
+  "timestamp": "2026-07-30T08:54:31.564199+00:00"
+}

@@ -1,0 +1,18 @@
+{
+  "stage": 222,
+  "overall": "FP_DEPLOY_MODES_MIXED",
+  "modes": {
+    "M1_old_keys_old_query": 0.48333333333333334,
+    "M2_old_keys_new_query_no_W": 0.18333333333333332,
+    "M3_W_keys_old_query": 0.7333333333333333,
+    "M4_old_keys_W_old_query": 0.16666666666666666,
+    "M5_W_keys_W_old_query_221": 0.23333333333333334,
+    "M6_W_keys_new_query": 0.21666666666666667,
+    "M7_oracle_new_keys_new_query": 0.2833333333333333
+  },
+  "best_mode": "M3_W_keys_old_query",
+  "align_W_core": 0.9964547753334045,
+  "mean_cos_word_shift": 0.6800791621208191,
+  "interpretation": "If M2 ~ M7 and >> M5, W is for legacy old-fp extraction; if M6 ~ M7, deploy new encoder on queries + W on keys only.",
+  "timestamp": "2026-07-30T08:48:26.039469+00:00"
+}

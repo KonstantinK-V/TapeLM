@@ -1,0 +1,12 @@
+{
+  "stage": 218,
+  "overall": "SNAP_HOP_NO",
+  "gates": {
+    "G1_snap_noisy": false
+  },
+  "acc_no_snap": 0.38333333333333336,
+  "acc_snap": 0.35,
+  "k": 4,
+  "p_noise": 0.15,
+  "timestamp": "2026-07-30T07:29:13.382689+00:00"
+}

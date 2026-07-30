@@ -1,6 +1,6 @@
 # Checkpoints & data
 
-Git does **not** store weights (see root `.gitignore`).
+Git does **not** store weights (see root `.gitignore`). All files below belong to **one TapeLM variant A** install — core LM weights plus optional memory registry.
 
 ## Hugging Face (recommended)
 
@@ -27,6 +27,22 @@ Step-by-step upload: [`HUGGINGFACE.md`](HUGGINGFACE.md).
 | `checkpoints/stage191_p2_gpt.pt` | Matched GPT control |
 
 Optional scaling ablations: `checkpoints/stage209_curve_d*_L*.pt`, `stage209_gpt_*`.
+
+## Family W registry (extensions 221–227)
+
+Not required for Stages 192–212 demos. Built after P1 download:
+
+```bash
+python artifact/scripts/export_w_registry.py
+```
+
+| File | Role |
+|------|------|
+| `checkpoints/w_registry/w_registry.json` | Manifest |
+| `checkpoints/w_registry/W_prose_bwd.pt` | qmap prose-class → canonical |
+| `checkpoints/w_registry/W_code_bwd.pt` | qmap code-class → canonical |
+
+See [`MEMORY_ENGINEERING.md`](MEMORY_ENGINEERING.md). Optional HF upload alongside P1 when releasing.
 
 ## BPE tokenizer
 

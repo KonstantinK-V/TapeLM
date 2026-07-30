@@ -1,0 +1,11 @@
+{
+  "stage": 229,
+  "overall": "CONTRADICTION_RAW_MEMORY_OK",
+  "n_queries": 30,
+  "rate_both_values_in_top2": 0.6,
+  "mean_abs_score_gap_A_vs_B": 0.0200526495774587,
+  "A_wins": 30,
+  "B_wins": 0,
+  "interpretation": "fp nearest-neighbor returns conflicting candidates; resolution is not in the slot layer",
+  "timestamp": "2026-07-30T12:30:24.737599+00:00"
+}

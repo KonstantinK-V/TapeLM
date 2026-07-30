@@ -9,18 +9,18 @@ ART = Path(__file__).resolve().parents[1]
 DEC = ART / "decisions"
 
 CURATED = [
-    ("196", "TapeLM assemble (main demo)"),
+    ("196", "TapeLM assemble (full scorecard)"),
     ("192", "FP lexicon calibration"),
     ("204", "Noise / OOV vs fair RAG"),
     ("205", "Unlearn / provenance"),
-    ("203", "Internal hops (structured)"),
-    ("207", "Variant B smoke"),
-    ("207_max", "Variant B @ wiki scale"),
-    ("208", "Hybrid rare head"),
-    ("209", "Semantic scaling + teacher"),
-    ("210", "Hops in forward, token answers"),
-    ("211", "Internal slow tape cross-doc"),
-    ("212", "Instance channel"),
+    ("203", "Structured external hops"),
+    ("227", "Canonical slots + W@read"),
+    ("228c", "Official fp decode (4-way)"),
+    ("226c", "Cross-domain gen + memory"),
+    ("230", "Contradiction resolution"),
+    ("221", "W-remap adapter"),
+    ("207", "Variant B (scope)"),
+    ("210", "Internalization frontier (scope)"),
 ]
 
 
@@ -37,10 +37,9 @@ def main() -> int:
         d = json.loads(path.read_text(encoding="utf-8"))
         overall = d.get("overall", d.get("verdict", "?"))
         print(f"  stage{tag:8}  {overall:32}  {label}")
-    print(f"\nDocs: {ART / 'OVERVIEW.md'}")
-    print(f"Architecture: {ART.parent / 'docs/ARCHITECTURE.md'}")
-    print(f"GitHub topics: {ART.parent / 'docs/PUBLISHING.md'}")
-    print(f"Full plan: {ART.parent / 'results/plan_curve_dynamics.md'}")
+    print(f"\nQuickstart: {ART / 'QUICKSTART.md'}")
+    print(f"Product demo: python artifact/scripts/run_product.py")
+    print(f"Docs: {ART / 'OVERVIEW.md'}")
     return 0
 
 

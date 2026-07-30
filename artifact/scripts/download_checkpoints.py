@@ -37,7 +37,9 @@ def main() -> int:
             local_dir_use_symlinks=False,
         )
         print(f"  -> {path}")
-    print("Done. Run: python artifact/scripts/run_demo.py")
+    print("Done.")
+    print("  Product demo: python artifact/scripts/run_product.py")
+    print("  Optional W:   python artifact/scripts/export_w_registry.py")
     return 0
 
 

@@ -1,0 +1,11 @@
+{
+  "stage": 216,
+  "overall": "SPLIT_FF_NO",
+  "gates": {
+    "G1_linear_vs_gelu": false,
+    "G2_linear_recall_geom": false
+  },
+  "cos_linear_min": 0.18204514682292938,
+  "cos_gelu_min": 0.6677675247192383,
+  "timestamp": "2026-07-30T07:28:41.217140+00:00"
+}

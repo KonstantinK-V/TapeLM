@@ -24,5 +24,7 @@ TapeLM line: many stages end in **`_YES` / `_WIN` / `_PARTIAL`** (191–205, 203
 | 208 | hybrid rare head | No gain |
 | 209 | semantic scaling | Not structurally blocked |
 | 210–212 | pre-publish frontier | All **THESIS_NO** |
+| 213 | arc_enc freeze finetune | **ARC_ENC_FREEZE_** partial |
+| 214–220 | extension pipeline | see [`EXTENSION_PIPELINE.md`](EXTENSION_PIPELINE.md) |
 
 Full narrative: [`results/plan_curve_dynamics.md`](../results/plan_curve_dynamics.md).

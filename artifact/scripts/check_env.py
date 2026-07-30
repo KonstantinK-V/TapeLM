@@ -23,8 +23,10 @@ def main() -> int:
     repo = __import__("pathlib").Path(__file__).resolve().parents[2]
     p1 = repo / "checkpoints" / "stage191_p1_curve.pt"
     p2 = repo / "checkpoints" / "stage191_p2_gpt.pt"
-    print(f"  P1 checkpoint: {'found' if p1.exists() else 'MISSING'} ({p1})")
-    print(f"  P2 checkpoint: {'found' if p2.exists() else 'MISSING'} ({p2})")
+    wreg = repo / "checkpoints" / "w_registry" / "w_registry.json"
+    print(f"  P1 checkpoint: {'found' if p1.exists() else 'MISSING'}")
+    print(f"  P2 checkpoint: {'found' if p2.exists() else 'MISSING'}")
+    print(f"  W registry:    {'found' if wreg.exists() else 'optional (export_w_registry.py)'}")
     return 0 if ok else 1
 
 

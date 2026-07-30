@@ -1,28 +1,39 @@
 # TapeLM
 
-**One frozen curve encoder. Memory, calibration, and edits as operable fingerprints — in the same geometry as generation.**
+**One character-curve encoder. One fingerprint space for generation, memory, calibration, and edit.**
 
-TapeLM is a research artifact for people who care about **how** knowledge is represented, not only benchmark leaderboard position. The backbone is a **dual-channel character-curve encoder** (fast ink + surprise-gated slow writer). On top of it sits a **zero-train fingerprint stack**: lexicon calibration, episodic slots, one-shot subject writes, and vector hops — without training a separate retriever or re-embedding pipeline.
+TapeLM (variant A) is a **non-standard LM stack** that works as **one system**: dual-channel **character-curve** pretraining (P1) and **operable fingerprint memory** on the same frozen `arc_enc` — unified geometry instead of weights-plus-chunk-RAG.
 
-This is **not** marketed as “we beat RAG on everything.” The honest pitch is a **different contract**: unified fp-space on one encoder, **matched-GPT parity** where we measured, **documented wins** (calibration, recall, edit, stream; noise/unlearn vs fair RAG), plus **explicit falsifications** where claims stop (variant B, hybrid head, internalization 210–212).
+**What you get**
 
-**Browsing without running code?** Start at [`artifact/README.md`](artifact/README.md) → [`artifact/OVERVIEW.md`](artifact/OVERVIEW.md), then `python artifact/scripts/show_map.py`.
+- **Generation** at matched-GPT parity on the P1 protocol (191).
+- **Zero-train fp layer** — calibration, episodic recall, multi-hop binding, one-shot edit, streaming under budget (192–198, 203–205).
+- **Canonical memory** — one slot bank, **family W** for domain shift, **fp decode** when the CE head underuses memory (227, 228c, 226c).
+- **Contradiction handling** — slots surface candidates; **resolution policy** chooses among them (229–230).
 
-**First time on GitHub?** Read [`docs/GITHUB_FIRST_STEPS.md`](docs/GITHUB_FIRST_STEPS.md) (RU): what uploads, checkpoints, URL in `CITATION.cff`.
+Every claim is tied to **staged, reproducible exams** (JSON verdicts in [`artifact/decisions/`](artifact/decisions/)). Comparisons use **matched GPT** and **fair GPT+RAG** where the stage defines them.
+
+**Quickstart:** [`artifact/QUICKSTART.md`](artifact/QUICKSTART.md) · `python artifact/scripts/run_product.py`  
+**Docs:** [`artifact/OVERVIEW.md`](artifact/OVERVIEW.md) · [`docs/MEMORY_ENGINEERING.md`](docs/MEMORY_ENGINEERING.md) · [`docs/CHECKPOINTS.md`](docs/CHECKPOINTS.md)
 
 ---
 
-## Why the architecture is non-standard
+## Why this architecture is different
 
-| Usual stack | TapeLM (variant A) |
-|-------------|-------------------|
-| BPE tokens → transformer → logits | **Characters → curve states → BPE targets** |
-| Facts in weights *or* retrieved **text chunks** | Facts as **fp slot keys/values** in encoder space |
-| RAG: embed query, fetch strings, stuff context | **Cosine / bind / chain in fp-space** on frozen `arc_enc` |
-| Calibration = softmax temperature tuning only | **Lexicon surprise** from entity fingerprints (193) |
-| Edit = fine-tune or adapter | **Subject-anchored slot overwrite** (197), O(1) unlearn (205) |
+```text
+characters → arc_enc (P1) → fp(w) = normalize(encoder(word))
+                │
+                ├─ CE head → text
+                └─ canonical slots + W@read + fp decode + resolve
+```
 
-Generation stays pretrained once (Stage 191). Everything else is composition on the **same** normalized word fingerprints — the “tape” is explicit slots and policies, not hidden weights.
+| Typical stack | TapeLM |
+|---------------|--------|
+| BPE tokens → transformer | **Character ink → curve encoder → BPE targets** |
+| Facts in weights or retrieved **strings** | Facts as **fp keys/values** in encoder space |
+| Second embedder / reranker for memory | **Same** `arc_enc` for gen and memory |
+| Domain shift → rebuild the index | **Canonical bank + W_family** at read |
+| Retrieved text ignored by the LM | **228c fp decode** on explicit candidates |
 
 ---
 
@@ -30,62 +41,49 @@ Generation stays pretrained once (Stage 191). Everything else is composition on 
 
 | What | Where |
 |------|--------|
-| **Visitor tour (5 min)** | [`artifact/README.md`](artifact/README.md), [`artifact/OVERVIEW.md`](artifact/OVERVIEW.md) |
-| Curated verdict JSON | [`artifact/decisions/`](artifact/decisions/) |
-| Full program & scorecard | [`results/plan_curve_dynamics.md`](results/plan_curve_dynamics.md) |
-| Closed frontier 210–212 | [`results/pre_publish_frontier.md`](results/pre_publish_frontier.md) |
-| Draft preprint prose | [`results/preprint_tapelm_draft.md`](results/preprint_tapelm_draft.md) |
-| Architecture (implementers) | [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) |
-| Stage index 170–212 | [`docs/STAGES.md`](docs/STAGES.md) |
-| Checkpoints & data | [`docs/CHECKPOINTS.md`](docs/CHECKPOINTS.md) |
-| GitHub blurb & topics | [`docs/PUBLISHING.md`](docs/PUBLISHING.md) |
-| Legacy SOTE / hop batteries | [`legacy/sote/`](legacy/sote/) (historical) |
+| Try it (5 min) | [`artifact/QUICKSTART.md`](artifact/QUICKSTART.md) · `run_product.py` |
+| Product story | [`artifact/OVERVIEW.md`](artifact/OVERVIEW.md) |
+| Verdict JSON | [`artifact/decisions/`](artifact/decisions/) |
+| Full program narrative | [`results/plan_curve_dynamics.md`](results/plan_curve_dynamics.md) |
+| Memory contract | [`results/extension_memory_contract.md`](results/extension_memory_contract.md) |
+| Stage index | [`docs/STAGES.md`](docs/STAGES.md) |
 
 ---
 
-## Variant A — wins (main result)
+## Measured results (variant A)
 
-- **Generation:** parity with matched GPT on P1 scale (191).
-- **FP stack (zero-train on frozen P1):** lexicon calibration, episodic recall, hop2/binding, edit, stream+budget (192–198).
-- **vs vanilla GPT:** strong on calibration, edit, streaming.
-- **vs fair GPT+RAG:** unified fp-space on one encoder; **capability** wins on **noise/OOV** (204) and **unlearn** (205); structured external hops (203).
+**Core fp stack:** lexical calibration; fact recall; hop2/binding; subject-anchored edit; stream policies; structured external hops; strong **noise/OOV** and **slot unlearn** vs fair baselines on documented slices (204–205).
 
-## Variant A — boundaries (explicit, smaller set of stages)
+**Integrated memory (same product):**
 
-- **Variant B** (predict next fingerprint): **falsified** (207, 207-MAX).
-- **Semantic B @ PAWS on 3050:** not confirmed at this scale; not a structural block vs GPT (209).
-- **Internalization** (hops inside forward, slow tape, instance channel): **THESIS_NO** (210–212).
+| Capability | Stage |
+|------------|-------|
+| W-remap after encoder shift | 221 |
+| Canonical storage + qmap read | 227 |
+| Cross-domain recall + fp decode | 228c, 226c |
+| Multi-hit slots + resolution policy | 229, 230 |
 
-Details and numbers: preprint draft §4–5 and Stage 196 scorecard.
+**Scope (what v1 does not claim):** variant B next-fingerprint generation (207); fp rerank on BPE head (208); PAWS semantic line at 3050 scale (209); latent hops / internal slow tape / instance channel inside forward (210–212). Verdicts remain in the repo for readers who want the full map; they are not the product headline.
+
+Ongoing research (compositional W, temporal W, tool binding) is tracked in [`results/extension_closed_branches.md`](results/extension_closed_branches.md) until promoted into the contract.
 
 ---
 
 ## Reproduce
 
-Python 3.10+, PyTorch, `tokenizers`, `transformers`; GPU recommended. Checkpoints are **not** in git — download from [Hugging Face `Kostya03v/TapeLM-P1`](https://huggingface.co/Kostya03v/TapeLM-P1) or see [`docs/CHECKPOINTS.md`](docs/CHECKPOINTS.md).
+Python 3.10+, PyTorch, `tokenizers`, `transformers`; GPU recommended.
 
 ```bash
 pip install -r artifact/requirements.txt
-python artifact/scripts/check_env.py
-python artifact/scripts/run_demo.py          # Stage 196 scorecard
-python artifact/scripts/run_stage.py 204     # noise vs fair RAG
+python artifact/scripts/download_checkpoints.py
+python artifact/scripts/run_product.py
+python artifact/scripts/run_product.py --all   # + full scorecard (196)
 ```
 
-Full P1 training: `_stage191_night.py` (long run; see `results/plan_stage191_night9h.md`).
-
----
-
-## Find this repo (keywords)
-
-If you search for **character-level LM**, **curve / arc encoder**, **dual-channel memory**, **word fingerprint**, **episodic slot memory**, **zero-train retrieval**, **knowledge editing**, **OOD calibration**, **multi-hop binding**, or **staged reproducible benchmarks** — this tree is the evidence trail (wins and closed branches).
-
-Suggested GitHub **Topics** (copy from [`docs/PUBLISHING.md`](docs/PUBLISHING.md)):  
-`language-model` · `character-level` · `episodic-memory` · `retrieval-augmented-generation` · `knowledge-editing` · `machine-unlearning` · `reproducible-research`
+Stage scripts and pipeline: [`docs/EXTENSION_PIPELINE.md`](docs/EXTENSION_PIPELINE.md).
 
 ---
 
 ## Citation & license
 
-[`CITATION.cff`](CITATION.cff) — [github.com/KonstantinK-V/TapeLM](https://github.com/KonstantinK-V/TapeLM).
-
-Code: [MIT](LICENSE). Prose in `results/` and `docs/`: cite the repo; CC BY 4.0 if you republish verbatim.
+[`CITATION.cff`](CITATION.cff) · MIT [`LICENSE`](LICENSE).

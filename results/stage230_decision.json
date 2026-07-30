@@ -1,0 +1,40 @@
+{
+  "stage": 230,
+  "overall": "RESOLUTION_POLICY_OK",
+  "gates": {
+    "G_query_cue_cued_ge_0p85": true,
+    "G_composite_beats_argmax_macro": true,
+    "G_composite_neutral_ge_0p70": true
+  },
+  "rate_both_values_in_top2": 1.0,
+  "accuracy_by_policy_suite": {
+    "argmax": {
+      "neutral": 0.0,
+      "official_cue": 1.0,
+      "revision_cue": 0.4
+    },
+    "recency": {
+      "neutral": 1.0,
+      "official_cue": 0.0,
+      "revision_cue": 1.0
+    },
+    "query_cue": {
+      "neutral": 1.0,
+      "official_cue": 1.0,
+      "revision_cue": 1.0
+    },
+    "composite": {
+      "neutral": 1.0,
+      "official_cue": 1.0,
+      "revision_cue": 1.0
+    }
+  },
+  "macro_accuracy": {
+    "argmax": 0.4666666666666666,
+    "recency": 0.6666666666666666,
+    "query_cue": 1.0,
+    "composite": 1.0
+  },
+  "argmax_bias_note": "229: argmax always preferred first-written official slot",
+  "timestamp": "2026-07-30T14:25:56.347791+00:00"
+}

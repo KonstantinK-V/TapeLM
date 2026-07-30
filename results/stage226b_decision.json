@@ -1,0 +1,29 @@
+{
+  "stage": "226b",
+  "overall": "RETRIEVAL_OK_UTIL_BOUNDARY",
+  "H1_recall_vs_227": {
+    "protocol": "SEED227 facts + factual query + code shift + qmap",
+    "mean_cos_code": 0.44406092166900635,
+    "align_W_bwd": 0.9929320812225342,
+    "recall_qmap": 1.0,
+    "recall_no_W": 0.48333333333333334,
+    "reconciles_with_227_cross_0p95": true,
+    "note": "226's 0.60 used SEED226 / n=40 \u2014 not code-gen query; same factual template"
+  },
+  "H2_utilization_inject_forms": {
+    "head_code": {
+      "none": 0.43333333333333335,
+      "prose_inject": 0.43333333333333335,
+      "code_comment_inject": 0.4666666666666667,
+      "assignment_inject": 0.38333333333333336
+    },
+    "head_P1_ref": {
+      "none": 0.6333333333333333,
+      "assignment_inject": 0.6166666666666667
+    },
+    "best_minus_none": 0.033333333333333326,
+    "path_C_code_native_helps": true
+  },
+  "contract_note": "One canonical bank + W@read (227). Utilization is head/policy layer; path A boundary unless inject form or joint train (B) helps.",
+  "timestamp": "2026-07-30T13:06:05.854737+00:00"
+}

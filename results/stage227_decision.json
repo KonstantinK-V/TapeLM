@@ -1,0 +1,35 @@
+{
+  "stage": 227,
+  "overall": "CANONICAL_STORAGE_OK",
+  "gates": {
+    "G_cross_drop_lt_0p10": true,
+    "G_cross_recall_ge_0p70": true
+  },
+  "recall_canonical_baseline": 0.9666666666666667,
+  "mean_cos_shift": {
+    "stories": 0.6752134561538696,
+    "code": 0.44406092166900635
+  },
+  "align": {
+    "W_s_fwd": 0.9966802000999451,
+    "W_c_fwd": 0.9933915734291077,
+    "W_s_bwd": 0.9957088232040405,
+    "W_c_bwd": 0.9930936694145203
+  },
+  "modes": {
+    "same_prose_no_W": 0.9833333333333333,
+    "same_prose_keylift": 0.9,
+    "same_prose_qmap": 1.0,
+    "cross_code_no_W": 0.48333333333333334,
+    "cross_code_keylift": 0.7666666666666667,
+    "cross_code_qmap": 0.95
+  },
+  "best_same_policy": "qmap",
+  "best_cross_policy": "qmap",
+  "best_same_recall": 1.0,
+  "best_cross_recall": 0.95,
+  "cross_drop_same_minus_cross": 0.050000000000000044,
+  "drop_vs_canonical_baseline": 0.01666666666666672,
+  "note": "Keys always canonical (frozen P1). W disposable at read: keylift=old\u2192domain, qmap=domain\u2192old.",
+  "timestamp": "2026-07-30T12:37:33.803387+00:00"
+}

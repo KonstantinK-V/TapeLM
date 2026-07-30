@@ -1,0 +1,79 @@
+{
+  "stage": 224,
+  "overall": "W_DOMAIN_PARTIAL",
+  "gates": {
+    "G_cross_drop_ge_0p20_any": false,
+    "G_cross_drop_lt_0p05_all": false
+  },
+  "mean_cos_shift_per_domain": {
+    "stories": 0.6664236783981323,
+    "code": 0.585729718208313,
+    "med": 0.9167924523353577
+  },
+  "recall_matrix_query_domain__W_adapter": {
+    "stories": {
+      "stories": 0.9666666666666667,
+      "code": 0.8833333333333333,
+      "med": 0.9333333333333333
+    },
+    "code": {
+      "stories": 0.6833333333333333,
+      "code": 0.8833333333333333,
+      "med": 0.7666666666666667
+    },
+    "med": {
+      "stories": 0.9,
+      "code": 0.7166666666666667,
+      "med": 0.85
+    }
+  },
+  "cross_drops": {
+    "stories": {
+      "matched": 0.9666666666666667,
+      "best_wrong": 0.9333333333333333,
+      "worst_wrong": 0.8833333333333333,
+      "drop_vs_best_wrong": 0.033333333333333326,
+      "drop_vs_worst_wrong": 0.08333333333333337
+    },
+    "code": {
+      "matched": 0.8833333333333333,
+      "best_wrong": 0.7666666666666667,
+      "worst_wrong": 0.6833333333333333,
+      "drop_vs_best_wrong": 0.11666666666666659,
+      "drop_vs_worst_wrong": 0.19999999999999996
+    },
+    "med": {
+      "matched": 0.85,
+      "best_wrong": 0.9,
+      "worst_wrong": 0.7166666666666667,
+      "drop_vs_best_wrong": -0.050000000000000044,
+      "drop_vs_worst_wrong": 0.1333333333333333
+    }
+  },
+  "W_frobenius_cos_pairs": {
+    "stories_vs_code": {
+      "frobenius": 0.05245072767138481,
+      "cos_flat": 0.4305468797683716
+    },
+    "stories_vs_med": {
+      "frobenius": 0.04695344716310501,
+      "cos_flat": 0.5344478487968445
+    },
+    "code_vs_med": {
+      "frobenius": 0.04995635524392128,
+      "cos_flat": 0.4825618863105774
+    }
+  },
+  "summary": {
+    "max_cross_drop_vs_best_wrong_W": 0.11666666666666659,
+    "min_cross_drop_vs_best_wrong_W": -0.050000000000000044,
+    "max_W_pair_frobenius": 0.05245072767138481
+  },
+  "domains": {
+    "stories": "TinyStories prose",
+    "code": "data\\_stage224_code_corpus.txt",
+    "med": "Wiki lines filtered medical lexicon"
+  },
+  "note": "Rows=encoder domain for query; cols=W trained after shift on that domain",
+  "timestamp": "2026-07-30T10:40:35.369108+00:00"
+}

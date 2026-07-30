@@ -1,8 +1,6 @@
 # Results
 
-Staged evidence for TapeLM: narratives, preprint draft, and per-stage verdict files.
-
-**New readers:** prefer the curated copy in [`../artifact/decisions/`](../artifact/decisions/) and the one-page story in [`../artifact/OVERVIEW.md`](../artifact/OVERVIEW.md).
+Staged evidence for TapeLM (English). Curated entry: [`../artifact/OVERVIEW.md`](../artifact/OVERVIEW.md).
 
 ---
 
@@ -10,21 +8,21 @@ Staged evidence for TapeLM: narratives, preprint draft, and per-stage verdict fi
 
 | File | Content |
 |------|---------|
-| [`plan_curve_dynamics.md`](plan_curve_dynamics.md) | Full program narrative, scorecard, stage commentary |
-| [`preprint_tapelm_draft.md`](preprint_tapelm_draft.md) | Preprint-shaped prose (wins, protocol, limits) |
-| [`pre_publish_frontier.md`](pre_publish_frontier.md) | Closed frontier 210–212 |
-| `stage*_decision.json` | Machine-readable overall verdict per stage |
-| `stage*_mini.md` | One-page stage summaries where present |
-| `stage177_curve_bpe_tokenizer.json` | Small tokenizer artifact needed to run stages |
+| [`plan_curve_dynamics.md`](plan_curve_dynamics.md) | Full program narrative and scorecard |
+| [`extension_memory_contract.md`](extension_memory_contract.md) | Memory product contract (Freeze · W · decode · resolve) |
+| [`extension_thesis_W_remap.md`](extension_thesis_W_remap.md) | W-remap thesis and 221–224 evidence |
+| [`extension_closed_branches.md`](extension_closed_branches.md) | Explored directions not in v1 claim |
+| [`preprint_tapelm_draft.md`](preprint_tapelm_draft.md) | Preprint-shaped prose |
+| [`pre_publish_frontier.md`](pre_publish_frontier.md) | Internalization frontier stages 210–212 |
+| `stage*_decision.json` | Machine-readable verdict per stage |
+| `stage*_mini.md` | One-page summaries where present |
 
 ---
 
 ## Regenerated locally (usually gitignored)
 
-- `_stage*_log.txt`, `_stage*_console.txt` — verbose run logs
-- Large intermediate JSON from long trains (see root [`.gitignore`](../.gitignore))
-
-Refresh the visitor-facing subset after important runs:
+- `_stage*_log.txt`, `_stage*_console.txt`
+- Large intermediate JSON from long trains
 
 ```bash
 python artifact/scripts/sync_decisions.py
@@ -32,6 +30,4 @@ python artifact/scripts/sync_decisions.py
 
 ---
 
-## Root pointer
-
-Repository entry: [`../README.md`](../README.md) · Architecture: [`../docs/ARCHITECTURE.md`](../docs/ARCHITECTURE.md)
+Repository entry: [`../README.md`](../README.md)
