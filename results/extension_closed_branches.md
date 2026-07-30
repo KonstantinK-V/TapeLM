@@ -78,4 +78,28 @@ Script: `_stage221_fp_remap_adapter.py`, `results/stage221_decision.json`.
 
 ---
 
-*Update this file when extension stages change; link from `docs/EXTENSION_PIPELINE.md`.*
+## Shipping trunk (221–230, 226c) — **in v1 claim**
+
+Same frozen P1; canonical slot bank; family **W** at read; **228c** fp decode; **230** resolution. Full narrative: [`plan_curve_dynamics.md`](plan_curve_dynamics.md) (section *Memory extension program*) · [`extension_memory_contract.md`](extension_memory_contract.md).
+
+| Stage | Overall | One-line |
+|-------|---------|----------|
+| 221 | FP_REMAP_ADAPTER_YES | W on core vocab after arc shift |
+| 221-probe | W_REMAP_CHARACTERIZED | W geometry / OOV / family probes |
+| 222 | FP_DEPLOY_MODES_MIXED | W on keys vs query deploy |
+| 223 | DOMAIN_W_SWITCH_PARTIAL | cross-family switch on 4-way |
+| 224 | W_DOMAIN_PARTIAL | code shift ~0.59 cos; registry justified |
+| 225 | DOMAIN_BUNDLE_OK | reuse W_prose; multi-head |
+| 227 | CANONICAL_STORAGE_OK | canonical write + qmap read |
+| 226 | JOINT_GEN_MEM_NO | head path does not utilize |
+| 226b | RETRIEVAL_OK_UTIL_BOUNDARY | 227 protocol recall 1.0 |
+| 226c | JOINT_FP_DECODE_OK | e2e ~0.88 fp vs ~0.45 head |
+| 228a | HEAD_INJECT_PARTIAL | inject without fp decode weak |
+| 228b | FP_GUIDED_DECODE_NO | global argmax retrieve fails |
+| 228c | FP_DECODE_FIX_YES | 4-way retrieve + fp scorer |
+| 229 | CONTRADICTION_RAW_MEMORY_OK | multi-hit candidates |
+| 230 | RESOLUTION_POLICY_OK | composite ~1.0 vs argmax ~0.47 |
+
+Weights: `checkpoints/w_registry/` · `export_w_registry.py` · HF `Kostya03v/TapeLM-P1` (`w_registry/`).
+
+---

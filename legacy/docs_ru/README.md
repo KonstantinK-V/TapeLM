@@ -5,7 +5,7 @@ Russian-language drafts and run queues kept for the author. **Public documentati
 | File | Description |
 |------|-------------|
 | `GITHUB_FIRST_STEPS.md` | GitHub setup (RU) — use [`../../docs/GITHUB.md`](../../docs/GITHUB.md) |
-| `extension_plain_ru.md` | Stage summaries (RU) |
+| `extension_plain_ru.md` | Plain-language stage guide **213–230** (RU); entry [`results/extension_plain_ru.md`](../../results/extension_plain_ru.md) |
 | `extension_run_queue_2h.md` | ~2h run queue (RU) |
 
 Superseded HF upload (RU): see [`../../docs/HUGGINGFACE.md`](../../docs/HUGGINGFACE.md).

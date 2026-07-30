@@ -571,8 +571,74 @@ memory; and instance identity is **not present** in the frozen state. The honest
 stays what 191–209 measured: variant A as a unified fp-space artifact plus a dense **map of negatives**.
 None of the three cost anything — P1 stayed frozen and generation unchanged in all three.
 
-**Program state: closed.** Variant A is the artifact and needs no hybrid; variant B is falsified (207); the
-essence wins are W1 (204), W2 (192/193), W3 (205), W4 (194–198), with W5 bounded to latency (206).
+**Internalization program: closed (210–212).** Token-internal hops, addressable slow tape, and occurrence-identity channels are **THESIS_NO**. The shipping hop API remains the **external zero-train fp loop** (203).
+
+**Core LM program (191–209): closed for v1 claim.** Variant A is the artifact; variant B is falsified (207); hybrid rerank on A is NO GAIN (208); essence wins W1–W5 as measured below. **Memory ops program (213–230): closed for v1 product trunk** — same frozen P1, canonical bank, family W, fp decode, resolution policy.
+
+### Memory extension program (213–230, 2026-07-30)
+
+**Motivation.** Production use breaks the lab assumption “encoder never moves”: domain finetune, forked heads, and cross-domain read all require **stable slots** without full reindex. This line is **not** a second product — it is **operational TapeLM** on the 192–205 fp stack.
+
+**Three layers (contract).** L1 **Freeze** (`arc_enc` default frozen → zero-train fp). L2 **W-remap** (tiny linear restorer per **family** when geometry shifts). L3 **Stream decay** (219, long-run bank hygiene). Narrative lock: [`extension_memory_contract.md`](extension_memory_contract.md) · implementer: [`../docs/MEMORY_ENGINEERING.md`](../docs/MEMORY_ENGINEERING.md).
+
+| Stage | Intent |
+|-------|--------|
+| **213** | Full `arc_enc` freeze + upper finetune → **ARC_ENC_FREEZE_PARTIAL** |
+| **214** | Recency-weighted ctx entity fp → **RECENCY_CTX_NO** |
+| **215** | Toy domain adapter without remap → **DOMAIN_ADAPTER_NO** (superseded by 221) |
+| **216** | Partial FF freeze (emb frozen, train FF) → **SPLIT_FF_NO** |
+| **217–218** | Slow-endpoint tape / snap hop → **NO** |
+| **219** | Age decay on stale slots → **STREAM_DECAY_WIN** (stream, not one-shot exam) |
+| **220** | PAWS sem sidecar → **SEM_SIDECAR_NO** |
+
+**213 read — freeze is the default for memory API.** Finetuning only layers above frozen `arc_enc` leaves **fp drift ~10⁻⁷**; fp-stable. Wiki CE drops if you train upper on TinyStories-only — expected trade. **Do not** partial-FF inside encoder (216): min cos(fp_old, fp_new) **~0.18–0.67** — geometry walks; use **full freeze + W** instead.
+
+**214/215/216/217/218/220 read — closed branches.** Recency ctx hurts (0.947 → worse); naive adapter without core remap fails; slow endpoint and snap hop do not beat external slots; sem sidecar adds little at 3050. Logged in [`extension_closed_branches.md`](extension_closed_branches.md).
+
+| Stage | Intent |
+|-------|--------|
+| **221** | After **intentional** arc_enc shift: learn **W** on ~800 core words → **FP_REMAP_ADAPTER_YES** |
+| **221-probe** | Characterise W (WᵀW, OOV, W_B vs W_C, vocab curve) → **W_REMAP_CHARACTERIZED** |
+| **222** | Deploy modes (W on keys only vs query) → **FP_DEPLOY_MODES_MIXED** |
+| **223** | Cross-family W switch on 4-way → **DOMAIN_W_SWITCH_PARTIAL** |
+| **224** | Far shifts (stories / code / med): family drop → **W_DOMAIN_PARTIAL** |
+| **225** | Domain bundle: reuse W_prose vs fork; multi-head, frozen arc_enc → **DOMAIN_BUNDLE_OK** |
+
+**221 read — migration without full reindex.** Controlled TinyStories-style shift: mean cos(**W fp_old**, fp_new) **~0.997** (full 256×256 W); fact recall through **W @ legacy keys ~0.78** vs oracle reindex **~0.87** (≥80% of oracle gate). Without W after shift, legacy bank **collapses** on the 221 protocol (not the same as “rank preserved on old fp before shift”). Bottleneck W (256→32→256, ~16k params) align **~0.967**, recall **~0.70** — same story, smaller footprint.
+
+**224 read — family registry is empirical.** Code shift harshest: cos(old,new) **~0.59**; matched **W_code ~0.88**; wrong-family prose W **~0.68** (drop **~0.12**). Prose-like pairs often ≤0.05 wrong-W drop; **one global W is insufficient** for code-class ink.
+
+**225 read — shared map + lenses.** Legal reuse of **W_prose** when cross-drop **≤0.05** (**DOMAIN_BUNDLE_OK**); **head_prose / head_code** specialize generation with **fp drift 0** on frozen `arc_enc`. Product shape: **`slots_canonical` + `W_family@read` + `head_family`**, not N independent memory products.
+
+| Stage | Intent |
+|-------|--------|
+| **227** | Write keys in **canonical** P1 fp; read via **qmap** (domain query → canonical key space) → **CANONICAL_STORAGE_OK** |
+| **226** | Joint gen+mem (head inject) → **JOINT_GEN_MEM_NO** |
+| **226b** | Diagnose recall protocol vs utilization → **RETRIEVAL_OK_UTIL_BOUNDARY** |
+| **226c** | End-to-end cross-domain: 227 bank + qmap + **228c decode** → **JOINT_FP_DECODE_OK** |
+| **228a** | Counterfactual head inject → **HEAD_INJECT_PARTIAL** |
+| **228b** | Global argmax retrieve + fp score → **FP_GUIDED_DECODE_NO** |
+| **228c** | **4-way slot retrieve** + **fp_decode_pick_retrieved_4way** → **FP_DECODE_FIX_YES** |
+| **229** | Contradictory values both in top-2 → **CONTRADICTION_RAW_MEMORY_OK** |
+| **230** | Resolution policy over multi-hit slots → **RESOLUTION_POLICY_OK** |
+
+**227 read — one bank, disposable lenses.** Keys always stored in frozen canonical fp; at read, **qmap** applies **W_bwd** so domain queries match canonical keys. Cross-code recall **~0.95** vs **~0.70** without W; same-domain **1.0**; drop vs matched **~0.05**. Unifies 221–225 into **one slot store** + runtime family W.
+
+**226 / 226b read — retrieval ≠ utilization (head path).** First 226 joint exam looked like recall failure; **226b** showed **qmap recall 1.0** under 227 protocol — utilization with **code_comment inject ~0.47** vs none **~0.43** (negligible). **Head-only** paths do not read retrieved gold reliably (**226 JOINT_GEN_MEM_NO**).
+
+**228b vs 228c read — protocol is part of the API.** Global argmax over all slot keys + raw cos(fp(candidate), query) **~0.33–0.40** — fails even when 227 retrieval is strong. **228c:** per-slot **4-way retrieve** (max key score per candidate value) then score with **cos(fp(c), fp(retrieved))** → **1.0** on code-return exam vs CE head **~0.48**. Official API: `_tapelm_ext.slot_retrieve_4way`, `fp_decode_pick_retrieved_4way`. Persisted W: `artifact/scripts/export_w_registry.py` → HF `w_registry/`.
+
+**229–230 read — contradictions are policy, not geometry.** **229:** both conflicting values in top-2 **~60%** on mixed writes; score gaps small. **230:** raw argmax macro **~0.47** (bias to first-written “official” slot); **query_cue** and **composite** macro **1.0** on neutral + cued + revision suites (`resolve_slot_contradiction`). Complements 205 contradiction **detection** with **selection** at read time.
+
+**226c read — cross-domain product exam.** Canonical bank + code **qmap** + 228c at return token: **recall_4way ~0.88**, **fp_retrieved_4way ~0.88** vs **head_only ~0.45** (n=60, code-shift cos **~0.45**). This is the utilization number to cite alongside 227 recall — not the old 226 global-retrieve **~0.60**.
+
+**Shipping trunk (order):** 221 (W exists) → **227** (canonical + qmap) → **228c** (decode) → **229–230** (conflicts) → **226c** (cross-domain e2e). Demo: `artifact/scripts/run_product.py` · `run_memory_demo.py`.
+
+**Still open (not v1 headline):** L3 decay versioned with W id; compositional / temporal W; multi-domain **pretrain** L1 (scale); tool binding. Branches: [`extension_closed_branches.md`](extension_closed_branches.md) · queue: [`../docs/EXTENSION_PIPELINE.md`](../docs/EXTENSION_PIPELINE.md).
+
+Paper-shaped prose: [`preprint_tapelm_draft.md`](preprint_tapelm_draft.md) **§4.8** · stage index: [`../docs/STAGES.md`](../docs/STAGES.md).
+
+**Essence wins (191–209, unchanged).** Variant A needs no hybrid; variant B falsified; W1–W5 as measured in the next subsection.
 
 ### WHERE THE SUBSTRATE CAN GENUINELY WIN (2026-07-29, essence roadmap — W1 CONFIRMED in 204, W3 in 205, W5 bounded in 206; variant-B generation FALSIFIED in 207; hybrid-for-A NO GAIN in 208; A meaning scaling NOT structurally blocked in 209)
 Honest separation of "wins by its nature" (needs the char-curve + fp substrate, BPE cannot copy without
@@ -602,12 +668,16 @@ char-curve/fp substrate that BPE can't replicate. W3/W4 are strong but shareable
 a research bet. Recommend next experiment attack **W1** (substrate robustness under noise/OOV) — the one axis
 where BPE-GPT is structurally weak *by construction*, not just under-equipped.
 
-### EMPTY AREAS MAP (2026-07-29, after 200–201) — what is closed vs open
+### EMPTY AREAS MAP (2026-07-29 core; memory ops update 2026-07-30) — what is closed vs open
 - **CLOSED / mapped:** context-retention (A), generation parity, lexical calibration ("don't-know"),
   episodic fact recall (hop1/hop2), one-shot editable knowledge, surprise-gated write policy, operable-vector
   chaining + binding composition, honest positioning vs GPT (distinct) and GPT+RAG (architectural, not capability).
-- **OPEN (one frontier):** semantic invariance / meaning over spelling (B). Requires a new encoder pretrained
-  with a meaning objective at scale — a separate track gated on stronger hardware. Everything else is settled.
+- **CLOSED / memory ops trunk (213–230):** freeze default (213), W-remap + family registry (221–225), canonical
+  bank + qmap (227), fp decode protocol (228c), contradiction resolution (230), cross-domain utilization (226c).
+  Internalization inside forward (210–212) remains **NO**; external fp loop stays the hop API.
+- **OPEN (scale frontier):** semantic invariance / meaning over spelling (B). Requires a new encoder pretrained
+  with a meaning objective at scale — a separate track gated on stronger hardware.
+- **OPEN (engineering, not headline):** L3 decay versioned with W; compositional/temporal W; multi-domain L1 pretrain; tool binding.
 
 ### PROGRAM VERDICT (2026-07-29, after 196–198): TapeLM vs BPE-GPT — honest scorecard
 | axis | tape | vanilla GPT | GPT+RAG (fair) | distinct from GPT? | distinct from RAG? |
@@ -862,20 +932,19 @@ FP-line status: lexicon (192) + calibration (193) + facts hop1 0.95 (194) + chai
 
 ---
 
-## Memory extension trunk (221–230, 2026-07-30)
+---
 
-After internalization frontier **210–212** closed (`THESIS_NO`), the **same frozen P1** gained an operational memory layer — not a second product.
+## Memory extension — document map
 
-| Stage | Verdict (headline) |
-|-------|-------------------|
-| 221 | **FP_REMAP_ADAPTER_YES** — tiny W after arc shift |
-| 225 | **DOMAIN_BUNDLE_OK** — one canonical bank, family lenses |
-| 227 | **CANONICAL_STORAGE_OK** — write canonical, read qmap |
-| 228c | **FP_DECODE_FIX_YES** — 4-way retrieve + fp scorer |
-| 229–230 | multi-hit slots; **RESOLUTION_POLICY_OK** |
-| 226c | **JOINT_FP_DECODE_OK** — cross-domain ~0.88 fp vs ~0.45 head |
+Stage-by-stage reads live **above** under **Memory extension program (213–230)** (after the 210–212 frontier). Do not duplicate numbers here.
 
-Paper-shaped summary: [`preprint_tapelm_draft.md`](preprint_tapelm_draft.md) **§4.8** · contract: [`extension_memory_contract.md`](extension_memory_contract.md) · index: [`../docs/STAGES.md`](../docs/STAGES.md).
+| Doc | Role |
+|-----|------|
+| [`extension_memory_contract.md`](extension_memory_contract.md) | Product contract (L1–L3, registry, API order) |
+| [`extension_thesis_W_remap.md`](extension_thesis_W_remap.md) | W-remap thesis + 221–224 |
+| [`extension_closed_branches.md`](extension_closed_branches.md) | Explored NO branches |
+| [`preprint_tapelm_draft.md`](preprint_tapelm_draft.md) | Paper draft §4.8 |
+| [`../docs/STAGES.md`](../docs/STAGES.md) | Script + verdict table |
 
 ---
 
@@ -889,3 +958,4 @@ Paper-shaped summary: [`preprint_tapelm_draft.md`](preprint_tapelm_draft.md) **�
 | `results/stage169_FROZEN.json` | prior path frozen |
 | `results/preprint_tapelm_draft.md` | paper draft (170–212 + §4.8 memory) |
 | `results/extension_memory_contract.md` | memory product contract |
+| `legacy/docs_ru/extension_plain_ru.md` | RU plain guide (213–230); stub at `results/extension_plain_ru.md` |
