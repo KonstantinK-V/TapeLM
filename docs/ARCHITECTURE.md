@@ -1,6 +1,6 @@
 # TapeLM architecture (variant A)
 
-**One product:** frozen P1 curve encoder + fp modules + canonical memory policies on the **same** `arc_enc`. This doc is for implementers; numbers live in [`results/preprint_tapelm_draft.md`](../results/preprint_tapelm_draft.md), [`results/plan_curve_dynamics.md`](../results/plan_curve_dynamics.md), and [`MEMORY_ENGINEERING.md`](MEMORY_ENGINEERING.md).
+**One product:** frozen P1 curve encoder + **(A) core fp stack 191–205** + **(B) memory trunk 221–230** on the **same** `arc_enc`. Implementers: [`MEMORY_ENGINEERING.md`](MEMORY_ENGINEERING.md) (trunk API). Numbers: [`results/preprint_tapelm_draft.md`](../results/preprint_tapelm_draft.md) §4.8, [`results/plan_curve_dynamics.md`](../results/plan_curve_dynamics.md).
 
 ---
 

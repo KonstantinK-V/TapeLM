@@ -84,7 +84,7 @@ Additional tags people might search (add if you have topic slots left):
 | **Paper** | [`results/preprint_tapelm_draft.md`](../results/preprint_tapelm_draft.md) (§3.1 frozen, §4.8 memory) | [`results/plan_curve_dynamics.md`](../results/plan_curve_dynamics.md) |
 | **Stages / JSON** | [`docs/STAGES.md`](../docs/STAGES.md) | `artifact/decisions/` |
 
-All paths should agree: **P1 pretrained once (191), frozen on memory ingest**; facts in **slots**; domain drift via **W @ read**, not retraining P1 per fact.
+All paths should agree: **two pillars** — **191–205** (core fp + 204/205) and **221–230** (memory trunk; `run_product.py`); **P1** pretrained once (191), frozen on memory ingest; facts in **slots**; drift via **W @ read**.
 
 ---
 

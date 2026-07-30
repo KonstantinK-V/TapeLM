@@ -17,7 +17,7 @@ pipeline_tag: text-generation
 
 # TapeLM weights (variant A)
 
-Checkpoints for **TapeLM** — one system: **pretrained (191), frozen for memory ingest** dual-channel curve encoder (P1), matched GPT control, and optional **family W** for canonical fingerprint memory (227 qmap, 228c decode).
+Checkpoints for **TapeLM** — one system: **Pillar A** (P1 + core fp 191–205) and **Pillar B** (memory trunk **221–230**, optional `w_registry/`).
 
 **Weights:** [huggingface.co/Kostya03v/TapeLM-P1](https://huggingface.co/Kostya03v/TapeLM-P1)  
 **Code:** [github.com/KonstantinK-V/TapeLM](https://github.com/KonstantinK-V/TapeLM)  

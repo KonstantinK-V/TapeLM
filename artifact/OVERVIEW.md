@@ -8,11 +8,16 @@
 
 ## A non-standard stack that ships as one product
 
-TapeLM variant A combines:
+TapeLM variant A combines **two shipped evidence lines** on one encoder:
+
+1. **Core fp (191–205)** — calibration, slots, hops, edit, stream; wins on noise/unlearn (204–205).
+2. **Memory trunk (221–230, 226c)** — canonical bank, **W**, **228c** decode, **230** resolve; **strongest product demos** (`run_product.py`). Extension program **213–220** (incl. **215 NO**) led here; see [`docs/STAGES.md`](../docs/STAGES.md).
+
+Components:
 
 1. **Substrate** — dual-channel character-curve encoder (P1).
 2. **Fp operations** — shared `fp(word) = normalize(arc_enc(chars))` for calibration, slots, hops, edit, stream.
-3. **Memory system** — canonical slot bank, **W_prose / W_code**, **228c** decode, **230** resolution when writes disagree.
+3. **Memory trunk** — canonical bank, **W**, **228c**, **230** (Stages **221–230**).
 
 The design bet is **operable memory in the same space as generation**: vector slots and policies you can write, read, migrate, decode, and resolve—**structured knowledge**, not opaque text retrieval. On **clean** recall, fair GPT+RAG can **tie** us on score; the headline is **architecture** (one geometry + vector-native APIs), plus measured wins on noise/unlearning (204–205) and cross-domain **W + fp decode** (226c).
 
@@ -56,7 +61,7 @@ flowchart TB
   mem --> OUT["Recall · edit · cross-domain"]
 ```
 
-**Highlights:** generation parity (191); calibration & recall (192–194); hops & edit (195, 197, 203); noise/unlearn vs fair RAG (204–205); **canonical + W** (227); **fp decode utilization** (228c, 226c); **contradiction policy** (230).
+**Highlights:** **Pillar A** — parity (191); calibration & recall (192–194); hops & edit (195, 197, 203); noise/unlearn vs fair RAG (204–205). **Pillar B (221–230)** — canonical + W (227); **fp decode ~1.0 / cross-domain ~0.88** (228c, 226c); **resolution ~1.0** (230).
 
 **Frozen encoder:** P1 weights are fixed for fact write/read; continual knowledge goes into **slots** and **W**, not into finetuning `arc_enc` on the product path. Full table: [`../docs/ARCHITECTURE.md`](../docs/ARCHITECTURE.md#frozen-p1--precise-contract).
 

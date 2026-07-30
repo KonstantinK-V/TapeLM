@@ -1,6 +1,6 @@
 # TapeLM — 5-minute quickstart
 
-**One product:** character-curve LM + fingerprint memory on the same encoder.
+**One product, two headline results:** core fp stack (191–205) + **memory trunk (221–230)** — the demo below is mostly **Pillar B** (canonical slots → conflicts → cross-domain **228c/226c**).
 
 ## No GPU
 

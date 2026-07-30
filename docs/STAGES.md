@@ -2,6 +2,8 @@
 
 Active scripts: **repo root** `_stage*.py`. Legacy pre-170: [`legacy/sote/`](../legacy/sote/).
 
+**Product headline stages:** **191–205** (core fp + 204/205 wins) and **221–230** (memory trunk — canonical, W, decode, resolve; demo in `run_product.py`). Extension **213–220** maps what *not* to ship (e.g. **215** → use **221**).
+
 **Context:** [`ARCHITECTURE.md`](ARCHITECTURE.md) · [`MEMORY_ENGINEERING.md`](MEMORY_ENGINEERING.md) · [`EXTENSION_PIPELINE.md`](EXTENSION_PIPELINE.md) · [`../artifact/OVERVIEW.md`](../artifact/OVERVIEW.md)
 
 Verdicts: `results/stage*_decision.json` and [`../artifact/decisions/`](../artifact/decisions/) · `python artifact/scripts/show_map.py`
@@ -30,7 +32,7 @@ Earlier substrate: 170–191 (curve, BPE, dual-channel, night scale) — see [`p
 
 ## Memory extension (213–230)
 
-Same **frozen P1** product; operational layer for domain shift, canonical bank, decode, conflicts.
+**Strongest product line:** **221–230** (+ **226c** e2e). Same **frozen P1**; operational layer for domain shift, canonical bank, decode, conflicts.
 
 | Stage | Script | Verdict |
 |-------|--------|---------|

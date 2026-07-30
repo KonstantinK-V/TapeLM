@@ -4,12 +4,14 @@
 
 TapeLM (variant A) is **not “GPT + index with a different embedder.”** It is a **non-standard LM stack** where facts and relations live as **fp keys/values, binding, hops, edits, and resolution policies** in the **same** geometry as generation—pretrained once (Stage 191), then **frozen** for product memory ingest.
 
-**What you get**
+**What you get** — **two evidence pillars** (same product, same encoder):
+
+1. **Core fp stack (191–205)** — calibration, recall, hop/bind, edit, stream; **noise/unlearn vs fair RAG** (204–205).
+2. **Production memory trunk (221–230, 226c)** — after 210–212 closed internalization: **canonical bank + W + fp decode + resolve**; cross-domain **~0.88 utilization via fp decode vs ~0.45 CE head** (226c). Explored path 213–220 (215 adapter **NO** → **221 W**).
 
 - **Generation** at matched-GPT parity on the P1 protocol (191).
 - **Zero-train fp layer** — calibration, episodic recall, multi-hop binding, one-shot edit, streaming under budget (192–198, 203–205).
-- **Canonical memory** — one slot bank, **family W** for domain shift, **fp decode** when the CE head underuses memory (227, 228c, 226c).
-- **Contradiction handling** — slots surface candidates; **resolution policy** chooses among them (229–230).
+- **Canonical memory trunk** — one slot bank, **family W**, **228c** decode, **229–230** conflicts (221→227→228c→230→226c); **`run_product.py`** demos this path first.
 
 Every claim is tied to **staged, reproducible exams** (JSON verdicts in [`artifact/decisions/`](artifact/decisions/)). Comparisons use **matched GPT** and **fair GPT+RAG** where the stage defines them.
 
@@ -30,10 +32,12 @@ characters → arc_enc (P1) → fp(w) = normalize(encoder(word))
 | Typical stack | TapeLM |
 |---------------|--------|
 | BPE tokens → transformer | **Character ink → curve encoder → BPE targets** |
-| Facts in weights or retrieved **strings** | Facts as **fp keys/values** in encoder space |
+| RAG: embed chunks, retrieve **text**, re-prompt LM | **Structured fp store**: subject keys, bind, hop **without** serial decode |
+| Facts in weights or retrieved **strings** | Facts as **operable vectors** in encoder space |
 | Second embedder / reranker for memory | **Same** `arc_enc` for gen and memory |
 | Domain shift → rebuild the index | **Canonical bank + W_family** at read |
 | Retrieved text ignored by the LM | **228c fp decode** on explicit candidates |
+| Conflicting sources → prompt soup | **230** resolution over multi-hit slots |
 
 ---
 
@@ -45,7 +49,7 @@ characters → arc_enc (P1) → fp(w) = normalize(encoder(word))
 | Product story | [`artifact/OVERVIEW.md`](artifact/OVERVIEW.md) |
 | Verdict JSON | [`artifact/decisions/`](artifact/decisions/) |
 | Full program narrative | [`results/plan_curve_dynamics.md`](results/plan_curve_dynamics.md) |
-| Memory contract | [`results/extension_memory_contract.md`](results/extension_memory_contract.md) |
+| Memory trunk (221–230) | [`extension_memory_contract.md`](results/extension_memory_contract.md) · demo `run_product.py` |
 | Stage index | [`docs/STAGES.md`](docs/STAGES.md) |
 | Preprint draft | [`results/preprint_tapelm_draft.md`](results/preprint_tapelm_draft.md) (§3.1 frozen contract; §4.8: 221–230) |
 | Frozen P1 (what trains) | [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md#frozen-p1--precise-contract) |
@@ -54,16 +58,21 @@ characters → arc_enc (P1) → fp(w) = normalize(encoder(word))
 
 ## Measured results (variant A)
 
-**Core fp stack:** lexical calibration; fact recall; hop2/binding; subject-anchored edit; stream policies; structured external hops; strong **noise/OOV** and **slot unlearn** vs fair baselines on documented slices (204–205).
+### Pillar A — core fp (191–205)
 
-**Integrated memory (same product):**
+Lexical calibration; fact recall; hop2/binding; subject-anchored edit; stream; external hops; **204–205 capability wins** vs fair RAG (noisy recall **0.913 vs 0.627**; slot unlearn collateral-free).
 
-| Capability | Stage |
-|------------|-------|
-| W-remap after encoder shift | 221 |
-| Canonical storage + qmap read | 227 |
-| Cross-domain recall + fp decode | 228c, 226c |
-| Multi-hit slots + resolution policy | 229, 230 |
+### Pillar B — memory trunk (221–230) ★ product demo
+
+| Result | Stage | Headline |
+|--------|-------|----------|
+| W after encoder shift | 221 | ~**0.78** recall vs ~**0.87** oracle reindex |
+| One canonical bank + qmap | 227 | cross-code ~**0.95** |
+| Utilization (not just retrieve) | **228c** | **1.0** fp decode vs ~**0.48** head |
+| Cross-domain e2e | **226c** | ~**0.88** fp vs ~**0.45** head |
+| Conflicting slots | **230** | composite ~**1.0** vs argmax ~**0.47** |
+
+Program **213–220** maps closed branches (e.g. **215 NO**); the **shipping** line is **221→227→228c→229→230→226c**. Narrative: [`plan_curve_dynamics.md`](results/plan_curve_dynamics.md) (*Memory extension program*) · preprint **§4.8**.
 
 **Scope (what v1 does not claim):** variant B next-fingerprint generation (207); fp rerank on BPE head (208); PAWS semantic line at 3050 scale (209); latent hops / internal slow tape / instance channel inside forward (210–212). Verdicts remain in the repo for readers who want the full map; they are not the product headline.
 

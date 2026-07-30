@@ -10,7 +10,9 @@ python artifact/scripts/download_checkpoints.py --with-w-registry
 python artifact/scripts/run_product.py
 ```
 
-**Paper-shaped read:** [`../results/preprint_tapelm_draft.md`](../results/preprint_tapelm_draft.md) · **Diagram:** [`../docs/ARCHITECTURE.md`](../docs/ARCHITECTURE.md)
+**Paper-shaped read:** [`../results/preprint_tapelm_draft.md`](../results/preprint_tapelm_draft.md) (§4.8 **221–230**) · **Diagram:** [`../docs/ARCHITECTURE.md`](../docs/ARCHITECTURE.md)
+
+**Headline results:** **204–205** (noise/unlearn) + **221–230** (canonical, W, fp decode, resolve — `run_product.py`).
 
 ---
 
