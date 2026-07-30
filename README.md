@@ -47,6 +47,7 @@ characters → arc_enc (P1) → fp(w) = normalize(encoder(word))
 | Full program narrative | [`results/plan_curve_dynamics.md`](results/plan_curve_dynamics.md) |
 | Memory contract | [`results/extension_memory_contract.md`](results/extension_memory_contract.md) |
 | Stage index | [`docs/STAGES.md`](docs/STAGES.md) |
+| Preprint draft | [`results/preprint_tapelm_draft.md`](results/preprint_tapelm_draft.md) (§4.8: 221–230) |
 
 ---
 

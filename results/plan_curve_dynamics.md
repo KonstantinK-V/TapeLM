@@ -862,6 +862,23 @@ FP-line status: lexicon (192) + calibration (193) + facts hop1 0.95 (194) + chai
 
 ---
 
+## Memory extension trunk (221–230, 2026-07-30)
+
+After internalization frontier **210–212** closed (`THESIS_NO`), the **same frozen P1** gained an operational memory layer — not a second product.
+
+| Stage | Verdict (headline) |
+|-------|-------------------|
+| 221 | **FP_REMAP_ADAPTER_YES** — tiny W after arc shift |
+| 225 | **DOMAIN_BUNDLE_OK** — one canonical bank, family lenses |
+| 227 | **CANONICAL_STORAGE_OK** — write canonical, read qmap |
+| 228c | **FP_DECODE_FIX_YES** — 4-way retrieve + fp scorer |
+| 229–230 | multi-hit slots; **RESOLUTION_POLICY_OK** |
+| 226c | **JOINT_FP_DECODE_OK** — cross-domain ~0.88 fp vs ~0.45 head |
+
+Paper-shaped summary: [`preprint_tapelm_draft.md`](preprint_tapelm_draft.md) **§4.8** · contract: [`extension_memory_contract.md`](extension_memory_contract.md) · index: [`../docs/STAGES.md`](../docs/STAGES.md).
+
+---
+
 ## Files
 
 | File | Role |
@@ -870,3 +887,5 @@ FP-line status: lexicon (192) + calibration (193) + facts hop1 0.95 (194) + chai
 | `results/stage170_contract.json` | machine-readable lock |
 | `_stage170_curve_dynamics.py` | smoke runner (reference) |
 | `results/stage169_FROZEN.json` | prior path frozen |
+| `results/preprint_tapelm_draft.md` | paper draft (170–212 + §4.8 memory) |
+| `results/extension_memory_contract.md` | memory product contract |
