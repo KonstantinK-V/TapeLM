@@ -9,16 +9,20 @@ ART = Path(__file__).resolve().parents[1]
 DEC = ART / "decisions"
 
 CURATED = [
-    ("196", "TapeLM assemble (full scorecard)"),
+    ("191", "P1 generation parity vs GPT"),
     ("192", "FP lexicon calibration"),
+    ("194", "Fact memory hop1"),
+    ("195", "Hop2 chains + binding"),
+    ("197", "One-shot knowledge edit"),
+    ("196", "TapeLM assemble (full scorecard)"),
     ("204", "Noise / OOV vs fair RAG"),
     ("205", "Unlearn / provenance"),
     ("203", "Structured external hops"),
+    ("221", "W-remap adapter"),
     ("227", "Canonical slots + W@read"),
     ("228c", "Official fp decode (4-way)"),
-    ("226c", "Cross-domain gen + memory"),
     ("230", "Contradiction resolution"),
-    ("221", "W-remap adapter"),
+    ("226c", "Cross-domain gen + memory"),
     ("207", "Variant B (scope)"),
     ("210", "Internalization frontier (scope)"),
 ]

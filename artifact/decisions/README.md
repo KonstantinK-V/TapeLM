@@ -1,17 +1,13 @@
-# Curated verdict files
+# Stage decisions (`artifact/decisions/`)
 
-Snapshots from `results/stage*_decision.json` for GitHub browsing and `show_map.py` — the public scorecard for TapeLM variant A (generation parity, fp stack, memory trunk, baselines).
+Machine-readable **verdict JSON** per stage (synced from `results/` via `python artifact/scripts/sync_decisions.py`).
 
-| Stage | Theme |
-|-------|--------|
-| 196 | Main assemble scorecard |
-| 192–198 | Calibration, recall, hops, edit, stream |
-| 203–205 | Structured hops, noise vs RAG, unlearn |
-| 221–230, 226c | Canonical memory, W, decode, resolution |
-| 207–212 | Explored directions (scope notes in OVERVIEW) |
+**New here?** Don’t open files blindly — run:
 
 ```bash
-python artifact/scripts/sync_decisions.py
+python artifact/scripts/show_map.py
 ```
 
-Narrative: [`../OVERVIEW.md`](../OVERVIEW.md) · Full JSON: [`../../results/`](../../results/).
+**Human map:** [`../README.md`](../README.md) (30s table) · [`../docs/STAGES.md`](../docs/STAGES.md) (scripts + verdicts) · [`../results/preprint_tapelm_draft.md`](../results/preprint_tapelm_draft.md)
+
+**Product track:** **221 → 227 → 228c → 230 → 226c** — see [`QUICKSTART.md`](QUICKSTART.md).

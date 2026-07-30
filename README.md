@@ -1,83 +1,132 @@
 # TapeLM
 
-> **Shipping trunk:** **221 → 227 → 228c → 230 → 226c** — `python artifact/scripts/run_product.py`
+**TapeLM is a language model where facts and relations live as vectors in the same space as generation.** Unlike RAG, it does not need a second embedder for memory; unlike a parametric GPT, it does not retrain the backbone to edit knowledge — new facts are **slot writes** on a **frozen** curve encoder.
 
-**Knowledge in weights** is hard to edit. **RAG** retrieves text and hopes the LM listens. **TapeLM** keeps facts and relations as **operable vectors** in the **same fingerprint space** as generation — bind, hop, write, migrate across domains, resolve conflicts — on **one** frozen character-curve encoder, with staged proofs and fair baselines.
-
-**Start here if you are human:** [`artifact/WHY_TAPELM.md`](artifact/WHY_TAPELM.md) · **5 min run:** [`artifact/QUICKSTART.md`](artifact/QUICKSTART.md)
+More context: [`artifact/WHY_TAPELM.md`](artifact/WHY_TAPELM.md) · **Try in ~2 min (no weights):** [`artifact/QUICKSTART.md`](artifact/QUICKSTART.md)
 
 ---
 
-## What is strongest (conceptually)
+## TapeLM vs RAG (at a glance)
 
-| Idea | What we show | Where |
-|------|----------------|-------|
-| **Not another embedder** | One `arc_enc` for generate + key + calibrate + compose; vector-native APIs vs text chunks | Preprint §5.1 · [`OVERVIEW`](artifact/OVERVIEW.md) |
-| **Structured memory** | Subject slots, binding, external hops, edit, **230** resolution | 192–205, 203 |
-| **Frozen P1, living slots** | Facts without backbone finetune; delete without collateral | §3.1 · 205 |
-| **Capability vs fair RAG** | Noisy recall **0.913 vs 0.627**; unlearn without wrecking the model | 204–205 |
-| **Product trunk** | Retrieve ≠ utilize — **228c** ~**1.0** fp vs ~**0.48** head; cross-domain **226c** ~**0.88** | **221→227→228c→230→226c** |
+| What TapeLM does | Why this is not “RAG + another embedder” |
+|------------------|------------------------------------------|
+| **One encoder** for generation, memory keys, and calibration | Fair RAG still ties us on **clean** retrieval — but uses **chunk text** and often a **separate** index geometry |
+| **Vector slots** (subject keys, values) instead of text chunks | RAG re-prompts the LM and hopes it uses retrieved paragraphs |
+| **Lexical calibration** (OOD AUC **0.982** vs BPE surprisal **0.380**) | No native “in *my* lexicon?” signal in vanilla RAG |
+| **One-shot edit** (**1.00** vs GPT **~0.28** on our exam) without finetune | Parametric edit needs gradients; RAG needs re-index + prompt craft |
+| **Cross-domain read** via **W_family** + canonical bank (**227**) | Full re-index when the embedder “dialect” shifts |
+| **Fp decode + resolve** (**228c**, **230**) when the CE head ignores memory | RAG has no fp-scorer or slot-level conflict policy |
 
-We report **parity** on clean static recall against a **fair GPT+RAG** index — on purpose. The headline is **architecture + structure + trunk + noise/unlearn**, not SOTA on tidy retrieval.
-
-Every claim: JSON in [`artifact/decisions/`](artifact/decisions/) · `python artifact/scripts/show_map.py`
+Honest scope: on **clean static recall**, a **fair GPT+RAG** baseline can **match** our scores — we document that. Headline wins: **structure**, **noise/unlearn (204–205)**, and the **product memory track** below.
 
 ---
 
-## Architecture in one glance
+## How it works
+
+```mermaid
+flowchart LR
+  C[Character stream]
+  P1[P1 curve encoder]
+  FP[Word fingerprints]
+  W[W family at read]
+  S[Canonical slots]
+  D[CE decoder]
+  CAL[Calibration]
+  DEC[Fp decode 228c]
+  RES[Resolve 230]
+
+  C --> P1 --> FP
+  FP --> W --> S
+  P1 --> D
+  FP --> CAL
+  S --> DEC
+  S --> RES
+  DEC --> OUT[Answer / pick]
+  D --> TEXT[Generated text]
+```
 
 ```text
-characters → arc_enc (P1, frozen for memory) → fp(w)
-                ├─ CE head → text
-                └─ 221 W → 227 slots → 228c decode → 230 resolve → (226c cross-domain)
+Stream (chars) → P1 (frozen for memory ingest) → fp(w)
+                    ├─ CE head → BPE text
+                    └─ W → canonical slots → 228c decode / 230 resolve
 ```
 
-| Typical stack | TapeLM |
-|---------------|--------|
-| RAG: chunks + second embedder | **One geometry**; structured fp store |
-| Domain shift → reindex everything | **Canonical bank + W** @ read (227) |
-| LM ignores retrieved text | **228c** fp decode on candidates |
-| Conflicting docs in the prompt | **230** policy on multi-hit slots |
-
-Diagram: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
+Full diagram + frozen-P1 table: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
 
 ---
 
-## Evidence pillars (same product)
+## Stage map (~30 seconds)
 
-**Pillar A — core fp (191–205):** GPT parity on generation (191); calibration, recall, hop/bind, edit, stream; **204–205** wins vs fair RAG under noise and unlearn.
+Curated headline results (full index: [`docs/STAGES.md`](docs/STAGES.md) · JSON: [`artifact/decisions/`](artifact/decisions/) · `python artifact/scripts/show_map.py`).
 
-**Pillar B — memory trunk:** **221 → 227 → 228c → 230 → 226c** (see table above). Exploration **213–220** documents dead ends (e.g. **215 NO** → **221 W**).
-
-Deep dive: [`results/plan_curve_dynamics.md`](results/plan_curve_dynamics.md) · [`results/extension_memory_contract.md`](results/extension_memory_contract.md) · preprint [`results/preprint_tapelm_draft.md`](results/preprint_tapelm_draft.md)
-
-**Out of product headline:** variant-B fp generation (207), fp rerank (208), PAWS @ 3050 (209), internalization (210–212) — verdicts kept for a complete map.
-
----
-
-## Quick orientation
-
-| What | Where |
-|------|--------|
-| **Why read this** | [`artifact/WHY_TAPELM.md`](artifact/WHY_TAPELM.md) |
-| Try it | [`artifact/QUICKSTART.md`](artifact/QUICKSTART.md) |
-| One-page product | [`artifact/OVERVIEW.md`](artifact/OVERVIEW.md) |
-| Frozen P1 contract | [`docs/ARCHITECTURE.md#frozen-p1--precise-contract`](docs/ARCHITECTURE.md#frozen-p1--precise-contract) |
-| Memory API | [`docs/MEMORY_ENGINEERING.md`](docs/MEMORY_ENGINEERING.md) |
-| Stages | [`docs/STAGES.md`](docs/STAGES.md) |
+| Stage | What was tested | Headline result |
+|-------|-----------------|-----------------|
+| **191** | Generation vs matched GPT | Parity **0.867 vs 0.843** |
+| **192–193** | Lexical OOD calibration | AUC **0.982** (GPT **0.380**) |
+| **194–195** | Fact memory; hop2 / binding | **0.947** / **0.70** |
+| **197** | One-shot knowledge edit | **1.00** (GPT **~0.28**) |
+| **204–205** | Noise vs fair RAG; slot unlearn | **0.913 vs 0.627**; delete w/o collateral |
+| **221→227→228c→230→226c** | Product memory track (domains, conflicts, **use** of memory) | fp decode **~1.0** vs head **~0.48**; cross-domain **~0.88** |
 
 ---
 
-## Reproduce
+## Known limits
 
-Python 3.10+, PyTorch, `tokenizers`, `transformers`; GPU recommended.
+Documented in repo — not hidden in footnotes:
+
+| Area | Verdict |
+|------|---------|
+| **Semantic invariance (PAWS / “B”)** | Not confirmed at RTX 3050 scale (**209**); curve ≈ matched GPT |
+| **Generate next fingerprint (variant B)** | **Falsified** (**207**) |
+| **Fp rerank on BPE head** | **No gain** on clean text (**208**) |
+| **Hops inside transformer forward** | **THESIS_NO** (**210–212**); external fp loop remains the hop API |
+| **Clean static recall vs fair GPT+RAG** | **Parity** — not a capability trump card (**196**, **198**) |
+
+Details: [`results/extension_closed_branches.md`](results/extension_closed_branches.md) · preprint §5.4–5.5
+
+---
+
+## Product memory track (for implementers)
+
+After core fp (**191–205**) and closed internalization (**210–212**), the **shipping** path we demo is:
+
+**221 → 227 → 228c → 230 → 226c**
+
+| Step | Stage | Plain language |
+|------|-------|----------------|
+| **221** | W-remap | If encoder geometry shifts, migrate with a tiny **W**, don’t rebuild every slot |
+| **227** | Canonical + qmap | One slot bank; read through **W_bwd** per domain |
+| **228c** | Fp decode | **Use** retrieved values (scorer ~**1.0**); CE head alone ~**0.48** |
+| **230** | Resolution | Pick among conflicting slot hits (~**1.0** vs raw argmax ~**0.47**) |
+| **226c** | Cross-domain e2e | End-to-end **~0.88** fp vs **~0.45** head |
 
 ```bash
-pip install -r artifact/requirements.txt
-python artifact/scripts/download_checkpoints.py --with-w-registry
-python artifact/scripts/run_product.py
-python artifact/scripts/run_product.py --all   # + scorecard (196)
+python artifact/scripts/run_product.py   # needs P1 weights — see QUICKSTART
 ```
+
+Contract: [`results/extension_memory_contract.md`](results/extension_memory_contract.md) · API: [`docs/MEMORY_ENGINEERING.md`](docs/MEMORY_ENGINEERING.md)
+
+---
+
+## Quick start
+
+| Time | Needs weights? | Command |
+|------|----------------|---------|
+| **~2 min** | No | `pip install -r artifact/requirements.txt` then `python artifact/scripts/show_map.py` |
+| **~5–15 min** | Yes (HF download) | [`artifact/QUICKSTART.md`](artifact/QUICKSTART.md) → `download_checkpoints.py --with-w-registry` → `run_product.py` |
+
+Python 3.10+, PyTorch, `tokenizers`, `transformers`. GPU recommended for the full demo.
+
+---
+
+## Read next
+
+| | |
+|--|--|
+| Product one-pager | [`artifact/OVERVIEW.md`](artifact/OVERVIEW.md) |
+| Preprint | [`results/preprint_tapelm_draft.md`](results/preprint_tapelm_draft.md) |
+| Full program | [`results/plan_curve_dynamics.md`](results/plan_curve_dynamics.md) |
+| Publish / HF | [`docs/PUBLISHING.md`](docs/PUBLISHING.md) |
 
 ---
 

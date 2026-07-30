@@ -1,21 +1,25 @@
 # TapeLM — 5-minute quickstart
 
-> **Shipping trunk:** **221 → 227 → 228c → 230 → 226c**
+**Why this exists:** [`WHY_TAPELM.md`](WHY_TAPELM.md)
 
-**Why this exists:** [`WHY_TAPELM.md`](WHY_TAPELM.md) — structured knowledge on one encoder, not RAG paragraphs.
+---
 
-You will run the **memory trunk**: write canonical slots (**227**), resolve a contradiction (**230**), then cross-domain read with **W + fp decode** (**221/228c/226c**). That is the strongest product line in the repo.
+## Path 1 — ~2 minutes, no checkpoints (start here)
 
-## No GPU
+No GPU. No Hugging Face download. See curated stage verdicts:
 
 ```bash
 pip install -r artifact/requirements.txt
 python artifact/scripts/show_map.py
 ```
 
-Read [`OVERVIEW.md`](OVERVIEW.md) or [`WHY_TAPELM.md`](WHY_TAPELM.md).
+Then skim [`OVERVIEW.md`](OVERVIEW.md) or the stage table in [`../README.md`](../README.md).
 
-## With GPU (recommended)
+---
+
+## Path 2 — full product demo (~5–15 min, GPU + weights)
+
+Downloads **P1** (+ optional **w_registry**) from Hugging Face — hundreds of MB, one-time.
 
 ```bash
 pip install -r artifact/requirements.txt
@@ -23,24 +27,32 @@ python artifact/scripts/download_checkpoints.py --with-w-registry
 python artifact/scripts/run_product.py
 ```
 
+This runs the **product memory track**:
+
+1. **Canonical slots** — write & 4-way recall (stage **227** idea)  
+2. **Contradictions** — resolution policy ( **230** ; multi-hit from **229**)  
+3. **Cross-domain** — **W** + **fp decode** ( **221 / 228c / 226c** )
+
 Optional:
 
 ```bash
 python artifact/scripts/export_w_registry.py --smoke
-python artifact/scripts/run_product.py --all         # + scorecard (196)
+python artifact/scripts/run_product.py --all    # + Stage 196 scorecard (longer)
 ```
 
-## What the demo steps mean
+**Frozen P1:** steps 1–2 do not train the encoder on new facts. Details: [`../docs/ARCHITECTURE.md`](../docs/ARCHITECTURE.md#frozen-p1--precise-contract)
 
-| Demo step | Trunk stage | Point |
-|-----------|-------------|--------|
-| Write / 4-way recall | **227** | One canonical bank; keys stay in P1 geometry |
-| Contradiction picks | **230** | Structure + policy, not “first stored wins” |
-| Code query → answer | **221 + 228c + 226c** | Domain **W**; **fp decode** uses memory (~0.88) when the head does not (~0.45) |
+---
 
-**Frozen P1:** steps 1–2 do not train the encoder. Step 3 may simulate query-side drift; product path uses exported **W** — [`../docs/ARCHITECTURE.md`](../docs/ARCHITECTURE.md#frozen-p1--precise-contract).
+## Product track (stage numbers explained)
 
-API: [`../docs/MEMORY_ENGINEERING.md`](../docs/MEMORY_ENGINEERING.md) · paper: [`../results/preprint_tapelm_draft.md`](../results/preprint_tapelm_draft.md) §4.8
+| Order | Stages | What you get |
+|-------|--------|----------------|
+| **221 → 227 → 228c → 230 → 226c** | W · canonical bank · fp decode · resolve · cross-domain e2e | What `run_product.py` demonstrates |
+
+API: [`../docs/MEMORY_ENGINEERING.md`](../docs/MEMORY_ENGINEERING.md) · paper §4.8: [`../results/preprint_tapelm_draft.md`](../results/preprint_tapelm_draft.md)
+
+---
 
 ## Publish / cite
 
