@@ -8,9 +8,9 @@
 
 ## The pitch
 
-Language models **store** knowledge in weights or **fetch** it as text. TapeLM treats knowledge as **structure you can operate on** — slots keyed by subjects, binds and hops in vector space, edits and deletes without retraining the backbone, migration when the encoder’s “dialect” shifts — all in the **same fingerprint geometry** the curve uses to generate text.
+Language models **store** knowledge in weights or **fetch** it as text. TapeLM treats knowledge as **structure you can operate on** in fingerprint space — but that space exists because **input is character ink**, not a token ID stream. The **curve encoder** reads symbols; **BPE is only how we emit text** from the fast channel.
 
-That is **not** “RAG with a nicer embedder.” Fair GPT+RAG can **match clean retrieval** in our exams; we document that. The interesting part is **what else fits in one map**: calibration, composition, conflict resolution, and a **deployment trunk** where retrieval finally **turns into answers** (**228c**, **226c**).
+Facts are **subject-anchored slots**, binds and hops in vector space, edits without retraining the backbone — all on the **same** map RAG would need a second embedder to approximate.
 
 ---
 

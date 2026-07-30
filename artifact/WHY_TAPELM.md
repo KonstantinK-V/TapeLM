@@ -2,6 +2,14 @@
 
 > **Shipping trunk:** **221 → 227 → 228c → 230 → 226c** · try it: [`QUICKSTART.md`](QUICKSTART.md)
 
+## Root: characters, not tokens
+
+Standard LMs **eat BPE token IDs**; memory and RAG usually key on the **same token embeddings**. TapeLM’s substrate is **characters**: each letter updates a **curve** in continuous space. **Fingerprints** for words are built from that ink; **slots, calibration, and hops** use fp — not retrieved text chunks and not a parallel token index. Generation still predicts **BPE pieces**, but that is a **head on top of the curve**, not the foundation of the memory contract.
+
+That single choice is what makes **204** (noise **0.913 vs 0.627** vs fair RAG) a mechanistic result, not a trick: misspellings re-fragment BPE; character fps move smoothly.
+
+---
+
 Most systems force a choice: **knowledge in weights** (hard to edit, catastrophic forgetting) or **knowledge in a RAG index** (retrieve text, re-prompt, hope the LM uses it). TapeLM is built around a third idea:
 
 **Knowledge as structured vectors in the same space as generation** — write a fact, bind two entities, hop across relations, resolve a contradiction, or read across domains **without** treating memory as pasted-in paragraphs and **without** training the backbone on every update.

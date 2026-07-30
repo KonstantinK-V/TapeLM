@@ -2,6 +2,8 @@
 
 **TapeLM is a language model where facts and relations live as vectors in the same space as generation.** Unlike RAG, it does not need a second embedder for memory; unlike a parametric GPT, it does not retrain the backbone to edit knowledge — new facts are **slot writes** on a **frozen** curve encoder.
 
+**Root idea — input is characters, not tokens.** The model reads a **character stream** (“ink”) and builds a **curve** in continuous space; **word fingerprints** come from that same path. BPE pieces are targets for the **text head**, not the substrate the memory stack keys on. That is why typos and OOV degrade **smoothly** in fp-space while BPE keys **shatter** (Stage **204**) — and why one encoder can unify generation and memory without a second token embedder.
+
 More context: [`artifact/WHY_TAPELM.md`](artifact/WHY_TAPELM.md) · **Try in ~2 min (no weights):** [`artifact/QUICKSTART.md`](artifact/QUICKSTART.md)
 
 ---
@@ -10,6 +12,7 @@ More context: [`artifact/WHY_TAPELM.md`](artifact/WHY_TAPELM.md) · **Try in ~2 
 
 | What TapeLM does | Why this is not “RAG + another embedder” |
 |------------------|------------------------------------------|
+| **Character ink → curve → fp** (not BPE-id memory keys) | RAG/GPT memory keys live in **token** embedding space; one typo can re-split the whole word |
 | **One encoder** for generation, memory keys, and calibration | Fair RAG still ties us on **clean** retrieval — but uses **chunk text** and often a **separate** index geometry |
 | **Vector slots** (subject keys, values) instead of text chunks | RAG re-prompts the LM and hopes it uses retrieved paragraphs |
 | **Lexical calibration** (OOD AUC **0.982** vs BPE surprisal **0.380**) | No native “in *my* lexicon?” signal in vanilla RAG |
@@ -22,6 +25,8 @@ Honest scope: on **clean static recall**, a **fair GPT+RAG** baseline can **matc
 ---
 
 ## How it works
+
+*Substrate: **characters**, not BPE token IDs. Memory keys fingerprints from the curve; the CE head emits BPE pieces.*
 
 ```mermaid
 flowchart LR
@@ -46,9 +51,8 @@ flowchart LR
 ```
 
 ```text
-Stream (chars) → P1 (frozen for memory ingest) → fp(w)
-                    ├─ CE head → BPE text
-                    └─ W → canonical slots → 228c decode / 230 resolve
+Characters (stream) → arc_enc → fp(word)     ← memory, calibration, hops key here
+                         └─ CE head → BPE text   ← generation readout only
 ```
 
 Full diagram + frozen-P1 table: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
