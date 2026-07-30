@@ -65,4 +65,4 @@ Some directions were **explored and not carried into the v1 product claim** — 
 | Memory API | [`../docs/MEMORY_ENGINEERING.md`](../docs/MEMORY_ENGINEERING.md) |
 | Memory narrative | [`../results/extension_memory_contract.md`](../results/extension_memory_contract.md) |
 | Long program | [`../results/plan_curve_dynamics.md`](../results/plan_curve_dynamics.md) |
-| Preprint draft | [`../results/preprint_tapelm_draft.md`](../results/preprint_tapelm_draft.md) (2026-07-30; §4.8 memory trunk) |
+| Preprint draft | [`../results/preprint_tapelm_draft.md`](../results/preprint_tapelm_draft.md) (§3.1 frozen P1; §4.8 memory trunk) |

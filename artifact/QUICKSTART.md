@@ -36,7 +36,9 @@ python artifact/scripts/run_product.py --all         # + full scorecard (196)
 | Conflicts | Multi-hit slots + `resolve_slot_contradiction` | Frozen P1 |
 | Cross-domain | `W_code` qmap + 4-way retrieve + fp decode | **Canonical bank unchanged**; query may use a **code-domain copy** of the encoder in the demo to simulate drift — product path uses **exported W**, not slot reindex |
 
-**Frozen P1 (product claim):** checkpoint `stage191_p1_curve.pt` is **not** trained when you add or read facts. Training in the repo is **offline pretrain (191)** or **stage exams** (e.g. fit **W** after a deliberate shift). See [`../docs/ARCHITECTURE.md`](../docs/ARCHITECTURE.md#frozen-p1--precise-contract).
+**Frozen P1 (product claim):** checkpoint `stage191_p1_curve.pt` is **not** trained when you add or read facts. Training in the repo is **offline pretrain (191)** or **stage exams** (e.g. fit **W** after a deliberate shift). See [`../docs/ARCHITECTURE.md`](../docs/ARCHITECTURE.md#frozen-p1--precise-contract) · paper §3.1 [`../results/preprint_tapelm_draft.md`](../results/preprint_tapelm_draft.md).
+
+**Read (no GPU):** [`OVERVIEW.md`](OVERVIEW.md) · [`../results/preprint_tapelm_draft.md`](../results/preprint_tapelm_draft.md) · `python artifact/scripts/show_map.py`
 
 API reference: [`../docs/MEMORY_ENGINEERING.md`](../docs/MEMORY_ENGINEERING.md)
 

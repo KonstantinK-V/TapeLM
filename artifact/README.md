@@ -1,22 +1,26 @@
 # TapeLM — start here
 
-**TapeLM variant A** — one **character-curve encoder** and **fingerprint memory** in the same space.
+**TapeLM variant A** — one **character-curve encoder** (pretrained in 191, **frozen** for memory ingest) and **fingerprint memory** in the same space.
 
 **Fast path:** [`QUICKSTART.md`](QUICKSTART.md)
 
 ```bash
 pip install -r artifact/requirements.txt
-python artifact/scripts/download_checkpoints.py
+python artifact/scripts/download_checkpoints.py --with-w-registry
 python artifact/scripts/run_product.py
 ```
+
+**Paper-shaped read:** [`../results/preprint_tapelm_draft.md`](../results/preprint_tapelm_draft.md) · **Diagram:** [`../docs/ARCHITECTURE.md`](../docs/ARCHITECTURE.md)
 
 ---
 
 ## Path A — read (no GPU)
 
 1. [`OVERVIEW.md`](OVERVIEW.md)
-2. [`../docs/MEMORY_ENGINEERING.md`](../docs/MEMORY_ENGINEERING.md)
-3. [`decisions/`](decisions/) — verdict JSON
+2. [`../docs/ARCHITECTURE.md`](../docs/ARCHITECTURE.md) — inference diagram + frozen-P1 table
+3. [`../docs/MEMORY_ENGINEERING.md`](../docs/MEMORY_ENGINEERING.md)
+4. [`../results/preprint_tapelm_draft.md`](../results/preprint_tapelm_draft.md) (§4.8: 221–230)
+5. [`decisions/`](decisions/) — verdict JSON
 
 ```bash
 python artifact/scripts/show_map.py

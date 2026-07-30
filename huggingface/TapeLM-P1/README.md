@@ -17,17 +17,18 @@ pipeline_tag: text-generation
 
 # TapeLM weights (variant A)
 
-Checkpoints for **TapeLM** — one system: frozen **dual-channel curve encoder** (P1), matched GPT control, and optional **family W** for canonical fingerprint memory.
+Checkpoints for **TapeLM** — one system: **pretrained (191), frozen for memory ingest** dual-channel curve encoder (P1), matched GPT control, and optional **family W** for canonical fingerprint memory (227 qmap, 228c decode).
 
 **Weights:** [huggingface.co/Kostya03v/TapeLM-P1](https://huggingface.co/Kostya03v/TapeLM-P1)  
 **Code:** [github.com/KonstantinK-V/TapeLM](https://github.com/KonstantinK-V/TapeLM)  
-**Quickstart:** [artifact/QUICKSTART.md](https://github.com/KonstantinK-V/TapeLM/blob/main/artifact/QUICKSTART.md)
+**Quickstart:** [artifact/QUICKSTART.md](https://github.com/KonstantinK-V/TapeLM/blob/main/artifact/QUICKSTART.md)  
+**Preprint draft:** [results/preprint_tapelm_draft.md](https://github.com/KonstantinK-V/TapeLM/blob/main/results/preprint_tapelm_draft.md) · **Architecture:** [docs/ARCHITECTURE.md](https://github.com/KonstantinK-V/TapeLM/blob/main/docs/ARCHITECTURE.md)
 
 ## Files
 
 | File | Role |
 |------|------|
-| `stage191_p1_curve.pt` | P1 encoder — generation + fp/memory |
+| `stage191_p1_curve.pt` | P1 encoder — generation + fp; **frozen on memory path** |
 | `stage191_p2_gpt.pt` | Matched GPT control |
 | `w_registry/*` | Optional family W (qmap read) |
 

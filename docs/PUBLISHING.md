@@ -75,6 +75,19 @@ Additional tags people might search (add if you have topic slots left):
 
 ---
 
+## Reader paths (consistent story)
+
+| Audience | Start here | Then |
+|----------|------------|------|
+| **5 min run** | [`artifact/QUICKSTART.md`](../artifact/QUICKSTART.md) | [`docs/ARCHITECTURE.md`](../docs/ARCHITECTURE.md) |
+| **Product** | [`artifact/OVERVIEW.md`](../artifact/OVERVIEW.md) | [`docs/MEMORY_ENGINEERING.md`](../docs/MEMORY_ENGINEERING.md) |
+| **Paper** | [`results/preprint_tapelm_draft.md`](../results/preprint_tapelm_draft.md) (§3.1 frozen, §4.8 memory) | [`results/plan_curve_dynamics.md`](../results/plan_curve_dynamics.md) |
+| **Stages / JSON** | [`docs/STAGES.md`](../docs/STAGES.md) | `artifact/decisions/` |
+
+All paths should agree: **P1 pretrained once (191), frozen on memory ingest**; facts in **slots**; domain drift via **W @ read**, not retraining P1 per fact.
+
+---
+
 ## Optional badges (add to README if desired)
 
 - License: `![MIT](https://img.shields.io/badge/license-MIT-blue.svg)`

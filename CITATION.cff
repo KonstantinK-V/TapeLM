@@ -25,9 +25,12 @@ keywords:
   - reproducible research
   - staged benchmarks
 abstract: >-
-  TapeLM (variant A) couples a frozen dual-channel character-curve encoder with
-  zero-training fingerprint modules—lexicon calibration, episodic slots, subject writes,
-  and hop/bind composition—in the same normalized fp-space as next-token generation.
-  The artifact documents matched-GPT parity, zero-train fp capabilities (calibration, recall, edit,
-  stream, hops), honest fair GPT+RAG comparisons, capability wins on noisy/OOV text and slot unlearn,
-  and explicit limits (generative fingerprints, hybrid rerankers, internalization Stages 210–212).
+  TapeLM (variant A) couples a dual-channel character-curve encoder pretrained once (Stage 191)
+  and frozen for product memory use with zero-training-at-inference fingerprint modules—lexicon
+  calibration, episodic slots, subject writes, and hop/bind composition—in the same normalized
+  fp-space as next-token generation. Extensions 221–230 add canonical slot storage, offline-fit
+  family W for domain qmap, fp decode (228c), and contradiction resolution (230) without
+  finetuning P1 on fact ingest. The artifact documents matched-GPT parity, fp capability wins
+  (calibration, recall, edit, stream, hops), honest fair GPT+RAG comparisons, capability wins on
+  noisy/OOV text and slot unlearn, explicit limits (generative fingerprints, hybrid rerankers,
+  internalization Stages 210–212), and cross-domain utilization via fp decode (226c).

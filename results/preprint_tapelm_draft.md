@@ -1,5 +1,5 @@
 # TapeLM: Unified Fingerprint Memory on a Curve Encoder  
-**Draft preprint (internal)** — 2026-07-30 (§4.8 memory trunk added)  
+**Draft preprint (internal)** — 2026-07-30 (§4.8 memory trunk; frozen-P1 contract aligned with `docs/ARCHITECTURE.md`)  
 *Authors: [TBD]*  
 *Code & stage logs: [KonstantinK-V/TapeLM](https://github.com/KonstantinK-V/TapeLM) (Stages 170–230)*
 
@@ -21,7 +21,7 @@ This work reconnects a 2018-era **word-fingerprint** idea (normalized encodings 
 
 **What we do not claim:** beating GPT+RAG on raw retrieval accuracy; human-level semantic understanding; superiority of generation quality.
 
-**What we do claim:** (1) a reproducible stack where memory/calibration/edit layers are **zero-train** on the frozen encoder; (2) clear wins vs **vanilla** GPT on non-generation axes; (3) honest parity vs **full** GPT+RAG on retrieval; (4) demonstrated **vector-native** operations (chaining without decode, binding) that RAG does not expose as first-class APIs.
+**What we do claim:** (1) a reproducible stack where memory/calibration/edit layers are **zero-train on P1 at inference** (facts = slot writes; no backbone gradients); domain drift uses **offline-fit family W**, not re-indexing the bank (§4.8); (2) clear wins vs **vanilla** GPT on non-generation axes; (3) honest parity vs **full** GPT+RAG on retrieval; (4) demonstrated **vector-native** operations (chaining without decode, binding) that RAG does not expose as first-class APIs.
 
 ---
 
@@ -45,16 +45,30 @@ This work reconnects a 2018-era **word-fingerprint** idea (normalized encodings 
 
 ## 3. TapeLM architecture (inference)
 
-All modules below use the **same frozen P1 encoder** (`checkpoints/stage191_p1_curve.pt`).
+All modules below use the **same canonical P1 encoder** (`checkpoints/stage191_p1_curve.pt`): **pretrained once (Stage 191)**, then **fixed for product memory operations**—slot ingest, recall, calibration wiring, and conflict resolution do **not** update `arc_enc` weights (see §3.1). Diagram: `docs/ARCHITECTURE.md` in the repository.
 
 | Module | Mechanism | Training |
 |--------|-----------|----------|
 | **Generate** | CE head on `[fast; slow]` | Pretrained (191-P1) |
 | **Calibrate** | FP-lexicon surprise → head temperature (193) | 2 scalars only |
-| **Recall** | Episodic slots (194) | Zero |
-| **Edit** | Subject-anchor write `key = norm(fp(S)+ctx)` (197) | Zero |
-| **Write policy** | Admit slots by fp-lexicon surprise under budget (197–198) | Zero |
-| **Compose** | Sequential fp retrieval or binding (195, 200) | Zero |
+| **Recall** | Episodic slots (194) | Zero at use |
+| **Edit** | Subject-anchor write `key = norm(fp(S)+ctx)` (197) | Zero at use |
+| **Write policy** | Admit slots by fp-lexicon surprise under budget (197–198) | Zero at use |
+| **Compose** | Sequential fp retrieval or binding (195, 200) | Zero at use |
+| **Canonical bank (227)** | Write keys in P1 fp; read via **qmap** `W_bwd @ q_domain` | Zero at use; **W** fit offline (~800 core words) |
+| **Fp decode (228c)** | 4-way slot retrieve + `cos(fp(c), fp(retrieved))` | Zero |
+| **Resolve (230)** | Policy over multi-hit contradictory slots (229) | Zero |
+
+### 3.1 Frozen P1 — product contract
+
+| Component | Updated when adding/reading facts? |
+|-----------|----------------------------------|
+| **P1 `arc_enc`** (191 checkpoint) | **No** — load, `eval()`, no gradients on memory path |
+| **Episodic slots / lexicon tables** | **Write/delete only** — no encoder training |
+| **`W_family`** (221–225) | **No online** — learned in stage exams or `export_w_registry.py`, shipped in `w_registry/` |
+| **CE / optional heads (225)** | **No** on default product demos |
+
+**Not the same as “never trained”:** P1 was trained in 191; **W** is a tiny d×d map fit after a *measured* geometry shift. Research stages may finetune a **copy** of `arc_enc` to simulate drift; production keeps **canonical slot keys** and migrates coordinates with **W**, not full reindex (§4.8).
 
 **Anti-Goodhart rule (188):** introspection signals that modulate outputs must be **gradient-detached** from the CE path.
 
@@ -178,7 +192,7 @@ Curve PAWS rises monotonically across scales; **parity** holds (curve ≥ GPT−
 
 ### 4.8 Canonical memory, domain remap, and fp decode (Stages 221–230)
 
-The core stack (§2–4) keeps **one frozen P1 encoder** and **external** zero-train slots. Production use adds **continual geometry drift** (domain finetune of `arc_enc`) without rebuilding the entire slot bank. We treat memory as **three layers**: (L1) freeze by default; (L2) tiny **W_family** linear remaps on ~800 core words; (L3) stream/decay policies (219, open).
+The core stack (§2–4) keeps **one frozen P1 encoder** for canonical storage and **external** zero-train slot operations at inference. Deployments must handle **geometry drift** (e.g. code vs prose query ink) **without** rebuilding the bank or finetuning P1 on each new fact. We treat memory as **three layers**: (L1) freeze canonical P1 by default; (L2) tiny **W_family** linear remaps on ~800 core words (fit **offline**, applied @ read); (L3) stream/decay policies (219, open).
 
 **W-remap (221, 224–225).** After a controlled domain shift, a d×d adapter **W** maps old fingerprints toward new encoder geometry (align ~0.997 on core; fact recall ~0.78 vs ~0.87 oracle reindex). **Code-class** shifts are harsher (cos ~0.59) but still recoverable (~0.88 matched W). A **family registry** (`prose`, `code`, fork-on-drop) beats one global W (224–225: **DOMAIN_BUNDLE_OK**).
 
@@ -324,7 +338,7 @@ The boundaries through Stage 212 remain results, not caveats: token-internal hop
 | **229–230** | Multi-hit slots; **resolution policy** ~1.0 vs argmax ~0.47 |
 | **226c** | Cross-domain **fp decode** ~0.88 vs head ~0.45 |
 
-Full narrative: `results/plan_curve_dynamics.md`, `results/extension_memory_contract.md`. Machine-readable: `results/stage*_decision.json`.
+Full narrative: [`plan_curve_dynamics.md`](plan_curve_dynamics.md) (Memory extension program), [`extension_memory_contract.md`](extension_memory_contract.md), [`../docs/ARCHITECTURE.md`](../docs/ARCHITECTURE.md). Machine-readable: `results/stage*_decision.json`, `artifact/decisions/`.
 
 ---
 
@@ -345,7 +359,7 @@ Full narrative: `results/plan_curve_dynamics.md`, `results/extension_memory_cont
 - [ ] Author list & affiliation
 - [ ] Fix HF dataset import order note for reproducibility (202 Windows segfault)
 - [x] Single `TapeLM` demo script (`artifact/scripts/run_product.py`, `run_memory_demo.py`)
-- [ ] Figure: unified fp-space diagram (generate / lexicon / slots / bind)
+- [x] Figure: unified fp-space diagram — `docs/ARCHITECTURE.md` (inference path + frozen-P1 table)
 - [ ] Figure: accuracy vs character-noise rate, curve vs fair RAG (§4.2b) — the headline capability result
 - [ ] Figure: unlearning collateral, slot delete vs gradient ascent (§4.2c)
 - [ ] Optional: 1-page hop stress-test (see main text recommendation on hop3+)
