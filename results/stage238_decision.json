@@ -1,0 +1,41 @@
+{
+  "stage": 238,
+  "overall": "MIXED_SCRATCH_OK",
+  "gates": {
+    "G_mixed_next_tok_not_worse": true,
+    "G_mixed_W_beats_prose_by_0p12": true,
+    "G_mixed_W_floor_0p55": true,
+    "G_mixed_cos_more_stable": true
+  },
+  "steps_per_arm": 10000,
+  "train_prose": {
+    "best_mid": 0.8,
+    "best_step": 7500,
+    "ce": 4.3047587744193825,
+    "wall_s": 2632.033342599869
+  },
+  "train_mixed": {
+    "best_mid": 0.8125,
+    "best_step": 5000,
+    "ce": 3.1251390545044493,
+    "wall_s": 2629.4907717704773
+  },
+  "next_tok_prose": 0.8,
+  "next_tok_mixed": 0.8125,
+  "memory_prose": {
+    "mean_cos_after_code_shift": 0.4647315740585327,
+    "W_align": 0.9938360452651978,
+    "recall_W": 0.68,
+    "recall_no_W": 0.62
+  },
+  "memory_mixed": {
+    "mean_cos_after_code_shift": 0.9643252491950989,
+    "W_align": 0.9977096319198608,
+    "recall_W": 0.8,
+    "recall_no_W": 0.84
+  },
+  "margin_W_mixed_minus_prose": 0.12,
+  "hypothesis": "mixed-from-scratch improves post-code-shift W recall vs prose-from-scratch",
+  "note": "Does not replace stage191_p1_curve.pt",
+  "timestamp": "2026-07-30T22:43:01.080754+00:00"
+}

@@ -33,8 +33,9 @@ def main() -> int:
     ap.add_argument("--skip-cross-domain", action="store_true")
     args = ap.parse_args()
 
-    print("TapeLM variant A — one encoder, operable fingerprint memory\n")
-    print("Shipping trunk: 221 -> 227 -> 228c -> 230 -> 226c (see README)\n")
+    print("Inprint v0.1 (TapeLM variant A) — one encoder, operable fingerprint memory\n")
+    print("Shipping trunk: 221 -> 227 -> 228c -> 230 -> 226c")
+    print("Prefer: python artifact/scripts/run_inprint.py\n")
 
     rc = run("check_env.py")
     if rc != 0:

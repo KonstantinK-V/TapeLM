@@ -1,0 +1,28 @@
+{
+  "stage": 243,
+  "overall": "CARRIER_DRIFT_OK",
+  "gates": {
+    "G_memorize": true,
+    "G_slots_retain_ge_0p80": true,
+    "G_weights_drop_ge_0p15": true,
+    "G_gap_ge_0p20": true,
+    "G_frozen_gen_stable": true
+  },
+  "slots": {
+    "A0": 0.975,
+    "A1": 0.975,
+    "next_tok_0": 0.825,
+    "next_tok_1": 0.825
+  },
+  "weights": {
+    "A0": 0.725,
+    "A1": 0.45,
+    "drop": 0.27499999999999997,
+    "next_tok_1": 0.48333333333333334
+  },
+  "gap_slots_minus_weights": 0.5249999999999999,
+  "W_align": 0.9947080612182617,
+  "memorize_steps": 200,
+  "note": "Same B corpus; carrier = slots+W vs parametric weights.",
+  "timestamp": "2026-07-31T05:05:10.015048+00:00"
+}

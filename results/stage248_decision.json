@@ -1,0 +1,32 @@
+{
+  "stage": 248,
+  "overall": "MASKED_UNDERSTAND_PARTIAL",
+  "steps": 25000,
+  "gates": {
+    "G_mem_after_shift_ge_0p80": true,
+    "G_under_not_worse": false,
+    "G_masked_vs_full_ok": false,
+    "G_edit_clean": true
+  },
+  "baseline": {
+    "mem": 1.0,
+    "next_tok": 0.825
+  },
+  "masked": {
+    "mem": 1.0,
+    "next_tok": 0.475,
+    "domain_win": 0.9794146825396826,
+    "mem_after_code_W": 1.0,
+    "W_align": 0.992781400680542
+  },
+  "full_bindings_CE": {
+    "mem_query_drifted": 1.0,
+    "next_tok": 0.5416666666666666
+  },
+  "edit": {
+    "new": 1.0,
+    "retained": 1.0
+  },
+  "timestamp": "2026-07-31T15:57:57.798606+00:00",
+  "wall_s": 13850.288474559784
+}

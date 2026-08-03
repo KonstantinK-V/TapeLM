@@ -16,6 +16,10 @@ CORE_FILES = (
     "stage191_p1_curve.pt",
     "stage191_p2_gpt.pt",
 )
+OPTIONAL_LOCAL = (
+    ("checkpoints/stage253_joint_l02.pt", "Continual trunk for glue demo (train stage 253 or copy from release)"),
+    ("checkpoints/stage256_slot_bias.pt", "Slot-bias glue (train: python _stage256_slot_bias_decode.py)"),
+)
 
 
 def download_one(hf_hub_download, repo_id: str, remote_name: str, local_root: Path) -> Path | None:
@@ -75,7 +79,19 @@ def main() -> int:
         action="store_true",
         help="Also download checkpoints/w_registry/ (family W for cross-domain memory)",
     )
+    ap.add_argument(
+        "--list-optional",
+        action="store_true",
+        help="Print optional local checkpoints (glue + joint trunk) not on HF yet",
+    )
     args = ap.parse_args()
+
+    if args.list_optional:
+        for path, note in OPTIONAL_LOCAL:
+            p = REPO / path
+            st = "OK" if p.is_file() else "missing"
+            print(f"  [{st}] {path}  — {note}")
+        return 0
 
     try:
         from huggingface_hub import hf_hub_download
@@ -94,7 +110,8 @@ def main() -> int:
             return 2
 
     print("Done.")
-    print("  Product demo: python artifact/scripts/run_product.py")
+    print("  Product demo: python artifact/scripts/run_inprint.py demo")
+    print("  Optional:      python artifact/scripts/download_checkpoints.py --list-optional")
     if not args.with_w_registry:
         print("  Family W:     python artifact/scripts/download_checkpoints.py --with-w-registry")
     return 0

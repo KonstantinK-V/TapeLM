@@ -1,0 +1,19 @@
+{
+  "stage": 237,
+  "overall": "MIXED_L1_NIGHT_PARTIAL",
+  "gates": {
+    "G_mixed_next_tok_not_worse": true,
+    "G_mixed_code_shift_closer_to_can": true,
+    "G_mixed_W_recall_not_worse": true
+  },
+  "steps": 6000,
+  "next_tok_prose_continue": 0.5833333333333334,
+  "next_tok_mixed_continue": 0.6,
+  "mean_cos_can_after_code_shift_prose": 0.5249557495117188,
+  "mean_cos_can_after_code_shift_mixed": 0.9311797618865967,
+  "recall_W_after_code_prose": 0.32,
+  "recall_W_after_code_mixed": 0.28,
+  "ckpt": "checkpoints\\stage237_mixed_l1.pt",
+  "note": "Does not replace stage191_p1_curve.pt; overnight scale step toward multi-domain L1",
+  "timestamp": "2026-07-30T20:57:25.511316+00:00"
+}

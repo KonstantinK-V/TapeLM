@@ -1,0 +1,273 @@
+{
+  "stage": 254,
+  "overall": "CONTINUAL_UNDERSTAND_NO",
+  "domains": [
+    "wiki",
+    "stories",
+    "med",
+    "news"
+  ],
+  "lambda": 0.2,
+  "replay_frac": 0.25,
+  "token_budget_per_domain": 4000000,
+  "budget_used_per_domain": {
+    "wiki": 4000000,
+    "stories": 3801918,
+    "med": 4000000,
+    "news": 4000000
+  },
+  "max_epochs_per_domain": 3.0,
+  "gates": {
+    "G_no_forget_vs_P1": true,
+    "G_peak_hold_regress": false,
+    "G_understanding_holds": true,
+    "G_mem_holds_full_bank": true,
+    "G_no_param_leak": false,
+    "G_cross_domain_hop": false,
+    "G_no_collapse": true
+  },
+  "summary": {
+    "exam_curve": [
+      0.8,
+      0.7916666666666666,
+      0.7833333333333333,
+      0.8333333333333334
+    ],
+    "exam_base": 0.825,
+    "max_forget_hold_ce": 0.4712490141391754,
+    "forget_per_domain": {
+      "wiki": -0.19992509484291077,
+      "stories": 0.4712490141391754,
+      "med": 0.0017019063234329224,
+      "news": 0.0
+    },
+    "min_mem_full_bank": 0.9230769230769231,
+    "max_leak": 0.46153846153846156,
+    "hop_final": {
+      "strict": 0.0,
+      "four_way": 0.4444444444444444,
+      "hop1": 0.1111111111111111,
+      "n": 18
+    },
+    "bank_size_final": 57,
+    "max_forget_hold_ce_vs_first_phase": 0.4712490141391754,
+    "max_forget_hold_ce_vs_P1": -0.1135915070772171,
+    "forget_per_domain_vs_first": {
+      "wiki": -0.19992509484291077,
+      "stories": 0.4712490141391754,
+      "med": 0.0017019063234329224,
+      "news": 0.0
+    },
+    "forget_per_domain_vs_P1": {
+      "wiki": -0.1199938952922821,
+      "stories": -3.205230101943016,
+      "med": -0.2632504403591156,
+      "news": -0.1135915070772171
+    }
+  },
+  "gate_stats": {
+    "wiki": {
+      "n_facts": 26,
+      "admitted": 13,
+      "on_theme_admitted": 7,
+      "off_theme_admitted": 6,
+      "thresh": 0.7280240058898926
+    },
+    "stories": {
+      "n_facts": 26,
+      "admitted": 13,
+      "on_theme_admitted": 11,
+      "off_theme_admitted": 2,
+      "thresh": 0.7384630441665649
+    },
+    "med": {
+      "n_facts": 26,
+      "admitted": 16,
+      "on_theme_admitted": 12,
+      "off_theme_admitted": 4,
+      "thresh": 0.7406319081783295
+    },
+    "news": {
+      "n_facts": 26,
+      "admitted": 15,
+      "on_theme_admitted": 11,
+      "off_theme_admitted": 4,
+      "thresh": 0.7350720465183258
+    }
+  },
+  "baseline": {
+    "exam_next_tok": 0.825,
+    "uniformity": 0.46327298879623413,
+    "hold_ce": {
+      "wiki": 4.227038770914078,
+      "stories": 6.347446501255035,
+      "med": 4.264255881309509,
+      "news": 4.1771352887153625
+    }
+  },
+  "matrix": [
+    {
+      "after_phase": "wiki",
+      "bank_size": 13,
+      "domains": {
+        "wiki": {
+          "hold_ce": 4.306969970464706,
+          "hold_ppl": 74.21527343735752,
+          "mem": 1.0,
+          "leak": 0.23076923076923078
+        }
+      },
+      "exam_next_tok": 0.8,
+      "uniformity": 0.4561546742916107,
+      "inversion": {
+        "para": 0.7243651223182678,
+        "hard": 0.8863350674510002,
+        "gap_hard_minus_para": 0.16196994513273244,
+        "inversion": false
+      },
+      "hop": {
+        "strict": 0.0,
+        "four_way": 0.1111111111111111,
+        "hop1": 0.05555555555555555,
+        "n": 18
+      },
+      "train_meta": {
+        "tokens_ce": 4000239,
+        "tokens_cpc": 17444864,
+        "steps": 4259
+      }
+    },
+    {
+      "after_phase": "stories",
+      "bank_size": 26,
+      "domains": {
+        "wiki": {
+          "hold_ce": 4.704429358243942,
+          "hold_ppl": 110.43524799957603,
+          "mem": 1.0,
+          "leak": 0.2692307692307692
+        },
+        "stories": {
+          "hold_ce": 2.670967385172844,
+          "hold_ppl": 14.453944963783218,
+          "mem": 1.0,
+          "leak": 0.4230769230769231
+        }
+      },
+      "exam_next_tok": 0.7916666666666666,
+      "uniformity": 0.5142262578010559,
+      "inversion": {
+        "para": 0.6747263407707215,
+        "hard": 0.8562606051564217,
+        "gap_hard_minus_para": 0.1815342643857002,
+        "inversion": false
+      },
+      "hop": {
+        "strict": 0.1111111111111111,
+        "four_way": 0.2777777777777778,
+        "hop1": 0.2777777777777778,
+        "n": 18
+      },
+      "train_meta": {
+        "tokens_ce": 3802304,
+        "tokens_cpc": 15532032,
+        "steps": 3792
+      }
+    },
+    {
+      "after_phase": "med",
+      "bank_size": 42,
+      "domains": {
+        "wiki": {
+          "hold_ce": 4.249293237924576,
+          "hold_ppl": 70.05588200510451,
+          "mem": 0.9230769230769231,
+          "leak": 0.34615384615384615
+        },
+        "stories": {
+          "hold_ce": 3.0213279873132706,
+          "hold_ppl": 20.518521936294913,
+          "mem": 0.9230769230769231,
+          "leak": 0.38461538461538464
+        },
+        "med": {
+          "hold_ce": 3.9993035346269608,
+          "hold_ppl": 54.560137550939494,
+          "mem": 1.0,
+          "leak": 0.11538461538461539
+        }
+      },
+      "exam_next_tok": 0.7833333333333333,
+      "uniformity": 0.47244027256965637,
+      "inversion": {
+        "para": 0.7161061382293701,
+        "hard": 0.8679592162370682,
+        "gap_hard_minus_para": 0.1518530780076981,
+        "inversion": false
+      },
+      "hop": {
+        "strict": 0.1111111111111111,
+        "four_way": 0.5555555555555556,
+        "hop1": 0.4444444444444444,
+        "n": 18
+      },
+      "train_meta": {
+        "tokens_ce": 4000100,
+        "tokens_cpc": 16441344,
+        "steps": 4014
+      }
+    },
+    {
+      "after_phase": "news",
+      "bank_size": 57,
+      "domains": {
+        "wiki": {
+          "hold_ce": 4.107044875621796,
+          "hold_ppl": 60.76687829334984,
+          "mem": 0.9230769230769231,
+          "leak": 0.3076923076923077
+        },
+        "stories": {
+          "hold_ce": 3.1422163993120193,
+          "hold_ppl": 23.155131043298596,
+          "mem": 0.9230769230769231,
+          "leak": 0.46153846153846156
+        },
+        "med": {
+          "hold_ce": 4.001005440950394,
+          "hold_ppl": 54.65307285520366,
+          "mem": 0.9375,
+          "leak": 0.19230769230769232
+        },
+        "news": {
+          "hold_ce": 4.0635437816381454,
+          "hold_ppl": 58.18012384039781,
+          "mem": 1.0,
+          "leak": 0.23076923076923078
+        }
+      },
+      "exam_next_tok": 0.8333333333333334,
+      "uniformity": 0.45738738775253296,
+      "inversion": {
+        "para": 0.7491183710098267,
+        "hard": 0.8912050202488899,
+        "gap_hard_minus_para": 0.14208664923906322,
+        "inversion": false
+      },
+      "hop": {
+        "strict": 0.0,
+        "four_way": 0.4444444444444444,
+        "hop1": 0.1111111111111111,
+        "n": 18
+      },
+      "train_meta": {
+        "tokens_ce": 4000250,
+        "tokens_cpc": 16285696,
+        "steps": 3976
+      }
+    }
+  ],
+  "note": "One shared upper across domains (246 used a fresh head per domain, so retention was trivial and growth impossible). Facts only in slots; CE text has bindings stripped. Hops are external fp loops (210/212 closed internal ones).",
+  "timestamp": "2026-08-02T07:39:23.953496+00:00",
+  "wall_s": 7279.447255849838
+}

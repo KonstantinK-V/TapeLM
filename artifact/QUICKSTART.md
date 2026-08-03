@@ -1,6 +1,6 @@
-# TapeLM — 5-minute quickstart
+# Inprint v0.1 — 5-minute quickstart
 
-**Why this exists:** [`WHY_TAPELM.md`](WHY_TAPELM.md)
+**Product:** [`INPRINT.md`](INPRINT.md) · **Why:** [`WHY_TAPELM.md`](WHY_TAPELM.md)
 
 ---
 
@@ -24,7 +24,7 @@ Downloads **P1** (+ optional **w_registry**) from Hugging Face — hundreds of M
 ```bash
 pip install -r artifact/requirements.txt
 python artifact/scripts/download_checkpoints.py --with-w-registry
-python artifact/scripts/run_product.py
+python artifact/scripts/run_inprint.py demo
 ```
 
 This runs the **product memory track**:
@@ -37,7 +37,7 @@ Optional:
 
 ```bash
 python artifact/scripts/export_w_registry.py --smoke
-python artifact/scripts/run_product.py --all    # + Stage 196 scorecard (longer)
+python artifact/scripts/run_inprint.py demo --all    # + Stage 196 scorecard (longer)
 ```
 
 **Frozen P1:** steps 1–2 do not train the encoder on new facts. Details: [`../docs/ARCHITECTURE.md`](../docs/ARCHITECTURE.md#frozen-p1--precise-contract)

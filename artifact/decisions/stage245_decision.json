@@ -1,0 +1,31 @@
+{
+  "stage": 245,
+  "overall": "MIXED_NO_W_TIES_P1W",
+  "gates": {
+    "G_p1W_floor_0p70": true,
+    "G_mixed_floor_0p70": true,
+    "G_mixed_beats_p1W_0p05": false,
+    "G_mixed_raw_ge_own_W": true
+  },
+  "p1": {
+    "name": "P1+W",
+    "A0": 0.94,
+    "A_raw": 0.88,
+    "A_W": 0.92,
+    "chosen": 0.92,
+    "use_W": true,
+    "W_align": 0.9947406053543091
+  },
+  "mixed": {
+    "name": "mixed_no_W",
+    "A0": 0.96,
+    "A_raw": 0.96,
+    "A_W": 0.98,
+    "chosen": 0.96,
+    "use_W": false,
+    "W_align": 0.998530387878418
+  },
+  "gap_mixed_minus_p1": 0.039999999999999925,
+  "note": "Unexpected if mixed-no-W >= P1+W on same fact strings after code shift.",
+  "timestamp": "2026-07-31T05:12:28.893747+00:00"
+}

@@ -1,0 +1,72 @@
+{
+  "product": "Inprint",
+  "version": "0.1.1",
+  "released": "2026-08-03",
+  "codename": "TapeLM variant A",
+  "tagline": "Facts as fingerprints on character ink — not token-id memory, not chunk RAG.",
+  "repository": "https://github.com/KonstantinK-V/TapeLM",
+  "weights_hub": "https://huggingface.co/Kostya03v/TapeLM-P1",
+  "layers": [
+    {
+      "id": "substrate",
+      "title": "Character curve encoder (P1)",
+      "stages": ["191"],
+      "checkpoint": "checkpoints/stage191_p1_curve.pt",
+      "contract": "Frozen for memory ingest; one geometry for generation and fp."
+    },
+    {
+      "id": "fp_core",
+      "title": "Fingerprint stack",
+      "stages": ["192", "194", "195", "197", "203", "204", "205"],
+      "contract": "Lexicon, slots, hop, edit, noise/unlearn vs fair RAG."
+    },
+    {
+      "id": "memory_trunk",
+      "title": "Operable memory (shipping demo)",
+      "stages": ["221", "227", "228c", "230", "226c"],
+      "demo": "artifact/scripts/run_memory_demo.py",
+      "contract": "Canonical bank, W@read, fp decode, resolve, cross-domain e2e; step 4 = slot-bias glue when checkpoints present."
+    },
+    {
+      "id": "understanding",
+      "title": "Continual understanding (shared upper)",
+      "stages": ["251", "252", "253", "254"],
+      "checkpoint_optional": "checkpoints/stage253_joint_l02.pt",
+      "contract": "Language head trains; arc_enc frozen; hold_ce per domain."
+    },
+    {
+      "id": "stream",
+      "title": "Bounded stream ingest",
+      "stages": ["255"],
+      "contract": "Chunked domains, canonical tape on CPU, reservoir replay, trainable W_q on ingest pairs."
+    },
+    {
+      "id": "glue",
+      "title": "Slot-bias decode (free-form head × tape)",
+      "stages": ["256"],
+      "checkpoint_optional": "checkpoints/stage256_slot_bias.pt",
+      "contract": "Copy mixture p'=(1-g)p_LM+g*p_copy; trunk frozen; values only on tape."
+    }
+  ],
+  "entrypoints": {
+    "demo": "python artifact/scripts/run_inprint.py demo",
+    "map": "python artifact/scripts/run_inprint.py map",
+    "check": "python artifact/scripts/run_inprint.py check",
+    "verify": "python artifact/scripts/run_inprint.py verify",
+    "ingest": "python artifact/scripts/run_inprint.py ingest --schedule wiki:6,med:3,news:3 --run-tag TAG"
+  },
+  "evidence_required": [
+    {"stage": "204", "file": "artifact/decisions/stage204_decision.json"},
+    {"stage": "205", "file": "artifact/decisions/stage205_decision.json"},
+    {"stage": "228c", "file": "artifact/decisions/stage228c_decision.json"},
+    {"stage": "226c", "file": "artifact/decisions/stage226c_decision.json"},
+    {"stage": "255", "file": "artifact/decisions/stage255_decision.json"},
+    {"stage": "256", "file": "artifact/decisions/stage256_decision.json"}
+  ],
+  "ops_not_in_demo": [
+    "231-235",
+    "236-250",
+    "247"
+  ],
+  "note": "v0.1 unifies what we ship (memory trunk demo) with the research line through stream ingest and slot-bias glue. Repo slug TapeLM and HF TapeLM-P1 stay for links; public product name is Inprint."
+}

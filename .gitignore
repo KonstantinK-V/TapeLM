@@ -18,6 +18,21 @@ data/external_tinystories_100k*
 data/external_tinystories_bpe*
 data/sote_ids*.bin
 
+data/_stage254_med.txt
+data/_stage254_news.txt
+data/_stage246_news_corpus.txt
+
+# Stream / stage run logs and runtime state (decisions + mini in results/ are kept)
+results/_stage*.out
+results/_stage*.err
+results/_run_queue*.log
+results/_run_queue*.err
+results/_stage*_log.txt
+results/_stage254_audit_mask.txt
+results/_stage255_audit_recall.txt
+results/stream255/
+results/branch_ingest_50h/
+
 # Python
 __pycache__/
 *.py[cod]

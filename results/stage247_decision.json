@@ -1,0 +1,54 @@
+{
+  "stage": 247,
+  "overall": "INGEST_FORK_SLOTS_AND_HOP",
+  "gates": {
+    "G_slots_cf_beats_ce_0p15": true,
+    "G_slots_edit_low_collateral": true,
+    "G_hop_admits_and_rejects": true,
+    "G_slots_under_not_ruined": true
+  },
+  "policies": {
+    "P_ce": {
+      "acquire": 0.75,
+      "edit_target_after_unlearn": 0.25,
+      "edit_retained": 0.25,
+      "edit_collateral": 0.55,
+      "cf_retain": 0.7083333333333334,
+      "cf_drop": 0.04166666666666663,
+      "understand_next_tok": 0.6125,
+      "carrier": "gpt_weights"
+    },
+    "P_slots": {
+      "acquire": 0.9583333333333334,
+      "edit_new_ok": 1.0,
+      "edit_old_gone": 1.0,
+      "edit_retained": 0.8695652173913043,
+      "edit_collateral": 0.04347826086956519,
+      "cf_retain": 0.9583333333333334,
+      "cf_drop": 0.0,
+      "understand_next_tok": 0.7375,
+      "W_align": 0.9928131699562073,
+      "carrier": "slots+masked_CE"
+    },
+    "P_hop": {
+      "acquire_admitted": 0.8333333333333334,
+      "acquire_rejected_should_be_low": 0.08333333333333333,
+      "edit_new_ok": 1.0,
+      "edit_retained": 0.9090909090909091,
+      "edit_collateral": 0.0,
+      "cf_retain": 0.8333333333333334,
+      "cf_drop": 0.0,
+      "understand_next_tok": 0.6625,
+      "n_admitted": 12,
+      "n_rejected": 12,
+      "W_align": 0.9926556348800659,
+      "carrier": "hop_gated_slots+masked_CE"
+    }
+  },
+  "n_facts": 24,
+  "ce_steps": 600,
+  "cf_steps": 400,
+  "note": "Fork map only. P_ce=parametric GPT; P_slots/P_hop=TapeLM slots + masked CE. Evolution hint: keep bindings out of CE; use hop-sim as admission, not as CE curriculum.",
+  "timestamp": "2026-08-01T10:59:40.012161+00:00",
+  "wall_s": 593.2608966827393
+}

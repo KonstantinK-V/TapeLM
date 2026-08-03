@@ -1,0 +1,610 @@
+{
+  "stage": 255,
+  "overall": "STREAM_INGEST_OK",
+  "lambda_base": 0.2,
+  "lambda_admit": false,
+  "lambda_admit_alpha": 0.35,
+  "run_tag": "wiki12",
+  "chunk_lines": 25000,
+  "entity_cap": 400,
+  "query_train": true,
+  "query_steps": 150,
+  "arc_mode": "frozen",
+  "epochs_per_chunk": 1.0,
+  "replay_frac": 0.2,
+  "reservoir_cap": 4000,
+  "gates": {
+    "G_streamed": true,
+    "G_no_forget_vs_P1": true,
+    "G_peak_hold_regress": true,
+    "G_understanding_holds": true,
+    "G_recall_query_beats_frozen": true,
+    "G_recall_adapt_top1_floor": true,
+    "G_tape_bounded": true
+  },
+  "summary": {
+    "chunks": 12,
+    "tokens_unique": 53623250,
+    "tokens_train": 53628844,
+    "tape_slots": 2899,
+    "tape_mb": 1.484288,
+    "baseline_exam": 0.825,
+    "exam_first_chunk": 0.825,
+    "exam_last": 0.9,
+    "forget_hold_ce_vs_first_chunk": {
+      "wiki": -0.32855828603108783
+    },
+    "forget_hold_ce_vs_P1": {
+      "wiki": -0.22541538874308298
+    },
+    "baseline_hold_ce": {
+      "wiki": 4.356857180595398
+    },
+    "recall_top1_vs_bank": [
+      [
+        359,
+        1.0
+      ],
+      [
+        651,
+        1.0
+      ],
+      [
+        919,
+        1.0
+      ],
+      [
+        1176,
+        1.0
+      ],
+      [
+        1395,
+        1.0
+      ],
+      [
+        1618,
+        1.0
+      ],
+      [
+        1828,
+        1.0
+      ],
+      [
+        2053,
+        1.0
+      ],
+      [
+        2261,
+        1.0
+      ],
+      [
+        2467,
+        1.0
+      ],
+      [
+        2680,
+        1.0
+      ],
+      [
+        2899,
+        1.0
+      ]
+    ],
+    "recall_top1_frozen_vs_bank": [
+      [
+        359,
+        0.0625
+      ],
+      [
+        651,
+        0.0625
+      ],
+      [
+        919,
+        0.0625
+      ],
+      [
+        1176,
+        0.0625
+      ],
+      [
+        1395,
+        0.0625
+      ],
+      [
+        1618,
+        0.0625
+      ],
+      [
+        1828,
+        0.0625
+      ],
+      [
+        2053,
+        0.0625
+      ],
+      [
+        2261,
+        0.0625
+      ],
+      [
+        2467,
+        0.0625
+      ],
+      [
+        2680,
+        0.0625
+      ],
+      [
+        2899,
+        0.0625
+      ]
+    ],
+    "recall_mrr_vs_bank": [
+      [
+        359,
+        1.0
+      ],
+      [
+        651,
+        1.0
+      ],
+      [
+        919,
+        1.0
+      ],
+      [
+        1176,
+        1.0
+      ],
+      [
+        1395,
+        1.0
+      ],
+      [
+        1618,
+        1.0
+      ],
+      [
+        1828,
+        1.0
+      ],
+      [
+        2053,
+        1.0
+      ],
+      [
+        2261,
+        1.0
+      ],
+      [
+        2467,
+        1.0
+      ],
+      [
+        2680,
+        1.0
+      ],
+      [
+        2899,
+        1.0
+      ]
+    ],
+    "recall_final_top1": 1.0,
+    "recall_final_top1_frozen": 0.0625,
+    "recall_final_mrr": 1.0
+  },
+  "history": [
+    {
+      "chunk": 1,
+      "domain": "wiki",
+      "tokens_unique": 4417194,
+      "tokens_train": 4417435,
+      "tape_slots": 359,
+      "tape_mb": 0.183808,
+      "entities_added": 327,
+      "entities_dropped": 73,
+      "n_admit_lambda": 359,
+      "lambda_eff": 0.2,
+      "query_loss": 5.349835131963094,
+      "exam_next_tok": 0.825,
+      "hold_ce": {
+        "wiki": 4.460000077883403
+      },
+      "probe_bank_frozen": {
+        "wiki": {
+          "four_way": 0.6875,
+          "top1": 0.0625,
+          "mrr": 0.11998246741299862,
+          "median_rank": 33.0
+        }
+      },
+      "probe_bank": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "wall_s": 1885.4662907123566
+    },
+    {
+      "chunk": 2,
+      "domain": "wiki",
+      "tokens_unique": 8900188,
+      "tokens_train": 8900887,
+      "tape_slots": 651,
+      "tape_mb": 0.333312,
+      "entities_added": 292,
+      "entities_dropped": 108,
+      "n_admit_lambda": 292,
+      "lambda_eff": 0.2,
+      "query_loss": 5.854165665308634,
+      "exam_next_tok": 0.8333333333333334,
+      "hold_ce": {
+        "wiki": 4.3985267877578735
+      },
+      "probe_bank_frozen": {
+        "wiki": {
+          "four_way": 0.5625,
+          "top1": 0.0625,
+          "mrr": 0.09668065064310327,
+          "median_rank": 56.0
+        }
+      },
+      "probe_bank": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "wall_s": 3779.116209745407
+    },
+    {
+      "chunk": 3,
+      "domain": "wiki",
+      "tokens_unique": 13393011,
+      "tokens_train": 13394298,
+      "tape_slots": 919,
+      "tape_mb": 0.470528,
+      "entities_added": 268,
+      "entities_dropped": 132,
+      "n_admit_lambda": 268,
+      "lambda_eff": 0.2,
+      "query_loss": 6.199353771209717,
+      "exam_next_tok": 0.8333333333333334,
+      "hold_ce": {
+        "wiki": 4.347550431887309
+      },
+      "probe_bank_frozen": {
+        "wiki": {
+          "four_way": 0.75,
+          "top1": 0.0625,
+          "mrr": 0.08751500169281767,
+          "median_rank": 77.0
+        }
+      },
+      "probe_bank": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "wall_s": 5635.183450937271
+    },
+    {
+      "chunk": 4,
+      "domain": "wiki",
+      "tokens_unique": 17941482,
+      "tokens_train": 17943507,
+      "tape_slots": 1176,
+      "tape_mb": 0.602112,
+      "entities_added": 257,
+      "entities_dropped": 143,
+      "n_admit_lambda": 257,
+      "lambda_eff": 0.2,
+      "query_loss": 6.443457422256469,
+      "exam_next_tok": 0.8583333333333333,
+      "hold_ce": {
+        "wiki": 4.314994951089223
+      },
+      "probe_bank_frozen": {
+        "wiki": {
+          "four_way": 0.6875,
+          "top1": 0.0625,
+          "mrr": 0.08126499712863824,
+          "median_rank": 102.0
+        }
+      },
+      "probe_bank": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "wall_s": 7611.498587608337
+    },
+    {
+      "chunk": 5,
+      "domain": "wiki",
+      "tokens_unique": 22364672,
+      "tokens_train": 22367277,
+      "tape_slots": 1395,
+      "tape_mb": 0.71424,
+      "entities_added": 219,
+      "entities_dropped": 181,
+      "n_admit_lambda": 219,
+      "lambda_eff": 0.2,
+      "query_loss": 6.617994944254558,
+      "exam_next_tok": 0.8833333333333333,
+      "hold_ce": {
+        "wiki": 4.256228744983673
+      },
+      "probe_bank_frozen": {
+        "wiki": {
+          "four_way": 0.5625,
+          "top1": 0.0625,
+          "mrr": 0.08011559386081453,
+          "median_rank": 113.5
+        }
+      },
+      "probe_bank": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "wall_s": 9525.86408162117
+    },
+    {
+      "chunk": 6,
+      "domain": "wiki",
+      "tokens_unique": 26799908,
+      "tokens_train": 26802884,
+      "tape_slots": 1618,
+      "tape_mb": 0.828416,
+      "entities_added": 223,
+      "entities_dropped": 177,
+      "n_admit_lambda": 223,
+      "lambda_eff": 0.2,
+      "query_loss": 6.7631987190246585,
+      "exam_next_tok": 0.85,
+      "hold_ce": {
+        "wiki": 4.186276773611705
+      },
+      "probe_bank_frozen": {
+        "wiki": {
+          "four_way": 0.875,
+          "top1": 0.0625,
+          "mrr": 0.0770537574377954,
+          "median_rank": 133.0
+        }
+      },
+      "probe_bank": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "wall_s": 11451.330016851425
+    },
+    {
+      "chunk": 7,
+      "domain": "wiki",
+      "tokens_unique": 31230009,
+      "tokens_train": 31233023,
+      "tape_slots": 1828,
+      "tape_mb": 0.935936,
+      "entities_added": 210,
+      "entities_dropped": 190,
+      "n_admit_lambda": 210,
+      "lambda_eff": 0.2,
+      "query_loss": 6.885469754536946,
+      "exam_next_tok": 0.875,
+      "hold_ce": {
+        "wiki": 4.194816132386525
+      },
+      "probe_bank_frozen": {
+        "wiki": {
+          "four_way": 0.75,
+          "top1": 0.0625,
+          "mrr": 0.07572245322500934,
+          "median_rank": 156.5
+        }
+      },
+      "probe_bank": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "wall_s": 13373.640712976456
+    },
+    {
+      "chunk": 8,
+      "domain": "wiki",
+      "tokens_unique": 35708154,
+      "tokens_train": 35711456,
+      "tape_slots": 2053,
+      "tape_mb": 1.051136,
+      "entities_added": 225,
+      "entities_dropped": 175,
+      "n_admit_lambda": 225,
+      "lambda_eff": 0.2,
+      "query_loss": 6.998504219055175,
+      "exam_next_tok": 0.875,
+      "hold_ce": {
+        "wiki": 4.192485610644023
+      },
+      "probe_bank_frozen": {
+        "wiki": {
+          "four_way": 0.6875,
+          "top1": 0.0625,
+          "mrr": 0.07466815223372071,
+          "median_rank": 173.0
+        }
+      },
+      "probe_bank": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "wall_s": 15253.8345246315
+    },
+    {
+      "chunk": 9,
+      "domain": "wiki",
+      "tokens_unique": 40202129,
+      "tokens_train": 40206289,
+      "tape_slots": 2261,
+      "tape_mb": 1.157632,
+      "entities_added": 208,
+      "entities_dropped": 192,
+      "n_admit_lambda": 208,
+      "lambda_eff": 0.2,
+      "query_loss": 7.094781837463379,
+      "exam_next_tok": 0.8666666666666667,
+      "hold_ce": {
+        "wiki": 4.210078438123067
+      },
+      "probe_bank_frozen": {
+        "wiki": {
+          "four_way": 0.6875,
+          "top1": 0.0625,
+          "mrr": 0.0742334838836417,
+          "median_rank": 184.0
+        }
+      },
+      "probe_bank": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "wall_s": 17193.6565284729
+    },
+    {
+      "chunk": 10,
+      "domain": "wiki",
+      "tokens_unique": 44740449,
+      "tokens_train": 44744819,
+      "tape_slots": 2467,
+      "tape_mb": 1.263104,
+      "entities_added": 206,
+      "entities_dropped": 194,
+      "n_admit_lambda": 206,
+      "lambda_eff": 0.2,
+      "query_loss": 7.180649391810099,
+      "exam_next_tok": 0.9,
+      "hold_ce": {
+        "wiki": 4.198876043160756
+      },
+      "probe_bank_frozen": {
+        "wiki": {
+          "four_way": 0.625,
+          "top1": 0.0625,
+          "mrr": 0.07304003136006346,
+          "median_rank": 201.0
+        }
+      },
+      "probe_bank": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "wall_s": 19113.192988872528
+    },
+    {
+      "chunk": 11,
+      "domain": "wiki",
+      "tokens_unique": 49243326,
+      "tokens_train": 49248066,
+      "tape_slots": 2680,
+      "tape_mb": 1.37216,
+      "entities_added": 213,
+      "entities_dropped": 187,
+      "n_admit_lambda": 213,
+      "lambda_eff": 0.2,
+      "query_loss": 7.265716381072998,
+      "exam_next_tok": 0.875,
+      "hold_ce": {
+        "wiki": 4.202624936898549
+      },
+      "probe_bank_frozen": {
+        "wiki": {
+          "four_way": 0.625,
+          "top1": 0.0625,
+          "mrr": 0.07164126327307924,
+          "median_rank": 223.0
+        }
+      },
+      "probe_bank": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "wall_s": 21292.14475417137
+    },
+    {
+      "chunk": 12,
+      "domain": "wiki",
+      "tokens_unique": 53623250,
+      "tokens_train": 53628844,
+      "tape_slots": 2899,
+      "tape_mb": 1.484288,
+      "entities_added": 219,
+      "entities_dropped": 181,
+      "n_admit_lambda": 219,
+      "lambda_eff": 0.2,
+      "query_loss": 7.342111384073894,
+      "exam_next_tok": 0.9,
+      "hold_ce": {
+        "wiki": 4.131441791852315
+      },
+      "probe_bank_frozen": {
+        "wiki": {
+          "four_way": 0.625,
+          "top1": 0.0625,
+          "mrr": 0.07086991414555194,
+          "median_rank": 242.0
+        }
+      },
+      "probe_bank": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "wall_s": 23192.197032928467
+    }
+  ],
+  "note": "Canonical frozen keys on tape; trainable W_q aligns queries (understanding\u2192read). W_q fits only probe facts with wq_train=True; recall is scored on the held-out half. Hold CE vs P1 is primary no-forget gate. Recall gates require adapted top1/MRR, not frozen-only.",
+  "timestamp": "2026-08-02T21:17:21.459601+00:00",
+  "wall_s": 23192.55562400818
+}

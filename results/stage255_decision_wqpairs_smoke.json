@@ -1,0 +1,271 @@
+{
+  "stage": 255,
+  "overall": "STREAM_INGEST_NO",
+  "lambda_base": 0.2,
+  "lambda_admit": false,
+  "lambda_admit_alpha": 0.35,
+  "run_tag": "wqpairs_smoke",
+  "chunk_lines": 400,
+  "entity_cap": 40,
+  "query_train": true,
+  "query_steps": 25,
+  "arc_mode": "frozen",
+  "epochs_per_chunk": 1.0,
+  "replay_frac": 0.2,
+  "reservoir_cap": 200,
+  "gates": {
+    "G_streamed": true,
+    "G_no_forget_vs_P1": true,
+    "G_peak_hold_regress": true,
+    "G_understanding_holds": false,
+    "G_recall_query_beats_frozen": true,
+    "G_recall_adapt_top1_floor": true,
+    "G_tape_bounded": true
+  },
+  "summary": {
+    "chunks": 4,
+    "tokens_unique": 316563,
+    "tokens_train": 319689,
+    "tape_slots": 154,
+    "tape_mb": 0.078848,
+    "baseline_exam": 0.85,
+    "exam_first_chunk": 0.8,
+    "exam_last": 0.8,
+    "forget_hold_ce_vs_first_chunk": {
+      "wiki": -0.026564598083496094,
+      "med": -0.02638876438140869
+    },
+    "forget_hold_ce_vs_P1": {
+      "wiki": 0.030033588409423828,
+      "med": 0.07623684406280518
+    },
+    "baseline_hold_ce": {
+      "wiki": 4.433872222900391,
+      "med": 4.3140289187431335
+    },
+    "recall_top1_vs_bank": [
+      [
+        42,
+        1.0
+      ],
+      [
+        74,
+        1.0
+      ],
+      [
+        123,
+        1.0
+      ],
+      [
+        154,
+        1.0
+      ]
+    ],
+    "recall_top1_frozen_vs_bank": [
+      [
+        42,
+        1.0
+      ],
+      [
+        74,
+        1.0
+      ],
+      [
+        123,
+        1.0
+      ],
+      [
+        154,
+        1.0
+      ]
+    ],
+    "recall_mrr_vs_bank": [
+      [
+        42,
+        1.0
+      ],
+      [
+        74,
+        1.0
+      ],
+      [
+        123,
+        1.0
+      ],
+      [
+        154,
+        1.0
+      ]
+    ],
+    "recall_final_top1": 1.0,
+    "recall_final_top1_frozen": 1.0,
+    "recall_final_mrr": 1.0
+  },
+  "history": [
+    {
+      "chunk": 1,
+      "domain": "wiki",
+      "tokens_unique": 68530,
+      "tokens_train": 69075,
+      "tape_slots": 42,
+      "tape_mb": 0.021504,
+      "entities_added": 30,
+      "entities_dropped": 10,
+      "n_admit_lambda": 42,
+      "lambda_eff": 0.2,
+      "query_loss": 0.09542066216468811,
+      "exam_next_tok": 0.8,
+      "hold_ce": {
+        "wiki": 4.4904704093933105
+      },
+      "probe_bank_frozen": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "probe_bank": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "wall_s": 87.00160765647888
+    },
+    {
+      "chunk": 2,
+      "domain": "wiki",
+      "tokens_unique": 142194,
+      "tokens_train": 143586,
+      "tape_slots": 74,
+      "tape_mb": 0.037888,
+      "entities_added": 32,
+      "entities_dropped": 8,
+      "n_admit_lambda": 32,
+      "lambda_eff": 0.2,
+      "query_loss": 0.0694177906215191,
+      "exam_next_tok": 0.8,
+      "hold_ce": {
+        "wiki": 4.51019811630249
+      },
+      "probe_bank_frozen": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "probe_bank": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "wall_s": 158.97081518173218
+    },
+    {
+      "chunk": 3,
+      "domain": "med",
+      "tokens_unique": 226442,
+      "tokens_train": 228715,
+      "tape_slots": 123,
+      "tape_mb": 0.062976,
+      "entities_added": 37,
+      "entities_dropped": 3,
+      "n_admit_lambda": 49,
+      "lambda_eff": 0.2,
+      "query_loss": 0.07865347012877465,
+      "exam_next_tok": 0.825,
+      "hold_ce": {
+        "wiki": 4.4210904240608215,
+        "med": 4.416654527187347
+      },
+      "probe_bank_frozen": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        },
+        "med": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "probe_bank": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        },
+        "med": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "wall_s": 223.55828142166138
+    },
+    {
+      "chunk": 4,
+      "domain": "med",
+      "tokens_unique": 316563,
+      "tokens_train": 319689,
+      "tape_slots": 154,
+      "tape_mb": 0.078848,
+      "entities_added": 31,
+      "entities_dropped": 9,
+      "n_admit_lambda": 31,
+      "lambda_eff": 0.2,
+      "query_loss": 0.1175171434879303,
+      "exam_next_tok": 0.8,
+      "hold_ce": {
+        "wiki": 4.4639058113098145,
+        "med": 4.390265762805939
+      },
+      "probe_bank_frozen": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        },
+        "med": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "probe_bank": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        },
+        "med": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "wall_s": 303.80298924446106
+    }
+  ],
+  "note": "Canonical frozen keys on tape; trainable W_q aligns queries (understanding\u2192read). W_q fits only probe facts with wq_train=True; recall is scored on the held-out half. Hold CE vs P1 is primary no-forget gate. Recall gates require adapted top1/MRR, not frozen-only.",
+  "timestamp": "2026-08-02T20:47:21.943562+00:00",
+  "wall_s": 303.8670039176941
+}

@@ -1,0 +1,149 @@
+{
+  "stage": 246,
+  "overall": "DOMAIN_CURRICULUM_PARTIAL",
+  "steps_per_domain": 20000,
+  "domains": [
+    "wiki",
+    "stories",
+    "med",
+    "news"
+  ],
+  "gates": {
+    "G_tape_keeps_wiki_mem_ge_0p70": true,
+    "G_tape_keeps_wiki_gen_ge_0p50": false,
+    "G_gpt_wiki_fact_drop_ge_0p10": false,
+    "G_gpt_wiki_ppl_rise_ge_0p5": true,
+    "G_gap_mem_ge_0p15": true
+  },
+  "matrix": [
+    {
+      "after_phase": "wiki",
+      "domains": {
+        "wiki": {
+          "tape_ce": 3.936407655477524,
+          "tape_next_tok": 0.2998324958123953,
+          "tape_mem": 0.875,
+          "gpt_ce": 1.9485462829470634,
+          "gpt_ppl": 7.0184772808351745,
+          "gpt_fact": 0.20833333333333334
+        }
+      }
+    },
+    {
+      "after_phase": "stories",
+      "domains": {
+        "wiki": {
+          "tape_ce": 3.936407655477524,
+          "tape_next_tok": 0.2998324958123953,
+          "tape_mem": 0.8333333333333334,
+          "gpt_ce": 13.78291916847229,
+          "gpt_ppl": 967933.9867937444,
+          "gpt_fact": 0.375
+        },
+        "stories": {
+          "tape_ce": 2.98154516518116,
+          "tape_next_tok": 0.3983708301008534,
+          "tape_mem": 1.0,
+          "gpt_ce": 0.10570950293913484,
+          "gpt_ppl": 1.1114989424271715,
+          "gpt_fact": 0.3333333333333333
+        }
+      }
+    },
+    {
+      "after_phase": "med",
+      "domains": {
+        "wiki": {
+          "tape_ce": 3.936407655477524,
+          "tape_next_tok": 0.2998324958123953,
+          "tape_mem": 0.875,
+          "gpt_ce": 7.829060077667236,
+          "gpt_ppl": 2512.5666456999065,
+          "gpt_fact": 0.2916666666666667
+        },
+        "stories": {
+          "tape_ce": 2.98154516518116,
+          "tape_next_tok": 0.3983708301008534,
+          "tape_mem": 0.9583333333333334,
+          "gpt_ce": 1.773407943546772,
+          "gpt_ppl": 5.8908950292487825,
+          "gpt_fact": 0.20833333333333334
+        },
+        "med": {
+          "tape_ce": 2.2381191477179527,
+          "tape_next_tok": 0.5833755060728745,
+          "tape_mem": 0.7083333333333334,
+          "gpt_ce": 0.10444362182170153,
+          "gpt_ppl": 1.110092807091763,
+          "gpt_fact": 0.3333333333333333
+        }
+      }
+    },
+    {
+      "after_phase": "news",
+      "domains": {
+        "wiki": {
+          "tape_ce": 3.936407655477524,
+          "tape_next_tok": 0.2998324958123953,
+          "tape_mem": 0.875,
+          "gpt_ce": 8.907161921262741,
+          "gpt_ppl": 7384.673045943058,
+          "gpt_fact": 0.25
+        },
+        "stories": {
+          "tape_ce": 2.98154516518116,
+          "tape_next_tok": 0.3983708301008534,
+          "tape_mem": 1.0,
+          "gpt_ce": 2.2240242660045624,
+          "gpt_ppl": 9.244458269647348,
+          "gpt_fact": 0.16666666666666666
+        },
+        "med": {
+          "tape_ce": 2.2381191477179527,
+          "tape_next_tok": 0.5833755060728745,
+          "tape_mem": 0.7916666666666666,
+          "gpt_ce": 7.719485878944397,
+          "gpt_ppl": 2251.801584311568,
+          "gpt_fact": 0.375
+        },
+        "news": {
+          "tape_ce": 1.8667320609092712,
+          "tape_next_tok": 0.6652478718077116,
+          "tape_mem": 0.9166666666666666,
+          "gpt_ce": 0.08889324590563774,
+          "gpt_ppl": 1.0929639717191897,
+          "gpt_fact": 0.375
+        }
+      }
+    }
+  ],
+  "drops_first_to_final": {
+    "wiki": {
+      "tape_mem_drop": 0.0,
+      "tape_nt_drop": 0.0,
+      "gpt_fact_drop": -0.04166666666666666,
+      "gpt_ppl_rise": 7377.654568662223
+    },
+    "stories": {
+      "tape_mem_drop": 0.0,
+      "tape_nt_drop": 0.0,
+      "gpt_fact_drop": 0.16666666666666666,
+      "gpt_ppl_rise": 8.132959327220176
+    },
+    "med": {
+      "tape_mem_drop": -0.08333333333333326,
+      "tape_nt_drop": 0.0,
+      "gpt_fact_drop": -0.041666666666666685,
+      "gpt_ppl_rise": 2250.6914915044763
+    },
+    "news": {
+      "tape_mem_drop": 0.0,
+      "tape_nt_drop": 0.0,
+      "gpt_fact_drop": 0.0,
+      "gpt_ppl_rise": 0.0
+    }
+  },
+  "note": "TapeLM = frozen P1 + per-domain {W, head, slots}. GPT = single weight trajectory. news = AG-like wiki filter (not HF AG News download). Pass --steps 30000 for paper-scale curriculum.",
+  "timestamp": "2026-08-01T11:53:29.502432+00:00",
+  "wall_s": 3214.8055803775787
+}

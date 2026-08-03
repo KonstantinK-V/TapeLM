@@ -1,13 +1,11 @@
 #!/usr/bin/env python3
 """
-TapeLM memory demo — product path (no stage numbers in output).
-
-Shows one encoder, canonical slots, optional family W, 4-way retrieve,
-fp decode, and contradiction resolution.
+Inprint memory demo — canonical slots, W, fp decode, resolve, slot-bias glue.
 
   python artifact/scripts/run_memory_demo.py
   python artifact/scripts/run_memory_demo.py --smoke
   python artifact/scripts/run_memory_demo.py --skip-cross-domain
+  python artifact/scripts/run_memory_demo.py --skip-glue
 """
 from __future__ import annotations
 
@@ -39,6 +37,16 @@ import _stage225_family_fork as s225
 from _stage191_night import PAD, SelfModelXL, load_data
 from _stage192_fp_lexicon import gen_fakes
 from _stage194_fp_fact_memory import ENT_RE, FpBank
+from _inprint_glue import (
+    GLUE_CKPT,
+    JOINT_CKPT,
+    TapeView,
+    build_planted_keys,
+    free_decode_value,
+    load_glue,
+    trunk_ckpt_path,
+    value_exact_match,
+)
 from _tapelm_ext import (
     DomainAdapter,
     W_REGISTRY_DIR,
@@ -195,11 +203,79 @@ def demo_fp_decode_cross_domain(
         print(f"  fp decode accuracy on sample: {ok_fp}/{n} ({ok_fp / n:.0%})")
 
 
+def load_trunk_for_glue(device: torch.device):
+    """Glue was trained on the joint continual trunk when available."""
+    flat, off, stoi, n_char = load_data()
+    tok = Tokenizer.from_file(str(s177.TOK_PATH))
+    pad_id = tok.token_to_id(PAD) or 0
+    V = tok.get_vocab_size()
+    char_table = s185.build_char_table(tok, stoi, pad_id, V).to(device)
+    ck = REPO / trunk_ckpt_path()
+    model = SelfModelXL(n_char, V).to(device)
+    model.load_state_dict(torch.load(ck, map_location=device, weights_only=False)["model"])
+    model.eval()
+    for p in model.parameters():
+        p.requires_grad_(False)
+    bank = FpBank(model, stoi, device)
+    return model, bank, tok, pad_id, char_table, V, device, ck.name
+
+
+def demo_glue_freeform(device: torch.device, rng: random.Random, n_pairs: int, smoke: bool) -> None:
+    banner("4 - Free-form generation (head vs slot-bias glue)")
+    glue_path = REPO / GLUE_CKPT
+    if not glue_path.is_file():
+        print(f"  Skip: missing {glue_path.relative_to(REPO)}")
+        print("  Train: python _stage256_slot_bias_decode.py --smoke  (or copy checkpoint into checkpoints/)")
+        return
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    try:
+        model, bank, tok, pad_id, char_table, V, device, trunk_name = load_trunk_for_glue(device)
+    except FileNotFoundError as e:
+        print(f"  Skip: {e}")
+        return
+    glue = load_glue(model, device, glue_path)
+    if glue is None:
+        print("  Skip: could not load glue weights")
+        return
+    print(f"  Trunk: {trunk_name}  Glue: {glue_path.name}")
+    print("  Protocol: planted keys (256 recipe), greedy decode, no 4-way menu.")
+
+    words = wiki_entities(n_pairs + 6, rng)
+    subs = gen_fakes(set(words), rng, n_pairs + 2)[:n_pairs]
+    vals = words[:n_pairs]
+    K, kept_s, kept_v = build_planted_keys(bank, subs, vals)
+    if K.numel() == 0:
+        print("  (skip: could not plant keys)")
+        return
+    tape = TapeView(K.to(device), kept_v, tok, pad_id)
+    max_new = 4 if smoke else 6
+    ok_head = ok_glue = 0
+    for S, gold in zip(kept_s, kept_v):
+        got_h, _ = free_decode_value(
+            None, model, char_table, tok, bank, tape, S, pad_id, V, device, max_new=max_new, use_glue=False
+        )
+        got_g, g = free_decode_value(
+            glue, model, char_table, tok, bank, tape, S, pad_id, V, device, max_new=max_new, use_glue=True
+        )
+        mh = value_exact_match(got_h, gold)
+        mg = value_exact_match(got_g, gold)
+        ok_head += int(mh)
+        ok_glue += int(mg)
+        print(f"  {S!r} gold={gold!r}")
+        print(f"    head: {got_h!r}  {'OK' if mh else '-'}")
+        print(f"    glue: {got_g!r}  g={g:.2f}  {'OK' if mg else '-'}")
+    n = len(kept_v)
+    print(f"  value EM: head {ok_head}/{n}  glue {ok_glue}/{n}")
+    if ok_glue > ok_head:
+        print("  Glue uses the tape in free-form decode (228c-style constrained pick is not required here).")
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="TapeLM memory product demo")
     ap.add_argument("--smoke", action="store_true", help="Fast run (default)")
     ap.add_argument("--full", action="store_true", help="More facts in step 1")
     ap.add_argument("--skip-cross-domain", action="store_true")
+    ap.add_argument("--skip-glue", action="store_true")
     args = ap.parse_args()
     n_facts = 8 if args.full else 4
 
@@ -210,7 +286,7 @@ def main() -> int:
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     rng = random.Random(SEED)
-    print("TapeLM - memory demo (shipping trunk: 221 -> 227 -> 228c -> 230 -> 226c)")
+    print("Inprint v0.1 - memory demo (221 -> 227 -> 228c -> 230 -> 226c + glue)")
     print(f"Device: {device}")
 
     model, bank, tok, pad_id, char_table, stoi, device = load_p1(device)
@@ -218,10 +294,13 @@ def main() -> int:
     demo_contradiction(bank, rng)
     if not args.skip_cross_domain:
         demo_fp_decode_cross_domain(model, bank, K, V, subs, vals, tok, pad_id, char_table, stoi, device, rng, args.smoke)
+    if not args.skip_glue:
+        demo_glue_freeform(device, rng, 3 if args.smoke else 4, args.smoke)
 
     banner("Done")
-    print("  Docs: docs/MEMORY_ENGINEERING.md  artifact/OVERVIEW.md")
-    print("  Full scorecard: python artifact/scripts/run_demo.py")
+    print("  Product: artifact/INPRINT.md")
+    print("  Docs: docs/MEMORY_ENGINEERING.md")
+    print("  Stream ingest: python artifact/scripts/run_inprint.py ingest --help")
     return 0
 
 

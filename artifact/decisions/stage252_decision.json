@@ -1,0 +1,296 @@
+{
+  "stage": 252,
+  "overall": "JOINT_CPC_OK",
+  "fork_next": "SCALE_JOINT_TOKENS",
+  "token_budget_per_arm": 4000000,
+  "joint_lr": 0.0002,
+  "cpc": {
+    "batch": 64,
+    "L": 32,
+    "temp": 0.07,
+    "hard_negatives": "same-document window"
+  },
+  "winners": [
+    "lam0.05",
+    "lam0.2"
+  ],
+  "reference": {
+    "control_arm": "lam0",
+    "ref_next_tok": 0.8083333333333333,
+    "ref_hold_ce": 4.184280266364415
+  },
+  "baseline": {
+    "next_tok": 0.825,
+    "hold_ce": 4.196013500293096,
+    "hold_ppl": 66.42101519391963,
+    "inversion": {
+      "para": 0.7045877659320832,
+      "hard": 0.8891366943717003,
+      "gap_hard_minus_para": 0.18454892843961712,
+      "inversion": false
+    },
+    "uniformity": 0.4613311290740967,
+    "slot_mem": 0.95,
+    "param_leak": 0.2
+  },
+  "arms": {
+    "lam0": {
+      "lambda": 0.0,
+      "tokens_ce": 4000145,
+      "tokens_cpc": 0,
+      "steps": 3959,
+      "curve": [
+        {
+          "tokens_ce": 500489,
+          "hold_ce": 4.255531926949819,
+          "next_tok": 0.8666666666666667,
+          "ce": 4.309478759765625,
+          "cpc": NaN
+        },
+        {
+          "tokens_ce": 1000945,
+          "hold_ce": 4.248177568117778,
+          "next_tok": 0.8666666666666667,
+          "ce": 4.415157318115234,
+          "cpc": NaN
+        },
+        {
+          "tokens_ce": 1500154,
+          "hold_ce": 4.238728841145833,
+          "next_tok": 0.85,
+          "ce": 4.375240802764893,
+          "cpc": NaN
+        },
+        {
+          "tokens_ce": 2000862,
+          "hold_ce": 4.227111667394638,
+          "next_tok": 0.85,
+          "ce": 4.237151622772217,
+          "cpc": NaN
+        },
+        {
+          "tokens_ce": 2500588,
+          "hold_ce": 4.2083433866500854,
+          "next_tok": 0.85,
+          "ce": 3.796189069747925,
+          "cpc": NaN
+        },
+        {
+          "tokens_ce": 3000023,
+          "hold_ce": 4.202078928550084,
+          "next_tok": 0.8666666666666667,
+          "ce": 4.085155487060547,
+          "cpc": NaN
+        },
+        {
+          "tokens_ce": 3500676,
+          "hold_ce": 4.195550233125687,
+          "next_tok": 0.8666666666666667,
+          "ce": 4.350778102874756,
+          "cpc": NaN
+        },
+        {
+          "tokens_ce": 4000145,
+          "hold_ce": 4.184280266364415,
+          "next_tok": 0.8333333333333334,
+          "ce": 4.06240177154541,
+          "cpc": NaN
+        }
+      ],
+      "early_stop": null,
+      "restored_best": false,
+      "best_hold_ce": 4.184280266364415,
+      "best_at_tokens": 4000145,
+      "final_hold_ce_before_restore": 4.184280266364415,
+      "next_tok": 0.8083333333333333,
+      "hold_ce": 4.184280266364415,
+      "hold_ppl": 65.64623610556612,
+      "inversion": {
+        "para": 0.7261702752113343,
+        "hard": 0.8922346904873848,
+        "gap_hard_minus_para": 0.16606441527605054,
+        "inversion": false
+      },
+      "uniformity": 0.5008148550987244,
+      "slot_mem": 0.95,
+      "param_leak": 0.1
+    },
+    "lam0.05": {
+      "lambda": 0.05,
+      "tokens_ce": 4000614,
+      "tokens_cpc": 16216064,
+      "steps": 3959,
+      "curve": [
+        {
+          "tokens_ce": 500142,
+          "hold_ce": 4.250795324643453,
+          "next_tok": 0.85,
+          "ce": 4.339402198791504,
+          "cpc": 3.7321598529815674
+        },
+        {
+          "tokens_ce": 1000944,
+          "hold_ce": 4.2413084506988525,
+          "next_tok": 0.8,
+          "ce": 4.258645057678223,
+          "cpc": 3.5311474800109863
+        },
+        {
+          "tokens_ce": 1500132,
+          "hold_ce": 4.228664755821228,
+          "next_tok": 0.8333333333333334,
+          "ce": 4.357644557952881,
+          "cpc": 3.5107638835906982
+        },
+        {
+          "tokens_ce": 2000497,
+          "hold_ce": 4.221218923727672,
+          "next_tok": 0.8333333333333334,
+          "ce": 4.210054397583008,
+          "cpc": 3.357344388961792
+        },
+        {
+          "tokens_ce": 2500870,
+          "hold_ce": 4.201422969500224,
+          "next_tok": 0.85,
+          "ce": 4.078212261199951,
+          "cpc": 3.867384195327759
+        },
+        {
+          "tokens_ce": 3000234,
+          "hold_ce": 4.1939288179079695,
+          "next_tok": 0.8833333333333333,
+          "ce": 4.092805862426758,
+          "cpc": 3.204195737838745
+        },
+        {
+          "tokens_ce": 3500346,
+          "hold_ce": 4.177925358215968,
+          "next_tok": 0.8833333333333333,
+          "ce": 4.165007591247559,
+          "cpc": 3.4345955848693848
+        },
+        {
+          "tokens_ce": 4000614,
+          "hold_ce": 4.169956793387731,
+          "next_tok": 0.85,
+          "ce": 4.299839496612549,
+          "cpc": 3.151470422744751
+        }
+      ],
+      "early_stop": null,
+      "restored_best": false,
+      "best_hold_ce": 4.169956793387731,
+      "best_at_tokens": 4000614,
+      "final_hold_ce_before_restore": 4.169956793387731,
+      "next_tok": 0.825,
+      "hold_ce": 4.169956793387731,
+      "hold_ppl": 64.7126560323609,
+      "inversion": {
+        "para": 0.7250190651416779,
+        "hard": 0.8851429298520088,
+        "gap_hard_minus_para": 0.1601238647103309,
+        "inversion": false
+      },
+      "uniformity": 0.450783908367157,
+      "slot_mem": 0.95,
+      "param_leak": 0.2,
+      "gates": {
+        "G_language_kept": true,
+        "G_meaning_gain": true,
+        "G_no_collapse": true,
+        "G_memory_clean": true
+      }
+    },
+    "lam0.2": {
+      "lambda": 0.2,
+      "tokens_ce": 4000022,
+      "tokens_cpc": 16216064,
+      "steps": 3959,
+      "curve": [
+        {
+          "tokens_ce": 500408,
+          "hold_ce": 4.258325040340424,
+          "next_tok": 0.85,
+          "ce": 4.3869147300720215,
+          "cpc": 3.6281681060791016
+        },
+        {
+          "tokens_ce": 1000042,
+          "hold_ce": 4.256316026051839,
+          "next_tok": 0.8333333333333334,
+          "ce": 4.212252616882324,
+          "cpc": 3.2992470264434814
+        },
+        {
+          "tokens_ce": 1500538,
+          "hold_ce": 4.2448005477587385,
+          "next_tok": 0.8666666666666667,
+          "ce": 4.00873327255249,
+          "cpc": 3.6216328144073486
+        },
+        {
+          "tokens_ce": 2000130,
+          "hold_ce": 4.240069409211476,
+          "next_tok": 0.85,
+          "ce": 4.241160869598389,
+          "cpc": 3.2862026691436768
+        },
+        {
+          "tokens_ce": 2500129,
+          "hold_ce": 4.223376055558522,
+          "next_tok": 0.8666666666666667,
+          "ce": 4.210447311401367,
+          "cpc": 3.1435158252716064
+        },
+        {
+          "tokens_ce": 3000135,
+          "hold_ce": 4.218018492062886,
+          "next_tok": 0.8666666666666667,
+          "ce": 3.9919605255126953,
+          "cpc": 2.9910192489624023
+        },
+        {
+          "tokens_ce": 3500865,
+          "hold_ce": 4.199211339155833,
+          "next_tok": 0.8833333333333333,
+          "ce": 4.097280979156494,
+          "cpc": 3.0751609802246094
+        },
+        {
+          "tokens_ce": 4000022,
+          "hold_ce": 4.200059731801351,
+          "next_tok": 0.85,
+          "ce": 4.258885383605957,
+          "cpc": 2.8836207389831543
+        }
+      ],
+      "early_stop": null,
+      "restored_best": true,
+      "best_hold_ce": 4.199211339155833,
+      "best_at_tokens": 3500865,
+      "final_hold_ce_before_restore": 4.200059731801351,
+      "next_tok": 0.85,
+      "hold_ce": 4.199211339155833,
+      "hold_ppl": 66.63375887632081,
+      "inversion": {
+        "para": 0.7401449179649353,
+        "hard": 0.8775477260351181,
+        "gap_hard_minus_para": 0.1374028080701828,
+        "inversion": false
+      },
+      "uniformity": 0.4451865553855896,
+      "slot_mem": 0.95,
+      "param_leak": 0.25,
+      "gates": {
+        "G_language_kept": true,
+        "G_meaning_gain": true,
+        "G_no_collapse": true,
+        "G_memory_clean": true
+      }
+    }
+  },
+  "timestamp": "2026-08-01T19:59:02.027707+00:00",
+  "wall_s": 4991.316783428192,
+  "note": "251 fix: CPC alone drifted `fast` while slow/head stayed; joint CE re-aligns downstream. lambda=0 arm is the in-run CAL control; gates compare against it."
+}

@@ -1,0 +1,23 @@
+{
+  "stage": 249,
+  "overall": "HOP_STREAM_PARTIAL",
+  "budget": 120,
+  "n_rel": 320,
+  "n_irrel": 320,
+  "gates": {
+    "G_hop_precision_vs_uniform": false,
+    "G_admitted_rel_util": true
+  },
+  "hop": {
+    "rel_frac": 0.44166666666666665,
+    "rel_acc": 1.0,
+    "rel_admitted": 53
+  },
+  "uniform": {
+    "rel_frac": 0.475,
+    "rel_acc": 0.8771929824561403,
+    "rel_admitted": 57
+  },
+  "timestamp": "2026-08-01T10:49:35.364977+00:00",
+  "wall_s": 2.8107969760894775
+}

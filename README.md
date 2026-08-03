@@ -1,8 +1,14 @@
-# TapeLM
+# Inprint v0.1
 
 **Facts as fingerprints on character ink** — not a token-id store, not retrieved paragraphs.
 
-One frozen **character-curve encoder** (P1) for both: **fp** memory (slots, bind, hop, edit, resolve) on the same geometry as generation. Text readout: **ink→arcBPE** ([not GPT BPE](docs/ARCHITECTURE.md#arcbpe--not-gpt-bpe)). Product trunk **221 → 227 → 228c → 230 → 226c** — demo: `artifact/scripts/run_product.py`.
+**Inprint** is the product name; this repository remains [**TapeLM**](https://github.com/KonstantinK-V/TapeLM) on GitHub and [**TapeLM-P1**](https://huggingface.co/Kostya03v/TapeLM-P1) on Hugging Face.
+
+One frozen **character-curve encoder** (P1) for both: **fp** memory (slots, bind, hop, edit, resolve) on the same geometry as generation. Text readout: **ink→arcBPE** ([not GPT BPE](docs/ARCHITECTURE.md#arcbpe--not-gpt-bpe)). **v0.1 demo:** memory trunk **221 → 227 → 228c → 230 → 226c**; research line through stream ingest (**255**) and slot-bias glue (**256**). See [`artifact/INPRINT.md`](artifact/INPRINT.md).
+
+```bash
+python artifact/scripts/run_inprint.py demo
+```
 
 | Headline results (staged) | |
 |---------------------------|---|

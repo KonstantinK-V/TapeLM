@@ -1,0 +1,271 @@
+{
+  "stage": 255,
+  "overall": "STREAM_INGEST_OK",
+  "lambda_base": 0.2,
+  "lambda_admit": false,
+  "lambda_admit_alpha": 0.35,
+  "run_tag": "ablate_no_wq_4ch",
+  "chunk_lines": 25000,
+  "entity_cap": 400,
+  "query_train": false,
+  "query_steps": 150,
+  "arc_mode": "frozen",
+  "epochs_per_chunk": 1.0,
+  "replay_frac": 0.2,
+  "reservoir_cap": 4000,
+  "gates": {
+    "G_streamed": true,
+    "G_no_forget_vs_P1": true,
+    "G_peak_hold_regress": true,
+    "G_understanding_holds": true,
+    "G_recall_query_beats_frozen": true,
+    "G_recall_adapt_top1_floor": true,
+    "G_tape_bounded": true
+  },
+  "summary": {
+    "chunks": 4,
+    "tokens_unique": 14916212,
+    "tokens_train": 14917954,
+    "tape_slots": 1179,
+    "tape_mb": 0.603648,
+    "baseline_exam": 0.825,
+    "exam_first_chunk": 0.8333333333333334,
+    "exam_last": 0.8583333333333333,
+    "forget_hold_ce_vs_first_chunk": {
+      "wiki": -0.12248156468073557,
+      "med": 0.10839559634526585
+    },
+    "forget_hold_ce_vs_P1": {
+      "wiki": -0.020618180433909394,
+      "med": -0.753876705964406
+    },
+    "baseline_hold_ce": {
+      "wiki": 4.356857180595398,
+      "med": 4.131383915742238
+    },
+    "recall_top1_vs_bank": [
+      [
+        359,
+        1.0
+      ],
+      [
+        651,
+        1.0
+      ],
+      [
+        949,
+        1.0
+      ],
+      [
+        1179,
+        1.0
+      ]
+    ],
+    "recall_top1_frozen_vs_bank": [
+      [
+        359,
+        1.0
+      ],
+      [
+        651,
+        1.0
+      ],
+      [
+        949,
+        1.0
+      ],
+      [
+        1179,
+        1.0
+      ]
+    ],
+    "recall_mrr_vs_bank": [
+      [
+        359,
+        1.0
+      ],
+      [
+        651,
+        1.0
+      ],
+      [
+        949,
+        1.0
+      ],
+      [
+        1179,
+        1.0
+      ]
+    ],
+    "recall_final_top1": 1.0,
+    "recall_final_top1_frozen": 1.0,
+    "recall_final_mrr": 1.0
+  },
+  "history": [
+    {
+      "chunk": 1,
+      "domain": "wiki",
+      "tokens_unique": 4417194,
+      "tokens_train": 4417435,
+      "tape_slots": 359,
+      "tape_mb": 0.183808,
+      "entities_added": 327,
+      "entities_dropped": 73,
+      "n_admit_lambda": 359,
+      "lambda_eff": 0.2,
+      "query_loss": NaN,
+      "exam_next_tok": 0.8333333333333334,
+      "hold_ce": {
+        "wiki": 4.458720564842224
+      },
+      "probe_bank_frozen": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "probe_bank": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "wall_s": 1908.5669493675232
+    },
+    {
+      "chunk": 2,
+      "domain": "wiki",
+      "tokens_unique": 8900188,
+      "tokens_train": 8900887,
+      "tape_slots": 651,
+      "tape_mb": 0.333312,
+      "entities_added": 292,
+      "entities_dropped": 108,
+      "n_admit_lambda": 292,
+      "lambda_eff": 0.2,
+      "query_loss": NaN,
+      "exam_next_tok": 0.825,
+      "hold_ce": {
+        "wiki": 4.3923343022664385
+      },
+      "probe_bank_frozen": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "probe_bank": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "wall_s": 3849.440400123596
+    },
+    {
+      "chunk": 3,
+      "domain": "med",
+      "tokens_unique": 14571226,
+      "tokens_train": 14572601,
+      "tape_slots": 949,
+      "tape_mb": 0.485888,
+      "entities_added": 266,
+      "entities_dropped": 134,
+      "n_admit_lambda": 298,
+      "lambda_eff": 0.2,
+      "query_loss": NaN,
+      "exam_next_tok": 0.8416666666666667,
+      "hold_ce": {
+        "wiki": 4.31658007701238,
+        "med": 3.269111613432566
+      },
+      "probe_bank_frozen": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        },
+        "med": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "probe_bank": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        },
+        "med": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "wall_s": 6078.1150431633
+    },
+    {
+      "chunk": 4,
+      "domain": "med",
+      "tokens_unique": 14916212,
+      "tokens_train": 14917954,
+      "tape_slots": 1179,
+      "tape_mb": 0.603648,
+      "entities_added": 230,
+      "entities_dropped": 170,
+      "n_admit_lambda": 230,
+      "lambda_eff": 0.2,
+      "query_loss": NaN,
+      "exam_next_tok": 0.8583333333333333,
+      "hold_ce": {
+        "wiki": 4.3362390001614886,
+        "med": 3.377507209777832
+      },
+      "probe_bank_frozen": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        },
+        "med": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "probe_bank": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        },
+        "med": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "wall_s": 6252.066832780838
+    }
+  ],
+  "note": "Canonical frozen keys on tape; trainable W_q aligns queries (understanding\u2192read). W_q fits only probe facts with wq_train=True; recall is scored on the held-out half. Hold CE vs P1 is primary no-forget gate. Recall gates require adapted top1/MRR, not frozen-only.",
+  "timestamp": "2026-08-03T07:22:55.078646+00:00",
+  "wall_s": 6252.464966773987
+}

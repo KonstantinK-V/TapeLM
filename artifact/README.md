@@ -1,15 +1,15 @@
-# TapeLM — start here
+# Inprint v0.1 — start here
 
-Character **ink** → **fp** facts on one encoder (not token-id store, not chunk RAG). Text: **ink→arcBPE**. Story: [`WHY_TAPELM.md`](WHY_TAPELM.md) · trunk **221→227→228c→230→226c** · `run_product.py`
+**Inprint** (codebase: **TapeLM** variant A) — character **ink** → **fp** facts on one encoder (not token-id store, not chunk RAG). Text: **ink→arcBPE**.
 
-**TapeLM variant A** — one **character-curve encoder** (pretrained in 191, **frozen** for memory ingest) and **fingerprint memory** in the same space.
+Product bill of materials: [`INPRINT.md`](INPRINT.md) · thesis: [`WHY_TAPELM.md`](WHY_TAPELM.md) · trunk **221→227→228c→230→226c** + stream **255** + glue **256**.
 
 **Fast path:** [`QUICKSTART.md`](QUICKSTART.md)
 
 ```bash
 pip install -r artifact/requirements.txt
 python artifact/scripts/download_checkpoints.py --with-w-registry
-python artifact/scripts/run_product.py
+python artifact/scripts/run_inprint.py demo
 ```
 
 **Paper-shaped read:** [`../results/preprint_tapelm_draft.md`](../results/preprint_tapelm_draft.md) (§4.8 **221–230**) · **Diagram:** [`../docs/ARCHITECTURE.md`](../docs/ARCHITECTURE.md)

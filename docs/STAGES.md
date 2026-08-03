@@ -1,4 +1,4 @@
-# Stage index (TapeLM: 170–235)
+# Stage index (TapeLM: 170–245)
 
 > **Shipping trunk (product):** **221 → 227 → 228c → 230 → 226c**
 
@@ -66,22 +66,44 @@ Narrative: [`extension_memory_contract.md`](../results/extension_memory_contract
 
 ---
 
-## Post-trunk engineering (231–235) — not shipping trunk
-
-Ops and algebra after the product path. Useful for deploy hygiene and W composition; **not** headline vs RAG / not required for `run_product.py`.
+## Post-trunk engineering (231–239)
 
 | Stage | Script | Verdict (full) | Value |
 |-------|--------|----------------|-------|
-| **231** | `_stage231_temporal_W.py` | **TEMPORAL_W_OK** | Matched qmap beats wrong-era W on code read (Δ ~0.23) |
-| **232** | `_stage232_stream_w_version.py` | **STREAM_W_VERSION_OK** | L3: age decay × slot `w_version` when eras tie |
-| **233** | `_stage233_tool_binding.py` | **TOOL_BINDING_OK** | `fp(tool)⊙fp(entity)` keys beat entity-only (~1.0 vs ~0.33) |
-| **234** | `_stage234_compositional_W.py` | **COMPOSITIONAL_W_OK** | Chained qmap ≈ / ≥ direct W (228 algebra) |
-| **235** | `_stage235_mixed_l1_probe.py` | **MIXED_L1_PROBE_OK** | Short mixed arc-ft probe only — **not** 191-scale pretrain |
+| **231** | `_stage231_temporal_W.py` | **TEMPORAL_W_OK** | Matched qmap beats wrong-era W |
+| **232** | `_stage232_stream_w_version.py` | **STREAM_W_VERSION_OK** | L3 decay × `w_version` |
+| **233** | `_stage233_tool_binding.py` | **TOOL_BINDING_OK** | tool⊙entity keys |
+| **234–236** | compositional W | **OK** | Chained ≈ direct |
+| **237–238** | mixed L1 | PARTIAL / **MIXED_SCRATCH_OK** | Future encoder family evidence |
+| **239** | `_stage239_cf_sequential.py` | **CF_SEQUENTIAL_OK** | A→B vs parametric GPT |
 
-API: `_tapelm_ext` (`weighted_slot_sims`, `fp_bind`, `compose_w_bwd`, …). Still open at headline scale: full multi-domain **L1 pretrain**.
+---
+
+## Unexpected comparisons (240–245) — not shipping trunk
+
+| Stage | Script | Verdict | Surprise? |
+|-------|--------|---------|-----------|
+| **240** | `_stage240_cf_vs_rag.py` | **CF_VS_RAG_SURPRISE** | Yes — frozen GPT+RAG index **breaks** under query drift (1.0→0.68); TapeLM 0.95 |
+| **241** | `_stage241_harmful_W.py` | **WRONG_W_HURTS_OK** | Wrong W < no-W (deploy: better bare than wrong family) |
+| **242** | `_stage242_rehearsal_dose.py` | **REHEARSAL_DOSE_PARTIAL** | 50% rehearsal → GPT 0.81, still below TapeLM 1.0 |
+| **243** | `_stage243_carrier_drift.py` | **CARRIER_DRIFT_OK** | Same B corpus: slots 0.98 vs weights 0.45 |
+| **244** | `_stage244_forget_clean.py` | **FORGET_CLEAN_OK** | Slot delete zero collateral; GPT unlearn damages retained |
+| **245** | `_stage245_mixed_vs_p1W.py` | **MIXED_NO_W_TIES_P1W** | Mixed raw ≈ P1+W (not a swap signal) |
+| **246** | `_stage246_domain_curriculum.py` | **DOMAIN_CURRICULUM_PARTIAL** | wiki→stories→med→news @3k: tape mem holds; GPT wiki PPL explodes; wiki head gen weak |
+| **247** | `_stage247_ingest_forks.py` | **INGEST_FORK_SLOTS_AND_HOP** | Fork map: slots+masked CE beat CE-on-bindings; hop-sim admits/rejects |
+| **248–250** | masked CE nights | PARTIAL / **MASKED_NIGHT_OK** (mem) | **Do not read as “understanding failed”:** 248–250 used `" ".join` stream → often **one wiki doc** + repeated mask stub; exam nt drop likely **overfit**, not objective verdict |
+| **251** | `_stage251_cpc_understand.py` | **CPC_UNDERSTAND_PARTIAL** @4M tok/phase | CAL moves exam **0.825→0.850**; CPC gap **0.185→0.096** but exam **0.717**, holdout PPL worse; mem/leak OK |
+| **252** | `_stage252_joint_cpc.py` | **JOINT_CPC_OK** @4M/arm | Winners **λ=0.05, 0.2**; **λ=0.2**: exam **0.850**, gap **0.185→0.137** |
+| **253** | `_stage253_scale_joint.py` | **SCALE_JOINT_OK** @16M | **λ=0.2**: nt **0.825→0.867**, hold **4.00**, gap **0.185→0.129**; all gates vs 252; mem 1.0 (~2h) |
+| **254** | `_stage254_continual_understand.py` | **re-run** (W_q + local mask) | Old run: mem 0.92+ shift path; new: **W_query** canonical read, leak Δ vs P1 |
+| **255** | `_stage255_stream_ingest.py` | smoke **W_q** top1 0→1 | Frozen keys + **trainable W_q**; old wiki:12 recall invalid without W_q — re-run `--run-tag wiki12` |
+
+Runner: `python _run_stages_240_245.py [--smoke]`. Lib: `_stage24x_lib.py`. Curriculum: `_stage246_domain_curriculum.py`. Ingest: `_stage247_ingest_forks.py` → **251** CPC ladder.
+
+**Still open:** **209** meaning / scale.
 
 ---
 
 ## Paper-shaped summary
 
-[`preprint_tapelm_draft.md`](../results/preprint_tapelm_draft.md) covers **170–212** in depth and **§4.8 / Appendix A** for **221–230** (+ short note on **231–235** ops). Full program: [`plan_curve_dynamics.md`](../results/plan_curve_dynamics.md).
+[`preprint_tapelm_draft.md`](../results/preprint_tapelm_draft.md) · full program: [`plan_curve_dynamics.md`](../results/plan_curve_dynamics.md).

@@ -1,0 +1,206 @@
+{
+  "stage": 256,
+  "overall": "SLOT_BIAS_GLUE_OK",
+  "trunk": "stage253_joint_l02.pt",
+  "topk": 8,
+  "steps": 800,
+  "n_facts": 48,
+  "n_fit": 24,
+  "n_eval": 24,
+  "tape_slots": 1248,
+  "gates": {
+    "G_freeform_value": true,
+    "G_beats_head_only": true,
+    "G_tape_causal": true,
+    "G_slot_delete_clean": true,
+    "G_no_param_leak": true,
+    "G_lang_intact": true,
+    "G_gate_selective": true
+  },
+  "summary": {
+    "em_head_only": 0.0,
+    "em_glue": 0.6666666666666666,
+    "em_shuffled_tape": 0.0,
+    "em_empty_tape": 0.0,
+    "em_target_before_delete": 0.6666666666666666,
+    "em_target_after_delete": 0.0,
+    "em_retained_after_delete": 0.6666666666666666,
+    "gate_mean_fact": 0.6897834641539139,
+    "gate_mean_prose": 2.1127461824762776e-07,
+    "prose_ce_glue_on": 4.611836572488149,
+    "prose_ce_glue_off": 4.611836373806,
+    "hold_ce_base": 3.881660521030426,
+    "hold_ce_after": 3.881660521030426,
+    "exam_base": 0.8666666666666667,
+    "tau": 0.049458712339401245,
+    "gate_l1": 0.02
+  },
+  "curve": [
+    {
+      "step": 133,
+      "loss_fact": 0.5116904377937317,
+      "loss_prose": 4.14639139175415,
+      "loss_nce": 0.8098949193954468,
+      "gate_fact": 0.9967834399296687,
+      "gate_prose": 8.644002106292544e-06,
+      "tau": 0.14139120280742645
+    },
+    {
+      "step": 266,
+      "loss_fact": 0.2295961081981659,
+      "loss_prose": 4.179730415344238,
+      "loss_nce": 0.940335750579834,
+      "gate_fact": 0.9999018087983131,
+      "gate_prose": 3.019082731722453e-07,
+      "tau": 0.09477014094591141
+    },
+    {
+      "step": 399,
+      "loss_fact": 0.1297866553068161,
+      "loss_prose": 2.4178810119628906,
+      "loss_nce": 0.86833655834198,
+      "gate_fact": 0.9984456300735474,
+      "gate_prose": 6.14062627336049e-08,
+      "tau": 0.072244793176651
+    },
+    {
+      "step": 532,
+      "loss_fact": 0.03719121217727661,
+      "loss_prose": 4.584766864776611,
+      "loss_nce": 0.9450654983520508,
+      "gate_fact": 0.9999782822348855,
+      "gate_prose": 2.437067829767943e-08,
+      "tau": 0.06086541339755058
+    },
+    {
+      "step": 665,
+      "loss_fact": 0.023540716618299484,
+      "loss_prose": 4.8395538330078125,
+      "loss_nce": 1.0530214309692383,
+      "gate_fact": 0.999860379844904,
+      "gate_prose": 2.632703812607804e-10,
+      "tau": 0.0541730672121048
+    },
+    {
+      "step": 798,
+      "loss_fact": 0.007011928595602512,
+      "loss_prose": 3.028653621673584,
+      "loss_nce": 0.950600802898407,
+      "gate_fact": 0.9999309824063227,
+      "gate_prose": 0.08062958054847884,
+      "tau": 0.049513090401887894
+    }
+  ],
+  "retrieval_at_cue": {
+    "held_out_top1": 1.0,
+    "held_out_median_rank": 1.0,
+    "fit_top1": 1.0,
+    "rows": [
+      {
+        "S": "Bapozo",
+        "gold": "Adding",
+        "rank": 1,
+        "top1": "Adding",
+        "gold_sim": 0.5590826272964478,
+        "w_max": 0.9407758116722107
+      },
+      {
+        "S": "Rizuze",
+        "gold": "Ivoire",
+        "rank": 1,
+        "top1": "Ivoire",
+        "gold_sim": 0.47160571813583374,
+        "w_max": 0.9551052451133728
+      },
+      {
+        "S": "Vegeh",
+        "gold": "Diavolo",
+        "rank": 1,
+        "top1": "Diavolo",
+        "gold_sim": 0.487350195646286,
+        "w_max": 0.9184520244598389
+      },
+      {
+        "S": "Demas",
+        "gold": "Shara",
+        "rank": 1,
+        "top1": "Shara",
+        "gold_sim": 0.546457052230835,
+        "w_max": 0.910391628742218
+      },
+      {
+        "S": "Ricafna",
+        "gold": "Sinnott",
+        "rank": 1,
+        "top1": "Sinnott",
+        "gold_sim": 0.562921941280365,
+        "w_max": 0.9535199403762817
+      },
+      {
+        "S": "Kettiramla",
+        "gold": "Hollinwood",
+        "rank": 1,
+        "top1": "Hollinwood",
+        "gold_sim": 0.5796210765838623,
+        "w_max": 0.9527847170829773
+      },
+      {
+        "S": "Rigacmi",
+        "gold": "Congo",
+        "rank": 1,
+        "top1": "Congo",
+        "gold_sim": 0.6341454982757568,
+        "w_max": 0.9967195391654968
+      },
+      {
+        "S": "Hecfivir",
+        "gold": "Labouring",
+        "rank": 1,
+        "top1": "Labouring",
+        "gold_sim": 0.5996455550193787,
+        "w_max": 0.9921179413795471
+      }
+    ]
+  },
+  "decode_samples": [
+    {
+      "cue_S": "Bapozo",
+      "gold": "Adding",
+      "got": "Adam Adam Adam",
+      "gate": 0.5143161072677079
+    },
+    {
+      "cue_S": "Rizuze",
+      "gold": "Ivoire",
+      "got": "Ivoire B I",
+      "gate": 0.7454279114802679
+    },
+    {
+      "cue_S": "Vegeh",
+      "gold": "Diavolo",
+      "got": "Diavolo Med",
+      "gate": 0.8346531341473261
+    },
+    {
+      "cue_S": "Demas",
+      "gold": "Shara",
+      "got": "Shakira , who",
+      "gate": 0.1945997379370965
+    },
+    {
+      "cue_S": "Ricafna",
+      "gold": "Sinnott",
+      "got": "Sinnotto S",
+      "gate": 0.8773278047641119
+    },
+    {
+      "cue_S": "Kettiramla",
+      "gold": "Hollinwood",
+      "got": "Hollinwood Cal H",
+      "gate": 0.9979308545589447
+    }
+  ],
+  "note": "Glue only: trunk frozen, W_q + gate MLP + tau trained. Copy mixture p' = (1-g)p_LM + g*p_copy, so an open gate is paid for in CE. Values exist in the tape only, so CE toward the right value can flow only through the bias path. EM is free-form greedy decode (no candidate set); scored on facts the glue never fit.",
+  "timestamp": "2026-08-02T20:41:51.634095+00:00",
+  "wall_s": 576.4202523231506
+}

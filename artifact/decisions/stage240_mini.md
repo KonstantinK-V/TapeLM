@@ -1,0 +1,36 @@
+# Stage 240 CF vs GPT+RAG
+
+**CF_VS_RAG_SURPRISE**
+
+```json
+{
+  "stage": 240,
+  "overall": "CF_VS_RAG_SURPRISE",
+  "gates": {
+    "G_memorize_ge_0p70": true,
+    "G_tape_keep_ge_0p80": true,
+    "G_rag_keep_ge_0p80": false,
+    "G_param_drop_ge_0p15": true,
+    "G_rag_surprise_gap": true
+  },
+  "tape": {
+    "A0": 0.975,
+    "A1_W": 0.95,
+    "A1_raw": 0.85,
+    "W_align": 0.9947112202644348
+  },
+  "rag": {
+    "A0": 1.0,
+    "A1": 0.675,
+    "drop": 0.32499999999999996
+  },
+  "param_gpt": {
+    "A0": 0.725,
+    "A1": 0.5,
+    "drop": 0.22499999999999998,
+    "next_tok_after_B": 0.44166666666666665
+  },
+  "note": "Frozen GPT emb index after A; queries with post-B GPT. Architectural if RAG~TapeLM.",
+  "timestamp": "2026-07-31T04:48:58.291373+00:00"
+}
+```

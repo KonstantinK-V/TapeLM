@@ -1,0 +1,27 @@
+# Stage 241 harmful W vs no-W
+
+**WRONG_W_HURTS_OK**
+
+```json
+{
+  "stage": 241,
+  "overall": "WRONG_W_HURTS_OK",
+  "gates": {
+    "G_wrong_worse_than_none_by_0p05": true,
+    "G_matched_helps_vs_none_0p05": true,
+    "G_matched_beats_wrong_0p10": true
+  },
+  "recall": {
+    "no_W": 0.8833333333333333,
+    "wrong_W_stories": 0.7666666666666667,
+    "matched_W_code": 1.0
+  },
+  "deltas": {
+    "none_minus_wrong": 0.11666666666666659,
+    "matched_minus_none": 0.1166666666666667
+  },
+  "W_align_code": 0.9947322010993958,
+  "note": "Deploy guard: prefer no-W over wrong-family W when hurt>0.",
+  "timestamp": "2026-07-31T04:54:47.975039+00:00"
+}
+```

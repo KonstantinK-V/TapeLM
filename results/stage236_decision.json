@@ -1,0 +1,15 @@
+{
+  "stage": 236,
+  "overall": "COMPOSITIONAL_FIXED_OK",
+  "gates": {
+    "G_composed_within_0p10_of_direct": true,
+    "G_composed_ge_0p70": true
+  },
+  "exam_path": "data\\stage236_fixed_facts.json",
+  "n_facts": 55,
+  "recall_direct": 0.9818181818181818,
+  "recall_composed": 0.9090909090909091,
+  "gap_direct_minus_composed": 0.07272727272727275,
+  "api": "compose_w_bwd",
+  "timestamp": "2026-07-30T20:01:57.996827+00:00"
+}

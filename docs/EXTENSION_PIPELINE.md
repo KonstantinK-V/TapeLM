@@ -130,12 +130,16 @@ python _stage225_family_fork.py [--smoke]
 | **232** | `_stage232_stream_w_version.py` | L3 decay + slot `w_version` penalty |
 | **233** | `_stage233_tool_binding.py` | `fp(tool)⊙fp(entity)` memory keys |
 
-### 234–235 · compositional W, mixed L1 probe
+### 234–239 · compositional W, mixed L1, CF sequential
 
 | Stage | Script | Role |
 |-------|--------|------|
 | **234** | `_stage234_compositional_W.py` | Chained qmap vs direct W (228 algebra) |
 | **235** | `_stage235_mixed_l1_probe.py` | Short mixed arc ft vs prose-only (L1 branch) |
+| **236** | `_stage236_compositional_fixed.py` | Fixed exam for compositional W |
+| **237–238** | mixed L1 night / scratch | Continue vs from-scratch mixed encoder evidence |
+| **239** | `_stage239_cf_sequential.py` | A→B CF vs fair parametric GPT |
+| **240–245** | `_stage240_*.py` … `_stage245_*.py` | Unexpected comparisons (RAG surprise, harmful W, rehearsal, carriers, forget, mixed vs P1) |
 
 Engineering spec: [`MEMORY_ENGINEERING.md`](MEMORY_ENGINEERING.md). Persist W: `python artifact/scripts/export_w_registry.py`.
 
