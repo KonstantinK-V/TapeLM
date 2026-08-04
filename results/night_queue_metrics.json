@@ -1,0 +1,95 @@
+{
+  "generated": "2026-08-04",
+  "queue_log": "results/_run_queue_night_full.log",
+  "stages": {
+    "255": {
+      "overall": "STREAM_INGEST_OK",
+      "note": "ablate_no_wq_wiki12 done before this queue; not re-run"
+    },
+    "260f": {
+      "overall": "OPEN_GATE6_OK",
+      "headline_arm": "feat_only",
+      "steps": 2500,
+      "wall_s": 1035.1,
+      "n_pairs": 61,
+      "paired_win_rate": 0.6721,
+      "paired_logit_gap": 2.6978,
+      "gold_is_top1_with": 0.7377,
+      "gold_is_top1_without": 0.0,
+      "auc_on_vs_prose": 0.8676,
+      "auc_on_vs_off_tape": 0.8442,
+      "gate_on_tape": 0.2321,
+      "gate_on_random_keys": 0.00027,
+      "gate_tape_over_random_ratio": 867.7,
+      "per_mode_win_rate": {
+        "h_feat": 0.6393,
+        "feat_only": 0.6721,
+        "h_only": 0.0
+      },
+      "decision": "results/stage260f_decision.json"
+    },
+    "257": {
+      "overall": "FP_COMPOSE_OK",
+      "steps": 800,
+      "wall_s": 488.9,
+      "em_2hop_glue": 1.0,
+      "em_2hop_unseen_pair": 1.0,
+      "em_2hop_shuffled": 0.0,
+      "exp_hops_2hop": 1.998,
+      "decision": "results/stage257_decision.json"
+    },
+    "258": {
+      "overall": "SEM_QUERY_OK",
+      "steps": 600,
+      "n_subjects": 64,
+      "wall_s": 49.9,
+      "unseen_para_sel_acc_curve_sem": 0.6458,
+      "unseen_para_sel_acc_gpt": 0.2760,
+      "unseen_para_delta": 0.3698,
+      "fp_only_unseen_para": 0.0,
+      "decision": "results/stage258_decision.json"
+    },
+    "261": {
+      "overall": "NL_QUERY_NO",
+      "run": "smoke_only",
+      "interpretation": "fp_plus_sem_harms_below_shuffle",
+      "slots": 53,
+      "steps": 200,
+      "wall_s": 6.2,
+      "n_eval": 27,
+      "overlap_median": 0.0741,
+      "top1_fp_only": 0.1481,
+      "top1_fp_plus_sem": 0.0370,
+      "top1_shuffled_keys": 0.0741,
+      "blend_alpha_eval": 0.579,
+      "train_alpha_end": 0.645,
+      "top1_high_overlap_sem": 0.0769,
+      "full_skipped": true,
+      "decision": "results/stage261_decision.json"
+    },
+    "242": {
+      "overall": "REHEARSAL_DOSE_ANTICF_OK",
+      "overall_legacy": "REHEARSAL_DOSE_PARTIAL",
+      "claim_read": "STRONG_anti_CF_price_in_weights",
+      "interpretation": "GPT 0.938 at 100% A rehearsal vs tape 1.0",
+      "wall_s": 325.3,
+      "tape_A_after_B": 1.0,
+      "gpt_A_rate_0": 0.53125,
+      "gpt_A_rate_1": 0.9375,
+      "target_gpt": 0.95,
+      "min_rehearsal_to_match": null,
+      "decision": "results/stage242_decision.json"
+    },
+    "212b": {
+      "overall": "INSTANCE_SEM_NO_AT_SCALE",
+      "interpretation": "curve_vs_gpt_parity_both_near_chance",
+      "steps": 800,
+      "wall_s": 43.3,
+      "n_eval": 240,
+      "collision_fp_only": 0.2042,
+      "collision_fp_plus_sem": 0.325,
+      "collision_gpt": 0.3667,
+      "decision": "results/stage212b_decision.json"
+    }
+  }
+}

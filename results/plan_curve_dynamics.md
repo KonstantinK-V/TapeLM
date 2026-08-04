@@ -518,7 +518,7 @@ curve-specific wall.
 
 | Stage | Intent |
 |-------|--------|
-| **210** | Pre-publish: SoftFollow inject into P1 forward, answer via CE tokens (not fp cosine) → **THESIS_NO** |
+| **210** | Pre-publish: SoftFollow inject into P1 forward, answer via CE tokens (not fp cosine) → **`THESIS_NO_AT_SCALE`** |
 
 **210 read — structured hops do NOT survive the token head on 3050 (negative for thesis hook, not for 203).**
 Reader phase matches 203 (external cosine loop test **1.0** on k1–k3). After inject training (800 steps, gate→~0.29),
@@ -530,7 +530,7 @@ internal forward+tokens needs a different read head (211 slow tape / 212 instanc
 
 | Stage | Intent |
 |-------|--------|
-| **211** | Pre-publish: cross-doc internal slow tape vs endpoint → **THESIS_NO** |
+| **211** | Pre-publish: cross-doc internal slow tape vs endpoint → **`THESIS_NO_AT_SCALE`** |
 
 **211 read — addressable slow tape does NOT beat endpoint; external slots remain ceiling.** Cross-doc (fact
 in doc A, query on doc B only; n=100, 4-way): **internal_tape 0.23** vs **endpoint_only 0.28** (both ≈ chance;
@@ -542,7 +542,7 @@ for concept §183 «endpoint ≠ memory»: logged surprise slots do not yet form
 
 | Stage | Intent |
 |-------|--------|
-| **212** | Pre-publish (final): read-only instance channel on frozen tape — collisions + para/hard → **THESIS_NO** |
+| **212** | Pre-publish (final): read-only instance channel on frozen tape — collisions + para/hard → **`THESIS_NO_AT_SCALE`** |
 
 **212 read — occurrence identity is NOT recoverable from the frozen tape state; the collision debt stays open.**
 Contrastive head (InfoNCE, positives = disjoint other half of the same occurrence window, hard negatives =
@@ -563,7 +563,7 @@ Learning buys only **+0.04** over an untrained projection of the same state and 
 (gap +0.19, no inversion) — the tape state at a crop endpoint encodes **form**, not content, consistent with
 190/199–201. **G5 pass:** next_tok 0.820 → 0.820 (Δ 0), P1 bit-frozen (channel truly read-only).
 
-**Frontier closed (210–212, all THESIS_NO).** Three independent attempts to make the tape do something a
+**Internalization @ d256 (210–212, all `THESIS_NO_AT_SCALE`).** Three independent attempts to make the tape do something a
 BPE+index stack cannot — hops inside the forward pass answering in tokens (210), addressable slow tape beyond
 the window (211), occurrence-identity channel (212) — each fails *for a different, informative reason*:
 composition is only sound as an **external zero-train fp loop**; the slow endpoint is **not** an addressable
@@ -571,7 +571,7 @@ memory; and instance identity is **not present** in the frozen state. The honest
 stays what 191–209 measured: variant A as a unified fp-space artifact plus a dense **map of negatives**.
 None of the three cost anything — P1 stayed frozen and generation unchanged in all three.
 
-**Internalization program: closed (210–212).** Token-internal hops, addressable slow tape, and occurrence-identity channels are **THESIS_NO**. The shipping hop API remains the **external zero-train fp loop** (203).
+**Internalization program: not confirmed @ d256 (210–212).** Token-internal hops, addressable slow tape, and occurrence-identity channels are **`THESIS_NO_AT_SCALE`** (legacy `THESIS_NO`). Matched-GPT ladder: `stage210_212_matched_gpt_ladder.json`. The shipping hop API remains the **external zero-train fp loop** (203).
 
 **Core LM program (191–209): closed for v1 claim.** Variant A is the artifact; variant B is falsified (207); hybrid rerank on A is NO GAIN (208); essence wins W1–W5 as measured below. **Memory ops program (213–230): closed for v1 product trunk** — same frozen P1, canonical bank, family W, fp decode, resolution policy.
 
@@ -589,7 +589,7 @@ None of the three cost anything — P1 stayed frozen and generation unchanged in
 | **216** | Partial FF freeze (emb frozen, train FF) → **SPLIT_FF_NO** |
 | **217–218** | Slow-endpoint tape / snap hop → **NO** |
 | **219** | Age decay on stale slots → **STREAM_DECAY_WIN** (stream, not one-shot exam) |
-| **220** | PAWS sem sidecar → **SEM_SIDECAR_NO** |
+| **220** | PAWS sem sidecar → **`SEM_SIDECAR_INVALID_METHOD`** |
 
 **213 read — freeze is the default for memory API.** Finetuning only layers above frozen `arc_enc` leaves **fp drift ~10⁻⁷**; fp-stable. Wiki CE drops if you train upper on TinyStories-only — expected trade. **Do not** partial-FF inside encoder (216): min cos(fp_old, fp_new) **~0.18–0.67** — geometry walks; use **full freeze + W** instead.
 

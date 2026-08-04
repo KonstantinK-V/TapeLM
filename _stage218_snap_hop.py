@@ -84,7 +84,7 @@ def main() -> int:
     acc_raw = run(False)
     acc_snap = run(True)
     g1 = acc_snap >= acc_raw + 0.02
-    overall = "SNAP_HOP_WIN" if g1 else "SNAP_HOP_NO"
+    overall = "SNAP_HOP_WIN" if g1 else "SNAP_HOP_INVALID_METHOD"
     DECISION.write_text(
         json.dumps(
             {

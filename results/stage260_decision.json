@@ -1,0 +1,32 @@
+{
+  "stage": 260,
+  "overall": "OPEN_GATE_NO",
+  "trunk": "stage253_joint_l02.pt",
+  "steps": 200,
+  "topk": 8,
+  "n_fit": 24,
+  "n_eval_on_tape": 16,
+  "n_eval_off_tape": 16,
+  "tape_slots": 40,
+  "gates": {
+    "G_auc_vs_prose": false,
+    "G_auc_vs_off_tape": false,
+    "G_quiet_on_prose": true,
+    "G_delete_silences": false,
+    "G_tape_causal": true
+  },
+  "summary": {
+    "gate_on_tape": 0.19968581662099247,
+    "gate_off_tape": 0.32470329476616044,
+    "gate_prose": 0.041077093629162675,
+    "auc_on_vs_prose": 0.5740595611285266,
+    "auc_on_vs_off_tape": 0.44155844155844154,
+    "auc_shuffled_keys": 0.5740595611285266,
+    "gate_after_slot_delete": 0.199013565128222,
+    "false_fire_rate_prose": 0.032327586206896554,
+    "n_prose_positions": 464
+  },
+  "note": "Natural wikitext lines, no cue template anywhere. The gate is read at every position of a real sentence; the scored point is the position whose next token starts a tape-backed entity. Off-tape entities are the control that separates 'I hold this' from 'something surprising is coming' \u2014 they are equally rare and equally entity-shaped, and the tape simply does not have them. OPEN_GATE_POSITIONAL is the honest verdict when the gate finds fact positions but fires on off-tape entities too. Fit and eval lines are disjoint; trunk and P1 frozen; only W_q, gate and tau train.",
+  "timestamp": "2026-08-03T19:55:06.349505+00:00",
+  "wall_s": 44.925196170806885
+}

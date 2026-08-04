@@ -460,7 +460,7 @@
       }
     }
   ],
-  "note": "Chunked single-pass stream; corpus never fully resident. Canonical frozen arc_enc keys keep old slots readable; --arc adapt adds a per-domain W era. Reservoir replay is the only text kept from past chunks. Recomputed probe_bank with fixed-seed top1/MRR.",
+  "note": "Chunked single-pass stream; corpus never fully resident. Canonical frozen arc_enc keys; trainable W_q (QueryAdapter) per chunk on ingested-entity pairs — recall gates on held-out probes, hold CE vs P1 for no-forget. Reservoir replay only for past text. Fixed-seed probe_bank top1/MRR.",
   "timestamp": "2026-08-02T13:29:07.028055+00:00",
   "wall_s": 20926.446934700012
 }

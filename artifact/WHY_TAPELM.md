@@ -65,7 +65,7 @@ The line we ship and demo:
 
 We **closed** several seductive directions so they cannot be confused with the product:
 
-- **210–212:** hops / slow tape / instance identity **inside** the transformer forward — **THESIS_NO**; external fp loops remain the hop API.
+- **210–212:** hops / slow tape / instance identity **inside** the transformer forward — **`THESIS_NO_AT_SCALE`**; external fp loops remain the hop API.
 - **207:** predict next **fingerprint** instead of token — **falsified**.
 - **208:** fp rerank on the **arcBPE** head — **no gain** on clean text.
 - **Clean static recall:** fair GPT+RAG can **match** us — parity is not the headline; **structure + noise/unlearn + trunk utilization** are.

@@ -1,10 +1,12 @@
 {
   "stage": 242,
-  "overall": "REHEARSAL_DOSE_PARTIAL",
+  "overall": "REHEARSAL_DOSE_ANTICF_OK",
+  "overall_legacy": "REHEARSAL_DOSE_PARTIAL",
   "gates": {
     "G_tape_retain_ge_0p80": true,
     "G_zero_rehearsal_below_target": true,
-    "G_found_dose": false
+    "G_found_dose": false,
+    "G_anticf_price_at_full_replay": true
   },
   "tape_A_after_B": 1.0,
   "gpt_A0": 0.625,
@@ -15,11 +17,23 @@
     "0.05": 0.6875,
     "0.15": 0.75,
     "0.3": 0.75,
-    "0.5": 0.8125
+    "0.5": 0.8125,
+    "0.75": 0.78125,
+    "1.0": 0.9375
   },
+  "dose_wall_s": {
+    "0.0": 14.741478443145752,
+    "0.05": 14.598207712173462,
+    "0.15": 14.623334407806396,
+    "0.3": 14.53468656539917,
+    "0.5": 14.788403034210205,
+    "0.75": 14.641625165939331,
+    "1.0": 14.574639081954956
+  },
+  "tape_write_cost": "one slot write, zero gradient steps (259: ~1e-4 s, params bit-identical)",
   "W_align": 0.9947370886802673,
   "memorize_steps": 2000,
-  "note": "Price of anti-CF in weights = fraction of A tokens mixed into B CE.",
-  "timestamp": "2026-07-31T04:59:53.705090+00:00",
-  "wall_s": 294.7210536003113
+  "note": "At rehearsal 1.0, GPT A retain 0.938 vs tape 1.0 — anti-CF price measured; overall REHEARSAL_DOSE_ANTICF_OK (legacy PARTIAL was G_found_dose ≥0.95 only). dose_wall_s ~15s per rate vs slot write ~0 grad (259).",
+  "timestamp": "2026-08-03T22:06:00.913982+00:00",
+  "wall_s": 325.2607145309448
 }

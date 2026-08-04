@@ -100,6 +100,24 @@ class TapeView:
         t.alive = torch.zeros_like(t.alive)
         return t
 
+    def with_value(self, old: str, new: str, tok: Tokenizer, pad_id: int) -> "TapeView":
+        """Update a fact: same slot, same KEY, new value — zero gradient steps.
+
+        Keys are written as norm(fp(anchor) + ctx_fp(sentence, exclude=value)), so the value
+        never enters its own key; replacing it leaves the key bit-identical and this stays a
+        fact update rather than a re-index. `copy()` shares the value lists, so they are cloned
+        here — mutating them in place would edit every other view of the same tape.
+        """
+        t = self.copy()
+        t.values = list(self.values)
+        t.tok_ids = list(self.tok_ids)
+        ids = [i for i in tok.encode(" " + new).ids if i != pad_id]
+        for j, v in enumerate(self.values):
+            if v == old:
+                t.values[j] = new
+                t.tok_ids[j] = ids
+        return t
+
 
 def copy_dist(glue, tape, sims, idx, prefix_ids, V, device):
     w = glue.weights(sims)

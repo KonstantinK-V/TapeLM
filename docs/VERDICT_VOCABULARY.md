@@ -1,0 +1,95 @@
+# Verdict vocabulary (TapeLM / Inprint)
+
+**Problem:** bare `*_NO` and `*_PARTIAL` often misread closed branches. Prefer labels that say **what was learned**, **at-scale vs method**, or **superseded by another stage**.
+
+---
+
+## Internalization frontier (210–212)
+
+| Verdict | Meaning |
+|---------|---------|
+| `THESIS_YES` | Property demonstrated under stage gates; not reducible to external fp loop without changing the claim |
+| `ENGINEERING_ONLY` | In-forward path works but matches external zero-train loop on the metric |
+| **`THESIS_NO_AT_SCALE`** | **Default read for 210–212.** Thesis gates failed on frozen P1 @ d256/6L (and stated train budget). Does **not** falsify the property at larger encoder, stronger pretrain, or with GPT-matched controls not yet run |
+| `THESIS_NO` | **Legacy alias only** — same as `THESIS_NO_AT_SCALE`; do not use in new docs or runs |
+
+**Required in decision JSON (210–212):**
+
+- `claim_scope` → [`results/internalization_210_212_claim_scope.json`](../results/internalization_210_212_claim_scope.json)
+- `gpt_matched_ladder` → parity row vs matched GPT on the **same task harness** where applicable
+
+---
+
+## Invalid method (217, 218, 220)
+
+| Verdict | Meaning |
+|---------|---------|
+| **`SLOW_ENDPOINT_INVALID_METHOD`** (217) | Dual ctx+endpoint keys **break** noisy recall vs lex-only — design does not isolate “slow endpoint helps” |
+| **`SNAP_HOP_INVALID_METHOD`** (218) | Snap-to-lexicon hop probe **does not** validly test external fp hop API |
+| **`SEM_SIDECAR_INVALID_METHOD`** (220) | PAWS sidecar vs **lexical overlap** baseline is not a fair semantic test (see 202/209/258) |
+
+**Do not read as `*_NO` (“hypothesis rejected forever”).** These are **closed design branches**, not capability scorecard rows.
+
+Legacy JSON may still show `SLOW_ENDPOINT_NO` / `SNAP_HOP_NO` / `SEM_SIDECAR_NO` — treat as **`_INVALID_METHOD`** in indexes.
+
+---
+
+## Anti-CF rehearsal price (242)
+
+| Verdict | Meaning |
+|---------|---------|
+| **`REHEARSAL_DOSE_ANTICF_OK`** | **Primary read.** Tape retains (**1.0**); GPT **never** reaches match gate even at **100%** A-replay in B CE (e.g. **0.938 @ 1.0** vs target 0.95). **Result**, not a failed experiment |
+| `REHEARSAL_DOSE_OK` | GPT reached target at some rehearsal rate `< 1` |
+| `REHEARSAL_DOSE_PARTIAL` | **Legacy bookkeeping** — `G_found_dose` false while grid incomplete; **do not use** when curve includes **1.0** |
+| `REHEARSAL_DOSE_NO` | Tape or zero-rehearsal controls failed |
+
+Gate `G_found_dose` (≥0.95) is optional strictness; the **substantive claim** is the **full dose curve** vs slot write (259).
+
+---
+
+## Domain curriculum (246 vs 254)
+
+| Verdict | Meaning |
+|---------|---------|
+| **`DOMAIN_CURRICULUM_DUP254`** | **Read-as label.** Same story as **254 joint upper** (multi-domain CE on shared weights): tape mem vs GPT wiki collapse. **Do not re-litigate** — see [`stages_254_close.md`](stages_254_close.md). JSON may still say `DOMAIN_CURRICULUM_PARTIAL` |
+| `CONTINUAL_UNDERSTAND_OK` / `_NO` | **254** operators-only vs joint — canonical continual split |
+
+---
+
+## Semantic scaling (209)
+
+| Verdict | Meaning |
+|---------|---------|
+| `STRUCTURAL_BLOCK_NO` | Curve PAWS **tracks matched GPT** at each scale; refutes “A is structurally blind”; does **not** confirm Goal B @ 3050 |
+
+---
+
+## Semantic query (258, 261)
+
+| Verdict | Meaning |
+|---------|---------|
+| `SEM_QUERY_OK` / `SEM_QUERY_PARTIAL` | Valid exam; sem channel beats fp on paraphrase |
+| `SEM_QUERY_NO_AT_SCALE` | Matched GPT-2 also fails — **scale**, not architecture |
+| `SEM_QUERY_NO` | GPT succeeds where curve does not |
+| `SEM_QUERY_INVALID` | `G_fp_only_at_chance` failed or keys drifted |
+| `NL_QUERY_NO_AT_SCALE` | Open-bank NL; GPT parity on top1 (261) |
+| `NL_QUERY_*` | See [`stage261_close.md`](../results/stage261_close.md) for headline vs blend-harm read |
+
+---
+
+## Stream ingest (255)
+
+| Field | Meaning |
+|-------|---------|
+| **`W_q` (QueryAdapter)** | **Trainable query map only** — canonical slot **keys** frozen. Fits on **ingested-entity** contrastive pairs per chunk; **recall gates** use **held-out** probe facts (not wq_train). Hold CE vs **P1** is the primary no-forget gate. Ablation: `--no-query-train` |
+
+---
+
+## Product / falsified (207, 216, …)
+
+| Pattern | Example |
+|---------|---------|
+| `*_NO` / `Falsified` | Specific mechanism rejected **in the form tested** (207 variant B) |
+| `*_PARTIAL` | Some gates pass — check stage note before headline |
+
+When in doubt: prefer **`NOT_CONFIRMED_AT_SCALE`**, **`NO_AT_SCALE`**, **`INVALID_METHOD`**, or **`ANTICF_OK`** over bare **`NO`** / misleading **`PARTIAL`**.

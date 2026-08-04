@@ -113,7 +113,7 @@ W matrices between families are **not** the same (cos_flat **~0.43–0.53**) →
 1. **Honest continual-learning alternative:** weights may drift; **slots stay**; W restores coordinates.  
 2. **Bounded ops cost:** O(d²) per family, not reindex O(slots).  
 3. **Scalable product API:** few families + fork-on-drop, not one W per customer corpus.  
-4. **Clear negatives:** partial FF (216), recency-as-domain (214), THESIS_NO 207–212 stay off the trunk.
+4. **Clear negatives:** partial FF (216), recency-as-domain (214), **210–212 `THESIS_NO_AT_SCALE`**, 207 falsified — stay off the trunk.
 
 ---
 

@@ -7,12 +7,12 @@
 |-------|---------|----------|
 | **240** | **CF_VS_RAG_SURPRISE** | Frozen GPT emb index breaks after code-B (1.0→0.68); TapeLM keeps 0.95 |
 | **241** | **WRONG_W_HURTS_OK** | Wrong-family W < no-W (0.77 vs 0.88); matched 1.0 |
-| **242** | **REHEARSAL_DOSE_PARTIAL** | Even 50% A-rehearsal in B only reaches GPT A=0.81; never matches TapeLM 1.0 |
+| **242** | **`REHEARSAL_DOSE_ANTICF_OK`** | 100% A-replay → GPT **0.938**, tape **1.0** — not PARTIAL |
 | **243** | **CARRIER_DRIFT_OK** | Same code-B: slots+W 0.98 vs weights 0.45 (gap 0.53) |
 | **244** | **FORGET_CLEAN_OK** | Slot delete: tgt→0, ret/next_tok untouched; GPT unlearn collateral |
 | **245** | **MIXED_NO_W_TIES_P1W** | Mixed-scratch raw 0.96 ≈ P1+W 0.92 (Δ+0.04, tie band) |
 
-4. ~~**246** domain curriculum 3k/domain~~ — **`DOMAIN_CURRICULUM_PARTIAL`**
+4. ~~**246** domain curriculum~~ — **`DOMAIN_CURRICULUM_DUP254`** (same as **254 joint**)
    - Tape mem wiki держит **0.88** до конца; GPT wiki PPL **16→347** (после stories пик ~29k).
    - Heads на wiki gen слабые (~0.30 nt) — mem OK, gen gate не прошёл.
    - Optional next: `--steps 30000` или сильнее head budget.
@@ -45,7 +45,34 @@
   - `--no-query-train` ablation; `--lambda-admit-alpha` default **0.35** (meaningful λ drop at full entity cap).
 - **254** needs **re-run** with local mask + **W_query** (`mem` canonical read); old JSON used shift-only mem + global mask.
 - **Running:** wiki:12 **v2** → `--run-tag wiki12`. Log: `results/_stage255_wiki12_full.out`, decision `stage255_decision_wiki12.json`.
-- **Queued after wiki:12:** `python _run_queue_after_wiki12.py` → `stream_wmn_v1` (wiki:6,med:3,news:3), then optional `ablate_no_wq_4ch` (`--no-query-train`, wiki:2,med:2). Queue log: `results/_run_queue_after_wiki12.log`.
+- **Queued after wiki:12:** `python _run_queue_after_wiki12.py` → `stream_wmn_v1`, then **`ablate_no_wq_wiki12`**, then **stage 257** (`_stage257_fp_compose.py` full). One-shot ablation+257: `--scale-ablation-only`. If ablation already running: `python _run_queue_after_wiki12.py --stage257-only` (poll → 257 → 258 smoke unless `--skip-stage258-smoke`). Skip glue stage: `--skip-stage257`. Logs: `_stage255_ablate_no_wq_wiki12_full.out`, `_stage257_full.out`, verdict `stage257_decision.json`.
+- **259 hot swap (no wait):** `python _stage259_hot_swap.py --smoke` or `python _run_queue_after_wiki12.py --stage259-only`. Needs `stage256_slot_bias.pt`. Verdict `stage259_decision.json`, log `results/_stage259_smoke.out`.
+- **Recommended parallel smokes:** `python _run_queue_after_wiki12.py --quick-smokes` → 259 → 257 `--smoke` → 258 `--smoke` while wiki12 ablation runs.
+- **257 claim scope (fixed pre-run):** `results/stage257_claim_scope.json` → copied into decision; **0.6–0.7 EM on toy chains = mechanism win**, not general reasoning @ d256/6L.
+- **258:** `_stage258_semantic_query.py` — `results/stage258_claim_scope.json`; smoke after 257 in queue.
+- **259:** demo-grade edit-in-memory — `docs/stages_258_259_plan.md`.
+
+**Night queue (plan: 255 → 260c smoke → full 257/258 → 261 → 242 → 212b):**
+
+```powershell
+cd C:\Users\Kostya\sote-letter-assembly
+# 255 ablation already done:
+python _run_queue_night_full.py --skip-255
+# full chain from 260b:
+python _run_queue_night_full.py --skip-255 --from-stage 260c
+python _run_queue_night_full.py --force   # rerun all
+```
+
+| Step | Script | Notes |
+|------|--------|--------|
+| 255 | `_stage255_stream_ingest.py` … `ablate_no_wq_wiki12` | **done** 12/12 |
+| **260b** | `_stage260b_open_gate.py --smoke` | off-tape in train + gate sup; `gate_reads_tape`, `prior_260` |
+| 257/258 | full | curve vs GPT on 258 unseen_para |
+| **261** | `_stage261.py` | **not in repo yet** — queue skips with log |
+| **242** | `_stage242_rehearsal_dose.py` | grid to **1.0**, `--rates`, **`dose_wall_s`** |
+| **212b** | `_stage212b_instance_sem.py` | W_sem collisions; **`G_fp_blind_by_construction`** |
+
+Log: `results/_run_queue_night_full.log`. **Push only after full runs.**
 
 **Still open (separate):** **209** meaning / scale frontier.
 

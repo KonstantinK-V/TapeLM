@@ -1,0 +1,311 @@
+{
+  "stage": 257,
+  "overall": "FP_COMPOSE_OK",
+  "trunk": "stage253_joint_l02.pt",
+  "topk": 8,
+  "max_hops": 2,
+  "steps": 800,
+  "n_chains": 32,
+  "n_fit": 16,
+  "n_eval": 16,
+  "n_unseen_pair": 16,
+  "tape_slots": 1296,
+  "chain_edges": 96,
+  "fit_pairs": [
+    "director+seat",
+    "founder+archive"
+  ],
+  "held_pairs": [
+    "director+archive",
+    "founder+seat"
+  ],
+  "gates": {
+    "G_compose_2hop": true,
+    "G_beats_one_hop": true,
+    "G_beats_head_only": true,
+    "G_no_shortcut": true,
+    "G_middle_slot_causal": true,
+    "G_tape_causal": true,
+    "G_no_param_leak": true,
+    "G_lang_intact": true,
+    "G_stop_selective": true,
+    "G_unseen_pair": true,
+    "G_retrieval_chain": true,
+    "G_retrieval_causal": true
+  },
+  "summary": {
+    "em_2hop_glue": 1.0,
+    "em_2hop_one_hop_only": 0.0,
+    "em_2hop_head_only": 0.0,
+    "em_2hop_unseen_pair": 1.0,
+    "em_2hop_shuffled": 0.0,
+    "em_2hop_empty": 0.0,
+    "em_2hop_no_edge1_bank": 0.0,
+    "em_2hop_after_delete_middle": 0.0,
+    "em_r2_after_delete_middle": 1.0,
+    "em_2hop_others_after_delete": 1.0,
+    "em_1hop_r1": 1.0,
+    "em_1hop_r2": 1.0,
+    "em_window3": {
+      "2hop_glue": 1.0,
+      "2hop_one_hop_only": 0.0,
+      "unseen_pair": 1.0,
+      "1hop_r1": 1.0,
+      "1hop_r2": 1.0
+    },
+    "retrieval_at_cue": {
+      "2hop": {
+        "n": 16,
+        "hop_top1": {
+          "hop0": 1.0,
+          "hop1": 1.0
+        },
+        "chain_complete": 1.0,
+        "answer_reached": 1.0,
+        "halt_correct": 1.0
+      },
+      "unseen_pair": {
+        "n": 16,
+        "hop_top1": {
+          "hop0": 1.0,
+          "hop1": 1.0
+        },
+        "chain_complete": 1.0,
+        "answer_reached": 1.0,
+        "halt_correct": 1.0
+      },
+      "1hop_r1": {
+        "n": 16,
+        "hop_top1": {
+          "hop0": 1.0
+        },
+        "chain_complete": 1.0,
+        "answer_reached": 1.0,
+        "halt_correct": 1.0
+      },
+      "1hop_r2": {
+        "n": 16,
+        "hop_top1": {
+          "hop0": 1.0
+        },
+        "chain_complete": 1.0,
+        "answer_reached": 1.0,
+        "halt_correct": 0.125
+      },
+      "shuffled": {
+        "n": 16,
+        "hop_top1": {
+          "hop0": 0.0625,
+          "hop1": 0.0
+        },
+        "chain_complete": 0.0,
+        "answer_reached": 0.0,
+        "halt_correct": 1.0
+      }
+    },
+    "exp_hops_2hop": 1.9982075616717339,
+    "exp_hops_1hop": 1.0,
+    "exp_hops_unseen": 1.9962896183133125,
+    "gate_mean_chain": 0.9999891668558121,
+    "gate_mean_prose": 0.0016026712315014788,
+    "prose_ce_glue_on": 3.98715207974116,
+    "prose_ce_glue_off": 3.985436995824178,
+    "hold_ce_base": 3.9126548965771994,
+    "exam_base": 0.8666666666666667,
+    "tau": 0.04328395053744316,
+    "structural_shortcut_violations": 0
+  },
+  "curve": [
+    {
+      "step": 133,
+      "loss_chain": 0.6839871406555176,
+      "loss_prose": 4.687416076660156,
+      "loss_nce": 0.8764664530754089,
+      "gate_chain": 0.9993747286498547,
+      "gate_prose": 0.10402761923877632,
+      "exp_hops_chain": 1.0,
+      "tau": 0.14149285852909088
+    },
+    {
+      "step": 266,
+      "loss_chain": 0.2779078185558319,
+      "loss_prose": 4.362524509429932,
+      "loss_nce": 0.908859372138977,
+      "gate_chain": 0.9996957222620646,
+      "gate_prose": 7.900404484138967e-05,
+      "exp_hops_chain": 1.0,
+      "tau": 0.09215570986270905
+    },
+    {
+      "step": 399,
+      "loss_chain": 0.1586378514766693,
+      "loss_prose": 4.367373466491699,
+      "loss_nce": 0.956235945224762,
+      "gate_chain": 0.9999016055038997,
+      "gate_prose": 5.2291636302036354e-06,
+      "exp_hops_chain": 1.2142847435814994,
+      "tau": 0.0667772963643074
+    },
+    {
+      "step": 532,
+      "loss_chain": 0.028721649199724197,
+      "loss_prose": 2.426785945892334,
+      "loss_nce": 0.8360594511032104,
+      "gate_chain": 0.9998477458953857,
+      "gate_prose": 1.5999557806228244e-05,
+      "exp_hops_chain": 1.1999979853630065,
+      "tau": 0.05453888326883316
+    },
+    {
+      "step": 665,
+      "loss_chain": 0.024284973740577698,
+      "loss_prose": 3.7673256397247314,
+      "loss_nce": 0.9212523698806763,
+      "gate_chain": 0.9999975149448102,
+      "gate_prose": 4.495788195650145e-06,
+      "exp_hops_chain": 1.2307680661861713,
+      "tau": 0.0478966198861599
+    },
+    {
+      "step": 798,
+      "loss_chain": 0.010356595739722252,
+      "loss_prose": 3.664344072341919,
+      "loss_nce": 0.768276572227478,
+      "gate_chain": 0.9998283038536707,
+      "gate_prose": 1.937788484498684e-05,
+      "exp_hops_chain": 1.749996801217397,
+      "tau": 0.04333752021193504
+    }
+  ],
+  "decode_samples": [
+    {
+      "cue": "In the chronicle the body that Fessovni founded deposited its archive in the town of",
+      "gold": "Jacoby",
+      "got": "Jacoby",
+      "gate": 0.9999963045120239,
+      "exp_hops": 1.9998081922531128,
+      "trace": [
+        {
+          "hop": 0,
+          "top": "Honour",
+          "sim": 0.5166854858398438,
+          "p_stop": 0.00019188763690181077
+        },
+        {
+          "hop": 1,
+          "top": "Jacoby",
+          "sim": 0.5619953274726868,
+          "p_stop": 1.0
+        }
+      ]
+    },
+    {
+      "cue": "In the chronicle the body that Mofobilo founded deposited its archive in the town of",
+      "gold": "Serious",
+      "got": "Serious",
+      "gate": 0.9999951124191284,
+      "exp_hops": 1.9999336004257202,
+      "trace": [
+        {
+          "hop": 0,
+          "top": "Motorists",
+          "sim": 0.5124033689498901,
+          "p_stop": 6.633082375628874e-05
+        },
+        {
+          "hop": 1,
+          "top": "Serious",
+          "sim": 0.5611995458602905,
+          "p_stop": 1.0
+        }
+      ]
+    },
+    {
+      "cue": "In the chronicle the body that Dapobovo founded deposited its archive in the town of",
+      "gold": "Regionals",
+      "got": "Regionals",
+      "gate": 0.9999849796295166,
+      "exp_hops": 1.9997172355651855,
+      "trace": [
+        {
+          "hop": 0,
+          "top": "Pierre",
+          "sim": 0.5385099649429321,
+          "p_stop": 0.0002827394346240908
+        },
+        {
+          "hop": 1,
+          "top": "Regionals",
+          "sim": 0.48296645283699036,
+          "p_stop": 1.0
+        }
+      ]
+    },
+    {
+      "cue": "In the chronicle the body that Lepaso founded deposited its archive in the town of",
+      "gold": "Wembley",
+      "got": "Wembley",
+      "gate": 0.9999971389770508,
+      "exp_hops": 1.9987764358520508,
+      "trace": [
+        {
+          "hop": 0,
+          "top": "Radiotelevision",
+          "sim": 0.5511152148246765,
+          "p_stop": 0.0012235029134899378
+        },
+        {
+          "hop": 1,
+          "top": "Wembley",
+          "sim": 0.6169790625572205,
+          "p_stop": 1.0
+        }
+      ]
+    },
+    {
+      "cue": "In the chronicle the body that Posfulel founded deposited its archive in the town of",
+      "gold": "Dentistry",
+      "got": "Dentistry",
+      "gate": 0.9999582767486572,
+      "exp_hops": 1.9969404935836792,
+      "trace": [
+        {
+          "hop": 0,
+          "top": "Thematically",
+          "sim": 0.533282995223999,
+          "p_stop": 0.003059494774788618
+        },
+        {
+          "hop": 1,
+          "top": "Dentistry",
+          "sim": 0.5435242652893066,
+          "p_stop": 1.0
+        }
+      ]
+    },
+    {
+      "cue": "In the chronicle the body that Cigipi founded deposited its archive in the town of",
+      "gold": "Katherine",
+      "got": "Katherine",
+      "gate": 0.9999780654907227,
+      "exp_hops": 1.9991481304168701,
+      "trace": [
+        {
+          "hop": 0,
+          "top": "Years",
+          "sim": 0.5284168720245361,
+          "p_stop": 0.0008518561371602118
+        },
+        {
+          "hop": 1,
+          "top": "Katherine",
+          "sim": 0.47880682349205017,
+          "p_stop": 1.0
+        }
+      ]
+    }
+  ],
+  "note": "Retrieval@cue is the mechanism metric and is scored with no decoder in the loop: the first 257 run read EM 0.000 while every trace had already reached gold at hop 1, because the cue ended on a preposition, the LM emitted 'the', and exact_match only reads the first token (same run, same tape: 1-hop r1 ending on 'named' scored 0.667, 1-hop r2 ending on 'in' scored 0.000). The r2 tails now end on 'of' so the value is the immediate next token, and em_window3 is reported for every arm including the baselines. Two-hop by re-anchoring the query on the retrieved value; keys frozen canonical, P1 and trunk frozen, only W_q + read gate + tau + StopGate train. Halting is an ACT-style soft mixture over hops, so CE trains it without a hard argmax. C never co-occurs with A (checked structurally and by the no-edge1 bank control). EM is free-form greedy decode on chains the glue never fit; unseen_pair chains use relation COMBINATIONS never seen in fit.",
+  "timestamp": "2026-08-03T21:58:19.323134+00:00",
+  "wall_s": 488.94512128829956
+}

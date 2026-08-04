@@ -343,7 +343,7 @@ def main() -> int:
     elif g1 and g5:
         overall = "ENGINEERING_ONLY"
     else:
-        overall = "THESIS_NO"
+        overall = "THESIS_NO_AT_SCALE"
 
     out = {
         "timestamp": datetime.now(timezone.utc).isoformat(),

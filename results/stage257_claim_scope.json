@@ -1,0 +1,22 @@
+{
+  "stage": 257,
+  "fixed_before_run": true,
+  "encoder_budget": "d256 / ~6L frozen P1 trunk (+ frozen canonical keys; glue-only train)",
+  "primary_goal": "Demonstrate a causal two-hop pointer-chase mechanism in fp space (re-anchor query), not general reasoning or open-domain QA.",
+  "success_bands": {
+    "mechanism_ok": "EM 0.50+ on held-out toy 2-hop chains WITH beats-one-hop (+0.20 vs max_hops=1), tape causal (shuffle/empty/delete-middle), and language CE gate intact.",
+    "mechanism_strong": "EM 0.60–0.70 on toy eval is a win for mechanism at this scale — still NOT a claim that the model learned to reason.",
+    "partial": "Causal middle-edge delete + beats max_hops=1, but unseen_pair or stop_selectivity weak — record FP_COMPOSE_PARTIAL, do not upgrade headline."
+  },
+  "explicitly_not_claimed": [
+    "Latent multi-hop inside transformer forward (210–212 thesis)",
+    "Retrieved text pasted into prompt (RAG+CoT)",
+    "Composition on wiki stream tape without a dedicated e2e stage (255→256→257 product wiring)",
+    "Strong generalization beyond held-out relation-pair combinations at toy entity scale"
+  ],
+  "culture_note": "Closed branches win when verdict JSON states scope upfront. A partial mechanism pass is publishable engineering; overstating to reasoning is not.",
+  "downstream_if_257_mechanism_passes": {
+    "258": "Variant B (sign / instance channel on keys or queries) + mandatory 257 control suite including surgical delete-middle; re-run 204 noise protocol on sign-augmented read path to price robustness cost.",
+    "259": "Variant C — only if variant A/B sign experiments clear their gates; spec deferred until 258 decision."
+  }
+}

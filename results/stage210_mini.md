@@ -1,6 +1,6 @@
 # Stage210 — SoftFollow in forward, token answers
 
-**Overall:** `THESIS_NO`
+**Overall:** `THESIS_NO_AT_SCALE` (legacy label: THESIS_NO)
 
 - soft-follow token test: k2=0.250 k3=0.300
 - free-form token test: k2=0.333 k3=0.217 (train k2=0.278)

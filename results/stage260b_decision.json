@@ -1,0 +1,40 @@
+{
+  "stage": "260b",
+  "overall": "OPEN_GATE2_NO",
+  "trunk": "stage253_joint_l02.pt",
+  "steps": 600,
+  "topk": 8,
+  "n_fit": 64,
+  "n_eval_on_tape": 24,
+  "n_eval_off_tape": 24,
+  "tape_slots": 88,
+  "gates": {
+    "G_auc_vs_prose": false,
+    "G_auc_vs_off_tape": false,
+    "G_quiet_on_prose": true,
+    "G_delete_silences": false,
+    "G_tape_causal": false
+  },
+  "summary": {
+    "gate_on_tape": 0.23696340855814116,
+    "gate_off_tape": 0.12615242118749848,
+    "gate_prose": 0.03706304516109575,
+    "auc_on_vs_prose": 0.8066185986319098,
+    "auc_on_vs_off_tape": 0.6574074074074074,
+    "auc_shuffled_keys": 0.8066185986319098,
+    "gate_after_slot_delete": 0.2348876797097748,
+    "false_fire_rate_prose": 0.026622296173044926,
+    "n_prose_positions": 601,
+    "gate_reads_tape": false,
+    "prior_260": {
+      "overall": "OPEN_GATE_NO",
+      "auc_vs_prose": 0.5740595611285266,
+      "auc_vs_off_tape": 0.44155844155844154,
+      "after_delete": 0.199013565128222,
+      "shuffled_auc": 0.5740595611285266
+    }
+  },
+  "note": "260b adds the negatives 260 lacked: off-tape lines are trained on with the gate pushed shut at their entity position, plus direct have/need supervision at the scored point. gate_reads_tape is the first thing to check - in 260 the real and shuffled AUC were bit-identical, which meant the gate never looked at the bank. Natural wikitext lines, no cue template anywhere. The gate is read at every position of a real sentence; the scored point is the position whose next token starts a tape-backed entity. Off-tape entities are the control that separates 'I hold this' from 'something surprising is coming' \u2014 they are equally rare and equally entity-shaped, and the tape simply does not have them. OPEN_GATE2_POSITIONAL is the honest verdict when the gate finds fact positions but fires on off-tape entities too. Fit and eval lines are disjoint; trunk and P1 frozen; only W_q, gate and tau train.",
+  "timestamp": "2026-08-03T20:14:31.363602+00:00",
+  "wall_s": 62.3965539932251
+}

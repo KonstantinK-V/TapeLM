@@ -1,6 +1,8 @@
 {
   "stage": 246,
   "overall": "DOMAIN_CURRICULUM_PARTIAL",
+  "read_as": "DOMAIN_CURRICULUM_DUP254",
+  "duplicate_of": "254-joint-upper",
   "steps_per_domain": 20000,
   "domains": [
     "wiki",
@@ -143,7 +145,7 @@
       "gpt_ppl_rise": 0.0
     }
   },
-  "note": "TapeLM = frozen P1 + per-domain {W, head, slots}. GPT = single weight trajectory. news = AG-like wiki filter (not HF AG News download). Pass --steps 30000 for paper-scale curriculum.",
+  "note": "Duplicate read of 254 joint-upper curriculum (wiki→… multi-domain shared weights). Use stages_254_close.md for operators-only vs joint; do not treat as a third continual story. TapeLM = frozen P1 + per-domain {W, head, slots}. Pass --steps 30000 for paper-scale.",
   "timestamp": "2026-08-01T11:53:29.502432+00:00",
   "wall_s": 3214.8055803775787
 }

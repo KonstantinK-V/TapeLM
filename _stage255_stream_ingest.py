@@ -1,5 +1,5 @@
-"""
-Stage 255 — Stream-ingest engine: chunked training with domain switching, bounded RAM.
+﻿"""
+Stage 255 тАФ Stream-ingest engine: chunked training with domain switching, bounded RAM.
 
 North star: never hold the corpus in memory, never re-read it, switch domains mid-stream,
 run for days on a small GPU, resume after a kill.
@@ -88,6 +88,13 @@ def log(m: str) -> None:
     LOG.parent.mkdir(parents=True, exist_ok=True)
     with LOG.open("a", encoding="utf-8") as f:
         f.write(line)
+
+
+def safe_torch_save(obj, path: Path) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_suffix(path.suffix + ".tmp")
+    torch.save(obj, tmp)
+    os.replace(tmp, path)
 
 
 class SegmentReader:
@@ -417,7 +424,8 @@ def main() -> int:
     use_query_train = not args.no_query_train
 
     log(
-        f"Stage255 stream start {datetime.now(timezone.utc).isoformat()} schedule={schedule} "
+        f"Stage255 stream start {datetime.now(timezone.utc).isoformat()} device={device} "
+        f"schedule={schedule} "
         f"chunk_lines={chunk_lines} arc={args.arc} resume={args.resume} run={run_name} "
         f"lambda_base={lam_base} lambda_admit={args.lambda_admit} alpha={args.lambda_admit_alpha} "
         f"query_train={use_query_train} query_steps={query_steps}"
@@ -510,7 +518,7 @@ def main() -> int:
     stop_file = RUN / "STOP"
     while True:
         if stop_file.exists():
-            log("STOP file present — halting cleanly")
+            log("STOP file present тАФ halting cleanly")
             break
         nxt = reader.next_chunk()
         if nxt is None:
@@ -521,7 +529,7 @@ def main() -> int:
         flat_c, off_c = chunk_to_flat(lines, tok, pad_id)
         n_docs = len(off_c) - 1
         if n_docs < 8:
-            log(f"chunk {chunk_i} ({dom}) too small ({n_docs} docs) — skipped")
+            log(f"chunk {chunk_i} ({dom}) too small ({n_docs} docs) тАФ skipped")
             continue
 
         # carve a holdout the first time we see a domain; never trained on
@@ -654,16 +662,16 @@ def main() -> int:
         )
 
         if chunk_i % args.ckpt_every == 0:
-            torch.save({"model": trunk.state_dict()}, RUN / "trunk.pt")
+            safe_torch_save({"model": trunk.state_dict()}, RUN / "trunk.pt")
             tape.save(RUN / "tape.pt")
             reservoir.save(RUN / "reservoir.npz")
-            torch.save({k: v for k, v in holdouts.items()}, RUN / "holdouts.pt")
+            safe_torch_save({k: v for k, v in holdouts.items()}, RUN / "holdouts.pt")
             if W_era:
-                torch.save({k: v.state_dict() for k, v in W_era.items()}, RUN / "w_era.pt")
+                safe_torch_save({k: v.state_dict() for k, v in W_era.items()}, RUN / "w_era.pt")
             if W_query is not None:
-                torch.save(W_query.state_dict(), RUN / "query_adapter.pt")
+                safe_torch_save(W_query.state_dict(), RUN / "query_adapter.pt")
             if q_pairs:
-                torch.save(
+                safe_torch_save(
                     {"q": torch.stack([p["q"] for p in q_pairs]), "values": [p["value"] for p in q_pairs]},
                     RUN / "qpairs.pt",
                 )
@@ -776,9 +784,10 @@ def main() -> int:
             "recall_final_mrr": last_mrr,
         },
         "history": history,
-        "note": "Canonical frozen keys on tape; trainable W_q aligns queries (understanding→read). "
-        "W_q fits only probe facts with wq_train=True; recall is scored on the held-out half. "
-        "Hold CE vs P1 is primary no-forget gate. Recall gates require adapted top1/MRR, not frozen-only.",
+        "note": "Canonical frozen keys on tape; trainable W_q (QueryAdapter) aligns queries to keys — "
+        "understanding→read, not re-indexing. W_q trains on ingested-entity contrastive pairs per chunk; "
+        "recall gates score held-out probe facts only. Hold CE vs P1 is primary no-forget gate. "
+        "Recall gates use W_q-adapted top1/MRR, not frozen-query-only.",
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "wall_s": time.time() - t0,
     }

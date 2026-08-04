@@ -1,7 +1,7 @@
 {
   "timestamp": "2026-07-29T13:16:58.102808+00:00",
   "protocol": "internal_slow_tape_211",
-  "overall": "THESIS_NO",
+  "overall": "THESIS_NO_AT_SCALE",
   "clean": {
     "internal_tape": 0.23,
     "endpoint_only": 0.28,
@@ -22,5 +22,39 @@
   },
   "n_tasks": 100,
   "chance": 0.25,
-  "anticf_encoder_frozen": true
+  "anticf_encoder_frozen": true,
+  "overall_legacy": "THESIS_NO",
+  "claim_scope": {
+    "fixed_before_reread": true,
+    "applies_to_stages": [
+      210,
+      211,
+      212
+    ],
+    "encoder_budget": "frozen P1 @ d256 / 6L; small trainable heads/inject only",
+    "primary_read": "Internal composition / slow tape / instance channel **not confirmed** in this setup \u2014 **not** permanently falsified.",
+    "explicitly_not_claimed": [
+      "Impossible at BERT-scale or after mixture pretrain",
+      "Worse than matched GPT without running the same harness",
+      "Superseded by external fp glue (256/257) \u2014 different API"
+    ],
+    "matched_gpt_discipline": {
+      "reference_ladder": "209 (PAWS + teacher parity across d128/d192/d256)",
+      "per_stage": {
+        "210": "Same k-hop chain token task: curve inject vs external cosine vs GPT parametric (no tape) \u2014 ladder in stage210_212_matched_gpt_ladder.json",
+        "211": "Same cross-doc task: internal vs endpoint vs external vs gpt_incontext (already in stage211_decision.json)",
+        "212": "Collision 4-way + para/hard: compare to 209 PAWS parity for semantic B; instance head is curve-only unless gpt_ladder run"
+      }
+    },
+    "culture_note": "Three branches are **honestly open** on scale and controls; shipping product still uses **external fp loops** (203, 256/257) until a forward-internal path clears gates with GPT matched."
+  },
+  "gpt_matched_ladder": {
+    "status": "gpt_control_in_original_run",
+    "internal_tape": 0.23,
+    "endpoint_only": 0.28,
+    "external_slots": 1.0,
+    "gpt_incontext": 0.26,
+    "parity_read": "internal\u2248gpt_ic\u2248endpoint<<external; matched GPT does not solve task either"
+  },
+  "interpretation": "THESIS_NO_AT_SCALE: gates failed on frozen P1 @ d256/6L with controls run in this JSON. Not a permanent falsification; see gpt_matched_ladder and 209 for matched-GPT / scale context."
 }

@@ -1,0 +1,20 @@
+{
+  "fixed_before_reread": true,
+  "applies_to_stages": [210, 211, 212],
+  "encoder_budget": "frozen P1 @ d256 / 6L; small trainable heads/inject only",
+  "primary_read": "Internal composition / slow tape / instance channel **not confirmed** in this setup — **not** permanently falsified.",
+  "explicitly_not_claimed": [
+    "Impossible at BERT-scale or after mixture pretrain",
+    "Worse than matched GPT without running the same harness",
+    "Superseded by external fp glue (256/257) — different API"
+  ],
+  "matched_gpt_discipline": {
+    "reference_ladder": "209 (PAWS + teacher parity across d128/d192/d256)",
+    "per_stage": {
+      "210": "Same k-hop chain token task: curve inject vs external cosine vs GPT parametric (no tape) — ladder in stage210_212_matched_gpt_ladder.json",
+      "211": "Same cross-doc task: internal vs endpoint vs external vs gpt_incontext (already in stage211_decision.json)",
+      "212": "Collision 4-way + para/hard: compare to 209 PAWS parity for semantic B; instance head is curve-only unless gpt_ladder run"
+    }
+  },
+  "culture_note": "Three branches are **honestly open** on scale and controls; shipping product still uses **external fp loops** (203, 256/257) until a forward-internal path clears gates with GPT matched."
+}

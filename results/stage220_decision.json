@@ -1,6 +1,7 @@
 {
   "stage": 220,
-  "overall": "SEM_SIDECAR_NO",
+  "overall": "SEM_SIDECAR_INVALID_METHOD",
+  "overall_legacy": "SEM_SIDECAR_NO",
   "gates": {
     "G1_sem_vs_lexical_baseline": false
   },

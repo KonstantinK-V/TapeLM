@@ -1,6 +1,7 @@
 {
   "stage": 218,
-  "overall": "SNAP_HOP_NO",
+  "overall": "SNAP_HOP_INVALID_METHOD",
+  "overall_legacy": "SNAP_HOP_NO",
   "gates": {
     "G1_snap_noisy": false
   },

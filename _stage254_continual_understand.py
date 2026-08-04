@@ -18,9 +18,11 @@ ACCUMULATED bank, parametric leak. Global: exam next_tok, uniformity.
 Cross-domain 2-hop over the accumulated tape = the "thought" metric (chains are planted so a
 value from domain i-1 is the subject of a fact in domain i).
 
-Note: internal latent hops are closed (210/212 THESIS_NO) — hops here are external fp loops.
+Note: internal latent hops are closed (210/212 **THESIS_NO_AT_SCALE**) — hops here are external fp loops.
 
-  python _stage254_continual_understand.py [--smoke] [--token-budget N] [--domains wiki,med]
+  python _stage254_continual_understand.py [--smoke] [--operators-only] [--token-budget N] [--domains wiki,med]
+
+  --operators-only: frozen P1 upper; only W_query (+ growing tape). No joint CE/CPC, no arc shift.
 """
 from __future__ import annotations
 
@@ -253,9 +255,20 @@ def two_hop_acc(bank_can, K, Vlist, chains, all_values, seed: int) -> dict:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--smoke", action="store_true")
-    ap.add_argument("--token-budget", type=int, default=0, help="CE tokens per domain")
+    ap.add_argument(
+        "--operators-only",
+        action="store_true",
+        help="frozen upper; train W_query only (tape grows). Skips joint CE/CPC and per-domain arc/W_bwd.",
+    )
+    ap.add_argument("--token-budget", type=int, default=0, help="CE tokens per domain (joint mode only)")
     ap.add_argument("--domains", type=str, default="wiki,stories,med,news")
     args = ap.parse_args()
+
+    global DECISION, MINI
+    if args.operators_only:
+        tag = "operators_smoke" if args.smoke else "operators"
+        DECISION = RES / f"stage254_decision_{tag}.json"
+        MINI = RES / f"stage254_mini_{tag}.md"
 
     LOG.write_text("", encoding="utf-8")
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -278,7 +291,10 @@ def main() -> int:
     arc_steps = 40 if args.smoke else 300
     w_steps = 40 if args.smoke else 400
 
-    log(f"Stage254 start {datetime.now(timezone.utc).isoformat()} domains={domains} budget/domain={tb}")
+    log(
+        f"Stage254 start {datetime.now(timezone.utc).isoformat()} domains={domains} "
+        f"budget/domain={tb} operators_only={args.operators_only}"
+    )
     _, _, stoi, n_char = load_data()
     tok = Tokenizer.from_file(str(s177.TOK_PATH))
     Vtok = tok.get_vocab_size()
@@ -410,30 +426,36 @@ def main() -> int:
             V_all = V_all + [f["value"] for f in admitted_by_dom[d]]
         log(f"  slots: +{len(keys)} -> bank={len(V_all)}")
 
-        # W for this domain (shifted query encoder -> canonical)
-        flat_d, off_d = corpora[d]
-        model_shift = s221.finetune_arc_enc(
-            model_can, flat_d, off_d, char_table, pad_id, device, arc_steps, SEED + 10 + i
-        )
-        bank_shift = FpBank(model_shift, stoi, device)
-        W, align = s221.train_remap(
-            DomainAdapter(256).to(device), s221.fp_matrix(bank_shift, core), F_can, rng, w_steps, device
-        )
-        W_bwd[d], banks_q[d] = W, bank_shift
-        log(f"  W[{d}] align={align:.3f}")
+        if not args.operators_only:
+            # W for this domain (shifted query encoder -> canonical)
+            flat_d, off_d = corpora[d]
+            model_shift = s221.finetune_arc_enc(
+                model_can, flat_d, off_d, char_table, pad_id, device, arc_steps, SEED + 10 + i
+            )
+            bank_shift = FpBank(model_shift, stoi, device)
+            W, align = s221.train_remap(
+                DomainAdapter(256).to(device), s221.fp_matrix(bank_shift, core), F_can, rng, w_steps, device
+            )
+            W_bwd[d], banks_q[d] = W, bank_shift
+            log(f"  W[{d}] align={align:.3f}")
 
-        # shared upper: joint CE + lam*CPC on domain + replay of past domains
-        train_docs = list(splits[d][0])
-        if i > 0 and REPLAY_FRAC > 0:
-            past = [x for e in domains[:i] for x in splits[e][0]]
-            n_rep = min(len(past), int(len(train_docs) * REPLAY_FRAC / max(1e-6, 1 - REPLAY_FRAC)))
-            train_docs = train_docs + random.Random(SEED + 77 + i).sample(past, n_rep)
-            log(f"  replay: +{n_rep} past docs ({REPLAY_FRAC:.0%} target)")
-        seen_hold = [b for e in domains[: i + 1] for b in hold_batches[e]]
-        m, meta = s252.train_joint(
-            m, flat_all, off_all, char_table, pad_id, device, budgets[d], LAM, SEED + 100 + i,
-            f"phase_{d}", train_docs, seen_hold, items_probe, early_stop=False, n_probes=n_probes,
-        )
+            # shared upper: joint CE + lam*CPC on domain + replay of past domains
+            train_docs = list(splits[d][0])
+            if i > 0 and REPLAY_FRAC > 0:
+                past = [x for e in domains[:i] for x in splits[e][0]]
+                n_rep = min(len(past), int(len(train_docs) * REPLAY_FRAC / max(1e-6, 1 - REPLAY_FRAC)))
+                train_docs = train_docs + random.Random(SEED + 77 + i).sample(past, n_rep)
+                log(f"  replay: +{n_rep} past docs ({REPLAY_FRAC:.0%} target)")
+            seen_hold = [b for e in domains[: i + 1] for b in hold_batches[e]]
+            m, meta = s252.train_joint(
+                m, flat_all, off_all, char_table, pad_id, device, budgets[d], LAM, SEED + 100 + i,
+                f"phase_{d}", train_docs, seen_hold, items_probe, early_stop=False, n_probes=n_probes,
+            )
+        else:
+            banks_q[d] = bank_can
+            W_bwd[d] = None
+            meta = {"tokens_ce": 0, "tokens_cpc": 0, "steps": 0}
+            log("  operators-only: upper frozen — skip arc/W_bwd and joint train")
 
         wq_fit = [f for dd in domains[: i + 1] for f in admitted_by_dom[dd] if f["wq_train"]]
         if wq_fit and len(V_all) > 0:
@@ -453,7 +475,7 @@ def main() -> int:
             )
             mem_shift = (
                 L.tape_recall(held_out, all_values_union, banks_q[e], K_all, V_all, SEED, W_bwd=W_bwd[e])
-                if held_out
+                if held_out and W_bwd.get(e) is not None
                 else float("nan")
             )
             leak = s251.curve_param_recall(
@@ -513,6 +535,7 @@ def main() -> int:
 
     out = {
         "stage": 254,
+        "mode": "operators_only" if args.operators_only else "joint_upper",
         "overall": overall,
         "domains": domains,
         "lambda": LAM,
@@ -546,17 +569,23 @@ def main() -> int:
         "gate_stats": gate_stats,
         "baseline": base,
         "matrix": matrix,
-        "note": "One shared upper across domains. Canonical slot KEYS frozen; W_query trains each phase "
-        "on wq_train facts only, mem is scored on the held-out half. mem=canonical+W_q; "
-        "mem_shift=arc-shift+W_bwd. Leak gate: delta vs P1 baseline (fixed seed), not absolute 0.40.",
+        "note": (
+            "operators_only: frozen P1 upper; local-mask CE corpus unused for weight updates; "
+            "only W_query trains on wq_train facts; tape grows via hop-gate. mem=canonical+W_q."
+            if args.operators_only
+            else "One shared upper across domains. Canonical slot KEYS frozen; W_query trains each phase "
+            "on wq_train facts only, mem is scored on the held-out half. mem=canonical+W_q; "
+            "mem_shift=arc-shift+W_bwd. Leak gate: delta vs P1 baseline (fixed seed), not absolute 0.40."
+        ),
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "wall_s": time.time() - t0,
     }
     DECISION.write_text(json.dumps(out, indent=2), encoding="utf-8")
 
     lines_md = [
-        "# Stage 254 continual understanding (shared upper)",
-        "",
+        "# Stage 254 continual understanding"
+        + (" (operators-only)" if args.operators_only else " (shared upper)")
+        + "",
         f"**{overall}** domains={'->'.join(domains)} budget={tb} tok/domain",
         "",
         f"- exam: {base['exam_next_tok']:.3f} -> " + " -> ".join(f"{x:.3f}" for x in exam_curve),

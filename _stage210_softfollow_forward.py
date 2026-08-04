@@ -440,7 +440,7 @@ def main() -> int:
     elif g1 and g4 and g5:
         overall = "ENGINEERING_ONLY"
     else:
-        overall = "THESIS_NO"
+        overall = "THESIS_NO_AT_SCALE"
 
     log(f"soft token test k2={soft_te.get(2):.3f} k3={soft_te.get(3):.3f}")
     log(f"free  token test k2={free_te.get(2):.3f} k3={free_te.get(3):.3f} train k2={free_tr.get(2):.3f}")

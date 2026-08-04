@@ -1,0 +1,90 @@
+{
+  "stage": "260c",
+  "overall": "OPEN_GATE3_NO",
+  "trunk": "stage253_joint_l02.pt",
+  "steps": 600,
+  "topk": 8,
+  "paired_frac": 0.6,
+  "n_fit": 64,
+  "n_eval_on_tape": 24,
+  "n_eval_off_tape": 24,
+  "tape_slots": 88,
+  "gates": {
+    "G_auc_vs_prose": false,
+    "G_auc_vs_off_tape": false,
+    "G_paired_same_line": false,
+    "G_quiet_on_prose": true,
+    "G_delete_silences": false,
+    "G_tape_causal": false
+  },
+  "summary": {
+    "gate_on_tape": 0.2075327753778159,
+    "gate_off_tape": 0.1490935143679053,
+    "gate_prose": 0.036190084207070275,
+    "auc_on_vs_prose": 0.8121004566210046,
+    "auc_on_vs_off_tape": 0.6083333333333333,
+    "auc_shuffled_keys": 0.8122146118721462,
+    "gate_after_slot_delete": 0.20594977754711483,
+    "false_fire_rate_prose": 0.023972602739726026,
+    "n_prose_positions": 584,
+    "gate_reads_tape": true,
+    "paired_gap_same_line": 0.0015829978307010661,
+    "feature_probe": {
+      "n": 15,
+      "max": {
+        "with": 0.4705273946126302,
+        "without": 0.3872365574042002,
+        "delta": 0.08329083720842997,
+        "abs_delta": 0.08329083720842997
+      },
+      "mean": {
+        "with": 0.3170747751990954,
+        "without": 0.2905513102809588,
+        "delta": 0.026523464918136598,
+        "abs_delta": 0.026523464918136598
+      },
+      "margin12": {
+        "with": 0.09865133166313171,
+        "without": 0.050086000561714174,
+        "delta": 0.048565331101417544,
+        "abs_delta": 0.0859770288070043
+      },
+      "max_minus_mean": {
+        "with": 0.15345261891682943,
+        "without": 0.09668524712324142,
+        "delta": 0.056767371793588005,
+        "abs_delta": 0.0693398987253507
+      },
+      "cov": {
+        "with": 1.000000003973643,
+        "without": 0.999999980131785,
+        "delta": 2.384185791015625e-08,
+        "abs_delta": 6.357828776041667e-08
+      },
+      "gold_is_top1_with": 0.6666666666666666,
+      "gold_is_top1_without": 0.0
+    },
+    "features_move": true,
+    "prior_260": {
+      "overall": "OPEN_GATE_NO",
+      "auc_vs_prose": 0.5740595611285266,
+      "auc_vs_off_tape": 0.44155844155844154,
+      "after_delete": 0.199013565128222,
+      "shuffled_auc": 0.5740595611285266,
+      "paired_gap": null,
+      "gate_reads_tape": null
+    },
+    "prior_260b": {
+      "overall": "OPEN_GATE2_NO",
+      "auc_vs_prose": 0.8066185986319098,
+      "auc_vs_off_tape": 0.6574074074074074,
+      "after_delete": 0.2348876797097748,
+      "shuffled_auc": 0.8066185986319098,
+      "paired_gap": null,
+      "gate_reads_tape": false
+    }
+  },
+  "note": "260c: paired same-line train (h_t fixed); feature_probe at eval t_hit with vs without the needed slot. features_move=false => cosine features do not detect possession (substrate limit; bears on 212b). features_move=true but paired_gap~0 => train the gate. gold_is_top1_with low => retrieval misses gold even with slot present \u2014 rebuild exam. G_paired_same_line \u2265 0.15; gate_reads_tape = real vs shuffled AUC differ.",
+  "timestamp": "2026-08-03T20:32:22.224662+00:00",
+  "wall_s": 94.90462684631348
+}

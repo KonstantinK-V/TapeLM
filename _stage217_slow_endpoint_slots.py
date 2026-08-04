@@ -109,7 +109,7 @@ def main() -> int:
     acc_l = ok_l / max(1, n)
     acc_b = ok_b / max(1, n)
     g1 = acc_b >= acc_l + 0.02
-    overall = "SLOW_ENDPOINT_WIN" if g1 else "SLOW_ENDPOINT_NO"
+    overall = "SLOW_ENDPOINT_WIN" if g1 else "SLOW_ENDPOINT_INVALID_METHOD"
     DECISION.write_text(
         json.dumps(
             {

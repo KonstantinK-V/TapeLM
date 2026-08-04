@@ -1,0 +1,125 @@
+{
+  "stage": "260d",
+  "overall": "OPEN_GATE4_NO",
+  "trunk": "stage253_joint_l02.pt",
+  "steps": 600,
+  "topk": 8,
+  "n_fit": 64,
+  "n_eval_on_tape": 24,
+  "n_eval_off_tape": 24,
+  "tape_slots": 88,
+  "gates": {
+    "G_auc_vs_prose": false,
+    "G_auc_vs_off_tape": false,
+    "G_paired_same_line": false,
+    "G_feat_only_carries_it": false,
+    "G_quiet_on_prose": true,
+    "G_delete_silences": true,
+    "G_tape_causal": false
+  },
+  "summary": {
+    "gate_on_tape": 0.10882168948560252,
+    "gate_off_tape": 0.00046125938113467606,
+    "gate_prose": 0.011975227927961202,
+    "auc_on_vs_prose": 0.7799255441008018,
+    "auc_on_vs_off_tape": 0.6893939393939394,
+    "auc_shuffled_keys": 0.7799255441008018,
+    "gate_after_slot_delete": 0.07120285109945794,
+    "false_fire_rate_prose": 0.012027491408934709,
+    "n_prose_positions": 582,
+    "gate_reads_tape": false,
+    "paired_gap_same_line": 0.037618838386144576,
+    "per_mode": {
+      "h_feat": {
+        "mode": "h_feat",
+        "gate_on_tape": 0.10882168948560252,
+        "gate_off_tape": 0.00046125938113467606,
+        "gate_prose": 0.011975227927961202,
+        "auc_on_vs_prose": 0.7799255441008018,
+        "auc_on_vs_off_tape": 0.6893939393939394,
+        "auc_shuffled_keys": 0.7799255441008018,
+        "gate_after_slot_delete": 0.07120285109945794,
+        "paired_gap_same_line": 0.037618838386144576,
+        "false_fire_rate_prose": 0.012027491408934709,
+        "n_prose_positions": 582,
+        "gate_reads_tape": false
+      },
+      "feat_only": {
+        "mode": "feat_only",
+        "gate_on_tape": 0.079002449051283,
+        "gate_off_tape": 0.00886303479836153,
+        "gate_prose": 0.009670190988532314,
+        "auc_on_vs_prose": 0.7935280641466208,
+        "auc_on_vs_off_tape": 0.6590909090909091,
+        "auc_shuffled_keys": 0.7935280641466208,
+        "gate_after_slot_delete": 0.072624101566286,
+        "paired_gap_same_line": 0.0063783474849969934,
+        "false_fire_rate_prose": 0.003436426116838488,
+        "n_prose_positions": 582,
+        "gate_reads_tape": false
+      },
+      "h_only": {
+        "mode": "h_only",
+        "gate_on_tape": 0.04783773314503984,
+        "gate_off_tape": 0.08356897114698437,
+        "gate_prose": 0.0317928475860082,
+        "auc_on_vs_prose": 0.67024627720504,
+        "auc_on_vs_off_tape": 0.4318181818181818,
+        "auc_shuffled_keys": 0.67024627720504,
+        "gate_after_slot_delete": 0.04783773314503984,
+        "paired_gap_same_line": 0.0,
+        "false_fire_rate_prose": 0.006872852233676976,
+        "n_prose_positions": 582,
+        "gate_reads_tape": false
+      }
+    },
+    "decisive_feat_only_gap": 0.0063783474849969934,
+    "h_only_gap": 0.0,
+    "feature_probe": {
+      "n": 12,
+      "max": {
+        "with": 0.5155246357123057,
+        "without": 0.41415855040152866,
+        "delta": 0.10136608531077702,
+        "abs_delta": 0.10136608531077702
+      },
+      "mean": {
+        "with": 0.34564969688653946,
+        "without": 0.32109546040495235,
+        "delta": 0.024554236481587093,
+        "abs_delta": 0.024554236481587093
+      },
+      "margin12": {
+        "with": 0.13263360410928726,
+        "without": 0.0698213130235672,
+        "delta": 0.06281229108572006,
+        "abs_delta": 0.11015528688828151
+      },
+      "max_minus_mean": {
+        "with": 0.16987494006752968,
+        "without": 0.09306308875481288,
+        "delta": 0.0768118513127168,
+        "abs_delta": 0.0873840016623338
+      },
+      "cov": {
+        "with": 1.0000000049670537,
+        "without": 1.0000000049670537,
+        "delta": 0.0,
+        "abs_delta": 4.967053731282552e-08
+      },
+      "gold_is_top1_with": 0.6666666666666666,
+      "gold_is_top1_without": 0.0
+    },
+    "features_move": true,
+    "prior_260": {
+      "auc_vs_prose": 0.5741,
+      "auc_vs_off_tape": 0.4416,
+      "after_delete": 0.199,
+      "shuffled_auc": 0.5741,
+      "why": "trained on on-tape lines only; gate was a function of h_t alone"
+    }
+  },
+  "note": "260d: Gate2 with z-scored retrieval feats (max, mean, margin12, max-minus-mean, entropy; no cov). Three input ablations in one run: h_feat, feat_only, h_only. G_feat_only_carries_it: feat_only paired_gap\u22650.15 proves possession without h_t. If h_only AUC\u2248h_feat, earlier NOs were line classification. feature_probe from 260c.",
+  "timestamp": "2026-08-03T20:43:54.611367+00:00",
+  "wall_s": 263.6605703830719
+}

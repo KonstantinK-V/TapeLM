@@ -12,10 +12,13 @@ python artifact/scripts/run_inprint.py demo
 
 | Headline results (staged) | |
 |---------------------------|---|
+| **Semantic query vs matched GPT-2** | unseen paraphrase **0.646 vs 0.276** (**258**) — curve **beats** control, not parity |
 | Noisy recall vs **fair GPT+RAG** | **0.913 vs 0.627** (204) |
 | Lexical OOD calibration | AUC **0.982** vs GPT **0.380** |
 | Fp decode when the CE head underuses memory | **~1.0** vs **~0.48** (228c) |
 | Cross-domain memory utilization | **~0.88** vs **~0.45** head (226c) |
+
+**Closed joint-trunk chapter (255→260f, full gates):** stream ingest **255**, two-hop **257**, semantic query **258**, hot-swap **259**, open-text gate **260f** — narrative + JSON index in [`results/stages_255_260_close.md`](results/stages_255_260_close.md).
 
 On **clean static retrieval**, a fair GPT+RAG baseline can **match** our scores — we report that openly. The distinctive line is **character substrate → structured fp memory → product trunk** (below), not SOTA on tidy benchmarks.
 
@@ -86,6 +89,9 @@ Curated headline results (full index: [`docs/STAGES.md`](docs/STAGES.md) · JSON
 | **197** | One-shot knowledge edit | **1.00** (GPT **~0.28**) |
 | **204–205** | Noise vs fair RAG; slot unlearn | **0.913 vs 0.627**; delete w/o collateral |
 | **221→227→228c→230→226c** | Product memory track (domains, conflicts, **use** of memory) | fp decode **~1.0** vs head **~0.48**; cross-domain **~0.88** |
+| **255→257→258→259→260f** | Joint trunk after stream ingest | **258:** sem **0.646** vs GPT **0.276**; **257:** 2-hop **1.0** / one-hop **0.0**; **260f:** gate from **5** retrieval feats, **h_only** **0.0**; **259:** edit **~116 µs**, **0** grad |
+
+Full write-up: [`results/stages_255_260_close.md`](results/stages_255_260_close.md).
 
 ---
 
@@ -98,7 +104,7 @@ Documented in repo — not hidden in footnotes:
 | **Semantic invariance (PAWS / “B”)** | Not confirmed at RTX 3050 scale (**209**); curve ≈ matched GPT |
 | **Generate next fingerprint (variant B)** | **Falsified** (**207**) |
 | **Fp rerank on arcBPE head** | **No gain** on clean text (**208**) |
-| **Hops inside transformer forward** | **THESIS_NO** (**210–212**); external fp loop remains the hop API |
+| **Hops inside transformer forward** | **`THESIS_NO_AT_SCALE`** (**210–212** @ d256); external fp loop remains the hop API |
 | **Clean static recall vs fair GPT+RAG** | **Parity** — not a capability trump card (**196**, **198**) |
 
 Details: [`results/extension_closed_branches.md`](results/extension_closed_branches.md) · preprint §5.4–5.5
@@ -143,7 +149,8 @@ Python 3.10+, PyTorch, `tokenizers`, `transformers`. GPU recommended for the ful
 | | |
 |--|--|
 | Product one-pager | [`artifact/OVERVIEW.md`](artifact/OVERVIEW.md) |
-| Preprint | [`results/preprint_tapelm_draft.md`](results/preprint_tapelm_draft.md) |
+| Preprint | [`results/preprint_tapelm_draft.md`](results/preprint_tapelm_draft.md) (§4.9 = **255–260f** chapter) |
+| Joint trunk close (255–260f) | [`results/stages_255_260_close.md`](results/stages_255_260_close.md) |
 | Full program | [`results/plan_curve_dynamics.md`](results/plan_curve_dynamics.md) |
 | Publish / HF | [`docs/PUBLISHING.md`](docs/PUBLISHING.md) |
 

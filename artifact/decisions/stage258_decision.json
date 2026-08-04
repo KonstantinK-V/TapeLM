@@ -1,0 +1,406 @@
+{
+  "stage": 258,
+  "overall": "SEM_QUERY_OK",
+  "trunk": "stage253_joint_l02.pt",
+  "chance": 0.125,
+  "steps": 600,
+  "n_subjects": 64,
+  "n_fit_subjects": 32,
+  "n_eval_subjects": 32,
+  "fit_rels": [
+    "lead",
+    "birth",
+    "death",
+    "marriage",
+    "work",
+    "prison"
+  ],
+  "exam_holdout": "para_hold (same relations, alternate paraphrase on held-out subjects)",
+  "tape_slots": 1712,
+  "subject_slots": 512,
+  "curve_state_dim": 512,
+  "loss_curve": 1.3645760118961334,
+  "unseen_reading": "gpt_parity",
+  "gates": {
+    "G_fp_only_at_chance": true,
+    "G_sem_beats_fp": true,
+    "G_sem_beats_fp_seen": true,
+    "G_unseen_para": true,
+    "G_seen_rel": true,
+    "G_anchored_intact": true,
+    "G_bankwide_retrieval": true,
+    "G_sem_selective": true,
+    "G_tape_causal": true,
+    "G_keys_frozen": true
+  },
+  "summary": {
+    "fp_only": {
+      "seen_rel": {
+        "sel_acc": 0.057291666666666664,
+        "bank_top1": 0.057291666666666664,
+        "bank_mrr": 0.26274181547619047,
+        "alpha": 0.0,
+        "n": 192,
+        "skipped": 0,
+        "confusion": {
+          "lead": {
+            "burial": 31,
+            "prison": 1
+          },
+          "birth": {
+            "study": 28,
+            "lead": 3,
+            "burial": 1
+          },
+          "death": {
+            "burial": 23,
+            "death": 9
+          },
+          "marriage": {
+            "prison": 24,
+            "death": 8
+          },
+          "work": {
+            "burial": 17,
+            "work": 2,
+            "death": 6,
+            "prison": 3,
+            "study": 1,
+            "lead": 3
+          },
+          "prison": {
+            "birth": 29,
+            "study": 2,
+            "death": 1
+          }
+        }
+      },
+      "unseen_para": {
+        "sel_acc": 0.0,
+        "bank_top1": 0.0,
+        "bank_mrr": 0.23539186507936508,
+        "alpha": 0.0,
+        "n": 192,
+        "skipped": 0,
+        "confusion": {
+          "lead": {
+            "burial": 23,
+            "work": 1,
+            "prison": 8
+          },
+          "birth": {
+            "burial": 19,
+            "study": 11,
+            "lead": 2
+          },
+          "death": {
+            "burial": 14,
+            "prison": 18
+          },
+          "marriage": {
+            "prison": 32
+          },
+          "work": {
+            "burial": 32
+          },
+          "prison": {
+            "study": 27,
+            "lead": 4,
+            "death": 1
+          }
+        }
+      },
+      "anchored": {
+        "sel_acc": 0.7578125,
+        "bank_top1": 0.7578125,
+        "bank_mrr": 0.8733723958333334,
+        "alpha": 0.0,
+        "n": 256,
+        "skipped": 0,
+        "confusion": {
+          "lead": {
+            "lead": 32
+          },
+          "birth": {
+            "birth": 32
+          },
+          "death": {
+            "study": 23,
+            "death": 9
+          },
+          "marriage": {
+            "marriage": 23,
+            "study": 4,
+            "burial": 5
+          },
+          "work": {
+            "work": 21,
+            "study": 11
+          },
+          "prison": {
+            "prison": 32
+          },
+          "study": {
+            "death": 17,
+            "study": 15
+          },
+          "burial": {
+            "burial": 30,
+            "study": 2
+          }
+        }
+      }
+    },
+    "curve_sem": {
+      "seen_rel": {
+        "sel_acc": 1.0,
+        "bank_top1": 1.0,
+        "bank_mrr": 1.0,
+        "alpha": 0.48263550192738575,
+        "n": 192,
+        "skipped": 0,
+        "confusion": {
+          "lead": {
+            "lead": 32
+          },
+          "birth": {
+            "birth": 32
+          },
+          "death": {
+            "death": 32
+          },
+          "marriage": {
+            "marriage": 32
+          },
+          "work": {
+            "work": 32
+          },
+          "prison": {
+            "prison": 32
+          }
+        }
+      },
+      "unseen_para": {
+        "sel_acc": 0.6458333333333334,
+        "bank_top1": 0.6458333333333334,
+        "bank_mrr": 0.7782895824631022,
+        "alpha": 0.4717315435409546,
+        "n": 192,
+        "skipped": 0,
+        "confusion": {
+          "lead": {
+            "work": 27,
+            "lead": 5
+          },
+          "birth": {
+            "marriage": 2,
+            "birth": 30
+          },
+          "death": {
+            "marriage": 28,
+            "study": 1,
+            "death": 2,
+            "work": 1
+          },
+          "marriage": {
+            "marriage": 26,
+            "work": 6
+          },
+          "work": {
+            "work": 30,
+            "marriage": 2
+          },
+          "prison": {
+            "prison": 31,
+            "lead": 1
+          }
+        }
+      },
+      "anchored": {
+        "sel_acc": 0.76171875,
+        "bank_top1": 0.76171875,
+        "bank_mrr": 0.8300238715277778,
+        "alpha": 0.34662919194670394,
+        "n": 256,
+        "skipped": 0,
+        "confusion": {
+          "lead": {
+            "lead": 32
+          },
+          "birth": {
+            "birth": 32
+          },
+          "death": {
+            "death": 32
+          },
+          "marriage": {
+            "marriage": 32
+          },
+          "work": {
+            "work": 32
+          },
+          "prison": {
+            "prison": 32
+          },
+          "study": {
+            "death": 26,
+            "marriage": 1,
+            "work": 2,
+            "study": 3
+          },
+          "burial": {
+            "marriage": 24,
+            "prison": 8
+          }
+        }
+      }
+    },
+    "curve_sem_shuffled_keys": {
+      "sel_acc": 0.125,
+      "bank_top1": 0.005208333333333333,
+      "bank_mrr": 0.008615507105655196,
+      "alpha": 0.4717315435409546,
+      "n": 192,
+      "skipped": 0,
+      "confusion": {
+        "lead": {
+          "study": 5,
+          "birth": 6,
+          "work": 5,
+          "burial": 3,
+          "lead": 5,
+          "death": 2,
+          "prison": 3,
+          "marriage": 3
+        },
+        "birth": {
+          "marriage": 7,
+          "death": 2,
+          "prison": 5,
+          "lead": 4,
+          "burial": 5,
+          "birth": 4,
+          "work": 2,
+          "study": 3
+        },
+        "death": {
+          "birth": 6,
+          "lead": 2,
+          "prison": 5,
+          "burial": 5,
+          "marriage": 7,
+          "death": 3,
+          "study": 3,
+          "work": 1
+        },
+        "marriage": {
+          "birth": 5,
+          "lead": 4,
+          "prison": 3,
+          "burial": 6,
+          "death": 4,
+          "study": 4,
+          "work": 2,
+          "marriage": 4
+        },
+        "work": {
+          "study": 4,
+          "lead": 7,
+          "prison": 2,
+          "burial": 5,
+          "death": 4,
+          "marriage": 5,
+          "birth": 2,
+          "work": 3
+        },
+        "prison": {
+          "burial": 4,
+          "lead": 3,
+          "prison": 5,
+          "death": 3,
+          "work": 2,
+          "birth": 4,
+          "study": 4,
+          "marriage": 7
+        }
+      }
+    },
+    "gpt_control": {
+      "dim": 256,
+      "loss": 1.3363148808479308,
+      "seen_rel": {
+        "sel_acc": 1.0,
+        "bank_top1": 1.0,
+        "bank_mrr": 1.0,
+        "alpha": 0.46931268693879247,
+        "n": 192,
+        "skipped": 0,
+        "confusion": {
+          "lead": {
+            "lead": 32
+          },
+          "birth": {
+            "birth": 32
+          },
+          "death": {
+            "death": 32
+          },
+          "marriage": {
+            "marriage": 32
+          },
+          "work": {
+            "work": 32
+          },
+          "prison": {
+            "prison": 32
+          }
+        }
+      },
+      "unseen_para": {
+        "sel_acc": 0.2760416666666667,
+        "bank_top1": 0.2760416666666667,
+        "bank_mrr": 0.49312943749085053,
+        "alpha": 0.43581018162270385,
+        "n": 192,
+        "skipped": 0,
+        "confusion": {
+          "lead": {
+            "prison": 27,
+            "lead": 3,
+            "death": 1,
+            "burial": 1
+          },
+          "birth": {
+            "marriage": 21,
+            "work": 9,
+            "birth": 1,
+            "lead": 1
+          },
+          "death": {
+            "birth": 22,
+            "lead": 8,
+            "prison": 2
+          },
+          "marriage": {
+            "prison": 27,
+            "marriage": 3,
+            "lead": 2
+          },
+          "work": {
+            "work": 32
+          },
+          "prison": {
+            "prison": 14,
+            "death": 13,
+            "lead": 2,
+            "work": 1,
+            "study": 2
+          }
+        }
+      }
+    }
+  },
+  "note": "Keys stay canonical frozen fp; P1 and trunk frozen; only W_q, W_sem and the blend train. a=0 reproduces stage 256 exactly, so fp-only is the same code path, not a reimplementation. The exam gives one subject four relations, so every candidate slot shares the anchor fingerprint and the query paraphrases the relation with no shared content word \u2014 fp-only is pre-registered at chance (G_fp_only_at_chance); if that gate fails the exam leaks and nothing else here is interpretable. unseen_para is paraphrase B on held-out subjects (258c). Fit training uses para + anchored so the blend sees fp-perfect queries. The matched GPT-2 channel exists so a negative can be told apart from a small GPU: NO_AT_SCALE means GPT did no better, which is what 210-212 never checked.",
+  "timestamp": "2026-08-03T21:59:20.079371+00:00",
+  "wall_s": 49.916409730911255
+}

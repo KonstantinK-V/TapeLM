@@ -1,0 +1,141 @@
+{
+  "stage": "260e",
+  "overall": "OPEN_GATE5_NO",
+  "trunk": "stage253_joint_l02.pt",
+  "steps": 600,
+  "topk": 8,
+  "n_fit": 64,
+  "n_eval_on_tape": 24,
+  "n_eval_off_tape": 24,
+  "tape_slots": 88,
+  "gates": {
+    "G_auc_vs_prose": false,
+    "G_auc_vs_off_tape": false,
+    "G_paired_same_line": true,
+    "G_feat_only_carries_it": true,
+    "G_h_only_flat": true,
+    "G_quiet_on_prose": true,
+    "G_delete_silences": true,
+    "G_tape_causal": false
+  },
+  "summary": {
+    "gate_on_tape": 0.13847663433600269,
+    "gate_off_tape": 0.0054814862329535825,
+    "gate_prose": 0.03792619234949614,
+    "auc_on_vs_prose": 0.7919026641493602,
+    "auc_on_vs_off_tape": 0.63003663003663,
+    "auc_shuffled_keys": 0.7919026641493602,
+    "gate_after_slot_delete": 0.06948663598061744,
+    "false_fire_rate_prose": 0.03524229074889868,
+    "n_prose_positions": 681,
+    "gate_reads_tape": false,
+    "paired_gap_same_line": 0.06898999835538525,
+    "paired_win_rate": 0.8571428571428571,
+    "paired_logit_gap": 2.475728734123597,
+    "per_mode": {
+      "h_feat": {
+        "mode": "h_feat",
+        "gate_on_tape": 0.13847663433600269,
+        "gate_off_tape": 0.0054814862329535825,
+        "gate_prose": 0.03792619234949614,
+        "auc_on_vs_prose": 0.7919026641493602,
+        "auc_on_vs_off_tape": 0.63003663003663,
+        "auc_shuffled_keys": 0.7919026641493602,
+        "gate_after_slot_delete": 0.06948663598061744,
+        "paired_gap_same_line": 0.06898999835538525,
+        "paired_win_rate": 0.8571428571428571,
+        "paired_logit_gap": 2.475728734123597,
+        "paired_logit_gap_median": 2.044585884362821,
+        "n_pairs": 21,
+        "false_fire_rate_prose": 0.03524229074889868,
+        "n_prose_positions": 681,
+        "gate_reads_tape": false
+      },
+      "feat_only": {
+        "mode": "feat_only",
+        "gate_on_tape": 0.1442992803890125,
+        "gate_off_tape": 0.018477392253351772,
+        "gate_prose": 0.053165086232010515,
+        "auc_on_vs_prose": 0.8149080483882246,
+        "auc_on_vs_off_tape": 0.7582417582417582,
+        "auc_shuffled_keys": 0.8149080483882246,
+        "gate_after_slot_delete": 0.04310541529983831,
+        "paired_gap_same_line": 0.10119386508917419,
+        "paired_win_rate": 0.9047619047619048,
+        "paired_logit_gap": 2.373079511990305,
+        "paired_logit_gap_median": 2.5059513404625595,
+        "n_pairs": 21,
+        "false_fire_rate_prose": 0.04405286343612335,
+        "n_prose_positions": 681,
+        "gate_reads_tape": false
+      },
+      "h_only": {
+        "mode": "h_only",
+        "gate_on_tape": 0.1587929759762552,
+        "gate_off_tape": 0.27385452563444584,
+        "gate_prose": 0.0532800212709612,
+        "auc_on_vs_prose": 0.7360324452835466,
+        "auc_on_vs_off_tape": 0.3626373626373626,
+        "auc_shuffled_keys": 0.7360324452835466,
+        "gate_after_slot_delete": 0.1587929759762552,
+        "paired_gap_same_line": 0.0,
+        "paired_win_rate": 0.0,
+        "paired_logit_gap": 0.0,
+        "paired_logit_gap_median": 0.0,
+        "n_pairs": 21,
+        "false_fire_rate_prose": 0.039647577092511016,
+        "n_prose_positions": 681,
+        "gate_reads_tape": false
+      }
+    },
+    "decisive_feat_only_win_rate": 0.9047619047619048,
+    "decisive_feat_only_logit_gap": 2.373079511990305,
+    "h_only_logit_gap": 0.0,
+    "feature_probe": {
+      "n": 21,
+      "max": {
+        "with": 0.48747874867348445,
+        "without": 0.3941767604001576,
+        "delta": 0.09330198827332684,
+        "abs_delta": 0.09330198827332684
+      },
+      "mean": {
+        "with": 0.31818286302898613,
+        "without": 0.28852268778497264,
+        "delta": 0.02966017524401347,
+        "abs_delta": 0.02966017524401347
+      },
+      "margin12": {
+        "with": 0.10257898838747115,
+        "without": 0.07242837193466369,
+        "delta": 0.03015061645280747,
+        "abs_delta": 0.07729193426313855
+      },
+      "max_minus_mean": {
+        "with": 0.1692958857331957,
+        "without": 0.10565407343563579,
+        "delta": 0.06364181229755991,
+        "abs_delta": 0.07034660822578839
+      },
+      "cov": {
+        "with": 1.0000000085149492,
+        "without": 1.000000005676633,
+        "delta": 2.838316417875744e-09,
+        "abs_delta": 5.960464477539063e-08
+      },
+      "gold_is_top1_with": 0.8571428571428571,
+      "gold_is_top1_without": 0.0
+    },
+    "features_move": true,
+    "prior_260": {
+      "auc_vs_prose": 0.5741,
+      "auc_vs_off_tape": 0.4416,
+      "after_delete": 0.199,
+      "shuffled_auc": 0.5741,
+      "why": "trained on on-tape lines only; gate was a function of h_t alone"
+    }
+  },
+  "note": "260e: same Gate2/training as 260d; paired_win_rate and paired_logit_gap per arm. Pass paired: win\u22650.80 OR logit_gap\u22650.5. G_h_only_flat: |h_only logit gap|\u22640.05. Prob paired_gap kept for 260c/260d continuity.",
+  "timestamp": "2026-08-03T20:55:15.381056+00:00",
+  "wall_s": 261.85870718955994
+}

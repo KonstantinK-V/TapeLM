@@ -1,0 +1,610 @@
+{
+  "stage": 255,
+  "overall": "STREAM_INGEST_OK",
+  "lambda_base": 0.2,
+  "lambda_admit": false,
+  "lambda_admit_alpha": 0.35,
+  "run_tag": "ablate_no_wq_wiki12",
+  "chunk_lines": 25000,
+  "entity_cap": 400,
+  "query_train": false,
+  "query_steps": 150,
+  "arc_mode": "frozen",
+  "epochs_per_chunk": 1.0,
+  "replay_frac": 0.2,
+  "reservoir_cap": 4000,
+  "gates": {
+    "G_streamed": true,
+    "G_no_forget_vs_P1": true,
+    "G_peak_hold_regress": true,
+    "G_understanding_holds": true,
+    "G_recall_query_beats_frozen": true,
+    "G_recall_adapt_top1_floor": true,
+    "G_tape_bounded": true
+  },
+  "summary": {
+    "chunks": 12,
+    "tokens_unique": 53623250,
+    "tokens_train": 53628521,
+    "tape_slots": 2899,
+    "tape_mb": 1.484288,
+    "baseline_exam": 0.825,
+    "exam_first_chunk": 0.8333333333333334,
+    "exam_last": 0.9,
+    "forget_hold_ce_vs_first_chunk": {
+      "wiki": -0.2501749595006304
+    },
+    "forget_hold_ce_vs_P1": {
+      "wiki": -0.14831157525380423
+    },
+    "baseline_hold_ce": {
+      "wiki": 4.356857180595398
+    },
+    "recall_top1_vs_bank": [
+      [
+        359,
+        1.0
+      ],
+      [
+        651,
+        1.0
+      ],
+      [
+        919,
+        1.0
+      ],
+      [
+        1176,
+        1.0
+      ],
+      [
+        1395,
+        1.0
+      ],
+      [
+        1618,
+        1.0
+      ],
+      [
+        1828,
+        1.0
+      ],
+      [
+        2053,
+        1.0
+      ],
+      [
+        2261,
+        1.0
+      ],
+      [
+        2467,
+        1.0
+      ],
+      [
+        2680,
+        1.0
+      ],
+      [
+        2899,
+        1.0
+      ]
+    ],
+    "recall_top1_frozen_vs_bank": [
+      [
+        359,
+        1.0
+      ],
+      [
+        651,
+        1.0
+      ],
+      [
+        919,
+        1.0
+      ],
+      [
+        1176,
+        1.0
+      ],
+      [
+        1395,
+        1.0
+      ],
+      [
+        1618,
+        1.0
+      ],
+      [
+        1828,
+        1.0
+      ],
+      [
+        2053,
+        1.0
+      ],
+      [
+        2261,
+        1.0
+      ],
+      [
+        2467,
+        1.0
+      ],
+      [
+        2680,
+        1.0
+      ],
+      [
+        2899,
+        1.0
+      ]
+    ],
+    "recall_mrr_vs_bank": [
+      [
+        359,
+        1.0
+      ],
+      [
+        651,
+        1.0
+      ],
+      [
+        919,
+        1.0
+      ],
+      [
+        1176,
+        1.0
+      ],
+      [
+        1395,
+        1.0
+      ],
+      [
+        1618,
+        1.0
+      ],
+      [
+        1828,
+        1.0
+      ],
+      [
+        2053,
+        1.0
+      ],
+      [
+        2261,
+        1.0
+      ],
+      [
+        2467,
+        1.0
+      ],
+      [
+        2680,
+        1.0
+      ],
+      [
+        2899,
+        1.0
+      ]
+    ],
+    "recall_final_top1": 1.0,
+    "recall_final_top1_frozen": 1.0,
+    "recall_final_mrr": 1.0
+  },
+  "history": [
+    {
+      "chunk": 1,
+      "domain": "wiki",
+      "tokens_unique": 4417194,
+      "tokens_train": 4417435,
+      "tape_slots": 359,
+      "tape_mb": 0.183808,
+      "entities_added": 327,
+      "entities_dropped": 73,
+      "n_admit_lambda": 359,
+      "lambda_eff": 0.2,
+      "query_loss": NaN,
+      "exam_next_tok": 0.8333333333333334,
+      "hold_ce": {
+        "wiki": 4.458720564842224
+      },
+      "probe_bank_frozen": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "probe_bank": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "wall_s": 1800.7363469600677
+    },
+    {
+      "chunk": 2,
+      "domain": "wiki",
+      "tokens_unique": 8900188,
+      "tokens_train": 8900887,
+      "tape_slots": 651,
+      "tape_mb": 0.333312,
+      "entities_added": 292,
+      "entities_dropped": 108,
+      "n_admit_lambda": 292,
+      "lambda_eff": 0.2,
+      "query_loss": NaN,
+      "exam_next_tok": 0.825,
+      "hold_ce": {
+        "wiki": 4.3923343022664385
+      },
+      "probe_bank_frozen": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "probe_bank": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "wall_s": 3588.7988681793213
+    },
+    {
+      "chunk": 3,
+      "domain": "wiki",
+      "tokens_unique": 13393011,
+      "tokens_train": 13394298,
+      "tape_slots": 919,
+      "tape_mb": 0.470528,
+      "entities_added": 268,
+      "entities_dropped": 132,
+      "n_admit_lambda": 268,
+      "lambda_eff": 0.2,
+      "query_loss": NaN,
+      "exam_next_tok": 0.8333333333333334,
+      "hold_ce": {
+        "wiki": 4.327728907267253
+      },
+      "probe_bank_frozen": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "probe_bank": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "wall_s": 5392.032229423523
+    },
+    {
+      "chunk": 4,
+      "domain": "wiki",
+      "tokens_unique": 17941482,
+      "tokens_train": 17943507,
+      "tape_slots": 1176,
+      "tape_mb": 0.602112,
+      "entities_added": 257,
+      "entities_dropped": 143,
+      "n_admit_lambda": 257,
+      "lambda_eff": 0.2,
+      "query_loss": NaN,
+      "exam_next_tok": 0.85,
+      "hold_ce": {
+        "wiki": 4.29921559492747
+      },
+      "probe_bank_frozen": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "probe_bank": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "wall_s": 7210.792979955673
+    },
+    {
+      "chunk": 5,
+      "domain": "wiki",
+      "tokens_unique": 22364672,
+      "tokens_train": 22367277,
+      "tape_slots": 1395,
+      "tape_mb": 0.71424,
+      "entities_added": 219,
+      "entities_dropped": 181,
+      "n_admit_lambda": 219,
+      "lambda_eff": 0.2,
+      "query_loss": NaN,
+      "exam_next_tok": 0.825,
+      "hold_ce": {
+        "wiki": 4.271047234535217
+      },
+      "probe_bank_frozen": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "probe_bank": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "wall_s": 8977.209401130676
+    },
+    {
+      "chunk": 6,
+      "domain": "wiki",
+      "tokens_unique": 26799908,
+      "tokens_train": 26802884,
+      "tape_slots": 1618,
+      "tape_mb": 0.828416,
+      "entities_added": 223,
+      "entities_dropped": 177,
+      "n_admit_lambda": 223,
+      "lambda_eff": 0.2,
+      "query_loss": NaN,
+      "exam_next_tok": 0.85,
+      "hold_ce": {
+        "wiki": 4.2125610907872515
+      },
+      "probe_bank_frozen": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "probe_bank": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "wall_s": 10820.625977754593
+    },
+    {
+      "chunk": 7,
+      "domain": "wiki",
+      "tokens_unique": 31230009,
+      "tokens_train": 31233023,
+      "tape_slots": 1828,
+      "tape_mb": 0.935936,
+      "entities_added": 210,
+      "entities_dropped": 190,
+      "n_admit_lambda": 210,
+      "lambda_eff": 0.2,
+      "query_loss": NaN,
+      "exam_next_tok": 0.875,
+      "hold_ce": {
+        "wiki": 4.193340520064036
+      },
+      "probe_bank_frozen": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "probe_bank": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "wall_s": 12638.488757133484
+    },
+    {
+      "chunk": 8,
+      "domain": "wiki",
+      "tokens_unique": 35708154,
+      "tokens_train": 35711456,
+      "tape_slots": 2053,
+      "tape_mb": 1.051136,
+      "entities_added": 225,
+      "entities_dropped": 175,
+      "n_admit_lambda": 225,
+      "lambda_eff": 0.2,
+      "query_loss": NaN,
+      "exam_next_tok": 0.8833333333333333,
+      "hold_ce": {
+        "wiki": 4.186510304609935
+      },
+      "probe_bank_frozen": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "probe_bank": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "wall_s": 14539.827060222626
+    },
+    {
+      "chunk": 9,
+      "domain": "wiki",
+      "tokens_unique": 40202129,
+      "tokens_train": 40206289,
+      "tape_slots": 2261,
+      "tape_mb": 1.157632,
+      "entities_added": 208,
+      "entities_dropped": 192,
+      "n_admit_lambda": 208,
+      "lambda_eff": 0.2,
+      "query_loss": NaN,
+      "exam_next_tok": 0.8583333333333333,
+      "hold_ce": {
+        "wiki": 4.216417570908864
+      },
+      "probe_bank_frozen": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "probe_bank": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "wall_s": 2115.4856884479523
+    },
+    {
+      "chunk": 10,
+      "domain": "wiki",
+      "tokens_unique": 44740449,
+      "tokens_train": 44744657,
+      "tape_slots": 2467,
+      "tape_mb": 1.263104,
+      "entities_added": 206,
+      "entities_dropped": 194,
+      "n_admit_lambda": 206,
+      "lambda_eff": 0.2,
+      "query_loss": NaN,
+      "exam_next_tok": 0.875,
+      "hold_ce": {
+        "wiki": 4.2382707595825195
+      },
+      "probe_bank_frozen": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "probe_bank": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "wall_s": 4065.7697241306305
+    },
+    {
+      "chunk": 11,
+      "domain": "wiki",
+      "tokens_unique": 49243326,
+      "tokens_train": 49247973,
+      "tape_slots": 2680,
+      "tape_mb": 1.37216,
+      "entities_added": 213,
+      "entities_dropped": 187,
+      "n_admit_lambda": 213,
+      "lambda_eff": 0.2,
+      "query_loss": NaN,
+      "exam_next_tok": 0.9,
+      "hold_ce": {
+        "wiki": 4.208617627620697
+      },
+      "probe_bank_frozen": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "probe_bank": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "wall_s": 5999.630540132523
+    },
+    {
+      "chunk": 12,
+      "domain": "wiki",
+      "tokens_unique": 53623250,
+      "tokens_train": 53628521,
+      "tape_slots": 2899,
+      "tape_mb": 1.484288,
+      "entities_added": 219,
+      "entities_dropped": 181,
+      "n_admit_lambda": 219,
+      "lambda_eff": 0.2,
+      "query_loss": NaN,
+      "exam_next_tok": 0.9,
+      "hold_ce": {
+        "wiki": 4.208545605341594
+      },
+      "probe_bank_frozen": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "probe_bank": {
+        "wiki": {
+          "four_way": 1.0,
+          "top1": 1.0,
+          "mrr": 1.0,
+          "median_rank": 1.0
+        }
+      },
+      "wall_s": 7838.449362039566
+    }
+  ],
+  "note": "Canonical frozen keys on tape; trainable W_q aligns queries (understanding\u0442\u0416\u0422read). W_q fits only probe facts with wq_train=True; recall is scored on the held-out half. Hold CE vs P1 is primary no-forget gate. Recall gates require adapted top1/MRR, not frozen-only.",
+  "timestamp": "2026-08-03T20:11:35.710580+00:00",
+  "wall_s": 7838.811456203461
+}

@@ -1,0 +1,15 @@
+{
+  "stage": 258,
+  "primary_goal": "Retrieval query sees frozen trunk state (W_sem blend), not decode — keys stay canonical editable fp.",
+  "baseline": "a=0 with same W_q is stage-256 fp query (not a reimplementation).",
+  "exam_validity": "G_fp_only_at_chance on unseen_para must pass or overall SEM_QUERY_INVALID — paraphrase shares no content words with write template.",
+  "exam_258c": "Train on paraphrase A + anchored on fit subjects; test unseen_para = paraphrase B of same fit relations (not held-out relation types, which were InfoNCE negatives).",
+  "verdict_read": {
+    "SEM_QUERY_OK": "Sem channel wins unseen_para with causal gates",
+    "SEM_QUERY_PARTIAL": "Beats fp on seen paraphrase relations only",
+    "SEM_QUERY_NO_AT_SCALE": "Curve and matched GPT-2 both fail unseen_para — scale/pretrain, not architecture",
+    "SEM_QUERY_NO": "GPT succeeds, curve does not — architectural gap on this exam",
+    "SEM_QUERY_INVALID": "Exam leaked (fp-only above chance) or tape keys drifted"
+  },
+  "not_claimed": ["End-to-end decode (256/257)", "Span copy path", "Hot swap (259)"]
+}

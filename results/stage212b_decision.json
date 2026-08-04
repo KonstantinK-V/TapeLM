@@ -1,0 +1,39 @@
+{
+  "stage": "212b",
+  "overall": "INSTANCE_SEM_NO_AT_SCALE",
+  "trunk": "stage253_joint_l02.pt",
+  "chance": 0.25,
+  "steps": 800,
+  "slots": 480,
+  "n_fit": 240,
+  "n_eval": 240,
+  "gates": {
+    "G_fp_blind_by_construction": true,
+    "G_sem_above_chance": false,
+    "G_beats_fp_only": false,
+    "G_tape_causal": true
+  },
+  "summary": {
+    "fp_only": {
+      "collision_4way": 0.20416666666666666,
+      "n": 240,
+      "alpha": 0.0
+    },
+    "fp_plus_sem": {
+      "collision_4way": 0.325,
+      "n": 240,
+      "alpha": 0.45817281380295755
+    },
+    "shuffled_keys": {
+      "collision_4way": 0.2833333333333333,
+      "n": 240,
+      "alpha": 0.45817281380295755
+    },
+    "gpt_control": {
+      "collision_4way": 0.36666666666666664
+    }
+  },
+  "note": "Retry of 212 with the mechanism it lacked. 212 scored a standalone read-only MLP on its own contrastive objective; here the trunk state is projected INTO KEY SPACE and blended with the fp query, trained by InfoNCE against the real bank (the 258 channel). Collisions are where fp is blind by construction \u2014 one surface form, four occurrences, four values, identical fingerprint on every sibling key \u2014 so G_fp_blind must hold or the exam leaked. Store and query halves of an occurrence window are disjoint, as in 212. P1 and trunk frozen; only W_q, W_sem and the blend train.",
+  "timestamp": "2026-08-03T22:06:55.299580+00:00",
+  "wall_s": 43.315638303756714
+}

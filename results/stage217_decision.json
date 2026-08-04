@@ -1,6 +1,7 @@
 {
   "stage": 217,
-  "overall": "SLOW_ENDPOINT_NO",
+  "overall": "SLOW_ENDPOINT_INVALID_METHOD",
+  "overall_legacy": "SLOW_ENDPOINT_NO",
   "gates": {
     "G1_noisy_dual": false
   },

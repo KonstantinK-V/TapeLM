@@ -26,7 +26,7 @@ Verdicts: `results/stage*_decision.json` and [`../artifact/decisions/`](../artif
 | 207 / 207-MAX | curve thinking | **B falsified** |
 | 208 | hybrid fp rerank | No gain |
 | 209 | semantic scaling | **STRUCTURAL_BLOCK_NO** (B not confirmed @3050) |
-| 210–212 | internalization frontier | All **THESIS_NO** |
+| 210–212 | internalization frontier | All **`THESIS_NO_AT_SCALE`** @ d256 (see [`VERDICT_VOCABULARY.md`](VERDICT_VOCABULARY.md)) |
 
 Earlier substrate: 170–191 (curve, BPE, dual-channel, night scale) — see [`plan_curve_dynamics.md`](../results/plan_curve_dynamics.md).
 
@@ -42,8 +42,8 @@ Earlier substrate: 170–191 (curve, BPE, dual-channel, night scale) — see [`p
 | 214 | `_stage214_recency_ctx.py` | **RECENCY_CTX_NO** |
 | 215 | `_stage215_domain_adapter.py` | **DOMAIN_ADAPTER_NO** |
 | 216 | `_stage216_split_arc_ff.py` | **SPLIT_FF_NO** |
-| 217–219 | slow endpoint / snap / stream | Mixed (see JSON) |
-| 220 | `_stage220_sem_sidecar.py` | **SEM_SIDECAR_NO** |
+| 217–219 | slow endpoint / snap / stream | **217/218:** **`_INVALID_METHOD`**; 219 see JSON |
+| 220 | `_stage220_sem_sidecar.py` | **`SEM_SIDECAR_INVALID_METHOD`** |
 | 221 | `_stage221_fp_remap_adapter.py` | **FP_REMAP_ADAPTER_YES** |
 | 221-probe | `_stage221_probe.py` | **W_REMAP_CHARACTERIZED** |
 | 222 | `_stage222_fp_deploy_modes.py` | **FP_DEPLOY_MODES_MIXED** |
@@ -85,20 +85,29 @@ Narrative: [`extension_memory_contract.md`](../results/extension_memory_contract
 |-------|--------|---------|-----------|
 | **240** | `_stage240_cf_vs_rag.py` | **CF_VS_RAG_SURPRISE** | Yes — frozen GPT+RAG index **breaks** under query drift (1.0→0.68); TapeLM 0.95 |
 | **241** | `_stage241_harmful_W.py` | **WRONG_W_HURTS_OK** | Wrong W < no-W (deploy: better bare than wrong family) |
-| **242** | `_stage242_rehearsal_dose.py` | **REHEARSAL_DOSE_PARTIAL** | 50% rehearsal → GPT 0.81, still below TapeLM 1.0 |
+| **242** | `_stage242_rehearsal_dose.py` | **`REHEARSAL_DOSE_ANTICF_OK`** | 100% A-replay → GPT **0.938**, tape **1.0**; vs slot write (259). [`VERDICT_VOCABULARY.md`](VERDICT_VOCABULARY.md) |
 | **243** | `_stage243_carrier_drift.py` | **CARRIER_DRIFT_OK** | Same B corpus: slots 0.98 vs weights 0.45 |
 | **244** | `_stage244_forget_clean.py` | **FORGET_CLEAN_OK** | Slot delete zero collateral; GPT unlearn damages retained |
 | **245** | `_stage245_mixed_vs_p1W.py` | **MIXED_NO_W_TIES_P1W** | Mixed raw ≈ P1+W (not a swap signal) |
-| **246** | `_stage246_domain_curriculum.py` | **DOMAIN_CURRICULUM_PARTIAL** | wiki→stories→med→news @3k: tape mem holds; GPT wiki PPL explodes; wiki head gen weak |
+| **246** | `_stage246_domain_curriculum.py` | **`DOMAIN_CURRICULUM_DUP254`** *(JSON: PARTIAL)* | **Duplicate of 254 joint** — see [`stages_254_close.md`](stages_254_close.md); product line = 254 operators + **255** |
 | **247** | `_stage247_ingest_forks.py` | **INGEST_FORK_SLOTS_AND_HOP** | Fork map: slots+masked CE beat CE-on-bindings; hop-sim admits/rejects |
 | **248–250** | masked CE nights | PARTIAL / **MASKED_NIGHT_OK** (mem) | **Do not read as “understanding failed”:** 248–250 used `" ".join` stream → often **one wiki doc** + repeated mask stub; exam nt drop likely **overfit**, not objective verdict |
 | **251** | `_stage251_cpc_understand.py` | **CPC_UNDERSTAND_PARTIAL** @4M tok/phase | CAL moves exam **0.825→0.850**; CPC gap **0.185→0.096** but exam **0.717**, holdout PPL worse; mem/leak OK |
 | **252** | `_stage252_joint_cpc.py` | **JOINT_CPC_OK** @4M/arm | Winners **λ=0.05, 0.2**; **λ=0.2**: exam **0.850**, gap **0.185→0.137** |
 | **253** | `_stage253_scale_joint.py` | **SCALE_JOINT_OK** @16M | **λ=0.2**: nt **0.825→0.867**, hold **4.00**, gap **0.185→0.129**; all gates vs 252; mem 1.0 (~2h) |
-| **254** | `_stage254_continual_understand.py` | **re-run** (W_q + local mask) | Old run: mem 0.92+ shift path; new: **W_query** canonical read, leak Δ vs P1 |
-| **255** | `_stage255_stream_ingest.py` | smoke **W_q** top1 0→1 | Frozen keys + **trainable W_q**; old wiki:12 recall invalid without W_q — re-run `--run-tag wiki12` |
+| **254** | `_stage254_continual_understand.py` | **CONTINUAL_UNDERSTAND_OK** (smoke, `--operators-only`); joint smoke **NO** | Frozen P1 + W_query + growing bank; joint upper forgets/leaks. [`stages_254_close.md`](stages_254_close.md). |
+| **255** | `_stage255_stream_ingest.py` | **STREAM_INGEST_OK** (wiki:12) | Bounded tape; **W_q** trains on ingested pairs, recall on held-out probes — see [`VERDICT_VOCABULARY.md`](VERDICT_VOCABULARY.md) |
+| **256** | `_stage256_slot_bias_decode.py` | **SLOT_BIAS_GLUE_OK** | One-hop copy-mixture glue; symmetric W_q; bank NCE on wiki pairs. |
+| **257** | `_stage257_fp_compose.py` | **FP_COMPOSE_OK** (full) | Two-hop; retrieval@cue + span-lock. [`stages_257_258_close.md`](stages_257_258_close.md) · [`../results/stages_255_260_close.md`](../results/stages_255_260_close.md). |
+| **258** | `_stage258_semantic_query.py` | **SEM_QUERY_OK** (full) | W_sem; para_hold; **0.646 vs GPT 0.276** unseen. Same close docs. |
+| **259** | `_stage259_hot_swap.py` | **HOT_SWAP_OK** (full) | Edit slot, zero grad; `TapeView.with_value`. |
+| **260f** | `_stage260f_open_gate.py` | **OPEN_GATE6_OK** (full) | **feat_only** gate; h_only **0.0** paired win. 260c–e ablation line. |
+| **260** | `_stage260_open_gate.py` | **OPEN_GATE_NO** (smoke) | Gate ignored tape (shuffled AUC = real); see **260b**. |
+| **260b** | `_stage260b_open_gate.py` | **OPEN_GATE2_NO** (smoke) | Line classifier; gate_reads_tape false → **260c** paired train. |
+| **260c** | `_stage260c_open_gate.py` | **OPEN_GATE3_NO** (smoke) | Paired same-line; **`feature_probe`** + **`features_move`**; read before 212b. |
+| **212b** | `_stage212b_instance_sem.py` | **queued** | Instance disambig via W_sem (258 channel); collision exam. |
 
-Runner: `python _run_stages_240_245.py [--smoke]`. Lib: `_stage24x_lib.py`. Curriculum: `_stage246_domain_curriculum.py`. Ingest: `_stage247_ingest_forks.py` → **251** CPC ladder.
+Runner: `python _run_stages_240_245.py [--smoke]`. Night full: `python _run_queue_night_full.py`. Lib: `_stage24x_lib.py`. Curriculum: `_stage246_domain_curriculum.py`. Ingest: `_stage247_ingest_forks.py` → **251** CPC ladder.
 
 **Still open:** **209** meaning / scale.
 

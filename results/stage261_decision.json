@@ -1,0 +1,64 @@
+{
+  "stage": 261,
+  "overall": "NL_QUERY_NO_AT_SCALE",
+  "trunk": "stage253_joint_l02.pt",
+  "steps": 800,
+  "slots": 4353,
+  "exam_slots": 353,
+  "noise_slots": 4000,
+  "n_fit": 176,
+  "n_eval": 177,
+  "chance": 0.00022972662531587412,
+  "overlap_median": 0.0625,
+  "gates": {
+    "G_works": false,
+    "G_beats_fp_only": false,
+    "G_low_overlap_works": false,
+    "G_not_lexical": false,
+    "G_tape_causal": true,
+    "G_signal_20way": false
+  },
+  "gpt_parity": true,
+  "summary": {
+    "fp_only": {
+      "top1": 0.03389830508474576,
+      "mrr": 0.058316468853679256,
+      "median_rank": 1451.0,
+      "top1_low_overlap": 0.0,
+      "top1_high_overlap": 0.06896551724137931,
+      "alpha": 0.0,
+      "n": 177,
+      "acc_20way": 0.22033898305084745,
+      "chance_20way": 0.05
+    },
+    "fp_plus_sem": {
+      "top1": 0.0,
+      "mrr": 0.012363488116295365,
+      "median_rank": 1907.0,
+      "top1_low_overlap": 0.0,
+      "top1_high_overlap": 0.0,
+      "alpha": 0.7201506502210757,
+      "n": 177,
+      "acc_20way": 0.0903954802259887,
+      "chance_20way": 0.05
+    },
+    "shuffled_keys": {
+      "top1": 0.0,
+      "mrr": 0.002288968522044672,
+      "median_rank": 2205.0,
+      "top1_low_overlap": 0.0,
+      "top1_high_overlap": 0.0,
+      "alpha": 0.7201506502210757,
+      "n": 177,
+      "acc_20way": 0.062146892655367235,
+      "chance_20way": 0.05
+    },
+    "gpt_control": {
+      "top1": 0.0,
+      "mrr": 0.007713390989363697
+    }
+  },
+  "note": "Full: 353 exam + 4000 wiki noise. Headline NL_QUERY_NO_AT_SCALE (GPT top1 0). Interpretation: acc_20way fp-only 0.22 vs chance 0.05 (shuffled 0.062) shows tape-causal signal; fp+sem 0.09 at alpha~0.72 — sem blend harms fp (calibration failure, same fp-confidence regime as 258 anchored when fp weak). Open top1 failed for everyone; 20-way separates 'any signal' from full-bank top1. See results/stage261_close.md. Deferred: loss term penalizing blend when losing to fp-only.",
+  "timestamp": "2026-08-04T04:42:52.206755+00:00",
+  "wall_s": 34.02979850769043
+}

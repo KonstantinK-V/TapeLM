@@ -1,0 +1,36 @@
+{
+  "stage": 259,
+  "overall": "HOT_SWAP_OK",
+  "trunk": "stage253_joint_l02.pt",
+  "glue": "stage256_slot_bias.pt",
+  "topk": 8,
+  "tape_slots": 158,
+  "n_eval_facts": 4,
+  "gates": {
+    "G_baseline_alive": true,
+    "G_answer_follows_edit": true,
+    "G_old_answer_dies": true,
+    "G_edit_is_local": true,
+    "G_keys_untouched": true,
+    "G_zero_gradient_steps": true,
+    "G_latest_write_wins": true,
+    "G_no_param_leak": true
+  },
+  "summary": {
+    "em_before": 0.75,
+    "em_new_value_after_edit": 1.0,
+    "em_old_value_after_edit": 0.0,
+    "em_neighbours_after_edit": 0.7499999999999999,
+    "em_newest_after_second_edit": 0.75,
+    "em_superseded_after_second_edit": 0.0,
+    "em_empty_tape": 0.0,
+    "edit_wall_us_mean": 115.69997877813876,
+    "edit_wall_us_note": "includes a defensive copy of the value list (O(slots)); an in-place product edit is a tokenize plus two assignments",
+    "keys_bit_identical": true,
+    "glue_params_bit_identical": true,
+    "gradient_steps": 0
+  },
+  "note": "No training anywhere: the 256 glue is loaded and its parameters are hashed before and after, so zero-train is measured rather than asserted. A value never enters its own key (ctx_fp excludes it at write time), so the edit leaves keys bit-identical \u2014 an update, not a re-index. Each fact is edited on its own view of the tape and scored free-form with no candidate set, on the half of the facts 256 never fit. The second edit checks the tape tracks the latest write instead of behaving like a write-once cache.",
+  "timestamp": "2026-08-03T15:03:19.732165+00:00",
+  "wall_s": 6.323822498321533
+}

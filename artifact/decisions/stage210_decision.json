@@ -1,7 +1,7 @@
 {
   "timestamp": "2026-07-29T13:13:30.560338+00:00",
   "protocol": "softfollow_forward_tokens_210",
-  "overall": "THESIS_NO",
+  "overall": "THESIS_NO_AT_SCALE",
   "soft_follow_token": {
     "train": {
       "1": 0.2222222222222222,
@@ -51,5 +51,54 @@
   },
   "anticf_encoder_frozen": true,
   "chance": 0.25,
-  "interpretation": "THESIS_YES = structured hops inside forward answer via CE tokens without P1 grad"
+  "interpretation": "THESIS_NO_AT_SCALE: gates failed on frozen P1 @ d256/6L with controls run in this JSON. Not a permanent falsification; see gpt_matched_ladder and 209 for matched-GPT / scale context.",
+  "overall_legacy": "THESIS_NO",
+  "claim_scope": {
+    "fixed_before_reread": true,
+    "applies_to_stages": [
+      210,
+      211,
+      212
+    ],
+    "encoder_budget": "frozen P1 @ d256 / 6L; small trainable heads/inject only",
+    "primary_read": "Internal composition / slow tape / instance channel **not confirmed** in this setup \u2014 **not** permanently falsified.",
+    "explicitly_not_claimed": [
+      "Impossible at BERT-scale or after mixture pretrain",
+      "Worse than matched GPT without running the same harness",
+      "Superseded by external fp glue (256/257) \u2014 different API"
+    ],
+    "matched_gpt_discipline": {
+      "reference_ladder": "209 (PAWS + teacher parity across d128/d192/d256)",
+      "per_stage": {
+        "210": "Same k-hop chain token task: curve inject vs external cosine vs GPT parametric (no tape) \u2014 ladder in stage210_212_matched_gpt_ladder.json",
+        "211": "Same cross-doc task: internal vs endpoint vs external vs gpt_incontext (already in stage211_decision.json)",
+        "212": "Collision 4-way + para/hard: compare to 209 PAWS parity for semantic B; instance head is curve-only unless gpt_ladder run"
+      }
+    },
+    "culture_note": "Three branches are **honestly open** on scale and controls; shipping product still uses **external fp loops** (203, 256/257) until a forward-internal path clears gates with GPT matched."
+  },
+  "gpt_matched_ladder": {
+    "status": "gpt_baseline_run",
+    "curve_soft_follow_test": {
+      "1": 0.2833333333333333,
+      "2": 0.25,
+      "3": 0.3
+    },
+    "curve_external_cosine": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 1.0
+    },
+    "gpt_parametric_chain": {
+      "protocol": "gpt_parametric_chain_4way",
+      "n": 80,
+      "acc_by_hop": {
+        "1": 0.2413793103448276,
+        "2": 0.3103448275862069,
+        "3": 0.13636363636363635
+      },
+      "chance": 0.25
+    },
+    "parity_read": "Compare gpt_parametric_chain acc_by_hop to curve soft_follow_token test; external cosine is curve-only affordance"
+  }
 }

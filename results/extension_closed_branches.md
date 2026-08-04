@@ -68,13 +68,27 @@ Script: `_stage221_fp_remap_adapter.py`, `results/stage221_decision.json`.
 
 ## Other extension verdicts (213–220 snapshot)
 
-| Stage | Overall |
-|-------|---------|
+| Stage | Overall (read) |
+|-------|----------------|
 | 213 | ARC_ENC_FREEZE_PARTIAL (fp stable; wiki CE drop on TS-only upper) |
-| 217 slow-endpoint | SLOW_ENDPOINT_NO |
-| 218 snap hop | SNAP_HOP_NO |
+| 217 slow-endpoint | **`SLOW_ENDPOINT_INVALID_METHOD`** (legacy `SLOW_ENDPOINT_NO`) |
+| 218 snap hop | **`SNAP_HOP_INVALID_METHOD`** (legacy `SNAP_HOP_NO`) |
 | 219 stream decay | STREAM_DECAY_WIN |
-| 220 sem sidecar | SEM_SIDECAR_NO |
+| 220 sem sidecar | **`SEM_SIDECAR_INVALID_METHOD`** (legacy `SEM_SIDECAR_NO`) |
+
+**210–212:** **`THESIS_NO_AT_SCALE`** only — not `THESIS_NO` in indexes ([`VERDICT_VOCABULARY.md`](../docs/VERDICT_VOCABULARY.md)).
+
+## Anti-CF rehearsal (242)
+
+| Stage | Overall (read) |
+|-------|----------------|
+| 242 | **`REHEARSAL_DOSE_ANTICF_OK`** — GPT **0.938 @ 100%** replay, tape **1.0** |
+
+## Domain curriculum duplicate (246)
+
+| Stage | Overall (read) |
+|-------|----------------|
+| 246 | **`DOMAIN_CURRICULUM_DUP254`** — same joint-upper story as **254**; use **254 close** + **255** operators path |
 
 ---
 

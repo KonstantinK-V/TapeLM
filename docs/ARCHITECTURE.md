@@ -88,7 +88,7 @@ flowchart LR
 | **Calibrate** | Lexicon surprise on **fp** modulates generation confidence (193); read-only w.r.t. slot geometry. |
 | **Resolve** | After retrieve, **230** chooses among conflicting values (provenance / recency / query cue); not fixable by cosine alone (229). |
 
-External **multi-hop** (203) loops in fp-space beside this path — not inside the transformer forward (210 **THESIS_NO**). Details: [`MEMORY_ENGINEERING.md`](MEMORY_ENGINEERING.md).
+External **multi-hop** (203) loops in fp-space beside this path — not inside the transformer forward (210 **`THESIS_NO_AT_SCALE`**). Details: [`MEMORY_ENGINEERING.md`](MEMORY_ENGINEERING.md).
 
 ---
 

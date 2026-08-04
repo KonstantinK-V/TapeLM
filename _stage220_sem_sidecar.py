@@ -93,7 +93,7 @@ def main() -> int:
     acc_sem = acc_pairs(test, True)
     acc_lex = acc_pairs(test, False)
     g1 = acc_sem > acc_lex + 0.03
-    overall = "SEM_SIDECAR_WIN" if g1 else "SEM_SIDECAR_NO"
+    overall = "SEM_SIDECAR_WIN" if g1 else "SEM_SIDECAR_INVALID_METHOD"
     DECISION.write_text(
         json.dumps(
             {

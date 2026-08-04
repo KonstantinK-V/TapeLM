@@ -1,0 +1,58 @@
+{
+  "timestamp": "2026-08-03T12:38:03.242860+00:00",
+  "reference": "209_sem_scaling_teacher_209",
+  "stage_209_summary": {
+    "verdict": "STRUCTURAL_BLOCK_NO",
+    "note": "PAWS tracks matched GPT at d128/d192/d256 \u2014 shared scale ceiling, not curve-specific blindness"
+  },
+  "stage_211": {
+    "status": "gpt_control_in_original_run",
+    "internal_tape": 0.23,
+    "endpoint_only": 0.28,
+    "external_slots": 1.0,
+    "gpt_incontext": 0.26,
+    "parity_read": "internal\u2248gpt_ic\u2248endpoint<<external; matched GPT does not solve task either"
+  },
+  "stage_210": {
+    "status": "gpt_baseline_run",
+    "curve_soft_follow_test": {
+      "1": 0.2833333333333333,
+      "2": 0.25,
+      "3": 0.3
+    },
+    "curve_external_cosine": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 1.0
+    },
+    "gpt_parametric_chain": {
+      "protocol": "gpt_parametric_chain_4way",
+      "n": 80,
+      "acc_by_hop": {
+        "1": 0.2413793103448276,
+        "2": 0.3103448275862069,
+        "3": 0.13636363636363635
+      },
+      "chance": 0.25
+    },
+    "parity_read": "Compare gpt_parametric_chain acc_by_hop to curve soft_follow_token test; external cosine is curve-only affordance"
+  },
+  "stage_212": {
+    "status": "curve_only_collision_in_original_run",
+    "collision_4way": {
+      "instance_learned": 0.3776041666666667,
+      "instance_random_untrained": 0.3359375,
+      "fp_only_surface_key": 0.2421875,
+      "ctx_blend_197": 0.328125,
+      "soft_rerank": 0.3203125,
+      "chance": 0.25
+    },
+    "para_hard": {
+      "para": 0.7503505456447601,
+      "hard": 0.9371891617774963,
+      "gap_hard_minus_para": 0.18683861613273622,
+      "inversion_para_gt_hard": false
+    },
+    "cross_ref": "For substrate semantic parity vs GPT use 209; 212 tested instance head on curve tape only"
+  }
+}

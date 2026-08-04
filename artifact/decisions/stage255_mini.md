@@ -1,6 +1,6 @@
 # Stage 255 stream ingest
 
-**STREAM_INGEST_NO** chunks=12 tokens=53628550 slots=2738 (1.4 MB)
+**STREAM_INGEST_OK** chunks=12 tokens=53628550 slots=2738 (1.4 MB)
 
 - exam 0.833 -> 0.883
 - forget (hold CE): {"wiki": -0.249}

@@ -11,7 +11,7 @@
 
 ## Abstract
 
-We study a language-model stack whose substrate is a **dual-channel curve encoder** (character-level ink + slow write-budget memory) rather than a monolithic token embedding. On top of a **single frozen encoder** (d256, 6 layers, trained on ~150M characters), we attach **zero-training** modules derived from classic **word-fingerprint (FP)** theory: an editable lexicon for lexical surprise, episodic slot memory for facts, subject-anchored one-shot writes, and vector binding for multi-hop queries. The resulting **TapeLM** matches a matched GPT-2 control on next-token prediction (0.867 vs 0.843) while beating vanilla GPT on calibration (lexical OOD AUC 0.982 vs 0.380), parametric fact recall (0.947 vs ~0.30), one-shot knowledge edit (1.00 vs 0.28), and beyond-window streaming under memory budget (0.74 vs 0.23 in-context). Against a **fair GPT+RAG** baseline (same retrieval math and surprise-gated admission), capability is **parity**, not dominance: static recall and long chains tie when anchors are clean; the defensible claim is **architectural unification**—generation, memory keys, novelty gating, and calibration share one fp-space without extra trained retrievers. Two axes do break the tie with a fair GPT+RAG. Under **character noise and out-of-vocabulary input** the curve retains 0.913 hardened recall against RAG's 0.627 and twice its corrupted-word identification accuracy, because every typo re-fragments a BPE token while a character fingerprint degrades smoothly; and **targeted unlearning** removes a fact in O(1) with retained recall and next-token accuracy bit-identical, whereas naive gradient unlearning of the same facts in the parametric model destroys 80% of the retained facts. Semantic invariance over adversarial paraphrase (PAWS) remains **scale-bound** for both curve and GPT at this size (~0.70 test accuracy, no para/hard inversion), identical to the matched transformer. We also report three explicit negative results on the **output and internalization** frontiers (§4.5–4.7, §5.4): latent multi-hop composition is a **latency** advantage only; a **fully generative** fingerprint-output variant is falsified; and a hybrid word-level fingerprint reranker gives the token head **no measurable gain** on clean text. **A second major positive line (Stages 221–230, §4.8)** closes the product memory story after 210–212: **canonical** slot storage, **family W** qmap, **228c** fp decode (**1.0** vs head **~0.48** on constrained exams), **230** resolution (**~1.0** vs argmax **~0.47**), and cross-domain **226c** (**~0.88** fp utilization vs **~0.45** head)—the strongest **deployment-facing** results alongside 204–205. Code and per-stage JSON decisions are available in the repository.
+We study a language-model stack whose substrate is a **dual-channel curve encoder** (character-level ink + slow write-budget memory) rather than a monolithic token embedding. On top of a **single frozen encoder** (d256, 6 layers, trained on ~150M characters), we attach **zero-training** modules derived from classic **word-fingerprint (FP)** theory: an editable lexicon for lexical surprise, episodic slot memory for facts, subject-anchored one-shot writes, and vector binding for multi-hop queries. The resulting **TapeLM** matches a matched GPT-2 control on next-token prediction (0.867 vs 0.843) while beating vanilla GPT on calibration (lexical OOD AUC 0.982 vs 0.380), parametric fact recall (0.947 vs ~0.30), one-shot knowledge edit (1.00 vs 0.28), and beyond-window streaming under memory budget (0.74 vs 0.23 in-context). Against a **fair GPT+RAG** baseline (same retrieval math and surprise-gated admission), capability is **parity**, not dominance: static recall and long chains tie when anchors are clean; the defensible claim is **architectural unification**—generation, memory keys, novelty gating, and calibration share one fp-space without extra trained retrievers. Two axes do break the tie with a fair GPT+RAG. Under **character noise and out-of-vocabulary input** the curve retains 0.913 hardened recall against RAG's 0.627 and twice its corrupted-word identification accuracy, because every typo re-fragments a BPE token while a character fingerprint degrades smoothly; and **targeted unlearning** removes a fact in O(1) with retained recall and next-token accuracy bit-identical, whereas naive gradient unlearning of the same facts in the parametric model destroys 80% of the retained facts. Semantic invariance over adversarial paraphrase (PAWS) remains **scale-bound** for both curve and GPT at this size (~0.70 test accuracy, no para/hard inversion), identical to the matched transformer. We also report three explicit negative results on the **output and internalization** frontiers (§4.5–4.7, §5.4): latent multi-hop composition is a **latency** advantage only; a **fully generative** fingerprint-output variant is falsified; and a hybrid word-level fingerprint reranker gives the token head **no measurable gain** on clean text. **A second major positive line (Stages 221–230, §4.8)** closes the product memory story after 210–212: **canonical** slot storage, **family W** qmap, **228c** fp decode (**1.0** vs head **~0.48** on constrained exams), **230** resolution (**~1.0** vs argmax **~0.47**), and cross-domain **226c** (**~0.88** fp utilization vs **~0.45** head)—the strongest **deployment-facing** results alongside 204–205. **A third closed line (Stages 255–260f on joint trunk `253`, §4.9)** adds stream ingest under budget, **semantic query that beats matched GPT-2** on held-out paraphrase (**0.646 vs 0.276**), external two-hop composition at **1.0** EM, a tape-causal open-text gate driven by **five** retrieval features (**h_only** ablation **0.0** paired win), and **~116 µs** zero-gradient slot hot-swap. Code and per-stage JSON decisions are available in the repository.
 
 **Keywords:** character-level language model; curve encoder; dual-channel memory; word fingerprint; episodic slot memory; zero-train retrieval; canonical memory; domain remap; vector binding; RAG comparison; knowledge editing; machine unlearning; OOD calibration; multi-hop retrieval; reproducible staged evaluation
 
@@ -33,7 +33,8 @@ This work reconnects a 2018-era **word-fingerprint** idea (normalized encodings 
 2. **Capability breaks vs fair RAG** — spelling-noise / OOV recall (§4.2b) and slot unlearn vs parametric unlearning (§4.2c).
 3. **Frozen P1 + slots** — continual facts without backbone finetune; skills in weights, facts in memory (§3.1, §5.3).
 4. **Utilization trunk** — **221→227→228c→230→226c**: migrate, decode, resolve, cross-domain **use** of memory (§4.8); headline: fp decode **~1.0** vs head **~0.48**, e2e **~0.88** vs **~0.45**.
-5. **Credible negatives** — internalization (210–212), fingerprint-generation (207), hybrid rerank (208) closed so positives are not oversold.
+5. **Joint trunk (255–260f)** — stream ingest + **semantic query beats matched GPT-2** on unseen paraphrase (**0.646 vs 0.276**, §4.9); two-hop compose, feat-only tape gate, zero-grad hot-swap.
+6. **Credible negatives** — internalization (210–212), fingerprint-generation (207), hybrid rerank (208) closed so positives are not oversold.
 
 ---
 
@@ -216,6 +217,30 @@ The core stack (§2–4) keeps **one frozen P1 encoder** for canonical storage a
 
 **Post-trunk ops (231–235, not v1 headline).** Closed on staged exams: **temporal / era-matched W** (231), **stream decay + slot `w_version`** (232), **tool⊗entity bind keys** (233), **compositional qmap** (234), and a **bounded mixed-domain L1 probe** (235 — short arc steps, not 191-scale pretrain). These harden deploy hygiene and W algebra; they do **not** change the shipping trunk or the fair-RAG scorecard. Head-only text inject without fp decode still fails (226, 228a). Still open at scale: multi-domain **L1 pretrain**. Weights: P1/P2 + optional `w_registry/` on Hugging Face; demo: `artifact/scripts/run_product.py`.
 
+### 4.9 Joint trunk: stream ingest, semantic query, composition, gate, hot-swap (Stages 255–260f)
+
+After the **221–230** product memory trunk, we run a **single joint curve+glue checkpoint** (`stage253_joint_l02.pt`) through a **closed** five-stage line: grow the tape under budget, compose hops, ask semantic questions with a matched GPT control, prove the open-text gate reads retrieval features, and swap slot values with zero training. Full gates and JSON: [`stages_255_260_close.md`](stages_255_260_close.md).
+
+**255 — stream ingest (`STREAM_INGEST_OK`).** Twelve wiki chunks (~53.6M tokens) through a chunked single-pass writer; **2738** slots, **1.4 MB** tape. Next-token exam **0.833 → 0.883**; hold CE vs frozen P1 does not regress. Canonical keys stay readable; reservoir replay is the only retained text from past chunks.
+
+**258 — semantic query (`SEM_QUERY_OK`) — headline.** Sixty-four subjects; six fit relations; eval holds out **paraphrase B** on unseen subjects. Every candidate slot shares the **subject anchor fp**; queries paraphrase the relation without shared content words. **fp-only** on unseen paraphrase is **0.000** (exam validity gate). **curve + W_sem**:
+
+| Channel | seen_rel | **unseen_para** |
+|---------|---------:|----------------:|
+| fp-only | 0.057 | 0.000 |
+| **curve + sem** | **1.000** | **0.646** |
+| matched GPT-2 + sem | 1.000 | **0.276** |
+
+This is the first staged result where the **curve channel beats matched GPT-2** on a semantic probe—not `NO_AT_SCALE` parity (210–212, fair RAG on clean retrieval). Keys remain frozen canonical fp; only `W_q`, `W_sem`, and the blend train. Shuffled keys and fp@chance controls pass.
+
+**257 — fp compose (`FP_COMPOSE_OK`).** External two-hop loop with re-anchoring: **EM 1.000**, **one-hop-only 0.000**, shuffled/empty/**0.000**, unseen relation pair **1.000**, delete-middle **0.000** (local causal). retrieval@cue separates mechanism from greedy decode EM.
+
+**260f — open-text gate (`OPEN_GATE6_OK`, headline **feat_only`).** Early gates on hidden state alone ignored the tape (shuffled-key AUC = real). **Five z-scored retrieval features** drive the gate; ablation **h_only** paired win-rate **0.000** vs **feat_only 0.672**. Random unit keys: gate **~868×** below on-tape; **gold_is_top1** **0.738 → 0.000** when features zeroed.
+
+**259 — hot swap (`HOT_SWAP_OK`).** Load stage-256 glue; replace slot values in **~116 µs** mean wall time; **0** gradient steps; keys and glue params **bit-identical** before/after; old value EM **0.000**, new **1.000**; second edit enforces latest-write-wins.
+
+**Interpretation.** **258** is the **capability** headline of this line (semantic generalization with GPT beaten on held-out paraphrase). **257**, **260f**, and **259** are **architecture** proofs: hops, tape-causal gating, and O(1) factual update in the same fp geometry as **255**’s growing tape. Open-domain entity linking over thousands of noise slots (**261**) and instance-scale disambig (**212b**) are reported separately and do **not** retract **258**’s closed selective exam.
+
 ---
 
 ## 5. Discussion
@@ -356,7 +381,7 @@ We recommend framing the work around **structured knowledge as operable vectors*
 | 231–233 | Ops: temporal W OK; stream+`w_version` OK; tool bind OK (not trunk) |
 | 234–235 | Compositional W OK; mixed L1 **probe** OK (not full pretrain) |
 
-Full narrative: [`plan_curve_dynamics.md`](plan_curve_dynamics.md) (Memory extension program), [`extension_memory_contract.md`](extension_memory_contract.md), [`../docs/ARCHITECTURE.md`](../docs/ARCHITECTURE.md). Machine-readable: `results/stage*_decision.json`, `artifact/decisions/`.
+Full narrative: [`plan_curve_dynamics.md`](plan_curve_dynamics.md) (Memory extension program), [`extension_memory_contract.md`](extension_memory_contract.md), [`../docs/ARCHITECTURE.md`](../docs/ARCHITECTURE.md). **Joint trunk close:** [`stages_255_260_close.md`](stages_255_260_close.md). Machine-readable: `results/stage*_decision.json`, `artifact/decisions/`.
 
 ---
 
@@ -364,7 +389,7 @@ Full narrative: [`plan_curve_dynamics.md`](plan_curve_dynamics.md) (Memory exten
 
 **Title (short):** *TapeLM: Zero-Train Fingerprint Memory on a Unified Curve Encoder*
 
-**One-sentence pitch:** TapeLM is **not RAG with another embedder**—it is **structured knowledge as operable vectors** (slots, bind, hops, edit, resolve) in the **same** frozen curve space as generation; we match GPT on generation, beat vanilla GPT on memory/calibration, tie fair GPT+RAG on **clean** retrieval, and win on noise/unlearning where the substrate matters—plus canonical **W + fp decode** for cross-domain use (§4.8).
+**One-sentence pitch:** TapeLM is **not RAG with another embedder**—it is **structured knowledge as operable vectors** (slots, bind, hops, edit, resolve) in the **same** frozen curve space as generation; we match GPT on generation, beat vanilla GPT on memory/calibration, tie fair GPT+RAG on **clean** retrieval, win on noise/unlearning where the substrate matters—and on the **253 joint trunk** beat **matched GPT-2** on held-out semantic paraphrase (**0.646 vs 0.276**, §4.9)—plus canonical **W + fp decode** for cross-domain use (§4.8).
 
 **Avoid in abstract:** “understands language,” “beats RAG,” “new paradigm without tokens.” In particular do **not** claim open-vocabulary superiority over BPE (see §4.5 scope correction) or capability distinctness on clean retrieval.
 

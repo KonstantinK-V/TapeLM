@@ -21,6 +21,7 @@ from _stage192_fp_lexicon import gen_fakes
 from _stage194_fp_fact_memory import ENT_RE, FpBank
 from _stage196_tapelm import gpt_span, load_gpt
 from _tapelm_ext import DomainAdapter
+RES = Path("results")
 CKPT_P1 = Path("checkpoints/stage191_p1_curve.pt")
 CKPT_MIXED = Path("checkpoints/stage238_mixed_scratch.pt")
 WIKI = Path("data/_wikitext103_train.txt")
@@ -231,7 +232,7 @@ def tape_recall_metrics(
     by_val: dict[str, list[int]] = {}
     for j, v in enumerate(Vlist):
         by_val.setdefault(v, []).append(j)
-    K = Kmat.detach().to("cpu", torch.float16) if Kmat.is_cuda else Kmat.float()
+    K = Kmat.detach().to("cpu", torch.float32) if Kmat.is_cuda else Kmat.float()
     n_slots = K.size(0)
     ok4 = 0
     ranks: list[int] = []
@@ -239,7 +240,7 @@ def tape_recall_metrics(
         qq = _tape_query(bank_q, f, W_bwd).detach().cpu().float()
         sc_all = []
         for i in range(0, n_slots, block):
-            sc_all.append((K[i : i + block] @ qq).float())
+            sc_all.append(K[i : i + block] @ qq)
         sc_col = torch.cat(sc_all) if sc_all else torch.zeros(0)
         gold = f["value"]
         gold_sc = float(sc_col[by_val[gold]].max()) if gold in by_val else -1.0

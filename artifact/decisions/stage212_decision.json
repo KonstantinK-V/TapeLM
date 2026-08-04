@@ -1,7 +1,7 @@
 {
   "timestamp": "2026-07-29T13:24:24.220316+00:00",
   "protocol": "instance_channel_212",
-  "overall": "THESIS_NO",
+  "overall": "THESIS_NO_AT_SCALE",
   "t1_collision_4way": {
     "instance_learned": 0.3776041666666667,
     "instance_random_untrained": 0.3359375,
@@ -36,5 +36,49 @@
     "test": 96,
     "occ_per_surface": 4
   },
-  "note": "instance channel = read-only 2-layer head on frozen tape state; collision test is 4-way among siblings of the SAME surface form, store/query crops are DISJOINT halves (no lexical overlap shortcut)"
+  "note": "instance channel = read-only 2-layer head on frozen tape state; collision test is 4-way among siblings of the SAME surface form, store/query crops are DISJOINT halves (no lexical overlap shortcut)",
+  "overall_legacy": "THESIS_NO",
+  "claim_scope": {
+    "fixed_before_reread": true,
+    "applies_to_stages": [
+      210,
+      211,
+      212
+    ],
+    "encoder_budget": "frozen P1 @ d256 / 6L; small trainable heads/inject only",
+    "primary_read": "Internal composition / slow tape / instance channel **not confirmed** in this setup \u2014 **not** permanently falsified.",
+    "explicitly_not_claimed": [
+      "Impossible at BERT-scale or after mixture pretrain",
+      "Worse than matched GPT without running the same harness",
+      "Superseded by external fp glue (256/257) \u2014 different API"
+    ],
+    "matched_gpt_discipline": {
+      "reference_ladder": "209 (PAWS + teacher parity across d128/d192/d256)",
+      "per_stage": {
+        "210": "Same k-hop chain token task: curve inject vs external cosine vs GPT parametric (no tape) \u2014 ladder in stage210_212_matched_gpt_ladder.json",
+        "211": "Same cross-doc task: internal vs endpoint vs external vs gpt_incontext (already in stage211_decision.json)",
+        "212": "Collision 4-way + para/hard: compare to 209 PAWS parity for semantic B; instance head is curve-only unless gpt_ladder run"
+      }
+    },
+    "culture_note": "Three branches are **honestly open** on scale and controls; shipping product still uses **external fp loops** (203, 256/257) until a forward-internal path clears gates with GPT matched."
+  },
+  "gpt_matched_ladder": {
+    "status": "curve_only_collision_in_original_run",
+    "collision_4way": {
+      "instance_learned": 0.3776041666666667,
+      "instance_random_untrained": 0.3359375,
+      "fp_only_surface_key": 0.2421875,
+      "ctx_blend_197": 0.328125,
+      "soft_rerank": 0.3203125,
+      "chance": 0.25
+    },
+    "para_hard": {
+      "para": 0.7503505456447601,
+      "hard": 0.9371891617774963,
+      "gap_hard_minus_para": 0.18683861613273622,
+      "inversion_para_gt_hard": false
+    },
+    "cross_ref": "For substrate semantic parity vs GPT use 209; 212 tested instance head on curve tape only"
+  },
+  "interpretation": "THESIS_NO_AT_SCALE: gates failed on frozen P1 @ d256/6L with controls run in this JSON. Not a permanent falsification; see gpt_matched_ladder and 209 for matched-GPT / scale context."
 }
