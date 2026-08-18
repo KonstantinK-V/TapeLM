@@ -197,12 +197,15 @@ def main() -> int:
         if step % probe_every == 0 or step == steps:
             m.eval()
             nt = next_tok(m, char_table, pad_id, items, device)
-            mem = L.tape_recall(facts_hop, all_values, bank_can, K, Vlist, SEED)
+            mem = L.tape_recall_decision(facts_hop, all_values, bank_can, K, Vlist, SEED)
             win = s225.window_next_tok_acc(
                 m, flat_m, off_m, char_table, pad_id, device, random.Random(SEED + step), 8 if args.smoke else 16
             )
             curve.append({"step": step, "ce": float(ce), "next_tok": nt, "mem": mem, "domain_win": win})
-            log(f"  probe@{step}: nt={nt:.3f} mem={mem:.3f} win={win:.3f}")
+            log(
+                f"  probe@{step}: nt={nt:.3f} mem={mem['four_way']:.3f} "
+                f"fb_top1={mem['full_bank_top1']:.3f} win={win:.3f}"
+            )
             Path("checkpoints").mkdir(exist_ok=True)
             torch.save({"model": m.state_dict(), "stage": 250, "step": step, "curve": curve}, CKPT_OUT)
             m.train()
@@ -220,11 +223,11 @@ def main() -> int:
     W, align = s221.train_remap(
         DomainAdapter(256).to(device), s221.fp_matrix(bank_b, core), F_can, rng, w_steps, device
     )
-    mem_cf = L.tape_recall(facts_hop, all_values, bank_b, K, Vlist, SEED, W_bwd=W)
+    mem_cf = L.tape_recall_decision(facts_hop, all_values, bank_b, K, Vlist, SEED, W_bwd=W)
     nt_final = curve[-1]["next_tok"] if curve else float("nan")
     nt0 = curve[0]["next_tok"] if curve else float("nan")
 
-    g_mem = mem_cf >= 0.80
+    g_mem = mem_cf["four_way"] >= 0.80
     g_under = (nt_final == nt_final) and (nt_final >= (nt0 - 0.03 if nt0 == nt0 else 0.5))
     g_curve = len(curve) >= 2
     if g_mem and g_under:
@@ -249,8 +252,8 @@ def main() -> int:
     }
     DECISION.write_text(json.dumps(out, indent=2), encoding="utf-8")
     MINI.write_text(
-        f"# Stage 250 masked night\n\n**{overall}** steps={steps} mem_cf={mem_cf:.3f} "
-        f"nt_final={nt_final}\n",
+        f"# Stage 250 masked night\n\n**{overall}** steps={steps} mem_cf={mem_cf['four_way']:.3f} "
+        f"fb_top1={mem_cf['full_bank_top1']:.3f} nt_final={nt_final}\n",
         encoding="utf-8",
     )
     log(json.dumps({"overall": overall, "mem_cf": mem_cf, "probes": len(curve)}, indent=2))

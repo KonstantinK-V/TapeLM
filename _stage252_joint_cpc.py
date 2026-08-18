@@ -264,7 +264,7 @@ def evaluate(
         "hold_ppl": math.exp(min(ce, 20)),
         "inversion": s251.inversion_fast(m, char_table, pad_id, tok, device),
         "uniformity": uniformity(m, flat, off, char_table, pad_id, device, hold_docs, 48, SEED + 32),
-        "slot_mem": L.tape_recall(facts, all_values, bank, K, Vlist, SEED),
+        "slot_mem": L.tape_recall_decision(facts, all_values, bank, K, Vlist, SEED),
         "param_leak": s251.curve_param_recall(m, char_table, pad_id, tok, facts, all_values, device, SEED + 33),
     }
 

@@ -1,0 +1,184 @@
+{
+  "stage": 269,
+  "overall": "OPEN_NOVEL_TAPE_NO",
+  "frozen_baseline": false,
+  "trunk_mode": "upper",
+  "trainable_trunk_params": 7182082,
+  "smoke": true,
+  "seed": 269,
+  "trunk": "stage253_joint_l02.pt",
+  "fp_version": "stage191_p1_curve.pt",
+  "steps": 400,
+  "tape_period": 100,
+  "n_tapes": 4,
+  "n_open_per_tape": 20,
+  "distractor_slots": 150,
+  "used_pool_final": 220,
+  "gates": {
+    "G_headroom": true,
+    "G_novel_tape": false,
+    "G_beats_votes": false,
+    "G_arc_enc_frozen": true,
+    "G_no_param_leak": true,
+    "G_tape_causal": true,
+    "G_lang_intact": true
+  },
+  "open_exam": {
+    "train_tape_query": {
+      "top1": 0.35,
+      "mrr": 0.37984602915104715,
+      "median_rank": 20.5,
+      "top1_low_overlap": 0.2,
+      "top1_high_overlap": 0.5,
+      "n": 20,
+      "n_slots": 182
+    },
+    "train_tape_votes": {
+      "top1": 0.55,
+      "mrr": 0.6019230769230769,
+      "median_rank": 1.0,
+      "top1_low_overlap": 0.1,
+      "top1_high_overlap": 1.0,
+      "n": 20,
+      "n_slots": 182,
+      "tie_at_zero_frac": 0.35
+    },
+    "novel_tape_query": {
+      "top1": 0.25,
+      "mrr": 0.3088647576950899,
+      "median_rank": 44.0,
+      "top1_low_overlap": 0.1,
+      "top1_high_overlap": 0.4,
+      "n": 20,
+      "n_slots": 182
+    },
+    "novel_tape_votes": {
+      "top1": 0.45,
+      "mrr": 0.5420895281189398,
+      "median_rank": 2.0,
+      "top1_low_overlap": 0.1,
+      "top1_high_overlap": 0.8,
+      "n": 20,
+      "n_slots": 182,
+      "tie_at_zero_frac": 0.3
+    },
+    "shuffled_keys_query": {
+      "top1": 0.0,
+      "mrr": 0.04751342087705541,
+      "median_rank": 122.5,
+      "top1_low_overlap": 0.0,
+      "top1_high_overlap": 0.0,
+      "n": 20,
+      "n_slots": 182
+    },
+    "delta_novel_minus_train": -0.09999999999999998,
+    "delta_query_minus_votes": -0.2
+  },
+  "planted_half": {
+    "em": 0.75,
+    "verbatim": 0.75,
+    "open_recall": 1.0,
+    "em_empty_tape": 0.0
+  },
+  "controls": {
+    "hold_ce_base": 4.138715147972107,
+    "hold_ce_after": 4.1788599491119385,
+    "arc_enc_hash_before": "64a764151ebd27ec5f4c1e92d72d9ce6dba381fb355c386d669f3a0ac2cf93d1",
+    "arc_enc_hash_after": "64a764151ebd27ec5f4c1e92d72d9ce6dba381fb355c386d669f3a0ac2cf93d1"
+  },
+  "curve": [
+    {
+      "step": 40,
+      "tape": 1,
+      "open_top1": 0.15,
+      "open_median_rank": 34.0,
+      "loss_fact": 0.6752461194992065,
+      "gate_fact": 0.9998993575572968,
+      "gate_prose": 0.00023405369549717788
+    },
+    {
+      "step": 80,
+      "tape": 1,
+      "open_top1": 0.15,
+      "open_median_rank": 37.0,
+      "loss_fact": 0.5146506428718567,
+      "gate_fact": 0.9999121129512787,
+      "gate_prose": 5.7906705099715815e-05
+    },
+    {
+      "step": 120,
+      "tape": 2,
+      "open_top1": 0.15,
+      "open_median_rank": 46.0,
+      "loss_fact": 0.43978583812713623,
+      "gate_fact": 0.9999439120292664,
+      "gate_prose": 1.0071978477022015e-06
+    },
+    {
+      "step": 160,
+      "tape": 2,
+      "open_top1": 0.2,
+      "open_median_rank": 53.5,
+      "loss_fact": 0.29960358142852783,
+      "gate_fact": 0.9999063462018967,
+      "gate_prose": 1.5128327209228903e-06
+    },
+    {
+      "step": 200,
+      "tape": 2,
+      "open_top1": 0.15,
+      "open_median_rank": 45.0,
+      "loss_fact": 0.24286964535713196,
+      "gate_fact": 0.9989749044179916,
+      "gate_prose": 2.3627516156550973e-07
+    },
+    {
+      "step": 240,
+      "tape": 3,
+      "open_top1": 0.1,
+      "open_median_rank": 50.5,
+      "loss_fact": 0.11855242401361465,
+      "gate_fact": 0.9999873638153076,
+      "gate_prose": 1.4645412282416399e-05
+    },
+    {
+      "step": 280,
+      "tape": 3,
+      "open_top1": 0.1,
+      "open_median_rank": 52.5,
+      "loss_fact": 0.18328619003295898,
+      "gate_fact": 0.9999098479747772,
+      "gate_prose": 6.26562367322947e-07
+    },
+    {
+      "step": 320,
+      "tape": 4,
+      "open_top1": 0.35,
+      "open_median_rank": 20.5,
+      "loss_fact": 0.08937112987041473,
+      "gate_fact": 0.9999861419200897,
+      "gate_prose": 0.0003282439127015498
+    },
+    {
+      "step": 360,
+      "tape": 4,
+      "open_top1": 0.35,
+      "open_median_rank": 22.0,
+      "loss_fact": 0.06765973567962646,
+      "gate_fact": 0.9999991059303284,
+      "gate_prose": 9.967023550987935e-06
+    },
+    {
+      "step": 400,
+      "tape": 4,
+      "open_top1": 0.35,
+      "open_median_rank": 20.5,
+      "loss_fact": 0.059558674693107605,
+      "gate_fact": 0.9995365887880325,
+      "gate_prose": 3.053833827928454e-05
+    }
+  ],
+  "note": "268 read EM 1.000 on both tapes \u2014 two ceilings, so its G_novel_tape could not fail. Here the scored half is 261/264/267's cross-mention exam, never trained on, and G_headroom asserts the room to fail instead of assuming it. G_beats_votes is the question 266 left open: does an unfrozen mind beat zero-train postings on the same items. 268's G_beats_frozen_mind is gone \u2014 it compared a co-adapted glue against an untouched trunk and read 0.000 where 265 got 0.975; the paired --frozen-baseline run is the honest control. Tapes rebuild every tape_period steps and the pool never recycles, so nothing factual survives a rebuild.",
+  "timestamp": "2026-08-05T06:03:30.073753+00:00",
+  "wall_s": 237.9863567352295
+}

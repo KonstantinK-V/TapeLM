@@ -1,0 +1,155 @@
+{
+  "stage": 268,
+  "overall": "MIND_LEARNS_TAPE_PARTIAL",
+  "smoke": false,
+  "seed": 268,
+  "trunk": "stage253_joint_l02.pt",
+  "fp_version": "stage191_p1_curve.pt",
+  "steps": 8000,
+  "tape_period": 200,
+  "n_tapes": 40,
+  "distractor_slots": 1200,
+  "lr_glue": 0.003,
+  "lr_upper": 3e-05,
+  "gates": {
+    "G_novel_tape": true,
+    "G_arc_enc_frozen": true,
+    "G_beats_frozen_mind": true,
+    "G_no_param_leak": true,
+    "G_slot_delete": true,
+    "G_lang_intact": false,
+    "G_tape_causal": true
+  },
+  "headline": {
+    "em_last_train_tape": 1.0,
+    "em_novel_tape": 1.0,
+    "em_novel_frozen_upper": 0.0,
+    "delta_novel_minus_train": 0.0,
+    "delta_live_minus_frozen": 1.0,
+    "em_265_published": 0.975
+  },
+  "controls": {
+    "em_empty_tape": 0.0,
+    "em_shuffled_tape": 0.0,
+    "em_target_after_delete": 0.0,
+    "em_retained_after_delete": 1.0,
+    "hold_ce_base": 3.905100723107656,
+    "hold_ce_after": 4.039724985758464,
+    "arc_enc_hash_before": "64a764151ebd27ec5f4c1e92d72d9ce6dba381fb355c386d669f3a0ac2cf93d1",
+    "arc_enc_hash_after": "64a764151ebd27ec5f4c1e92d72d9ce6dba381fb355c386d669f3a0ac2cf93d1"
+  },
+  "train_tape": {
+    "em": 1.0,
+    "em_span": 1.0,
+    "em_text": 0.775,
+    "verbatim": 1.0,
+    "open_recall": 1.0,
+    "n_eval": 40,
+    "n_slots": 1264
+  },
+  "novel_tape": {
+    "em": 1.0,
+    "em_span": 1.0,
+    "em_text": 0.75,
+    "verbatim": 1.0,
+    "open_recall": 1.0,
+    "n_eval": 40,
+    "n_slots": 1264,
+    "frozen_upper_em": 0.0
+  },
+  "curve": [
+    {
+      "step": 800,
+      "tape": 4,
+      "em_train_tape": 1.0,
+      "loss_fact": 0.021213669329881668,
+      "loss_prose": 3.630563974380493,
+      "gate_fact": 0.9999755620956421,
+      "gate_prose": 4.712711395201315e-07
+    },
+    {
+      "step": 1600,
+      "tape": 8,
+      "em_train_tape": 1.0,
+      "loss_fact": 0.005289725959300995,
+      "loss_prose": 3.5144612789154053,
+      "gate_fact": 0.9999880492687225,
+      "gate_prose": 2.3732900203718742e-08
+    },
+    {
+      "step": 2400,
+      "tape": 12,
+      "em_train_tape": 1.0,
+      "loss_fact": 0.004014069214463234,
+      "loss_prose": 3.440150737762451,
+      "gate_fact": 1.0,
+      "gate_prose": 1.2773162976542474e-14
+    },
+    {
+      "step": 3200,
+      "tape": 16,
+      "em_train_tape": 1.0,
+      "loss_fact": 0.001969873672351241,
+      "loss_prose": 4.47998571395874,
+      "gate_fact": 0.9999996721744537,
+      "gate_prose": 7.000588804600952e-10
+    },
+    {
+      "step": 4000,
+      "tape": 20,
+      "em_train_tape": 1.0,
+      "loss_fact": 0.00034418029827065766,
+      "loss_prose": 2.7775204181671143,
+      "gate_fact": 0.9999912679195404,
+      "gate_prose": 2.6830086342734416e-11
+    },
+    {
+      "step": 4800,
+      "tape": 24,
+      "em_train_tape": 1.0,
+      "loss_fact": 0.00019525046809576452,
+      "loss_prose": 3.725421190261841,
+      "gate_fact": 1.0,
+      "gate_prose": 7.244458282889904e-13
+    },
+    {
+      "step": 5600,
+      "tape": 28,
+      "em_train_tape": 1.0,
+      "loss_fact": 0.0017861487576738,
+      "loss_prose": 3.1450531482696533,
+      "gate_fact": 0.9999999701976776,
+      "gate_prose": 5.092692688685657e-10
+    },
+    {
+      "step": 6400,
+      "tape": 32,
+      "em_train_tape": 1.0,
+      "loss_fact": 0.00025415129493921995,
+      "loss_prose": 4.197365760803223,
+      "gate_fact": 1.0,
+      "gate_prose": 4.111463081837839e-11
+    },
+    {
+      "step": 7200,
+      "tape": 36,
+      "em_train_tape": 1.0,
+      "loss_fact": 0.00011016202188329771,
+      "loss_prose": 5.195709228515625,
+      "gate_fact": 0.9999999105930328,
+      "gate_prose": 1.694175768189984e-09
+    },
+    {
+      "step": 8000,
+      "tape": 40,
+      "em_train_tape": 1.0,
+      "loss_fact": 1.304818124481244e-05,
+      "loss_prose": 4.4235920906066895,
+      "gate_fact": 0.9999986290931702,
+      "gate_prose": 3.672598002357885e-12
+    }
+  ],
+  "note": "Upper trunk learns; arc_enc frozen (hash). Tape rebuilt every tape_period steps so no planted fact survives across rebuilds. G_novel_tape is the claim: procedure transfers to a bank never seen in training. G_beats_frozen_mind compares the same glue on novel tape with live vs init upper. Decode is 265 span-lock.",
+  "timestamp": "2026-08-05T01:10:30.989818+00:00",
+  "wall_s": 5196.978223085403
+}

@@ -1,0 +1,116 @@
+{
+  "stage": "261f",
+  "overall": "WORD_VOTES_BEATS_MEAN",
+  "soft": false,
+  "soft_k": 3,
+  "noise_typo": 0.0,
+  "n_way": 20,
+  "candidates": 4338,
+  "asked": 338,
+  "distractors": 4000,
+  "vocab": 11195,
+  "postings": 71110,
+  "overlap_median": 0.06316489361702127,
+  "trained_parameters": 0,
+  "fp_version": "stage191_p1_curve.pt",
+  "read": {
+    "acc_20way": 0.4319526627218935,
+    "full_bank_top1": 0.2455621301775148,
+    "full_bank_mrr": 0.2817638027577727,
+    "full_bank_median_rank": 76.5,
+    "tie_at_zero_frac": 0.4881656804733728,
+    "top1_low_overlap": 0.023668639053254437,
+    "top1_low_overlap_given_vote": 0.17391304347826086,
+    "low_overlap_miss_is_silence_frac": 0.8848484848484849
+  },
+  "silence": {
+    "tie_at_zero_frac": 0.4881656804733728,
+    "tie_at_zero_frac_low_overlap": 0.863905325443787,
+    "tie_at_zero_frac_high_overlap": 0.11242603550295859,
+    "top1_low_overlap": 0.023668639053254437,
+    "top1_high_overlap": 0.46745562130177515,
+    "top1_low_overlap_given_vote": 0.17391304347826086,
+    "low_overlap_miss_is_silence_frac": 0.8848484848484849,
+    "n": 338,
+    "n_tie_at_zero": 165,
+    "n_low_overlap": 169
+  },
+  "gates": {
+    "G_signal": true,
+    "G_beats_mean_fp": true,
+    "G_low_overlap_works": true,
+    "G_open_top1": false,
+    "G_causal_top1": true,
+    "G_beats_popularity_20way": true,
+    "G_low_overlap_uses": "top1_low_overlap_given_vote"
+  },
+  "summary": {
+    "votes": {
+      "top1": 0.2455621301775148,
+      "mrr": 0.2817638027577727,
+      "median_rank": 76.5,
+      "acc_20way": 0.4319526627218935,
+      "chance_20way": 0.05,
+      "top1_low_overlap": 0.023668639053254437,
+      "top1_high_overlap": 0.46745562130177515,
+      "tie_at_zero_frac": 0.4881656804733728,
+      "n": 338
+    },
+    "popularity_floor": {
+      "top1": 0.0,
+      "acc_20way": 0.020710059171597635,
+      "tie_at_zero_frac": 0.9023668639053254,
+      "silence": {
+        "tie_at_zero_frac": 0.9023668639053254,
+        "tie_at_zero_frac_low_overlap": 0.9230769230769231,
+        "tie_at_zero_frac_high_overlap": 0.8816568047337278,
+        "top1_low_overlap": 0.0,
+        "top1_high_overlap": 0.0,
+        "top1_low_overlap_given_vote": 0.0,
+        "low_overlap_miss_is_silence_frac": 0.9230769230769231,
+        "n": 338,
+        "n_tie_at_zero": 305,
+        "n_low_overlap": 169
+      }
+    },
+    "reference_261_ctx_fp_mean": {
+      "acc_20way": 0.226,
+      "top1": 0.034,
+      "top1_low_overlap": 0.0
+    }
+  },
+  "note": "Zero-train word postings + idf. n-way pessimistic (gold > distractor). silence.tie_at_zero_frac is permanent: share of queries with gold score 0 (index silent). top1_low_overlap hole is mostly silence \u2014 see low_overlap_miss_is_silence_frac and top1_low_overlap_given_vote. Causal read still on top1.",
+  "timestamp": "2026-08-04T20:31:38.122680+00:00",
+  "wall_s": 1.384373664855957,
+  "vote_rank_fix_audit": {
+    "note": "vote_rank fix (empty sc\u2192n_slots): 261f and 264 votes top1 unchanged at 0.245562 (empty_sc_n=0/338 both; delta=0). Artifact was 266 paraphrase-only.",
+    "stage261f": {
+      "label": "261f",
+      "seed": 2610,
+      "n_eval": 338,
+      "n_slots": 4338,
+      "empty_sc_n": 0,
+      "empty_sc_frac": 0.0,
+      "rank_changed_n": 0,
+      "top1_old": 0.2455621301775148,
+      "top1_new": 0.2455621301775148,
+      "top1_delta": 0.0,
+      "headline_shifted": false
+    },
+    "stage264_votes": {
+      "label": "264_votes",
+      "seed": 2640,
+      "n_eval": 338,
+      "n_slots": 4338,
+      "empty_sc_n": 0,
+      "empty_sc_frac": 0.0,
+      "rank_changed_n": 0,
+      "top1_old": 0.2455621301775148,
+      "top1_new": 0.2455621301775148,
+      "top1_delta": 0.0,
+      "headline_shifted": false
+    },
+    "published_votes_top1": 0.2455621301775148,
+    "headline_shifted": false
+  }
+}

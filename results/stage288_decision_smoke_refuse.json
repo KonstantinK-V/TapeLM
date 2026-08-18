@@ -1,0 +1,154 @@
+{
+  "stage": 288,
+  "overall": "REPAIR_PARTIAL",
+  "seed": 288,
+  "smoke": true,
+  "run_tag": "refuse",
+  "holdout": "corpus",
+  "train_steps": 600,
+  "tape_period": 50,
+  "params": 6562,
+  "reward": {
+    "correct": 1.0,
+    "wrong": -1.0,
+    "abstain": 0.75
+  },
+  "train_ops_seen": {
+    "none": 211,
+    "replace": 193,
+    "dup": 196
+  },
+  "gates": {
+    "G_arc_enc_frozen": true,
+    "G_task_exists": true,
+    "G_detects_forgery": true,
+    "G_detects_dup": true,
+    "G_flags_clean": true,
+    "G_repairs": false,
+    "G_honest_unrecoverable": null
+  },
+  "held_out": {
+    "n_by_op": {
+      "none": 16,
+      "replace": 16,
+      "dup": 16
+    },
+    "detection": {
+      "model_forged": 0.8125,
+      "votes_forged": 0.25,
+      "random_floor": 0.4291666666666667,
+      "model_dup": 1.0,
+      "votes_dup": 0.0,
+      "model_clean_pass": 0.875,
+      "votes_clean_pass": 0.875,
+      "clean_margin_auc": 0.9609375,
+      "clean_margin_auc_z": 5.161424815150268
+    },
+    "repair_true_flag": {
+      "model_reward": NaN,
+      "votes_reward": NaN,
+      "model_accuracy": NaN,
+      "votes_accuracy": NaN,
+      "model_coverage": NaN,
+      "votes_coverage": NaN,
+      "random_floor": NaN,
+      "unknown_margin_auc": NaN,
+      "unknown_margin_auc_z": NaN,
+      "n_recoverable": 0,
+      "n_unrecoverable": 0,
+      "single_candidate_skipped": 32
+    },
+    "observer_verdict_restored": {
+      "model": NaN,
+      "votes": NaN,
+      "n": 0,
+      "note": "the proposal's original reward, demoted to an observer: gradient on this has an empty tape as its fixed point - and measured to rank two real arms backwards (min3 repair 0.433 vs votes 0.049 while the observer said 0.507 vs 0.775; min2 repair 0.085 vs 0.184 while the observer said 0.842 vs 0.803)"
+    }
+  },
+  "train_control": {
+    "n_by_op": {
+      "none": 46,
+      "replace": 46,
+      "dup": 46
+    },
+    "detection": {
+      "model_forged": 0.8152173913043478,
+      "votes_forged": 0.31521739130434784,
+      "random_floor": 0.3715450310559007,
+      "model_dup": 0.9782608695652174,
+      "votes_dup": 0.10869565217391304,
+      "model_clean_pass": 0.6304347826086957,
+      "votes_clean_pass": 0.6304347826086957,
+      "clean_margin_auc": 0.877835538752363,
+      "clean_margin_auc_z": 7.222022832665515
+    },
+    "repair_true_flag": {
+      "model_reward": 0.75,
+      "votes_reward": 0.4318181818181818,
+      "model_accuracy": NaN,
+      "votes_accuracy": 0.0,
+      "model_coverage": 0.0,
+      "votes_coverage": 0.18181818181818182,
+      "random_floor": 0.0606060606060606,
+      "unknown_margin_auc": 0.5555555555555556,
+      "unknown_margin_auc_z": 0.3405026123034996,
+      "n_recoverable": 4,
+      "n_unrecoverable": 18,
+      "single_candidate_skipped": 70
+    },
+    "observer_verdict_restored": {
+      "model": 0.0,
+      "votes": 0.18181818181818182,
+      "n": 22,
+      "note": "the proposal's original reward, demoted to an observer: gradient on this has an empty tape as its fixed point - and measured to rank two real arms backwards (min3 repair 0.433 vs votes 0.049 while the observer said 0.507 vs 0.775; min2 repair 0.085 vs 0.184 while the observer said 0.842 vs 0.803)"
+    }
+  },
+  "curve": [
+    {
+      "step": 75,
+      "loss": 1.6811502997080485,
+      "op": "replace"
+    },
+    {
+      "step": 150,
+      "loss": 1.514802041053772,
+      "op": "none"
+    },
+    {
+      "step": 225,
+      "loss": 1.3611863830685615,
+      "op": "none"
+    },
+    {
+      "step": 300,
+      "loss": 1.2160584577918052,
+      "op": "dup"
+    },
+    {
+      "step": 375,
+      "loss": 1.114804286165163,
+      "op": "none"
+    },
+    {
+      "step": 450,
+      "loss": 1.0436992590536829,
+      "op": "dup"
+    },
+    {
+      "step": 525,
+      "loss": 1.0106341659888858,
+      "op": "dup"
+    },
+    {
+      "step": 600,
+      "loss": 1.0636080667813075,
+      "op": "dup"
+    }
+  ],
+  "arc_enc_hash_before": "64a764151ebd27ec5f4c1e92d72d9ce6dba381fb355c386d669f3a0ac2cf93d1",
+  "arc_enc_hash_after": "64a764151ebd27ec5f4c1e92d72d9ce6dba381fb355c386d669f3a0ac2cf93d1",
+  "fp_version": "stage191_p1_curve.pt",
+  "note": "The direction 286 opened, taken to its end: the tape is not only the label, it is the exercise machine. Break a clean address - swap a mention for a foreign one, or for two or three copies of it - and require where and what, or the admission that the surviving evidence cannot say. The truth is free because the break is ours, so examples are unlimited, honesty is trained on breaks KNOWN to be unrecoverable, and the counting rival is wrong by construction exactly where the forgery is the majority. The judges' consistency - the proposal's original reward - is an observer only: its fixed point as a gradient is an empty tape. Diagnosis and repair share one relational embedding of ranks and indicators, identity unrepresentable, answers are indices, CLEAN and UNKNOWN are rows. Cloze, the lying tape and lie-dup were all points in this corruption family; 288 trains on the family and is examined at points it did not train on: a held-out corpus or held-out subjects, chosen by --holdout.",
+  "timestamp": "2026-08-08T20:11:59.490434+00:00",
+  "wall_s": 21.411064624786377
+}

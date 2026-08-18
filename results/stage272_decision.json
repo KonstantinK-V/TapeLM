@@ -1,0 +1,389 @@
+{
+  "stage": 272,
+  "overall": "CONTROLLER_PARTIAL",
+  "frozen_trunk": false,
+  "trunk_mode": "upper",
+  "smoke": true,
+  "seed": 272,
+  "bc_episodes": 800,
+  "rl_episodes": 0,
+  "tape_period": 50,
+  "actions": [
+    "ASK_Q",
+    "ASK_READ",
+    "READ_0",
+    "READ_1",
+    "READ_2",
+    "READ_3",
+    "ANSWER_0",
+    "ANSWER_1",
+    "ANSWER_2",
+    "ANSWER_3",
+    "STOP"
+  ],
+  "topk": 4,
+  "max_steps": 6,
+  "read_cost": 0.02,
+  "entropy_bonus": 0.01,
+  "answer_after_read_weight": 5.0,
+  "witnesses": 5,
+  "liars": 2,
+  "fp_version": "stage191_p1_curve.pt",
+  "used_pool_final": 510,
+  "gates": {
+    "G_arc_enc_frozen": true,
+    "G_answer_is_slot": true,
+    "G_beats_lookup": false,
+    "G_beats_majority": true,
+    "G_clean_kept": true,
+    "G_novel_tape": false,
+    "G_reads_economical": true
+  },
+  "train_tape": {
+    "policy_clean": 1.0,
+    "policy_lying": 0.6666666666666666,
+    "lookup_clean": 1.0,
+    "lookup_lying": 0.6666666666666666,
+    "majority_lying": 0.6666666666666666,
+    "mean_reads": 0.4166666666666667,
+    "mean_reads_clean": 0.0,
+    "mean_reads_lying": 0.8333333333333334,
+    "answer_is_slot": 1.0,
+    "n": 12,
+    "traces": [
+      {
+        "kind": "clean",
+        "trace": [
+          "ASK_Q",
+          "ANSWER_0"
+        ],
+        "correct": 1
+      },
+      {
+        "kind": "clean",
+        "trace": [
+          "ASK_Q",
+          "ANSWER_0"
+        ],
+        "correct": 1
+      },
+      {
+        "kind": "clean",
+        "trace": [
+          "ASK_Q",
+          "ANSWER_0"
+        ],
+        "correct": 1
+      },
+      {
+        "kind": "clean",
+        "trace": [
+          "ASK_Q",
+          "ANSWER_0"
+        ],
+        "correct": 1
+      },
+      {
+        "kind": "clean",
+        "trace": [
+          "ASK_Q",
+          "ANSWER_0"
+        ],
+        "correct": 1
+      },
+      {
+        "kind": "clean",
+        "trace": [
+          "ASK_Q",
+          "ANSWER_0"
+        ],
+        "correct": 1
+      },
+      {
+        "kind": "lying",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "ANSWER_0"
+        ],
+        "correct": 1
+      },
+      {
+        "kind": "lying",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "ANSWER_0"
+        ],
+        "correct": 0
+      },
+      {
+        "kind": "lying",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "ANSWER_0"
+        ],
+        "correct": 1
+      },
+      {
+        "kind": "lying",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "ANSWER_0"
+        ],
+        "correct": 1
+      },
+      {
+        "kind": "lying",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "ANSWER_0"
+        ],
+        "correct": 1
+      },
+      {
+        "kind": "lying",
+        "trace": [
+          "ASK_Q",
+          "ANSWER_0"
+        ],
+        "correct": 0
+      }
+    ]
+  },
+  "novel_tape": {
+    "policy_clean": 1.0,
+    "policy_lying": 0.3333333333333333,
+    "lookup_clean": 1.0,
+    "lookup_lying": 0.3333333333333333,
+    "majority_lying": 0.3333333333333333,
+    "mean_reads": 0.9166666666666666,
+    "mean_reads_clean": 0.8333333333333334,
+    "mean_reads_lying": 1.0,
+    "answer_is_slot": 1.0,
+    "n": 12,
+    "traces": [
+      {
+        "kind": "clean",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "ANSWER_0"
+        ],
+        "correct": 1
+      },
+      {
+        "kind": "clean",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "ANSWER_0"
+        ],
+        "correct": 1
+      },
+      {
+        "kind": "clean",
+        "trace": [
+          "ASK_Q",
+          "ANSWER_0"
+        ],
+        "correct": 1
+      },
+      {
+        "kind": "clean",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "ANSWER_0"
+        ],
+        "correct": 1
+      },
+      {
+        "kind": "clean",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "ANSWER_0"
+        ],
+        "correct": 1
+      },
+      {
+        "kind": "clean",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "ANSWER_0"
+        ],
+        "correct": 1
+      },
+      {
+        "kind": "lying",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "ANSWER_0"
+        ],
+        "correct": 0
+      },
+      {
+        "kind": "lying",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "ANSWER_0"
+        ],
+        "correct": 1
+      },
+      {
+        "kind": "lying",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "ANSWER_0"
+        ],
+        "correct": 1
+      },
+      {
+        "kind": "lying",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "ANSWER_0"
+        ],
+        "correct": 0
+      },
+      {
+        "kind": "lying",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "ANSWER_0"
+        ],
+        "correct": 0
+      },
+      {
+        "kind": "lying",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "ANSWER_0"
+        ],
+        "correct": 0
+      }
+    ]
+  },
+  "arc_enc_hash_before": "64a764151ebd27ec5f4c1e92d72d9ce6dba381fb355c386d669f3a0ac2cf93d1",
+  "arc_enc_hash_after": "64a764151ebd27ec5f4c1e92d72d9ce6dba381fb355c386d669f3a0ac2cf93d1",
+  "curve": [
+    {
+      "phase": "bc",
+      "episode": 80,
+      "loss": 0.009861099533736706,
+      "reward": 1.0,
+      "trace": [
+        "ASK_Q",
+        "ANSWER_0"
+      ]
+    },
+    {
+      "phase": "bc",
+      "episode": 160,
+      "loss": 0.04212607815861702,
+      "reward": 1.0,
+      "trace": [
+        "ASK_Q",
+        "ANSWER_0"
+      ]
+    },
+    {
+      "phase": "bc",
+      "episode": 240,
+      "loss": 0.0036788927391171455,
+      "reward": 1.0,
+      "trace": [
+        "ASK_Q",
+        "ANSWER_0"
+      ]
+    },
+    {
+      "phase": "bc",
+      "episode": 320,
+      "loss": 0.8683733344078064,
+      "reward": 0.98,
+      "trace": [
+        "ASK_Q",
+        "READ_0",
+        "ANSWER_0"
+      ]
+    },
+    {
+      "phase": "bc",
+      "episode": 400,
+      "loss": 7.614325295435265e-05,
+      "reward": 1.0,
+      "trace": [
+        "ASK_Q",
+        "ANSWER_0"
+      ]
+    },
+    {
+      "phase": "bc",
+      "episode": 480,
+      "loss": 0.06681825965642929,
+      "reward": 0.98,
+      "trace": [
+        "ASK_Q",
+        "READ_1",
+        "ANSWER_1"
+      ]
+    },
+    {
+      "phase": "bc",
+      "episode": 560,
+      "loss": 2.283139228820801,
+      "reward": 1.0,
+      "trace": [
+        "ASK_Q",
+        "ANSWER_0"
+      ]
+    },
+    {
+      "phase": "bc",
+      "episode": 640,
+      "loss": 6.958558515179902e-05,
+      "reward": -0.02,
+      "trace": [
+        "ASK_Q",
+        "READ_0",
+        "ANSWER_0"
+      ]
+    },
+    {
+      "phase": "bc",
+      "episode": 720,
+      "loss": 0.5960053205490112,
+      "reward": 1.0,
+      "trace": [
+        "ASK_Q",
+        "ANSWER_0"
+      ]
+    },
+    {
+      "phase": "bc",
+      "episode": 800,
+      "loss": 2.4271981601486914e-05,
+      "reward": 0.98,
+      "trace": [
+        "ASK_Q",
+        "READ_0",
+        "ANSWER_0"
+      ]
+    }
+  ],
+  "note": "Same lexical controller as 271, taught by BC: clean ASK\u2192ANSWER; lying one READ then ANSWER visible majority. CE weight on ANSWER-after-READ (default 5) targets the ANSWER_0 collapse. max_agree feat, no re-read mask. REINFORCE opt-in.",
+  "timestamp": "2026-08-05T09:50:35.001358+00:00",
+  "wall_s": 146.18290853500366
+}

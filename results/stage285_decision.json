@@ -1,0 +1,350 @@
+{
+  "stage": 285,
+  "overall": "NO_DISAGREEMENT",
+  "seed": 285,
+  "smoke": true,
+  "one_teacher": false,
+  "run_tag": "",
+  "addr_key": "two",
+  "bc_episodes": 400,
+  "rl_episodes": 0,
+  "topk": 7,
+  "min_mentions": 2,
+  "min_per_family": 8,
+  "reward": {
+    "correct": 1.0,
+    "wrong": -1.0,
+    "abstain": 0.75,
+    "read": -0.02
+  },
+  "gates": {
+    "G_arc_enc_frozen": true,
+    "G_teachers_disagree": false,
+    "G_arbitration": false,
+    "G_agreement_kept": true,
+    "G_holds_baseline": false
+  },
+  "train_tape": {
+    "n_items": 18,
+    "contested_rate": 0.16666666666666666,
+    "reward_total": 0.5549999999999999,
+    "votes_reward_total": 0.7355555555555555,
+    "return_reward_total": 0.666111111111111,
+    "agree": {
+      "n": 15,
+      "policy_acc": 0.7333333333333333,
+      "votes_acc": 0.7333333333333333,
+      "return_acc": 0.7333333333333333,
+      "policy_abstain": 0.2,
+      "policy_reward": 0.7526666666666666
+    },
+    "disagree": {
+      "n": 3,
+      "policy_acc": 0.3333333333333333,
+      "votes_acc": 0.0,
+      "return_acc": 0.6666666666666666,
+      "policy_abstain": 0.0,
+      "policy_reward": -0.4333333333333334
+    },
+    "clean": {
+      "n": 13,
+      "coverage": 1.0,
+      "abstain": 0.0,
+      "reward": 0.6246153846153846,
+      "correct": 0.8461538461538461
+    },
+    "decidable": {
+      "n": 1,
+      "coverage": 1.0,
+      "abstain": 0.0,
+      "reward": 0.88,
+      "correct": 1.0
+    },
+    "tie": {
+      "n": 4,
+      "coverage": 0.25,
+      "abstain": 0.75,
+      "reward": 0.24749999999999994,
+      "correct": 0.0
+    }
+  },
+  "held_out": {
+    "n_items": 8,
+    "traces": [
+      {
+        "kind": "clean",
+        "S": "feel",
+        "bucket": "agree",
+        "trace": [
+          "ASK_Q",
+          "READ_2",
+          "READ_0",
+          "READ_1",
+          "ANSWER_0"
+        ],
+        "correct": 1,
+        "votes": 1,
+        "return": 1
+      },
+      {
+        "kind": "clean",
+        "S": "gold",
+        "bucket": "agree",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "READ_1",
+          "ANSWER_0"
+        ],
+        "correct": 1,
+        "votes": 1,
+        "return": 1
+      },
+      {
+        "kind": "clean",
+        "S": "the tallest man",
+        "bucket": "agree",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "READ_1",
+          "ANSWER_0"
+        ],
+        "correct": 1,
+        "votes": 1,
+        "return": 1
+      },
+      {
+        "kind": "clean",
+        "S": "concerning",
+        "bucket": "disagree",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "READ_1",
+          "READ_2",
+          "READ_3",
+          "ANSWER_0"
+        ],
+        "correct": 1,
+        "votes": 0,
+        "return": 1
+      },
+      {
+        "kind": "clean",
+        "S": "tommy lawton",
+        "bucket": "disagree",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "READ_1",
+          "READ_2",
+          "READ_3",
+          "ANSWER_0"
+        ],
+        "correct": 1,
+        "votes": 0,
+        "return": 0
+      },
+      {
+        "kind": "clean",
+        "S": "the predatory wasp",
+        "bucket": "disagree",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "READ_1",
+          "READ_2",
+          "READ_3",
+          "ANSWER_0"
+        ],
+        "correct": 0,
+        "votes": 0,
+        "return": 1
+      },
+      {
+        "kind": "clean",
+        "S": "sourced",
+        "bucket": "disagree",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "READ_1",
+          "READ_2",
+          "READ_3",
+          "ANSWER_0"
+        ],
+        "correct": 0,
+        "votes": 0,
+        "return": 1
+      },
+      {
+        "kind": "tie",
+        "S": "september",
+        "bucket": "agree",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "READ_1",
+          "ANSWER_0"
+        ],
+        "correct": 0,
+        "votes": 0,
+        "return": 0
+      }
+    ],
+    "contested_rate": 0.5,
+    "reward_total": 0.18749999999999997,
+    "votes_reward_total": 0.78125,
+    "return_reward_total": 0.65625,
+    "agree": {
+      "n": 4,
+      "policy_acc": 0.75,
+      "votes_acc": 0.75,
+      "return_acc": 0.75,
+      "policy_abstain": 0.0,
+      "policy_reward": 0.45499999999999996
+    },
+    "disagree": {
+      "n": 4,
+      "policy_acc": 0.5,
+      "votes_acc": 0.0,
+      "return_acc": 0.75,
+      "policy_abstain": 0.0,
+      "policy_reward": -0.08000000000000002
+    },
+    "clean": {
+      "n": 7,
+      "coverage": 1.0,
+      "abstain": 0.0,
+      "reward": 0.3628571428571429,
+      "correct": 0.7142857142857143
+    },
+    "decidable": {
+      "n": 0,
+      "coverage": NaN,
+      "abstain": NaN,
+      "reward": NaN,
+      "correct": NaN
+    },
+    "tie": {
+      "n": 1,
+      "coverage": 1.0,
+      "abstain": 0.0,
+      "reward": -1.04,
+      "correct": 0.0
+    }
+  },
+  "curve": [
+    {
+      "phase": "bc",
+      "episode": 50,
+      "loss": 0.5784980058670044,
+      "kind": "clean",
+      "trace": [
+        "ASK_Q",
+        "READ_0",
+        "READ_1",
+        "READ_2",
+        "ANSWER_0"
+      ]
+    },
+    {
+      "phase": "bc",
+      "episode": 100,
+      "loss": 0.346594899892807,
+      "kind": "clean",
+      "trace": [
+        "ASK_Q",
+        "READ_0",
+        "READ_1",
+        "ANSWER_0"
+      ]
+    },
+    {
+      "phase": "bc",
+      "episode": 150,
+      "loss": 0.3465864360332489,
+      "kind": "clean",
+      "trace": [
+        "ASK_Q",
+        "READ_0",
+        "READ_1",
+        "ANSWER_0"
+      ]
+    },
+    {
+      "phase": "bc",
+      "episode": 200,
+      "loss": 0.5780975818634033,
+      "kind": "clean",
+      "trace": [
+        "ASK_Q",
+        "READ_0",
+        "READ_1",
+        "READ_2",
+        "ANSWER_0"
+      ]
+    },
+    {
+      "phase": "bc",
+      "episode": 250,
+      "loss": 0.34661364555358887,
+      "kind": "clean",
+      "trace": [
+        "ASK_Q",
+        "READ_0",
+        "READ_1",
+        "ANSWER_0"
+      ]
+    },
+    {
+      "phase": "bc",
+      "episode": 300,
+      "loss": 0.34663963317871094,
+      "kind": "clean",
+      "trace": [
+        "ASK_Q",
+        "READ_0",
+        "READ_1",
+        "ANSWER_0"
+      ]
+    },
+    {
+      "phase": "bc",
+      "episode": 350,
+      "loss": 0.1733495593070984,
+      "kind": "tie",
+      "trace": [
+        "ASK_Q",
+        "READ_0",
+        "READ_1",
+        "STOP"
+      ]
+    },
+    {
+      "phase": "bc",
+      "episode": 400,
+      "loss": 0.5605695843696594,
+      "kind": "clean",
+      "trace": [
+        "ASK_Q",
+        "READ_0",
+        "READ_1",
+        "READ_2",
+        "ANSWER_1"
+      ]
+    }
+  ],
+  "arc_enc_hash_before": "64a764151ebd27ec5f4c1e92d72d9ce6dba381fb355c386d669f3a0ac2cf93d1",
+  "arc_enc_hash_after": "64a764151ebd27ec5f4c1e92d72d9ce6dba381fb355c386d669f3a0ac2cf93d1",
+  "fp_version": "stage191_p1_curve.pt",
+  "reference_280_baseline": {
+    "held_out_reward": 0.704,
+    "acc_answered_all": 0.9,
+    "teacher_ceiling": 0.625
+  },
+  "note": "Two judges over the 280 tape, neither reading a label. Votes counts witnesses and abstains on equal support; return counts how many other mentions carry a value together with the subject and abstains under two. They share no criterion on purpose - judges made of the same quantity would agree everywhere and leave nothing to arbitrate. Where they agree BC takes the demonstration; where they differ there is no target to copy and the episode is left to the reward, so the contested items are exactly the ones resemblance cannot solve. The bar is not to beat two teachers: both read one tape and the tape is the truth here, so where they differ at least one is misreading it, and the mind has to be right more often than either reading alone. --one-teacher restores 280's single judge with BC everywhere, which is the arm the 0.704 baseline came from.",
+  "timestamp": "2026-08-07T18:47:20.162154+00:00",
+  "wall_s": 285.9765200614929
+}

@@ -1,0 +1,60 @@
+{
+  "stage": "289b",
+  "overall": "MIND_TAPE_REAL",
+  "seed": 289,
+  "smoke": false,
+  "holdout": "corpus",
+  "run_tag": "",
+  "trained_parameters": 0,
+  "memory": {
+    "n": 5954,
+    "dims": 28,
+    "labels": {
+      "none": 1985,
+      "replace": 1985,
+      "dup": 1984
+    },
+    "tapes": 8
+  },
+  "held_out": {
+    "n": 348,
+    "labels": {
+      "none": 116,
+      "replace": 116,
+      "dup": 116
+    }
+  },
+  "signal": {
+    "knn_1_accuracy": 0.7298850574712644,
+    "majority_class_floor": 0.3333333333333333,
+    "counting_floor": 0.3333333333333333
+  },
+  "smoothness": {
+    "auc_distance_separates_wrong_from_right": 0.7014156475121461,
+    "auc_z": 5.771010992018875,
+    "mean_distance_when_right": 0.10256855207097687,
+    "mean_distance_when_wrong": 0.4922276954870233
+  },
+  "interpolation": {
+    "midpoint_same_label": 0.8225,
+    "midpoint_different_label_control": 0.4575,
+    "n_same": 400,
+    "n_diff": 400
+  },
+  "growth": {
+    "0.125": 0.7183908045977011,
+    "0.250": 0.7327586206896551,
+    "0.500": 0.7298850574712644,
+    "1.000": 0.7298850574712644
+  },
+  "gates": {
+    "G_space_has_signal": true,
+    "G_space_is_smooth": true,
+    "G_interpolation_holds": true,
+    "G_grows_without_training": true
+  },
+  "fp_version": "stage191_p1_curve.pt",
+  "note": "Whether a mind tape can exist: not facts but PATTERNS, stored as points in a continuous space where a novel situation is answered by neighbourhood and blending. Nothing is trained. The pattern is built from ranks, ratios and indicators and is fixed-length whatever the address size, so it cannot name anyone - four measured arms showed that any continuous store keyed on identity becomes a lookup table, so structure-only is the condition, not a preference. Four questions of the space itself: does 1-NN beat the majority-class and counting floors held out; is being right related to being CLOSE, without which the space is a bag and interpolation is meaningless; does the midpoint between two same-label patterns land near that label, against the control of midpoints between different labels - the property a conjecture would rest on; and does accuracy rise as the memory fills, which is 'the repertoire grows without retraining' measured rather than assumed. What it cannot say is whether the mind tape beats 288's trained head; that needs the checkpoint. A tie there is already a win, because 4,417 weights over a thousand examples is close to a memory already and an explicit memory is auditable and extensible where weights are neither.",
+  "timestamp": "2026-08-09T00:28:49.791288+00:00",
+  "wall_s": 506.5000491142273
+}

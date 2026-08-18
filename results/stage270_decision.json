@@ -1,0 +1,140 @@
+{
+  "stage": 270,
+  "overall": "LOOKUP_SUFFICES",
+  "smoke": true,
+  "seed": 270,
+  "trunk": "stage253_joint_l02.pt",
+  "glue_ckpt": "stage268_mind_learns_tape.pt",
+  "fp_version": "stage191_p1_curve.pt",
+  "trained_parameters": 0,
+  "n_subjects": 12,
+  "witnesses_per_subject": 4,
+  "liars_per_subject": 2,
+  "topk": 8,
+  "tape_slots": 260,
+  "chance_per_witness": 0.25,
+  "gates": {
+    "G_clean_ok": true,
+    "G_witnesses_reachable": true,
+    "G_liar_causal": true,
+    "G_lookup_fails": false,
+    "G_majority_works": false,
+    "G_aggregation_beats_lookup": false,
+    "G_glue_aggregates": false
+  },
+  "contradicted": {
+    "lookup_top1": 0.75,
+    "majority": 0.75,
+    "sim_weighted": 0.5833333333333334,
+    "liar_is_top1": 0.25,
+    "witness_recall": 1.0,
+    "n": 12
+  },
+  "clean": {
+    "lookup_top1": 1.0,
+    "majority": 1.0,
+    "sim_weighted": 1.0,
+    "liar_is_top1": 0.0,
+    "witness_recall": 1.0,
+    "n": 12
+  },
+  "liars_removed": {
+    "lookup_top1": 1.0,
+    "majority": 1.0,
+    "sim_weighted": 1.0,
+    "liar_is_top1": 0.0,
+    "witness_recall": 0.5,
+    "n": 12
+  },
+  "glue_span_lock": {
+    "em_contradicted": 0.0,
+    "em_clean": 0.0,
+    "verbatim": 0.0,
+    "open_recall": 0.0
+  },
+  "samples": [
+    {
+      "S": "Hutsucip",
+      "truth": "Taman",
+      "top1": "Taman",
+      "witnesses_retrieved": 4,
+      "counts": {
+        "Taman": 2,
+        "Ashley": 2
+      }
+    },
+    {
+      "S": "Tihugu",
+      "truth": "Accordingly",
+      "top1": "Riviera",
+      "witnesses_retrieved": 4,
+      "counts": {
+        "Riviera": 2,
+        "Accordingly": 2
+      }
+    },
+    {
+      "S": "Robsebe",
+      "truth": "Places",
+      "top1": "Places",
+      "witnesses_retrieved": 4,
+      "counts": {
+        "Places": 2,
+        "Kelly": 2
+      }
+    },
+    {
+      "S": "Humfintu",
+      "truth": "Flybe",
+      "top1": "Flybe",
+      "witnesses_retrieved": 4,
+      "counts": {
+        "Flybe": 2,
+        "Surya": 2
+      }
+    },
+    {
+      "S": "Recuco",
+      "truth": "Betancourt",
+      "top1": "Betancourt",
+      "witnesses_retrieved": 4,
+      "counts": {
+        "Betancourt": 2,
+        "Iverson": 2
+      }
+    },
+    {
+      "S": "Nomdu",
+      "truth": "Rainfall",
+      "top1": "Mauryan",
+      "witnesses_retrieved": 4,
+      "counts": {
+        "Mauryan": 2,
+        "Rainfall": 2
+      }
+    },
+    {
+      "S": "Tanlezin",
+      "truth": "Inside",
+      "top1": "Inside",
+      "witnesses_retrieved": 4,
+      "counts": {
+        "Inside": 2,
+        "Shiraz": 2
+      }
+    },
+    {
+      "S": "Nodignuhbes",
+      "truth": "Comedy",
+      "top1": "Comedy",
+      "witnesses_retrieved": 4,
+      "counts": {
+        "Comedy": 2,
+        "Amjad": 2
+      }
+    }
+  ],
+  "note": "Several slots speak about one subject and disagree; every witness is keyed alike, so top-1 retrieval lands on the liar as often as the geometry allows and only reading several slots answers the question. G_lookup_fails is a validity gate, not a result: if lookup already answers, the liar's key is distinguishable and the exam leaks. Nothing is trained here \u2014 the point is to establish the number an aggregating mind would have to beat, and to see whether the 265/268 pipeline aggregates by accident.",
+  "timestamp": "2026-08-05T06:33:31.230571+00:00",
+  "wall_s": 4.576543092727661
+}

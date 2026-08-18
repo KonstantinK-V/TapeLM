@@ -1,0 +1,383 @@
+{
+  "stage": 279,
+  "overall": "WRITE_DECISION_OK",
+  "source": "corpus",
+  "soft_match": 0.0,
+  "trained_parameters": 0,
+  "min_mentions": 3,
+  "address_mode": "fp",
+  "smoke": true,
+  "seed": 279,
+  "gates": {
+    "G_no_false_dispute_on_replay": true,
+    "G_dedup_happens": true,
+    "G_tape_compresses": true,
+    "G_disputes_found": true,
+    "G_soft_match_merges_forms": null,
+    "G_support_predicts_truth": null
+  },
+  "corpus_tape": {
+    "assertions": 372,
+    "addresses": 48,
+    "slots": 144,
+    "actions": {
+      "WRITE": 48,
+      "DISPUTE": 96,
+      "CONFIRM": 228
+    },
+    "dedup_rate": 0.6129032258064516,
+    "dispute_rate": 0.8333333333333334,
+    "slots_saved_vs_append": 0.6129032258064516,
+    "support_mean": 2.5833333333333335,
+    "support_max": 27
+  },
+  "replay_second_pass": {
+    "WRITE": 0,
+    "CONFIRM": 372,
+    "DISPUTE": 0
+  },
+  "paraphrase_second_pass": {
+    "WRITE": 0,
+    "CONFIRM": 151,
+    "DISPUTE": 221,
+    "merged_fraction": 0.40591397849462363
+  },
+  "model_tape": {},
+  "calibration": {},
+  "disputed_examples": [
+    {
+      "address": "fp4:french|",
+      "values": [
+        {
+          "value": "Indochina",
+          "support": 1,
+          "sources": [
+            "wiki:fp4:french|:0"
+          ]
+        },
+        {
+          "value": "Republic",
+          "support": 1,
+          "sources": [
+            "wiki:fp4:french|:1"
+          ]
+        },
+        {
+          "value": "Revolutionary",
+          "support": 1,
+          "sources": [
+            "wiki:fp4:french|:2"
+          ]
+        }
+      ]
+    },
+    {
+      "address": "fp5:miss|",
+      "values": [
+        {
+          "value": "Universe",
+          "support": 3,
+          "sources": [
+            "wiki:fp5:miss|:0",
+            "wiki:fp5:miss|:1",
+            "wiki:fp5:miss|:2"
+          ]
+        },
+        {
+          "value": "Prism",
+          "support": 2,
+          "sources": [
+            "wiki:fp5:miss|:3",
+            "wiki:fp5:miss|:4"
+          ]
+        }
+      ]
+    },
+    {
+      "address": "fp6:priest|title assigned bishop",
+      "values": [
+        {
+          "value": "Brescia",
+          "support": 1,
+          "sources": [
+            "wiki:fp6:priest|title assigned bishop:0"
+          ]
+        },
+        {
+          "value": "Speyer",
+          "support": 1,
+          "sources": [
+            "wiki:fp6:priest|title assigned bishop:1"
+          ]
+        },
+        {
+          "value": "Strasbourg",
+          "support": 1,
+          "sources": [
+            "wiki:fp6:priest|title assigned bishop:2"
+          ]
+        }
+      ]
+    },
+    {
+      "address": "fp7:zagreb|",
+      "values": [
+        {
+          "value": "Synagogue",
+          "support": 2,
+          "sources": [
+            "wiki:fp7:zagreb|:0",
+            "wiki:fp7:zagreb|:1"
+          ]
+        },
+        {
+          "value": "Aloysius",
+          "support": 1,
+          "sources": [
+            "wiki:fp7:zagreb|:2"
+          ]
+        }
+      ]
+    },
+    {
+      "address": "fp10:novello|",
+      "values": [
+        {
+          "value": "Awards",
+          "support": 2,
+          "sources": [
+            "wiki:fp10:novello|:0",
+            "wiki:fp10:novello|:1"
+          ]
+        },
+        {
+          "value": "Award",
+          "support": 1,
+          "sources": [
+            "wiki:fp10:novello|:2"
+          ]
+        }
+      ]
+    },
+    {
+      "address": "fp11:kody|",
+      "values": [
+        {
+          "value": "Times",
+          "support": 4,
+          "sources": [
+            "wiki:fp11:kody|:3",
+            "wiki:fp11:kody|:7",
+            "wiki:fp11:kody|:8"
+          ]
+        },
+        {
+          "value": "Brown",
+          "support": 3,
+          "sources": [
+            "wiki:fp11:kody|:0",
+            "wiki:fp11:kody|:1",
+            "wiki:fp11:kody|:2"
+          ]
+        },
+        {
+          "value": "Knicks",
+          "support": 1,
+          "sources": [
+            "wiki:fp11:kody|:4"
+          ]
+        },
+        {
+          "value": "North",
+          "support": 1,
+          "sources": [
+            "wiki:fp11:kody|:5"
+          ]
+        }
+      ]
+    },
+    {
+      "address": "fp12:stoppani|",
+      "values": [
+        {
+          "value": "Ganganelli",
+          "support": 8,
+          "sources": [
+            "wiki:fp12:stoppani|:0",
+            "wiki:fp12:stoppani|:1",
+            "wiki:fp12:stoppani|:7"
+          ]
+        },
+        {
+          "value": "Pozzobonelli",
+          "support": 7,
+          "sources": [
+            "wiki:fp12:stoppani|:2",
+            "wiki:fp12:stoppani|:3",
+            "wiki:fp12:stoppani|:4"
+          ]
+        },
+        {
+          "value": "Fantuzzi",
+          "support": 6,
+          "sources": [
+            "wiki:fp12:stoppani|:11",
+            "wiki:fp12:stoppani|:12",
+            "wiki:fp12:stoppani|:17"
+          ]
+        },
+        {
+          "value": "Colonna",
+          "support": 1,
+          "sources": [
+            "wiki:fp12:stoppani|:9"
+          ]
+        }
+      ]
+    },
+    {
+      "address": "fp14:clinton|",
+      "values": [
+        {
+          "value": "County",
+          "support": 4,
+          "sources": [
+            "wiki:fp14:clinton|:0",
+            "wiki:fp14:clinton|:1",
+            "wiki:fp14:clinton|:2"
+          ]
+        },
+        {
+          "value": "Country",
+          "support": 1,
+          "sources": [
+            "wiki:fp14:clinton|:3"
+          ]
+        }
+      ]
+    },
+    {
+      "address": "fp15:fantuzzi|",
+      "values": [
+        {
+          "value": "Stoppani",
+          "support": 8,
+          "sources": [
+            "wiki:fp15:fantuzzi|:2",
+            "wiki:fp15:fantuzzi|:3",
+            "wiki:fp15:fantuzzi|:4"
+          ]
+        },
+        {
+          "value": "Colonna",
+          "support": 2,
+          "sources": [
+            "wiki:fp15:fantuzzi|:0",
+            "wiki:fp15:fantuzzi|:1"
+          ]
+        },
+        {
+          "value": "Ganganelli",
+          "support": 2,
+          "sources": [
+            "wiki:fp15:fantuzzi|:10",
+            "wiki:fp15:fantuzzi|:12"
+          ]
+        },
+        {
+          "value": "Pozzobonelli",
+          "support": 1,
+          "sources": [
+            "wiki:fp15:fantuzzi|:11"
+          ]
+        }
+      ]
+    },
+    {
+      "address": "fp19:holocaust|",
+      "values": [
+        {
+          "value": "Industry",
+          "support": 4,
+          "sources": [
+            "wiki:fp19:holocaust|:0",
+            "wiki:fp19:holocaust|:3",
+            "wiki:fp19:holocaust|:4"
+          ]
+        },
+        {
+          "value": "Consciousness",
+          "support": 1,
+          "sources": [
+            "wiki:fp19:holocaust|:1"
+          ]
+        },
+        {
+          "value": "America",
+          "support": 1,
+          "sources": [
+            "wiki:fp19:holocaust|:2"
+          ]
+        }
+      ]
+    },
+    {
+      "address": "fp23:lady|",
+      "values": [
+        {
+          "value": "Bracknell",
+          "support": 4,
+          "sources": [
+            "wiki:fp23:lady|:1",
+            "wiki:fp23:lady|:2",
+            "wiki:fp23:lady|:3"
+          ]
+        },
+        {
+          "value": "Guadalupe",
+          "support": 1,
+          "sources": [
+            "wiki:fp23:lady|:0"
+          ]
+        },
+        {
+          "value": "Constantine",
+          "support": 1,
+          "sources": [
+            "wiki:fp23:lady|:5"
+          ]
+        },
+        {
+          "value": "Albert",
+          "support": 1,
+          "sources": [
+            "wiki:fp23:lady|:6"
+          ]
+        }
+      ]
+    },
+    {
+      "address": "fp29:manual|",
+      "values": [
+        {
+          "value": "Style",
+          "support": 2,
+          "sources": [
+            "wiki:fp29:manual|:0",
+            "wiki:fp29:manual|:1"
+          ]
+        },
+        {
+          "value": "Typography",
+          "support": 1,
+          "sources": [
+            "wiki:fp29:manual|:2"
+          ]
+        }
+      ]
+    }
+  ],
+  "note": "The write side, which GOAL.md named as the open half. WRITE / CONFIRM / DISPUTE against an address, and the three consequences that follow without any further mechanism: the tape stops growing on repetition, the witness structure that 271-278 had to manufacture with a template arrives from the data as a support count, and that count is a reliability estimate computed for free. The replay control is the validity gate - writing the same corpus twice must produce no disputes and no new slots, whatever the matcher, because a matcher that invents disagreement is worse than one that misses it. With --source model the same subject is sampled N times at temperature and the share of samples that agree is the model's uncertainty measured from what it says rather than from its logits; G_support_predicts_truth checks that number against the corpus majority, and if the lift is absent the support count is decoration and the verdict says so.",
+  "timestamp": "2026-08-05T21:01:08.036340+00:00",
+  "wall_s": 11.027439832687378
+}

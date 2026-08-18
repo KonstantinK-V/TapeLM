@@ -1,0 +1,676 @@
+{
+  "stage": 266,
+  "overall": "WORDS_FORMULATE_QUERY",
+  "remap_261": "QUERY_MUST_BE_WORDS",
+  "smoke": false,
+  "seed": 261,
+  "train_reseed_per_trunk": true,
+  "steps": 800,
+  "slots": 4352,
+  "exam_slots": 352,
+  "noise_slots": 4000,
+  "harvest_noise_pairs": 3439,
+  "harvest_kind": "cross_mention",
+  "harvest_capped_at_n_dist": true,
+  "train_pool_n": 3615,
+  "bank_matches_pre_harvest": true,
+  "pre_harvest_baseline": {
+    "qwen05_base": {
+      "eval_top1_sem": 0.0,
+      "eval_20way_sem": 0.074,
+      "eval_20way_fp": 0.153,
+      "fit_20way_fp": 0.301,
+      "fit_top1_sem": 1.0
+    },
+    "qwen05_instruct": {
+      "eval_top1_sem": 0.0,
+      "eval_20way_sem": 0.119,
+      "eval_20way_fp": 0.21,
+      "fit_20way_fp": 0.443,
+      "fit_top1_sem": 1.0
+    },
+    "qwen15_instruct": {
+      "eval_top1_sem": 0.0,
+      "eval_20way_sem": 0.085,
+      "eval_20way_fp": 0.188,
+      "fit_20way_fp": 0.528,
+      "fit_top1_sem": 1.0
+    }
+  },
+  "overlap_median": 0.0625,
+  "exam_parity_261": {
+    "ref_slots": 4353,
+    "ref_exam_slots": 353,
+    "ref_n_eval": 177,
+    "this_slots": 4352,
+    "this_exam_slots": 352,
+    "this_n_eval": 176,
+    "slots_match": false,
+    "exam_slots_match": false,
+    "note": "Same construction seed=261; count mismatch \u2192 trunk ladder still internally valid, but remap_261 needs a caveat."
+  },
+  "fp_version": "stage191_p1_curve.pt",
+  "gates": {
+    "G_instruct_beats_base_matched": false,
+    "G_instruct_compare": "alpha_collapsed_compare_fp_only",
+    "G_ladder_monotone": null,
+    "G_ladder_note": "alphas_collapsed_trunk_out",
+    "G_prompted_query": true,
+    "G_prompted_beats_surface": false,
+    "G_prompted_median_better": true,
+    "G_union_beats_surface": false,
+    "G_union_median_better": false,
+    "G_mind_refines": false,
+    "G_paraphrase_breaks_silence": false,
+    "G_paraphrase_novel_on_tape": true,
+    "G_paraphrase_useless": true,
+    "G_words_crush_learned": true,
+    "G_any_words_suffice": true,
+    "G_mixer_overfit": false,
+    "G_harvest_helped": true,
+    "harvest_helped_ids": [
+      "qwen05_base",
+      "qwen05_instruct",
+      "qwen15_instruct"
+    ],
+    "collapsed_ids": [],
+    "instruct_alpha_collapsed": true,
+    "headline_beats_means": "top1+0.03 or 20-way+0.05; median rank is separate",
+    "silence_beats_means": "tie_at_zero \u22120.05 overall or low-overlap"
+  },
+  "fit_diag": {
+    "qwen05_base": {
+      "fit_top1_sem": 0.2840909090909091,
+      "eval_top1_sem": 0.03409090909090909,
+      "fit_acc_20way_sem": 0.6988636363636364,
+      "eval_acc_20way_sem": 0.14772727272727273,
+      "eval_acc_20way_fp": 0.2215909090909091,
+      "mixer_overfit": false,
+      "alpha": 0.7162229776890441
+    },
+    "qwen05_instruct": {
+      "fit_top1_sem": 0.08522727272727272,
+      "eval_top1_sem": 0.0625,
+      "fit_acc_20way_sem": 0.2897727272727273,
+      "eval_acc_20way_sem": 0.22727272727272727,
+      "eval_acc_20way_fp": 0.22727272727272727,
+      "mixer_overfit": false,
+      "alpha": 3.0640787841009424e-17
+    },
+    "qwen15_instruct": {
+      "fit_top1_sem": 0.08522727272727272,
+      "eval_top1_sem": 0.0625,
+      "fit_acc_20way_sem": 0.2897727272727273,
+      "eval_acc_20way_sem": 0.22727272727272727,
+      "eval_acc_20way_fp": 0.22727272727272727,
+      "mixer_overfit": false,
+      "alpha": 1.8786648148580155e-09
+    }
+  },
+  "matched_pair": {
+    "base": {
+      "model": "Qwen/Qwen2.5-0.5B",
+      "hidden": 896,
+      "acc_20way_fp": 0.2215909090909091,
+      "acc_20way_sem": 0.14772727272727273,
+      "top1_sem": 0.03409090909090909,
+      "alpha": 0.7162229776890441,
+      "fit_top1_sem": 0.2840909090909091,
+      "mixer_overfit": false,
+      "verify_seed": null
+    },
+    "instruct": {
+      "model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "hidden": 896,
+      "acc_20way_fp": 0.22727272727272727,
+      "acc_20way_sem": 0.22727272727272727,
+      "top1_sem": 0.0625,
+      "alpha": 3.0640787841009424e-17,
+      "chat_template_used": true,
+      "fit_top1_sem": 0.08522727272727272,
+      "mixer_overfit": false
+    },
+    "delta_20way_sem": 0.07954545454545453,
+    "delta_20way_fp_only": 0.005681818181818177
+  },
+  "ladder": {
+    "qwen05_base": {
+      "id": "qwen05_base",
+      "model": "Qwen/Qwen2.5-0.5B",
+      "instruct": false,
+      "rung": 0,
+      "hidden": 896,
+      "chat_template_used": false,
+      "h_dim": 896,
+      "n_fit": 176,
+      "n_eval": 176,
+      "n_train_pool": 3615,
+      "overlap_median": 0.0625,
+      "fp_only": {
+        "top1": 0.09659090909090909,
+        "mrr": 0.10869582716729075,
+        "median_rank": 1382.0,
+        "top1_low_overlap": 0.011494252873563218,
+        "top1_high_overlap": 0.1797752808988764,
+        "alpha": 0.0,
+        "n": 176,
+        "acc_20way": 0.2215909090909091,
+        "chance_20way": 0.05
+      },
+      "fp_plus_sem": {
+        "top1": 0.03409090909090909,
+        "mrr": 0.04445747632093557,
+        "median_rank": 1489.5,
+        "top1_low_overlap": 0.0,
+        "top1_high_overlap": 0.06741573033707865,
+        "alpha": 0.7162229776890441,
+        "n": 176,
+        "acc_20way": 0.14772727272727273,
+        "chance_20way": 0.05
+      },
+      "shuffled_keys": {
+        "top1": 0.0,
+        "mrr": 0.0017604731890117403,
+        "median_rank": 2344.5,
+        "top1_low_overlap": 0.0,
+        "top1_high_overlap": 0.0,
+        "alpha": 0.7162229776890441,
+        "n": 176,
+        "acc_20way": 0.03977272727272727,
+        "chance_20way": 0.05
+      },
+      "fit_fp_only": {
+        "top1": 0.10227272727272728,
+        "mrr": 0.12157587821486646,
+        "median_rank": 1009.5,
+        "top1_low_overlap": 0.02127659574468085,
+        "top1_high_overlap": 0.1951219512195122,
+        "alpha": 0.0,
+        "n": 176,
+        "acc_20way": 0.23863636363636365,
+        "chance_20way": 0.05
+      },
+      "fit_fp_plus_sem": {
+        "top1": 0.2840909090909091,
+        "mrr": 0.3700708140559168,
+        "median_rank": 6.5,
+        "top1_low_overlap": 0.26595744680851063,
+        "top1_high_overlap": 0.3048780487804878,
+        "alpha": 0.738377866927873,
+        "n": 176,
+        "acc_20way": 0.6988636363636364,
+        "chance_20way": 0.05
+      },
+      "mixer_overfit": false,
+      "acc_20way_fp": 0.2215909090909091,
+      "acc_20way_sem": 0.14772727272727273,
+      "top1_sem": 0.03409090909090909,
+      "alpha": 0.7162229776890441,
+      "fit_top1_sem": 0.2840909090909091,
+      "fit_acc_20way_sem": 0.6988636363636364,
+      "fit_acc_20way_fp": 0.23863636363636365
+    },
+    "qwen05_instruct": {
+      "id": "qwen05_instruct",
+      "model": "Qwen/Qwen2.5-0.5B-Instruct",
+      "instruct": true,
+      "rung": 1,
+      "hidden": 896,
+      "chat_template_used": true,
+      "h_dim": 896,
+      "n_fit": 176,
+      "n_eval": 176,
+      "n_train_pool": 3615,
+      "overlap_median": 0.0625,
+      "fp_only": {
+        "top1": 0.0625,
+        "mrr": 0.08453588887301111,
+        "median_rank": 1532.5,
+        "top1_low_overlap": 0.011494252873563218,
+        "top1_high_overlap": 0.11235955056179775,
+        "alpha": 0.0,
+        "n": 176,
+        "acc_20way": 0.22727272727272727,
+        "chance_20way": 0.05
+      },
+      "fp_plus_sem": {
+        "top1": 0.0625,
+        "mrr": 0.08453588887301111,
+        "median_rank": 1532.5,
+        "top1_low_overlap": 0.011494252873563218,
+        "top1_high_overlap": 0.11235955056179775,
+        "alpha": 3.0640787841009424e-17,
+        "n": 176,
+        "acc_20way": 0.22727272727272727,
+        "chance_20way": 0.05
+      },
+      "shuffled_keys": {
+        "top1": 0.0,
+        "mrr": 0.0010308453293773345,
+        "median_rank": 2231.0,
+        "top1_low_overlap": 0.0,
+        "top1_high_overlap": 0.0,
+        "alpha": 3.0640787841009424e-17,
+        "n": 176,
+        "acc_20way": 0.045454545454545456,
+        "chance_20way": 0.05
+      },
+      "fit_fp_only": {
+        "top1": 0.08522727272727272,
+        "mrr": 0.11722234142783407,
+        "median_rank": 876.0,
+        "top1_low_overlap": 0.02127659574468085,
+        "top1_high_overlap": 0.15853658536585366,
+        "alpha": 0.0,
+        "n": 176,
+        "acc_20way": 0.2897727272727273,
+        "chance_20way": 0.05
+      },
+      "fit_fp_plus_sem": {
+        "top1": 0.08522727272727272,
+        "mrr": 0.11722234142783407,
+        "median_rank": 876.0,
+        "top1_low_overlap": 0.02127659574468085,
+        "top1_high_overlap": 0.15853658536585366,
+        "alpha": 2.530685704869276e-18,
+        "n": 176,
+        "acc_20way": 0.2897727272727273,
+        "chance_20way": 0.05
+      },
+      "mixer_overfit": false,
+      "acc_20way_fp": 0.22727272727272727,
+      "acc_20way_sem": 0.22727272727272727,
+      "top1_sem": 0.0625,
+      "alpha": 3.0640787841009424e-17,
+      "fit_top1_sem": 0.08522727272727272,
+      "fit_acc_20way_sem": 0.2897727272727273,
+      "fit_acc_20way_fp": 0.2897727272727273
+    },
+    "qwen15_instruct": {
+      "id": "qwen15_instruct",
+      "model": "Qwen/Qwen2.5-1.5B-Instruct",
+      "instruct": true,
+      "rung": 2,
+      "hidden": 1536,
+      "chat_template_used": true,
+      "h_dim": 1536,
+      "n_fit": 176,
+      "n_eval": 176,
+      "n_train_pool": 3615,
+      "overlap_median": 0.0625,
+      "fp_only": {
+        "top1": 0.0625,
+        "mrr": 0.08449691723205137,
+        "median_rank": 1529.5,
+        "top1_low_overlap": 0.011494252873563218,
+        "top1_high_overlap": 0.11235955056179775,
+        "alpha": 0.0,
+        "n": 176,
+        "acc_20way": 0.22727272727272727,
+        "chance_20way": 0.05
+      },
+      "fp_plus_sem": {
+        "top1": 0.0625,
+        "mrr": 0.08449691723205137,
+        "median_rank": 1529.5,
+        "top1_low_overlap": 0.011494252873563218,
+        "top1_high_overlap": 0.11235955056179775,
+        "alpha": 1.8786648148580155e-09,
+        "n": 176,
+        "acc_20way": 0.22727272727272727,
+        "chance_20way": 0.05
+      },
+      "shuffled_keys": {
+        "top1": 0.0,
+        "mrr": 0.001031574663697301,
+        "median_rank": 2228.0,
+        "top1_low_overlap": 0.0,
+        "top1_high_overlap": 0.0,
+        "alpha": 1.8786648148580155e-09,
+        "n": 176,
+        "acc_20way": 0.03977272727272727,
+        "chance_20way": 0.05
+      },
+      "fit_fp_only": {
+        "top1": 0.08522727272727272,
+        "mrr": 0.1171288635514231,
+        "median_rank": 873.5,
+        "top1_low_overlap": 0.02127659574468085,
+        "top1_high_overlap": 0.15853658536585366,
+        "alpha": 0.0,
+        "n": 176,
+        "acc_20way": 0.2897727272727273,
+        "chance_20way": 0.05
+      },
+      "fit_fp_plus_sem": {
+        "top1": 0.08522727272727272,
+        "mrr": 0.1171288635514231,
+        "median_rank": 873.5,
+        "top1_low_overlap": 0.02127659574468085,
+        "top1_high_overlap": 0.15853658536585366,
+        "alpha": 3.61864573916591e-08,
+        "n": 176,
+        "acc_20way": 0.2897727272727273,
+        "chance_20way": 0.05
+      },
+      "mixer_overfit": false,
+      "acc_20way_fp": 0.22727272727272727,
+      "acc_20way_sem": 0.22727272727272727,
+      "top1_sem": 0.0625,
+      "alpha": 1.8786648148580155e-09,
+      "fit_top1_sem": 0.08522727272727272,
+      "fit_acc_20way_sem": 0.2897727272727273,
+      "fit_acc_20way_fp": 0.2897727272727273
+    },
+    "qwen3_instruct": null
+  },
+  "surface_votes": {
+    "top1": 0.19886363636363635,
+    "mrr": 0.24299284448205102,
+    "median_rank": 70.5,
+    "top1_low_overlap": 0.011494252873563218,
+    "top1_high_overlap": 0.38202247191011235,
+    "tie_at_zero_frac": 0.44886363636363635,
+    "silence": {
+      "tie_at_zero_frac": 0.44886363636363635,
+      "tie_at_zero_frac_low_overlap": 0.8160919540229885,
+      "tie_at_zero_frac_high_overlap": 0.0898876404494382,
+      "top1_low_overlap": 0.011494252873563218,
+      "top1_high_overlap": 0.38202247191011235,
+      "top1_low_overlap_given_vote": 0.0625,
+      "low_overlap_miss_is_silence_frac": 0.8255813953488372,
+      "n": 176,
+      "n_tie_at_zero": 79,
+      "n_low_overlap": 87
+    },
+    "n": 176,
+    "acc_20way": 0.42613636363636365,
+    "chance_20way": 0.05
+  },
+  "prompted_query": {
+    "top1": 0.1590909090909091,
+    "mrr": 0.2184845496134905,
+    "median_rank": 46.0,
+    "top1_low_overlap": 0.011494252873563218,
+    "top1_high_overlap": 0.30337078651685395,
+    "tie_at_zero_frac": 0.5397727272727273,
+    "silence": {
+      "tie_at_zero_frac": 0.5397727272727273,
+      "tie_at_zero_frac_low_overlap": 0.8850574712643678,
+      "tie_at_zero_frac_high_overlap": 0.20224719101123595,
+      "top1_low_overlap": 0.011494252873563218,
+      "top1_high_overlap": 0.30337078651685395,
+      "top1_low_overlap_given_vote": 0.1,
+      "low_overlap_miss_is_silence_frac": 0.8953488372093024,
+      "n": 176,
+      "n_tie_at_zero": 95,
+      "n_low_overlap": 87
+    },
+    "n": 176,
+    "acc_20way": 0.3977272727272727,
+    "chance_20way": 0.05,
+    "model": "Qwen/Qwen2.5-0.5B-Instruct",
+    "trained_parameters": 0,
+    "empty_keyword_fallback_n": 1,
+    "examples": [
+      {
+        "qtext": "61 , the Confederates inventoried some 10 @,@ 247 weapons , 250 @,@ 000 musket cartridges , and 520 @,@ 000 percussion c",
+        "keywords": [
+          "confederate",
+          "inventories",
+          "weapons",
+          "inventory",
+          "gun",
+          "stock",
+          "cannon",
+          "totten"
+        ]
+      },
+      {
+        "qtext": "Edward Mace George , writing in The Guardian , notes that the book \" is the comic masterpiece Newby will be remembered b",
+        "keywords": [
+          "edward",
+          "mace",
+          "george",
+          "the",
+          "guardian",
+          "newby",
+          "love",
+          "and"
+        ]
+      },
+      {
+        "qtext": "In the 1890s , the battery near St. Peter",
+        "keywords": [
+          "battery",
+          "peter"
+        ]
+      },
+      {
+        "qtext": "Meanwhile , after being ousted from his office on the 52nd floor by Devon Banks ( Will",
+        "keywords": [
+          "devon",
+          "banks",
+          "office",
+          "floor"
+        ]
+      },
+      {
+        "qtext": "Antoine and Julien <unk> . The <unk> also have the unique distinction of receiving their medals for actions in separate ",
+        "keywords": [
+          "antoine",
+          "julien",
+          "medal",
+          "action",
+          "conflict"
+        ]
+      }
+    ]
+  },
+  "union_votes": {
+    "top1": 0.16477272727272727,
+    "mrr": 0.22428709106158953,
+    "median_rank": 86.5,
+    "top1_low_overlap": 0.011494252873563218,
+    "top1_high_overlap": 0.3146067415730337,
+    "tie_at_zero_frac": 0.44886363636363635,
+    "silence": {
+      "tie_at_zero_frac": 0.44886363636363635,
+      "tie_at_zero_frac_low_overlap": 0.8160919540229885,
+      "tie_at_zero_frac_high_overlap": 0.0898876404494382,
+      "top1_low_overlap": 0.011494252873563218,
+      "top1_high_overlap": 0.3146067415730337,
+      "top1_low_overlap_given_vote": 0.0625,
+      "low_overlap_miss_is_silence_frac": 0.8255813953488372,
+      "n": 176,
+      "n_tie_at_zero": 79,
+      "n_low_overlap": 87
+    },
+    "n": 176,
+    "acc_20way": 0.4318181818181818,
+    "chance_20way": 0.05,
+    "trained_parameters": 0,
+    "kind": "surface_union_keywords"
+  },
+  "paraphrase": {
+    "top1": 0.022727272727272728,
+    "mrr": 0.062111562630035616,
+    "median_rank": 407.5,
+    "top1_low_overlap": 0.022988505747126436,
+    "top1_high_overlap": 0.02247191011235955,
+    "tie_at_zero_frac": 0.9204545454545454,
+    "silence": {
+      "tie_at_zero_frac": 0.9204545454545454,
+      "tie_at_zero_frac_low_overlap": 0.9310344827586207,
+      "tie_at_zero_frac_high_overlap": 0.9101123595505618,
+      "top1_low_overlap": 0.022988505747126436,
+      "top1_high_overlap": 0.02247191011235955,
+      "top1_low_overlap_given_vote": 0.3333333333333333,
+      "low_overlap_miss_is_silence_frac": 0.9529411764705882,
+      "n": 176,
+      "n_tie_at_zero": 162,
+      "n_low_overlap": 87
+    },
+    "n": 176,
+    "acc_20way": 0.0625,
+    "chance_20way": 0.05,
+    "model": "Qwen/Qwen2.5-0.5B-Instruct",
+    "trained_parameters": 0,
+    "kind": "paraphrase_novel",
+    "empty_paraphrase_n": 71,
+    "bridge": {
+      "n_queries": 176,
+      "n_novel_words": 586,
+      "n_novel_on_tape": 443,
+      "novel_on_tape_frac": 0.7559726962457338,
+      "queries_with_bridge_word_frac": 0.5454545454545454
+    },
+    "examples": [
+      {
+        "qtext": "61 , the Confederates inventoried some 10 @,@ 247 weapons , 250 @,@ 000 musket cartridges , and 520 @,@ 000 percussion c",
+        "paraphrase": [
+          "arm",
+          "guns",
+          "cannons",
+          "batteries",
+          "muskets"
+        ],
+        "on_tape": [
+          "arm",
+          "guns",
+          "batteries"
+        ]
+      },
+      {
+        "qtext": "Edward Mace George , writing in The Guardian , notes that the book \" is the comic masterpiece Newby will be remembered b",
+        "paraphrase": [
+          "best"
+        ],
+        "on_tape": [
+          "best"
+        ]
+      },
+      {
+        "qtext": "In the 1890s , the battery near St. Peter",
+        "paraphrase": [
+          "was",
+          "invented",
+          "thomas",
+          "edison",
+          "and",
+          "patented",
+          "invention",
+          "electric"
+        ],
+        "on_tape": [
+          "thomas",
+          "invention",
+          "electric"
+        ]
+      },
+      {
+        "qtext": "Meanwhile , after being ousted from his office on the 52nd floor by Devon Banks ( Will",
+        "paraphrase": [],
+        "on_tape": []
+      },
+      {
+        "qtext": "Antoine and Julien <unk> . The <unk> also have the unique distinction of receiving their medals for actions in separate ",
+        "paraphrase": [
+          "medal",
+          "action",
+          "conflict",
+          "receive"
+        ],
+        "on_tape": [
+          "medal",
+          "action",
+          "conflict",
+          "receive"
+        ]
+      }
+    ]
+  },
+  "paraphrase_union": {
+    "top1": 0.1875,
+    "mrr": 0.23398725793699227,
+    "median_rank": 88.0,
+    "top1_low_overlap": 0.0,
+    "top1_high_overlap": 0.3707865168539326,
+    "tie_at_zero_frac": 0.42613636363636365,
+    "silence": {
+      "tie_at_zero_frac": 0.42613636363636365,
+      "tie_at_zero_frac_low_overlap": 0.7701149425287356,
+      "tie_at_zero_frac_high_overlap": 0.0898876404494382,
+      "top1_low_overlap": 0.0,
+      "top1_high_overlap": 0.3707865168539326,
+      "top1_low_overlap_given_vote": 0.0,
+      "low_overlap_miss_is_silence_frac": 0.7701149425287356,
+      "n": 176,
+      "n_tie_at_zero": 75,
+      "n_low_overlap": 87
+    },
+    "n": 176,
+    "acc_20way": 0.45454545454545453,
+    "chance_20way": 0.05,
+    "trained_parameters": 0,
+    "kind": "surface_union_paraphrase",
+    "bridge": {
+      "n_queries": 176,
+      "n_novel_words": 586,
+      "n_novel_on_tape": 443,
+      "novel_on_tape_frac": 0.7559726962457338,
+      "queries_with_bridge_word_frac": 0.5454545454545454
+    },
+    "surface_silent_woken_frac": 0.022727272727272728,
+    "surface_silent_woken_n": 4
+  },
+  "paraphrase_bridge": {
+    "n_queries": 176,
+    "n_novel_words": 586,
+    "n_novel_on_tape": 443,
+    "novel_on_tape_frac": 0.7559726962457338,
+    "queries_with_bridge_word_frac": 0.5454545454545454
+  },
+  "secondary": {
+    "harvest_fixes_mixer": true,
+    "remap_if_harvest_only": "MIXER_WAS_DATA",
+    "any_words_suffice": true,
+    "paraphrase_useless": true
+  },
+  "note": "Mind's only remaining chance is silence: novel paraphrase words that exist on tape (bridge), measured by tie_at_zero_frac \u2014 not top1. Keywords subtract noise (median better, coverage worse). Union\u222akeywords failed headlines \u2192 any words suffice. G_prompted_beats_surface is headline-only. Instruct alpha\u22480 \u2192 fp+sem\u2261fp_only. QUERY_MUST_BE_WORDS when words crush trained W.",
+  "prompted_only_run": false,
+  "paraphrase_only_run": true,
+  "timestamp": "2026-08-04T22:58:38.240020+00:00",
+  "wall_s": 268.4306855201721,
+  "vote_rank_fix_audit": {
+    "note": "vote_rank fix (empty sc\u2192n_slots): 261f and 264 votes top1 unchanged at 0.245562 (empty_sc_n=0/338 both; delta=0). Artifact was 266 paraphrase-only.",
+    "stage261f": {
+      "label": "261f",
+      "seed": 2610,
+      "n_eval": 338,
+      "n_slots": 4338,
+      "empty_sc_n": 0,
+      "empty_sc_frac": 0.0,
+      "rank_changed_n": 0,
+      "top1_old": 0.2455621301775148,
+      "top1_new": 0.2455621301775148,
+      "top1_delta": 0.0,
+      "headline_shifted": false
+    },
+    "stage264_votes": {
+      "label": "264_votes",
+      "seed": 2640,
+      "n_eval": 338,
+      "n_slots": 4338,
+      "empty_sc_n": 0,
+      "empty_sc_frac": 0.0,
+      "rank_changed_n": 0,
+      "top1_old": 0.2455621301775148,
+      "top1_new": 0.2455621301775148,
+      "top1_delta": 0.0,
+      "headline_shifted": false
+    },
+    "published_votes_top1": 0.2455621301775148,
+    "headline_shifted": false
+  }
+}

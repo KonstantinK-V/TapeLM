@@ -1,0 +1,291 @@
+{
+  "stage": 283,
+  "overall": "SCALE_OK",
+  "seed": 283,
+  "smoke": false,
+  "corpus": "data\\_wikitext103_train.txt",
+  "run_tag": "geom",
+  "addr_key": "two",
+  "address": {
+    "tau": 0.9,
+    "overlap": 2,
+    "soft_match": 0.0,
+    "min_mentions": 2
+  },
+  "retrieval": {
+    "topk": 7,
+    "hop": "fp",
+    "hop_min": 1.0,
+    "k_gap": 0.35,
+    "subject_filter": "on"
+  },
+  "thresholds": {
+    "min_precision": 0.6,
+    "min_separation": 0.3,
+    "max_crowding": 0.2,
+    "max_foreign": 0.1
+  },
+  "mind_params": 7564290,
+  "gates": {
+    "G_precision_holds": true,
+    "G_return_path_separates": true,
+    "G_addresses_stay_distinct": true,
+    "G_k_covers_the_address": false,
+    "G_ties_exist_naturally": true,
+    "G_mind_does_not_grow": true
+  },
+  "slopes": {
+    "slots": [
+      91,
+      792,
+      4730
+    ],
+    "precision": [
+      0.7956140350877193,
+      0.739669891861127,
+      0.6637820512820513
+    ],
+    "return_path_separation": [
+      0.96,
+      0.9856115107913669,
+      0.9533582089552239
+    ],
+    "address_crowding": [
+      0.0,
+      0.1952191235059761,
+      0.3450854700854701
+    ],
+    "member_crowding": [
+      0.05263157894736842,
+      0.29880478087649404,
+      0.5106837606837606
+    ],
+    "two_channel_crowding": [
+      0.0,
+      0.00796812749003984,
+      0.060897435897435896
+    ],
+    "foreign_member_rate": [
+      0.0,
+      0.018627078985644724,
+      0.05161396505477364
+    ],
+    "distinct_anchors": [
+      38,
+      243,
+      876
+    ],
+    "anchor_only_crowding": [
+      0.0,
+      0.0,
+      0.0182648401826484
+    ],
+    "anchor_growth_exponent": 0.9225515543812931,
+    "k_covers_address": [
+      0.9736842105263158,
+      0.9322709163346613,
+      0.8760683760683761
+    ],
+    "tie_share": [
+      0.34210526315789475,
+      0.44621513944223107,
+      0.42735042735042733
+    ],
+    "slots_growth": 51.97802197802198
+  },
+  "rungs": [
+    {
+      "n_addresses": 38,
+      "n_slots": 91,
+      "n_items": 38,
+      "slots_per_address": 2.3947368421052633,
+      "write_actions": {
+        "WRITE": 38,
+        "CONFIRM": 30,
+        "DISPUTE": 23
+      },
+      "families_natural": {
+        "clean": 0.631578947368421,
+        "decidable": 0.02631578947368421,
+        "tie": 0.34210526315789475
+      },
+      "retrieval_precision": 0.7956140350877193,
+      "witness_recall": 0.9769736842105263,
+      "precision_q": {
+        "p5": 0.485,
+        "p50": 1.0,
+        "p95": 1.0
+      },
+      "mean_candidates": 3.1052631578947367,
+      "words_silent_rate": 0.0,
+      "foreign_member_rate": 0.0,
+      "k_covers_address": 0.9736842105263158,
+      "return_path_true": 1.0,
+      "return_path_other": 0.04,
+      "return_path_separation": 0.96,
+      "nearest_other_q": {
+        "p50": 0.8300622701644897,
+        "p95": 0.8854619085788726,
+        "p99": 0.8879098892211914
+      },
+      "nearest_other_max": 0.8879098892211914,
+      "address_crowding": 0.0,
+      "member_crowding_q": {
+        "p50": 0.8494810163974762,
+        "p95": 0.8978990197181701,
+        "p99": 0.9053654670715332
+      },
+      "member_crowding": 0.05263157894736842,
+      "two_channel_crowding": 0.0,
+      "two_channel_q": {
+        "p50": 0.6857962012290955,
+        "p95": 0.8073716521263121,
+        "p99": 0.862501323223114
+      },
+      "distinct_anchors": 38,
+      "anchor_only_q": {
+        "p50": 0.6912384629249573,
+        "p95": 0.8073715925216673,
+        "p99": 0.8625012636184692
+      },
+      "anchor_only_crowding": 0.0,
+      "chars": 4000000,
+      "n_addr_requested": 400,
+      "build_s": 0.7218649387359619,
+      "mind_params": 7564290,
+      "lines": 1437
+    },
+    {
+      "n_addresses": 251,
+      "n_slots": 792,
+      "n_items": 251,
+      "slots_per_address": 3.1553784860557768,
+      "write_actions": {
+        "WRITE": 251,
+        "DISPUTE": 307,
+        "CONFIRM": 234
+      },
+      "families_natural": {
+        "clean": 0.43824701195219123,
+        "decidable": 0.11553784860557768,
+        "tie": 0.44621513944223107
+      },
+      "retrieval_precision": 0.739669891861127,
+      "witness_recall": 0.746796541218852,
+      "precision_q": {
+        "p5": 0.0,
+        "p50": 1.0,
+        "p95": 1.0
+      },
+      "mean_candidates": 2.50199203187251,
+      "words_silent_rate": 0.0,
+      "foreign_member_rate": 0.018627078985644724,
+      "k_covers_address": 0.9322709163346613,
+      "return_path_true": 0.9856115107913669,
+      "return_path_other": 0.0,
+      "return_path_separation": 0.9856115107913669,
+      "nearest_other_q": {
+        "p50": 0.8727468848228455,
+        "p95": 0.9628742933273315,
+        "p99": 0.9858304262161255
+      },
+      "nearest_other_max": 0.9858659505844116,
+      "address_crowding": 0.1952191235059761,
+      "member_crowding_q": {
+        "p50": 0.8849344253540039,
+        "p95": 0.9544581472873688,
+        "p99": 0.9701541066169739
+      },
+      "member_crowding": 0.29880478087649404,
+      "two_channel_crowding": 0.00796812749003984,
+      "two_channel_q": {
+        "p50": 0.7554270029067993,
+        "p95": 0.876266211271286,
+        "p99": 0.898030161857605
+      },
+      "distinct_anchors": 243,
+      "anchor_only_q": {
+        "p50": 0.752466082572937,
+        "p95": 0.861972987651825,
+        "p99": 0.882042407989502
+      },
+      "anchor_only_crowding": 0.0,
+      "chars": 30000000,
+      "n_addr_requested": 400,
+      "build_s": 28.94698977470398,
+      "mind_params": 7564290,
+      "lines": 10463
+    },
+    {
+      "n_addresses": 936,
+      "n_slots": 4730,
+      "n_items": 936,
+      "slots_per_address": 5.053418803418803,
+      "write_actions": {
+        "WRITE": 936,
+        "CONFIRM": 1506,
+        "DISPUTE": 2288
+      },
+      "families_natural": {
+        "clean": 0.3888888888888889,
+        "decidable": 0.18376068376068377,
+        "tie": 0.42735042735042733
+      },
+      "retrieval_precision": 0.6637820512820513,
+      "witness_recall": 0.7713656721965881,
+      "precision_q": {
+        "p5": 0.0,
+        "p50": 0.6666666666666666,
+        "p95": 1.0
+      },
+      "mean_candidates": 3.9957264957264957,
+      "words_silent_rate": 0.0,
+      "foreign_member_rate": 0.05161396505477364,
+      "k_covers_address": 0.8760683760683761,
+      "return_path_true": 0.9589552238805971,
+      "return_path_other": 0.005597014925373134,
+      "return_path_separation": 0.9533582089552239,
+      "nearest_other_q": {
+        "p50": 0.8883670568466187,
+        "p95": 0.9779804646968842,
+        "p99": 0.9918358623981476
+      },
+      "nearest_other_max": 0.995471715927124,
+      "address_crowding": 0.3450854700854701,
+      "member_crowding_q": {
+        "p50": 0.9006725549697876,
+        "p95": 0.9703209400177002,
+        "p99": 0.9799787521362304
+      },
+      "member_crowding": 0.5106837606837606,
+      "two_channel_crowding": 0.060897435897435896,
+      "two_channel_q": {
+        "p50": 0.7942872643470764,
+        "p95": 0.9073741137981415,
+        "p99": 0.933704960346222
+      },
+      "distinct_anchors": 876,
+      "anchor_only_q": {
+        "p50": 0.7927842438220978,
+        "p95": 0.8799281120300293,
+        "p99": 0.9259419441223145
+      },
+      "anchor_only_crowding": 0.0182648401826484,
+      "chars": 120000000,
+      "n_addr_requested": 2000,
+      "build_s": 589.4474835395813,
+      "mind_params": 7564290,
+      "lines": 41151
+    }
+  ],
+  "fp_version": "stage191_p1_curve.pt",
+  "reference_280": {
+    "n_addresses": 187,
+    "n_slots": 530,
+    "retrieval_precision_train": 0.8031194295900178,
+    "held_out_reward": 0.7043859649122806
+  },
+  "note": "The tape side of scale, with no mind attached. 280's numbers describe an index of 530 slots, and the concept's invariant is that the mind does not grow with the knowledge - so if anything breaks with N it breaks in the addressing. Four things are measured at each rung and none of them needs training: how much of a retrieved list belongs to the address it was retrieved for; whether the return path still tells a settled value from a value taken elsewhere in the tape, which is the check meant to replace G_answer_is_slot once an answer stops being a slot index; how close the nearest other address key gets, since distinct entities crowd as the tape fills; and what the family mix is when nothing quotas it, because 280's tie rate is an artefact of --min-per-family and not a fact about text. Slopes are reported beside the gates: a metric that clears its floor while falling steeply is the case that decides whether this scales or merely has not broken yet.",
+  "timestamp": "2026-08-07T14:14:40.835418+00:00",
+  "wall_s": 620.5857315063477
+}

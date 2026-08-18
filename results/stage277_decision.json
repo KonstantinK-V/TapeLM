@@ -1,0 +1,180 @@
+{
+  "stage": 277,
+  "overall": "INK_NO",
+  "trained_parameters": 0,
+  "tau": 0.6,
+  "kernel_p": 1.0,
+  "alpha": 0.25,
+  "n_way": 20,
+  "slots": 4338,
+  "asked": 338,
+  "distractors": 4000,
+  "vocab": 11195,
+  "postings": 71110,
+  "overlap_median": 0.06316489361702127,
+  "gates": {
+    "G_causal_popularity_floor": true,
+    "G_kernel_reduces_to_votes": true,
+    "G_maxsim_beats_votes": false,
+    "G_hybrid_beats_votes": false,
+    "G_nonzero_where_votes_silent": false,
+    "G_near_string_hole_closed": false,
+    "G_sum_still_loses": true,
+    "G_typo_favours_ink": false
+  },
+  "summary": {
+    "votes": {
+      "top1": 0.2455621301775148,
+      "mrr": 0.2789900910719621,
+      "median_rank": 328.0,
+      "acc_20way_strict": 0.4171597633136095,
+      "top1_low_overlap": 0.023668639053254437,
+      "top1_high_overlap": 0.46745562130177515,
+      "n": 338
+    },
+    "maxsim": {
+      "top1": 0.19822485207100593,
+      "mrr": 0.22038495273801084,
+      "median_rank": 713.0,
+      "acc_20way_strict": 0.378698224852071,
+      "top1_low_overlap": 0.0,
+      "top1_high_overlap": 0.39644970414201186,
+      "n": 338
+    },
+    "sum": {
+      "top1": 0.1390532544378698,
+      "mrr": 0.1503865274509196,
+      "median_rank": 1070.0,
+      "acc_20way_strict": 0.2514792899408284,
+      "top1_low_overlap": 0.0,
+      "top1_high_overlap": 0.2781065088757396,
+      "n": 338
+    },
+    "sum_sif": {
+      "top1": 0.1301775147928994,
+      "mrr": 0.14692578941335022,
+      "median_rank": 1058.5,
+      "acc_20way_strict": 0.2514792899408284,
+      "top1_low_overlap": 0.0,
+      "top1_high_overlap": 0.2603550295857988,
+      "n": 338
+    },
+    "hybrid": {
+      "top1": 0.23668639053254437,
+      "mrr": 0.2688425941277657,
+      "median_rank": 397.5,
+      "acc_20way_strict": 0.4319526627218935,
+      "top1_low_overlap": 0.01775147928994083,
+      "top1_high_overlap": 0.4556213017751479,
+      "n": 338
+    },
+    "tau_sweep": {
+      "0": {
+        "top1": 0.1952662721893491,
+        "median_rank": 903.5,
+        "mrr": 0.21748335274180916
+      },
+      "0.3": {
+        "top1": 0.1952662721893491,
+        "median_rank": 905.5,
+        "mrr": 0.21748269383003452
+      },
+      "0.5": {
+        "top1": 0.19822485207100593,
+        "median_rank": 861.0,
+        "mrr": 0.21919254947546601
+      },
+      "0.6": {
+        "top1": 0.19822485207100593,
+        "median_rank": 713.0,
+        "mrr": 0.22038495273801084
+      },
+      "0.7": {
+        "top1": 0.20414201183431951,
+        "median_rank": 494.5,
+        "mrr": 0.23001942729957212
+      },
+      "0.8": {
+        "top1": 0.22189349112426035,
+        "median_rank": 304.5,
+        "mrr": 0.25191940411427455
+      },
+      "0.9": {
+        "top1": 0.23964497041420119,
+        "median_rank": 262.5,
+        "mrr": 0.2741621289428527
+      },
+      "0.999": {
+        "top1": 0.24260355029585798,
+        "median_rank": 294.0,
+        "mrr": 0.2762358299292538
+      }
+    },
+    "silence": {
+      "n_queries": 338,
+      "n_votes_silent": 165,
+      "frac_votes_silent": 0.4881656804733728,
+      "near_string": {
+        "n": 103,
+        "maxsim_top1": 0.0,
+        "maxsim_median_rank": 1534.0,
+        "maxsim_top10": 0.0,
+        "hybrid_top1": 0.0,
+        "votes_top1": 0.0,
+        "votes_median_rank": 4338.0
+      },
+      "purely_semantic": {
+        "n": 62,
+        "maxsim_top1": 0.0,
+        "maxsim_median_rank": 2992.5,
+        "maxsim_top10": 0.016129032258064516,
+        "hybrid_top1": 0.0,
+        "votes_top1": 0.0,
+        "votes_median_rank": 4338.0
+      }
+    },
+    "popularity_floor": {
+      "votes_top1": 0.0,
+      "maxsim_top1": 0.0
+    },
+    "typo_arm": {
+      "typo_rate": 0.15,
+      "votes": {
+        "top1": 0.24260355029585798,
+        "mrr": 0.26729157812482146,
+        "median_rank": 4338.0,
+        "acc_20way_strict": 0.3520710059171598,
+        "top1_low_overlap": 0.011834319526627219,
+        "top1_high_overlap": 0.47337278106508873,
+        "n": 338
+      },
+      "maxsim": {
+        "top1": 0.1804733727810651,
+        "mrr": 0.19991855715113305,
+        "median_rank": 750.5,
+        "acc_20way_strict": 0.33727810650887574,
+        "top1_low_overlap": 0.0,
+        "top1_high_overlap": 0.3609467455621302,
+        "n": 338
+      },
+      "hybrid": {
+        "top1": 0.20118343195266272,
+        "mrr": 0.23326938342204898,
+        "median_rank": 635.0,
+        "acc_20way_strict": 0.39349112426035504,
+        "top1_low_overlap": 0.005917159763313609,
+        "top1_high_overlap": 0.39644970414201186,
+        "n": 338
+      }
+    },
+    "reference_261f": {
+      "votes_top1": 0.246,
+      "votes_median_rank": 76.5,
+      "mean_top1": 0.034,
+      "mean_median_rank": 1036.5
+    }
+  },
+  "note": "Votes are not an alternative to the fingerprints, they are the tau->1 limit of score(q,slot) = sum_w idf(w) * max_c relu(cos(fp(w),fp(c)) - tau)^p. content() dedups a slot's words, so at tau->1 the max collapses to an indicator and the expression is votes with idf, exactly - G_kernel_reduces_to_votes checks that empirically rather than on paper. The question the sweep answers is whether the interior tau<1 buys anything the endpoint does not. Ranks use 266's correction (a zero-scoring gold ranks LAST) and n-way is strict, because both failures previously read as accuracy. The silence split is the diagnostic owed since 264: near_string is the half a character encoder can reach by construction, purely_semantic is the half it cannot, and reporting the second honestly is what keeps this from being a claim about meaning.",
+  "timestamp": "2026-08-05T15:37:21.215949+00:00",
+  "wall_s": 16.959240436553955
+}

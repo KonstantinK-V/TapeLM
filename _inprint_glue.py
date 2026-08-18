@@ -1,9 +1,12 @@
 """Inprint slot-bias glue — inference API (stage 256). Trunk frozen; W_q + gate + copy mixture."""
 from __future__ import annotations
 
+import math
 import re
+from collections import defaultdict
 from pathlib import Path
 
+import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -12,14 +15,178 @@ from tokenizers import Tokenizer
 import _stage24x_lib as L
 from _stage191_night import MAX_ARCS, SelfModelXL
 from _stage194_fp_fact_memory import FpBank
+from _retrieval_modes import vote_scores
 
 DEFAULT_CUE = "{S} was appointed director of"
 DEFAULT_FACT_TMPL = "{S} was appointed director of {V} in the regional chronicle of 1987 ."
 ANCHOR_RE = re.compile(r"\b([A-Z][a-z]{2,})\b")
 
+# Above this many live slots, glue retrieval defaults to word postings (scale-safe).
+from _tape_index import VOTES_AUTO_MIN_SLOTS, DEFAULT_RETRIEVE_TOPK
+
+DEFAULT_RETRIEVE_MODE = "auto"
+
 GLUE_CKPT = Path("checkpoints/stage256_slot_bias.pt")
 JOINT_CKPT = Path("checkpoints/stage253_joint_l02.pt")
 P1_CKPT = Path("checkpoints/stage191_p1_curve.pt")
+
+
+from _tape_index import context_words
+
+
+class RetrieveStats:
+    """Counts glue retrieval steps by effective backend (decode/train diagnostics)."""
+
+    __slots__ = ("votes", "cosine", "miss")
+
+    def __init__(self) -> None:
+        self.votes = 0
+        self.cosine = 0
+        self.miss = 0
+
+    def record(self, eff: str, hit: object | None) -> None:
+        if eff == "votes":
+            self.votes += 1
+        elif eff == "cosine":
+            self.cosine += 1
+        if hit is None:
+            self.miss += 1
+
+    def to_dict(self) -> dict:
+        t = self.votes + self.cosine
+        return {
+            "votes_steps": self.votes,
+            "cosine_steps": self.cosine,
+            "miss": self.miss,
+            "total_glue_steps": t,
+        }
+
+
+def slot_query_words(text: str, exclude: str | None = None) -> list[str]:
+    return context_words(text, exclude=exclude)
+
+
+class SlotPostings:
+    """Word -> slot postings with idf weights (zero-train retrieval index)."""
+
+    def __init__(self, ctxw: list[list[str]], device: torch.device):
+        self.postings: dict[str, list[int]] = defaultdict(list)
+        for j, ws in enumerate(ctxw):
+            for w in ws:
+                self.postings[w].append(j)
+        self.idf = {w: 1.0 / math.log(2.0 + len(v)) for w, v in self.postings.items()}
+        self.device = device
+        self.n = len(ctxw)
+
+    @classmethod
+    def from_ctxw(cls, ctxw: list[list[str]], device: torch.device) -> SlotPostings:
+        return cls(ctxw, device)
+
+    def topk(self, words: list[str], k: int, alive: torch.Tensor | None = None):
+        sc = vote_scores(words, self.postings, self.idf)
+        if alive is not None:
+            sc = {j: v for j, v in sc.items() if j < alive.numel() and bool(alive[j])}
+        if not sc:
+            return None
+        idx = sorted(sc, key=lambda j: -sc[j])[:k]
+        v = torch.tensor([sc[j] for j in idx], dtype=torch.float32, device=self.device)
+        v = v / v.max().clamp_min(1e-6)
+        return v, torch.tensor(idx, dtype=torch.long, device=self.device)
+
+
+def resolve_retrieve_mode(mode: str, n_live_slots: int) -> str:
+    if mode != "auto":
+        return mode
+    return "votes" if n_live_slots >= VOTES_AUTO_MIN_SLOTS else "cosine"
+
+
+@torch.no_grad()
+def full_bank_cue_summary(
+    retrieve_mode: str,
+    glue: SlotBias | None,
+    bank: FpBank,
+    tok: Tokenizer,
+    tape: TapeView,
+    facts: list[dict],
+    pad_id: int,
+    *,
+    cue_tmpl: str = DEFAULT_CUE,
+) -> dict:
+    """Gold slot rank over all live tape slots at the decode cue (open bank)."""
+    ranks: list[int] = []
+    n_live = int(tape.alive.sum()) if tape.alive is not None else len(tape.values)
+    eff = resolve_retrieve_mode(retrieve_mode, n_live)
+    for f in facts:
+        cue_ids = [i for i in tok.encode(cue_tmpl.format(S=f["S"])).ids if i != pad_id]
+        gold = [j for j, v in enumerate(tape.values) if v == f["value"]]
+        if not gold:
+            continue
+        use_votes = eff == "votes" and tape.postings is not None
+        if use_votes:
+            words = slot_query_words(tok.decode(cue_ids))
+            sc = vote_scores(words, tape.postings.postings, tape.postings.idf)
+            gsc = max((sc.get(j, 0.0) for j in gold), default=0.0)
+            rank = 1 + sum(1 for v in sc.values() if v > gsc)
+        else:
+            if glue is None:
+                continue
+            q = ctx_query(glue, bank, tok, cue_ids, anchor_ids=cue_ids)
+            if q is None:
+                continue
+            sims = tape.K @ q
+            if tape.alive is not None:
+                sims = sims.masked_fill(~tape.alive, float("-inf"))
+            gsim = float(sims[gold].max())
+            rank = 1 + int((sims > gsim).sum().item())
+        ranks.append(rank)
+    if not ranks:
+        return {
+            "full_bank_top1": float("nan"),
+            "full_bank_mrr": float("nan"),
+            "full_bank_median_rank": float("nan"),
+            "n": 0,
+        }
+    r = np.asarray(ranks, dtype=np.float64)
+    return {
+        "full_bank_top1": float(np.mean(r == 1)),
+        "full_bank_mrr": float(np.mean(1.0 / r)),
+        "full_bank_median_rank": float(np.median(r)),
+        "n": len(ranks),
+    }
+
+
+def retrieve_topk(
+    mode: str,
+    glue: SlotBias | None,
+    bank: FpBank,
+    tok: Tokenizer,
+    tape: TapeView,
+    prefix_ids: list[int],
+    cue_ids: list[int] | None,
+    k: int,
+    stats: RetrieveStats | None = None,
+):
+    """Unified retrieval: auto picks votes at scale, cosine on small banks."""
+    n_live = int(tape.alive.sum()) if tape.alive is not None else len(tape.values)
+    eff = resolve_retrieve_mode(mode, n_live)
+    if eff == "votes":
+        if tape.postings is None:
+            eff = "cosine"
+        else:
+            words = slot_query_words(tok.decode(prefix_ids[-60:]))
+            hit = tape.postings.topk(words, k, tape.alive)
+            if stats is not None:
+                stats.record("votes", hit)
+            return hit
+    if glue is None:
+        if stats is not None:
+            stats.record("cosine", None)
+        return None
+    q = ctx_query(glue, bank, tok, prefix_ids, anchor_ids=cue_ids)
+    hit = tape.topk(q, k) if q is not None else None
+    if stats is not None:
+        stats.record("cosine", hit)
+    return hit
 
 
 class SlotBias(nn.Module):
@@ -27,7 +194,7 @@ class SlotBias(nn.Module):
 
     def __init__(self, d_hidden: int, device):
         super().__init__()
-        self.W_q = L.init_query_adapter(device)
+        self.W_q = L.init_query_adapter(device)  # checkpoint key: W_q_glue
         self.gate = nn.Sequential(
             nn.Linear(d_hidden + 4, 64),
             nn.GELU(),
@@ -59,11 +226,23 @@ class SlotBias(nn.Module):
 class TapeView:
     """Read-only slot bank for glue decode."""
 
-    def __init__(self, K: torch.Tensor, values: list[str], tok: Tokenizer, pad_id: int):
+    def __init__(
+        self,
+        K: torch.Tensor,
+        values: list[str],
+        tok: Tokenizer,
+        pad_id: int,
+        ctxw: list[list[str]] | None = None,
+    ):
         self.K = K
         self.values = values
         self.tok_ids = [[i for i in tok.encode(" " + v).ids if i != pad_id] for v in values]
         self.alive = torch.ones(len(values), dtype=torch.bool, device=K.device)
+        self.ctxw = [list(w) for w in ctxw] if ctxw is not None else None
+        self.postings = SlotPostings.from_ctxw(self.ctxw, K.device) if self.ctxw else None
+
+    def n_live(self) -> int:
+        return int(self.alive.sum())
 
     def topk(self, q: torch.Tensor, k: int):
         if q is None or not bool(self.alive.any()):
@@ -78,7 +257,21 @@ class TapeView:
         t = TapeView.__new__(TapeView)
         t.K, t.values, t.tok_ids = self.K, self.values, self.tok_ids
         t.alive = self.alive.clone()
+        t.ctxw = [list(w) for w in self.ctxw] if self.ctxw is not None else None
+        t.postings = (
+            SlotPostings.from_ctxw(t.ctxw, self.K.device) if t.ctxw is not None else None
+        )
         return t
+
+    def reindex(self, j: int, new_ctx_words: list[str]) -> None:
+        """Replace slot j's write-context words and rebuild postings."""
+        if self.ctxw is None:
+            raise ValueError("tape has no ctxw/postings index")
+        if j < 0 or j >= len(self.ctxw):
+            raise ValueError(f"slot index {j} out of range")
+        self.ctxw = [list(w) for w in self.ctxw]
+        self.ctxw[j] = list(new_ctx_words)
+        self.postings = SlotPostings.from_ctxw(self.ctxw, self.K.device)
 
     def drop_value(self, value: str) -> int:
         n = 0
@@ -100,14 +293,27 @@ class TapeView:
         t.alive = torch.zeros_like(t.alive)
         return t
 
-    def with_value(self, old: str, new: str, tok: Tokenizer, pad_id: int) -> "TapeView":
+    def with_value(
+        self,
+        old: str,
+        new: str,
+        tok: Tokenizer,
+        pad_id: int,
+        *,
+        new_ctx_words: list[str] | None = None,
+    ) -> "TapeView":
         """Update a fact: same slot, same KEY, new value — zero gradient steps.
 
         Keys are written as norm(fp(anchor) + ctx_fp(sentence, exclude=value)), so the value
         never enters its own key; replacing it leaves the key bit-identical and this stays a
-        fact update rather than a re-index. `copy()` shares the value lists, so they are cloned
-        here — mutating them in place would edit every other view of the same tape.
+        fact update rather than a re-index. Context changes must use ``reindex()``, not this
+        method — silent postings drift is not allowed.
         """
+        if new_ctx_words is not None:
+            raise ValueError(
+                "write-context change requires TapeView.reindex(j, new_ctx_words); "
+                "with_value only replaces the value string"
+            )
         t = self.copy()
         t.values = list(self.values)
         t.tok_ids = list(self.tok_ids)
@@ -237,8 +443,9 @@ def free_decode_value(
         base = logits[0, -1]
         score = torch.log(F.softmax(base, -1) + 1e-9)
         if use_glue and glue is not None:
-            q = ctx_query(glue, bank, tok, seq, anchor_ids=cue_ids)
-            hit = tape.topk(q, k) if q is not None else None
+            hit = retrieve_topk(
+                DEFAULT_RETRIEVE_MODE, glue, bank, tok, tape, seq, cue_ids, k
+            )
             if hit is not None:
                 sims, idx = hit
                 ent = float(-(F.softmax(base, -1) * F.log_softmax(base, -1)).sum())

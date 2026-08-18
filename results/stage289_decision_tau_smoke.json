@@ -1,0 +1,771 @@
+{
+  "stage": "289",
+  "overall": "DERIVATION_NO",
+  "seed": 2890,
+  "smoke": false,
+  "holdout": "corpus",
+  "run_tag": "tau_smoke",
+  "train_steps": 1,
+  "params": 5601,
+  "objective": "plackett_luce_ladder",
+  "edge_channels": [
+    "cos",
+    "rare",
+    "same"
+  ],
+  "import_k": 2,
+  "views": 1,
+  "reconciliation": null,
+  "ink": "mean",
+  "fp": "hash",
+  "words": "ascii",
+  "write_ink": "mean",
+  "write_fp": "hash",
+  "write_words": "ascii",
+  "fp_ngram": 3,
+  "tau": {
+    "mode": "density",
+    "value": 0.316248046875,
+    "target_density": 2.9701,
+    "achieved_density": 2.963768115942029,
+    "monotone": true,
+    "trace": [
+      {
+        "tau": 0.0,
+        "density": 18.576923076923077,
+        "addresses": 26
+      },
+      {
+        "tau": 0.9995,
+        "density": 2.0,
+        "addresses": 8
+      },
+      {
+        "tau": 0.49975,
+        "density": 2.3963963963963963,
+        "addresses": 111
+      },
+      {
+        "tau": 0.24988,
+        "density": 3.328358208955224,
+        "addresses": 134
+      },
+      {
+        "tau": 0.37481,
+        "density": 2.753731343283582,
+        "addresses": 134
+      },
+      {
+        "tau": 0.31234,
+        "density": 3.014705882352941,
+        "addresses": 136
+      },
+      {
+        "tau": 0.34358,
+        "density": 2.8175182481751824,
+        "addresses": 137
+      },
+      {
+        "tau": 0.32796,
+        "density": 2.892857142857143,
+        "addresses": 140
+      },
+      {
+        "tau": 0.32015,
+        "density": 2.949275362318841,
+        "addresses": 138
+      },
+      {
+        "tau": 0.31625,
+        "density": 2.963768115942029,
+        "addresses": 138
+      },
+      {
+        "tau": 0.3143,
+        "density": 3.0073529411764706,
+        "addresses": 136
+      },
+      {
+        "tau": 0.31527,
+        "density": 2.963768115942029,
+        "addresses": 138
+      },
+      {
+        "tau": 0.31478,
+        "density": 2.963768115942029,
+        "addresses": 138
+      },
+      {
+        "tau": 0.31454,
+        "density": 3.0073529411764706,
+        "addresses": 136
+      }
+    ]
+  },
+  "tape_shape": {
+    "held_out": {
+      "slots": 175,
+      "addresses": 53,
+      "mentions_per_address": 3.30188679245283,
+      "lookup_questions": 39,
+      "mean_candidates": 2.41025641025641,
+      "paraphrase": {
+        "facts_written_twice": 37,
+        "same_anchor_diff_relation": 0.02702702702702703,
+        "mean_addresses_per_fact": 1.027027027027027,
+        "reversed_pairs": 1,
+        "reversed_pair_rate": 0.013333333333333334
+      }
+    },
+    "train": {
+      "slots": 409,
+      "addresses": 138,
+      "mentions_per_address": 2.963768115942029,
+      "lookup_questions": 49,
+      "mean_candidates": 5.020408163265306,
+      "paraphrase": {
+        "facts_written_twice": 82,
+        "same_anchor_diff_relation": 0.012195121951219513,
+        "mean_addresses_per_fact": 1.0121951219512195,
+        "reversed_pairs": 2,
+        "reversed_pair_rate": 0.008403361344537815
+      }
+    }
+  },
+  "resample": {
+    "tape_period": 50,
+    "mean_overlap": NaN,
+    "n_resamples": 0,
+    "note": "Jaccard between consecutive tapes' address sets. Near 1 means the redraw returns the same addresses and the anti-memorisation argument in HANDOFF 1 is decorative - the fix is a larger address pool, i.e. more corpus, not fewer parameters"
+  },
+  "row_dropout": {
+    "rate": 0.0,
+    "mean_kept_fraction": NaN,
+    "note": "training only - the held-out tape is never thinned. Marginalisation, not noise: a subset of the evidence is a world the corpus could have written, and the low/high margin split is a density axis the mind was never trained across"
+  },
+  "early_stop": {
+    "enabled": true,
+    "best_step": 1,
+    "best_probe_loss": 1.6135520772500471,
+    "total_steps": 1,
+    "probe_questions": 22
+  },
+  "probe_curve": [
+    {
+      "step": 1,
+      "probe_loss": 1.6135520772500471
+    }
+  ],
+  "rare_nonzero_rate": 0.0,
+  "ink_degenerate_rate": NaN,
+  "cos_mean": 0.41789743506047683,
+  "cos_std": 0.17607092624993118,
+  "ladder_coverage_train": {
+    "with_ladder": 0,
+    "lookup_questions": 49
+  },
+  "count_labels": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5+"
+  ],
+  "compare_labels": [
+    "first",
+    "second",
+    "equal"
+  ],
+  "gates": {
+    "G_arc_enc_frozen": true,
+    "G_ink_verified": true,
+    "G_task_exists": true,
+    "G_exact_algebra_matches_tape": true,
+    "G_lookup_beats_floor": false,
+    "G_lookup_beats_counts_paired": false,
+    "G_lookup_beats_retrieval_paired": false,
+    "G_phi_orders_negatives": false
+  },
+  "held_out": {
+    "count": {
+      "n": 47,
+      "model_accuracy": 1.0,
+      "rival_accuracy": 1.0,
+      "random_floor": 0.19999999999999998
+    },
+    "compare": {
+      "n": 23,
+      "model_accuracy": 1.0,
+      "rival_accuracy": 1.0,
+      "random_floor": 0.3333333333333332
+    },
+    "lookup": {
+      "n": 39,
+      "model_accuracy": 0.10256410256410256,
+      "rival_accuracy": 0.2564102564102564,
+      "random_floor": 0.4316239316239315,
+      "rival_cos_accuracy": 0.7948717948717948,
+      "rival_cos_answered": 39
+    },
+    "lookup_paired_vs_rival": {
+      "model_only_right": 1,
+      "rival_only_right": 7,
+      "discordant": 8,
+      "mcnemar_z": -2.1213203435596424
+    },
+    "lookup_paired_vs_rival_cos": {
+      "n": 39,
+      "model_only_right": 1,
+      "rival_only_right": 28,
+      "discordant": 29,
+      "mcnemar_z": -5.0137741307804005,
+      "max_achievable_z": 5.385164807134504,
+      "underpowered": false
+    },
+    "lookup_paired_vs_rival_cos_by_margin": {
+      "median_margin": 0.13223928213119507,
+      "low_margin": {
+        "n": 20,
+        "model_only_right": 1,
+        "rival_only_right": 14,
+        "discordant": 15,
+        "mcnemar_z": -3.3565855667130946,
+        "max_achievable_z": 3.872983346207417,
+        "underpowered": false
+      },
+      "high_margin": {
+        "n": 19,
+        "model_only_right": 0,
+        "rival_only_right": 14,
+        "discordant": 14,
+        "mcnemar_z": -3.7416573867739413,
+        "max_achievable_z": 3.7416573867739413,
+        "underpowered": false
+      }
+    },
+    "ladder": {
+      "n_questions": 0,
+      "pairs": 0,
+      "concordant": 0,
+      "ties_excluded": 0,
+      "import_budget_zero_rate": 0.0,
+      "import_budget_mean": 0.0,
+      "concordance": NaN,
+      "z_vs_half": NaN,
+      "mean_phi": {
+        "true": NaN,
+        "near": NaN,
+        "middle": NaN,
+        "far": NaN
+      }
+    },
+    "exact_mismatches": 0,
+    "confusion": {
+      "compare|equal->equal": 8,
+      "compare|first->first": 6,
+      "compare|second->second": 9,
+      "count|1->1": 22,
+      "count|2->2": 20,
+      "count|3->3": 5,
+      "lookup|Advocate->Paris": 2,
+      "lookup|Cambridge->Goldie": 2,
+      "lookup|Chairman->Withdrew": 2,
+      "lookup|District->District": 1,
+      "lookup|District->University": 1,
+      "lookup|Flood->Churchill": 2,
+      "lookup|Goldie->Cambridge": 2,
+      "lookup|Marshall->Social": 2,
+      "lookup|Ministry->Malaysian": 2,
+      "lookup|National->Philippines": 4,
+      "lookup|Outstanding->Primetime": 2,
+      "lookup|Paris->Advocate": 2,
+      "lookup|Philippines->National": 4,
+      "lookup|Primetime->Screen": 4,
+      "lookup|Screen->Primetime": 2,
+      "lookup|United->United": 3,
+      "lookup|University->District": 2
+    },
+    "lookup_item_hits": [
+      {
+        "k": "fp14:the straits times|reproduced the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp14:the straits times|reproduced the#2",
+        "hit": 0
+      },
+      {
+        "k": "fp22:drama series|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp22:drama series|and#1",
+        "hit": 0
+      },
+      {
+        "k": "fp22:drama series|and#2",
+        "hit": 0
+      },
+      {
+        "k": "fp22:drama series|and#3",
+        "hit": 0
+      },
+      {
+        "k": "fp22:drama series|and#4",
+        "hit": 0
+      },
+      {
+        "k": "fp22:drama series|and#5",
+        "hit": 0
+      },
+      {
+        "k": "fp22:drama series|and#6",
+        "hit": 0
+      },
+      {
+        "k": "fp22:drama series|and#7",
+        "hit": 0
+      },
+      {
+        "k": "fp24:national museum|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp24:national museum|the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp24:national museum|the#2",
+        "hit": 0
+      },
+      {
+        "k": "fp24:national museum|the#3",
+        "hit": 0
+      },
+      {
+        "k": "fp24:national museum|the#4",
+        "hit": 0
+      },
+      {
+        "k": "fp24:national museum|the#5",
+        "hit": 0
+      },
+      {
+        "k": "fp24:national museum|the#6",
+        "hit": 0
+      },
+      {
+        "k": "fp24:national museum|the#7",
+        "hit": 0
+      },
+      {
+        "k": "fp52:speaker|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp52:speaker|the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp52:speaker|the#3",
+        "hit": 1
+      },
+      {
+        "k": "fp53:the world before|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp53:the world before|the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp55:counsel|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp55:counsel|and#1",
+        "hit": 0
+      },
+      {
+        "k": "fp55:counsel|and#2",
+        "hit": 0
+      },
+      {
+        "k": "fp55:counsel|and#3",
+        "hit": 0
+      },
+      {
+        "k": "fp60:nonviolent communication|and#2",
+        "hit": 0
+      },
+      {
+        "k": "fp60:nonviolent communication|and#3",
+        "hit": 0
+      },
+      {
+        "k": "fp67:oxford|and the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp67:oxford|and the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp67:oxford|and the#3",
+        "hit": 0
+      },
+      {
+        "k": "fp67:oxford|and the#4",
+        "hit": 1
+      },
+      {
+        "k": "fp68:isis|beat#0",
+        "hit": 0
+      },
+      {
+        "k": "fp68:isis|beat#1",
+        "hit": 0
+      },
+      {
+        "k": "fp68:isis|beat#2",
+        "hit": 0
+      },
+      {
+        "k": "fp68:isis|beat#3",
+        "hit": 0
+      },
+      {
+        "k": "fp74:texas|congressional district#0",
+        "hit": 0
+      },
+      {
+        "k": "fp74:texas|congressional district#2",
+        "hit": 0
+      }
+    ]
+  },
+  "train_control": {
+    "count": {
+      "n": 123,
+      "model_accuracy": 1.0,
+      "rival_accuracy": 1.0,
+      "random_floor": 0.19999999999999954
+    },
+    "compare": {
+      "n": 61,
+      "model_accuracy": 1.0,
+      "rival_accuracy": 1.0,
+      "random_floor": 0.33333333333333326
+    },
+    "lookup": {
+      "n": 49,
+      "model_accuracy": 0.14285714285714285,
+      "rival_accuracy": 0.42857142857142855,
+      "random_floor": 0.25816326530612244,
+      "rival_cos_accuracy": 0.8163265306122449,
+      "rival_cos_answered": 49
+    },
+    "lookup_paired_vs_rival": {
+      "model_only_right": 0,
+      "rival_only_right": 14,
+      "discordant": 14,
+      "mcnemar_z": -3.7416573867739413
+    },
+    "lookup_paired_vs_rival_cos": {
+      "n": 49,
+      "model_only_right": 1,
+      "rival_only_right": 34,
+      "discordant": 35,
+      "mcnemar_z": -5.578018081208209,
+      "max_achievable_z": 5.916079783099616,
+      "underpowered": false
+    },
+    "lookup_paired_vs_rival_cos_by_margin": {
+      "median_margin": 0.21839553117752075,
+      "low_margin": {
+        "n": 25,
+        "model_only_right": 1,
+        "rival_only_right": 13,
+        "discordant": 14,
+        "mcnemar_z": -3.2071349029490928,
+        "max_achievable_z": 3.7416573867739413,
+        "underpowered": false
+      },
+      "high_margin": {
+        "n": 24,
+        "model_only_right": 0,
+        "rival_only_right": 21,
+        "discordant": 21,
+        "mcnemar_z": -4.58257569495584,
+        "max_achievable_z": 4.58257569495584,
+        "underpowered": false
+      }
+    },
+    "ladder": {
+      "n_questions": 0,
+      "pairs": 0,
+      "concordant": 0,
+      "ties_excluded": 0,
+      "import_budget_zero_rate": 0.0,
+      "import_budget_mean": 0.0,
+      "concordance": NaN,
+      "z_vs_half": NaN,
+      "mean_phi": {
+        "true": NaN,
+        "near": NaN,
+        "middle": NaN,
+        "far": NaN
+      }
+    },
+    "exact_mismatches": 0,
+    "confusion": {
+      "compare|equal->equal": 19,
+      "compare|first->first": 22,
+      "compare|second->second": 20,
+      "count|1->1": 62,
+      "count|2->2": 35,
+      "count|3->3": 13,
+      "count|4->4": 6,
+      "count|5+->5+": 7,
+      "lookup|Academy->Outstanding": 2,
+      "lookup|Anand->Levon": 2,
+      "lookup|Australian->Ottomans": 2,
+      "lookup|Austrian->Tamara": 2,
+      "lookup|Become->Become": 3,
+      "lookup|Canadian->Academy": 2,
+      "lookup|Europe->Academy": 2,
+      "lookup|George->Palestine": 2,
+      "lookup|Georgian->House": 2,
+      "lookup|House->Georgian": 4,
+      "lookup|Oceanography->History": 2,
+      "lookup|Ottomans->Australian": 2,
+      "lookup|Outstanding->Academy": 2,
+      "lookup|Palestine->Dwight": 1,
+      "lookup|Palestine->George": 1,
+      "lookup|Pflueger->Pflueger": 3,
+      "lookup|Titus->Flavia": 2,
+      "lookup|United->Supreme": 1,
+      "lookup|United->Ukraine": 1,
+      "lookup|Utterson->Utterson": 1,
+      "lookup|Utterson->World": 4,
+      "lookup|Veronica->Academy": 3,
+      "lookup|Veronica->Musical": 1,
+      "lookup|World->Utterson": 2
+    },
+    "lookup_item_hits": [
+      {
+        "k": "fp0:july|and#2",
+        "hit": 0
+      },
+      {
+        "k": "fp0:july|and#3",
+        "hit": 0
+      },
+      {
+        "k": "fp10:hebrew|and longer ending#0",
+        "hit": 1
+      },
+      {
+        "k": "fp10:hebrew|and longer ending#2",
+        "hit": 1
+      },
+      {
+        "k": "fp10:hebrew|and longer ending#3",
+        "hit": 1
+      },
+      {
+        "k": "fp117:vespasian|and#1",
+        "hit": 0
+      },
+      {
+        "k": "fp117:vespasian|and#2",
+        "hit": 0
+      },
+      {
+        "k": "fp177:the witch|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp177:the witch|the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp177:the witch|the#2",
+        "hit": 0
+      },
+      {
+        "k": "fp177:the witch|the#3",
+        "hit": 0
+      },
+      {
+        "k": "fp177:the witch|the#6",
+        "hit": 0
+      },
+      {
+        "k": "fp177:the witch|the#7",
+        "hit": 0
+      },
+      {
+        "k": "fp26:australia|the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp26:australia|the#2",
+        "hit": 0
+      },
+      {
+        "k": "fp26:australia|the#4",
+        "hit": 0
+      },
+      {
+        "k": "fp26:australia|the#5",
+        "hit": 0
+      },
+      {
+        "k": "fp28:john beilein|coach for the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp28:john beilein|coach for the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp28:john beilein|coach for the#4",
+        "hit": 1
+      },
+      {
+        "k": "fp28:john beilein|coach for the#5",
+        "hit": 0
+      },
+      {
+        "k": "fp28:john beilein|coach for the#6",
+        "hit": 0
+      },
+      {
+        "k": "fp28:john beilein|coach for the#7",
+        "hit": 0
+      },
+      {
+        "k": "fp28:john beilein|coach for the#8",
+        "hit": 0
+      },
+      {
+        "k": "fp33:archduke charles|and the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp33:archduke charles|and the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp39:miller|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp39:miller|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp39:miller|and#2",
+        "hit": 1
+      },
+      {
+        "k": "fp41:north america|and#1",
+        "hit": 0
+      },
+      {
+        "k": "fp41:north america|and#10",
+        "hit": 0
+      },
+      {
+        "k": "fp41:north america|and#11",
+        "hit": 0
+      },
+      {
+        "k": "fp41:north america|and#12",
+        "hit": 0
+      },
+      {
+        "k": "fp41:north america|and#13",
+        "hit": 0
+      },
+      {
+        "k": "fp41:north america|and#14",
+        "hit": 0
+      },
+      {
+        "k": "fp41:north america|and#2",
+        "hit": 0
+      },
+      {
+        "k": "fp41:north america|and#4",
+        "hit": 0
+      },
+      {
+        "k": "fp41:north america|and#5",
+        "hit": 0
+      },
+      {
+        "k": "fp41:north america|and#7",
+        "hit": 0
+      },
+      {
+        "k": "fp41:north america|and#8",
+        "hit": 0
+      },
+      {
+        "k": "fp41:north america|and#9",
+        "hit": 0
+      },
+      {
+        "k": "fp62:carlsen|won the#4",
+        "hit": 0
+      },
+      {
+        "k": "fp62:carlsen|won the#5",
+        "hit": 0
+      },
+      {
+        "k": "fp77:michael|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp77:michael|and#1",
+        "hit": 0
+      },
+      {
+        "k": "fp77:michael|and#3",
+        "hit": 0
+      },
+      {
+        "k": "fp77:michael|and#4",
+        "hit": 0
+      },
+      {
+        "k": "fp8:anthropology|and#1",
+        "hit": 0
+      },
+      {
+        "k": "fp8:anthropology|and#2",
+        "hit": 0
+      }
+    ]
+  },
+  "exact_note": "count and compare left the weights: they are functions of the same-value relation alone (new_i = 1 - max_{j<i} s_ij; count = sum new_i; compare = sign of the side difference), computed exactly with zero parameters and no 5+ cap, because the invariant says whatever decides may not be approximate. Their accuracy is 1.0 by construction and is checked, not celebrated - G_exact_algebra_matches_tape is a sanity bolt. The interference that cost count 0.965 -> 0.903 is removed by construction: one trained task remains",
+  "ladder_note": "three wrong answers per question at increasing structural distance - same anchor / adjacent in tape order / anywhere on the tape - every rung a value the corpus wrote, no similarity chosen by anyone. Phi trained only against local wrong candidates learns a BOUNDARY; generation needs a LANDSCAPE, and a mind that cannot rank its own wrong answers by how wrong they are has no direction to move in. The objective is one Plackett-Luce term, not a task loss plus a ladder loss with a weight between them, and it reduces to the previous cross-entropy exactly when the tape cannot supply a ladder",
+  "retrieval_note": "two rivals now, because they answer two different questions. The counting rival knows nothing about context, so beating it shows only that the context channel carries information counts lack - not that reading it takes a mind. rival_cos is 1-NN over the same evidence rows by the same ctx_fp cosine, zero parameters, no training. With hash ink the representation IS Random Indexing over fastText-shaped word vectors, so the distance between this architecture and a classical retrieval system is exactly this one number. If rival_cos lands where Phi lands, 3489 parameters are decoration ON THIS VERB and the verdict is PHI_ADDS_NOTHING_ON_LOOKUP. Named for the brick and not for the wall: lookup is one verb, single-hop and retrieval-shaped by construction, and a rival that ties it says nothing about the exact algebra, about verbs where rows must be combined, or about generation, which 1-NN cannot do at all",
+  "paired_note": "the rival answers the same lookup questions in the same run, so the gate is McNemar over the discordant items at the usual one-sided 1.645 - never two marginals. The rival over survivors is Bayes-optimal when the query context carries nothing, so a paired win IS the claim that the context channel carries information counts do not have",
+  "curve": [
+    {
+      "step": 1,
+      "loss": 0.6931471824645996,
+      "probe_loss": 1.6135520772500471
+    }
+  ],
+  "arc_enc_hash_before": "not_loaded",
+  "arc_enc_hash_after": "not_loaded",
+  "fp_version": "stage191_p1_curve.pt",
+  "note": "The derivation moved into exact algebra and the mind kept only the judgment. Two runs measured 7.9k parameters approximating a quantity exactly computable from their own input, and the approximation degraded as the genuinely uncertain task grew beside it. Now count and compare are arithmetic over the same-value relation - exact, uncapped, scale-free - and the one trained surface is Phi, the coherence of a completed world: for each candidate the query row is filled in and the world that results is pooled to one scalar, 288's repair loop turned inward. The two trained surfaces this leaves in the whole architecture are Phi and, once values stop being exact strings, s_ij itself - both judgments, never arithmetic. Confidence for exact verbs reports 1.0, which is the honest statement that a computed answer is certain GIVEN the relation; when s_ij becomes a judgment its uncertainty enters through that same seam.",
+  "timestamp": "2026-08-11T20:44:12.071742+00:00",
+  "wall_s": 7.591235637664795
+}

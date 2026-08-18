@@ -1,0 +1,398 @@
+{
+  "stage": 279,
+  "overall": "SUPPORT_NOT_CALIBRATED",
+  "source": "model",
+  "soft_match": 0.0,
+  "trained_parameters": 0,
+  "min_mentions": 3,
+  "smoke": true,
+  "seed": 279,
+  "gates": {
+    "G_no_false_dispute_on_replay": true,
+    "G_dedup_happens": true,
+    "G_tape_compresses": true,
+    "G_disputes_found": true,
+    "G_soft_match_merges_forms": true,
+    "G_support_predicts_truth": false
+  },
+  "corpus_tape": {
+    "assertions": 365,
+    "addresses": 60,
+    "slots": 248,
+    "actions": {
+      "WRITE": 60,
+      "CONFIRM": 117,
+      "DISPUTE": 188
+    },
+    "dedup_rate": 0.32054794520547947,
+    "dispute_rate": 0.9333333333333333,
+    "slots_saved_vs_append": 0.32054794520547947,
+    "support_mean": 1.471774193548387,
+    "support_max": 28
+  },
+  "replay_second_pass": {
+    "WRITE": 0,
+    "CONFIRM": 365,
+    "DISPUTE": 0
+  },
+  "paraphrase_second_pass": {
+    "WRITE": 0,
+    "CONFIRM": 71,
+    "DISPUTE": 294,
+    "merged_fraction": 0.19452054794520549
+  },
+  "model_tape": {
+    "model": "Qwen/Qwen2.5-0.5B-Instruct",
+    "samples_per_address": 8,
+    "temperature": 0.9,
+    "assertions": 94,
+    "addresses": 12,
+    "slots": 88,
+    "actions": {
+      "WRITE": 12,
+      "DISPUTE": 76,
+      "CONFIRM": 6
+    },
+    "self_dispute_rate": 1.0
+  },
+  "calibration": {
+    "n": 3,
+    "note": "too few addresses shared with the corpus tape"
+  },
+  "disputed_examples": [
+    {
+      "address": "infantry",
+      "values": [
+        {
+          "value": "Battalion",
+          "support": 3,
+          "sources": [
+            "wiki:infantry:0",
+            "wiki:infantry:1",
+            "wiki:infantry:3"
+          ]
+        },
+        {
+          "value": "Regiment",
+          "support": 2,
+          "sources": [
+            "wiki:infantry:2",
+            "wiki:infantry:4"
+          ]
+        },
+        {
+          "value": "Division",
+          "support": 1,
+          "sources": [
+            "wiki:infantry:5"
+          ]
+        },
+        {
+          "value": "Brigade",
+          "support": 1,
+          "sources": [
+            "wiki:infantry:6"
+          ]
+        }
+      ]
+    },
+    {
+      "address": "chris",
+      "values": [
+        {
+          "value": "Mullin",
+          "support": 1,
+          "sources": [
+            "wiki:chris:0"
+          ]
+        },
+        {
+          "value": "Meanwhile",
+          "support": 1,
+          "sources": [
+            "wiki:chris:1"
+          ]
+        },
+        {
+          "value": "Turner",
+          "support": 1,
+          "sources": [
+            "wiki:chris:2"
+          ]
+        }
+      ]
+    },
+    {
+      "address": "johnson",
+      "values": [
+        {
+          "value": "Corey",
+          "support": 2,
+          "sources": [
+            "wiki:johnson:0",
+            "wiki:johnson:1"
+          ]
+        },
+        {
+          "value": "Cecily",
+          "support": 1,
+          "sources": [
+            "wiki:johnson:2"
+          ]
+        }
+      ]
+    },
+    {
+      "address": "reflections",
+      "values": [
+        {
+          "value": "Exploitation",
+          "support": 1,
+          "sources": [
+            "wiki:reflections:0"
+          ]
+        },
+        {
+          "value": "Palestinian",
+          "support": 1,
+          "sources": [
+            "wiki:reflections:1"
+          ]
+        },
+        {
+          "value": "Russia",
+          "support": 1,
+          "sources": [
+            "wiki:reflections:2"
+          ]
+        }
+      ]
+    },
+    {
+      "address": "magazine",
+      "values": [
+        {
+          "value": "November",
+          "support": 1,
+          "sources": [
+            "wiki:magazine:0"
+          ]
+        },
+        {
+          "value": "Constantine",
+          "support": 1,
+          "sources": [
+            "wiki:magazine:1"
+          ]
+        },
+        {
+          "value": "Keats",
+          "support": 1,
+          "sources": [
+            "wiki:magazine:2"
+          ]
+        }
+      ]
+    },
+    {
+      "address": "governor",
+      "values": [
+        {
+          "value": "Rector",
+          "support": 1,
+          "sources": [
+            "wiki:governor:0"
+          ]
+        },
+        {
+          "value": "Oswald",
+          "support": 1,
+          "sources": [
+            "wiki:governor:1"
+          ]
+        },
+        {
+          "value": "Oregon",
+          "support": 1,
+          "sources": [
+            "wiki:governor:2"
+          ]
+        }
+      ]
+    },
+    {
+      "address": "common",
+      "values": [
+        {
+          "value": "British",
+          "support": 1,
+          "sources": [
+            "wiki:common:0"
+          ]
+        },
+        {
+          "value": "Courage",
+          "support": 1,
+          "sources": [
+            "wiki:common:1"
+          ]
+        },
+        {
+          "value": "Travel",
+          "support": 1,
+          "sources": [
+            "wiki:common:2"
+          ]
+        }
+      ]
+    },
+    {
+      "address": "emmy",
+      "values": [
+        {
+          "value": "Awards",
+          "support": 2,
+          "sources": [
+            "wiki:emmy:0",
+            "wiki:emmy:2"
+          ]
+        },
+        {
+          "value": "Outstanding",
+          "support": 1,
+          "sources": [
+            "wiki:emmy:1"
+          ]
+        },
+        {
+          "value": "Award",
+          "support": 1,
+          "sources": [
+            "wiki:emmy:3"
+          ]
+        }
+      ]
+    },
+    {
+      "address": "townsend",
+      "values": [
+        {
+          "value": "Project",
+          "support": 1,
+          "sources": [
+            "wiki:townsend:0"
+          ]
+        },
+        {
+          "value": "Dutch",
+          "support": 1,
+          "sources": [
+            "wiki:townsend:1"
+          ]
+        },
+        {
+          "value": "Royal",
+          "support": 1,
+          "sources": [
+            "wiki:townsend:2"
+          ]
+        },
+        {
+          "value": "Tracy",
+          "support": 1,
+          "sources": [
+            "wiki:townsend:3"
+          ]
+        }
+      ]
+    },
+    {
+      "address": "arihant",
+      "values": [
+        {
+          "value": "Sanskrit",
+          "support": 1,
+          "sources": [
+            "wiki:arihant:0"
+          ]
+        },
+        {
+          "value": "February",
+          "support": 1,
+          "sources": [
+            "wiki:arihant:1"
+          ]
+        },
+        {
+          "value": "United",
+          "support": 1,
+          "sources": [
+            "wiki:arihant:2"
+          ]
+        }
+      ]
+    },
+    {
+      "address": "brooks",
+      "values": [
+        {
+          "value": "Baxter",
+          "support": 1,
+          "sources": [
+            "wiki:brooks:0"
+          ]
+        },
+        {
+          "value": "Hovey",
+          "support": 1,
+          "sources": [
+            "wiki:brooks:1"
+          ]
+        },
+        {
+          "value": "World",
+          "support": 1,
+          "sources": [
+            "wiki:brooks:2"
+          ]
+        }
+      ]
+    },
+    {
+      "address": "service",
+      "values": [
+        {
+          "value": "Later",
+          "support": 1,
+          "sources": [
+            "wiki:service:0"
+          ]
+        },
+        {
+          "value": "National",
+          "support": 1,
+          "sources": [
+            "wiki:service:1"
+          ]
+        },
+        {
+          "value": "Between",
+          "support": 1,
+          "sources": [
+            "wiki:service:2"
+          ]
+        },
+        {
+          "value": "March",
+          "support": 1,
+          "sources": [
+            "wiki:service:3"
+          ]
+        }
+      ]
+    }
+  ],
+  "note": "The write side, which GOAL.md named as the open half. WRITE / CONFIRM / DISPUTE against an address, and the three consequences that follow without any further mechanism: the tape stops growing on repetition, the witness structure that 271-278 had to manufacture with a template arrives from the data as a support count, and that count is a reliability estimate computed for free. The replay control is the validity gate - writing the same corpus twice must produce no disputes and no new slots, whatever the matcher, because a matcher that invents disagreement is worse than one that misses it. With --source model the same subject is sampled N times at temperature and the share of samples that agree is the model's uncertainty measured from what it says rather than from its logits; G_support_predicts_truth checks that number against the corpus majority, and if the lift is absent the support count is decoration and the verdict says so.",
+  "timestamp": "2026-08-05T20:43:10.639041+00:00",
+  "wall_s": 12.226696491241455
+}

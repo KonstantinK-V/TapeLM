@@ -353,7 +353,7 @@ def main() -> int:
     K, Vlist = L.write_tape_bank(bank0, facts)
     items = load_exam_next(n_exam)
 
-    mem0 = L.tape_recall(facts, all_values, bank0, K, Vlist, SEED)
+    mem0 = L.tape_recall_decision(facts, all_values, bank0, K, Vlist, SEED)
     nt0 = next_tok_acc(model0, char_table, pad_id, items, device)
     leak0 = curve_param_recall(model0, char_table, pad_id, tok, facts, all_values, device, SEED)
     inv0 = inversion_fast(model0, char_table, pad_id, tok, device)
@@ -361,7 +361,7 @@ def main() -> int:
     ppl0 = math.exp(min(ce0, 20))
 
     log(
-        f"baseline nt={nt0:.3f} mem={mem0:.3f} leak={leak0:.3f} "
+        f"baseline nt={nt0:.3f} mem={mem0['four_way']:.3f} fb_top1={mem0['full_bank_top1']:.3f} leak={leak0:.3f} "
         f"inv={inv0['inversion']} gap={inv0['gap_hard_minus_para']:+.3f} hold_ce={ce0:.3f} ppl~{ppl0:.1f}"
     )
 
@@ -408,7 +408,7 @@ def main() -> int:
         inv_cpc = inversion_fast(cpc_model, char_table, pad_id, tok, device)
         ce_cpc = wiki_mean_ce(cpc_model, flat, off, char_table, pad_id, device, hold_docs, n_ppl, SEED + 21)
         bank_c = FpBank(cpc_model, stoi, device)
-        mem_cpc = L.tape_recall(facts, all_values, bank_c, K, Vlist, SEED)
+        mem_cpc = L.tape_recall_decision(facts, all_values, bank_c, K, Vlist, SEED)
         leak_cpc = curve_param_recall(cpc_model, char_table, pad_id, tok, facts, all_values, device, SEED + 22)
 
     # Mask hygiene spot-check (248/250 bug class): joined stream vs load_data doc count
@@ -423,7 +423,7 @@ def main() -> int:
         "248_250_single_doc_risk": len(off_bad) - 1 <= 2,
     }
 
-    g_mem = mem_cpc >= 0.75
+    g_mem = mem_cpc["four_way"] >= 0.75
     g_leak = leak_cpc <= 0.40
     g_ppl = ce_cpc <= ce0 * 1.12 + 0.05
     g_nt_hold = nt_cpc >= nt0 - 0.03
@@ -500,7 +500,8 @@ def main() -> int:
     DECISION.write_text(json.dumps(out, indent=2), encoding="utf-8")
     MINI.write_text(
         f"# Stage 251 CPC understand\n\n**{overall}** cal={cal_verdict} fork={fork}\n"
-        f"nt {nt0:.3f}->{nt_cal:.3f}(cal)->{nt_cpc:.3f}(cpc) mem={mem_cpc:.3f} leak={leak_cpc:.3f}\n"
+        f"nt {nt0:.3f}->{nt_cal:.3f}(cal)->{nt_cpc:.3f}(cpc) mem={mem_cpc['four_way']:.3f} "
+        f"fb_rank={mem_cpc['full_bank_median_rank']:.0f} leak={leak_cpc:.3f}\n"
         f"inv gap {inv0['gap_hard_minus_para']:+.3f}->{inv_cpc['gap_hard_minus_para']:+.3f}\n",
         encoding="utf-8",
     )

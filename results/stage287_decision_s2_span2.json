@@ -1,0 +1,53 @@
+{
+  "stage": 287,
+  "overall": "MEASUREMENT_BROKEN",
+  "seed": 287,
+  "smoke": false,
+  "span": 2,
+  "run_tag": "s2",
+  "trained_parameters": 0,
+  "tape": {
+    "addresses": 104,
+    "slots": 249,
+    "usable": 249
+  },
+  "pairs": {
+    "same_address": 211,
+    "different_address": 211
+  },
+  "shuffle_control": {
+    "max_abs_delta_lower": 4.470348358154297e-08,
+    "median_cos_upper_vs_shuffled": 0.9871265292167664,
+    "mean_cos_upper_vs_shuffled": 0.98283711734067
+  },
+  "spearman_upper_vs_lower": 0.9589699813279996,
+  "channels": {
+    "lower": {
+      "auc": 0.9349969677230969,
+      "auc_z": 15.459275051502122
+    },
+    "upper": {
+      "auc": 0.92003773500146,
+      "auc_z": 14.927641706070558
+    },
+    "upper_given_lower": {
+      "auc": 0.49392421553873456,
+      "auc_z": -0.2159261560649217
+    },
+    "null_lower_given_lower": {
+      "auc": 0.16337234114238225,
+      "auc_z": -11.963346768743051
+    }
+  },
+  "gates": {
+    "G_lower_is_order_blind": true,
+    "G_residual_test_can_say_no": false,
+    "G_upper_sees_word_order": true,
+    "G_channels_are_distinct": true,
+    "G_upper_carries_unique_signal": false,
+    "G_upper_beats_lower_alone": false
+  },
+  "note": "Whether a second layer of ink exists at all, measured before anything is built and with nothing trained. Today's upper layer is not one: ctx_fp is the mean of the word fingerprints, so the stack is order-blind twice - fp pools characters before the feed-forward, and the mean over words then discards word order, which makes 'the dog bit the man' and 'the man bit the dog' the same point. The candidate upper ink is the mean over ADJACENT spans, built from the same frozen encoder: fp of a span is the encoder applied to the span's combined characters and is not any function of the member words' fingerprints, because the feed-forward sits between the histogram and the output. Four measurements in kill-fastest order: shuffling the words must leave the lower ink bit-identical (a wiring proof) and must move the upper one (or there is no order content and the idea is over); the Spearman correlation between the two cosines says whether it is a second channel or the first wearing a hat; the discrimination the tape actually needs - same address against different address - is scored for the lower channel, the upper channel, and the upper with its linear fit on the lower removed, which is the only one that can justify a second layer; and the same residual test is run on a channel redundant BY CONSTRUCTION, the lower against itself, which must come out at chance or the examiner is broken and every number above it is worthless. This measures information, not meaning: unique information is necessary for semantics to live there and does not establish it. The sufficient test is whether the mind uses it, and 286's --ctx-channel is the socket for that - wire it only if this passes.",
+  "timestamp": "2026-08-08T11:41:44.780249+00:00",
+  "wall_s": 64.9374098777771
+}

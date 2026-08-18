@@ -47,7 +47,7 @@ SEED = 194
 MAX_CHARS = s177.MAX_CHARS_PER_ARC
 CORPUS_CHARS = 150_000_000
 EXAM_TAIL_CHARS = 3_000_000
-CTX_WIN = 100  # chars around entity for slot key
+from _tape_index import CTX_WIN, context_words
 ENT_RE = re.compile(r"\b([A-Z][a-z]{3,}|\d{3,4})\b")
 WORD_RE = re.compile(r"[A-Za-z][a-z]{2,}")
 
@@ -85,8 +85,10 @@ class FpBank:
 
     @torch.no_grad()
     def ctx_fp(self, text: str, exclude: str | None = None) -> torch.Tensor | None:
-        ws = [w for w in WORD_RE.findall(text) if w != exclude][:40]
-        if len(ws) < 3:
+        from _tape_index import CONTEXT_WORD_MIN, context_words
+
+        ws = context_words(text, exclude=exclude)
+        if len(ws) < CONTEXT_WORD_MIN:
             return None
         return F.normalize(self.fp(ws).mean(0), dim=-1)
 

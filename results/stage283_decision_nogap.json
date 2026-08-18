@@ -1,0 +1,128 @@
+{
+  "stage": 283,
+  "overall": "SCALE_OK",
+  "seed": 283,
+  "smoke": false,
+  "corpus": "data\\_wikitext103_train.txt",
+  "run_tag": "nogap",
+  "address": {
+    "tau": 0.9,
+    "overlap": 2,
+    "soft_match": 0.0,
+    "min_mentions": 2
+  },
+  "retrieval": {
+    "topk": 7,
+    "hop": "fp",
+    "hop_min": 1.0,
+    "k_gap": 0.0,
+    "subject_filter": "on"
+  },
+  "thresholds": {
+    "min_precision": 0.6,
+    "min_separation": 0.3,
+    "max_crowding": 0.2,
+    "max_foreign": 0.1
+  },
+  "mind_params": 7564290,
+  "gates": {
+    "G_precision_holds": true,
+    "G_return_path_separates": true,
+    "G_addresses_stay_distinct": true,
+    "G_k_covers_the_address": false,
+    "G_ties_exist_naturally": true,
+    "G_mind_does_not_grow": true
+  },
+  "slopes": {
+    "slots": [
+      4730
+    ],
+    "precision": [
+      0.6625178062678064
+    ],
+    "return_path_separation": [
+      0.9533582089552239
+    ],
+    "address_crowding": [
+      0.3450854700854701
+    ],
+    "foreign_member_rate": [
+      0.05161396505477364
+    ],
+    "distinct_anchors": [
+      876
+    ],
+    "anchor_only_crowding": [
+      0.0182648401826484
+    ],
+    "anchor_growth_exponent": NaN,
+    "k_covers_address": [
+      0.8760683760683761
+    ],
+    "tie_share": [
+      0.42735042735042733
+    ],
+    "slots_growth": 1.0
+  },
+  "rungs": [
+    {
+      "n_addresses": 936,
+      "n_slots": 4730,
+      "n_items": 936,
+      "slots_per_address": 5.053418803418803,
+      "write_actions": {
+        "WRITE": 936,
+        "CONFIRM": 1506,
+        "DISPUTE": 2288
+      },
+      "families_natural": {
+        "clean": 0.3888888888888889,
+        "decidable": 0.18376068376068377,
+        "tie": 0.42735042735042733
+      },
+      "retrieval_precision": 0.6625178062678064,
+      "witness_recall": 0.7717217975527134,
+      "precision_q": {
+        "p5": 0.0,
+        "p50": 0.6666666666666666,
+        "p95": 1.0
+      },
+      "mean_candidates": 4.005341880341881,
+      "words_silent_rate": 0.0,
+      "foreign_member_rate": 0.05161396505477364,
+      "k_covers_address": 0.8760683760683761,
+      "return_path_true": 0.9589552238805971,
+      "return_path_other": 0.005597014925373134,
+      "return_path_separation": 0.9533582089552239,
+      "nearest_other_q": {
+        "p50": 0.8883670568466187,
+        "p95": 0.9779804646968842,
+        "p99": 0.9918358623981476
+      },
+      "nearest_other_max": 0.995471715927124,
+      "address_crowding": 0.3450854700854701,
+      "distinct_anchors": 876,
+      "anchor_only_q": {
+        "p50": 0.7927842438220978,
+        "p95": 0.8799281120300293,
+        "p99": 0.9259419441223145
+      },
+      "anchor_only_crowding": 0.0182648401826484,
+      "chars": 120000000,
+      "n_addr_requested": 2000,
+      "build_s": 610.2205903530121,
+      "mind_params": 7564290,
+      "lines": 41151
+    }
+  ],
+  "fp_version": "stage191_p1_curve.pt",
+  "reference_280": {
+    "n_addresses": 187,
+    "n_slots": 530,
+    "retrieval_precision_train": 0.8031194295900178,
+    "held_out_reward": 0.7043859649122806
+  },
+  "note": "The tape side of scale, with no mind attached. 280's numbers describe an index of 530 slots, and the concept's invariant is that the mind does not grow with the knowledge - so if anything breaks with N it breaks in the addressing. Four things are measured at each rung and none of them needs training: how much of a retrieved list belongs to the address it was retrieved for; whether the return path still tells a settled value from a value taken elsewhere in the tape, which is the check meant to replace G_answer_is_slot once an answer stops being a slot index; how close the nearest other address key gets, since distinct entities crowd as the tape fills; and what the family mix is when nothing quotas it, because 280's tie rate is an artefact of --min-per-family and not a fact about text. Slopes are reported beside the gates: a metric that clears its floor while falling steeply is the case that decides whether this scales or merely has not broken yet.",
+  "timestamp": "2026-08-07T13:51:21.302674+00:00",
+  "wall_s": 611.5293157100677
+}

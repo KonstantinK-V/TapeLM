@@ -1,0 +1,295 @@
+{
+  "stage": "289c",
+  "overall": "AUDIT_PARTIAL",
+  "seed": 2893,
+  "smoke": false,
+  "holdout": "corpus",
+  "run_tag": "exact",
+  "train_steps": 6000,
+  "params": 3457,
+  "gates": {
+    "G_arc_enc_frozen": true,
+    "G_task_exists": true,
+    "G_calibrated": false,
+    "G_calibrated_after_train_temperature": false,
+    "G_ranks_regions": true,
+    "G_refusal_is_informed": false,
+    "G_map_transfers": true
+  },
+  "competence_map_held": {
+    "compare|deep|majority": {
+      "n": 17,
+      "stated_confidence": 1.0,
+      "realised_accuracy": 1.0,
+      "random_floor": 0.3333333333333333
+    },
+    "compare|deep|split": {
+      "n": 41,
+      "stated_confidence": 1.0,
+      "realised_accuracy": 1.0,
+      "random_floor": 0.3333333333333333
+    },
+    "compare|mid|split": {
+      "n": 70,
+      "stated_confidence": 1.0,
+      "realised_accuracy": 1.0,
+      "random_floor": 0.3333333333333332
+    },
+    "count|deep|split": {
+      "n": 14,
+      "stated_confidence": 1.0,
+      "realised_accuracy": 1.0,
+      "random_floor": 0.20000000000000004
+    },
+    "count|mid|majority": {
+      "n": 11,
+      "stated_confidence": 1.0,
+      "realised_accuracy": 1.0,
+      "random_floor": 0.2
+    },
+    "count|mid|split": {
+      "n": 20,
+      "stated_confidence": 1.0,
+      "realised_accuracy": 1.0,
+      "random_floor": 0.20000000000000004
+    },
+    "count|mid|unanimous": {
+      "n": 19,
+      "stated_confidence": 1.0,
+      "realised_accuracy": 1.0,
+      "random_floor": 0.20000000000000004
+    },
+    "count|thin|split": {
+      "n": 81,
+      "stated_confidence": 1.0,
+      "realised_accuracy": 1.0,
+      "random_floor": 0.19999999999999998
+    },
+    "count|thin|unanimous": {
+      "n": 107,
+      "stated_confidence": 1.0,
+      "realised_accuracy": 1.0,
+      "random_floor": 0.19999999999999998
+    },
+    "lookup|deep|majority": {
+      "n": 9,
+      "stated_confidence": 0.893837571144104,
+      "realised_accuracy": 0.6666666666666666,
+      "random_floor": 0.4629629629629629
+    },
+    "lookup|deep|split": {
+      "n": 66,
+      "stated_confidence": 0.8234040859070691,
+      "realised_accuracy": 0.6666666666666666,
+      "random_floor": 0.2282467532467532
+    },
+    "lookup|mid|split": {
+      "n": 35,
+      "stated_confidence": 0.9816739286695207,
+      "realised_accuracy": 0.6285714285714286,
+      "random_floor": 0.4619047619047618
+    }
+  },
+  "competence_map_train": {
+    "compare|deep|majority": {
+      "n": 39,
+      "stated_confidence": 1.0,
+      "realised_accuracy": 1.0,
+      "random_floor": 0.3333333333333334
+    },
+    "compare|deep|split": {
+      "n": 128,
+      "stated_confidence": 1.0,
+      "realised_accuracy": 1.0,
+      "random_floor": 0.33333333333333326
+    },
+    "compare|mid|split": {
+      "n": 176,
+      "stated_confidence": 1.0,
+      "realised_accuracy": 1.0,
+      "random_floor": 0.33333333333333337
+    },
+    "count|deep|majority": {
+      "n": 18,
+      "stated_confidence": 1.0,
+      "realised_accuracy": 1.0,
+      "random_floor": 0.20000000000000004
+    },
+    "count|deep|split": {
+      "n": 43,
+      "stated_confidence": 1.0,
+      "realised_accuracy": 1.0,
+      "random_floor": 0.19999999999999996
+    },
+    "count|deep|unanimous": {
+      "n": 11,
+      "stated_confidence": 1.0,
+      "realised_accuracy": 1.0,
+      "random_floor": 0.2
+    },
+    "count|mid|majority": {
+      "n": 33,
+      "stated_confidence": 1.0,
+      "realised_accuracy": 1.0,
+      "random_floor": 0.2
+    },
+    "count|mid|split": {
+      "n": 59,
+      "stated_confidence": 1.0,
+      "realised_accuracy": 1.0,
+      "random_floor": 0.19999999999999996
+    },
+    "count|mid|unanimous": {
+      "n": 38,
+      "stated_confidence": 1.0,
+      "realised_accuracy": 1.0,
+      "random_floor": 0.20000000000000004
+    },
+    "count|thin|split": {
+      "n": 177,
+      "stated_confidence": 1.0,
+      "realised_accuracy": 1.0,
+      "random_floor": 0.19999999999999996
+    },
+    "count|thin|unanimous": {
+      "n": 309,
+      "stated_confidence": 1.0,
+      "realised_accuracy": 1.0,
+      "random_floor": 0.19999999999999998
+    },
+    "lookup|deep|majority": {
+      "n": 48,
+      "stated_confidence": 0.9862816209594408,
+      "realised_accuracy": 0.75,
+      "random_floor": 0.48055555555555557
+    },
+    "lookup|deep|split": {
+      "n": 207,
+      "stated_confidence": 0.785638443549762,
+      "realised_accuracy": 0.7246376811594203,
+      "random_floor": 0.22594454212811696
+    },
+    "lookup|mid|split": {
+      "n": 111,
+      "stated_confidence": 0.9733883115622375,
+      "realised_accuracy": 0.7207207207207207,
+      "random_floor": 0.4699699699699699
+    }
+  },
+  "calibration": {
+    "ece": 0.06088417002305329,
+    "ece_sampling_noise": 0.022440628379944788,
+    "bins": [
+      {
+        "bin": 3,
+        "n": 2,
+        "stated": 0.38077808916568756,
+        "realised": 0.5
+      },
+      {
+        "bin": 5,
+        "n": 12,
+        "stated": 0.547829290231069,
+        "realised": 0.75
+      },
+      {
+        "bin": 6,
+        "n": 3,
+        "stated": 0.6505392789840698,
+        "realised": 0.3333333333333333
+      },
+      {
+        "bin": 7,
+        "n": 14,
+        "stated": 0.7760384465966906,
+        "realised": 0.7142857142857143
+      },
+      {
+        "bin": 8,
+        "n": 13,
+        "stated": 0.8611408563760611,
+        "realised": 0.5384615384615384
+      },
+      {
+        "bin": 9,
+        "n": 450,
+        "stated": 0.998669556511773,
+        "realised": 0.9511111111111111
+      }
+    ]
+  },
+  "calibration_after_train_temperature": {
+    "temperature": 0.65,
+    "ece": 0.05865836603029903,
+    "ece_sampling_noise": 0.025579138776599793,
+    "bins": [
+      {
+        "bin": 2,
+        "n": 2,
+        "stated": 0.22641873315644329,
+        "realised": 0.5
+      },
+      {
+        "bin": 3,
+        "n": 5,
+        "stated": 0.36099786176311716,
+        "realised": 0.8
+      },
+      {
+        "bin": 4,
+        "n": 8,
+        "stated": 0.43001183713037927,
+        "realised": 0.625
+      },
+      {
+        "bin": 5,
+        "n": 3,
+        "stated": 0.5493132097085391,
+        "realised": 0.6666666666666666
+      },
+      {
+        "bin": 6,
+        "n": 5,
+        "stated": 0.6534230153719893,
+        "realised": 0.6
+      },
+      {
+        "bin": 7,
+        "n": 17,
+        "stated": 0.7470445336845443,
+        "realised": 0.6470588235294118
+      },
+      {
+        "bin": 8,
+        "n": 7,
+        "stated": 0.8404803871703199,
+        "realised": 0.5714285714285714
+      },
+      {
+        "bin": 9,
+        "n": 447,
+        "stated": 0.9988207137820478,
+        "realised": 0.9530201342281879
+      }
+    ],
+    "note": "one parameter, fitted on the TRAIN sweep only, never on the held-out rows. It can rescale confidence but cannot invent an ordering, so G_ranks_regions remains the primary claim and this says whether the remaining error was a scale problem or a knowledge problem"
+  },
+  "spearman_conf_vs_accuracy": 0.9607294599887378,
+  "spearman_train_map_vs_held_accuracy": 0.9788564309319217,
+  "refusal": {
+    "threshold": 0.376,
+    "answered_n": 493,
+    "refused_n": 1,
+    "answered_accuracy": 0.9249492900608519,
+    "refused_would_have_been": 0.0,
+    "vacuous": false
+  },
+  "region_note": "regions are cut by depth and agreement only - both readable without the answer. Cutting by anything that needs the truth would make the map a restatement of the score, which is 286's exam tautology wearing a chart",
+  "calibration_note": "the ECE bound is DERIVED: each bin's realised accuracy is a binomial mean whose own noise is sqrt(acc(1-acc)/n), weighted the same way ECE is. A perfectly calibrated mind still shows that much on this many questions, so the gate is ECE under its own noise floor and no threshold was chosen by taste",
+  "arc_enc_hash_before": "64a764151ebd27ec5f4c1e92d72d9ce6dba381fb355c386d669f3a0ac2cf93d1",
+  "arc_enc_hash_after": "64a764151ebd27ec5f4c1e92d72d9ce6dba381fb355c386d669f3a0ac2cf93d1",
+  "fp_version": "stage191_p1_curve.pt",
+  "note": "The unprompted audit. The mind sweeps its own tape and publishes where it can be trusted, before anyone asks. The claim is narrow and checkable: stated confidence must be an empirical frequency - 0.8 must mean right eight times in ten - and the ordering of regions must be right, because a map that is accurate on average but orders regions wrongly makes you trust the wrong half of your tape. Refusal is a cell in the map, not an absence: the tape knows what the refused questions would have scored, so declining is checkable too. No new capability and no new model - 289's mind and 289's questions, read through the confidence they already produce, because a competence map that needed its own model would be a second mind grading the first.",
+  "timestamp": "2026-08-10T04:40:51.110926+00:00",
+  "wall_s": 6617.637276887894
+}

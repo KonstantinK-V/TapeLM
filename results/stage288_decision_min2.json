@@ -1,0 +1,152 @@
+{
+  "stage": 288,
+  "overall": "REPAIR_PARTIAL",
+  "seed": 288,
+  "smoke": false,
+  "run_tag": "min2",
+  "holdout": "corpus",
+  "train_steps": 6000,
+  "tape_period": 50,
+  "params": 6562,
+  "reward": {
+    "correct": 1.0,
+    "wrong": -1.0,
+    "abstain": 0.75
+  },
+  "train_ops_seen": {
+    "replace": 1993,
+    "none": 2002,
+    "dup": 2005
+  },
+  "gates": {
+    "G_arc_enc_frozen": true,
+    "G_task_exists": true,
+    "G_detects_forgery": true,
+    "G_detects_dup": true,
+    "G_flags_clean": true,
+    "G_repairs": false,
+    "G_honest_unrecoverable": true
+  },
+  "held_out": {
+    "n_by_op": {
+      "none": 117,
+      "replace": 117,
+      "dup": 117
+    },
+    "detection": {
+      "model_forged": 0.6709401709401709,
+      "votes_forged": 0.3333333333333333,
+      "random_floor": 0.3038111579778246,
+      "model_dup": 0.9401709401709402,
+      "votes_dup": 0.1623931623931624,
+      "model_clean_pass": 0.5042735042735043,
+      "votes_clean_pass": 0.452991452991453,
+      "clean_margin_auc": 0.7306779165753525,
+      "clean_margin_auc_z": 7.047355360180833
+    },
+    "repair_true_flag": {
+      "model_reward": 0.08547008547008547,
+      "votes_reward": 0.18376068376068377,
+      "model_accuracy": 0.5309734513274337,
+      "votes_accuracy": 0.5533980582524272,
+      "model_coverage": 0.9658119658119658,
+      "votes_coverage": 0.8803418803418803,
+      "random_floor": 0.5462962962962963,
+      "unknown_margin_auc": 0.6029871323529412,
+      "unknown_margin_auc_z": 2.427471306329659,
+      "n_recoverable": 170,
+      "n_unrecoverable": 64
+    },
+    "observer_verdict_restored": {
+      "model": 0.8418803418803419,
+      "votes": 0.8034188034188035,
+      "n": 234,
+      "note": "the proposal's original reward, demoted to an observer: gradient on this has an empty tape as its fixed point"
+    }
+  },
+  "train_control": {
+    "n_by_op": {
+      "none": 250,
+      "replace": 250,
+      "dup": 249
+    },
+    "detection": {
+      "model_forged": 0.7675350701402806,
+      "votes_forged": 0.30861723446893785,
+      "random_floor": 0.39147089272339763,
+      "model_dup": 0.9879518072289156,
+      "votes_dup": 0.07228915662650602,
+      "model_clean_pass": 0.556,
+      "votes_clean_pass": 0.58,
+      "clean_margin_auc": 0.8957314629258517,
+      "clean_margin_auc_z": 17.67994253202967
+    },
+    "repair_true_flag": {
+      "model_reward": 0.30410821643286573,
+      "votes_reward": 0.42384769539078154,
+      "model_accuracy": 0.6422594142259415,
+      "votes_accuracy": 0.6921348314606741,
+      "model_coverage": 0.9579158316633266,
+      "votes_coverage": 0.8917835671342685,
+      "random_floor": 0.6138944555778224,
+      "unknown_margin_auc": 0.6701522607331336,
+      "unknown_margin_auc_z": 6.242784187152384,
+      "n_recoverable": 328,
+      "n_unrecoverable": 171
+    },
+    "observer_verdict_restored": {
+      "model": 0.7995991983967936,
+      "votes": 0.7755511022044088,
+      "n": 499,
+      "note": "the proposal's original reward, demoted to an observer: gradient on this has an empty tape as its fixed point"
+    }
+  },
+  "curve": [
+    {
+      "step": 750,
+      "loss": 1.4107761936155976,
+      "op": "replace"
+    },
+    {
+      "step": 1500,
+      "loss": 1.593882002676994,
+      "op": "dup"
+    },
+    {
+      "step": 2250,
+      "loss": 1.100927665320969,
+      "op": "none"
+    },
+    {
+      "step": 3000,
+      "loss": 1.1595438481868443,
+      "op": "none"
+    },
+    {
+      "step": 3750,
+      "loss": 1.2548151930181612,
+      "op": "replace"
+    },
+    {
+      "step": 4500,
+      "loss": 1.3510628356704713,
+      "op": "replace"
+    },
+    {
+      "step": 5250,
+      "loss": 1.2591886803149988,
+      "op": "replace"
+    },
+    {
+      "step": 6000,
+      "loss": 1.5160452456008426,
+      "op": "replace"
+    }
+  ],
+  "arc_enc_hash_before": "64a764151ebd27ec5f4c1e92d72d9ce6dba381fb355c386d669f3a0ac2cf93d1",
+  "arc_enc_hash_after": "64a764151ebd27ec5f4c1e92d72d9ce6dba381fb355c386d669f3a0ac2cf93d1",
+  "fp_version": "stage191_p1_curve.pt",
+  "note": "The direction 286 opened, taken to its end: the tape is not only the label, it is the exercise machine. Break a clean address - swap a mention for a foreign one, or for two or three copies of it - and require where and what, or the admission that the surviving evidence cannot say. The truth is free because the break is ours, so examples are unlimited, honesty is trained on breaks KNOWN to be unrecoverable, and the counting rival is wrong by construction exactly where the forgery is the majority. The judges' consistency - the proposal's original reward - is an observer only: its fixed point as a gradient is an empty tape. Diagnosis and repair share one relational embedding of ranks and indicators, identity unrepresentable, answers are indices, CLEAN and UNKNOWN are rows. Cloze, the lying tape and lie-dup were all points in this corruption family; 288 trains on the family and is examined at points it did not train on: a held-out corpus or held-out subjects, chosen by --holdout.",
+  "timestamp": "2026-08-08T19:36:32.376845+00:00",
+  "wall_s": 8301.428973913193
+}

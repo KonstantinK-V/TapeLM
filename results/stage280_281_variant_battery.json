@@ -1,0 +1,1489 @@
+[
+  {
+    "tag": "281_base",
+    "cmd": [
+      "-u",
+      "_stage281_frames.py",
+      "--smoke"
+    ],
+    "exit": 1,
+    "log": "_var_281_base.out",
+    "stage281": {
+      "overall": "NO_FRAME_SURVIVES",
+      "ceiling_before": null,
+      "ceiling_after": null,
+      "frames": {
+        "total": 6,
+        "kept": 0,
+        "kept_assertions": 0,
+        "total_assertions": 392
+      },
+      "gates": {
+        "G_frames_survive": false
+      }
+    },
+    "stage281_path": "stage281_decision_281_base.json",
+    "stage280": {
+      "overall": "TEACHER_UNUSABLE_ON_RAW",
+      "teacher_ceiling": -0.18888888888888897,
+      "gates": {
+        "G_arc_enc_frozen": true,
+        "G_answer_is_slot": true,
+        "G_all_families_present": true,
+        "G_teacher_usable": false,
+        "G_reaches_teacher": true,
+        "G_answers_when_decidable": false,
+        "G_abstain_on_tie": false,
+        "G_acc_when_answering": false,
+        "G_generalises_to_held_out": false,
+        "G_hop_covers_silence": true
+      },
+      "held": {
+        "reward": -0.0013888888888889301,
+        "teacher": -0.18888888888888897,
+        "precision": 0.3412698412698412,
+        "recall": 0.6668771043771042,
+        "hops": 0.0,
+        "mean_cands": 6.666666666666667,
+        "tie_teacher_abstain": 0.0,
+        "decidable_teacher_acc": 0.4666666666666667
+      }
+    },
+    "stage280_path": "stage280_decision_fp_281_base.json"
+  },
+  {
+    "tag": "281_loose",
+    "cmd": [
+      "-u",
+      "_stage281_frames.py",
+      "--smoke",
+      "--min-confirm",
+      "0.05",
+      "--min-n",
+      "3",
+      "--min-anchors",
+      "1",
+      "--max-values-per-anchor",
+      "5.0"
+    ],
+    "exit": 0,
+    "log": "_var_281_loose.out",
+    "stage281": {
+      "overall": "FRAMES_DO_NOT_HELP",
+      "ceiling_before": -0.19222222222222232,
+      "ceiling_after": NaN,
+      "frames": {
+        "total": 6,
+        "kept": 2,
+        "assertions_total": 392,
+        "assertions_kept": 9,
+        "kept_fraction": 0.02295918367346939,
+        "top": [
+          {
+            "frame": "the",
+            "n": 6,
+            "confirm_rate": 0.8333333333333334,
+            "dispute_rate": 0.0,
+            "anchors": 1,
+            "values_per_anchor": 1.0,
+            "empty": false
+          },
+          {
+            "frame": "the county seat",
+            "n": 3,
+            "confirm_rate": 0.6666666666666666,
+            "dispute_rate": 0.0,
+            "anchors": 1,
+            "values_per_anchor": 1.0,
+            "empty": false
+          },
+          {
+            "frame": "",
+            "n": 373,
+            "confirm_rate": 0.5656836461126006,
+            "dispute_rate": 0.2868632707774799,
+            "anchors": 55,
+            "values_per_anchor": 2.9454545454545453,
+            "empty": true
+          },
+          {
+            "frame": "title assigned bishop",
+            "n": 3,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.6666666666666666,
+            "anchors": 1,
+            "values_per_anchor": 3.0,
+            "empty": false
+          },
+          {
+            "frame": "title assigned archbishop",
+            "n": 3,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.6666666666666666,
+            "anchors": 1,
+            "values_per_anchor": 3.0,
+            "empty": false
+          },
+          {
+            "frame": "protector",
+            "n": 4,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.75,
+            "anchors": 1,
+            "values_per_anchor": 4.0,
+            "empty": false
+          }
+        ],
+        "worst": [
+          {
+            "frame": "the",
+            "n": 6,
+            "confirm_rate": 0.8333333333333334,
+            "dispute_rate": 0.0,
+            "anchors": 1,
+            "values_per_anchor": 1.0,
+            "empty": false
+          },
+          {
+            "frame": "the county seat",
+            "n": 3,
+            "confirm_rate": 0.6666666666666666,
+            "dispute_rate": 0.0,
+            "anchors": 1,
+            "values_per_anchor": 1.0,
+            "empty": false
+          },
+          {
+            "frame": "",
+            "n": 373,
+            "confirm_rate": 0.5656836461126006,
+            "dispute_rate": 0.2868632707774799,
+            "anchors": 55,
+            "values_per_anchor": 2.9454545454545453,
+            "empty": true
+          },
+          {
+            "frame": "title assigned bishop",
+            "n": 3,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.6666666666666666,
+            "anchors": 1,
+            "values_per_anchor": 3.0,
+            "empty": false
+          },
+          {
+            "frame": "title assigned archbishop",
+            "n": 3,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.6666666666666666,
+            "anchors": 1,
+            "values_per_anchor": 3.0,
+            "empty": false
+          },
+          {
+            "frame": "protector",
+            "n": 4,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.75,
+            "anchors": 1,
+            "values_per_anchor": 4.0,
+            "empty": false
+          }
+        ]
+      },
+      "gates": {
+        "G_frames_survive": true,
+        "G_tape_shrinks": true,
+        "G_kept_frames_functional": true,
+        "G_ceiling_clears_silence": false,
+        "G_ceiling_improves": false,
+        "G_teacher_abstains_on_tie": false
+      }
+    },
+    "stage281_path": "stage281_decision_281_loose.json",
+    "stage280": {
+      "overall": "TEACHER_UNUSABLE_ON_RAW",
+      "teacher_ceiling": -0.18888888888888897,
+      "gates": {
+        "G_arc_enc_frozen": true,
+        "G_answer_is_slot": true,
+        "G_all_families_present": true,
+        "G_teacher_usable": false,
+        "G_reaches_teacher": true,
+        "G_answers_when_decidable": false,
+        "G_abstain_on_tie": false,
+        "G_acc_when_answering": false,
+        "G_generalises_to_held_out": false,
+        "G_hop_covers_silence": true
+      },
+      "held": {
+        "reward": -0.0013888888888889301,
+        "teacher": -0.18888888888888897,
+        "precision": 0.3412698412698412,
+        "recall": 0.6668771043771042,
+        "hops": 0.0,
+        "mean_cands": 6.666666666666667,
+        "tie_teacher_abstain": 0.0,
+        "decidable_teacher_acc": 0.4666666666666667
+      }
+    },
+    "stage280_path": "stage280_decision_fp_281_loose.json"
+  },
+  {
+    "tag": "281_loose_fia",
+    "cmd": [
+      "-u",
+      "_stage281_frames.py",
+      "--smoke",
+      "--frame-in-address",
+      "--min-confirm",
+      "0.05",
+      "--min-n",
+      "3",
+      "--min-anchors",
+      "1",
+      "--max-values-per-anchor",
+      "5.0"
+    ],
+    "exit": 0,
+    "log": "_var_281_loose_fia.out",
+    "stage281": {
+      "overall": "FRAMES_DO_NOT_HELP",
+      "ceiling_before": -0.19222222222222232,
+      "ceiling_after": NaN,
+      "frames": {
+        "total": 6,
+        "kept": 2,
+        "assertions_total": 392,
+        "assertions_kept": 9,
+        "kept_fraction": 0.02295918367346939,
+        "top": [
+          {
+            "frame": "the",
+            "n": 6,
+            "confirm_rate": 0.8333333333333334,
+            "dispute_rate": 0.0,
+            "anchors": 1,
+            "values_per_anchor": 1.0,
+            "empty": false
+          },
+          {
+            "frame": "the county seat",
+            "n": 3,
+            "confirm_rate": 0.6666666666666666,
+            "dispute_rate": 0.0,
+            "anchors": 1,
+            "values_per_anchor": 1.0,
+            "empty": false
+          },
+          {
+            "frame": "",
+            "n": 373,
+            "confirm_rate": 0.5656836461126006,
+            "dispute_rate": 0.2868632707774799,
+            "anchors": 55,
+            "values_per_anchor": 2.9454545454545453,
+            "empty": true
+          },
+          {
+            "frame": "title assigned bishop",
+            "n": 3,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.6666666666666666,
+            "anchors": 1,
+            "values_per_anchor": 3.0,
+            "empty": false
+          },
+          {
+            "frame": "title assigned archbishop",
+            "n": 3,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.6666666666666666,
+            "anchors": 1,
+            "values_per_anchor": 3.0,
+            "empty": false
+          },
+          {
+            "frame": "protector",
+            "n": 4,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.75,
+            "anchors": 1,
+            "values_per_anchor": 4.0,
+            "empty": false
+          }
+        ],
+        "worst": [
+          {
+            "frame": "the",
+            "n": 6,
+            "confirm_rate": 0.8333333333333334,
+            "dispute_rate": 0.0,
+            "anchors": 1,
+            "values_per_anchor": 1.0,
+            "empty": false
+          },
+          {
+            "frame": "the county seat",
+            "n": 3,
+            "confirm_rate": 0.6666666666666666,
+            "dispute_rate": 0.0,
+            "anchors": 1,
+            "values_per_anchor": 1.0,
+            "empty": false
+          },
+          {
+            "frame": "",
+            "n": 373,
+            "confirm_rate": 0.5656836461126006,
+            "dispute_rate": 0.2868632707774799,
+            "anchors": 55,
+            "values_per_anchor": 2.9454545454545453,
+            "empty": true
+          },
+          {
+            "frame": "title assigned bishop",
+            "n": 3,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.6666666666666666,
+            "anchors": 1,
+            "values_per_anchor": 3.0,
+            "empty": false
+          },
+          {
+            "frame": "title assigned archbishop",
+            "n": 3,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.6666666666666666,
+            "anchors": 1,
+            "values_per_anchor": 3.0,
+            "empty": false
+          },
+          {
+            "frame": "protector",
+            "n": 4,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.75,
+            "anchors": 1,
+            "values_per_anchor": 4.0,
+            "empty": false
+          }
+        ]
+      },
+      "gates": {
+        "G_frames_survive": true,
+        "G_tape_shrinks": true,
+        "G_kept_frames_functional": true,
+        "G_ceiling_clears_silence": false,
+        "G_ceiling_improves": false,
+        "G_teacher_abstains_on_tie": false
+      }
+    },
+    "stage281_path": "stage281_decision_281_loose_fia.json",
+    "stage281_fia": {
+      "overall": "FRAMES_DO_NOT_HELP",
+      "ceiling_before": -0.19222222222222232,
+      "ceiling_after": NaN,
+      "frames": {
+        "total": 6,
+        "kept": 2,
+        "assertions_total": 392,
+        "assertions_kept": 9,
+        "kept_fraction": 0.02295918367346939,
+        "top": [
+          {
+            "frame": "the",
+            "n": 6,
+            "confirm_rate": 0.8333333333333334,
+            "dispute_rate": 0.0,
+            "anchors": 1,
+            "values_per_anchor": 1.0,
+            "empty": false
+          },
+          {
+            "frame": "the county seat",
+            "n": 3,
+            "confirm_rate": 0.6666666666666666,
+            "dispute_rate": 0.0,
+            "anchors": 1,
+            "values_per_anchor": 1.0,
+            "empty": false
+          },
+          {
+            "frame": "",
+            "n": 373,
+            "confirm_rate": 0.5656836461126006,
+            "dispute_rate": 0.2868632707774799,
+            "anchors": 55,
+            "values_per_anchor": 2.9454545454545453,
+            "empty": true
+          },
+          {
+            "frame": "title assigned bishop",
+            "n": 3,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.6666666666666666,
+            "anchors": 1,
+            "values_per_anchor": 3.0,
+            "empty": false
+          },
+          {
+            "frame": "title assigned archbishop",
+            "n": 3,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.6666666666666666,
+            "anchors": 1,
+            "values_per_anchor": 3.0,
+            "empty": false
+          },
+          {
+            "frame": "protector",
+            "n": 4,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.75,
+            "anchors": 1,
+            "values_per_anchor": 4.0,
+            "empty": false
+          }
+        ],
+        "worst": [
+          {
+            "frame": "the",
+            "n": 6,
+            "confirm_rate": 0.8333333333333334,
+            "dispute_rate": 0.0,
+            "anchors": 1,
+            "values_per_anchor": 1.0,
+            "empty": false
+          },
+          {
+            "frame": "the county seat",
+            "n": 3,
+            "confirm_rate": 0.6666666666666666,
+            "dispute_rate": 0.0,
+            "anchors": 1,
+            "values_per_anchor": 1.0,
+            "empty": false
+          },
+          {
+            "frame": "",
+            "n": 373,
+            "confirm_rate": 0.5656836461126006,
+            "dispute_rate": 0.2868632707774799,
+            "anchors": 55,
+            "values_per_anchor": 2.9454545454545453,
+            "empty": true
+          },
+          {
+            "frame": "title assigned bishop",
+            "n": 3,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.6666666666666666,
+            "anchors": 1,
+            "values_per_anchor": 3.0,
+            "empty": false
+          },
+          {
+            "frame": "title assigned archbishop",
+            "n": 3,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.6666666666666666,
+            "anchors": 1,
+            "values_per_anchor": 3.0,
+            "empty": false
+          },
+          {
+            "frame": "protector",
+            "n": 4,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.75,
+            "anchors": 1,
+            "values_per_anchor": 4.0,
+            "empty": false
+          }
+        ]
+      },
+      "gates": {
+        "G_frames_survive": true,
+        "G_tape_shrinks": true,
+        "G_kept_frames_functional": true,
+        "G_ceiling_clears_silence": false,
+        "G_ceiling_improves": false,
+        "G_teacher_abstains_on_tie": false
+      }
+    },
+    "stage281_fia_path": "stage281_decision_fia_281_loose_fia.json",
+    "stage280": {
+      "overall": "TEACHER_UNUSABLE_ON_RAW",
+      "teacher_ceiling": -0.18888888888888897,
+      "gates": {
+        "G_arc_enc_frozen": true,
+        "G_answer_is_slot": true,
+        "G_all_families_present": true,
+        "G_teacher_usable": false,
+        "G_reaches_teacher": true,
+        "G_answers_when_decidable": false,
+        "G_abstain_on_tie": false,
+        "G_acc_when_answering": false,
+        "G_generalises_to_held_out": false,
+        "G_hop_covers_silence": true
+      },
+      "held": {
+        "reward": -0.0013888888888889301,
+        "teacher": -0.18888888888888897,
+        "precision": 0.3412698412698412,
+        "recall": 0.6668771043771042,
+        "hops": 0.0,
+        "mean_cands": 6.666666666666667,
+        "tie_teacher_abstain": 0.0,
+        "decidable_teacher_acc": 0.4666666666666667
+      }
+    },
+    "stage280_path": "stage280_decision_fp_281_loose_fia.json"
+  },
+  {
+    "tag": "281_and_ok",
+    "cmd": [
+      "-u",
+      "_stage281_frames.py",
+      "--smoke",
+      "--min-confirm",
+      "0.18",
+      "--max-values-per-anchor",
+      "3.0",
+      "--min-anchors",
+      "2"
+    ],
+    "exit": 1,
+    "log": "_var_281_and_ok.out",
+    "stage281": {
+      "overall": "NO_FRAME_SURVIVES",
+      "ceiling_before": null,
+      "ceiling_after": null,
+      "frames": {
+        "total": 6,
+        "kept": 0,
+        "kept_assertions": 0,
+        "total_assertions": 392
+      },
+      "gates": {
+        "G_frames_survive": false
+      }
+    },
+    "stage281_path": "stage281_decision_281_and_ok.json",
+    "stage281_fia": {
+      "overall": "FRAMES_DO_NOT_HELP",
+      "ceiling_before": -0.19222222222222232,
+      "ceiling_after": NaN,
+      "frames": {
+        "total": 6,
+        "kept": 2,
+        "assertions_total": 392,
+        "assertions_kept": 9,
+        "kept_fraction": 0.02295918367346939,
+        "top": [
+          {
+            "frame": "the",
+            "n": 6,
+            "confirm_rate": 0.8333333333333334,
+            "dispute_rate": 0.0,
+            "anchors": 1,
+            "values_per_anchor": 1.0,
+            "empty": false
+          },
+          {
+            "frame": "the county seat",
+            "n": 3,
+            "confirm_rate": 0.6666666666666666,
+            "dispute_rate": 0.0,
+            "anchors": 1,
+            "values_per_anchor": 1.0,
+            "empty": false
+          },
+          {
+            "frame": "",
+            "n": 373,
+            "confirm_rate": 0.5656836461126006,
+            "dispute_rate": 0.2868632707774799,
+            "anchors": 55,
+            "values_per_anchor": 2.9454545454545453,
+            "empty": true
+          },
+          {
+            "frame": "title assigned bishop",
+            "n": 3,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.6666666666666666,
+            "anchors": 1,
+            "values_per_anchor": 3.0,
+            "empty": false
+          },
+          {
+            "frame": "title assigned archbishop",
+            "n": 3,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.6666666666666666,
+            "anchors": 1,
+            "values_per_anchor": 3.0,
+            "empty": false
+          },
+          {
+            "frame": "protector",
+            "n": 4,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.75,
+            "anchors": 1,
+            "values_per_anchor": 4.0,
+            "empty": false
+          }
+        ],
+        "worst": [
+          {
+            "frame": "the",
+            "n": 6,
+            "confirm_rate": 0.8333333333333334,
+            "dispute_rate": 0.0,
+            "anchors": 1,
+            "values_per_anchor": 1.0,
+            "empty": false
+          },
+          {
+            "frame": "the county seat",
+            "n": 3,
+            "confirm_rate": 0.6666666666666666,
+            "dispute_rate": 0.0,
+            "anchors": 1,
+            "values_per_anchor": 1.0,
+            "empty": false
+          },
+          {
+            "frame": "",
+            "n": 373,
+            "confirm_rate": 0.5656836461126006,
+            "dispute_rate": 0.2868632707774799,
+            "anchors": 55,
+            "values_per_anchor": 2.9454545454545453,
+            "empty": true
+          },
+          {
+            "frame": "title assigned bishop",
+            "n": 3,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.6666666666666666,
+            "anchors": 1,
+            "values_per_anchor": 3.0,
+            "empty": false
+          },
+          {
+            "frame": "title assigned archbishop",
+            "n": 3,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.6666666666666666,
+            "anchors": 1,
+            "values_per_anchor": 3.0,
+            "empty": false
+          },
+          {
+            "frame": "protector",
+            "n": 4,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.75,
+            "anchors": 1,
+            "values_per_anchor": 4.0,
+            "empty": false
+          }
+        ]
+      },
+      "gates": {
+        "G_frames_survive": true,
+        "G_tape_shrinks": true,
+        "G_kept_frames_functional": true,
+        "G_ceiling_clears_silence": false,
+        "G_ceiling_improves": false,
+        "G_teacher_abstains_on_tie": false
+      }
+    },
+    "stage281_fia_path": "stage281_decision_fia_281_and_ok.json",
+    "stage280": {
+      "overall": "TEACHER_UNUSABLE_ON_RAW",
+      "teacher_ceiling": -0.18888888888888897,
+      "gates": {
+        "G_arc_enc_frozen": true,
+        "G_answer_is_slot": true,
+        "G_all_families_present": true,
+        "G_teacher_usable": false,
+        "G_reaches_teacher": true,
+        "G_answers_when_decidable": false,
+        "G_abstain_on_tie": false,
+        "G_acc_when_answering": false,
+        "G_generalises_to_held_out": false,
+        "G_hop_covers_silence": true
+      },
+      "held": {
+        "reward": -0.0013888888888889301,
+        "teacher": -0.18888888888888897,
+        "precision": 0.3412698412698412,
+        "recall": 0.6668771043771042,
+        "hops": 0.0,
+        "mean_cands": 6.666666666666667,
+        "tie_teacher_abstain": 0.0,
+        "decidable_teacher_acc": 0.4666666666666667
+      }
+    },
+    "stage280_path": "stage280_decision_fp_281_and_ok.json"
+  },
+  {
+    "tag": "280_kgap07",
+    "cmd": [
+      "-u",
+      "_stage280_raw_exam.py",
+      "--smoke",
+      "--k-gap",
+      "0.7"
+    ],
+    "exit": 0,
+    "log": "_var_280_kgap07.out",
+    "stage281": {
+      "overall": "NO_FRAME_SURVIVES",
+      "ceiling_before": null,
+      "ceiling_after": null,
+      "frames": {
+        "total": 6,
+        "kept": 0,
+        "kept_assertions": 0,
+        "total_assertions": 392
+      },
+      "gates": {
+        "G_frames_survive": false
+      }
+    },
+    "stage281_path": "stage281_decision_280_kgap07.json",
+    "stage281_fia": {
+      "overall": "FRAMES_DO_NOT_HELP",
+      "ceiling_before": -0.19222222222222232,
+      "ceiling_after": NaN,
+      "frames": {
+        "total": 6,
+        "kept": 2,
+        "assertions_total": 392,
+        "assertions_kept": 9,
+        "kept_fraction": 0.02295918367346939,
+        "top": [
+          {
+            "frame": "the",
+            "n": 6,
+            "confirm_rate": 0.8333333333333334,
+            "dispute_rate": 0.0,
+            "anchors": 1,
+            "values_per_anchor": 1.0,
+            "empty": false
+          },
+          {
+            "frame": "the county seat",
+            "n": 3,
+            "confirm_rate": 0.6666666666666666,
+            "dispute_rate": 0.0,
+            "anchors": 1,
+            "values_per_anchor": 1.0,
+            "empty": false
+          },
+          {
+            "frame": "",
+            "n": 373,
+            "confirm_rate": 0.5656836461126006,
+            "dispute_rate": 0.2868632707774799,
+            "anchors": 55,
+            "values_per_anchor": 2.9454545454545453,
+            "empty": true
+          },
+          {
+            "frame": "title assigned bishop",
+            "n": 3,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.6666666666666666,
+            "anchors": 1,
+            "values_per_anchor": 3.0,
+            "empty": false
+          },
+          {
+            "frame": "title assigned archbishop",
+            "n": 3,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.6666666666666666,
+            "anchors": 1,
+            "values_per_anchor": 3.0,
+            "empty": false
+          },
+          {
+            "frame": "protector",
+            "n": 4,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.75,
+            "anchors": 1,
+            "values_per_anchor": 4.0,
+            "empty": false
+          }
+        ],
+        "worst": [
+          {
+            "frame": "the",
+            "n": 6,
+            "confirm_rate": 0.8333333333333334,
+            "dispute_rate": 0.0,
+            "anchors": 1,
+            "values_per_anchor": 1.0,
+            "empty": false
+          },
+          {
+            "frame": "the county seat",
+            "n": 3,
+            "confirm_rate": 0.6666666666666666,
+            "dispute_rate": 0.0,
+            "anchors": 1,
+            "values_per_anchor": 1.0,
+            "empty": false
+          },
+          {
+            "frame": "",
+            "n": 373,
+            "confirm_rate": 0.5656836461126006,
+            "dispute_rate": 0.2868632707774799,
+            "anchors": 55,
+            "values_per_anchor": 2.9454545454545453,
+            "empty": true
+          },
+          {
+            "frame": "title assigned bishop",
+            "n": 3,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.6666666666666666,
+            "anchors": 1,
+            "values_per_anchor": 3.0,
+            "empty": false
+          },
+          {
+            "frame": "title assigned archbishop",
+            "n": 3,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.6666666666666666,
+            "anchors": 1,
+            "values_per_anchor": 3.0,
+            "empty": false
+          },
+          {
+            "frame": "protector",
+            "n": 4,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.75,
+            "anchors": 1,
+            "values_per_anchor": 4.0,
+            "empty": false
+          }
+        ]
+      },
+      "gates": {
+        "G_frames_survive": true,
+        "G_tape_shrinks": true,
+        "G_kept_frames_functional": true,
+        "G_ceiling_clears_silence": false,
+        "G_ceiling_improves": false,
+        "G_teacher_abstains_on_tie": false
+      }
+    },
+    "stage281_fia_path": "stage281_decision_fia_280_kgap07.json",
+    "stage280": {
+      "overall": "TEACHER_UNUSABLE_ON_RAW",
+      "teacher_ceiling": -0.3277777777777778,
+      "gates": {
+        "G_arc_enc_frozen": true,
+        "G_answer_is_slot": true,
+        "G_all_families_present": true,
+        "G_teacher_usable": false,
+        "G_reaches_teacher": true,
+        "G_answers_when_decidable": false,
+        "G_abstain_on_tie": false,
+        "G_acc_when_answering": false,
+        "G_generalises_to_held_out": false,
+        "G_hop_covers_silence": true
+      },
+      "held": {
+        "reward": -0.20972222222222225,
+        "teacher": -0.3277777777777778,
+        "precision": 0.3151455026455026,
+        "recall": 0.5078703703703702,
+        "hops": 0.0,
+        "mean_cands": 5.277777777777778,
+        "tie_teacher_abstain": 0.0,
+        "decidable_teacher_acc": 0.4
+      }
+    },
+    "stage280_path": "stage280_decision_fp_280_kgap07.json"
+  },
+  {
+    "tag": "280_topk3",
+    "cmd": [
+      "-u",
+      "_stage280_raw_exam.py",
+      "--smoke",
+      "--topk",
+      "3",
+      "--k-gap",
+      "0.35"
+    ],
+    "exit": 0,
+    "log": "_var_280_topk3.out",
+    "stage281": {
+      "overall": "NO_FRAME_SURVIVES",
+      "ceiling_before": null,
+      "ceiling_after": null,
+      "frames": {
+        "total": 6,
+        "kept": 0,
+        "kept_assertions": 0,
+        "total_assertions": 392
+      },
+      "gates": {
+        "G_frames_survive": false
+      }
+    },
+    "stage281_path": "stage281_decision_280_topk3.json",
+    "stage281_fia": {
+      "overall": "FRAMES_DO_NOT_HELP",
+      "ceiling_before": -0.19222222222222232,
+      "ceiling_after": NaN,
+      "frames": {
+        "total": 6,
+        "kept": 2,
+        "assertions_total": 392,
+        "assertions_kept": 9,
+        "kept_fraction": 0.02295918367346939,
+        "top": [
+          {
+            "frame": "the",
+            "n": 6,
+            "confirm_rate": 0.8333333333333334,
+            "dispute_rate": 0.0,
+            "anchors": 1,
+            "values_per_anchor": 1.0,
+            "empty": false
+          },
+          {
+            "frame": "the county seat",
+            "n": 3,
+            "confirm_rate": 0.6666666666666666,
+            "dispute_rate": 0.0,
+            "anchors": 1,
+            "values_per_anchor": 1.0,
+            "empty": false
+          },
+          {
+            "frame": "",
+            "n": 373,
+            "confirm_rate": 0.5656836461126006,
+            "dispute_rate": 0.2868632707774799,
+            "anchors": 55,
+            "values_per_anchor": 2.9454545454545453,
+            "empty": true
+          },
+          {
+            "frame": "title assigned bishop",
+            "n": 3,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.6666666666666666,
+            "anchors": 1,
+            "values_per_anchor": 3.0,
+            "empty": false
+          },
+          {
+            "frame": "title assigned archbishop",
+            "n": 3,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.6666666666666666,
+            "anchors": 1,
+            "values_per_anchor": 3.0,
+            "empty": false
+          },
+          {
+            "frame": "protector",
+            "n": 4,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.75,
+            "anchors": 1,
+            "values_per_anchor": 4.0,
+            "empty": false
+          }
+        ],
+        "worst": [
+          {
+            "frame": "the",
+            "n": 6,
+            "confirm_rate": 0.8333333333333334,
+            "dispute_rate": 0.0,
+            "anchors": 1,
+            "values_per_anchor": 1.0,
+            "empty": false
+          },
+          {
+            "frame": "the county seat",
+            "n": 3,
+            "confirm_rate": 0.6666666666666666,
+            "dispute_rate": 0.0,
+            "anchors": 1,
+            "values_per_anchor": 1.0,
+            "empty": false
+          },
+          {
+            "frame": "",
+            "n": 373,
+            "confirm_rate": 0.5656836461126006,
+            "dispute_rate": 0.2868632707774799,
+            "anchors": 55,
+            "values_per_anchor": 2.9454545454545453,
+            "empty": true
+          },
+          {
+            "frame": "title assigned bishop",
+            "n": 3,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.6666666666666666,
+            "anchors": 1,
+            "values_per_anchor": 3.0,
+            "empty": false
+          },
+          {
+            "frame": "title assigned archbishop",
+            "n": 3,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.6666666666666666,
+            "anchors": 1,
+            "values_per_anchor": 3.0,
+            "empty": false
+          },
+          {
+            "frame": "protector",
+            "n": 4,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.75,
+            "anchors": 1,
+            "values_per_anchor": 4.0,
+            "empty": false
+          }
+        ]
+      },
+      "gates": {
+        "G_frames_survive": true,
+        "G_tape_shrinks": true,
+        "G_kept_frames_functional": true,
+        "G_ceiling_clears_silence": false,
+        "G_ceiling_improves": false,
+        "G_teacher_abstains_on_tie": false
+      }
+    },
+    "stage281_fia_path": "stage281_decision_fia_280_topk3.json",
+    "stage280": {
+      "overall": "TEACHER_UNUSABLE_ON_RAW",
+      "teacher_ceiling": -0.5033333333333334,
+      "gates": {
+        "G_arc_enc_frozen": true,
+        "G_answer_is_slot": true,
+        "G_all_families_present": true,
+        "G_teacher_usable": false,
+        "G_reaches_teacher": true,
+        "G_answers_when_decidable": true,
+        "G_abstain_on_tie": false,
+        "G_acc_when_answering": false,
+        "G_generalises_to_held_out": false,
+        "G_hop_covers_silence": true
+      },
+      "held": {
+        "reward": -0.5033333333333334,
+        "teacher": -0.5033333333333334,
+        "precision": 0.39814814814814814,
+        "recall": 0.35972222222222217,
+        "hops": 0.0,
+        "mean_cands": 2.9444444444444446,
+        "tie_teacher_abstain": 0.0,
+        "decidable_teacher_acc": 0.13333333333333333
+      }
+    },
+    "stage280_path": "stage280_decision_fp_280_topk3.json"
+  },
+  {
+    "tag": "280_hopalways",
+    "cmd": [
+      "-u",
+      "_stage280_raw_exam.py",
+      "--smoke",
+      "--hop-min",
+      "99",
+      "--k-gap",
+      "0.5"
+    ],
+    "exit": 0,
+    "log": "_var_280_hopalways.out",
+    "stage281": {
+      "overall": "NO_FRAME_SURVIVES",
+      "ceiling_before": null,
+      "ceiling_after": null,
+      "frames": {
+        "total": 6,
+        "kept": 0,
+        "kept_assertions": 0,
+        "total_assertions": 392
+      },
+      "gates": {
+        "G_frames_survive": false
+      }
+    },
+    "stage281_path": "stage281_decision_280_hopalways.json",
+    "stage281_fia": {
+      "overall": "FRAMES_DO_NOT_HELP",
+      "ceiling_before": -0.19222222222222232,
+      "ceiling_after": NaN,
+      "frames": {
+        "total": 6,
+        "kept": 2,
+        "assertions_total": 392,
+        "assertions_kept": 9,
+        "kept_fraction": 0.02295918367346939,
+        "top": [
+          {
+            "frame": "the",
+            "n": 6,
+            "confirm_rate": 0.8333333333333334,
+            "dispute_rate": 0.0,
+            "anchors": 1,
+            "values_per_anchor": 1.0,
+            "empty": false
+          },
+          {
+            "frame": "the county seat",
+            "n": 3,
+            "confirm_rate": 0.6666666666666666,
+            "dispute_rate": 0.0,
+            "anchors": 1,
+            "values_per_anchor": 1.0,
+            "empty": false
+          },
+          {
+            "frame": "",
+            "n": 373,
+            "confirm_rate": 0.5656836461126006,
+            "dispute_rate": 0.2868632707774799,
+            "anchors": 55,
+            "values_per_anchor": 2.9454545454545453,
+            "empty": true
+          },
+          {
+            "frame": "title assigned bishop",
+            "n": 3,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.6666666666666666,
+            "anchors": 1,
+            "values_per_anchor": 3.0,
+            "empty": false
+          },
+          {
+            "frame": "title assigned archbishop",
+            "n": 3,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.6666666666666666,
+            "anchors": 1,
+            "values_per_anchor": 3.0,
+            "empty": false
+          },
+          {
+            "frame": "protector",
+            "n": 4,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.75,
+            "anchors": 1,
+            "values_per_anchor": 4.0,
+            "empty": false
+          }
+        ],
+        "worst": [
+          {
+            "frame": "the",
+            "n": 6,
+            "confirm_rate": 0.8333333333333334,
+            "dispute_rate": 0.0,
+            "anchors": 1,
+            "values_per_anchor": 1.0,
+            "empty": false
+          },
+          {
+            "frame": "the county seat",
+            "n": 3,
+            "confirm_rate": 0.6666666666666666,
+            "dispute_rate": 0.0,
+            "anchors": 1,
+            "values_per_anchor": 1.0,
+            "empty": false
+          },
+          {
+            "frame": "",
+            "n": 373,
+            "confirm_rate": 0.5656836461126006,
+            "dispute_rate": 0.2868632707774799,
+            "anchors": 55,
+            "values_per_anchor": 2.9454545454545453,
+            "empty": true
+          },
+          {
+            "frame": "title assigned bishop",
+            "n": 3,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.6666666666666666,
+            "anchors": 1,
+            "values_per_anchor": 3.0,
+            "empty": false
+          },
+          {
+            "frame": "title assigned archbishop",
+            "n": 3,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.6666666666666666,
+            "anchors": 1,
+            "values_per_anchor": 3.0,
+            "empty": false
+          },
+          {
+            "frame": "protector",
+            "n": 4,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.75,
+            "anchors": 1,
+            "values_per_anchor": 4.0,
+            "empty": false
+          }
+        ]
+      },
+      "gates": {
+        "G_frames_survive": true,
+        "G_tape_shrinks": true,
+        "G_kept_frames_functional": true,
+        "G_ceiling_clears_silence": false,
+        "G_ceiling_improves": false,
+        "G_teacher_abstains_on_tie": false
+      }
+    },
+    "stage281_fia_path": "stage281_decision_fia_280_hopalways.json",
+    "stage280": {
+      "overall": "TEACHER_UNUSABLE_ON_RAW",
+      "teacher_ceiling": -0.23555555555555563,
+      "gates": {
+        "G_arc_enc_frozen": true,
+        "G_answer_is_slot": true,
+        "G_all_families_present": true,
+        "G_teacher_usable": false,
+        "G_reaches_teacher": true,
+        "G_answers_when_decidable": true,
+        "G_abstain_on_tie": false,
+        "G_acc_when_answering": false,
+        "G_generalises_to_held_out": false,
+        "G_hop_covers_silence": true
+      },
+      "held": {
+        "reward": -0.23555555555555563,
+        "teacher": -0.23555555555555563,
+        "precision": 0.342063492063492,
+        "recall": 0.6113215488215488,
+        "hops": 0.6111111111111112,
+        "mean_cands": 6.222222222222222,
+        "tie_teacher_abstain": 0.0,
+        "decidable_teacher_acc": 0.4666666666666667
+      }
+    },
+    "stage280_path": "stage280_decision_fp_280_hopalways.json"
+  },
+  {
+    "tag": "280_hopnone_kgap07",
+    "cmd": [
+      "-u",
+      "_stage280_raw_exam.py",
+      "--smoke",
+      "--hop",
+      "none",
+      "--k-gap",
+      "0.7"
+    ],
+    "exit": 0,
+    "log": "_var_280_hopnone_kgap07.out",
+    "stage281": {
+      "overall": "NO_FRAME_SURVIVES",
+      "ceiling_before": null,
+      "ceiling_after": null,
+      "frames": {
+        "total": 6,
+        "kept": 0,
+        "kept_assertions": 0,
+        "total_assertions": 392
+      },
+      "gates": {
+        "G_frames_survive": false
+      }
+    },
+    "stage281_path": "stage281_decision_280_hopnone_kgap07.json",
+    "stage281_fia": {
+      "overall": "FRAMES_DO_NOT_HELP",
+      "ceiling_before": -0.19222222222222232,
+      "ceiling_after": NaN,
+      "frames": {
+        "total": 6,
+        "kept": 2,
+        "assertions_total": 392,
+        "assertions_kept": 9,
+        "kept_fraction": 0.02295918367346939,
+        "top": [
+          {
+            "frame": "the",
+            "n": 6,
+            "confirm_rate": 0.8333333333333334,
+            "dispute_rate": 0.0,
+            "anchors": 1,
+            "values_per_anchor": 1.0,
+            "empty": false
+          },
+          {
+            "frame": "the county seat",
+            "n": 3,
+            "confirm_rate": 0.6666666666666666,
+            "dispute_rate": 0.0,
+            "anchors": 1,
+            "values_per_anchor": 1.0,
+            "empty": false
+          },
+          {
+            "frame": "",
+            "n": 373,
+            "confirm_rate": 0.5656836461126006,
+            "dispute_rate": 0.2868632707774799,
+            "anchors": 55,
+            "values_per_anchor": 2.9454545454545453,
+            "empty": true
+          },
+          {
+            "frame": "title assigned bishop",
+            "n": 3,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.6666666666666666,
+            "anchors": 1,
+            "values_per_anchor": 3.0,
+            "empty": false
+          },
+          {
+            "frame": "title assigned archbishop",
+            "n": 3,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.6666666666666666,
+            "anchors": 1,
+            "values_per_anchor": 3.0,
+            "empty": false
+          },
+          {
+            "frame": "protector",
+            "n": 4,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.75,
+            "anchors": 1,
+            "values_per_anchor": 4.0,
+            "empty": false
+          }
+        ],
+        "worst": [
+          {
+            "frame": "the",
+            "n": 6,
+            "confirm_rate": 0.8333333333333334,
+            "dispute_rate": 0.0,
+            "anchors": 1,
+            "values_per_anchor": 1.0,
+            "empty": false
+          },
+          {
+            "frame": "the county seat",
+            "n": 3,
+            "confirm_rate": 0.6666666666666666,
+            "dispute_rate": 0.0,
+            "anchors": 1,
+            "values_per_anchor": 1.0,
+            "empty": false
+          },
+          {
+            "frame": "",
+            "n": 373,
+            "confirm_rate": 0.5656836461126006,
+            "dispute_rate": 0.2868632707774799,
+            "anchors": 55,
+            "values_per_anchor": 2.9454545454545453,
+            "empty": true
+          },
+          {
+            "frame": "title assigned bishop",
+            "n": 3,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.6666666666666666,
+            "anchors": 1,
+            "values_per_anchor": 3.0,
+            "empty": false
+          },
+          {
+            "frame": "title assigned archbishop",
+            "n": 3,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.6666666666666666,
+            "anchors": 1,
+            "values_per_anchor": 3.0,
+            "empty": false
+          },
+          {
+            "frame": "protector",
+            "n": 4,
+            "confirm_rate": 0.0,
+            "dispute_rate": 0.75,
+            "anchors": 1,
+            "values_per_anchor": 4.0,
+            "empty": false
+          }
+        ]
+      },
+      "gates": {
+        "G_frames_survive": true,
+        "G_tape_shrinks": true,
+        "G_kept_frames_functional": true,
+        "G_ceiling_clears_silence": false,
+        "G_ceiling_improves": false,
+        "G_teacher_abstains_on_tie": false
+      }
+    },
+    "stage281_fia_path": "stage281_decision_fia_280_hopnone_kgap07.json",
+    "stage280": {
+      "overall": "TEACHER_UNUSABLE_ON_RAW",
+      "teacher_ceiling": -0.23555555555555563,
+      "gates": {
+        "G_arc_enc_frozen": true,
+        "G_answer_is_slot": true,
+        "G_all_families_present": true,
+        "G_teacher_usable": false,
+        "G_reaches_teacher": true,
+        "G_answers_when_decidable": true,
+        "G_abstain_on_tie": false,
+        "G_acc_when_answering": false,
+        "G_generalises_to_held_out": false,
+        "G_hop_covers_silence": true
+      },
+      "held": {
+        "reward": -0.23555555555555563,
+        "teacher": -0.23555555555555563,
+        "precision": 0.342063492063492,
+        "recall": 0.6113215488215488,
+        "hops": 0.6111111111111112,
+        "mean_cands": 6.222222222222222,
+        "tie_teacher_abstain": 0.0,
+        "decidable_teacher_acc": 0.4666666666666667
+      }
+    },
+    "stage280_path": "stage280_decision_fp_280_hopnone_kgap07.json"
+  }
+]

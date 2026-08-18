@@ -1,0 +1,133 @@
+{
+  "stage": "289a",
+  "overall": "PRESUPPOSITION_NO",
+  "seed": 2891,
+  "smoke": false,
+  "holdout": "corpus",
+  "run_tag": "",
+  "train_steps": 6000,
+  "params": 5540,
+  "verdicts": [
+    "ok",
+    "wrong_relation",
+    "contested",
+    "false_premise"
+  ],
+  "gates": {
+    "G_arc_enc_frozen": true,
+    "G_task_exists": true,
+    "G_beats_counting_rival": false,
+    "G_beats_majority_floor": true,
+    "G_catches_wrong_relation": false,
+    "G_does_not_cry_wolf": false
+  },
+  "rival_ceiling_note": "the counting rival solves contested and false_premise and is blind to the ok / wrong_relation split by construction, so its ceiling on a balanced set is about 0.50; overall accuracy above it is necessary, and G_catches_wrong_relation is the claim",
+  "held_out": {
+    "n": 92,
+    "model_accuracy": 0.5217391304347826,
+    "rival_accuracy": 0.6847826086956522,
+    "majority_floor": 0.41304347826086957,
+    "per_verdict": {
+      "ok": {
+        "n": 38,
+        "model_recall": 0.0,
+        "rival_recall": 0.6842105263157895
+      },
+      "wrong_relation": {
+        "n": 6,
+        "model_recall": 0.0,
+        "rival_recall": 0.0
+      },
+      "contested": {
+        "n": 12,
+        "model_recall": 1.0,
+        "rival_recall": 1.0
+      },
+      "false_premise": {
+        "n": 36,
+        "model_recall": 1.0,
+        "rival_recall": 0.6944444444444444
+      }
+    },
+    "confusion": {
+      "contested->contested": 12,
+      "false_premise->false_premise": 36,
+      "ok->false_premise": 38,
+      "wrong_relation->false_premise": 6
+    }
+  },
+  "train_control": {
+    "n": 253,
+    "model_accuracy": 0.5375494071146245,
+    "rival_accuracy": 0.6877470355731226,
+    "majority_floor": 0.41106719367588934,
+    "per_verdict": {
+      "ok": {
+        "n": 104,
+        "model_recall": 0.0,
+        "rival_recall": 0.6826923076923077
+      },
+      "wrong_relation": {
+        "n": 13,
+        "model_recall": 0.0,
+        "rival_recall": 0.0
+      },
+      "contested": {
+        "n": 33,
+        "model_recall": 1.0,
+        "rival_recall": 1.0
+      },
+      "false_premise": {
+        "n": 103,
+        "model_recall": 1.0,
+        "rival_recall": 0.6796116504854369
+      }
+    },
+    "confusion": {
+      "contested->contested": 33,
+      "false_premise->false_premise": 103,
+      "ok->false_premise": 104,
+      "wrong_relation->false_premise": 13
+    }
+  },
+  "curve": [
+    {
+      "step": 750,
+      "loss": 0.8958316204533913
+    },
+    {
+      "step": 1500,
+      "loss": 0.8773867092243381
+    },
+    {
+      "step": 2250,
+      "loss": 0.8729002117568598
+    },
+    {
+      "step": 3000,
+      "loss": 0.9589824433065951
+    },
+    {
+      "step": 3750,
+      "loss": 0.7985700149524928
+    },
+    {
+      "step": 4500,
+      "loss": 0.8044148571940423
+    },
+    {
+      "step": 5250,
+      "loss": 0.8253603810058394
+    },
+    {
+      "step": 6000,
+      "loss": 0.8627832442407203
+    }
+  ],
+  "arc_enc_hash_before": "64a764151ebd27ec5f4c1e92d72d9ce6dba381fb355c386d669f3a0ac2cf93d1",
+  "arc_enc_hash_after": "64a764151ebd27ec5f4c1e92d72d9ce6dba381fb355c386d669f3a0ac2cf93d1",
+  "fp_version": "stage191_p1_curve.pt",
+  "note": "The first verb that is not a lookup: should this question be answered at all. Four verdicts built from the tape so the labels are free - ok, wrong_relation, contested, false_premise. The first draft was a tautology and was caught before the run: building 'absent' as evidence from other addresses and 'false premise' as a borrowed value makes each class exactly the property a two-line hand rule reads off, so the rule scores 1.0 and nothing is measured, which is 286's exam mistake again. wrong_relation replaces that: ask about one relation of a subject while the evidence answers another, and every counting signal stays HEALTHY - the subject is in every mention, the values cohere, the majority is clear - so a counter answers confidently and answers a different question. Its blindness there is by construction, as it is on 288's duplicated forgery. The query joins the graph as one more row carrying the asserted value and the question's own context, so the same relational machinery compares question to evidence with no new representation. Ranks and indicators only; the output is one of four verdicts, so no value is produced and nothing is generated.",
+  "timestamp": "2026-08-09T08:16:22.680553+00:00",
+  "wall_s": 4590.44940328598
+}

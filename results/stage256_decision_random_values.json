@@ -1,0 +1,256 @@
+{
+  "stage": 256,
+  "overall": "SLOT_BIAS_GLUE_NO",
+  "trunk": "stage253_joint_l02.pt",
+  "topk": 8,
+  "steps": 800,
+  "n_facts": 48,
+  "n_fit": 24,
+  "n_eval": 24,
+  "tape_slots": 1248,
+  "random_values": true,
+  "gates": {
+    "G_freeform_value": true,
+    "G_beats_head_only": true,
+    "G_tape_causal": false,
+    "G_slot_delete_clean": true,
+    "G_no_param_leak": true,
+    "G_lang_intact": true,
+    "G_gate_selective": true
+  },
+  "summary": {
+    "em_head_only": 0.0,
+    "em_glue": 0.875,
+    "em_shuffled_tape": 0.875,
+    "em_empty_tape": 0.0,
+    "em_target_before_delete": 0.875,
+    "em_target_after_delete": 0.0,
+    "em_retained_after_delete": 0.875,
+    "gate_mean_fact": 0.959115136712272,
+    "gate_mean_prose": 3.837581962457928e-05,
+    "prose_ce_glue_on": 4.61187469959259,
+    "prose_ce_glue_off": 4.611836373806,
+    "hold_ce_base": 3.881660521030426,
+    "hold_ce_after": 3.881660521030426,
+    "exam_base": 0.8666666666666667,
+    "tau": 0.08537990599870682,
+    "gate_l1": 0.02,
+    "retrieve_mode_train": "auto",
+    "retrieve_em_eval": {
+      "auto": 0.875,
+      "cosine": 0.875,
+      "votes": 0.875
+    },
+    "retrieve_decode_steps": {
+      "auto": {
+        "votes_steps": 144,
+        "cosine_steps": 0,
+        "miss": 0,
+        "total_glue_steps": 144
+      },
+      "cosine": {
+        "votes_steps": 0,
+        "cosine_steps": 144,
+        "miss": 0,
+        "total_glue_steps": 144
+      },
+      "votes": {
+        "votes_steps": 144,
+        "cosine_steps": 0,
+        "miss": 0,
+        "total_glue_steps": 144
+      }
+    },
+    "full_bank_cue_eval": {
+      "auto": {
+        "full_bank_top1": 1.0,
+        "full_bank_mrr": 1.0,
+        "full_bank_median_rank": 1.0,
+        "n": 24
+      },
+      "cosine": {
+        "full_bank_top1": 1.0,
+        "full_bank_mrr": 1.0,
+        "full_bank_median_rank": 1.0,
+        "n": 24
+      },
+      "votes": {
+        "full_bank_top1": 1.0,
+        "full_bank_mrr": 1.0,
+        "full_bank_median_rank": 1.0,
+        "n": 24
+      }
+    },
+    "fp_version": "stage191_p1_curve.pt",
+    "eval_single_token_values": 0,
+    "eval_single_token_frac": 0.0
+  },
+  "curve": [
+    {
+      "step": 133,
+      "loss_fact": 0.09043040871620178,
+      "loss_prose": 3.6663360595703125,
+      "loss_nce": 0.8765034079551697,
+      "gate_fact": 0.9999456359789922,
+      "gate_prose": 4.559754127816026e-05,
+      "tau": 0.15012894570827484
+    },
+    {
+      "step": 266,
+      "loss_fact": 0.03101828321814537,
+      "loss_prose": 2.2548089027404785,
+      "loss_nce": 0.8242594003677368,
+      "gate_fact": 0.9999559885925717,
+      "gate_prose": 1.7861476209191096e-06,
+      "tau": 0.11951001733541489
+    },
+    {
+      "step": 399,
+      "loss_fact": 0.014396018348634243,
+      "loss_prose": 3.4108948707580566,
+      "loss_nce": 0.8561491966247559,
+      "gate_fact": 0.9999456197023392,
+      "gate_prose": 1.8868926389260644e-06,
+      "tau": 0.10451631247997284
+    },
+    {
+      "step": 532,
+      "loss_fact": 0.008059107698500156,
+      "loss_prose": 4.248584270477295,
+      "loss_nce": 0.914450466632843,
+      "gate_fact": 0.9999700125895048,
+      "gate_prose": 0.0010301748747886129,
+      "tau": 0.09563940763473511
+    },
+    {
+      "step": 665,
+      "loss_fact": 0.007208545692265034,
+      "loss_prose": 3.7539074420928955,
+      "loss_nce": 0.7835512757301331,
+      "gate_fact": 0.9979880115260249,
+      "gate_prose": 6.216624530313513e-06,
+      "tau": 0.08978839963674545
+    },
+    {
+      "step": 798,
+      "loss_fact": 0.0036126773338764906,
+      "loss_prose": 4.865950107574463,
+      "loss_nce": 0.9021166563034058,
+      "gate_fact": 0.9999999809265137,
+      "gate_prose": 0.028227616193642693,
+      "tau": 0.08543820679187775
+    }
+  ],
+  "retrieval_at_cue": {
+    "held_out_top1": 1.0,
+    "held_out_median_rank": 1.0,
+    "fit_top1": 1.0,
+    "rows": [
+      {
+        "S": "Bapozo",
+        "gold": "Zokibomivec",
+        "rank": 1,
+        "top1": "Zokibomivec",
+        "gold_sim": 1.4073559371883675,
+        "w_max": 0.9964219331741333
+      },
+      {
+        "S": "Rizuze",
+        "gold": "Tuxinaji",
+        "rank": 1,
+        "top1": "Tuxinaji",
+        "gold_sim": 1.4073559371883675,
+        "w_max": 0.9964219331741333
+      },
+      {
+        "S": "Vegeh",
+        "gold": "Fecelu",
+        "rank": 1,
+        "top1": "Fecelu",
+        "gold_sim": 1.4073559371883675,
+        "w_max": 0.9964219331741333
+      },
+      {
+        "S": "Demas",
+        "gold": "Fufixu",
+        "rank": 1,
+        "top1": "Fufixu",
+        "gold_sim": 1.4073559371883675,
+        "w_max": 0.9964219331741333
+      },
+      {
+        "S": "Ricafna",
+        "gold": "Jitocih",
+        "rank": 1,
+        "top1": "Jitocih",
+        "gold_sim": 1.4073559371883675,
+        "w_max": 0.9964219331741333
+      },
+      {
+        "S": "Kettiramla",
+        "gold": "Jewizefez",
+        "rank": 1,
+        "top1": "Jewizefez",
+        "gold_sim": 1.4073559371883675,
+        "w_max": 0.9964219331741333
+      },
+      {
+        "S": "Rigacmi",
+        "gold": "Viyumoyu",
+        "rank": 1,
+        "top1": "Viyumoyu",
+        "gold_sim": 1.4073559371883675,
+        "w_max": 0.9964219331741333
+      },
+      {
+        "S": "Hecfivir",
+        "gold": "Cohadehov",
+        "rank": 1,
+        "top1": "Cohadehov",
+        "gold_sim": 1.4073559371883675,
+        "w_max": 0.9964219331741333
+      }
+    ]
+  },
+  "decode_samples": [
+    {
+      "cue_S": "Bapozo",
+      "gold": "Zokibomivec",
+      "got": "Zokibomivec",
+      "gate": 0.999999980131785
+    },
+    {
+      "cue_S": "Rizuze",
+      "gold": "Tuxinaji",
+      "got": "Tuxinaji",
+      "gate": 0.9999968210856119
+    },
+    {
+      "cue_S": "Vegeh",
+      "gold": "Fecelu",
+      "got": "Fecelu Figh",
+      "gate": 0.831342882476747
+    },
+    {
+      "cue_S": "Demas",
+      "gold": "Fufixu",
+      "got": "Fufixu T F",
+      "gate": 0.8000004937251409
+    },
+    {
+      "cue_S": "Ricafna",
+      "gold": "Jitocih",
+      "got": "Jitocih F J",
+      "gate": 0.8915697534879049
+    },
+    {
+      "cue_S": "Kettiramla",
+      "gold": "Jewizefez",
+      "got": "Jewizefez T",
+      "gate": 0.9974274436632792
+    }
+  ],
+  "note": "Glue only: trunk frozen, W_q + gate MLP + tau trained. Copy mixture p' = (1-g)p_LM + g*p_copy, so an open gate is paid for in CE. Values exist in the tape only, so CE toward the right value can flow only through the bias path. EM is free-form greedy decode (no candidate set); scored on facts the glue never fit.",
+  "timestamp": "2026-08-04T17:28:31.169701+00:00",
+  "wall_s": 466.8262186050415
+}

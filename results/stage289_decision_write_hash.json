@@ -1,0 +1,3827 @@
+{
+  "stage": "289",
+  "overall": "PHI_ADDS_NOTHING_ON_LOOKUP",
+  "seed": 2890,
+  "smoke": false,
+  "holdout": "corpus",
+  "run_tag": "write_hash",
+  "train_steps": 6000,
+  "params": 5601,
+  "objective": "cross_entropy_no_ladder",
+  "edge_channels": [
+    "cos",
+    "rare",
+    "same"
+  ],
+  "import_k": 0,
+  "views": 1,
+  "reconciliation": null,
+  "ink": "mean",
+  "fp": "hash",
+  "words": "ascii",
+  "write_ink": "mean",
+  "write_fp": "hash",
+  "write_words": "ascii",
+  "fp_ngram": 3,
+  "tau": {
+    "mode": "density",
+    "value": 0.47119982910156255,
+    "target_density": 2.9701,
+    "achieved_density": 2.97196261682243,
+    "monotone": true,
+    "trace": [
+      {
+        "tau": 0.0,
+        "density": 58.515625,
+        "addresses": 64
+      },
+      {
+        "tau": 0.9995,
+        "density": 2.1194539249146755,
+        "addresses": 293
+      },
+      {
+        "tau": 0.49975,
+        "density": 2.861519607843137,
+        "addresses": 816
+      },
+      {
+        "tau": 0.24988,
+        "density": 6.656880733944954,
+        "addresses": 545
+      },
+      {
+        "tau": 0.37481,
+        "density": 3.7865707434052758,
+        "addresses": 834
+      },
+      {
+        "tau": 0.43728,
+        "density": 3.2266355140186915,
+        "addresses": 856
+      },
+      {
+        "tau": 0.46852,
+        "density": 2.9941520467836256,
+        "addresses": 855
+      },
+      {
+        "tau": 0.48413,
+        "density": 2.899527186761229,
+        "addresses": 846
+      },
+      {
+        "tau": 0.47632,
+        "density": 2.942488262910798,
+        "addresses": 852
+      },
+      {
+        "tau": 0.47242,
+        "density": 2.961448598130841,
+        "addresses": 856
+      },
+      {
+        "tau": 0.47047,
+        "density": 2.9801169590643273,
+        "addresses": 855
+      },
+      {
+        "tau": 0.47144,
+        "density": 2.9673278879813303,
+        "addresses": 857
+      },
+      {
+        "tau": 0.47096,
+        "density": 2.975438596491228,
+        "addresses": 855
+      },
+      {
+        "tau": 0.4712,
+        "density": 2.97196261682243,
+        "addresses": 856
+      }
+    ]
+  },
+  "tape_shape": {
+    "held_out": {
+      "slots": 2320,
+      "addresses": 734,
+      "mentions_per_address": 3.1607629427792916,
+      "lookup_questions": 350,
+      "mean_candidates": 7.631428571428572,
+      "paraphrase": {
+        "facts_written_twice": 498,
+        "same_anchor_diff_relation": 0.04417670682730924,
+        "mean_addresses_per_fact": 1.0481927710843373,
+        "reversed_pairs": 3,
+        "reversed_pair_rate": 0.0023584905660377358
+      }
+    },
+    "train": {
+      "slots": 2432,
+      "addresses": 811,
+      "mentions_per_address": 2.998766954377312,
+      "lookup_questions": 365,
+      "mean_candidates": 6.33972602739726,
+      "paraphrase": {
+        "facts_written_twice": 553,
+        "same_anchor_diff_relation": 0.04159132007233273,
+        "mean_addresses_per_fact": 1.0524412296564196,
+        "reversed_pairs": 1,
+        "reversed_pair_rate": 0.0007722007722007722
+      }
+    }
+  },
+  "resample": {
+    "tape_period": 50,
+    "mean_overlap": 8.416432510439177e-05,
+    "n_resamples": 119,
+    "note": "Jaccard between consecutive tapes' address sets. Near 1 means the redraw returns the same addresses and the anti-memorisation argument in HANDOFF 1 is decorative - the fix is a larger address pool, i.e. more corpus, not fewer parameters"
+  },
+  "row_dropout": {
+    "rate": 0.0,
+    "mean_kept_fraction": NaN,
+    "note": "training only - the held-out tape is never thinned. Marginalisation, not noise: a subset of the evidence is a world the corpus could have written, and the low/high margin split is a density axis the mind was never trained across"
+  },
+  "early_stop": {
+    "enabled": true,
+    "best_step": 4000,
+    "best_probe_loss": 0.6387229657526768,
+    "total_steps": 6000,
+    "probe_questions": 200
+  },
+  "probe_curve": [
+    {
+      "step": 100,
+      "probe_loss": 0.9933294659899548
+    },
+    {
+      "step": 200,
+      "probe_loss": 0.8678018985932954
+    },
+    {
+      "step": 300,
+      "probe_loss": 0.904983734862758
+    },
+    {
+      "step": 400,
+      "probe_loss": 0.9938919195366194
+    },
+    {
+      "step": 500,
+      "probe_loss": 1.0512187057252653
+    },
+    {
+      "step": 600,
+      "probe_loss": 0.9723996017609253
+    },
+    {
+      "step": 700,
+      "probe_loss": 0.9316579735906125
+    },
+    {
+      "step": 800,
+      "probe_loss": 0.9587722072231938
+    },
+    {
+      "step": 900,
+      "probe_loss": 0.985086375979572
+    },
+    {
+      "step": 1000,
+      "probe_loss": 0.9713430151331494
+    },
+    {
+      "step": 1100,
+      "probe_loss": 1.068638107983137
+    },
+    {
+      "step": 1200,
+      "probe_loss": 0.8671640566717542
+    },
+    {
+      "step": 1300,
+      "probe_loss": 0.9276031152847781
+    },
+    {
+      "step": 1400,
+      "probe_loss": 1.0225926410259236
+    },
+    {
+      "step": 1500,
+      "probe_loss": 1.0441831313138146
+    },
+    {
+      "step": 1600,
+      "probe_loss": 0.8631678012845794
+    },
+    {
+      "step": 1700,
+      "probe_loss": 0.9517666237641574
+    },
+    {
+      "step": 1800,
+      "probe_loss": 1.087231308146317
+    },
+    {
+      "step": 1900,
+      "probe_loss": 0.7097583282942287
+    },
+    {
+      "step": 2000,
+      "probe_loss": 0.6452848733462452
+    },
+    {
+      "step": 2100,
+      "probe_loss": 0.9676111645371325
+    },
+    {
+      "step": 2200,
+      "probe_loss": 0.9775075748592349
+    },
+    {
+      "step": 2300,
+      "probe_loss": 0.8852372421178336
+    },
+    {
+      "step": 2400,
+      "probe_loss": 0.8784831409883815
+    },
+    {
+      "step": 2500,
+      "probe_loss": 0.8463984194834565
+    },
+    {
+      "step": 2600,
+      "probe_loss": 0.6826619066804779
+    },
+    {
+      "step": 2700,
+      "probe_loss": 0.8457707828612518
+    },
+    {
+      "step": 2800,
+      "probe_loss": 0.9622218562879828
+    },
+    {
+      "step": 2900,
+      "probe_loss": 0.9479730430254155
+    },
+    {
+      "step": 3000,
+      "probe_loss": 0.7722487994441849
+    },
+    {
+      "step": 3100,
+      "probe_loss": 0.7415088253761815
+    },
+    {
+      "step": 3200,
+      "probe_loss": 0.801642706623079
+    },
+    {
+      "step": 3300,
+      "probe_loss": 0.6752286480220028
+    },
+    {
+      "step": 3400,
+      "probe_loss": 0.6930681225401714
+    },
+    {
+      "step": 3500,
+      "probe_loss": 0.871079119798095
+    },
+    {
+      "step": 3600,
+      "probe_loss": 0.7422312817702231
+    },
+    {
+      "step": 3700,
+      "probe_loss": 0.8101632358001786
+    },
+    {
+      "step": 3800,
+      "probe_loss": 0.7737827247850055
+    },
+    {
+      "step": 3900,
+      "probe_loss": 0.7680464838293392
+    },
+    {
+      "step": 4000,
+      "probe_loss": 0.6387229657526768
+    },
+    {
+      "step": 4100,
+      "probe_loss": 0.7452424674022359
+    },
+    {
+      "step": 4200,
+      "probe_loss": 0.8274288980198616
+    },
+    {
+      "step": 4300,
+      "probe_loss": 0.7555741305632432
+    },
+    {
+      "step": 4400,
+      "probe_loss": 0.8960326475261604
+    },
+    {
+      "step": 4500,
+      "probe_loss": 0.7936472573730362
+    },
+    {
+      "step": 4600,
+      "probe_loss": 0.8618683135453182
+    },
+    {
+      "step": 4700,
+      "probe_loss": 0.7943788027611618
+    },
+    {
+      "step": 4800,
+      "probe_loss": 0.8766410341883005
+    },
+    {
+      "step": 4900,
+      "probe_loss": 0.6619017809708748
+    },
+    {
+      "step": 5000,
+      "probe_loss": 0.7782650731955937
+    },
+    {
+      "step": 5100,
+      "probe_loss": 0.8678686344573998
+    },
+    {
+      "step": 5200,
+      "probe_loss": 0.7637030434129337
+    },
+    {
+      "step": 5300,
+      "probe_loss": 0.923848697715938
+    },
+    {
+      "step": 5400,
+      "probe_loss": 0.8051935942055138
+    },
+    {
+      "step": 5500,
+      "probe_loss": 0.9163704885290304
+    },
+    {
+      "step": 5600,
+      "probe_loss": 0.8212846369353474
+    },
+    {
+      "step": 5700,
+      "probe_loss": 0.6953343607991428
+    },
+    {
+      "step": 5800,
+      "probe_loss": 0.7550812725005608
+    },
+    {
+      "step": 5900,
+      "probe_loss": 0.7222773491548651
+    },
+    {
+      "step": 6000,
+      "probe_loss": 0.7666758505165399
+    }
+  ],
+  "rare_nonzero_rate": 0.0,
+  "ink_degenerate_rate": NaN,
+  "cos_mean": 0.4306713959284492,
+  "cos_std": 0.14753218294129913,
+  "ladder_coverage_train": {
+    "with_ladder": 0,
+    "lookup_questions": 365
+  },
+  "count_labels": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5+"
+  ],
+  "compare_labels": [
+    "first",
+    "second",
+    "equal"
+  ],
+  "gates": {
+    "G_arc_enc_frozen": true,
+    "G_ink_verified": true,
+    "G_task_exists": true,
+    "G_exact_algebra_matches_tape": true,
+    "G_lookup_beats_floor": true,
+    "G_lookup_beats_counts_paired": true,
+    "G_lookup_beats_retrieval_paired": false,
+    "G_phi_orders_negatives": false
+  },
+  "held_out": {
+    "count": {
+      "n": 650,
+      "model_accuracy": 1.0,
+      "rival_accuracy": 1.0,
+      "random_floor": 0.2000000000000018
+    },
+    "compare": {
+      "n": 325,
+      "model_accuracy": 1.0,
+      "rival_accuracy": 1.0,
+      "random_floor": 0.3333333333333319
+    },
+    "lookup": {
+      "n": 350,
+      "model_accuracy": 0.7485714285714286,
+      "rival_accuracy": 0.41714285714285715,
+      "random_floor": 0.28546363160648824,
+      "rival_cos_accuracy": 0.7514285714285714,
+      "rival_cos_answered": 350
+    },
+    "lookup_paired_vs_rival": {
+      "model_only_right": 135,
+      "rival_only_right": 19,
+      "discordant": 154,
+      "mcnemar_z": 9.34754638269441
+    },
+    "lookup_paired_vs_rival_cos": {
+      "n": 350,
+      "model_only_right": 9,
+      "rival_only_right": 10,
+      "discordant": 19,
+      "mcnemar_z": -0.22941573387056174,
+      "max_achievable_z": 4.358898943540674,
+      "underpowered": false
+    },
+    "lookup_paired_vs_rival_cos_by_margin": {
+      "median_margin": 0.12198340892791748,
+      "low_margin": {
+        "n": 176,
+        "model_only_right": 8,
+        "rival_only_right": 5,
+        "discordant": 13,
+        "mcnemar_z": 0.8320502943378437,
+        "max_achievable_z": 3.605551275463989,
+        "underpowered": false
+      },
+      "high_margin": {
+        "n": 174,
+        "model_only_right": 1,
+        "rival_only_right": 5,
+        "discordant": 6,
+        "mcnemar_z": -1.6329931618554523,
+        "max_achievable_z": 2.449489742783178,
+        "underpowered": false
+      }
+    },
+    "ladder": {
+      "n_questions": 0,
+      "pairs": 0,
+      "concordant": 0,
+      "ties_excluded": 0,
+      "import_budget_zero_rate": 0.0,
+      "import_budget_mean": 0.0,
+      "concordance": NaN,
+      "z_vs_half": NaN,
+      "mean_phi": {
+        "true": NaN,
+        "near": NaN,
+        "middle": NaN,
+        "far": NaN
+      }
+    },
+    "exact_mismatches": 0,
+    "confusion": {
+      "compare|equal->equal": 133,
+      "compare|first->first": 114,
+      "compare|second->second": 78,
+      "count|1->1": 360,
+      "count|2->2": 194,
+      "count|3->3": 43,
+      "count|4->4": 20,
+      "count|5+->5+": 33,
+      "lookup|Advancement->Advancement": 1,
+      "lookup|Advancement->Conservation": 1,
+      "lookup|Albert->Albert": 2,
+      "lookup|American->American": 2,
+      "lookup|Aubame->Aubame": 2,
+      "lookup|Australia->Australia": 5,
+      "lookup|Australia->France": 1,
+      "lookup|Australia->Ireland": 1,
+      "lookup|Barbarian->Barbarian": 2,
+      "lookup|Beatles->Beatles": 1,
+      "lookup|Beatles->Genesis": 1,
+      "lookup|Benton->Benton": 2,
+      "lookup|Caligula->Caligula": 2,
+      "lookup|Caligula->Frost": 1,
+      "lookup|Cambridge->Cambridge": 2,
+      "lookup|Canucks->Canucks": 4,
+      "lookup|Carthage->Carthage": 2,
+      "lookup|China->China": 2,
+      "lookup|China->Under": 1,
+      "lookup|Clark->Clark": 2,
+      "lookup|Cleveland->Chicago": 1,
+      "lookup|Cleveland->World": 1,
+      "lookup|Cliffhanger->Intersect": 1,
+      "lookup|Cliffhanger->Wedding": 1,
+      "lookup|Conservation->Conservation": 3,
+      "lookup|David->David": 2,
+      "lookup|Destroyer->Barbarian": 2,
+      "lookup|Digital->Digital": 2,
+      "lookup|Dirty->Dirty": 1,
+      "lookup|Dirty->Fantabulosa": 1,
+      "lookup|District->District": 2,
+      "lookup|Division->Division": 2,
+      "lookup|Doctor->Doctor": 10,
+      "lookup|Dorset->Dorset": 2,
+      "lookup|Drama->Drama": 3,
+      "lookup|Drama->Series": 1,
+      "lookup|Dunder->Dunder": 3,
+      "lookup|Earth->Earth": 2,
+      "lookup|England->England": 2,
+      "lookup|Enterprise->Enterprise": 2,
+      "lookup|Enterprise->United": 2,
+      "lookup|European->European": 6,
+      "lookup|European->United": 1,
+      "lookup|Exeter->Exeter": 3,
+      "lookup|Family->Family": 2,
+      "lookup|Family->Wedding": 1,
+      "lookup|France->Ireland": 1,
+      "lookup|France->Member": 1,
+      "lookup|Frost->Caligula": 1,
+      "lookup|Frost->Fantabulosa": 1,
+      "lookup|Garfield->Garfield": 2,
+      "lookup|George->George": 1,
+      "lookup|George->Officers": 1,
+      "lookup|German->German": 4,
+      "lookup|German->Kaiserliche": 1,
+      "lookup|Giants->Giants": 2,
+      "lookup|Grand->Grand": 2,
+      "lookup|Griffith->Griffith": 1,
+      "lookup|Griffith->Wagga": 1,
+      "lookup|Harrow->Harrow": 2,
+      "lookup|Harvard->Harvard": 2,
+      "lookup|Heinrich->Heinrich": 3,
+      "lookup|Hepburn->Hepburn": 3,
+      "lookup|House->Enterprise": 1,
+      "lookup|House->Financial": 1,
+      "lookup|International->International": 3,
+      "lookup|International->Triple": 1,
+      "lookup|Intersect->Family": 2,
+      "lookup|Ireland->Australia": 2,
+      "lookup|Ireland->France": 1,
+      "lookup|Ireland->Latin": 1,
+      "lookup|Jagdgeschwader->Jagdgeschwader": 7,
+      "lookup|Japanese->Southeast": 2,
+      "lookup|Jefferson->Jefferson": 2,
+      "lookup|Joint->Joint": 3,
+      "lookup|Jonas->Bronlewee": 2,
+      "lookup|Kashmir->Uttarakhand": 2,
+      "lookup|Keyes->Keyes": 7,
+      "lookup|Kokumbona->Kokumbona": 2,
+      "lookup|Korean->Korean": 2,
+      "lookup|Larrabee->Larrabee": 1,
+      "lookup|Larrabee->Mixstar": 1,
+      "lookup|London->London": 4,
+      "lookup|Marines->Infantry": 1,
+      "lookup|Marines->Marines": 1,
+      "lookup|Maryland->Tennessee": 2,
+      "lookup|Member->Member": 4,
+      "lookup|Mexican->Puerto": 2,
+      "lookup|Mickey->Mickey": 2,
+      "lookup|Middle->America": 1,
+      "lookup|Middle->Australia": 2,
+      "lookup|Mongolian->Mongolian": 2,
+      "lookup|Month->Month": 2,
+      "lookup|National->Draft": 2,
+      "lookup|National->National": 4,
+      "lookup|National->Royals": 1,
+      "lookup|National->Thanksgiving": 1,
+      "lookup|Netherlands->Brenner": 2,
+      "lookup|Network->Network": 2,
+      "lookup|Nielsen->Nielsen": 5,
+      "lookup|North->Australia": 1,
+      "lookup|North->Birmingham": 1,
+      "lookup|North->Dublin": 1,
+      "lookup|North->Latin": 2,
+      "lookup|North->North": 1,
+      "lookup|Officers->Officers": 6,
+      "lookup|Pearce->Pearce": 5,
+      "lookup|Perth->Perth": 2,
+      "lookup|Phillip->Phillip": 3,
+      "lookup|Portias->Portias": 2,
+      "lookup|Portugal->Portugal": 2,
+      "lookup|Portuguese->English": 2,
+      "lookup|Presidential->Presidential": 2,
+      "lookup|Prince->Prince": 2,
+      "lookup|Queensland->Queensland": 2,
+      "lookup|Rewards->Rewards": 2,
+      "lookup|Romans->Council": 1,
+      "lookup|Romans->Romans": 1,
+      "lookup|Safety->Safety": 2,
+      "lookup|Santana->Doctor": 1,
+      "lookup|Santana->Santana": 1,
+      "lookup|Screen->Screen": 2,
+      "lookup|Series->Drama": 1,
+      "lookup|Series->Series": 3,
+      "lookup|Somerset->Somerset": 2,
+      "lookup|South->Continental": 2,
+      "lookup|South->Kokumbona": 1,
+      "lookup|South->Manchuria": 1,
+      "lookup|South->South": 5,
+      "lookup|Southeast->Japanese": 1,
+      "lookup|Southeast->Myanmar": 1,
+      "lookup|Southeast->Southeast": 1,
+      "lookup|Sports->Sports": 2,
+      "lookup|Standing->Foreign": 2,
+      "lookup|State->State": 3,
+      "lookup|Switzerland->Brazil": 1,
+      "lookup|Switzerland->Italy": 1,
+      "lookup|Thani->Thani": 4,
+      "lookup|Third->Third": 2,
+      "lookup|Thomas->Thomas": 3,
+      "lookup|Tower->Advancement": 1,
+      "lookup|Tower->Conservation": 1,
+      "lookup|Tracy->Tracy": 2,
+      "lookup|Unicorn->Seven": 1,
+      "lookup|Unicorn->Unicorn": 1,
+      "lookup|United->Enterprise": 1,
+      "lookup|United->Florida": 2,
+      "lookup|United->United": 20,
+      "lookup|Usher->Usher": 2,
+      "lookup|Uttarakhand->Uttarakhand": 2,
+      "lookup|Victoria->Victoria": 7,
+      "lookup|Virgin->Council": 1,
+      "lookup|Virgin->Glorious": 1,
+      "lookup|Virgin->Virgin": 1,
+      "lookup|Wagga->Griffith": 1,
+      "lookup|Wagga->Wagga": 1,
+      "lookup|Wedding->Cliffhanger": 1,
+      "lookup|Wedding->Family": 1,
+      "lookup|Wedding->Wedding": 2,
+      "lookup|Wilton->Wilton": 2,
+      "lookup|Women->Women": 9,
+      "lookup|Younger->Elder": 2
+    },
+    "lookup_item_hits": [
+      {
+        "k": "fp1008:deferiet|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1008:deferiet|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1022:west coast main line|major negative impact#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1022:west coast main line|major negative impact#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1022:west coast main line|major negative impact#2",
+        "hit": 1
+      },
+      {
+        "k": "fp1022:west coast main line|major negative impact#3",
+        "hit": 1
+      },
+      {
+        "k": "fp1022:west coast main line|major negative impact#4",
+        "hit": 1
+      },
+      {
+        "k": "fp1022:west coast main line|major negative impact#5",
+        "hit": 1
+      },
+      {
+        "k": "fp1022:west coast main line|major negative impact#6",
+        "hit": 1
+      },
+      {
+        "k": "fp1027:jones|left tackle#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1027:jones|left tackle#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1027:jones|left tackle#2",
+        "hit": 1
+      },
+      {
+        "k": "fp1027:jones|left tackle#3",
+        "hit": 1
+      },
+      {
+        "k": "fp1027:jones|left tackle#4",
+        "hit": 1
+      },
+      {
+        "k": "fp1027:jones|left tackle#5",
+        "hit": 1
+      },
+      {
+        "k": "fp1027:jones|left tackle#7",
+        "hit": 1
+      },
+      {
+        "k": "fp1031:primetime emmy award|nomination for#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1031:primetime emmy award|nomination for#2",
+        "hit": 1
+      },
+      {
+        "k": "fp1034:conan|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1034:conan|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1034:conan|the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp1034:conan|the#3",
+        "hit": 0
+      },
+      {
+        "k": "fp1067:western pacific|were named the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1067:western pacific|were named the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp1067:western pacific|were named the#3",
+        "hit": 1
+      },
+      {
+        "k": "fp1072:supreme council|the#3",
+        "hit": 1
+      },
+      {
+        "k": "fp1072:supreme council|the#4",
+        "hit": 1
+      },
+      {
+        "k": "fp1072:supreme council|the#5",
+        "hit": 1
+      },
+      {
+        "k": "fp1072:supreme council|the#6",
+        "hit": 1
+      },
+      {
+        "k": "fp1089:english|under the title#10",
+        "hit": 1
+      },
+      {
+        "k": "fp1089:english|under the title#7",
+        "hit": 0
+      },
+      {
+        "k": "fp1089:english|under the title#8",
+        "hit": 1
+      },
+      {
+        "k": "fp1089:english|under the title#9",
+        "hit": 1
+      },
+      {
+        "k": "fp111:indian|and#14",
+        "hit": 0
+      },
+      {
+        "k": "fp111:indian|and#15",
+        "hit": 1
+      },
+      {
+        "k": "fp111:indian|and#16",
+        "hit": 1
+      },
+      {
+        "k": "fp111:indian|and#3",
+        "hit": 0
+      },
+      {
+        "k": "fp111:indian|and#4",
+        "hit": 1
+      },
+      {
+        "k": "fp111:indian|and#5",
+        "hit": 0
+      },
+      {
+        "k": "fp111:indian|and#6",
+        "hit": 1
+      },
+      {
+        "k": "fp111:indian|and#7",
+        "hit": 1
+      },
+      {
+        "k": "fp111:indian|and#8",
+        "hit": 1
+      },
+      {
+        "k": "fp1147:the secret|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1147:the secret|the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp114:national organization|for#0",
+        "hit": 1
+      },
+      {
+        "k": "fp114:national organization|for#1",
+        "hit": 1
+      },
+      {
+        "k": "fp114:national organization|for#10",
+        "hit": 1
+      },
+      {
+        "k": "fp114:national organization|for#11",
+        "hit": 1
+      },
+      {
+        "k": "fp114:national organization|for#12",
+        "hit": 1
+      },
+      {
+        "k": "fp114:national organization|for#13",
+        "hit": 0
+      },
+      {
+        "k": "fp114:national organization|for#14",
+        "hit": 0
+      },
+      {
+        "k": "fp114:national organization|for#2",
+        "hit": 1
+      },
+      {
+        "k": "fp114:national organization|for#4",
+        "hit": 0
+      },
+      {
+        "k": "fp114:national organization|for#8",
+        "hit": 1
+      },
+      {
+        "k": "fp114:national organization|for#9",
+        "hit": 1
+      },
+      {
+        "k": "fp117:latino|any race#1",
+        "hit": 0
+      },
+      {
+        "k": "fp117:latino|any race#2",
+        "hit": 0
+      },
+      {
+        "k": "fp1207:austin|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1207:austin|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp120:italia|one cycling#0",
+        "hit": 1
+      },
+      {
+        "k": "fp120:italia|one cycling#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1221:hartlepool|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1221:hartlepool|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1268:january|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1268:january|the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp1268:january|the#3",
+        "hit": 0
+      },
+      {
+        "k": "fp1268:january|the#7",
+        "hit": 1
+      },
+      {
+        "k": "fp12:portuguese|broadcaster dio unk#0",
+        "hit": 1
+      },
+      {
+        "k": "fp12:portuguese|broadcaster dio unk#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1314:hop songs|giving#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1314:hop songs|giving#2",
+        "hit": 1
+      },
+      {
+        "k": "fp1322:yankees|lost the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp1322:yankees|lost the#2",
+        "hit": 0
+      },
+      {
+        "k": "fp1342:reykjavik|his involvement the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1342:reykjavik|his involvement the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1342:reykjavik|his involvement the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp1342:reykjavik|his involvement the#3",
+        "hit": 1
+      },
+      {
+        "k": "fp1342:reykjavik|his involvement the#4",
+        "hit": 1
+      },
+      {
+        "k": "fp1342:reykjavik|his involvement the#5",
+        "hit": 1
+      },
+      {
+        "k": "fp1342:reykjavik|his involvement the#6",
+        "hit": 1
+      },
+      {
+        "k": "fp1352:james|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1352:james|and#2",
+        "hit": 1
+      },
+      {
+        "k": "fp1352:james|and#3",
+        "hit": 1
+      },
+      {
+        "k": "fp1375:maryland|and correspondence the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1375:maryland|and correspondence the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp1375:maryland|and correspondence the#3",
+        "hit": 1
+      },
+      {
+        "k": "fp1375:maryland|and correspondence the#4",
+        "hit": 0
+      },
+      {
+        "k": "fp1375:maryland|and correspondence the#5",
+        "hit": 1
+      },
+      {
+        "k": "fp1375:maryland|and correspondence the#6",
+        "hit": 0
+      },
+      {
+        "k": "fp1379:toronto maple leafs|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1379:toronto maple leafs|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1399:greeks|the#2",
+        "hit": 0
+      },
+      {
+        "k": "fp1399:greeks|the#3",
+        "hit": 1
+      },
+      {
+        "k": "fp1417:california|mixed#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1417:california|mixed#1",
+        "hit": 0
+      },
+      {
+        "k": "fp1442:europe|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1442:europe|and#1",
+        "hit": 0
+      },
+      {
+        "k": "fp1466:standing committee|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1466:standing committee|the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp1492:hamilton|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1492:hamilton|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1501:terrance|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1501:terrance|and#2",
+        "hit": 1
+      },
+      {
+        "k": "fp1501:terrance|and#3",
+        "hit": 1
+      },
+      {
+        "k": "fp1601:london|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1601:london|and#2",
+        "hit": 0
+      },
+      {
+        "k": "fp1603:london|and#4",
+        "hit": 0
+      },
+      {
+        "k": "fp1603:london|and#5",
+        "hit": 0
+      },
+      {
+        "k": "fp1644:seneca|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1644:seneca|the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp1703:somerset|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1703:somerset|and#2",
+        "hit": 1
+      },
+      {
+        "k": "fp1732:rochester red wings|the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp1732:rochester red wings|the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp181:japanese|invasion#11",
+        "hit": 1
+      },
+      {
+        "k": "fp181:japanese|invasion#15",
+        "hit": 1
+      },
+      {
+        "k": "fp181:japanese|invasion#16",
+        "hit": 1
+      },
+      {
+        "k": "fp181:japanese|invasion#2",
+        "hit": 0
+      },
+      {
+        "k": "fp181:japanese|invasion#6",
+        "hit": 1
+      },
+      {
+        "k": "fp181:japanese|invasion#7",
+        "hit": 1
+      },
+      {
+        "k": "fp181:japanese|invasion#8",
+        "hit": 0
+      },
+      {
+        "k": "fp1850:queen victoria|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1850:queen victoria|and#2",
+        "hit": 1
+      },
+      {
+        "k": "fp1930:july|formed east the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1930:july|formed east the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp2002:the president|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp2002:the president|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp2002:the president|the#2",
+        "hit": 0
+      },
+      {
+        "k": "fp2003:braunschweig|class the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp2003:braunschweig|class the#2",
+        "hit": 0
+      },
+      {
+        "k": "fp2009:heinonline|behalf#0",
+        "hit": 1
+      },
+      {
+        "k": "fp2009:heinonline|behalf#1",
+        "hit": 1
+      },
+      {
+        "k": "fp203:july|with#3",
+        "hit": 1
+      },
+      {
+        "k": "fp203:july|with#4",
+        "hit": 1
+      },
+      {
+        "k": "fp203:july|with#5",
+        "hit": 1
+      },
+      {
+        "k": "fp203:july|with#6",
+        "hit": 1
+      },
+      {
+        "k": "fp2091:france|the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp2091:france|the#3",
+        "hit": 1
+      },
+      {
+        "k": "fp229:the girlie show|with#0",
+        "hit": 1
+      },
+      {
+        "k": "fp229:the girlie show|with#1",
+        "hit": 1
+      },
+      {
+        "k": "fp229:the girlie show|with#2",
+        "hit": 1
+      },
+      {
+        "k": "fp229:the girlie show|with#3",
+        "hit": 1
+      },
+      {
+        "k": "fp240:outstanding directing|for#0",
+        "hit": 1
+      },
+      {
+        "k": "fp240:outstanding directing|for#1",
+        "hit": 1
+      },
+      {
+        "k": "fp240:outstanding directing|for#2",
+        "hit": 0
+      },
+      {
+        "k": "fp240:outstanding directing|for#4",
+        "hit": 1
+      },
+      {
+        "k": "fp240:outstanding directing|for#5",
+        "hit": 1
+      },
+      {
+        "k": "fp240:outstanding directing|for#6",
+        "hit": 1
+      },
+      {
+        "k": "fp240:outstanding directing|for#7",
+        "hit": 0
+      },
+      {
+        "k": "fp240:outstanding directing|for#8",
+        "hit": 1
+      },
+      {
+        "k": "fp260:victoria|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp260:victoria|and#10",
+        "hit": 1
+      },
+      {
+        "k": "fp260:victoria|and#11",
+        "hit": 1
+      },
+      {
+        "k": "fp260:victoria|and#12",
+        "hit": 1
+      },
+      {
+        "k": "fp260:victoria|and#13",
+        "hit": 1
+      },
+      {
+        "k": "fp260:victoria|and#14",
+        "hit": 1
+      },
+      {
+        "k": "fp260:victoria|and#15",
+        "hit": 1
+      },
+      {
+        "k": "fp260:victoria|and#16",
+        "hit": 1
+      },
+      {
+        "k": "fp260:victoria|and#17",
+        "hit": 1
+      },
+      {
+        "k": "fp260:victoria|and#18",
+        "hit": 0
+      },
+      {
+        "k": "fp260:victoria|and#19",
+        "hit": 1
+      },
+      {
+        "k": "fp260:victoria|and#2",
+        "hit": 1
+      },
+      {
+        "k": "fp260:victoria|and#3",
+        "hit": 1
+      },
+      {
+        "k": "fp260:victoria|and#4",
+        "hit": 1
+      },
+      {
+        "k": "fp260:victoria|and#5",
+        "hit": 1
+      },
+      {
+        "k": "fp260:victoria|and#6",
+        "hit": 1
+      },
+      {
+        "k": "fp260:victoria|and#7",
+        "hit": 1
+      },
+      {
+        "k": "fp260:victoria|and#8",
+        "hit": 1
+      },
+      {
+        "k": "fp280:best actor|win for#0",
+        "hit": 1
+      },
+      {
+        "k": "fp280:best actor|win for#1",
+        "hit": 1
+      },
+      {
+        "k": "fp280:best actor|win for#10",
+        "hit": 1
+      },
+      {
+        "k": "fp280:best actor|win for#3",
+        "hit": 0
+      },
+      {
+        "k": "fp280:best actor|win for#4",
+        "hit": 0
+      },
+      {
+        "k": "fp280:best actor|win for#5",
+        "hit": 0
+      },
+      {
+        "k": "fp280:best actor|win for#6",
+        "hit": 1
+      },
+      {
+        "k": "fp280:best actor|win for#8",
+        "hit": 0
+      },
+      {
+        "k": "fp280:best actor|win for#9",
+        "hit": 1
+      },
+      {
+        "k": "fp290:chinese|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp290:chinese|and#1",
+        "hit": 0
+      },
+      {
+        "k": "fp290:chinese|and#2",
+        "hit": 0
+      },
+      {
+        "k": "fp290:chinese|and#3",
+        "hit": 0
+      },
+      {
+        "k": "fp290:chinese|and#5",
+        "hit": 1
+      },
+      {
+        "k": "fp299:german type|submarine boat the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp299:german type|submarine boat the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp299:german type|submarine boat the#3",
+        "hit": 1
+      },
+      {
+        "k": "fp305:november|and#11",
+        "hit": 1
+      },
+      {
+        "k": "fp305:november|and#14",
+        "hit": 1
+      },
+      {
+        "k": "fp320:europe|and the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp320:europe|and the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp320:europe|and the#10",
+        "hit": 1
+      },
+      {
+        "k": "fp320:europe|and the#11",
+        "hit": 1
+      },
+      {
+        "k": "fp320:europe|and the#3",
+        "hit": 0
+      },
+      {
+        "k": "fp320:europe|and the#5",
+        "hit": 0
+      },
+      {
+        "k": "fp320:europe|and the#6",
+        "hit": 1
+      },
+      {
+        "k": "fp320:europe|and the#7",
+        "hit": 1
+      },
+      {
+        "k": "fp321:blu ray|release was the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp321:blu ray|release was the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp321:blu ray|release was the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp321:blu ray|release was the#3",
+        "hit": 1
+      },
+      {
+        "k": "fp321:blu ray|release was the#4",
+        "hit": 1
+      },
+      {
+        "k": "fp321:blu ray|release was the#5",
+        "hit": 1
+      },
+      {
+        "k": "fp321:blu ray|release was the#6",
+        "hit": 1
+      },
+      {
+        "k": "fp321:blu ray|release was the#7",
+        "hit": 1
+      },
+      {
+        "k": "fp351:october|against the#13",
+        "hit": 1
+      },
+      {
+        "k": "fp351:october|against the#15",
+        "hit": 1
+      },
+      {
+        "k": "fp351:october|against the#16",
+        "hit": 1
+      },
+      {
+        "k": "fp351:october|against the#4",
+        "hit": 1
+      },
+      {
+        "k": "fp351:october|against the#5",
+        "hit": 1
+      },
+      {
+        "k": "fp351:october|against the#6",
+        "hit": 1
+      },
+      {
+        "k": "fp351:october|against the#7",
+        "hit": 1
+      },
+      {
+        "k": "fp370:indian premier league|held#2",
+        "hit": 1
+      },
+      {
+        "k": "fp370:indian premier league|held#3",
+        "hit": 1
+      },
+      {
+        "k": "fp375:british army|the#10",
+        "hit": 1
+      },
+      {
+        "k": "fp375:british army|the#12",
+        "hit": 1
+      },
+      {
+        "k": "fp375:british army|the#13",
+        "hit": 1
+      },
+      {
+        "k": "fp375:british army|the#14",
+        "hit": 0
+      },
+      {
+        "k": "fp375:british army|the#15",
+        "hit": 1
+      },
+      {
+        "k": "fp375:british army|the#3",
+        "hit": 1
+      },
+      {
+        "k": "fp375:british army|the#4",
+        "hit": 1
+      },
+      {
+        "k": "fp375:british army|the#5",
+        "hit": 1
+      },
+      {
+        "k": "fp375:british army|the#6",
+        "hit": 1
+      },
+      {
+        "k": "fp375:british army|the#7",
+        "hit": 1
+      },
+      {
+        "k": "fp375:british army|the#8",
+        "hit": 1
+      },
+      {
+        "k": "fp375:british army|the#9",
+        "hit": 1
+      },
+      {
+        "k": "fp392:chuck versus|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp392:chuck versus|the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp392:chuck versus|the#10",
+        "hit": 1
+      },
+      {
+        "k": "fp392:chuck versus|the#11",
+        "hit": 1
+      },
+      {
+        "k": "fp392:chuck versus|the#12",
+        "hit": 1
+      },
+      {
+        "k": "fp392:chuck versus|the#2",
+        "hit": 0
+      },
+      {
+        "k": "fp392:chuck versus|the#3",
+        "hit": 1
+      },
+      {
+        "k": "fp392:chuck versus|the#4",
+        "hit": 1
+      },
+      {
+        "k": "fp392:chuck versus|the#5",
+        "hit": 0
+      },
+      {
+        "k": "fp392:chuck versus|the#6",
+        "hit": 0
+      },
+      {
+        "k": "fp392:chuck versus|the#7",
+        "hit": 0
+      },
+      {
+        "k": "fp392:chuck versus|the#8",
+        "hit": 0
+      },
+      {
+        "k": "fp392:chuck versus|the#9",
+        "hit": 1
+      },
+      {
+        "k": "fp397:pennsylvania|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp397:pennsylvania|the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp397:pennsylvania|the#3",
+        "hit": 1
+      },
+      {
+        "k": "fp403:albury|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp403:albury|and#1",
+        "hit": 0
+      },
+      {
+        "k": "fp403:albury|and#2",
+        "hit": 1
+      },
+      {
+        "k": "fp403:albury|and#3",
+        "hit": 1
+      },
+      {
+        "k": "fp407:january|was the#8",
+        "hit": 1
+      },
+      {
+        "k": "fp407:january|was the#9",
+        "hit": 1
+      },
+      {
+        "k": "fp418:queensland|spiders nests all#1",
+        "hit": 1
+      },
+      {
+        "k": "fp418:queensland|spiders nests all#2",
+        "hit": 1
+      },
+      {
+        "k": "fp439:new york giants|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp439:new york giants|the#3",
+        "hit": 0
+      },
+      {
+        "k": "fp45:spanish|and#1",
+        "hit": 0
+      },
+      {
+        "k": "fp45:spanish|and#2",
+        "hit": 0
+      },
+      {
+        "k": "fp463:world war|and the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp463:world war|and the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp481:isis|beat#0",
+        "hit": 1
+      },
+      {
+        "k": "fp481:isis|beat#2",
+        "hit": 1
+      },
+      {
+        "k": "fp481:isis|beat#3",
+        "hit": 1
+      },
+      {
+        "k": "fp481:isis|beat#4",
+        "hit": 1
+      },
+      {
+        "k": "fp481:isis|beat#5",
+        "hit": 1
+      },
+      {
+        "k": "fp481:isis|beat#6",
+        "hit": 1
+      },
+      {
+        "k": "fp481:isis|beat#7",
+        "hit": 1
+      },
+      {
+        "k": "fp481:isis|beat#8",
+        "hit": 1
+      },
+      {
+        "k": "fp481:isis|beat#9",
+        "hit": 1
+      },
+      {
+        "k": "fp50:the day|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp50:the day|the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp534:canada|and south#1",
+        "hit": 0
+      },
+      {
+        "k": "fp534:canada|and south#2",
+        "hit": 0
+      },
+      {
+        "k": "fp604:sweden|and#1",
+        "hit": 0
+      },
+      {
+        "k": "fp604:sweden|and#3",
+        "hit": 0
+      },
+      {
+        "k": "fp609:bolling|right tackle#0",
+        "hit": 1
+      },
+      {
+        "k": "fp609:bolling|right tackle#1",
+        "hit": 1
+      },
+      {
+        "k": "fp609:bolling|right tackle#2",
+        "hit": 1
+      },
+      {
+        "k": "fp609:bolling|right tackle#3",
+        "hit": 1
+      },
+      {
+        "k": "fp609:bolling|right tackle#4",
+        "hit": 1
+      },
+      {
+        "k": "fp616:italy|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp616:italy|the#2",
+        "hit": 0
+      },
+      {
+        "k": "fp661:bulgaria|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp661:bulgaria|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp684:united kingdom|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp684:united kingdom|and#1",
+        "hit": 0
+      },
+      {
+        "k": "fp684:united kingdom|and#10",
+        "hit": 1
+      },
+      {
+        "k": "fp684:united kingdom|and#11",
+        "hit": 1
+      },
+      {
+        "k": "fp684:united kingdom|and#12",
+        "hit": 0
+      },
+      {
+        "k": "fp684:united kingdom|and#13",
+        "hit": 1
+      },
+      {
+        "k": "fp684:united kingdom|and#14",
+        "hit": 1
+      },
+      {
+        "k": "fp684:united kingdom|and#15",
+        "hit": 1
+      },
+      {
+        "k": "fp684:united kingdom|and#16",
+        "hit": 1
+      },
+      {
+        "k": "fp684:united kingdom|and#17",
+        "hit": 1
+      },
+      {
+        "k": "fp684:united kingdom|and#18",
+        "hit": 1
+      },
+      {
+        "k": "fp684:united kingdom|and#2",
+        "hit": 0
+      },
+      {
+        "k": "fp684:united kingdom|and#4",
+        "hit": 0
+      },
+      {
+        "k": "fp684:united kingdom|and#5",
+        "hit": 0
+      },
+      {
+        "k": "fp684:united kingdom|and#6",
+        "hit": 0
+      },
+      {
+        "k": "fp684:united kingdom|and#8",
+        "hit": 0
+      },
+      {
+        "k": "fp734:his majesty|the award the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp734:his majesty|the award the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp734:his majesty|the award the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp734:his majesty|the award the#3",
+        "hit": 1
+      },
+      {
+        "k": "fp734:his majesty|the award the#4",
+        "hit": 1
+      },
+      {
+        "k": "fp734:his majesty|the award the#5",
+        "hit": 1
+      },
+      {
+        "k": "fp734:his majesty|the award the#6",
+        "hit": 1
+      },
+      {
+        "k": "fp734:his majesty|the award the#7",
+        "hit": 1
+      },
+      {
+        "k": "fp734:his majesty|the award the#8",
+        "hit": 1
+      },
+      {
+        "k": "fp745:virginia|and#3",
+        "hit": 0
+      },
+      {
+        "k": "fp745:virginia|and#4",
+        "hit": 0
+      },
+      {
+        "k": "fp809:chapman|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp809:chapman|and#1",
+        "hit": 0
+      },
+      {
+        "k": "fp847:state route|highway located entirely#1",
+        "hit": 1
+      },
+      {
+        "k": "fp847:state route|highway located entirely#2",
+        "hit": 1
+      },
+      {
+        "k": "fp850:kapit|nleutnant#1",
+        "hit": 1
+      },
+      {
+        "k": "fp850:kapit|nleutnant#10",
+        "hit": 1
+      },
+      {
+        "k": "fp850:kapit|nleutnant#11",
+        "hit": 1
+      },
+      {
+        "k": "fp850:kapit|nleutnant#2",
+        "hit": 1
+      },
+      {
+        "k": "fp850:kapit|nleutnant#4",
+        "hit": 1
+      },
+      {
+        "k": "fp850:kapit|nleutnant#5",
+        "hit": 1
+      },
+      {
+        "k": "fp850:kapit|nleutnant#6",
+        "hit": 1
+      },
+      {
+        "k": "fp850:kapit|nleutnant#7",
+        "hit": 1
+      },
+      {
+        "k": "fp850:kapit|nleutnant#8",
+        "hit": 1
+      },
+      {
+        "k": "fp850:kapit|nleutnant#9",
+        "hit": 1
+      },
+      {
+        "k": "fp8:japanese|unk#0",
+        "hit": 1
+      },
+      {
+        "k": "fp8:japanese|unk#1",
+        "hit": 1
+      },
+      {
+        "k": "fp8:japanese|unk#3",
+        "hit": 1
+      },
+      {
+        "k": "fp909:william|and#2",
+        "hit": 1
+      },
+      {
+        "k": "fp909:william|and#3",
+        "hit": 1
+      },
+      {
+        "k": "fp932:lewis|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp932:lewis|and#2",
+        "hit": 1
+      },
+      {
+        "k": "fp978:south west england|constituency the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp978:south west england|constituency the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp978:south west england|constituency the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp978:south west england|constituency the#3",
+        "hit": 1
+      },
+      {
+        "k": "fp97:november|the#12",
+        "hit": 0
+      },
+      {
+        "k": "fp97:november|the#13",
+        "hit": 1
+      },
+      {
+        "k": "fp97:november|the#14",
+        "hit": 0
+      },
+      {
+        "k": "fp97:november|the#15",
+        "hit": 1
+      },
+      {
+        "k": "fp97:november|the#19",
+        "hit": 1
+      },
+      {
+        "k": "fp97:november|the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp97:november|the#20",
+        "hit": 1
+      },
+      {
+        "k": "fp97:november|the#23",
+        "hit": 1
+      },
+      {
+        "k": "fp97:november|the#24",
+        "hit": 1
+      },
+      {
+        "k": "fp97:november|the#3",
+        "hit": 1
+      },
+      {
+        "k": "fp97:november|the#37",
+        "hit": 1
+      },
+      {
+        "k": "fp97:november|the#38",
+        "hit": 1
+      },
+      {
+        "k": "fp97:november|the#42",
+        "hit": 0
+      },
+      {
+        "k": "fp97:november|the#46",
+        "hit": 0
+      },
+      {
+        "k": "fp97:november|the#48",
+        "hit": 0
+      },
+      {
+        "k": "fp97:november|the#5",
+        "hit": 1
+      },
+      {
+        "k": "fp97:november|the#51",
+        "hit": 0
+      },
+      {
+        "k": "fp97:november|the#54",
+        "hit": 0
+      },
+      {
+        "k": "fp98:november|the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp98:november|the#2",
+        "hit": 0
+      }
+    ]
+  },
+  "train_control": {
+    "count": {
+      "n": 734,
+      "model_accuracy": 1.0,
+      "rival_accuracy": 1.0,
+      "random_floor": 0.2000000000000003
+    },
+    "compare": {
+      "n": 367,
+      "model_accuracy": 1.0,
+      "rival_accuracy": 1.0,
+      "random_floor": 0.33333333333333154
+    },
+    "lookup": {
+      "n": 365,
+      "model_accuracy": 0.7643835616438356,
+      "rival_accuracy": 0.5041095890410959,
+      "random_floor": 0.3258747995057848,
+      "rival_cos_accuracy": 0.7698630136986301,
+      "rival_cos_answered": 365
+    },
+    "lookup_paired_vs_rival": {
+      "model_only_right": 118,
+      "rival_only_right": 23,
+      "discordant": 141,
+      "mcnemar_z": 8.00044325013193
+    },
+    "lookup_paired_vs_rival_cos": {
+      "n": 365,
+      "model_only_right": 6,
+      "rival_only_right": 8,
+      "discordant": 14,
+      "mcnemar_z": -0.5345224838248488,
+      "max_achievable_z": 3.7416573867739413,
+      "underpowered": false
+    },
+    "lookup_paired_vs_rival_cos_by_margin": {
+      "median_margin": 0.18786346912384033,
+      "low_margin": {
+        "n": 184,
+        "model_only_right": 6,
+        "rival_only_right": 4,
+        "discordant": 10,
+        "mcnemar_z": 0.6324555320336759,
+        "max_achievable_z": 3.1622776601683795,
+        "underpowered": false
+      },
+      "high_margin": {
+        "n": 181,
+        "model_only_right": 0,
+        "rival_only_right": 4,
+        "discordant": 4,
+        "mcnemar_z": -2.0,
+        "max_achievable_z": 2.0,
+        "underpowered": false
+      }
+    },
+    "ladder": {
+      "n_questions": 0,
+      "pairs": 0,
+      "concordant": 0,
+      "ties_excluded": 0,
+      "import_budget_zero_rate": 0.0,
+      "import_budget_mean": 0.0,
+      "concordance": NaN,
+      "z_vs_half": NaN,
+      "mean_phi": {
+        "true": NaN,
+        "near": NaN,
+        "middle": NaN,
+        "far": NaN
+      }
+    },
+    "exact_mismatches": 0,
+    "confusion": {
+      "compare|equal->equal": 157,
+      "compare|first->first": 110,
+      "compare|second->second": 100,
+      "count|1->1": 429,
+      "count|2->2": 206,
+      "count|3->3": 48,
+      "count|4->4": 23,
+      "count|5+->5+": 28,
+      "lookup|Abbess->Abbess": 2,
+      "lookup|Alekhine->Alekhine": 2,
+      "lookup|Alexander->Alexander": 2,
+      "lookup|American->American": 5,
+      "lookup|American->Australian": 1,
+      "lookup|American->Civil": 2,
+      "lookup|American->Pittsburgh": 1,
+      "lookup|American->United": 2,
+      "lookup|American->World": 1,
+      "lookup|Anglo->Anglo": 2,
+      "lookup|Atmospheric->Atmospheric": 8,
+      "lookup|Beautiful->Beautiful": 1,
+      "lookup|Beautiful->Commodore": 1,
+      "lookup|Beautiful->Desperate": 1,
+      "lookup|Beautiful->Fringe": 1,
+      "lookup|Bengali->French": 1,
+      "lookup|Bengali->Traditional": 1,
+      "lookup|Bolton->Bolton": 2,
+      "lookup|Boston->Boston": 1,
+      "lookup|Boston->French": 1,
+      "lookup|Boston->Washington": 1,
+      "lookup|Brian->Brian": 2,
+      "lookup|Briggs->Briggs": 2,
+      "lookup|Buddha->Buddha": 2,
+      "lookup|Bullecourt->Bullecourt": 8,
+      "lookup|California->Idaho": 2,
+      "lookup|California->Washington": 1,
+      "lookup|Central->Central": 2,
+      "lookup|Chelsea->Chelsea": 2,
+      "lookup|Christopher->Christopher": 4,
+      "lookup|Cincinnati->Boston": 2,
+      "lookup|Civil->Civil": 4,
+      "lookup|Commander->Commander": 2,
+      "lookup|Council->Ponca": 2,
+      "lookup|Curse->Curse": 1,
+      "lookup|Curse->Genesis": 1,
+      "lookup|Decatur->Decatur": 2,
+      "lookup|Democratic->Democratic": 1,
+      "lookup|Democratic->United": 1,
+      "lookup|Desperate->Desperate": 2,
+      "lookup|Desperate->Fringe": 1,
+      "lookup|Doctor->Doctor": 8,
+      "lookup|Dominican->Dominican": 2,
+      "lookup|Eastern->Eastern": 2,
+      "lookup|England->England": 2,
+      "lookup|English->English": 6,
+      "lookup|Europe->Europe": 5,
+      "lookup|European->Middle": 1,
+      "lookup|European->Republic": 1,
+      "lookup|Final->Final": 2,
+      "lookup|Foundation->Foundation": 2,
+      "lookup|Fragilipedes->Fragilipedes": 1,
+      "lookup|Fragilipedes->Mycena": 1,
+      "lookup|France->France": 2,
+      "lookup|France->Officer": 1,
+      "lookup|French->Bengali": 1,
+      "lookup|French->French": 3,
+      "lookup|French->Welsh": 1,
+      "lookup|Fringe->Desperate": 2,
+      "lookup|Fuchs->Fuchs": 2,
+      "lookup|Games->Games": 3,
+      "lookup|Garter->Thistle": 2,
+      "lookup|George->George": 2,
+      "lookup|Grand->Grand": 2,
+      "lookup|Greeks->Greeks": 4,
+      "lookup|Gunpowder->Gunpowder": 2,
+      "lookup|Image->Image": 2,
+      "lookup|Impact->Impact": 3,
+      "lookup|Infantry->Battle": 1,
+      "lookup|Infantry->Infantry": 1,
+      "lookup|Japan->Japan": 2,
+      "lookup|Jupiter->Smyrna": 2,
+      "lookup|Kensington->Kensington": 2,
+      "lookup|Kirby->Kirby": 2,
+      "lookup|Kirby->Prime": 1,
+      "lookup|Kogami->Kogami": 2,
+      "lookup|Labour->Labour": 3,
+      "lookup|Larrabee->Mixstar": 1,
+      "lookup|Larrabee->Paper": 1,
+      "lookup|Latte->Latte": 2,
+      "lookup|League->League": 1,
+      "lookup|League->Northern": 1,
+      "lookup|Livingstone->Admiralty": 2,
+      "lookup|Louise->Louise": 2,
+      "lookup|Magnificent->First": 1,
+      "lookup|Magnificent->Magnificent": 4,
+      "lookup|Memphis->Memphis": 2,
+      "lookup|Michigan->Michigan": 2,
+      "lookup|Microsoft->James": 1,
+      "lookup|Microsoft->Microsoft": 1,
+      "lookup|Midway->Midway": 2,
+      "lookup|Mixstar->Mixstar": 2,
+      "lookup|Mormonism->Mormonism": 2,
+      "lookup|Mountain->Mountain": 5,
+      "lookup|Nadal->Djokovic": 2,
+      "lookup|National->American": 1,
+      "lookup|National->National": 2,
+      "lookup|National->United": 2,
+      "lookup|Naval->Naval": 2,
+      "lookup|Netherlands->Assembly": 1,
+      "lookup|Netherlands->Netherlands": 1,
+      "lookup|Netherlands->United": 2,
+      "lookup|Nielsen->Nielsen": 14,
+      "lookup|Nimzo->Nimzo": 2,
+      "lookup|Nobel->Nobel": 2,
+      "lookup|Normale->Normale": 2,
+      "lookup|North->North": 5,
+      "lookup|North->South": 1,
+      "lookup|Northern->National": 1,
+      "lookup|Northern->Northern": 1,
+      "lookup|Officer->Officers": 3,
+      "lookup|Officers->Officer": 3,
+      "lookup|Order->Order": 1,
+      "lookup|Order->Portuguese": 5,
+      "lookup|Persia->Persia": 2,
+      "lookup|Persian->Persian": 2,
+      "lookup|Players->Players": 2,
+      "lookup|Portugal->Estonia": 1,
+      "lookup|Portugal->Portugal": 1,
+      "lookup|Portuguese->Portuguese": 4,
+      "lookup|Prime->Prime": 4,
+      "lookup|Pulitzer->United": 2,
+      "lookup|Rough->Rough": 3,
+      "lookup|Royal->Portuguese": 1,
+      "lookup|Royal->Royal": 1,
+      "lookup|Saturdays->Saturdays": 2,
+      "lookup|Schuster->Schuster": 8,
+      "lookup|Sicilian->Nimzo": 1,
+      "lookup|Sicilian->Sicilian": 3,
+      "lookup|Singapore->Singapore": 2,
+      "lookup|Single->Single": 3,
+      "lookup|South->United": 2,
+      "lookup|Sparta->Athens": 1,
+      "lookup|Sparta->Sparta": 1,
+      "lookup|Spassky->Spassky": 3,
+      "lookup|Stout->Volsung": 2,
+      "lookup|Summer->Summer": 2,
+      "lookup|Tresco->Tresco": 2,
+      "lookup|Tribbles->Tribbles": 3,
+      "lookup|Turriff->Turriff": 2,
+      "lookup|United->French": 1,
+      "lookup|United->Imperial": 1,
+      "lookup|United->Labour": 1,
+      "lookup|United->Netherlands": 1,
+      "lookup|United->Soviet": 1,
+      "lookup|United->United": 22,
+      "lookup|United->Wellcome": 1,
+      "lookup|Valencia->Valencia": 2,
+      "lookup|Virginia->Virginia": 4,
+      "lookup|Washington->Boston": 1,
+      "lookup|Washington->California": 2,
+      "lookup|Washington->French": 1,
+      "lookup|World->World": 14,
+      "lookup|Yugoslav->Yugoslav": 4
+    },
+    "lookup_item_hits": [
+      {
+        "k": "fp1020:june|the match against#1",
+        "hit": 0
+      },
+      {
+        "k": "fp1020:june|the match against#2",
+        "hit": 1
+      },
+      {
+        "k": "fp1036:egypt|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1036:egypt|the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp1047:cup final|was football match#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1047:cup final|was football match#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1061:hubert fisher|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1061:hubert fisher|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1061:hubert fisher|and#2",
+        "hit": 1
+      },
+      {
+        "k": "fp1061:hubert fisher|and#3",
+        "hit": 1
+      },
+      {
+        "k": "fp1083:puerto rico|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1083:puerto rico|and#2",
+        "hit": 1
+      },
+      {
+        "k": "fp110:european election|elected three two#0",
+        "hit": 1
+      },
+      {
+        "k": "fp110:european election|elected three two#1",
+        "hit": 1
+      },
+      {
+        "k": "fp110:european election|elected three two#2",
+        "hit": 1
+      },
+      {
+        "k": "fp110:european election|elected three two#4",
+        "hit": 0
+      },
+      {
+        "k": "fp110:european election|elected three two#7",
+        "hit": 0
+      },
+      {
+        "k": "fp1121:september|the unk#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1121:september|the unk#2",
+        "hit": 1
+      },
+      {
+        "k": "fp1126:suleiman|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1126:suleiman|the#3",
+        "hit": 1
+      },
+      {
+        "k": "fp1126:suleiman|the#4",
+        "hit": 1
+      },
+      {
+        "k": "fp1126:suleiman|the#5",
+        "hit": 1
+      },
+      {
+        "k": "fp1126:suleiman|the#6",
+        "hit": 1
+      },
+      {
+        "k": "fp1133:persia|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1133:persia|and#2",
+        "hit": 1
+      },
+      {
+        "k": "fp1133:persia|and#3",
+        "hit": 1
+      },
+      {
+        "k": "fp1133:persia|and#4",
+        "hit": 1
+      },
+      {
+        "k": "fp1162:january|with#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1162:january|with#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1162:january|with#10",
+        "hit": 1
+      },
+      {
+        "k": "fp1162:january|with#2",
+        "hit": 1
+      },
+      {
+        "k": "fp1162:january|with#3",
+        "hit": 1
+      },
+      {
+        "k": "fp1162:january|with#4",
+        "hit": 1
+      },
+      {
+        "k": "fp1162:january|with#5",
+        "hit": 1
+      },
+      {
+        "k": "fp1162:january|with#6",
+        "hit": 1
+      },
+      {
+        "k": "fp1162:january|with#7",
+        "hit": 1
+      },
+      {
+        "k": "fp1162:january|with#8",
+        "hit": 1
+      },
+      {
+        "k": "fp1162:january|with#9",
+        "hit": 1
+      },
+      {
+        "k": "fp1289:ireland|the#2",
+        "hit": 0
+      },
+      {
+        "k": "fp1289:ireland|the#3",
+        "hit": 0
+      },
+      {
+        "k": "fp1331:doctor who|and the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1331:doctor who|and the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp1351:the season|and also the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1351:the season|and also the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1368:new york yankees|and#1",
+        "hit": 0
+      },
+      {
+        "k": "fp1368:new york yankees|and#2",
+        "hit": 0
+      },
+      {
+        "k": "fp1411:centrale|del#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1411:centrale|del#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1468:american|assistant for the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1468:american|assistant for the#3",
+        "hit": 1
+      },
+      {
+        "k": "fp1497:oxford|rower#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1497:oxford|rower#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1497:oxford|rower#2",
+        "hit": 1
+      },
+      {
+        "k": "fp1497:oxford|rower#3",
+        "hit": 1
+      },
+      {
+        "k": "fp1634:new york|and from#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1634:new york|and from#5",
+        "hit": 0
+      },
+      {
+        "k": "fp1634:new york|and from#6",
+        "hit": 0
+      },
+      {
+        "k": "fp1634:new york|and from#7",
+        "hit": 0
+      },
+      {
+        "k": "fp1634:new york|and from#8",
+        "hit": 1
+      },
+      {
+        "k": "fp163:british|the start the#14",
+        "hit": 1
+      },
+      {
+        "k": "fp163:british|the start the#15",
+        "hit": 1
+      },
+      {
+        "k": "fp163:british|the start the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp163:british|the start the#3",
+        "hit": 1
+      },
+      {
+        "k": "fp163:british|the start the#4",
+        "hit": 1
+      },
+      {
+        "k": "fp163:british|the start the#5",
+        "hit": 1
+      },
+      {
+        "k": "fp163:british|the start the#6",
+        "hit": 1
+      },
+      {
+        "k": "fp163:british|the start the#7",
+        "hit": 1
+      },
+      {
+        "k": "fp163:british|the start the#8",
+        "hit": 1
+      },
+      {
+        "k": "fp163:british|the start the#9",
+        "hit": 1
+      },
+      {
+        "k": "fp165:hungary|and the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp165:hungary|and the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp1661:september|with#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1661:september|with#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1661:september|with#2",
+        "hit": 1
+      },
+      {
+        "k": "fp167:stewie|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp167:stewie|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp167:stewie|and#2",
+        "hit": 1
+      },
+      {
+        "k": "fp167:stewie|and#3",
+        "hit": 1
+      },
+      {
+        "k": "fp1702:january|over million people#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1702:january|over million people#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1702:january|over million people#2",
+        "hit": 1
+      },
+      {
+        "k": "fp1702:january|over million people#3",
+        "hit": 1
+      },
+      {
+        "k": "fp1702:january|over million people#4",
+        "hit": 1
+      },
+      {
+        "k": "fp1702:january|over million people#5",
+        "hit": 1
+      },
+      {
+        "k": "fp1702:january|over million people#6",
+        "hit": 1
+      },
+      {
+        "k": "fp170:infantry division|infantry division the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp170:infantry division|infantry division the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp170:infantry division|infantry division the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp170:infantry division|infantry division the#4",
+        "hit": 1
+      },
+      {
+        "k": "fp170:infantry division|infantry division the#5",
+        "hit": 1
+      },
+      {
+        "k": "fp1742:jesus talks|with#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1742:jesus talks|with#3",
+        "hit": 1
+      },
+      {
+        "k": "fp1757:fischer|game#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1757:fischer|game#2",
+        "hit": 1
+      },
+      {
+        "k": "fp1757:fischer|game#3",
+        "hit": 1
+      },
+      {
+        "k": "fp1757:fischer|game#5",
+        "hit": 1
+      },
+      {
+        "k": "fp1757:fischer|game#6",
+        "hit": 1
+      },
+      {
+        "k": "fp1757:fischer|game#7",
+        "hit": 1
+      },
+      {
+        "k": "fp1757:fischer|game#8",
+        "hit": 1
+      },
+      {
+        "k": "fp1757:fischer|game#9",
+        "hit": 0
+      },
+      {
+        "k": "fp1780:the trouble|with#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1780:the trouble|with#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1780:the trouble|with#2",
+        "hit": 1
+      },
+      {
+        "k": "fp1894:premier league|goal for#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1894:premier league|goal for#2",
+        "hit": 1
+      },
+      {
+        "k": "fp1996:omaha|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1996:omaha|and#2",
+        "hit": 0
+      },
+      {
+        "k": "fp1998:most noble order|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1998:most noble order|the#2",
+        "hit": 0
+      },
+      {
+        "k": "fp19:waffen gebirgsj|ger#0",
+        "hit": 1
+      },
+      {
+        "k": "fp19:waffen gebirgsj|ger#1",
+        "hit": 1
+      },
+      {
+        "k": "fp19:waffen gebirgsj|ger#2",
+        "hit": 1
+      },
+      {
+        "k": "fp19:waffen gebirgsj|ger#4",
+        "hit": 1
+      },
+      {
+        "k": "fp19:waffen gebirgsj|ger#5",
+        "hit": 1
+      },
+      {
+        "k": "fp200:fisher|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp200:fisher|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp200:fisher|and#2",
+        "hit": 1
+      },
+      {
+        "k": "fp200:fisher|and#3",
+        "hit": 1
+      },
+      {
+        "k": "fp200:fisher|and#4",
+        "hit": 1
+      },
+      {
+        "k": "fp206:december|episode#2",
+        "hit": 1
+      },
+      {
+        "k": "fp206:december|episode#3",
+        "hit": 1
+      },
+      {
+        "k": "fp206:december|episode#4",
+        "hit": 1
+      },
+      {
+        "k": "fp259:first lord|the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp259:first lord|the#2",
+        "hit": 0
+      },
+      {
+        "k": "fp285:infantry battalion|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp285:infantry battalion|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp28:toronto maple leafs|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp28:toronto maple leafs|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp28:toronto maple leafs|the#2",
+        "hit": 0
+      },
+      {
+        "k": "fp291:victoria|the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp291:victoria|the#2",
+        "hit": 0
+      },
+      {
+        "k": "fp291:victoria|the#3",
+        "hit": 0
+      },
+      {
+        "k": "fp291:victoria|the#4",
+        "hit": 0
+      },
+      {
+        "k": "fp291:victoria|the#6",
+        "hit": 0
+      },
+      {
+        "k": "fp291:victoria|the#7",
+        "hit": 0
+      },
+      {
+        "k": "fp2:andrew|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp2:andrew|and#2",
+        "hit": 1
+      },
+      {
+        "k": "fp303:greek|and#11",
+        "hit": 1
+      },
+      {
+        "k": "fp303:greek|and#8",
+        "hit": 0
+      },
+      {
+        "k": "fp30:union army|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp30:union army|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp30:union army|the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp30:union army|the#3",
+        "hit": 0
+      },
+      {
+        "k": "fp30:union army|the#4",
+        "hit": 1
+      },
+      {
+        "k": "fp30:union army|the#5",
+        "hit": 0
+      },
+      {
+        "k": "fp319:greek|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp319:greek|and#2",
+        "hit": 1
+      },
+      {
+        "k": "fp328:english|and#14",
+        "hit": 0
+      },
+      {
+        "k": "fp328:english|and#16",
+        "hit": 0
+      },
+      {
+        "k": "fp328:english|and#2",
+        "hit": 1
+      },
+      {
+        "k": "fp328:english|and#3",
+        "hit": 0
+      },
+      {
+        "k": "fp328:english|and#5",
+        "hit": 0
+      },
+      {
+        "k": "fp338:english|and#3",
+        "hit": 1
+      },
+      {
+        "k": "fp338:english|and#4",
+        "hit": 1
+      },
+      {
+        "k": "fp357:german|team the#12",
+        "hit": 0
+      },
+      {
+        "k": "fp357:german|team the#13",
+        "hit": 0
+      },
+      {
+        "k": "fp357:german|team the#6",
+        "hit": 1
+      },
+      {
+        "k": "fp357:german|team the#7",
+        "hit": 1
+      },
+      {
+        "k": "fp357:german|team the#8",
+        "hit": 0
+      },
+      {
+        "k": "fp357:german|team the#9",
+        "hit": 0
+      },
+      {
+        "k": "fp364:american|mycologist#2",
+        "hit": 1
+      },
+      {
+        "k": "fp364:american|mycologist#3",
+        "hit": 1
+      },
+      {
+        "k": "fp371:april|invading the island#0",
+        "hit": 1
+      },
+      {
+        "k": "fp371:april|invading the island#1",
+        "hit": 1
+      },
+      {
+        "k": "fp371:april|invading the island#2",
+        "hit": 1
+      },
+      {
+        "k": "fp371:april|invading the island#9",
+        "hit": 1
+      },
+      {
+        "k": "fp394:april|and#10",
+        "hit": 1
+      },
+      {
+        "k": "fp394:april|and#11",
+        "hit": 1
+      },
+      {
+        "k": "fp394:april|and#13",
+        "hit": 1
+      },
+      {
+        "k": "fp394:april|and#17",
+        "hit": 1
+      },
+      {
+        "k": "fp394:april|and#20",
+        "hit": 0
+      },
+      {
+        "k": "fp394:april|and#22",
+        "hit": 1
+      },
+      {
+        "k": "fp394:april|and#26",
+        "hit": 1
+      },
+      {
+        "k": "fp394:april|and#28",
+        "hit": 1
+      },
+      {
+        "k": "fp394:april|and#29",
+        "hit": 1
+      },
+      {
+        "k": "fp394:april|and#3",
+        "hit": 0
+      },
+      {
+        "k": "fp394:april|and#30",
+        "hit": 0
+      },
+      {
+        "k": "fp394:april|and#31",
+        "hit": 1
+      },
+      {
+        "k": "fp394:april|and#32",
+        "hit": 1
+      },
+      {
+        "k": "fp394:april|and#38",
+        "hit": 1
+      },
+      {
+        "k": "fp394:april|and#4",
+        "hit": 0
+      },
+      {
+        "k": "fp394:april|and#40",
+        "hit": 1
+      },
+      {
+        "k": "fp394:april|and#41",
+        "hit": 0
+      },
+      {
+        "k": "fp394:april|and#42",
+        "hit": 0
+      },
+      {
+        "k": "fp394:april|and#43",
+        "hit": 1
+      },
+      {
+        "k": "fp394:april|and#5",
+        "hit": 0
+      },
+      {
+        "k": "fp394:april|and#6",
+        "hit": 1
+      },
+      {
+        "k": "fp394:april|and#7",
+        "hit": 0
+      },
+      {
+        "k": "fp394:april|and#8",
+        "hit": 0
+      },
+      {
+        "k": "fp405:athens|the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp405:athens|the#3",
+        "hit": 1
+      },
+      {
+        "k": "fp412:marie curie|person win two#0",
+        "hit": 1
+      },
+      {
+        "k": "fp412:marie curie|person win two#1",
+        "hit": 1
+      },
+      {
+        "k": "fp412:marie curie|person win two#2",
+        "hit": 1
+      },
+      {
+        "k": "fp412:marie curie|person win two#3",
+        "hit": 1
+      },
+      {
+        "k": "fp41:simon|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp41:simon|and#10",
+        "hit": 1
+      },
+      {
+        "k": "fp41:simon|and#2",
+        "hit": 1
+      },
+      {
+        "k": "fp41:simon|and#3",
+        "hit": 1
+      },
+      {
+        "k": "fp41:simon|and#4",
+        "hit": 1
+      },
+      {
+        "k": "fp41:simon|and#7",
+        "hit": 1
+      },
+      {
+        "k": "fp41:simon|and#8",
+        "hit": 1
+      },
+      {
+        "k": "fp41:simon|and#9",
+        "hit": 1
+      },
+      {
+        "k": "fp427:manchester united|and the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp427:manchester united|and the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp427:manchester united|and the#3",
+        "hit": 1
+      },
+      {
+        "k": "fp427:manchester united|and the#4",
+        "hit": 1
+      },
+      {
+        "k": "fp438:english|plays winger for#0",
+        "hit": 0
+      },
+      {
+        "k": "fp438:english|plays winger for#1",
+        "hit": 0
+      },
+      {
+        "k": "fp438:english|plays winger for#2",
+        "hit": 1
+      },
+      {
+        "k": "fp438:english|plays winger for#4",
+        "hit": 1
+      },
+      {
+        "k": "fp443:california|mixed#1",
+        "hit": 0
+      },
+      {
+        "k": "fp443:california|mixed#3",
+        "hit": 1
+      },
+      {
+        "k": "fp443:california|mixed#4",
+        "hit": 0
+      },
+      {
+        "k": "fp443:california|mixed#5",
+        "hit": 1
+      },
+      {
+        "k": "fp450:july|and the#5",
+        "hit": 1
+      },
+      {
+        "k": "fp450:july|and the#6",
+        "hit": 1
+      },
+      {
+        "k": "fp45:simon|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp45:simon|and#1",
+        "hit": 0
+      },
+      {
+        "k": "fp45:simon|and#2",
+        "hit": 1
+      },
+      {
+        "k": "fp45:simon|and#3",
+        "hit": 1
+      },
+      {
+        "k": "fp45:simon|and#4",
+        "hit": 1
+      },
+      {
+        "k": "fp45:simon|and#5",
+        "hit": 1
+      },
+      {
+        "k": "fp45:simon|and#6",
+        "hit": 1
+      },
+      {
+        "k": "fp462:takahashi|classified the section#0",
+        "hit": 0
+      },
+      {
+        "k": "fp462:takahashi|classified the section#2",
+        "hit": 1
+      },
+      {
+        "k": "fp484:kerr|nominated for the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp484:kerr|nominated for the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp518:israel|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp518:israel|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp553:september|followed#3",
+        "hit": 1
+      },
+      {
+        "k": "fp553:september|followed#4",
+        "hit": 1
+      },
+      {
+        "k": "fp553:september|followed#7",
+        "hit": 1
+      },
+      {
+        "k": "fp553:september|followed#8",
+        "hit": 1
+      },
+      {
+        "k": "fp574:grand cross|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp574:grand cross|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp574:grand cross|the#10",
+        "hit": 0
+      },
+      {
+        "k": "fp574:grand cross|the#11",
+        "hit": 1
+      },
+      {
+        "k": "fp574:grand cross|the#12",
+        "hit": 1
+      },
+      {
+        "k": "fp574:grand cross|the#13",
+        "hit": 0
+      },
+      {
+        "k": "fp574:grand cross|the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp574:grand cross|the#3",
+        "hit": 0
+      },
+      {
+        "k": "fp574:grand cross|the#4",
+        "hit": 0
+      },
+      {
+        "k": "fp574:grand cross|the#6",
+        "hit": 0
+      },
+      {
+        "k": "fp574:grand cross|the#7",
+        "hit": 1
+      },
+      {
+        "k": "fp574:grand cross|the#8",
+        "hit": 1
+      },
+      {
+        "k": "fp613:europe|the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp613:europe|the#3",
+        "hit": 1
+      },
+      {
+        "k": "fp627:federer|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp627:federer|and#2",
+        "hit": 0
+      },
+      {
+        "k": "fp640:the glenlivet|unk#0",
+        "hit": 1
+      },
+      {
+        "k": "fp640:the glenlivet|unk#2",
+        "hit": 1
+      },
+      {
+        "k": "fp640:the glenlivet|unk#3",
+        "hit": 1
+      },
+      {
+        "k": "fp656:oregon|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp656:oregon|and#1",
+        "hit": 0
+      },
+      {
+        "k": "fp656:oregon|and#2",
+        "hit": 0
+      },
+      {
+        "k": "fp656:oregon|and#3",
+        "hit": 0
+      },
+      {
+        "k": "fp656:oregon|and#4",
+        "hit": 0
+      },
+      {
+        "k": "fp667:luxembourg|the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp667:luxembourg|the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp673:greece|the#3",
+        "hit": 0
+      },
+      {
+        "k": "fp673:greece|the#6",
+        "hit": 0
+      },
+      {
+        "k": "fp681:islam|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp681:islam|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp686:prime minister|the defence security#0",
+        "hit": 1
+      },
+      {
+        "k": "fp686:prime minister|the defence security#1",
+        "hit": 1
+      },
+      {
+        "k": "fp686:prime minister|the defence security#2",
+        "hit": 1
+      },
+      {
+        "k": "fp686:prime minister|the defence security#3",
+        "hit": 1
+      },
+      {
+        "k": "fp686:prime minister|the defence security#4",
+        "hit": 1
+      },
+      {
+        "k": "fp686:prime minister|the defence security#6",
+        "hit": 1
+      },
+      {
+        "k": "fp696:our friends|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp696:our friends|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp696:our friends|the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp696:our friends|the#3",
+        "hit": 0
+      },
+      {
+        "k": "fp696:our friends|the#5",
+        "hit": 1
+      },
+      {
+        "k": "fp696:our friends|the#6",
+        "hit": 1
+      },
+      {
+        "k": "fp728:akane|episodes and had#0",
+        "hit": 1
+      },
+      {
+        "k": "fp728:akane|episodes and had#1",
+        "hit": 1
+      },
+      {
+        "k": "fp728:akane|episodes and had#2",
+        "hit": 1
+      },
+      {
+        "k": "fp728:akane|episodes and had#3",
+        "hit": 1
+      },
+      {
+        "k": "fp73:chelsea|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp73:chelsea|and#2",
+        "hit": 1
+      },
+      {
+        "k": "fp793:national oceanic|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp793:national oceanic|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp793:national oceanic|and#2",
+        "hit": 1
+      },
+      {
+        "k": "fp793:national oceanic|and#3",
+        "hit": 1
+      },
+      {
+        "k": "fp793:national oceanic|and#4",
+        "hit": 1
+      },
+      {
+        "k": "fp793:national oceanic|and#5",
+        "hit": 1
+      },
+      {
+        "k": "fp793:national oceanic|and#6",
+        "hit": 1
+      },
+      {
+        "k": "fp793:national oceanic|and#7",
+        "hit": 1
+      },
+      {
+        "k": "fp804:general secretary|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp804:general secretary|the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp806:royal navy|saw service the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp806:royal navy|saw service the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp806:royal navy|saw service the#3",
+        "hit": 1
+      },
+      {
+        "k": "fp806:royal navy|saw service the#5",
+        "hit": 1
+      },
+      {
+        "k": "fp808:belgium|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp808:belgium|and#2",
+        "hit": 1
+      },
+      {
+        "k": "fp808:belgium|and#3",
+        "hit": 1
+      },
+      {
+        "k": "fp846:nintendo|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp846:nintendo|and#3",
+        "hit": 0
+      },
+      {
+        "k": "fp847:olympic stadium|medal presentation the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp847:olympic stadium|medal presentation the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp847:olympic stadium|medal presentation the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp872:portland|and#2",
+        "hit": 1
+      },
+      {
+        "k": "fp872:portland|and#5",
+        "hit": 1
+      },
+      {
+        "k": "fp880:william marsden|half day holiday#0",
+        "hit": 1
+      },
+      {
+        "k": "fp880:william marsden|half day holiday#1",
+        "hit": 1
+      },
+      {
+        "k": "fp899:france|with#6",
+        "hit": 0
+      },
+      {
+        "k": "fp899:france|with#9",
+        "hit": 0
+      },
+      {
+        "k": "fp92:north america|with#1",
+        "hit": 0
+      },
+      {
+        "k": "fp92:north america|with#10",
+        "hit": 1
+      },
+      {
+        "k": "fp92:north america|with#11",
+        "hit": 1
+      },
+      {
+        "k": "fp92:north america|with#13",
+        "hit": 1
+      },
+      {
+        "k": "fp92:north america|with#14",
+        "hit": 1
+      },
+      {
+        "k": "fp92:north america|with#19",
+        "hit": 0
+      },
+      {
+        "k": "fp92:north america|with#2",
+        "hit": 0
+      },
+      {
+        "k": "fp92:north america|with#22",
+        "hit": 0
+      },
+      {
+        "k": "fp92:north america|with#23",
+        "hit": 0
+      },
+      {
+        "k": "fp92:north america|with#26",
+        "hit": 0
+      },
+      {
+        "k": "fp92:north america|with#27",
+        "hit": 1
+      },
+      {
+        "k": "fp92:north america|with#28",
+        "hit": 0
+      },
+      {
+        "k": "fp92:north america|with#5",
+        "hit": 1
+      },
+      {
+        "k": "fp92:north america|with#6",
+        "hit": 1
+      },
+      {
+        "k": "fp92:north america|with#7",
+        "hit": 1
+      },
+      {
+        "k": "fp92:north america|with#8",
+        "hit": 1
+      },
+      {
+        "k": "fp92:north america|with#9",
+        "hit": 0
+      },
+      {
+        "k": "fp946:november|former#0",
+        "hit": 0
+      },
+      {
+        "k": "fp946:november|former#2",
+        "hit": 1
+      },
+      {
+        "k": "fp950:the diamonds|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp950:the diamonds|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp950:the diamonds|the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp950:the diamonds|the#3",
+        "hit": 1
+      },
+      {
+        "k": "fp950:the diamonds|the#4",
+        "hit": 1
+      },
+      {
+        "k": "fp955:pozi|res#1",
+        "hit": 1
+      },
+      {
+        "k": "fp955:pozi|res#2",
+        "hit": 1
+      },
+      {
+        "k": "fp955:pozi|res#3",
+        "hit": 1
+      },
+      {
+        "k": "fp955:pozi|res#4",
+        "hit": 1
+      },
+      {
+        "k": "fp955:pozi|res#5",
+        "hit": 1
+      },
+      {
+        "k": "fp955:pozi|res#6",
+        "hit": 1
+      },
+      {
+        "k": "fp955:pozi|res#7",
+        "hit": 1
+      },
+      {
+        "k": "fp955:pozi|res#8",
+        "hit": 1
+      },
+      {
+        "k": "fp95:american|painter#1",
+        "hit": 1
+      },
+      {
+        "k": "fp95:american|painter#10",
+        "hit": 1
+      },
+      {
+        "k": "fp95:american|painter#11",
+        "hit": 1
+      },
+      {
+        "k": "fp95:american|painter#12",
+        "hit": 1
+      },
+      {
+        "k": "fp95:american|painter#2",
+        "hit": 1
+      },
+      {
+        "k": "fp95:american|painter#3",
+        "hit": 1
+      },
+      {
+        "k": "fp95:american|painter#4",
+        "hit": 1
+      },
+      {
+        "k": "fp95:american|painter#5",
+        "hit": 1
+      },
+      {
+        "k": "fp95:american|painter#6",
+        "hit": 1
+      },
+      {
+        "k": "fp95:american|painter#7",
+        "hit": 1
+      },
+      {
+        "k": "fp95:american|painter#8",
+        "hit": 1
+      },
+      {
+        "k": "fp95:american|painter#9",
+        "hit": 1
+      },
+      {
+        "k": "fp963:sigurd|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp963:sigurd|the#2",
+        "hit": 0
+      },
+      {
+        "k": "fp975:canada|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp975:canada|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp975:canada|the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp975:canada|the#3",
+        "hit": 1
+      },
+      {
+        "k": "fp987:richard|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp987:richard|the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp992:aberdeen|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp992:aberdeen|and#2",
+        "hit": 1
+      }
+    ]
+  },
+  "exact_note": "count and compare left the weights: they are functions of the same-value relation alone (new_i = 1 - max_{j<i} s_ij; count = sum new_i; compare = sign of the side difference), computed exactly with zero parameters and no 5+ cap, because the invariant says whatever decides may not be approximate. Their accuracy is 1.0 by construction and is checked, not celebrated - G_exact_algebra_matches_tape is a sanity bolt. The interference that cost count 0.965 -> 0.903 is removed by construction: one trained task remains",
+  "ladder_note": "three wrong answers per question at increasing structural distance - same anchor / adjacent in tape order / anywhere on the tape - every rung a value the corpus wrote, no similarity chosen by anyone. Phi trained only against local wrong candidates learns a BOUNDARY; generation needs a LANDSCAPE, and a mind that cannot rank its own wrong answers by how wrong they are has no direction to move in. The objective is one Plackett-Luce term, not a task loss plus a ladder loss with a weight between them, and it reduces to the previous cross-entropy exactly when the tape cannot supply a ladder",
+  "retrieval_note": "two rivals now, because they answer two different questions. The counting rival knows nothing about context, so beating it shows only that the context channel carries information counts lack - not that reading it takes a mind. rival_cos is 1-NN over the same evidence rows by the same ctx_fp cosine, zero parameters, no training. With hash ink the representation IS Random Indexing over fastText-shaped word vectors, so the distance between this architecture and a classical retrieval system is exactly this one number. If rival_cos lands where Phi lands, 3489 parameters are decoration ON THIS VERB and the verdict is PHI_ADDS_NOTHING_ON_LOOKUP. Named for the brick and not for the wall: lookup is one verb, single-hop and retrieval-shaped by construction, and a rival that ties it says nothing about the exact algebra, about verbs where rows must be combined, or about generation, which 1-NN cannot do at all",
+  "paired_note": "the rival answers the same lookup questions in the same run, so the gate is McNemar over the discordant items at the usual one-sided 1.645 - never two marginals. The rival over survivors is Bayes-optimal when the query context carries nothing, so a paired win IS the claim that the context channel carries information counts do not have",
+  "curve": [
+    {
+      "step": 750,
+      "loss": 1.1566971037628977,
+      "probe_loss": 0.9316579735906125
+    },
+    {
+      "step": 1500,
+      "loss": 1.1639585322023955,
+      "probe_loss": 1.0441831313138146
+    },
+    {
+      "step": 2250,
+      "loss": 0.8325963091340394,
+      "probe_loss": 0.9775075748592349
+    },
+    {
+      "step": 3000,
+      "loss": 0.8767356219010162,
+      "probe_loss": 0.7722487994441849
+    },
+    {
+      "step": 3750,
+      "loss": 1.1827381336637377,
+      "probe_loss": 0.8101632358001786
+    },
+    {
+      "step": 4500,
+      "loss": 0.9694400535706518,
+      "probe_loss": 0.7936472573730362
+    },
+    {
+      "step": 5250,
+      "loss": 0.8740550039359499,
+      "probe_loss": 0.7637030434129337
+    },
+    {
+      "step": 6000,
+      "loss": 0.7911666053547389,
+      "probe_loss": 0.7666758505165399
+    }
+  ],
+  "arc_enc_hash_before": "not_loaded",
+  "arc_enc_hash_after": "not_loaded",
+  "fp_version": "stage191_p1_curve.pt",
+  "note": "The derivation moved into exact algebra and the mind kept only the judgment. Two runs measured 7.9k parameters approximating a quantity exactly computable from their own input, and the approximation degraded as the genuinely uncertain task grew beside it. Now count and compare are arithmetic over the same-value relation - exact, uncapped, scale-free - and the one trained surface is Phi, the coherence of a completed world: for each candidate the query row is filled in and the world that results is pooled to one scalar, 288's repair loop turned inward. The two trained surfaces this leaves in the whole architecture are Phi and, once values stop being exact strings, s_ij itself - both judgments, never arithmetic. Confidence for exact verbs reports 1.0, which is the honest statement that a computed answer is certain GIVEN the relation; when s_ij becomes a judgment its uncertainty enters through that same seam.",
+  "timestamp": "2026-08-11T21:39:49.129732+00:00",
+  "wall_s": 3330.574997663498
+}

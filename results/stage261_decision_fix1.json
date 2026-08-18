@@ -1,0 +1,70 @@
+{
+  "stage": 261,
+  "overall": "NL_QUERY_NWAY_ONLY",
+  "recipe": "fix1",
+  "recipe_flags": {
+    "name": "fix1",
+    "fp_floor": true,
+    "rrf": false,
+    "feat_gate": false,
+    "hygiene": false
+  },
+  "trunk": "stage253_joint_l02.pt",
+  "steps": 800,
+  "steps_done": 800,
+  "slots": 4353,
+  "exam_slots": 353,
+  "noise_slots": 4000,
+  "n_fit": 176,
+  "n_eval": 177,
+  "chance": 0.00022972662531587412,
+  "overlap_median": 0.0625,
+  "gates": {
+    "G_works": false,
+    "G_beats_fp_only": false,
+    "G_low_overlap_works": false,
+    "G_not_lexical": false,
+    "G_tape_causal": true,
+    "G_signal_20way": true
+  },
+  "gpt_parity": false,
+  "summary": {
+    "fp_only": {
+      "top1": 0.03389830508474576,
+      "mrr": 0.06270700307792758,
+      "median_rank": 1306.0,
+      "top1_low_overlap": 0.0,
+      "top1_high_overlap": 0.06896551724137931,
+      "alpha": 0.0,
+      "n": 177,
+      "acc_20way": 0.20903954802259886,
+      "chance_20way": 0.05
+    },
+    "fp_plus_sem": {
+      "top1": 0.005649717514124294,
+      "mrr": 0.019544946084981838,
+      "median_rank": 1860.0,
+      "top1_low_overlap": 0.0,
+      "top1_high_overlap": 0.011494252873563218,
+      "alpha": 0.6912854792034558,
+      "n": 177,
+      "acc_20way": 0.10734463276836158,
+      "chance_20way": 0.05
+    },
+    "shuffled_keys": {
+      "top1": 0.0,
+      "mrr": 0.0018702163936439309,
+      "median_rank": 1999.0,
+      "top1_low_overlap": 0.0,
+      "top1_high_overlap": 0.0,
+      "alpha": 0.6912854792034558,
+      "n": 177,
+      "acc_20way": 0.03954802259887006,
+      "chance_20way": 0.05
+    },
+    "gpt_control": null
+  },
+  "note": "Full: 353 exam + 4000 wiki noise. Headline NL_QUERY_NO_AT_SCALE (GPT top1 0). acc_20way: fp-only beats chance (~4.4x); fp+sem at high alpha can harm fp \u2014 see results/stage261_close.md. G_not_lexical requires top1_low_overlap > 0.",
+  "timestamp": "2026-08-04T05:55:54.960162+00:00",
+  "wall_s": 64.22786831855774
+}

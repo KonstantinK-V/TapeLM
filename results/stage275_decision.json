@@ -1,0 +1,339 @@
+{
+  "stage": 275,
+  "overall": "ABSTAIN_PARTIAL",
+  "frozen_trunk": false,
+  "trunk_mode": "upper",
+  "smoke": true,
+  "seed": 275,
+  "bc_episodes": 400,
+  "rl_episodes": 0,
+  "families": {
+    "clean": 4,
+    "decidable": 4,
+    "tie": 4
+  },
+  "witnesses": 5,
+  "liars": 2,
+  "topk": 7,
+  "reward": {
+    "correct": 1.0,
+    "wrong": -0.3,
+    "abstain": 0.0,
+    "read": -0.02
+  },
+  "teacher": "ASK_Q; read while hunting repeats; ANSWER leader if lead>=2 and lead>second (after opposition seen or unread exhausted); STOP if lead>=2 and lead==second; else ANSWER top retrieve score. No gold, no family.",
+  "fp_version": "stage191_p1_curve.pt",
+  "used_pool_final": 288,
+  "gates": {
+    "G_arc_enc_frozen": true,
+    "G_answer_is_slot": true,
+    "G_answers_when_decidable": true,
+    "G_teacher_abstains_on_tie": true,
+    "G_abstain_on_tie": true,
+    "G_acc_when_answering": false,
+    "G_beats_always_answer": true,
+    "G_novel_tape": true
+  },
+  "train_tape": {
+    "answer_is_slot": 1.0,
+    "reward_total": 0.48666666666666664,
+    "teacher_reward_total": 0.6166666666666666,
+    "clean": {
+      "coverage": 1.0,
+      "acc_answered": 1.0,
+      "acc_all": 1.0,
+      "abstain": 0.0,
+      "mean_reads": 0.0,
+      "reward": 1.0,
+      "teacher_abstain": 0.0,
+      "teacher_acc_all": 1.0
+    },
+    "decidable": {
+      "coverage": 1.0,
+      "acc_answered": 0.75,
+      "acc_all": 0.75,
+      "abstain": 0.0,
+      "mean_reads": 4.0,
+      "reward": 0.5950000000000001,
+      "teacher_abstain": 0.0,
+      "teacher_acc_all": 1.0
+    },
+    "tie": {
+      "coverage": 0.25,
+      "acc_answered": 0.0,
+      "acc_all": 0.0,
+      "abstain": 0.75,
+      "mean_reads": 3.0,
+      "reward": -0.135,
+      "teacher_abstain": 1.0,
+      "teacher_acc_all": 0.0
+    },
+    "coverage_all": 0.75,
+    "acc_answered_all": 0.7777777777777778
+  },
+  "novel_tape": {
+    "answer_is_slot": 1.0,
+    "traces": [
+      {
+        "kind": "clean",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "ANSWER_0"
+        ],
+        "correct": 1,
+        "abstained": false
+      },
+      {
+        "kind": "clean",
+        "trace": [
+          "ASK_Q",
+          "ANSWER_0"
+        ],
+        "correct": 1,
+        "abstained": false
+      },
+      {
+        "kind": "clean",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "ANSWER_0"
+        ],
+        "correct": 1,
+        "abstained": false
+      },
+      {
+        "kind": "clean",
+        "trace": [
+          "ASK_Q",
+          "ANSWER_0"
+        ],
+        "correct": 1,
+        "abstained": false
+      },
+      {
+        "kind": "decidable",
+        "trace": [
+          "ASK_Q",
+          "ANSWER_0"
+        ],
+        "correct": 0,
+        "abstained": false
+      },
+      {
+        "kind": "decidable",
+        "trace": [
+          "ASK_Q",
+          "ANSWER_0"
+        ],
+        "correct": 0,
+        "abstained": false
+      },
+      {
+        "kind": "decidable",
+        "trace": [
+          "ASK_Q",
+          "ANSWER_0"
+        ],
+        "correct": 1,
+        "abstained": false
+      },
+      {
+        "kind": "decidable",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "READ_1",
+          "READ_2",
+          "READ_3",
+          "READ_4",
+          "ANSWER_2"
+        ],
+        "correct": 1,
+        "abstained": false
+      },
+      {
+        "kind": "tie",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "READ_1",
+          "READ_2",
+          "READ_3",
+          "STOP"
+        ],
+        "correct": 0,
+        "abstained": true
+      },
+      {
+        "kind": "tie",
+        "trace": [
+          "ASK_Q",
+          "ANSWER_0"
+        ],
+        "correct": 0,
+        "abstained": false
+      },
+      {
+        "kind": "tie",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "READ_1",
+          "READ_2",
+          "READ_3",
+          "STOP"
+        ],
+        "correct": 0,
+        "abstained": true
+      },
+      {
+        "kind": "tie",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "READ_1",
+          "READ_2",
+          "READ_3",
+          "STOP"
+        ],
+        "correct": 0,
+        "abstained": true
+      }
+    ],
+    "reward_total": 0.3933333333333333,
+    "teacher_reward_total": 0.5083333333333333,
+    "clean": {
+      "coverage": 1.0,
+      "acc_answered": 1.0,
+      "acc_all": 1.0,
+      "abstain": 0.0,
+      "mean_reads": 0.5,
+      "reward": 0.99,
+      "teacher_abstain": 0.0,
+      "teacher_acc_all": 1.0
+    },
+    "decidable": {
+      "coverage": 1.0,
+      "acc_answered": 0.5,
+      "acc_all": 0.5,
+      "abstain": 0.0,
+      "mean_reads": 1.25,
+      "reward": 0.325,
+      "teacher_abstain": 0.0,
+      "teacher_acc_all": 0.75
+    },
+    "tie": {
+      "coverage": 0.25,
+      "acc_answered": 0.0,
+      "acc_all": 0.0,
+      "abstain": 0.75,
+      "mean_reads": 3.0,
+      "reward": -0.135,
+      "teacher_abstain": 1.0,
+      "teacher_acc_all": 0.0
+    },
+    "coverage_all": 0.75,
+    "acc_answered_all": 0.6666666666666666
+  },
+  "arc_enc_hash_before": "64a764151ebd27ec5f4c1e92d72d9ce6dba381fb355c386d669f3a0ac2cf93d1",
+  "arc_enc_hash_after": "64a764151ebd27ec5f4c1e92d72d9ce6dba381fb355c386d669f3a0ac2cf93d1",
+  "curve": [
+    {
+      "phase": "bc",
+      "episode": 50,
+      "loss": 0.3135334253311157,
+      "kind": "clean",
+      "trace": [
+        "ASK_Q",
+        "ANSWER_0"
+      ]
+    },
+    {
+      "phase": "bc",
+      "episode": 100,
+      "loss": 1.6144013404846191,
+      "kind": "tie",
+      "trace": [
+        "ASK_Q",
+        "READ_0",
+        "READ_1",
+        "ANSWER_0"
+      ]
+    },
+    {
+      "phase": "bc",
+      "episode": 150,
+      "loss": 2.2830419540405273,
+      "kind": "decidable",
+      "trace": [
+        "ASK_Q",
+        "READ_0",
+        "READ_1",
+        "READ_2",
+        "READ_3",
+        "ANSWER_1"
+      ]
+    },
+    {
+      "phase": "bc",
+      "episode": 200,
+      "loss": 0.008457761257886887,
+      "kind": "clean",
+      "trace": [
+        "ASK_Q",
+        "ANSWER_0"
+      ]
+    },
+    {
+      "phase": "bc",
+      "episode": 250,
+      "loss": 0.21184130012989044,
+      "kind": "clean",
+      "trace": [
+        "ASK_Q",
+        "ANSWER_0"
+      ]
+    },
+    {
+      "phase": "bc",
+      "episode": 300,
+      "loss": 0.005182974506169558,
+      "kind": "clean",
+      "trace": [
+        "ASK_Q",
+        "ANSWER_0"
+      ]
+    },
+    {
+      "phase": "bc",
+      "episode": 350,
+      "loss": 0.9631500840187073,
+      "kind": "tie",
+      "trace": [
+        "ASK_Q",
+        "READ_0",
+        "READ_1",
+        "ANSWER_0"
+      ]
+    },
+    {
+      "phase": "bc",
+      "episode": 400,
+      "loss": 1.453894019126892,
+      "kind": "tie",
+      "trace": [
+        "ASK_Q",
+        "READ_0",
+        "READ_1",
+        "READ_2",
+        "READ_3",
+        "STOP"
+      ]
+    }
+  ],
+  "note": "Three families, never labelled to the policy: clean, decidable (3 vs 2), tie (2 vs 2, no truth exists). Reward +1 / -0.3 / 0 makes silence a real option, and G_answers_when_decidable is a validity gate because always abstaining scores zero and would otherwise look like wisdom. The teacher reads until the leader is ahead by two \u2014 274 used a strict majority, which one read satisfies, so it answered after a single read and never aggregated. Headline is risk-coverage, not accuracy: answering 60% at 0.95 beats answering everything at 0.7, and only the table shows it.",
+  "timestamp": "2026-08-05T11:53:29.930942+00:00",
+  "wall_s": 236.54497075080872
+}

@@ -1,0 +1,252 @@
+{
+  "stage": 281,
+  "overall": "NO_FRAME_SURVIVES",
+  "trained_parameters": 0,
+  "smoke": false,
+  "seed": 281,
+  "frame_in_address": false,
+  "clustered": true,
+  "thresholds": {
+    "min_n": 4,
+    "min_confirm": 0.15,
+    "min_anchors": 2,
+    "max_values_per_anchor": 2.5,
+    "allow_empty_frame": false
+  },
+  "frames": {
+    "total": 18,
+    "kept": 2,
+    "assertions_total": 240,
+    "assertions_kept": 18,
+    "kept_fraction": 0.075,
+    "top": [
+      {
+        "frame": "lder",
+        "n": 6,
+        "confirm_rate": 0.8333333333333334,
+        "dispute_rate": 0.0,
+        "anchors": 1,
+        "values_per_anchor": 1.0,
+        "empty": false
+      },
+      {
+        "frame": "mystery television series",
+        "n": 4,
+        "confirm_rate": 0.75,
+        "dispute_rate": 0.0,
+        "anchors": 1,
+        "values_per_anchor": 1.0,
+        "empty": false
+      },
+      {
+        "frame": "entered",
+        "n": 4,
+        "confirm_rate": 0.75,
+        "dispute_rate": 0.0,
+        "anchors": 1,
+        "values_per_anchor": 1.0,
+        "empty": false
+      },
+      {
+        "frame": "tico",
+        "n": 7,
+        "confirm_rate": 0.7142857142857143,
+        "dispute_rate": 0.14285714285714285,
+        "anchors": 1,
+        "values_per_anchor": 2.0,
+        "empty": false
+      },
+      {
+        "frame": "was",
+        "n": 12,
+        "confirm_rate": 0.3333333333333333,
+        "dispute_rate": 0.3333333333333333,
+        "anchors": 4,
+        "values_per_anchor": 2.0,
+        "empty": false
+      },
+      {
+        "frame": "and the",
+        "n": 6,
+        "confirm_rate": 0.3333333333333333,
+        "dispute_rate": 0.3333333333333333,
+        "anchors": 2,
+        "values_per_anchor": 2.0,
+        "empty": false
+      },
+      {
+        "frame": "and",
+        "n": 87,
+        "confirm_rate": 0.26436781609195403,
+        "dispute_rate": 0.4482758620689655,
+        "anchors": 25,
+        "values_per_anchor": 2.56,
+        "empty": false
+      },
+      {
+        "frame": "ois",
+        "n": 5,
+        "confirm_rate": 0.2,
+        "dispute_rate": 0.6,
+        "anchors": 1,
+        "values_per_anchor": 4.0,
+        "empty": false
+      },
+      {
+        "frame": "the",
+        "n": 81,
+        "confirm_rate": 0.16049382716049382,
+        "dispute_rate": 0.6049382716049383,
+        "anchors": 19,
+        "values_per_anchor": 3.5789473684210527,
+        "empty": false
+      },
+      {
+        "frame": "near",
+        "n": 4,
+        "confirm_rate": 0.0,
+        "dispute_rate": 0.75,
+        "anchors": 1,
+        "values_per_anchor": 4.0,
+        "empty": false
+      }
+    ],
+    "worst": [
+      {
+        "frame": "lder",
+        "n": 6,
+        "confirm_rate": 0.8333333333333334,
+        "dispute_rate": 0.0,
+        "anchors": 1,
+        "values_per_anchor": 1.0,
+        "empty": false
+      },
+      {
+        "frame": "mystery television series",
+        "n": 4,
+        "confirm_rate": 0.75,
+        "dispute_rate": 0.0,
+        "anchors": 1,
+        "values_per_anchor": 1.0,
+        "empty": false
+      },
+      {
+        "frame": "entered",
+        "n": 4,
+        "confirm_rate": 0.75,
+        "dispute_rate": 0.0,
+        "anchors": 1,
+        "values_per_anchor": 1.0,
+        "empty": false
+      },
+      {
+        "frame": "tico",
+        "n": 7,
+        "confirm_rate": 0.7142857142857143,
+        "dispute_rate": 0.14285714285714285,
+        "anchors": 1,
+        "values_per_anchor": 2.0,
+        "empty": false
+      },
+      {
+        "frame": "was",
+        "n": 12,
+        "confirm_rate": 0.3333333333333333,
+        "dispute_rate": 0.3333333333333333,
+        "anchors": 4,
+        "values_per_anchor": 2.0,
+        "empty": false
+      },
+      {
+        "frame": "and the",
+        "n": 6,
+        "confirm_rate": 0.3333333333333333,
+        "dispute_rate": 0.3333333333333333,
+        "anchors": 2,
+        "values_per_anchor": 2.0,
+        "empty": false
+      },
+      {
+        "frame": "and",
+        "n": 87,
+        "confirm_rate": 0.26436781609195403,
+        "dispute_rate": 0.4482758620689655,
+        "anchors": 25,
+        "values_per_anchor": 2.56,
+        "empty": false
+      },
+      {
+        "frame": "ois",
+        "n": 5,
+        "confirm_rate": 0.2,
+        "dispute_rate": 0.6,
+        "anchors": 1,
+        "values_per_anchor": 4.0,
+        "empty": false
+      },
+      {
+        "frame": "the",
+        "n": 81,
+        "confirm_rate": 0.16049382716049382,
+        "dispute_rate": 0.6049382716049383,
+        "anchors": 19,
+        "values_per_anchor": 3.5789473684210527,
+        "empty": false
+      },
+      {
+        "frame": "near",
+        "n": 4,
+        "confirm_rate": 0.0,
+        "dispute_rate": 0.75,
+        "anchors": 1,
+        "values_per_anchor": 4.0,
+        "empty": false
+      }
+    ]
+  },
+  "gates": {
+    "G_frames_survive": true,
+    "G_tape_shrinks": true,
+    "G_kept_frames_functional": true,
+    "G_ceiling_clears_silence": false,
+    "G_ceiling_improves": false,
+    "G_teacher_abstains_on_tie": false
+  },
+  "ceiling_before": {
+    "n_items": 15,
+    "reward": 0.48333333333333334,
+    "addresses": 15,
+    "slots": 79,
+    "families": {
+      "clean": 6,
+      "decidable": 7,
+      "tie": 2
+    },
+    "clean": {
+      "n": 6,
+      "teacher_acc": 1.0,
+      "teacher_abstain": 0.0
+    },
+    "decidable": {
+      "n": 7,
+      "teacher_acc": 0.7142857142857143,
+      "teacher_abstain": 0.14285714285714285
+    },
+    "tie": {
+      "n": 2,
+      "teacher_acc": 0.0,
+      "teacher_abstain": 0.0
+    }
+  },
+  "ceiling_after": {
+    "n_items": 0,
+    "reward": NaN
+  },
+  "reference_280": {
+    "teacher_ceiling_reward": -0.18888888888888897,
+    "held_out_precision": 0.3412698412698412
+  },
+  "note": "280's gate caught a wall its own numbers explain: the held-out exam asked about behind, curious, experience and coast, and no rule of aggregation can be right about a question with no answer. 279 was extracting adjacent capitalised words rather than assertions. Writing a better regex would only move the problem, so the criterion is measured instead. Each pair carries the frame that stood between anchor and value, and a frame is judged by three statistics of the write journal, none of which reads a label: how often its assertions are corroborated by a second source, how many distinct subjects it applies to, and how nearly functional it is - a relation maps one subject to about one value, an enumeration does not. SKIP is then executable. --frame-in-address additionally requires two assertions to share a frame before they may dispute, which is the distinction GOAL.md left open between sources disagreeing and sources discussing different things. The gate needs no training at all: the teacher runs alone on the rebuilt tape, and 280 is worth repeating only if its ceiling clears half the value of unconditional silence.",
+  "timestamp": "2026-08-06T06:40:58.953229+00:00",
+  "wall_s": 2.2385051250457764
+}

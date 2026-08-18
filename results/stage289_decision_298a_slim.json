@@ -1,0 +1,108 @@
+{
+  "run": "298a",
+  "overall": "DERIVATION_PARTIAL",
+  "wall_s": 1392,
+  "config": {
+    "tape": "frames",
+    "frame_max": 3,
+    "route": true,
+    "step_cost": 0.05,
+    "objective": "expected_reward_280",
+    "open_cands": "uniform",
+    "import_k": 2,
+    "addresses": 3000,
+    "train_steps": 6000,
+    "seed": 1337,
+    "params": 5633,
+    "edges": [
+      "cos",
+      "rare",
+      "same"
+    ]
+  },
+  "tape": {
+    "train": {
+      "slots": 8989,
+      "addr": 3000,
+      "mentions_per_addr": 2.9963
+    },
+    "held": {
+      "slots": 33734,
+      "addr": 3000,
+      "mentions_per_addr": 11.2447
+    },
+    "resample_overlap": 1.0
+  },
+  "mixed": {
+    "held_out": {
+      "n": 12390,
+      "answerable_rate": 0.5,
+      "payoff_mind": 0.8364,
+      "payoff_rival": 0.875,
+      "always_silent": 0.875,
+      "step_rate": 0.6374,
+      "found_rate": 0.0039,
+      "rival_found_rate": 0.3253,
+      "false_silence": 0.9929,
+      "found_where_rival_missed": 8,
+      "missed_where_rival_found": 1999,
+      "mcnemar_z": -88.32,
+      "mind_better": 24,
+      "rival_better": 7873
+    },
+    "train_control": {
+      "n": 4686,
+      "answerable_rate": 0.4919,
+      "payoff_mind": 0.8384,
+      "payoff_rival": 0.877,
+      "always_silent": 0.877,
+      "step_rate": 0.751,
+      "found_rate": 0.0004,
+      "rival_found_rate": 0.3171,
+      "false_silence": 0.9987,
+      "found_where_rival_missed": 1,
+      "missed_where_rival_found": 731,
+      "mcnemar_z": -59.29,
+      "mind_better": 1,
+      "rival_better": 3518
+    }
+  },
+  "gates": {
+    "G_arc_enc_frozen": true,
+    "G_ink_verified": true,
+    "G_task_exists": true,
+    "G_exact_algebra_matches_tape": true,
+    "G_lookup_beats_floor": true,
+    "G_lookup_beats_counts_paired": false,
+    "G_lookup_beats_retrieval_paired": false,
+    "G_phi_orders_negatives": false
+  },
+  "lookup_held": {
+    "n": 12390,
+    "model_acc": 0.4998,
+    "rival_acc": 0.0,
+    "rival_cos_acc": null
+  },
+  "count_held": {
+    "n": 2389,
+    "acc": 1.0
+  },
+  "early_stop": {
+    "enabled": true,
+    "best_step": 250,
+    "best_probe_loss": 11.347035334551801,
+    "total_steps": 6000,
+    "probe_questions": 200
+  },
+  "cos": {
+    "mean": 0.7518,
+    "std": 0.3477,
+    "rare_nonzero": 0.0047
+  },
+  "verdict": {
+    "beats_always_silent": false,
+    "beats_rival_payoff": false,
+    "route_decorative": false,
+    "finds_anything": false
+  }
+}

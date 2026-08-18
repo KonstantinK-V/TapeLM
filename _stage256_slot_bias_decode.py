@@ -61,6 +61,8 @@ from _stage194_fp_fact_memory import ENT_RE, FpBank
 RES = Path("results")
 DECISION = RES / "stage256_decision.json"
 MINI = RES / "stage256_mini.md"
+DECODE_AUDIT = RES / "stage256_decode_miss_audit.md"
+DECODE_AUDIT_JSON = RES / "stage256_decode_miss_audit.json"
 LOG = RES / "_stage256_log.txt"
 CKPT_P1 = Path("checkpoints/stage191_p1_curve.pt")
 CKPT_JOINT = Path("checkpoints/stage253_joint_l02.pt")
@@ -89,14 +91,20 @@ from _inprint_glue import (
     ANCHOR_RE,
     DEFAULT_CUE,
     DEFAULT_FACT_TMPL,
+    DEFAULT_RETRIEVE_MODE,
+    RetrieveStats,
     SlotBias,
     TapeView,
+    VOTES_AUTO_MIN_SLOTS,
     copy_dist,
-    ctx_query,
     hidden_and_logits,
     mix_logprob,
     raw_query,
+    full_bank_cue_summary,
+    retrieve_topk,
+    slot_query_words,
 )
+from _retrieval_modes import vote_scores
 
 CUE = DEFAULT_CUE
 FACT_TMPL = DEFAULT_FACT_TMPL
@@ -114,7 +122,10 @@ def nce_loss(glue: SlotBias, raw_q: torch.Tensor, gold_mask: torch.Tensor, K: to
     return (sims.logsumexp(dim=-1) - pos).mean()
 
 
-def fact_batch(glue, model, char_table, tok, bank, tape, facts, pad_id, V, device, k: int):
+def fact_batch(
+    glue, model, char_table, tok, bank, tape, facts, pad_id, V, device, k: int,
+    retrieve_mode: str = DEFAULT_RETRIEVE_MODE,
+):
     """Teacher-forced CE on the value tokens, logits corrected by the gated slot bias."""
     losses, gates = [], []
     for f in facts:
@@ -132,8 +143,7 @@ def fact_batch(glue, model, char_table, tok, bank, tape, facts, pad_id, V, devic
                 break
             prefix = seq[: t + 1]
             base = logits[0, t]
-            q = ctx_query(glue, bank, tok, prefix, anchor_ids=cue_ids)
-            hit = tape.topk(q, k) if q is not None else None
+            hit = retrieve_topk(retrieve_mode, glue, bank, tok, tape, prefix, cue_ids, k)
             if hit is None:
                 logp = torch.log(F.softmax(base, -1) + 1e-9)
                 g_val = torch.zeros((), device=device)
@@ -164,6 +174,7 @@ def prose_batch(
     k: int,
     gate_l1: float,
     use_glue: bool = True,
+    retrieve_mode: str = DEFAULT_RETRIEVE_MODE,
 ):
     """Same glue on ordinary text. Under a mixture an open gate directly costs CE here; the L1 term
     only stops it from drifting up where the LM happens to be uncertain anyway."""
@@ -180,8 +191,7 @@ def prose_batch(
             losses.append(-torch.log(F.softmax(base, -1) + 1e-9)[seq[t + 1]])
             gates.append(0.0)
             continue
-        q = ctx_query(glue, bank, tok, prefix)
-        hit = tape.topk(q, k) if q is not None else None
+        hit = retrieve_topk(retrieve_mode, glue, bank, tok, tape, prefix, None, k)
         if hit is None:
             # score it anyway, otherwise glue-on and glue-off average over different positions
             losses.append(-torch.log(F.softmax(base, -1) + 1e-9)[seq[t + 1]])
@@ -201,7 +211,9 @@ def prose_batch(
 
 @torch.no_grad()
 def free_decode(
-    glue, model, char_table, tok, bank, tape, fact, pad_id, V, device, k: int, max_new: int, use_glue: bool
+    glue, model, char_table, tok, bank, tape, fact, pad_id, V, device, k: int, max_new: int, use_glue: bool,
+    retrieve_mode: str = DEFAULT_RETRIEVE_MODE,
+    stats: RetrieveStats | None = None,
 ) -> tuple[str, float]:
     """Greedy free-form continuation of the cue; no candidate set anywhere."""
     cue_ids = [i for i in tok.encode(CUE.format(S=fact["S"])).ids if i != pad_id]
@@ -213,8 +225,7 @@ def free_decode(
         base = logits[0, -1]
         score = torch.log(F.softmax(base, -1) + 1e-9)
         if use_glue:
-            q = ctx_query(glue, bank, tok, seq, anchor_ids=cue_ids)
-            hit = tape.topk(q, k) if q is not None else None
+            hit = retrieve_topk(retrieve_mode, glue, bank, tok, tape, seq, cue_ids, k, stats=stats)
             if hit is not None:
                 sims, idx = hit
                 ent = float(-(F.softmax(base, -1) * F.log_softmax(base, -1)).sum())
@@ -234,16 +245,29 @@ def retrieval_report(glue, bank, tok, tape: TapeView, facts, pad_id, k: int) -> 
     rows = []
     for f in facts:
         cue_ids = [i for i in tok.encode(CUE.format(S=f["S"])).ids if i != pad_id]
-        q = ctx_query(glue, bank, tok, cue_ids, anchor_ids=cue_ids)
-        if q is None:
-            rows.append({"S": f["S"], "rank": None})
-            continue
-        sims = tape.K @ q
         gold = [j for j, v in enumerate(tape.values) if v == f["value"]]
-        gsim = float(sims[gold].max()) if gold else float("-inf")
-        rank = 1 + int((sims > gsim).sum())
-        top = tape.values[int(sims.argmax())]
-        w = glue.weights(torch.topk(sims, min(k, sims.numel()))[0])
+        if tape.postings is not None and tape.n_live() >= VOTES_AUTO_MIN_SLOTS:
+            words = slot_query_words(tok.decode(cue_ids))
+            sc = vote_scores(words, tape.postings.postings, tape.postings.idf)
+            gsc = max((sc.get(j, 0.0) for j in gold), default=0.0)
+            rank = 1 + sum(1 for v in sc.values() if v > gsc)
+            top_j = max(sc, key=sc.get) if sc else 0
+            top = tape.values[top_j]
+            gsim = gsc
+            hit = retrieve_topk(DEFAULT_RETRIEVE_MODE, glue, bank, tok, tape, cue_ids, cue_ids, k)
+            w = glue.weights(hit[0]) if hit is not None else torch.zeros(0)
+        else:
+            from _inprint_glue import ctx_query
+
+            q = ctx_query(glue, bank, tok, cue_ids, anchor_ids=cue_ids)
+            if q is None:
+                rows.append({"S": f["S"], "rank": None})
+                continue
+            sims = tape.K @ q
+            gsim = float(sims[gold].max()) if gold else float("-inf")
+            rank = 1 + int((sims > gsim).sum())
+            top = tape.values[int(sims.argmax())]
+            w = glue.weights(torch.topk(sims, min(k, sims.numel()))[0])
         rows.append(
             {
                 "S": f["S"],
@@ -261,14 +285,165 @@ def exact_match(text: str, value: str) -> bool:
     return text.strip().split(" ")[0].strip(" .,;:") == value if text else False
 
 
+def match_in_window(text: str, value: str, n: int = 3) -> bool:
+    """Value in first n words (257 em_window3). Catches metric misses like Sharaif Shara."""
+    if not text:
+        return False
+    words = [w.strip(" .,;:") for w in text.strip().split(" ")[:n]]
+    return value in words
+
+
+def _token_rank(prob: torch.Tensor, tok_id: int) -> tuple[float, int]:
+    p = float(prob[tok_id])
+    return p, 1 + int((prob > p).sum().item())
+
+
+def _rand_values(n: int, rng: random.Random, forbid: set[str]) -> list[str]:
+    """Nonsense strings — not English dictionary words; BPE usually multi-token."""
+    vowels, cons = "aeiou", "bcdfghjklmnpqrstvwxyz"
+    out, seen = [], set()
+    while len(out) < n:
+        L = rng.randint(6, 11)
+        chars = []
+        for i in range(L):
+            chars.append(rng.choice(cons if i % 2 == 0 else vowels))
+        w = "".join(chars).capitalize()
+        if w in forbid or w in seen or len(w) < 5:
+            continue
+        seen.add(w)
+        out.append(w)
+    return out
+
+
+@torch.no_grad()
+def decode_step_audit(
+    glue,
+    model,
+    char_table,
+    tok,
+    bank,
+    tape,
+    fact,
+    pad_id,
+    V,
+    device,
+    k: int,
+    max_new: int = 6,
+    retrieve_mode: str = DEFAULT_RETRIEVE_MODE,
+) -> dict:
+    """Per-step gate / p_copy / mix during greedy decode — copy has no end-of-value state."""
+    cue_ids = [i for i in tok.encode(CUE.format(S=fact["S"])).ids if i != pad_id]
+    val_ids = [i for i in tok.encode(" " + fact["value"]).ids if i != pad_id]
+    if not cue_ids or not val_ids:
+        return {"S": fact["S"], "error": "empty cue or value"}
+    seq = list(cue_ids)
+    gen, steps = [], []
+    n_val = len(val_ids)
+    copy_restart = False
+    for t in range(max_new):
+        ids = torch.tensor([seq[-MAX_ARCS:]], dtype=torch.long, device=device)
+        h, logits = hidden_and_logits(model, char_table, ids, pad_id)
+        base = logits[0, -1]
+        p_lm = F.softmax(base, dim=-1)
+        lm_top = int(p_lm.argmax())
+        gold_id = val_ids[t] if t < n_val else None
+        hit = retrieve_topk(retrieve_mode, glue, bank, tok, tape, seq, cue_ids, k)
+        if hit is None:
+            nxt = lm_top
+            steps.append(
+                {
+                    "t": t,
+                    "gate": 0.0,
+                    "p_copy_gold": None,
+                    "copy_rank_gold": None,
+                    "mix_top": tok.decode([nxt]),
+                    "lm_top": tok.decode([lm_top]),
+                    "gold_tok": tok.decode([gold_id]) if gold_id is not None else None,
+                    "past_value_end": t >= n_val,
+                }
+            )
+        else:
+            sims, idx = hit
+            ent = float(-(p_lm * F.log_softmax(base, -1)).sum())
+            p_copy, cov = copy_dist(glue, tape, sims, idx, seq, V, device)
+            g_val = float(glue.g(h[0, -1], float(sims.max()), float(sims.mean()), ent, cov))
+            score = mix_logprob(base, g_val, p_copy, cov)
+            mix_top = int(score.argmax())
+            # after value span ends, copy still points at first value token → restart
+            first_val = val_ids[0]
+            p_first, rank_first = _token_rank(p_copy, first_val)
+            if t >= n_val and rank_first == 1 and g_val >= 0.35:
+                copy_restart = True
+            p_gold, copy_rank = (None, None)
+            if gold_id is not None:
+                p_gold, copy_rank = _token_rank(p_copy, gold_id)
+            steps.append(
+                {
+                    "t": t,
+                    "gate": g_val,
+                    "cov": float(cov),
+                    "p_copy_gold": p_gold,
+                    "copy_rank_gold": copy_rank,
+                    "p_copy_first_val": p_first,
+                    "copy_rank_first_val": rank_first,
+                    "mix_top": tok.decode([mix_top]),
+                    "lm_top": tok.decode([lm_top]),
+                    "gold_tok": tok.decode([gold_id]) if gold_id is not None else None,
+                    "past_value_end": t >= n_val,
+                }
+            )
+            nxt = mix_top
+        gen.append(nxt)
+        seq.append(nxt)
+
+    got = tok.decode(gen).strip()
+    em_ok = exact_match(got, fact["value"])
+    win3 = match_in_window(got, fact["value"], 3)
+    g0 = steps[0]["gate"] if steps else float("nan")
+    g_mean = float(np.mean([s["gate"] for s in steps])) if steps else float("nan")
+    # step0: correct first BPE of value?
+    step0 = steps[0] if steps else {}
+    step0_prefix_ok = (
+        step0.get("copy_rank_gold") == 1 and step0.get("gate", 0) >= 0.35
+    )
+    if em_ok:
+        diagnosis = "ok"
+    elif win3 and not em_ok:
+        diagnosis = "metric_first_word"  # gold later in window (Demas / Sharaif Shara)
+    elif g0 is not None and g0 < 0.35:
+        diagnosis = "gate_low"
+    elif step0.get("copy_rank_gold", 999) not in (1, None) and step0.get("copy_rank_gold"):
+        diagnosis = "readout_copy"
+    elif step0_prefix_ok and not em_ok:
+        diagnosis = "copy_no_span_lock"  # first tok from tape; rest from LM spelling prior
+    else:
+        diagnosis = "other"
+    return {
+        "S": fact["S"],
+        "gold": fact["value"],
+        "n_val_tokens": n_val,
+        "got": got,
+        "em_ok": em_ok,
+        "em_window3": win3,
+        "gate_step0": g0,
+        "gate_mean_decode": g_mean,
+        "copy_restart_after_value": copy_restart,
+        "diagnosis": diagnosis,
+        "steps": steps,
+    }
+
+
 @torch.no_grad()
 def em_over(
-    glue, model, char_table, tok, bank, tape, facts, pad_id, V, device, k, max_new, use_glue=True, samples=None
+    glue, model, char_table, tok, bank, tape, facts, pad_id, V, device, k, max_new, use_glue=True, samples=None,
+    retrieve_mode: str = DEFAULT_RETRIEVE_MODE,
+    stats: RetrieveStats | None = None,
 ):
     ok, gs = 0, []
     for f in facts:
         got, g = free_decode(
-            glue, model, char_table, tok, bank, tape, f, pad_id, V, device, k, max_new, use_glue
+            glue, model, char_table, tok, bank, tape, f, pad_id, V, device, k, max_new, use_glue,
+            retrieve_mode=retrieve_mode, stats=stats,
         )
         ok += int(exact_match(got, f["value"]))
         if not math.isnan(g):
@@ -287,10 +462,27 @@ def main() -> int:
     ap.add_argument("--nce-w", type=float, default=1.0, help="weight of the retrieval InfoNCE term")
     ap.add_argument("--nce-tau", type=float, default=0.05)
     ap.add_argument(
+        "--retrieve-mode",
+        default=DEFAULT_RETRIEVE_MODE,
+        choices=("auto", "cosine", "votes"),
+        help="glue retrieval during train/eval (eval also logs all three after train)",
+    )
+    ap.add_argument(
         "--nce-pool",
         choices=("wiki", "facts"),
         default="wiki",
         help="train W_q on bank-wide (prefix->slot) pairs, or overfit the fit facts (ablation)",
+    )
+    ap.add_argument("--eval-only", action="store_true", help="load glue ckpt, skip training (audit retrieve paths)")
+    ap.add_argument(
+        "--decode-audit",
+        action="store_true",
+        help="with eval-only: per-step gate/p_copy audit + miss diagnosis for held-out facts",
+    )
+    ap.add_argument(
+        "--random-values",
+        action="store_true",
+        help="planted values = nonsense strings (control: EM should fall to single-token fraction)",
     )
     ap.add_argument("--facts", type=int, default=0)
     ap.add_argument("--distractor-slots", type=int, default=0, help="real wiki entities added as bank noise")
@@ -302,7 +494,7 @@ def main() -> int:
     torch.manual_seed(SEED)
     t0 = time.time()
 
-    steps = args.steps or (200 if args.smoke else 800)
+    steps = 0 if args.eval_only else (args.steps or (200 if args.smoke else 800))
     n_facts = args.facts or (8 if args.smoke else 48)
     n_dist = args.distractor_slots or (150 if args.smoke else 1200)
     max_new = 4 if args.smoke else 6
@@ -345,9 +537,14 @@ def main() -> int:
 
     # ---- facts: half fit the glue, half are held out (255 lesson: never score what you fit) ----
     subs = [w for w in gen_fakes(set(values_pool), rng, n_facts + 30) if len(w) >= 5][:n_facts]
+    if args.random_values:
+        planted_vals = _rand_values(n_facts, rng, set(values_pool) | set(subs))
+        log(f"  random-values control: {n_facts} nonsense strings (not wiki entities)")
+    else:
+        planted_vals = values_pool[:n_facts]
     facts = []
     for i, S in enumerate(subs):
-        Vv = values_pool[i]
+        Vv = planted_vals[i]
         facts.append(
             {
                 "S": S,
@@ -359,16 +556,28 @@ def main() -> int:
         )
     fit_facts = [f for f in facts if f["glue_train"]]
     eval_facts = [f for f in facts if not f["glue_train"]]
-    log(f"  facts: fit={len(fit_facts)} held_out={len(eval_facts)}")
+    n_single_tok = sum(
+        1
+        for f in eval_facts
+        if len([i for i in tok.encode(" " + f["value"]).ids if i != pad_id]) == 1
+    )
+    log(
+        f"  facts: fit={len(fit_facts)} held_out={len(eval_facts)} "
+        f"eval_single_token_values={n_single_tok}/{len(eval_facts)}"
+    )
+    if args.random_values and args.eval_only:
+        log("random-values + eval-only: refuse (needs train on new tape values)")
+        return 1
 
     # ---- tape: canonical frozen keys; fact sentences are NOT in the CE text ----
-    keys, vals = [], []
+    keys, vals, ctxw = [], [], []
     pair_q, pair_slot = [], []  # (prefix -> slot) pairs harvested from wiki noise, for W_q training
     for f in facts:
         kf = bank_can.fp([f["S"]])[0]
         c = bank_can.ctx_fp(f["sent"], exclude=f["value"])
         keys.append(F.normalize(kf + c, dim=-1) if c is not None else kf)
         vals.append(f["value"])
+        ctxw.append(slot_query_words(f["sent"], exclude=f["value"]))
     used = set(vals)
     for ln in lines:
         if len(vals) >= n_facts + n_dist:
@@ -385,6 +594,7 @@ def main() -> int:
             if not anchors:
                 continue
             keys.append(F.normalize(bank_can.fp([anchors[-1]])[0] + c, dim=-1))
+            ctxw.append(slot_query_words(ln[lo:hi], exclude=ent))
             # the query a decoder would form right before emitting this entity
             cq = bank_can.ctx_fp(ln[lo : m.start()])
             if cq is not None:
@@ -394,8 +604,9 @@ def main() -> int:
             used.add(ent)
             if len(vals) >= n_facts + n_dist:
                 break
-    tape = TapeView(torch.stack(keys, 0).to(device), vals, tok, pad_id)
-    log(f"  tape slots={len(vals)} ({len(facts)} planted + {len(vals)-len(facts)} wiki noise)")
+    tape = TapeView(torch.stack(keys, 0).to(device), vals, tok, pad_id, ctxw=ctxw)
+    log(f"  tape slots={len(vals)} ({len(facts)} planted + {len(vals)-len(facts)} wiki noise) "
+        f"retrieve=auto (votes if >={VOTES_AUTO_MIN_SLOTS})")
 
     # prose corpus: fact sentences replaced by a placeholder, so values never enter CE text
     prose = "\n".join(lines + [PLACEHOLDER] * min(len(facts), len(lines) // 4))
@@ -408,6 +619,17 @@ def main() -> int:
     log(f"  prose docs={n_docs} train={len(train_docs)} hold={len(hold_docs)}")
 
     glue = SlotBias(2 * (model.head.in_features // 2), device)
+    if args.eval_only:
+        if not CKPT_OUT.exists():
+            log(f"eval-only: missing {CKPT_OUT}")
+            return 1
+        ck = torch.load(CKPT_OUT, map_location=device, weights_only=False)
+        glue.W_q.load_state_dict(ck["W_q_glue"] if "W_q_glue" in ck else ck["W_q"])
+        glue.gate.load_state_dict(ck["gate"])
+        with torch.no_grad():
+            glue.log_tau.data.copy_(ck["log_tau"].to(device).reshape_as(glue.log_tau.data))
+        glue.eval()
+        log(f"eval-only: loaded glue from {CKPT_OUT.name}")
     opt = torch.optim.AdamW(glue.trainable(), lr=3e-3, weight_decay=0.01)
 
     # W_q is trained on (prefix -> slot) pairs from the BANK, not on the planted facts. Fitting it on
@@ -438,51 +660,143 @@ def main() -> int:
 
     # ---- train glue only ----
     curve = []
-    for step in range(1, steps + 1):
-        batch = [fit_facts[rng.randrange(len(fit_facts))] for _ in range(min(4, len(fit_facts)))]
-        l_fact, g_fact = fact_batch(
-            glue, model, char_table, tok, bank_can, tape, batch, pad_id, V, device, k
-        )
-        ids = s251.sample_windows_docs(flat, off, 1, rng, pad_id, train_docs).to(device)
-        l_prose, g_prose = prose_batch(
-            glue, model, char_table, tok, bank_can, tape, ids, pad_id, V, device, k, args.gate_l1
-        )
-        l_nce = None
-        if nce_q is not None and args.nce_w > 0:
-            sel = torch.randint(0, nce_q.size(0), (min(64, nce_q.size(0)),), device=device)
-            gold = F.one_hot(nce_slot[sel], K_all.size(0)).bool()
-            l_nce = args.nce_w * nce_loss(glue, nce_q[sel], gold, K_all, args.nce_tau)
-        parts = [x for x in (l_fact, l_prose, l_nce) if x is not None]
-        if not parts:
-            continue
-        loss = parts[0]
-        for p in parts[1:]:
-            loss = loss + p
-        opt.zero_grad(set_to_none=True)
-        loss.backward()
-        torch.nn.utils.clip_grad_norm_(glue.trainable(), 1.0)
-        opt.step()
-        if step % max(1, steps // 6) == 0:
-            curve.append(
-                {
-                    "step": step,
-                    "loss_fact": float(l_fact) if l_fact is not None else None,
-                    "loss_prose": float(l_prose) if l_prose is not None else None,
-                    "loss_nce": float(l_nce) if l_nce is not None else None,
-                    "gate_fact": g_fact,
-                    "gate_prose": g_prose,
-                    "tau": float(torch.exp(glue.log_tau)),
-                }
+    retrieve_mode = args.retrieve_mode
+    if steps > 0:
+        for step in range(1, steps + 1):
+            batch = [fit_facts[rng.randrange(len(fit_facts))] for _ in range(min(4, len(fit_facts)))]
+            l_fact, g_fact = fact_batch(
+                glue, model, char_table, tok, bank_can, tape, batch, pad_id, V, device, k, retrieve_mode
             )
-            log(
-                f"  step {step}/{steps} fact={float(l_fact) if l_fact is not None else float('nan'):.3f} "
-                f"prose={float(l_prose) if l_prose is not None else float('nan'):.3f} "
-                f"nce={float(l_nce) if l_nce is not None else float('nan'):.3f} "
-                f"g_fact={g_fact:.3f} g_prose={g_prose:.3f} "
-                f"tau={float(torch.exp(glue.log_tau)):.3f} ({time.time()-t0:.0f}s)"
+            ids = s251.sample_windows_docs(flat, off, 1, rng, pad_id, train_docs).to(device)
+            l_prose, g_prose = prose_batch(
+                glue, model, char_table, tok, bank_can, tape, ids, pad_id, V, device, k, args.gate_l1,
+                retrieve_mode=retrieve_mode,
             )
+            l_nce = None
+            if nce_q is not None and args.nce_w > 0:
+                sel = torch.randint(0, nce_q.size(0), (min(64, nce_q.size(0)),), device=device)
+                gold = F.one_hot(nce_slot[sel], K_all.size(0)).bool()
+                l_nce = args.nce_w * nce_loss(glue, nce_q[sel], gold, K_all, args.nce_tau)
+            parts = [x for x in (l_fact, l_prose, l_nce) if x is not None]
+            if not parts:
+                continue
+            loss = parts[0]
+            for p in parts[1:]:
+                loss = loss + p
+            opt.zero_grad(set_to_none=True)
+            loss.backward()
+            torch.nn.utils.clip_grad_norm_(glue.trainable(), 1.0)
+            opt.step()
+            if step % max(1, steps // 6) == 0:
+                curve.append(
+                    {
+                        "step": step,
+                        "loss_fact": float(l_fact) if l_fact is not None else None,
+                        "loss_prose": float(l_prose) if l_prose is not None else None,
+                        "loss_nce": float(l_nce) if l_nce is not None else None,
+                        "gate_fact": g_fact,
+                        "gate_prose": g_prose,
+                        "tau": float(torch.exp(glue.log_tau)),
+                    }
+                )
+                log(
+                    f"  step {step}/{steps} fact={float(l_fact) if l_fact is not None else float('nan'):.3f} "
+                    f"prose={float(l_prose) if l_prose is not None else float('nan'):.3f} "
+                    f"nce={float(l_nce) if l_nce is not None else float('nan'):.3f} "
+                    f"g_fact={g_fact:.3f} g_prose={g_prose:.3f} "
+                    f"tau={float(torch.exp(glue.log_tau)):.3f} ({time.time()-t0:.0f}s)"
+                )
 
     glue.eval()
+
+    decode_audit_rows: list[dict] = []
+    if args.decode_audit:
+        decode_audit_rows = [
+            decode_step_audit(
+                glue, model, char_table, tok, bank_can, tape, f, pad_id, V, device, k, max_new, retrieve_mode,
+            )
+            for f in eval_facts
+        ]
+        misses = [r for r in decode_audit_rows if not r.get("em_ok")]
+        mechanism_misses = [r for r in misses if r.get("diagnosis") != "metric_first_word"]
+        diag_counts: dict[str, int] = {}
+        for r in misses:
+            d = r.get("diagnosis", "?")
+            diag_counts[d] = diag_counts.get(d, 0) + 1
+        n_restart = sum(1 for r in decode_audit_rows if r.get("copy_restart_after_value"))
+        n_win3 = sum(1 for r in decode_audit_rows if r.get("em_window3"))
+        log(
+            f"decode step audit: EM-miss {len(misses)}/{len(eval_facts)} "
+            f"(mechanism {len(mechanism_misses)}; metric_only {len(misses)-len(mechanism_misses)}); "
+            f"em_window3={n_win3}/{len(eval_facts)}; copy_restart={n_restart}/{len(eval_facts)}"
+        )
+        for r in misses:
+            s0 = (r.get("steps") or [{}])[0]
+            log(
+                f"  MISS {r['S']} gold={r['gold']} got={r.get('got')} "
+                f"g0={r.get('gate_step0', float('nan')):.3f} g_mean={r.get('gate_mean_decode', float('nan')):.3f} "
+                f"n_tok={r.get('n_val_tokens')} restart={r.get('copy_restart_after_value')} -> {r.get('diagnosis')}"
+            )
+            # show steps past value end briefly
+            for st in (r.get("steps") or [])[:4]:
+                log(
+                    f"    t={st['t']} g={st['gate']:.3f} past_end={st.get('past_value_end')} "
+                    f"copy_rank_gold={st.get('copy_rank_gold')} copy_rank_1st={st.get('copy_rank_first_val')} "
+                    f"mix={st.get('mix_top')!r} gold={st.get('gold_tok')!r}"
+                )
+        audit_out = {
+            "n_eval": len(eval_facts),
+            "n_miss_em": len(misses),
+            "n_miss_mechanism": len(mechanism_misses),
+            "n_em_window3": n_win3,
+            "n_copy_restart": n_restart,
+            "diagnosis_counts": diag_counts,
+            "rows": decode_audit_rows,
+            "note": (
+                "Tape supplies ~first BPE; rest is LM spelling prior. copy_restart_after_value = "
+                "after value tokens exhausted, p_copy still ranks first value token #1 (no span-lock). "
+                "metric_first_word = em_window3 would pass (first-word EM too strict)."
+            ),
+        }
+        audit_path = RES / (
+            "stage256_decode_miss_audit_random_values.md" if args.random_values else "stage256_decode_miss_audit.md"
+        )
+        audit_json = RES / (
+            "stage256_decode_miss_audit_random_values.json"
+            if args.random_values
+            else "stage256_decode_miss_audit.json"
+        )
+        audit_json.write_text(json.dumps(audit_out, indent=2), encoding="utf-8")
+        md = [
+            "# Stage 256 — decode audit (per-step)\n\n",
+            f"Held-out **{len(eval_facts)}** · first-word EM miss **{len(misses)}** · "
+            f"mechanism miss **{len(mechanism_misses)}** · em_window3 **{n_win3}** · "
+            f"copy_restart **{n_restart}** · retrieve `{retrieve_mode}`"
+            + (" · **random-values**" if args.random_values else "")
+            + "\n\n",
+            "Retrieval @ cue was rank **1.0**. Gate opens on step 0; copy has **no end-of-value** "
+            "(restarts at first token). Fix = **257 span-lock**.\n\n",
+            "## Diagnosis counts\n\n",
+        ]
+        for d, c in sorted(diag_counts.items()):
+            md.append(f"- **{d}**: {c}\n")
+        md.append(
+            "\n| S | gold | got | g0 | g_mean | n_tok | restart | diagnosis |\n"
+            "|---|------|-----|---:|-------:|------:|:-------:|----------|\n"
+        )
+        for r in misses:
+            md.append(
+                f"| {r['S']} | {r['gold']} | {r.get('got', '')} | "
+                f"{r.get('gate_step0', float('nan')):.3f} | {r.get('gate_mean_decode', float('nan')):.3f} | "
+                f"{r.get('n_val_tokens')} | {r.get('copy_restart_after_value')} | {r.get('diagnosis')} |\n"
+            )
+        oks = [r for r in decode_audit_rows if r.get("em_ok") and r.get("copy_restart_after_value")][:4]
+        if oks:
+            md.append("\n## OK but copy restart (same disease)\n\n")
+            for r in oks:
+                md.append(f"- **{r['S']}** `{r['gold']}` → `{r['got']}` (g_mean={r['gate_mean_decode']:.3f})\n")
+        audit_path.write_text("".join(md), encoding="utf-8")
+        log(f"  wrote {audit_path.name} ({len(misses)} EM-miss / {len(mechanism_misses)} mechanism)")
 
     # ---- evaluation: free-form EM + causal ablations, all on held-out facts ----
     ret_eval = retrieval_report(glue, bank_can, tok, tape, eval_facts, pad_id, k)
@@ -497,10 +811,34 @@ def main() -> int:
         log(f"    {r}")
 
     decodes: list[dict] = []
-    em_glue, g_glue = em_over(
-        glue, model, char_table, tok, bank_can, tape, eval_facts, pad_id, V, device, k, max_new,
-        samples=decodes,
+    retrieve_decode_steps: dict[str, dict] = {}
+    n_live = tape.n_live()
+    log(
+        f"retrieve audit: n_live={n_live} auto_eff="
+        f"{glue_lib.resolve_retrieve_mode('auto', n_live)} postings={'yes' if tape.postings else 'no'}"
     )
+    retrieve_em: dict[str, float] = {}
+    em_glue, g_glue = float("nan"), float("nan")
+    for mode in ("auto", "cosine", "votes"):
+        st = RetrieveStats()
+        em, g_mean = em_over(
+            glue, model, char_table, tok, bank_can, tape, eval_facts, pad_id, V, device, k, max_new,
+            retrieve_mode=mode,
+            stats=st,
+            samples=decodes if mode == retrieve_mode else None,
+        )
+        retrieve_em[mode] = em
+        retrieve_decode_steps[mode] = st.to_dict()
+        if mode == retrieve_mode:
+            em_glue, g_glue = em, g_mean
+    log(f"retrieve EM (same glue, eval decode): {json.dumps(retrieve_em)}")
+    log(f"retrieve decode steps: {json.dumps(retrieve_decode_steps)}")
+    full_bank_cue_eval: dict[str, dict] = {}
+    for mode in ("auto", "cosine", "votes"):
+        full_bank_cue_eval[mode] = full_bank_cue_summary(
+            mode, glue, bank_can, tok, tape, eval_facts, pad_id, cue_tmpl=CUE
+        )
+    log(f"full_bank at cue (held-out): {json.dumps(full_bank_cue_eval)}")
     for d in decodes[:4]:
         log(f"    decode {d}")
     em_shuf, _ = em_over(
@@ -584,6 +922,7 @@ def main() -> int:
         "n_fit": len(fit_facts),
         "n_eval": len(eval_facts),
         "tape_slots": len(vals),
+        "random_values": bool(args.random_values),
         "gates": {
             "G_freeform_value": g_freeform,
             "G_beats_head_only": g_beats_head,
@@ -610,6 +949,13 @@ def main() -> int:
             "exam_base": base_exam,
             "tau": float(torch.exp(glue.log_tau)),
             "gate_l1": args.gate_l1,
+            "retrieve_mode_train": retrieve_mode,
+            "retrieve_em_eval": retrieve_em,
+            "retrieve_decode_steps": retrieve_decode_steps,
+            "full_bank_cue_eval": full_bank_cue_eval,
+            "fp_version": CKPT_P1.name,
+            "eval_single_token_values": n_single_tok,
+            "eval_single_token_frac": n_single_tok / max(1, len(eval_facts)),
         },
         "curve": curve,
         "retrieval_at_cue": {
@@ -626,8 +972,12 @@ def main() -> int:
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "wall_s": time.time() - t0,
     }
-    DECISION.write_text(json.dumps(out, indent=2), encoding="utf-8")
-    MINI.write_text(
+    DECISION_PATH = RES / (
+        "stage256_decision_random_values.json" if args.random_values else "stage256_decision.json"
+    )
+    DECISION_PATH.write_text(json.dumps(out, indent=2), encoding="utf-8")
+    mini_path = RES / ("stage256_mini_random_values.md" if args.random_values else "stage256_mini.md")
+    mini_path.write_text(
         f"# Stage 256 slot-bias glue\n\n**{overall}** trunk={trunk_ckpt.name} slots={len(vals)} "
         f"eval_facts={len(eval_facts)}\n\n"
         f"- EM free-form: head_only **{em_head:.3f}** -> glue **{em_glue:.3f}**\n"
@@ -639,17 +989,33 @@ def main() -> int:
     )
     log(json.dumps({"overall": overall, "gates": out["gates"], "summary": out["summary"]}, indent=2))
 
-    if not args.smoke:
+    if not args.smoke and not args.random_values:
         CKPT_OUT.parent.mkdir(exist_ok=True)
         torch.save(
             {
                 "W_q": glue.W_q.state_dict(),
+                "W_q_glue": glue.W_q.state_dict(),
                 "gate": glue.gate.state_dict(),
                 "log_tau": glue.log_tau.detach().cpu(),
                 "stage": 256,
             },
             CKPT_OUT,
         )
+    elif args.random_values and not args.smoke:
+        alt = Path("checkpoints/stage256_slot_bias_random_values.pt")
+        alt.parent.mkdir(exist_ok=True)
+        torch.save(
+            {
+                "W_q": glue.W_q.state_dict(),
+                "W_q_glue": glue.W_q.state_dict(),
+                "gate": glue.gate.state_dict(),
+                "log_tau": glue.log_tau.detach().cpu(),
+                "stage": 256,
+                "random_values": True,
+            },
+            alt,
+        )
+        log(f"  saved random-values glue -> {alt.name} (did not overwrite {CKPT_OUT.name})")
     return 0
 
 

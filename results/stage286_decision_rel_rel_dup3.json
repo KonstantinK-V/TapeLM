@@ -1,0 +1,505 @@
+{
+  "stage": 286,
+  "overall": "EVIDENCE_PARTIAL",
+  "seed": 286,
+  "smoke": false,
+  "run_tag": "rel",
+  "no_hidden": false,
+  "addr_key": "two",
+  "train_steps": 6000,
+  "min_mentions": 2,
+  "min_evidence": 2,
+  "min_candidates": 1,
+  "min_per_family": 8,
+  "reward": {
+    "correct": 1.0,
+    "wrong": -1.0,
+    "abstain": 0.75
+  },
+  "gates": {
+    "G_arc_enc_frozen": true,
+    "G_task_exists": true,
+    "G_judges_non_vacuous": true,
+    "G_learns_evidence": true,
+    "G_abstains_unknowable": false,
+    "G_survives_lie": true,
+    "G_weighs_contested": false,
+    "G_survives_duplicated_lie": true,
+    "G_beats_silence": false
+  },
+  "judges_compared": [
+    "votes",
+    "return"
+  ],
+  "judges_compared_lie": [
+    "votes",
+    "return"
+  ],
+  "mind": "relational",
+  "lie_dup": 3,
+  "train_distribution": {
+    "n": 6000,
+    "sampling": "pair_uniform",
+    "mean_candidates": 2.07,
+    "target_unknown_rate": 0.37733333333333335,
+    "single_candidate_rate": 0.4325,
+    "truncated_skipped": 0,
+    "min_candidates_skipped": 0
+  },
+  "head_input_norms": {
+    "mind": "relational",
+    "params": 4417
+  },
+  "leave_one_out": {
+    "n": 70,
+    "mean_candidates": 3.557142857142857,
+    "target_unknown_rate": 0.2,
+    "truncated_rate": 0.014285714285714285,
+    "silence_reward": 0.75,
+    "break_even_accuracy": 0.875,
+    "model": {
+      "n": 70,
+      "coverage": 0.38571428571428573,
+      "accuracy": 0.7777777777777778,
+      "reward": 0.675,
+      "n_answered": 27,
+      "vacuous": false
+    },
+    "votes": {
+      "n": 70,
+      "coverage": 0.8285714285714286,
+      "accuracy": 0.43103448275862066,
+      "reward": 0.014285714285714285,
+      "n_answered": 58,
+      "vacuous": false
+    },
+    "return": {
+      "n": 70,
+      "coverage": 0.12857142857142856,
+      "accuracy": 0.8888888888888888,
+      "reward": 0.7535714285714286,
+      "n_answered": 9,
+      "vacuous": false
+    },
+    "unknown_auc": 0.48214285714285715,
+    "unknown_auc_z": -0.2055566129482594,
+    "p_unknown_when_absent": 0.4784172980913094,
+    "p_unknown_when_present": 0.48409796230095836,
+    "unknown_when_absent": 0.7142857142857143,
+    "unknown_when_present": 0.5892857142857143,
+    "n_absent": 14,
+    "n_present": 56,
+    "model_reward": 0.675,
+    "votes_reward": 0.014285714285714285,
+    "return_reward": 0.7535714285714286,
+    "model_acc_answered": 0.7777777777777778,
+    "model_abstain": 0.6142857142857143,
+    "matched_coverage": {
+      "votes": {
+        "judge_coverage": 0.8285714285714286,
+        "judge_accuracy": 0.43103448275862066,
+        "model_accuracy_at_that_coverage": 0.43103448275862066,
+        "n_compared": 58,
+        "judge_vacuous": false
+      },
+      "return": {
+        "judge_coverage": 0.12857142857142856,
+        "judge_accuracy": 0.8888888888888888,
+        "model_accuracy_at_that_coverage": 1.0,
+        "n_compared": 9,
+        "judge_vacuous": false
+      }
+    },
+    "selective_curve": {
+      "0.10": 1.0,
+      "0.25": 0.8333333333333334,
+      "0.50": 0.6285714285714286,
+      "0.75": 0.4423076923076923,
+      "1.00": 0.37142857142857144
+    },
+    "by_evidence_shape": {
+      "unanimous_rate": 0.35714285714285715,
+      "n_unanimous": 25,
+      "n_contested": 45,
+      "answer_rate_when_unanimous": 1.0,
+      "answer_rate_when_contested": 0.044444444444444446,
+      "accuracy_when_unanimous": 0.84,
+      "accuracy_when_contested": 0.0,
+      "n_contested_answered": 2,
+      "random_accuracy_contested": 0.2675925925925926,
+      "votes_coverage_contested": 0.7333333333333333,
+      "votes_accuracy_contested": 0.12121212121212122,
+      "model_accuracy_at_votes_coverage_contested": 0.12121212121212122
+    }
+  },
+  "leave_one_out_train_control": {
+    "n": 84,
+    "mean_candidates": 2.1547619047619047,
+    "target_unknown_rate": 0.38095238095238093,
+    "truncated_rate": 0.0,
+    "silence_reward": 0.75,
+    "break_even_accuracy": 0.875,
+    "model": {
+      "n": 84,
+      "coverage": 0.4642857142857143,
+      "accuracy": 0.8717948717948718,
+      "reward": 0.7470238095238095,
+      "n_answered": 39,
+      "vacuous": false
+    },
+    "votes": {
+      "n": 84,
+      "coverage": 0.6904761904761905,
+      "accuracy": 0.6896551724137931,
+      "reward": 0.49404761904761907,
+      "n_answered": 58,
+      "vacuous": false
+    },
+    "return": {
+      "n": 84,
+      "coverage": 0.35714285714285715,
+      "accuracy": 0.43333333333333335,
+      "reward": 0.43452380952380953,
+      "n_answered": 30,
+      "vacuous": false
+    },
+    "unknown_auc": 0.8413461538461539,
+    "unknown_auc_z": 5.231820495903646,
+    "p_unknown_when_absent": 0.8250175522407517,
+    "p_unknown_when_present": 0.3021841323576294,
+    "unknown_when_absent": 0.84375,
+    "unknown_when_present": 0.34615384615384615,
+    "n_absent": 32,
+    "n_present": 52,
+    "model_reward": 0.7470238095238095,
+    "votes_reward": 0.49404761904761907,
+    "return_reward": 0.43452380952380953,
+    "model_acc_answered": 0.8717948717948718,
+    "model_abstain": 0.5357142857142857,
+    "matched_coverage": {
+      "votes": {
+        "judge_coverage": 0.6904761904761905,
+        "judge_accuracy": 0.6896551724137931,
+        "model_accuracy_at_that_coverage": 0.6896551724137931,
+        "n_compared": 58,
+        "judge_vacuous": false
+      },
+      "return": {
+        "judge_coverage": 0.35714285714285715,
+        "judge_accuracy": 0.43333333333333335,
+        "model_accuracy_at_that_coverage": 0.9,
+        "n_compared": 30,
+        "judge_vacuous": false
+      }
+    },
+    "selective_curve": {
+      "0.10": 1.0,
+      "0.25": 0.9047619047619048,
+      "0.50": 0.8809523809523809,
+      "0.75": 0.6825396825396826,
+      "1.00": 0.5476190476190477
+    },
+    "by_evidence_shape": {
+      "unanimous_rate": 0.4166666666666667,
+      "n_unanimous": 35,
+      "n_contested": 49,
+      "answer_rate_when_unanimous": 1.0,
+      "answer_rate_when_contested": 0.08163265306122448,
+      "accuracy_when_unanimous": 0.8857142857142857,
+      "accuracy_when_contested": 0.75,
+      "n_contested_answered": 4,
+      "random_accuracy_contested": 0.1768707482993197,
+      "votes_coverage_contested": 0.46938775510204084,
+      "votes_accuracy_contested": 0.391304347826087,
+      "model_accuracy_at_votes_coverage_contested": 0.391304347826087
+    }
+  },
+  "lying_tape": {
+    "n": 61,
+    "mean_candidates": 3.8688524590163933,
+    "target_unknown_rate": 0.36065573770491804,
+    "truncated_rate": 0.01639344262295082,
+    "silence_reward": 0.75,
+    "break_even_accuracy": 0.875,
+    "model": {
+      "n": 61,
+      "coverage": 0.08196721311475409,
+      "accuracy": 1.0,
+      "reward": 0.7704918032786885,
+      "n_answered": 5,
+      "vacuous": true
+    },
+    "votes": {
+      "n": 61,
+      "coverage": 0.639344262295082,
+      "accuracy": 0.46153846153846156,
+      "reward": 0.22131147540983606,
+      "n_answered": 39,
+      "vacuous": false
+    },
+    "return": {
+      "n": 61,
+      "coverage": 0.21311475409836064,
+      "accuracy": 0.6153846153846154,
+      "reward": 0.639344262295082,
+      "n_answered": 13,
+      "vacuous": false
+    },
+    "unknown_auc": 0.5804195804195804,
+    "unknown_auc_z": 1.0363351415461257,
+    "p_unknown_when_absent": 0.8287905210798437,
+    "p_unknown_when_present": 0.6777612993923517,
+    "unknown_when_absent": 1.0,
+    "unknown_when_present": 0.8717948717948718,
+    "n_absent": 22,
+    "n_present": 39,
+    "model_reward": 0.7704918032786885,
+    "votes_reward": 0.22131147540983606,
+    "return_reward": 0.639344262295082,
+    "model_acc_answered": 1.0,
+    "model_abstain": 0.9180327868852459,
+    "matched_coverage": {
+      "votes": {
+        "judge_coverage": 0.639344262295082,
+        "judge_accuracy": 0.46153846153846156,
+        "model_accuracy_at_that_coverage": 0.48717948717948717,
+        "n_compared": 39,
+        "judge_vacuous": false
+      },
+      "return": {
+        "judge_coverage": 0.21311475409836064,
+        "judge_accuracy": 0.6153846153846154,
+        "model_accuracy_at_that_coverage": 1.0,
+        "n_compared": 13,
+        "judge_vacuous": false
+      }
+    },
+    "selective_curve": {
+      "0.10": 1.0,
+      "0.25": 0.9333333333333333,
+      "0.50": 0.5,
+      "0.75": 0.41304347826086957,
+      "1.00": 0.4098360655737705
+    },
+    "by_evidence_shape": {
+      "unanimous_rate": 0.0,
+      "n_unanimous": 0,
+      "n_contested": 61,
+      "answer_rate_when_unanimous": NaN,
+      "answer_rate_when_contested": 0.08196721311475409,
+      "accuracy_when_unanimous": NaN,
+      "accuracy_when_contested": 1.0,
+      "n_contested_answered": 5,
+      "random_accuracy_contested": 0.22882513661202183,
+      "votes_coverage_contested": 0.639344262295082,
+      "votes_accuracy_contested": 0.46153846153846156,
+      "model_accuracy_at_votes_coverage_contested": 0.48717948717948717
+    }
+  },
+  "lying_tape_dup": {
+    "n": 61,
+    "mean_candidates": 3.8688524590163933,
+    "target_unknown_rate": 0.36065573770491804,
+    "truncated_rate": 0.01639344262295082,
+    "silence_reward": 0.75,
+    "break_even_accuracy": 0.875,
+    "model": {
+      "n": 61,
+      "coverage": 0.36065573770491804,
+      "accuracy": 0.7727272727272727,
+      "reward": 0.6762295081967213,
+      "n_answered": 22,
+      "vacuous": false
+    },
+    "votes": {
+      "n": 61,
+      "coverage": 0.6557377049180327,
+      "accuracy": 0.0,
+      "reward": -0.3975409836065574,
+      "n_answered": 40,
+      "vacuous": false
+    },
+    "return": {
+      "n": 61,
+      "coverage": 0.22950819672131148,
+      "accuracy": 0.5714285714285714,
+      "reward": 0.610655737704918,
+      "n_answered": 14,
+      "vacuous": false
+    },
+    "unknown_auc": 0.5372960372960373,
+    "unknown_auc_z": 0.48061919607936215,
+    "p_unknown_when_absent": 0.5470481643622572,
+    "p_unknown_when_present": 0.5472530346268263,
+    "unknown_when_absent": 0.8181818181818182,
+    "unknown_when_present": 0.5384615384615384,
+    "n_absent": 22,
+    "n_present": 39,
+    "model_reward": 0.6762295081967213,
+    "votes_reward": -0.3975409836065574,
+    "return_reward": 0.610655737704918,
+    "model_acc_answered": 0.7727272727272727,
+    "model_abstain": 0.639344262295082,
+    "matched_coverage": {
+      "votes": {
+        "judge_coverage": 0.6557377049180327,
+        "judge_accuracy": 0.0,
+        "model_accuracy_at_that_coverage": 0.45,
+        "n_compared": 40,
+        "judge_vacuous": false
+      },
+      "return": {
+        "judge_coverage": 0.22950819672131148,
+        "judge_accuracy": 0.5714285714285714,
+        "model_accuracy_at_that_coverage": 0.6428571428571429,
+        "n_compared": 14,
+        "judge_vacuous": false
+      }
+    },
+    "selective_curve": {
+      "0.10": 0.8333333333333334,
+      "0.25": 0.6666666666666666,
+      "0.50": 0.5666666666666667,
+      "0.75": 0.391304347826087,
+      "1.00": 0.3442622950819672
+    },
+    "by_evidence_shape": {
+      "unanimous_rate": 0.0,
+      "n_unanimous": 0,
+      "n_contested": 61,
+      "answer_rate_when_unanimous": NaN,
+      "answer_rate_when_contested": 0.36065573770491804,
+      "accuracy_when_unanimous": NaN,
+      "accuracy_when_contested": 0.7727272727272727,
+      "n_contested_answered": 22,
+      "random_accuracy_contested": 0.22882513661202183,
+      "votes_coverage_contested": 0.6557377049180327,
+      "votes_accuracy_contested": 0.0,
+      "model_accuracy_at_votes_coverage_contested": 0.45
+    }
+  },
+  "exam": {
+    "n": 37,
+    "reward": 0.8513513513513513,
+    "votes_reward": 0.9324324324324325,
+    "return_reward": 0.7635135135135135,
+    "oracle_reward": 0.9324324324324325,
+    "gap_to_oracle": 0.08108108108108114,
+    "votes_is_the_label": true,
+    "clean": {
+      "n": 21,
+      "abstain": 0.0,
+      "acc_answered": 1.0,
+      "reward": 1.0
+    },
+    "decidable": {
+      "n": 6,
+      "abstain": 0.8333333333333334,
+      "acc_answered": 1.0,
+      "reward": 0.7916666666666666
+    },
+    "tie": {
+      "n": 10,
+      "abstain": 0.9,
+      "acc_answered": 0.0,
+      "reward": 0.575
+    }
+  },
+  "curve": [
+    {
+      "step": 750,
+      "loss": 1.0963311989745126,
+      "kind": "tie",
+      "n_cands": 3,
+      "mean_cands_so_far": 2.2226666666666666
+    },
+    {
+      "step": 1500,
+      "loss": 1.0583567978441715,
+      "kind": "clean",
+      "n_cands": 1,
+      "mean_cands_so_far": 2.220666666666667
+    },
+    {
+      "step": 2250,
+      "loss": 0.7763575995081919,
+      "kind": "clean",
+      "n_cands": 1,
+      "mean_cands_so_far": 2.1364444444444444
+    },
+    {
+      "step": 3000,
+      "loss": 0.8338124490703922,
+      "kind": "decidable",
+      "n_cands": 1,
+      "mean_cands_so_far": 2.069
+    },
+    {
+      "step": 3750,
+      "loss": 0.7957616026949836,
+      "kind": "clean",
+      "n_cands": 1,
+      "mean_cands_so_far": 2.0984
+    },
+    {
+      "step": 4500,
+      "loss": 0.6993214198677742,
+      "kind": "decidable",
+      "n_cands": 3,
+      "mean_cands_so_far": 2.069111111111111
+    },
+    {
+      "step": 5250,
+      "loss": 0.8252387435054516,
+      "kind": "clean",
+      "n_cands": 1,
+      "mean_cands_so_far": 2.0655238095238095
+    },
+    {
+      "step": 6000,
+      "loss": 0.9520327721591457,
+      "kind": "tie",
+      "n_cands": 3,
+      "mean_cands_so_far": 2.07
+    }
+  ],
+  "arc_enc_hash_before": "64a764151ebd27ec5f4c1e92d72d9ce6dba381fb355c386d669f3a0ac2cf93d1",
+  "arc_enc_hash_after": "64a764151ebd27ec5f4c1e92d72d9ce6dba381fb355c386d669f3a0ac2cf93d1",
+  "fp_version": "stage191_p1_curve.pt",
+  "reference_280_baseline": {
+    "held_out_reward": 0.704,
+    "acc_answered_all": 0.9
+  },
+  "reference_286_first_full_nohid": {
+    "overall": "EVIDENCE_NO",
+    "model_reward": 0.1,
+    "votes_reward": 0.014,
+    "return_reward": 0.754,
+    "unknown_when_absent": 0.0,
+    "unknown_when_present": 0.218,
+    "exam_reward": 0.777,
+    "exam_votes_reward": 0.932,
+    "note": "scored by the examiners this file replaces; not comparable term by term"
+  },
+  "reference_286_ablation_pair_gen2": {
+    "code": "second-generation examiners, item-uniform sampler, no train control",
+    "nohid": {
+      "overall": "EVIDENCE_PARTIAL",
+      "loo_accuracy": 0.641,
+      "loo_coverage": 0.557,
+      "unknown_auc": 0.412,
+      "selective_10pct": 1.0
+    },
+    "hidden": {
+      "overall": "EVIDENCE_NO",
+      "loo_accuracy": 0.325,
+      "loo_coverage": 0.571,
+      "unknown_auc": 0.259,
+      "selective_10pct": 0.286
+    },
+    "note": "same tapes - judge numbers byte-identical between the runs. Reading halved accuracy at equal coverage and inverted the confidence ordering; the features-only ablation beat the arm carrying the stage's claim."
+  },
+  "note": "The direction of teaching is inverted: nobody demonstrates, the tape is the label. Hide one mention of an address, show the rest, require the hidden value - so there are as many examples as slots, no judge is imitated, and what the weights learn is what the judges were hand-written approximations of: weighing evidence. Votes and corroboration are features on the candidates now, every row reads the same schema so the UNKNOWN row can see the corroboration too, and each candidate is READ from the mentions that carry it. The examiners changed after the first full run, which measured four properties of the scoring rather than of the mind. The exam is no longer gated: with every mention visible, votes computes the majority and the label IS the majority, so votes was an oracle and 0.932 was the ceiling. Reward is no longer the comparison: at abstain 0.75 against wrong -1.0 nothing beats silence under 87.5% accuracy, so every scorer piles up at the constant and coverage and accuracy are now reported apart, with a judge under 10% coverage marked vacuous instead of being ranked against. The mind is compared to each judge at THAT JUDGE'S coverage, ranked by its own confidence. And honesty is measured in the distribution: whether the hidden value is visible is a property of the hidden slot, and where the evidence is unanimous the UNKNOWN row is the same input under both labels, so an argmax can never choose it against a 20% base rate - what the evidence can be asked is whether it moves P(UNKNOWN), which is an AUC. The lying tape stays the sharpest test of the concept: a forged mention has no external corroboration and a mind that weighs evidence should discount it, while votes by construction cannot. The address itself is still 280's plumbing - this stage is about weighing WITHIN the evidence set, so the ceiling here is what a correct address makes visible.",
+  "timestamp": "2026-08-08T08:38:14.386912+00:00",
+  "wall_s": 796.254753112793
+}

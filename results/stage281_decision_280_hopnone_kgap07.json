@@ -1,0 +1,18 @@
+{
+  "stage": 281,
+  "overall": "NO_FRAME_SURVIVES",
+  "trained_parameters": 0,
+  "smoke": true,
+  "seed": 281,
+  "ceiling_before": null,
+  "ceiling_after": null,
+  "frames": {
+    "total": 6,
+    "kept": 0,
+    "kept_assertions": 0,
+    "total_assertions": 392
+  },
+  "gates": {
+    "G_frames_survive": false
+  }
+}

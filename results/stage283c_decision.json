@@ -1,0 +1,314 @@
+{
+  "stage": "283c",
+  "overall": "SCALE_OK",
+  "seed": 283,
+  "smoke": false,
+  "corpus": "data\\_wikitext103_train.txt",
+  "merge_mode": "anchor_block_and",
+  "link": "and",
+  "overlap_from": "rel",
+  "addr_key": "two",
+  "address": {
+    "tau": 0.9,
+    "overlap": 2,
+    "soft_match": 0.0,
+    "min_mentions": 2
+  },
+  "retrieval": {
+    "topk": 7,
+    "hop": "fp",
+    "hop_min": 1.0,
+    "k_gap": 0.35,
+    "subject_filter": "on"
+  },
+  "thresholds": {
+    "min_precision": 0.6,
+    "min_separation": 0.3,
+    "max_crowding": 0.2,
+    "max_foreign": 0.1
+  },
+  "mind_params": 7564290,
+  "gates": {
+    "G_precision_holds": true,
+    "G_return_path_separates": true,
+    "G_addresses_stay_distinct": true,
+    "G_k_covers_the_address": true,
+    "G_ties_exist_naturally": true,
+    "G_mind_does_not_grow": true
+  },
+  "slopes": {
+    "slots": [
+      33,
+      237,
+      1413
+    ],
+    "precision": [
+      0.9615384615384616,
+      0.7970486111111112,
+      0.7966868228772991
+    ],
+    "return_path_separation": [
+      1.0,
+      0.9836065573770492,
+      0.991304347826087
+    ],
+    "address_crowding": [
+      0.15384615384615385,
+      0.3958333333333333,
+      0.5202821869488536
+    ],
+    "member_crowding": [
+      0.15384615384615385,
+      0.4166666666666667,
+      0.5573192239858906
+    ],
+    "two_channel_crowding": [
+      0.15384615384615385,
+      0.28125,
+      0.2927689594356261
+    ],
+    "foreign_member_rate": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "distinct_anchors": [
+      12,
+      73,
+      408
+    ],
+    "anchor_only_crowding": [
+      0.0,
+      0.0,
+      0.03431372549019608
+    ],
+    "anchor_growth_exponent": 1.0367997293038134,
+    "k_covers_address": [
+      1.0,
+      0.9895833333333334,
+      0.982363315696649
+    ],
+    "tie_share": [
+      0.15384615384615385,
+      0.3645833333333333,
+      0.3915343915343915
+    ],
+    "clean_share": [
+      0.8461538461538461,
+      0.5729166666666666,
+      0.5502645502645502
+    ],
+    "slots_growth": 42.81818181818182
+  },
+  "rungs": [
+    {
+      "n_addresses": 13,
+      "n_slots": 33,
+      "n_items": 13,
+      "slots_per_address": 2.5384615384615383,
+      "write_actions": {
+        "WRITE": 13,
+        "CONFIRM": 12,
+        "DISPUTE": 8
+      },
+      "families_natural": {
+        "clean": 0.8461538461538461,
+        "decidable": 0.0,
+        "tie": 0.15384615384615385
+      },
+      "retrieval_precision": 0.9615384615384616,
+      "witness_recall": 1.0,
+      "precision_q": {
+        "p5": 0.8,
+        "p50": 1.0,
+        "p95": 1.0
+      },
+      "mean_candidates": 2.769230769230769,
+      "words_silent_rate": 0.0,
+      "foreign_member_rate": 0.0,
+      "k_covers_address": 1.0,
+      "return_path_true": 1.0,
+      "return_path_other": 0.0,
+      "return_path_separation": 1.0,
+      "nearest_other_q": {
+        "p50": 0.7644335031509399,
+        "p95": 0.9875730276107788,
+        "p99": 0.9875730276107788
+      },
+      "nearest_other_max": 0.9875730276107788,
+      "address_crowding": 0.15384615384615385,
+      "member_crowding_q": {
+        "p50": 0.7761351466178894,
+        "p95": 0.981896162033081,
+        "p99": 0.981896162033081
+      },
+      "member_crowding": 0.15384615384615385,
+      "two_channel_crowding": 0.15384615384615385,
+      "two_channel_q": {
+        "p50": 0.5535917282104492,
+        "p95": 0.9379312992095947,
+        "p99": 0.9379312992095947
+      },
+      "distinct_anchors": 12,
+      "anchor_only_q": {
+        "p50": 0.553591787815094,
+        "p95": 0.6267404556274414,
+        "p99": 0.6267404556274414
+      },
+      "anchor_only_crowding": 0.0,
+      "chars": 4000000,
+      "n_addr_requested": 400,
+      "build_s": 2.9021995067596436,
+      "mind_params": 7564290,
+      "lines": 1437,
+      "merge_mode": "anchor_block_and"
+    },
+    {
+      "n_addresses": 96,
+      "n_slots": 237,
+      "n_items": 96,
+      "slots_per_address": 2.46875,
+      "write_actions": {
+        "WRITE": 96,
+        "CONFIRM": 78,
+        "DISPUTE": 63
+      },
+      "families_natural": {
+        "clean": 0.5729166666666666,
+        "decidable": 0.0625,
+        "tie": 0.3645833333333333
+      },
+      "retrieval_precision": 0.7970486111111112,
+      "witness_recall": 0.9753224206349206,
+      "precision_q": {
+        "p5": 0.3333333333333333,
+        "p50": 1.0,
+        "p95": 1.0
+      },
+      "mean_candidates": 3.25,
+      "words_silent_rate": 0.0,
+      "foreign_member_rate": 0.0,
+      "k_covers_address": 0.9895833333333334,
+      "return_path_true": 1.0,
+      "return_path_other": 0.01639344262295082,
+      "return_path_separation": 0.9836065573770492,
+      "nearest_other_q": {
+        "p50": 0.8868595361709595,
+        "p95": 0.9882328510284424,
+        "p99": 0.9945695996284485
+      },
+      "nearest_other_max": 0.9945695996284485,
+      "address_crowding": 0.3958333333333333,
+      "member_crowding_q": {
+        "p50": 0.8901163339614868,
+        "p95": 0.9866054654121399,
+        "p99": 0.9954269528388977
+      },
+      "member_crowding": 0.4166666666666667,
+      "two_channel_crowding": 0.28125,
+      "two_channel_q": {
+        "p50": 0.7438044250011444,
+        "p95": 0.9541391134262085,
+        "p99": 0.9861452579498291
+      },
+      "distinct_anchors": 73,
+      "anchor_only_q": {
+        "p50": 0.6836195588111877,
+        "p95": 0.8176908016204832,
+        "p99": 0.8440922498703003
+      },
+      "anchor_only_crowding": 0.0,
+      "chars": 30000000,
+      "n_addr_requested": 400,
+      "build_s": 16.12797474861145,
+      "mind_params": 7564290,
+      "lines": 10463,
+      "merge_mode": "anchor_block_and"
+    },
+    {
+      "n_addresses": 567,
+      "n_slots": 1413,
+      "n_items": 567,
+      "slots_per_address": 2.492063492063492,
+      "write_actions": {
+        "WRITE": 567,
+        "CONFIRM": 464,
+        "DISPUTE": 382
+      },
+      "families_natural": {
+        "clean": 0.5502645502645502,
+        "decidable": 0.0582010582010582,
+        "tie": 0.3915343915343915
+      },
+      "retrieval_precision": 0.7966868228772991,
+      "witness_recall": 0.9145113655695666,
+      "precision_q": {
+        "p5": 0.2857142857142857,
+        "p50": 1.0,
+        "p95": 1.0
+      },
+      "mean_candidates": 3.121693121693122,
+      "words_silent_rate": 0.0,
+      "foreign_member_rate": 0.0,
+      "k_covers_address": 0.982363315696649,
+      "return_path_true": 1.0,
+      "return_path_other": 0.008695652173913044,
+      "return_path_separation": 0.991304347826087,
+      "nearest_other_q": {
+        "p50": 0.9036738872528076,
+        "p95": 0.9876752972602844,
+        "p99": 0.99195396900177
+      },
+      "nearest_other_max": 0.9945694208145142,
+      "address_crowding": 0.5202821869488536,
+      "member_crowding_q": {
+        "p50": 0.9080032110214233,
+        "p95": 0.9853943407535553,
+        "p99": 0.9913237333297731
+      },
+      "member_crowding": 0.5573192239858906,
+      "two_channel_crowding": 0.2927689594356261,
+      "two_channel_q": {
+        "p50": 0.8206509351730347,
+        "p95": 0.950631856918335,
+        "p99": 0.9732809114456179
+      },
+      "distinct_anchors": 408,
+      "anchor_only_q": {
+        "p50": 0.7757137417793274,
+        "p95": 0.8899024724960327,
+        "p99": 0.937230110168457
+      },
+      "anchor_only_crowding": 0.03431372549019608,
+      "chars": 120000000,
+      "n_addr_requested": 2000,
+      "build_s": 65.85702204704285,
+      "mind_params": 7564290,
+      "lines": 41151,
+      "merge_mode": "anchor_block_and"
+    }
+  ],
+  "fp_version": "stage191_p1_curve.pt",
+  "reference_283b": {
+    "n_addresses": 2000,
+    "n_slots": 11074,
+    "foreign_member_rate": 0.0,
+    "tie": 0.6955,
+    "clean": 0.126
+  },
+  "reference_write2": {
+    "n_addresses": 877,
+    "n_slots": 2765,
+    "foreign_member_rate": 0.00860178354884333,
+    "tie": 0.34891676168757124,
+    "clean": 0.5245153933865451
+  },
+  "reference_geom": {
+    "n_addresses": 936,
+    "n_slots": 4730,
+    "foreign_member_rate": 0.05161396505477364
+  },
+  "note": "Letter step 283c: hard anchor block as in 283b; inside the block, edge = relation-tail overlap AND two-channel cos>=tau. Fixes 283b's tie explosion from OR+ctx overlap without retuning tau. Pass if foreign stays flat/near-zero, tie falls toward write2, slots stay above write2.",
+  "timestamp": "2026-08-07T16:46:19.475553+00:00",
+  "wall_s": 86.22630786895752
+}

@@ -1,0 +1,426 @@
+"""
+Stage 285 — Two teachers, so that imitation stops being an answer.
+
+The loop up to here was circular and worth saying plainly: a heuristic that does not understand
+the question is called the teacher, the mind is trained to resemble it, and success is measured
+as resemblance. G_reaches_teacher says so literally. The one thing that was never imitation is
+the reward - it comes from the tape's own verdict, not from the teacher - which is why the
+policy ends up above its teacher at all, 0.704 against 0.625 on the baseline.
+
+This stage removes the escape route. There are two judges now, both reading the same tape,
+neither reading a label:
+
+  VOTES counts witnesses. The value the address says most often wins; equal support abstains.
+  This is 278's teacher, unchanged.
+
+  RETURN counts corroboration. A value wins by how many OTHER mentions carry it together with
+  the subject, and one is not enough. It never looks at how often the address said something.
+
+Where they agree there is a demonstration and BC uses it. Where they disagree there is no
+target at all - two different actions cannot both be copied - and the episode is left to the
+reward. So the contested items are the ones no amount of resemblance can solve.
+
+The bar follows from that, and it is not "beat two teachers". Both are readings of one tape and
+the tape is the truth here, so where they differ at least one is misreading it. The mind's job
+is to be right more often than either reading alone:
+
+  G_arbitration: accuracy on contested items above BOTH teachers' accuracy on the same items.
+
+Everything else - the tape, the retrieval, the reward, the value baseline - is the 280 baseline
+untouched, so a difference here is a difference from having two judges.
+
+  python _stage285_two_teachers.py --smoke
+  python _stage285_two_teachers.py --bc-episodes 4000 --rl-episodes 3000 --min-mentions 2
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import math
+import random
+import time
+from collections import Counter, defaultdict
+from datetime import datetime, timezone
+from pathlib import Path
+
+import numpy as np
+import torch
+import torch.nn.functional as F
+from tokenizers import Tokenizer
+
+import _stage177_curve_bpe as s177
+import _stage185_tape_read as s185
+import _stage213_arc_enc_freeze_finetune as s213
+import _stage271_controller as s271
+import _stage274_truthfree_oracle as s274
+import _stage278_value_baseline as s278
+import _stage280_raw_exam as s280
+from _stage191_night import PAD, SelfModelXL, load_data
+from _stage194_fp_fact_memory import FpBank
+from _tape_index import context_words
+
+RES = Path("results")
+CKPT_P1 = Path("checkpoints/stage191_p1_curve.pt")
+CKPT_JOINT = Path("checkpoints/stage253_joint_l02.pt")
+WIKI = Path("data/_wikitext103_train.txt")
+SEED = 285
+FAMILIES = s280.FAMILIES
+LOG_PATH = RES / "_stage285_log.txt"
+
+
+def log(m: str) -> None:
+    line = m if m.endswith("\n") else m + "\n"
+    try:
+        print(line, end="", flush=True)
+    except UnicodeEncodeError:
+        print(line.encode("ascii", "replace").decode("ascii"), end="", flush=True)
+    LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+    with LOG_PATH.open("a", encoding="utf-8") as f:
+        f.write(line)
+
+
+# --------------------------------------------------------------------------- the second judge
+
+def support(pack, S: str, value: str) -> int:
+    """How many mentions carry the subject and this value together. No ranking, no labels."""
+    words = context_words(value) or [value]
+    scan = min((pack["postings_probe"].get(w, ()) for w in words), key=len, default=())
+    v = value.lower()
+    return sum(1 for c in scan if S in pack["texts_lc"][c] and v in pack["texts_lc"][c])
+
+
+def return_teacher(pack, item):
+    """Decides by corroboration and never counts votes.
+
+    This is deliberately blind to the thing the other judge is made of. It cannot see that an
+    address said something four times; it can only see how many independent mentions tie a value
+    to the subject. Two judges that share a criterion would agree everywhere and there would be
+    nothing to arbitrate.
+    """
+    def teach(*, cands, seen_reads, opened_values, n_reads, cand_scores, max_steps, max_reads,
+              k):
+        if not cands:
+            return s271.ASK_Q
+        unread = [i for i, c in enumerate(cands[:k]) if c not in seen_reads]
+        if unread and n_reads < max_reads and (n_reads + 3) <= max_steps:
+            return 2 + unread[0]
+        if not opened_values:
+            return 2 + 2 * k
+        scored = sorted(((v, support(pack, item["S"], v)) for v in set(opened_values)),
+                        key=lambda t: -t[1])
+        best, n1 = scored[0]
+        n2 = scored[1][1] if len(scored) > 1 else 0
+        if n1 < 2 or n1 == n2:
+            return 2 + 2 * k          # uncorroborated, or corroborated equally: say nothing
+        idx = next((i for i, c in enumerate(cands[:k]) if pack["tape"].values[c] == best), None)
+        return 2 + 2 * k if idx is None else 2 + k + idx
+    return teach
+
+
+# --------------------------------------------------------------------------- one episode
+
+def run(policy, model, char_table, tok, pack, item, pad_id, device, common, **kw):
+    return s280.rollout(policy, model, char_table, tok, pack, item, pad_id, device, **common,
+                        **kw)
+
+
+def verdicts(policy, model, char_table, tok, pack, item, pad_id, device, common):
+    """What each judge would answer, run as episodes so both pay the same reading costs."""
+    v = run(policy, model, char_table, tok, pack, item, pad_id, device, common,
+            teacher_only=True)
+    r = run(policy, model, char_table, tok, pack, item, pad_id, device, common,
+            teacher_only=True, teacher_fn=return_teacher(pack, item))
+    return v, r
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--smoke", action="store_true")
+    ap.add_argument("--bc-episodes", type=int, default=0)
+    ap.add_argument("--rl-episodes", type=int, default=0)
+    ap.add_argument("--tape-period", type=int, default=0)
+    ap.add_argument("--addresses", type=int, default=0)
+    ap.add_argument("--min-mentions", type=int, default=2)
+    ap.add_argument("--min-per-family", type=int, default=8)
+    ap.add_argument("--address-tau", type=float, default=0.90)
+    ap.add_argument("--address-overlap", type=int, default=2)
+    ap.add_argument("--soft-match", type=float, default=0.0)
+    ap.add_argument("--addr-key", choices=("two", "set", "mean"), default="two")
+    ap.add_argument("--topk", type=int, default=7)
+    ap.add_argument("--max-steps", type=int, default=14)
+    ap.add_argument("--max-reads", type=int, default=7)
+    ap.add_argument("--hop", choices=("none", "fp"), default="fp")
+    ap.add_argument("--hop-min", type=float, default=1.0)
+    ap.add_argument("--k-gap", type=float, default=0.35)
+    ap.add_argument("--read-cost", type=float, default=0.02)
+    ap.add_argument("--wrong-cost", type=float, default=1.0)
+    ap.add_argument("--abstain-reward", type=float, default=0.75)
+    ap.add_argument("--entropy-bonus", type=float, default=0.01)
+    ap.add_argument("--lr-policy", type=float, default=1e-3)
+    ap.add_argument("--lr-value", type=float, default=3e-3)
+    ap.add_argument("--lr-upper", type=float, default=3e-5)
+    ap.add_argument("--value-coef", type=float, default=0.5)
+    ap.add_argument("--bc-anchor", type=float, default=0.5)
+    ap.add_argument("--subject-filter", choices=("off", "on"), default="on")
+    ap.add_argument("--no-hidden", action="store_true")
+    ap.add_argument("--one-teacher", action="store_true",
+                    help="ablation: 280's single judge, BC everywhere")
+    ap.add_argument("--frozen-trunk", action="store_true")
+    ap.add_argument("--run-tag", type=str, default="")
+    args = ap.parse_args()
+
+    global LOG_PATH
+    s278.NO_HIDDEN = args.no_hidden
+    tag = (args.run_tag and f"_{args.run_tag}") or ""
+    tag += "_one" if args.one_teacher else ""
+    LOG_PATH = RES / f"_stage285_log{tag}.txt"
+    LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+    LOG_PATH.write_text("", encoding="utf-8")
+
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    rng = random.Random(SEED)
+    torch.manual_seed(SEED)
+    t0 = time.time()
+    n_bc = args.bc_episodes or (400 if args.smoke else 4000)
+    n_rl = max(0, args.rl_episodes)
+    tape_period = args.tape_period or (50 if args.smoke else 200)
+    n_addr = args.addresses or (60 if args.smoke else 400)
+    k = args.topk
+
+    log(f"Stage285 two teachers start {datetime.now(timezone.utc).isoformat()} device={device} "
+        f"k={k} bc={n_bc} rl={n_rl} one_teacher={args.one_teacher}")
+
+    _, _, stoi, n_char = load_data()
+    tok = Tokenizer.from_file(str(s177.TOK_PATH))
+    V = tok.get_vocab_size()
+    pad_id = tok.token_to_id(PAD) or 0
+    char_table = s185.build_char_table(tok, stoi, pad_id, V).to(device)
+    trunk = CKPT_JOINT if CKPT_JOINT.exists() else CKPT_P1
+    model = SelfModelXL(n_char, V).to(device)
+    model.load_state_dict(torch.load(trunk, map_location=device, weights_only=False)["model"])
+    s213.set_train_mode(model, "none" if args.frozen_trunk else "upper")
+    arc0 = s271.arc_enc_hash(model)
+    can = SelfModelXL(n_char, V).to(device)
+    can.load_state_dict(torch.load(CKPT_P1, map_location=device, weights_only=False)["model"])
+    can.eval()
+    for p in can.parameters():
+        p.requires_grad_(False)
+    bank = FpBank(can, stoi, device)
+
+    with WIKI.open("r", encoding="utf-8", errors="ignore") as f:
+        wtext = f.read(4_000_000 if args.smoke else 30_000_000)
+    all_lines = [l.strip() for l in wtext.split("\n") if 80 <= len(l.strip()) <= 400]
+    cut = int(0.7 * len(all_lines))
+    train_lines = all_lines[:cut][: (3000 if args.smoke else 25000)]
+    eval_lines = all_lines[cut:][: (1500 if args.smoke else 12000)]
+
+    def new_pack(r, lines):
+        return s280.pack_from_corpus(lines, bank=bank, tok=tok, pad_id=pad_id, device=device,
+                                     rng=r, n_addr=n_addr, min_mentions=args.min_mentions,
+                                     tau=args.address_tau, overlap=args.address_overlap,
+                                     soft_match=args.soft_match,
+                                     min_per_family=args.min_per_family,
+                                     addr_key=args.addr_key)
+
+    pack = new_pack(rng, train_lines)
+    if len(pack["items"]) < 8:
+        log("  too few items")
+        return 1
+    log(f"  tape: {pack['n_addresses']} addresses, {pack['n_slots']} slots | "
+        f"items {json.dumps(dict(Counter(i['kind'] for i in pack['items'])))}")
+
+    d_hidden = 0 if args.no_hidden else 2 * (model.head.in_features // 2)
+    policy = s278.PolicyV(d_hidden + s278.EXTRA, k, device)
+    live = [p for p in model.parameters() if p.requires_grad]
+    opt = torch.optim.AdamW(
+        [{"params": [p for n_, p in policy.named_parameters() if not n_.startswith("v.")],
+          "lr": args.lr_policy},
+         {"params": list(policy.v.parameters()), "lr": args.lr_value}]
+        + ([{"params": live, "lr": args.lr_upper}] if live else []), weight_decay=0.01)
+
+    common = dict(k=k, max_steps=args.max_steps, max_reads=args.max_reads,
+                  read_cost=args.read_cost, wrong_cost=args.wrong_cost,
+                  abstain_reward=args.abstain_reward, hop=args.hop, hop_min=args.hop_min,
+                  k_gap=args.k_gap, subject_filter=args.subject_filter == "on")
+
+    # Which items the two judges disagree on. Computed once per tape, because it is a property
+    # of the tape and the two rules, not of the policy - and because BC has to know, before it
+    # trains on an item, whether there is a demonstration to give.
+    def contested(p):
+        out = {}
+        for it in p["items"]:
+            v, r = verdicts(policy, model, char_table, tok, p, it, pad_id, device, common)
+            out[id(it)] = (v["correct"] != r["correct"]) or (v["abstained"] != r["abstained"])
+        return out
+
+    with torch.no_grad():
+        disputed = contested(pack)
+    log(f"  contested on train tape: {sum(disputed.values())}/{len(pack['items'])}")
+    curve, v_err = [], []
+
+    policy.train()
+    model.train(not args.frozen_trunk)
+    for ep in range(1, n_bc + 1):
+        if (ep - 1) % tape_period == 0 and ep > 1:
+            pack = new_pack(rng, train_lines)
+            with torch.no_grad():
+                disputed = contested(pack)
+        item = pack["items"][rng.randrange(len(pack["items"]))]
+        # The whole point: where the judges differ there is no demonstration, so BC skips it.
+        if not args.one_teacher and disputed.get(id(item)):
+            continue
+        out = run(policy, model, char_table, tok, pack, item, pad_id, device, common, bc=True)
+        opt.zero_grad(set_to_none=True)
+        out["loss"].backward()
+        torch.nn.utils.clip_grad_norm_(list(policy.parameters()) + live, 1.0)
+        opt.step()
+        if ep % max(1, n_bc // 8) == 0:
+            curve.append({"phase": "bc", "episode": ep, "loss": float(out["loss"]),
+                          "kind": out["kind"], "trace": out["trace"]})
+            log(f"  bc {ep}/{n_bc} loss={float(out['loss']):.4f} [{out['kind']}] {out['trace']}")
+
+    for ep in range(1, n_rl + 1):
+        if (ep - 1) % tape_period == 0 and ep > 1:
+            pack = new_pack(rng, train_lines)
+            with torch.no_grad():
+                disputed = contested(pack)
+        item = pack["items"][rng.randrange(len(pack["items"]))]
+        policy.collect = []
+        anchor = 0.0 if (not args.one_teacher and disputed.get(id(item))) else args.bc_anchor
+        out = run(policy, model, char_table, tok, pack, item, pad_id, device, common,
+                  greedy=False, bc_anchor=anchor)
+        vals, policy.collect = policy.collect, None
+        if not out["logps"]:
+            continue
+        R = out["reward"]
+        vs = torch.stack(vals[: len(out["logps"])])
+        v_loss = F.mse_loss(vs, torch.full_like(vs, R))
+        v_err.append(float(v_loss))
+        ent = torch.stack(out["entropy"]).sum() if out["entropy"] else torch.zeros((),
+                                                                                   device=device)
+        loss = (-((R - vs).detach() * torch.stack(out["logps"])).sum()
+                + args.value_coef * v_loss - args.entropy_bonus * ent)
+        if anchor > 0.0 and out["loss"].requires_grad:
+            loss = loss + anchor * out["loss"]
+        opt.zero_grad(set_to_none=True)
+        loss.backward()
+        torch.nn.utils.clip_grad_norm_(list(policy.parameters()) + live, 1.0)
+        opt.step()
+        if ep % max(1, n_rl // 8) == 0:
+            curve.append({"phase": "rl", "episode": ep, "v_mse": float(np.mean(v_err[-200:])),
+                          "kind": out["kind"], "trace": out["trace"]})
+            log(f"  rl {ep}/{n_rl} v_mse={np.mean(v_err[-200:]):.3f} [{out['kind']}] "
+                f"{out['trace']}")
+
+    policy.eval()
+    model.eval()
+    arc1 = s271.arc_enc_hash(model)
+
+    @torch.no_grad()
+    def evaluate(p):
+        agg = {"agree": defaultdict(list), "disagree": defaultdict(list)}
+        per = {f: defaultdict(list) for f in FAMILIES}
+        traces = []
+        for it in p["items"]:
+            o = run(policy, model, char_table, tok, p, it, pad_id, device, common)
+            v, r = verdicts(policy, model, char_table, tok, p, it, pad_id, device, common)
+            bucket = ("disagree" if (v["correct"] != r["correct"]
+                                     or v["abstained"] != r["abstained"]) else "agree")
+            g = agg[bucket]
+            g["policy_correct"].append(o["correct"])
+            g["policy_abstain"].append(int(o["abstained"]))
+            g["policy_reward"].append(o["reward"])
+            g["votes_correct"].append(v["correct"])
+            g["return_correct"].append(r["correct"])
+            g["votes_reward"].append(v["reward"])
+            g["return_reward"].append(r["reward"])
+            f = it["kind"]
+            per[f]["correct"].append(o["correct"])
+            per[f]["abstain"].append(int(o["abstained"]))
+            per[f]["reward"].append(o["reward"])
+            if len(traces) < 20:
+                traces.append({"kind": f, "S": it["S"], "bucket": bucket,
+                               "trace": o["trace"], "correct": o["correct"],
+                               "votes": v["correct"], "return": r["correct"]})
+        m = lambda xs: float(np.mean(xs)) if len(xs) else float("nan")
+        out = {"n_items": len(p["items"]), "traces": traces,
+               "contested_rate": len(agg["disagree"]["policy_correct"]) / max(1, len(p["items"])),
+               "reward_total": m([x for b in agg.values() for x in b["policy_reward"]]),
+               "votes_reward_total": m([x for b in agg.values() for x in b["votes_reward"]]),
+               "return_reward_total": m([x for b in agg.values() for x in b["return_reward"]])}
+        for b in ("agree", "disagree"):
+            g = agg[b]
+            out[b] = {"n": len(g["policy_correct"]),
+                      "policy_acc": m(g["policy_correct"]),
+                      "votes_acc": m(g["votes_correct"]),
+                      "return_acc": m(g["return_correct"]),
+                      "policy_abstain": m(g["policy_abstain"]),
+                      "policy_reward": m(g["policy_reward"])}
+        for f in FAMILIES:
+            out[f] = {"n": len(per[f]["abstain"]), "coverage": 1.0 - m(per[f]["abstain"]),
+                      "abstain": m(per[f]["abstain"]), "reward": m(per[f]["reward"]),
+                      "correct": m(per[f]["correct"])}
+        return out
+
+    train_eval = evaluate(pack)
+    held = new_pack(random.Random(SEED + 99), eval_lines)
+    novel = evaluate(held)
+    log(f"  HELD-OUT {json.dumps({kk: vv for kk, vv in novel.items() if kk != 'traces'})}")
+
+    d = novel["disagree"]
+    g_arc = arc0 == arc1
+    g_contested = d["n"] >= 5
+    # The bar. Not "beat two teachers" - both read one tape, so where they differ one is
+    # misreading it, and the mind's job is to be right more often than either reading alone.
+    g_arbitration = (g_contested and d["policy_acc"] > d["votes_acc"]
+                     and d["policy_acc"] > d["return_acc"])
+    g_agree_kept = novel["agree"]["policy_acc"] >= 0.60
+    g_baseline = novel["reward_total"] >= 0.704 - 0.05
+
+    overall = ("ARBITRATION_OK" if (g_arc and g_arbitration and g_agree_kept)
+               else "ARBITRATION_NO" if g_contested else "NO_DISAGREEMENT")
+
+    out = {
+        "stage": 285, "overall": overall, "seed": SEED, "smoke": args.smoke,
+        "one_teacher": args.one_teacher, "run_tag": args.run_tag, "addr_key": args.addr_key,
+        "bc_episodes": n_bc, "rl_episodes": n_rl, "topk": k,
+        "min_mentions": args.min_mentions, "min_per_family": args.min_per_family,
+        "reward": {"correct": 1.0, "wrong": -args.wrong_cost,
+                   "abstain": args.abstain_reward, "read": -args.read_cost},
+        "gates": {
+            "G_arc_enc_frozen": g_arc,
+            "G_teachers_disagree": g_contested,
+            "G_arbitration": g_arbitration,
+            "G_agreement_kept": g_agree_kept,
+            "G_holds_baseline": g_baseline,
+        },
+        "train_tape": {kk: vv for kk, vv in train_eval.items() if kk != "traces"},
+        "held_out": novel, "curve": curve,
+        "arc_enc_hash_before": arc0, "arc_enc_hash_after": arc1,
+        "fp_version": s271.fp_version(),
+        "reference_280_baseline": {"held_out_reward": 0.704, "acc_answered_all": 0.900,
+                                   "teacher_ceiling": 0.625},
+        "note": (
+            "Two judges over the 280 tape, neither reading a label. Votes counts witnesses and "
+            "abstains on equal support; return counts how many other mentions carry a value "
+            "together with the subject and abstains under two. They share no criterion on "
+            "purpose - judges made of the same quantity would agree everywhere and leave "
+            "nothing to arbitrate. Where they agree BC takes the demonstration; where they "
+            "differ there is no target to copy and the episode is left to the reward, so the "
+            "contested items are exactly the ones resemblance cannot solve. The bar is not to "
+            "beat two teachers: both read one tape and the tape is the truth here, so where "
+            "they differ at least one is misreading it, and the mind has to be right more often "
+            "than either reading alone. --one-teacher restores 280's single judge with BC "
+            "everywhere, which is the arm the 0.704 baseline came from."
+        ),
+        "timestamp": datetime.now(timezone.utc).isoformat(), "wall_s": time.time() - t0,
+    }
+    RES.mkdir(parents=True, exist_ok=True)
+    (RES / f"stage285_decision{tag}.json").write_text(json.dumps(out, indent=2), encoding="utf-8")
+    log(json.dumps({"overall": overall, "gates": out["gates"],
+                    "disagree": novel["disagree"]}, indent=2))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

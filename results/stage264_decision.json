@@ -1,0 +1,226 @@
+{
+  "stage": 264,
+  "overall": "VOTES_BEST_OPEN_BANK",
+  "modes": [
+    "mean",
+    "idf_mean",
+    "votes",
+    "cascade",
+    "fusion"
+  ],
+  "fusion_lambda": 0.5,
+  "cascade_pool": 128,
+  "candidates": 4338,
+  "n_exam": 338,
+  "eval_pairs": 338,
+  "gates": {
+    "G_idf_mean_beats_flat_mean": false,
+    "G_blend_beats_votes": false,
+    "G_cascade_beats_votes": false
+  },
+  "summary": {
+    "retrieval": {
+      "mean": {
+        "top1": 0.14201183431952663,
+        "mrr": 0.15800170754780632,
+        "median_rank": 1036.5,
+        "acc_20way": 0.2781065088757396,
+        "chance_20way": 0.05,
+        "top1_low_overlap": 0.0,
+        "top1_high_overlap": 0.28402366863905326,
+        "tie_at_zero_frac": 0.0,
+        "silence": {
+          "tie_at_zero_frac": 0.0,
+          "tie_at_zero_frac_low_overlap": 0.0,
+          "tie_at_zero_frac_high_overlap": 0.0,
+          "top1_low_overlap": 0.0,
+          "top1_high_overlap": 0.28402366863905326,
+          "top1_low_overlap_given_vote": 0.0,
+          "low_overlap_miss_is_silence_frac": 0.0,
+          "n": 338,
+          "n_tie_at_zero": 0,
+          "n_low_overlap": 169
+        },
+        "n": 338
+      },
+      "idf_mean": {
+        "top1": 0.1390532544378698,
+        "mrr": 0.15288312832547943,
+        "median_rank": 1032.0,
+        "acc_20way": 0.28994082840236685,
+        "chance_20way": 0.05,
+        "top1_low_overlap": 0.0,
+        "top1_high_overlap": 0.2781065088757396,
+        "tie_at_zero_frac": 0.0,
+        "silence": {
+          "tie_at_zero_frac": 0.0,
+          "tie_at_zero_frac_low_overlap": 0.0,
+          "tie_at_zero_frac_high_overlap": 0.0,
+          "top1_low_overlap": 0.0,
+          "top1_high_overlap": 0.2781065088757396,
+          "top1_low_overlap_given_vote": 0.0,
+          "low_overlap_miss_is_silence_frac": 0.0,
+          "n": 338,
+          "n_tie_at_zero": 0,
+          "n_low_overlap": 169
+        },
+        "n": 338
+      },
+      "votes": {
+        "top1": 0.2455621301775148,
+        "mrr": 0.28176380275777263,
+        "median_rank": 76.5,
+        "acc_20way": 0.4230769230769231,
+        "chance_20way": 0.05,
+        "top1_low_overlap": 0.023668639053254437,
+        "top1_high_overlap": 0.46745562130177515,
+        "tie_at_zero_frac": 0.4881656804733728,
+        "silence": {
+          "tie_at_zero_frac": 0.4881656804733728,
+          "tie_at_zero_frac_low_overlap": 0.863905325443787,
+          "tie_at_zero_frac_high_overlap": 0.11242603550295859,
+          "top1_low_overlap": 0.023668639053254437,
+          "top1_high_overlap": 0.46745562130177515,
+          "top1_low_overlap_given_vote": 0.17391304347826086,
+          "low_overlap_miss_is_silence_frac": 0.8848484848484849,
+          "n": 338,
+          "n_tie_at_zero": 165,
+          "n_low_overlap": 169
+        },
+        "n": 338
+      },
+      "cascade": {
+        "top1": 0.15384615384615385,
+        "mrr": 0.18504682048115853,
+        "median_rank": 180.5,
+        "acc_20way": 0.4230769230769231,
+        "chance_20way": 0.05,
+        "top1_low_overlap": 0.0,
+        "top1_high_overlap": 0.3076923076923077,
+        "tie_at_zero_frac": 0.4881656804733728,
+        "silence": {
+          "tie_at_zero_frac": 0.4881656804733728,
+          "tie_at_zero_frac_low_overlap": 0.863905325443787,
+          "tie_at_zero_frac_high_overlap": 0.11242603550295859,
+          "top1_low_overlap": 0.0,
+          "top1_high_overlap": 0.3076923076923077,
+          "top1_low_overlap_given_vote": 0.0,
+          "low_overlap_miss_is_silence_frac": 0.863905325443787,
+          "n": 338,
+          "n_tie_at_zero": 165,
+          "n_low_overlap": 169
+        },
+        "n": 338
+      },
+      "fusion": {
+        "top1": 0.22781065088757396,
+        "mrr": 0.26507144454624704,
+        "median_rank": 527.5,
+        "acc_20way": 0.40828402366863903,
+        "chance_20way": 0.05,
+        "top1_low_overlap": 0.005917159763313609,
+        "top1_high_overlap": 0.44970414201183434,
+        "tie_at_zero_frac": 0.4881656804733728,
+        "silence": {
+          "tie_at_zero_frac": 0.4881656804733728,
+          "tie_at_zero_frac_low_overlap": 0.863905325443787,
+          "tie_at_zero_frac_high_overlap": 0.11242603550295859,
+          "top1_low_overlap": 0.005917159763313609,
+          "top1_high_overlap": 0.44970414201183434,
+          "top1_low_overlap_given_vote": 0.043478260869565216,
+          "low_overlap_miss_is_silence_frac": 0.8690476190476191,
+          "n": 338,
+          "n_tie_at_zero": 165,
+          "n_low_overlap": 169
+        },
+        "n": 338
+      }
+    },
+    "read_full_bank": {
+      "mean": {
+        "full_bank_top1": 0.14201183431952663,
+        "full_bank_median_rank": 1036.5,
+        "acc_20way": 0.2781065088757396,
+        "tie_at_zero_frac": 0.0,
+        "top1_low_overlap_given_vote": 0.0,
+        "low_overlap_miss_is_silence_frac": 0.0
+      },
+      "idf_mean": {
+        "full_bank_top1": 0.1390532544378698,
+        "full_bank_median_rank": 1032.0,
+        "acc_20way": 0.28994082840236685,
+        "tie_at_zero_frac": 0.0,
+        "top1_low_overlap_given_vote": 0.0,
+        "low_overlap_miss_is_silence_frac": 0.0
+      },
+      "votes": {
+        "full_bank_top1": 0.2455621301775148,
+        "full_bank_median_rank": 76.5,
+        "acc_20way": 0.4230769230769231,
+        "tie_at_zero_frac": 0.4881656804733728,
+        "top1_low_overlap_given_vote": 0.17391304347826086,
+        "low_overlap_miss_is_silence_frac": 0.8848484848484849
+      },
+      "cascade": {
+        "full_bank_top1": 0.15384615384615385,
+        "full_bank_median_rank": 180.5,
+        "acc_20way": 0.4230769230769231,
+        "tie_at_zero_frac": 0.4881656804733728,
+        "top1_low_overlap_given_vote": 0.0,
+        "low_overlap_miss_is_silence_frac": 0.863905325443787
+      },
+      "fusion": {
+        "full_bank_top1": 0.22781065088757396,
+        "full_bank_median_rank": 527.5,
+        "acc_20way": 0.40828402366863903,
+        "tie_at_zero_frac": 0.4881656804733728,
+        "top1_low_overlap_given_vote": 0.043478260869565216,
+        "low_overlap_miss_is_silence_frac": 0.8690476190476191
+      }
+    },
+    "best_mode_top1": "votes",
+    "best_mode_20way": "votes",
+    "reference_261f": {
+      "votes_20way_strict": 0.432,
+      "votes_20way_legacy_ge": 0.601,
+      "mean_20way": 0.226,
+      "tie_at_zero_frac": 0.488
+    }
+  },
+  "fp_version": "stage191_p1_curve.pt",
+  "glue_em": null,
+  "note": "n-way pessimistic via nway_strict for ALL modes (cascade: score=-rank). Overall uses top1 as headline (20-way alone had crowned cascade after a metric bug). silence.* permanent. Low-overlap hole \u2248 silence \u2192 route to sem-q (258) when votes silent.",
+  "timestamp": "2026-08-04T20:39:54.472205+00:00",
+  "wall_s": 134.52654242515564,
+  "vote_rank_fix_audit": {
+    "note": "vote_rank fix (empty sc\u2192n_slots): 261f and 264 votes top1 unchanged at 0.245562 (empty_sc_n=0/338 both; delta=0). Artifact was 266 paraphrase-only.",
+    "stage261f": {
+      "label": "261f",
+      "seed": 2610,
+      "n_eval": 338,
+      "n_slots": 4338,
+      "empty_sc_n": 0,
+      "empty_sc_frac": 0.0,
+      "rank_changed_n": 0,
+      "top1_old": 0.2455621301775148,
+      "top1_new": 0.2455621301775148,
+      "top1_delta": 0.0,
+      "headline_shifted": false
+    },
+    "stage264_votes": {
+      "label": "264_votes",
+      "seed": 2640,
+      "n_eval": 338,
+      "n_slots": 4338,
+      "empty_sc_n": 0,
+      "empty_sc_frac": 0.0,
+      "rank_changed_n": 0,
+      "top1_old": 0.2455621301775148,
+      "top1_new": 0.2455621301775148,
+      "top1_delta": 0.0,
+      "headline_shifted": false
+    },
+    "published_votes_top1": 0.2455621301775148,
+    "headline_shifted": false
+  }
+}

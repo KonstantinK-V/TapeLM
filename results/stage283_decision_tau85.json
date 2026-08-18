@@ -1,0 +1,291 @@
+{
+  "stage": 283,
+  "overall": "SCALE_OK",
+  "seed": 283,
+  "smoke": false,
+  "corpus": "data\\_wikitext103_train.txt",
+  "run_tag": "tau85",
+  "addr_key": "two",
+  "address": {
+    "tau": 0.85,
+    "overlap": 2,
+    "soft_match": 0.0,
+    "min_mentions": 2
+  },
+  "retrieval": {
+    "topk": 7,
+    "hop": "fp",
+    "hop_min": 1.0,
+    "k_gap": 0.35,
+    "subject_filter": "on"
+  },
+  "thresholds": {
+    "min_precision": 0.6,
+    "min_separation": 0.3,
+    "max_crowding": 0.2,
+    "max_foreign": 0.1
+  },
+  "mind_params": 7564290,
+  "gates": {
+    "G_precision_holds": true,
+    "G_return_path_separates": true,
+    "G_addresses_stay_distinct": true,
+    "G_k_covers_the_address": true,
+    "G_ties_exist_naturally": true,
+    "G_mind_does_not_grow": true
+  },
+  "slopes": {
+    "slots": [
+      77,
+      639,
+      4008
+    ],
+    "precision": [
+      0.7956989247311829,
+      0.7464067278287461,
+      0.6320464623096201
+    ],
+    "return_path_separation": [
+      1.0,
+      1.0,
+      0.972027972027972
+    ],
+    "address_crowding": [
+      0.3225806451612903,
+      0.7431192660550459,
+      0.9281376518218624
+    ],
+    "member_crowding": [
+      0.4838709677419355,
+      0.8394495412844036,
+      0.9574898785425101
+    ],
+    "two_channel_crowding": [
+      0.06451612903225806,
+      0.13761467889908258,
+      0.23380566801619435
+    ],
+    "foreign_member_rate": [
+      0.0,
+      0.014984709480122324,
+      0.03996447340338629
+    ],
+    "distinct_anchors": [
+      31,
+      204,
+      870
+    ],
+    "anchor_only_crowding": [
+      0.06451612903225806,
+      0.04411764705882353,
+      0.13793103448275862
+    ],
+    "anchor_growth_exponent": 0.9803917952959025,
+    "k_covers_address": [
+      0.967741935483871,
+      0.9678899082568807,
+      0.9149797570850202
+    ],
+    "tie_share": [
+      0.25806451612903225,
+      0.43119266055045874,
+      0.42105263157894735
+    ],
+    "slots_growth": 52.05194805194805
+  },
+  "rungs": [
+    {
+      "n_addresses": 31,
+      "n_slots": 77,
+      "n_items": 31,
+      "slots_per_address": 2.4838709677419355,
+      "write_actions": {
+        "WRITE": 31,
+        "CONFIRM": 28,
+        "DISPUTE": 18
+      },
+      "families_natural": {
+        "clean": 0.7096774193548387,
+        "decidable": 0.03225806451612903,
+        "tie": 0.25806451612903225
+      },
+      "retrieval_precision": 0.7956989247311829,
+      "witness_recall": 0.9717741935483871,
+      "precision_q": {
+        "p5": 0.5,
+        "p50": 1.0,
+        "p95": 1.0
+      },
+      "mean_candidates": 3.161290322580645,
+      "words_silent_rate": 0.0,
+      "foreign_member_rate": 0.0,
+      "k_covers_address": 0.967741935483871,
+      "return_path_true": 1.0,
+      "return_path_other": 0.0,
+      "return_path_separation": 1.0,
+      "nearest_other_q": {
+        "p50": 0.8259649872779846,
+        "p95": 0.8864699006080627,
+        "p99": 0.8879098892211914
+      },
+      "nearest_other_max": 0.8879098892211914,
+      "address_crowding": 0.3225806451612903,
+      "member_crowding_q": {
+        "p50": 0.8477456569671631,
+        "p95": 0.9009734392166138,
+        "p99": 0.9053655862808228
+      },
+      "member_crowding": 0.4838709677419355,
+      "two_channel_crowding": 0.06451612903225806,
+      "two_channel_q": {
+        "p50": 0.6932275891304016,
+        "p95": 0.818257063627243,
+        "p99": 0.8625012636184692
+      },
+      "distinct_anchors": 31,
+      "anchor_only_q": {
+        "p50": 0.6932275891304016,
+        "p95": 0.818257063627243,
+        "p99": 0.8625012636184692
+      },
+      "anchor_only_crowding": 0.06451612903225806,
+      "chars": 4000000,
+      "n_addr_requested": 400,
+      "build_s": 1.1052370071411133,
+      "mind_params": 7564290,
+      "lines": 1437
+    },
+    {
+      "n_addresses": 218,
+      "n_slots": 639,
+      "n_items": 218,
+      "slots_per_address": 2.9311926605504586,
+      "write_actions": {
+        "WRITE": 218,
+        "CONFIRM": 203,
+        "DISPUTE": 218
+      },
+      "families_natural": {
+        "clean": 0.45871559633027525,
+        "decidable": 0.11009174311926606,
+        "tie": 0.43119266055045874
+      },
+      "retrieval_precision": 0.7464067278287461,
+      "witness_recall": 0.8627773475250541,
+      "precision_q": {
+        "p5": 0.0,
+        "p50": 1.0,
+        "p95": 1.0
+      },
+      "mean_candidates": 3.4220183486238533,
+      "words_silent_rate": 0.0,
+      "foreign_member_rate": 0.014984709480122324,
+      "k_covers_address": 0.9678899082568807,
+      "return_path_true": 1.0,
+      "return_path_other": 0.0,
+      "return_path_separation": 1.0,
+      "nearest_other_q": {
+        "p50": 0.8732033669948578,
+        "p95": 0.9690176248550415,
+        "p99": 0.9746079444885254
+      },
+      "nearest_other_max": 0.9817554354667664,
+      "address_crowding": 0.7431192660550459,
+      "member_crowding_q": {
+        "p50": 0.8822229504585266,
+        "p95": 0.9640313565731048,
+        "p99": 0.9701541066169739
+      },
+      "member_crowding": 0.8394495412844036,
+      "two_channel_crowding": 0.13761467889908258,
+      "two_channel_q": {
+        "p50": 0.7548456788063049,
+        "p95": 0.8842604398727416,
+        "p99": 0.898030161857605
+      },
+      "distinct_anchors": 204,
+      "anchor_only_q": {
+        "p50": 0.7494838237762451,
+        "p95": 0.8359110474586486,
+        "p99": 0.869968593120575
+      },
+      "anchor_only_crowding": 0.04411764705882353,
+      "chars": 30000000,
+      "n_addr_requested": 400,
+      "build_s": 51.788187742233276,
+      "mind_params": 7564290,
+      "lines": 10463
+    },
+    {
+      "n_addresses": 988,
+      "n_slots": 4008,
+      "n_items": 988,
+      "slots_per_address": 4.05668016194332,
+      "write_actions": {
+        "WRITE": 988,
+        "CONFIRM": 1267,
+        "DISPUTE": 1753
+      },
+      "families_natural": {
+        "clean": 0.42206477732793524,
+        "decidable": 0.15688259109311742,
+        "tie": 0.42105263157894735
+      },
+      "retrieval_precision": 0.6320464623096201,
+      "witness_recall": 0.7493789599172287,
+      "precision_q": {
+        "p5": 0.0,
+        "p50": 0.6666666666666666,
+        "p95": 1.0
+      },
+      "mean_candidates": 4.0576923076923075,
+      "words_silent_rate": 0.0,
+      "foreign_member_rate": 0.03996447340338629,
+      "k_covers_address": 0.9149797570850202,
+      "return_path_true": 0.9737762237762237,
+      "return_path_other": 0.0017482517482517483,
+      "return_path_separation": 0.972027972027972,
+      "nearest_other_q": {
+        "p50": 0.9008068442344666,
+        "p95": 0.9835026562213898,
+        "p99": 0.9910878318548202
+      },
+      "nearest_other_max": 0.9949464797973633,
+      "address_crowding": 0.9281376518218624,
+      "member_crowding_q": {
+        "p50": 0.9095578193664551,
+        "p95": 0.9767419159412384,
+        "p99": 0.9834164381027222
+      },
+      "member_crowding": 0.9574898785425101,
+      "two_channel_crowding": 0.23380566801619435,
+      "two_channel_q": {
+        "p50": 0.8115632236003876,
+        "p95": 0.924567699432373,
+        "p99": 0.9448974132537842
+      },
+      "distinct_anchors": 870,
+      "anchor_only_q": {
+        "p50": 0.8024497032165527,
+        "p95": 0.8895602226257324,
+        "p99": 0.9572346210479736
+      },
+      "anchor_only_crowding": 0.13793103448275862,
+      "chars": 120000000,
+      "n_addr_requested": 2000,
+      "build_s": 1354.433023929596,
+      "mind_params": 7564290,
+      "lines": 41151
+    }
+  ],
+  "fp_version": "stage191_p1_curve.pt",
+  "reference_280": {
+    "n_addresses": 187,
+    "n_slots": 530,
+    "retrieval_precision_train": 0.8031194295900178,
+    "held_out_reward": 0.7043859649122806
+  },
+  "note": "The tape side of scale, with no mind attached. 280's numbers describe an index of 530 slots, and the concept's invariant is that the mind does not grow with the knowledge - so if anything breaks with N it breaks in the addressing. Four things are measured at each rung and none of them needs training: how much of a retrieved list belongs to the address it was retrieved for; whether the return path still tells a settled value from a value taken elsewhere in the tape, which is the check meant to replace G_answer_is_slot once an answer stops being a slot index; how close the nearest other address key gets, since distinct entities crowd as the tape fills; and what the family mix is when nothing quotas it, because 280's tie rate is an artefact of --min-per-family and not a fact about text. Slopes are reported beside the gates: a metric that clears its floor while falling steeply is the case that decides whether this scales or merely has not broken yet.",
+  "timestamp": "2026-08-07T16:10:54.706828+00:00",
+  "wall_s": 1408.922860622406
+}

@@ -1,0 +1,252 @@
+{
+  "stage": 265,
+  "overall": "SPAN_LOCK_OK",
+  "trunk": "stage253_joint_l02.pt",
+  "fp_version": "stage191_p1_curve.pt",
+  "topk": 8,
+  "steps": 800,
+  "open_thresh": 0.5,
+  "max_new": 12,
+  "tape_slots": 1264,
+  "n_fit": 24,
+  "n_eval_wiki": 24,
+  "n_eval_nonsense": 16,
+  "best_arm": "B_soft_locked",
+  "gates": {
+    "G_soft_reproduces_256": true,
+    "G_span_verbatim": true,
+    "G_locked_beats_soft": true,
+    "G_length_flat": true,
+    "G_prior_invariant": true,
+    "G_no_restart": true,
+    "G_tape_causal": true,
+    "G_no_param_leak": true,
+    "G_slot_delete_clean": true,
+    "G_lang_intact": true,
+    "G_gate_selective": true
+  },
+  "arms": {
+    "A_soft_soft": {
+      "em": 0.55,
+      "em3": 0.55,
+      "gate_mean": 0.6129115436052703,
+      "verbatim": null,
+      "open_recall": null,
+      "open_precision": null,
+      "restart_rate": null,
+      "truncated_rate": null,
+      "em_span": 0.55,
+      "em_text": 0.55,
+      "glue_bpe_rate": null
+    },
+    "B_soft_locked": {
+      "em": 1.0,
+      "em3": 0.975,
+      "gate_mean": 0.5923558245124214,
+      "verbatim": 1.0,
+      "open_recall": 1.0,
+      "open_precision": 1.0,
+      "restart_rate": 0.0,
+      "truncated_rate": 0.0,
+      "em_span": 1.0,
+      "em_text": 0.975,
+      "glue_bpe_rate": 0.025
+    },
+    "C_open_locked": {
+      "em": 1.0,
+      "em3": 0.85,
+      "gate_mean": 0.12770583243035477,
+      "verbatim": 1.0,
+      "open_recall": 1.0,
+      "open_precision": 1.0,
+      "restart_rate": 0.0,
+      "truncated_rate": 0.0,
+      "em_span": 1.0,
+      "em_text": 0.85,
+      "glue_bpe_rate": 0.15
+    },
+    "head_only": {
+      "em": 0.0,
+      "em3": 0.0,
+      "gate_mean": NaN,
+      "verbatim": null,
+      "open_recall": null,
+      "open_precision": null,
+      "restart_rate": null,
+      "truncated_rate": null
+    }
+  },
+  "controls": {
+    "em_shuffled_tape": 0.0,
+    "em_empty_tape": 0.0,
+    "em_target_after_delete": 0.0,
+    "em_retained_after_delete": 0.975,
+    "prose_ce_glue_on": 4.773487091064453,
+    "prose_ce_glue_off": 4.773480296134949,
+    "gate_mean_prose": 6.826169341758716e-06,
+    "hold_ce_base": 3.8476805289586387
+  },
+  "length": {
+    "soft": {
+      "cut": 4,
+      "n_short": 15,
+      "n_long": 25,
+      "em_short": 0.6666666666666666,
+      "em_long": 0.48,
+      "by_n_tokens": {
+        "2": 1.0,
+        "3": 0.6153846153846154,
+        "4": 0.5,
+        "5": 0.375,
+        "6": 0.42857142857142855,
+        "7": 1.0,
+        "9": 1.0
+      }
+    },
+    "locked": {
+      "cut": 4,
+      "n_short": 15,
+      "n_long": 25,
+      "em_short": 1.0,
+      "em_long": 0.96,
+      "by_n_tokens": {
+        "2": 1.0,
+        "3": 1.0,
+        "4": 1.0,
+        "5": 0.875,
+        "6": 1.0,
+        "7": 1.0,
+        "9": 1.0
+      }
+    }
+  },
+  "prior_split": {
+    "soft_wiki": 0.5416666666666666,
+    "soft_nonsense": 0.5625,
+    "locked_wiki": 0.9583333333333334,
+    "locked_nonsense": 1.0
+  },
+  "full_bank_at_cue": {
+    "bank_size": 1264,
+    "n": 40,
+    "top1": 1.0,
+    "hit10": 1.0,
+    "mrr": 1.0,
+    "median_rank": 1.0
+  },
+  "em_256_published": 0.75,
+  "curve": {
+    "soft": [
+      {
+        "step": 160,
+        "loss_fact": 0.5385890007019043,
+        "loss_prose": 5.126875400543213,
+        "loss_nce": 1.0018805265426636,
+        "gate_fact": 0.6988512349959749,
+        "gate_prose": 4.77095734099622e-06
+      },
+      {
+        "step": 320,
+        "loss_fact": 0.16810065507888794,
+        "loss_prose": 3.054417371749878,
+        "loss_nce": 0.8322295546531677,
+        "gate_fact": 0.9224799926249454,
+        "gate_prose": 0.0012115503833533315
+      },
+      {
+        "step": 480,
+        "loss_fact": 0.060880426317453384,
+        "loss_prose": 3.622919797897339,
+        "loss_nce": 0.6816922426223755,
+        "gate_fact": 0.9999924182891846,
+        "gate_prose": 0.00017614404594778723
+      },
+      {
+        "step": 640,
+        "loss_fact": 0.02087162435054779,
+        "loss_prose": 3.8228344917297363,
+        "loss_nce": 0.9365983009338379,
+        "gate_fact": 0.9999471523545005,
+        "gate_prose": 1.442023767286108e-11
+      },
+      {
+        "step": 800,
+        "loss_fact": 0.015703383833169937,
+        "loss_prose": 3.216747283935547,
+        "loss_nce": 0.7521747946739197,
+        "gate_fact": 0.9998770526477269,
+        "gate_prose": 1.864742785941313e-10
+      }
+    ],
+    "open": [
+      {
+        "step": 160,
+        "loss_fact": 0.5146507620811462,
+        "loss_prose": 3.0807628631591797,
+        "loss_nce": 0.7789705395698547,
+        "gate_fact": 0.9975912570953369,
+        "gate_prose": 1.0809245011412907e-09
+      },
+      {
+        "step": 320,
+        "loss_fact": 0.18328110873699188,
+        "loss_prose": 4.375372886657715,
+        "loss_nce": 0.848696768283844,
+        "gate_fact": 0.9999867379665375,
+        "gate_prose": 4.697325118498554e-06
+      },
+      {
+        "step": 480,
+        "loss_fact": 0.050444938242435455,
+        "loss_prose": 3.1160454750061035,
+        "loss_nce": 0.9000653028488159,
+        "gate_fact": 0.9998766928911209,
+        "gate_prose": 8.631652344706348e-09
+      },
+      {
+        "step": 640,
+        "loss_fact": 0.02108738385140896,
+        "loss_prose": 3.9068310260772705,
+        "loss_nce": 0.7786649465560913,
+        "gate_fact": 0.9999858140945435,
+        "gate_prose": 1.2759475929367221e-08
+      },
+      {
+        "step": 800,
+        "loss_fact": 0.02188326232135296,
+        "loss_prose": 4.183555603027344,
+        "loss_nce": 0.7837499380111694,
+        "gate_fact": 0.9999888241291046,
+        "gate_prose": 1.2429310755774378e-10
+      }
+    ]
+  },
+  "note": "Span-lock: the gate decides only WHERE a value starts; once open, tape.tok_ids is emitted verbatim and neither the gate nor the LM is consulted until the span ends. Training stays a soft mixture (257: hard-commit-only training collapses the stop gate); --train-mode open additionally withholds gradient from the gate on in-span steps, which is the signal that taught it to defer to a confident LM mid-word. G_span_verbatim is an assertion, not a score: an opened span is bit-identical to the slot, so the weights contribute exactly nothing to the value. G_length_flat and G_prior_invariant are the scaling claims -- under the lock, EM must stop depending on value length or on whether the LM can spell it.",
+  "timestamp": "2026-08-04T19:50:55.950245+00:00",
+  "wall_s": 969.2725076675415,
+  "em_dual": {
+    "headline": "em_span",
+    "note": "em_span scores emitted tape span; em_text scores full max_new continuation. Stop-at-span for scoring must not hide LM BPE-glue (Whammy+n). End-of-value boundary not solved \u2014 deferred by one-answer exam.",
+    "from_full_v2_before_dual_metric": {
+      "B_em_approx_span": 0.975,
+      "B_verbatim": 1.0,
+      "C_em_text_was": 0.85,
+      "C_verbatim": 1.0,
+      "C_glue_bpe_approx": 0.15
+    }
+  },
+  "deferred": {
+    "end_of_value_boundary": "Not solved. Boundary deferred by one-answer exam (em_span / max_opens=1). LM BPE-glue after the value (Whammy+n) stays visible in em_text. Same family as restart; returns at full strength when generation continues after the value (big tape)."
+  },
+  "length_table_note": "p^N vs p: soft decays with length; locked flat \u2014 see length.by_n_tokens",
+  "read": {
+    "em_span_B": 1.0,
+    "em_text_B": 0.975,
+    "em_span_C": 1.0,
+    "em_text_C": 0.85,
+    "glue_bpe_B": 0.025,
+    "glue_bpe_C": 0.15,
+    "headline": "em_span"
+  },
+  "verdict_line": "SPAN_LOCK_OK. End-of-value boundary is not solved \u2014 only deferred out of the metric by the one-answer exam. See em_span (headline) vs em_text."
+}

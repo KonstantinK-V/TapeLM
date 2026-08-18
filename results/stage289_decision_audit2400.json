@@ -1,0 +1,850 @@
+{
+  "stage": "289",
+  "overall": "PHI_ADDS_NOTHING_ON_LOOKUP",
+  "seed": 2890,
+  "smoke": false,
+  "holdout": "corpus",
+  "run_tag": "audit2400",
+  "train_steps": 1,
+  "params": 5697,
+  "objective": "cross_entropy_no_ladder",
+  "edge_channels": [
+    "anchor",
+    "cos",
+    "rare",
+    "rel",
+    "same"
+  ],
+  "import_k": 0,
+  "views": 1,
+  "reconciliation": null,
+  "neighbours": 3,
+  "open_verb": false,
+  "open_near_source": null,
+  "graph_rows": {
+    "mean": 5.261437908496732,
+    "max": 11,
+    "graphs": 153
+  },
+  "neighbourhood_audit": {
+    "k=1": {
+      "anchor": {
+        "questions": 50,
+        "answerable": 24,
+        "hit_rate": 0.48,
+        "mean_rows": 2.0
+      },
+      "rel": {
+        "questions": 56,
+        "answerable": 24,
+        "hit_rate": 0.42857142857142855,
+        "mean_rows": 2.0
+      },
+      "word": {
+        "questions": 0,
+        "answerable": 0,
+        "hit_rate": NaN,
+        "mean_rows": NaN
+      },
+      "anchor+word": {
+        "questions": 50,
+        "answerable": 24,
+        "hit_rate": 0.48,
+        "mean_rows": 2.0
+      },
+      "all": {
+        "questions": 164,
+        "answerable": 42,
+        "hit_rate": 0.25609756097560976,
+        "mean_rows": 2.097560975609756
+      }
+    },
+    "k=3": {
+      "anchor": {
+        "questions": 300,
+        "answerable": 25,
+        "hit_rate": 0.08333333333333333,
+        "mean_rows": 3.1466666666666665
+      },
+      "rel": {
+        "questions": 434,
+        "answerable": 25,
+        "hit_rate": 0.0576036866359447,
+        "mean_rows": 3.391705069124424
+      },
+      "word": {
+        "questions": 0,
+        "answerable": 0,
+        "hit_rate": NaN,
+        "mean_rows": NaN
+      },
+      "anchor+word": {
+        "questions": 300,
+        "answerable": 25,
+        "hit_rate": 0.08333333333333333,
+        "mean_rows": 3.1466666666666665
+      },
+      "all": {
+        "questions": 661,
+        "answerable": 44,
+        "hit_rate": 0.06656580937972768,
+        "mean_rows": 3.620272314674735
+      }
+    },
+    "k=6": {
+      "anchor": {
+        "questions": 300,
+        "answerable": 26,
+        "hit_rate": 0.08666666666666667,
+        "mean_rows": 5.1466666666666665
+      },
+      "rel": {
+        "questions": 434,
+        "answerable": 27,
+        "hit_rate": 0.06221198156682028,
+        "mean_rows": 6.391705069124424
+      },
+      "word": {
+        "questions": 0,
+        "answerable": 0,
+        "hit_rate": NaN,
+        "mean_rows": NaN
+      },
+      "anchor+word": {
+        "questions": 300,
+        "answerable": 26,
+        "hit_rate": 0.08666666666666667,
+        "mean_rows": 5.1466666666666665
+      },
+      "all": {
+        "questions": 661,
+        "answerable": 47,
+        "hit_rate": 0.07110438729198185,
+        "mean_rows": 6.4856278366111955
+      }
+    },
+    "k=12": {
+      "anchor": {
+        "questions": 300,
+        "answerable": 29,
+        "hit_rate": 0.09666666666666666,
+        "mean_rows": 8.046666666666667
+      },
+      "rel": {
+        "questions": 434,
+        "answerable": 32,
+        "hit_rate": 0.07373271889400922,
+        "mean_rows": 12.299539170506913
+      },
+      "word": {
+        "questions": 0,
+        "answerable": 0,
+        "hit_rate": NaN,
+        "mean_rows": NaN
+      },
+      "anchor+word": {
+        "questions": 300,
+        "answerable": 29,
+        "hit_rate": 0.09666666666666666,
+        "mean_rows": 8.046666666666667
+      },
+      "all": {
+        "questions": 661,
+        "answerable": 55,
+        "hit_rate": 0.0832072617246596,
+        "mean_rows": 11.650529500756429
+      }
+    }
+  },
+  "nb_channels": {
+    "anchor_nonzero_rate": 0.4791129448169159,
+    "rel_nonzero_rate": 0.703455389375967,
+    "pairs": 1939
+  },
+  "refuse": null,
+  "ink": "mean",
+  "fp": "hash",
+  "words": "ascii",
+  "write_ink": "mean",
+  "write_fp": "hash",
+  "write_words": "ascii",
+  "fp_ngram": 3,
+  "tau": {
+    "mode": "absolute",
+    "value": 0.4712,
+    "target_density": null,
+    "achieved_density": null,
+    "monotone": null,
+    "trace": null
+  },
+  "tape_shape": {
+    "held_out": {
+      "slots": 2570,
+      "addresses": 2352,
+      "mentions_per_address": 1.092687074829932,
+      "lookup_questions": 37,
+      "mean_candidates": 4.1891891891891895,
+      "paraphrase": {
+        "facts_written_twice": 50,
+        "same_anchor_diff_relation": 0.34,
+        "mean_addresses_per_fact": 1.5,
+        "reversed_pairs": 4,
+        "reversed_pair_rate": 0.0017857142857142857
+      }
+    },
+    "train": {
+      "slots": 2613,
+      "addresses": 2359,
+      "mentions_per_address": 1.1076727426875794,
+      "lookup_questions": 44,
+      "mean_candidates": 4.068181818181818,
+      "paraphrase": {
+        "facts_written_twice": 67,
+        "same_anchor_diff_relation": 0.1791044776119403,
+        "mean_addresses_per_fact": 1.208955223880597,
+        "reversed_pairs": 0,
+        "reversed_pair_rate": 0.0
+      }
+    }
+  },
+  "resample": {
+    "tape_period": 50,
+    "mean_overlap": NaN,
+    "n_resamples": 0,
+    "note": "Jaccard between consecutive tapes' address sets. Near 1 means the redraw returns the same addresses and the anti-memorisation argument in HANDOFF 1 is decorative - the fix is a larger address pool, i.e. more corpus, not fewer parameters"
+  },
+  "row_dropout": {
+    "rate": 0.0,
+    "mean_kept_fraction": NaN,
+    "note": "training only - the held-out tape is never thinned. Marginalisation, not noise: a subset of the evidence is a world the corpus could have written, and the low/high margin split is a density axis the mind was never trained across"
+  },
+  "early_stop": {
+    "enabled": true,
+    "best_step": 1,
+    "best_probe_loss": 1.2689901995990012,
+    "total_steps": 1,
+    "probe_questions": 72
+  },
+  "probe_curve": [
+    {
+      "step": 1,
+      "probe_loss": 1.2689901995990012
+    }
+  ],
+  "rare_nonzero_rate": 0.0,
+  "ink_degenerate_rate": NaN,
+  "cos_mean": 0.288249215340725,
+  "cos_std": 0.1898531888852154,
+  "ladder_coverage_train": {
+    "with_ladder": 0,
+    "lookup_questions": 44
+  },
+  "count_labels": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5+"
+  ],
+  "compare_labels": [
+    "first",
+    "second",
+    "equal"
+  ],
+  "gates": {
+    "G_arc_enc_frozen": true,
+    "G_ink_verified": true,
+    "G_task_exists": true,
+    "G_exact_algebra_matches_tape": true,
+    "G_lookup_beats_floor": true,
+    "G_lookup_beats_counts_paired": true,
+    "G_lookup_beats_retrieval_paired": false,
+    "G_phi_orders_negatives": false
+  },
+  "held_out": {
+    "count": {
+      "n": 110,
+      "model_accuracy": 1.0,
+      "rival_accuracy": 1.0,
+      "random_floor": 0.19999999999999957
+    },
+    "compare": {
+      "n": 55,
+      "model_accuracy": 1.0,
+      "rival_accuracy": 1.0,
+      "random_floor": 0.33333333333333337
+    },
+    "lookup": {
+      "n": 37,
+      "model_accuracy": 0.7027027027027027,
+      "rival_accuracy": 0.40540540540540543,
+      "random_floor": 0.24755469755469747,
+      "rival_cos_accuracy": 0.6666666666666666,
+      "rival_cos_answered": 36
+    },
+    "lookup_paired_vs_rival": {
+      "model_only_right": 16,
+      "rival_only_right": 5,
+      "discordant": 21,
+      "mcnemar_z": 2.400396792595916
+    },
+    "lookup_paired_vs_rival_cos": {
+      "n": 36,
+      "model_only_right": 2,
+      "rival_only_right": 1,
+      "discordant": 3,
+      "mcnemar_z": 0.5773502691896258,
+      "max_achievable_z": 1.7320508075688772,
+      "underpowered": false
+    },
+    "lookup_paired_vs_rival_cos_by_margin": {
+      "median_margin": 0.09861147403717041,
+      "low_margin": {
+        "n": 19,
+        "model_only_right": 2,
+        "rival_only_right": 1,
+        "discordant": 3,
+        "mcnemar_z": 0.5773502691896258,
+        "max_achievable_z": 1.7320508075688772,
+        "underpowered": false
+      },
+      "high_margin": {
+        "n": 17,
+        "model_only_right": 0,
+        "rival_only_right": 0,
+        "discordant": 0,
+        "mcnemar_z": NaN,
+        "max_achievable_z": 0.0,
+        "underpowered": true
+      }
+    },
+    "ladder": {
+      "n_questions": 0,
+      "pairs": 0,
+      "concordant": 0,
+      "ties_excluded": 0,
+      "import_budget_zero_rate": 0.0,
+      "import_budget_mean": 0.0,
+      "concordance": NaN,
+      "z_vs_half": NaN,
+      "mean_phi": {
+        "true": NaN,
+        "near": NaN,
+        "middle": NaN,
+        "far": NaN
+      }
+    },
+    "exact_mismatches": 0,
+    "confusion": {
+      "compare|equal->equal": 20,
+      "compare|first->first": 18,
+      "compare|second->second": 17,
+      "count|1->1": 27,
+      "count|2->2": 59,
+      "count|3->3": 11,
+      "count|4->4": 7,
+      "count|5+->5+": 6,
+      "lookup|American->American": 1,
+      "lookup|Britain->Britain": 2,
+      "lookup|Court->Chinese": 1,
+      "lookup|Court->Court": 1,
+      "lookup|Cowdenbeath->Company": 1,
+      "lookup|Cowdenbeath->Cowdenbeath": 1,
+      "lookup|Cowdenbeath->Varanasi": 1,
+      "lookup|Disney->Disney": 2,
+      "lookup|Drama->Drama": 2,
+      "lookup|Edward->Edward": 2,
+      "lookup|Eighth->Eighth": 1,
+      "lookup|Eighth->Second": 1,
+      "lookup|Interstate->Interstate": 2,
+      "lookup|Ireleth->Dalmellington": 1,
+      "lookup|Ireleth->Dutch": 1,
+      "lookup|Italian->Dutch": 1,
+      "lookup|Italian->France": 1,
+      "lookup|Japanese->Southeast": 1,
+      "lookup|Menace->Menace": 2,
+      "lookup|Nielsen->Nielsen": 2,
+      "lookup|Outstanding->Outstanding": 2,
+      "lookup|Raisha->Raisha": 2,
+      "lookup|Thisbe->Thisbe": 2,
+      "lookup|Twitter->Constitution": 1,
+      "lookup|Twitter->Pakistan": 1,
+      "lookup|Vietnam->Vietnam": 2
+    },
+    "lookup_item_hits": [
+      {
+        "k": "fp1015:chinese|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1164:askam|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1165:askam|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1301:outstanding directing|for#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1301:outstanding directing|for#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1397:montanan|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1397:montanan|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1565:awesome kong|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1566:awesome kong|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1769:mulan|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1769:mulan|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp185:baldwin|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp185:baldwin|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp18:korea|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp19:korea|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp2019:november|that aimed restore#0",
+        "hit": 1
+      },
+      {
+        "k": "fp2019:november|that aimed restore#1",
+        "hit": 1
+      },
+      {
+        "k": "fp2112:inferior court|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp2205:kirkcaldy|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp2206:kirkcaldy|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp2207:kirkcaldy|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp2236:attorney general william pinkney|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp343:august|storyboards the episode#0",
+        "hit": 0
+      },
+      {
+        "k": "fp547:german|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp54:henery|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp555:german|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp55:henery|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp561:german|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp674:august|via#0",
+        "hit": 0
+      },
+      {
+        "k": "fp737:california|that connects#0",
+        "hit": 1
+      },
+      {
+        "k": "fp737:california|that connects#1",
+        "hit": 1
+      },
+      {
+        "k": "fp772:november|the episode had#0",
+        "hit": 1
+      },
+      {
+        "k": "fp772:november|the episode had#1",
+        "hit": 1
+      },
+      {
+        "k": "fp91:dennis|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp92:dennis|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp934:pyramus|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp934:pyramus|and#1",
+        "hit": 1
+      }
+    ],
+    "sparse": {
+      "n": 37,
+      "n_answerable": 37,
+      "n_unanswerable": 0,
+      "acc_answerable": 0.7027027027027027,
+      "refuse_recall": NaN,
+      "false_refusal": 0.0,
+      "rival_own_row_accuracy": 0.6756756756756757,
+      "n_no_own_row": 21,
+      "acc_no_own_row": 0.47619047619047616
+    }
+  },
+  "train_control": {
+    "count": {
+      "n": 122,
+      "model_accuracy": 1.0,
+      "rival_accuracy": 1.0,
+      "random_floor": 0.19999999999999954
+    },
+    "compare": {
+      "n": 61,
+      "model_accuracy": 1.0,
+      "rival_accuracy": 1.0,
+      "random_floor": 0.33333333333333326
+    },
+    "lookup": {
+      "n": 44,
+      "model_accuracy": 0.9545454545454546,
+      "rival_accuracy": 0.3409090909090909,
+      "random_floor": 0.2892316017316017,
+      "rival_cos_accuracy": 0.9545454545454546,
+      "rival_cos_answered": 44
+    },
+    "lookup_paired_vs_rival": {
+      "model_only_right": 28,
+      "rival_only_right": 1,
+      "discordant": 29,
+      "mcnemar_z": 5.0137741307804005
+    },
+    "lookup_paired_vs_rival_cos": {
+      "n": 44,
+      "model_only_right": 0,
+      "rival_only_right": 0,
+      "discordant": 0,
+      "mcnemar_z": NaN,
+      "max_achievable_z": 0.0,
+      "underpowered": true
+    },
+    "lookup_paired_vs_rival_cos_by_margin": {
+      "median_margin": 0.6367472112178802,
+      "low_margin": {
+        "n": 23,
+        "model_only_right": 0,
+        "rival_only_right": 0,
+        "discordant": 0,
+        "mcnemar_z": NaN,
+        "max_achievable_z": 0.0,
+        "underpowered": true
+      },
+      "high_margin": {
+        "n": 21,
+        "model_only_right": 0,
+        "rival_only_right": 0,
+        "discordant": 0,
+        "mcnemar_z": NaN,
+        "max_achievable_z": 0.0,
+        "underpowered": true
+      }
+    },
+    "ladder": {
+      "n_questions": 0,
+      "pairs": 0,
+      "concordant": 0,
+      "ties_excluded": 0,
+      "import_budget_zero_rate": 0.0,
+      "import_budget_mean": 0.0,
+      "concordance": NaN,
+      "z_vs_half": NaN,
+      "mean_phi": {
+        "true": NaN,
+        "near": NaN,
+        "middle": NaN,
+        "far": NaN
+      }
+    },
+    "exact_mismatches": 0,
+    "confusion": {
+      "compare|equal->equal": 19,
+      "compare|first->first": 27,
+      "compare|second->second": 15,
+      "count|1->1": 43,
+      "count|2->2": 50,
+      "count|3->3": 17,
+      "count|4->4": 2,
+      "count|5+->5+": 10,
+      "lookup|Alabama->Alabama": 2,
+      "lookup|Australia->Australia": 2,
+      "lookup|Barry->Barry": 2,
+      "lookup|Cambridge->Cambridge": 2,
+      "lookup|Capon->Capon": 2,
+      "lookup|Fantasy->Fantasy": 2,
+      "lookup|Fight->Fight": 2,
+      "lookup|French->French": 2,
+      "lookup|Goldfrapp->Goldfrapp": 2,
+      "lookup|Henry->Henry": 2,
+      "lookup|Jayakumar->Jayakumar": 2,
+      "lookup|Kentucky->Kentucky": 2,
+      "lookup|Kentucky->Virginia": 1,
+      "lookup|Korean->Korean": 2,
+      "lookup|Member->Member": 2,
+      "lookup|Midnight->Midnight": 2,
+      "lookup|Mirador->Mirador": 2,
+      "lookup|Mochtar->Mochtar": 2,
+      "lookup|Other->Other": 2,
+      "lookup|South->Europe": 1,
+      "lookup|Thrilling->Thrilling": 2,
+      "lookup|William->William": 2,
+      "lookup|World->World": 2
+    },
+    "lookup_item_hits": [
+      {
+        "k": "fp110:when john mitchell|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp110:when john mitchell|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1369:gilbert|modified the poem#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1369:gilbert|modified the poem#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1456:north worcestershire|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1706:stan lane|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1706:stan lane|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1716:calakmul|with#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1716:calakmul|with#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1745:english|and badly translated#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1745:english|and badly translated#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1876:oxford|the overall result#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1876:oxford|the overall result#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1879:south korea|early the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1879:south korea|early the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp2043:pedra branca|story told book#0",
+        "hit": 1
+      },
+      {
+        "k": "fp2043:pedra branca|story told book#1",
+        "hit": 1
+      },
+      {
+        "k": "fp26:shetland|which elects one#0",
+        "hit": 1
+      },
+      {
+        "k": "fp26:shetland|which elects one#1",
+        "hit": 1
+      },
+      {
+        "k": "fp297:mating calls|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp297:mating calls|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp444:sexiest women|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp444:sexiest women|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp535:confederate|commerce raider#0",
+        "hit": 1
+      },
+      {
+        "k": "fp535:confederate|commerce raider#1",
+        "hit": 1
+      },
+      {
+        "k": "fp598:thomas oelsner|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp598:thomas oelsner|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp663:national constitution|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp663:national constitution|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp747:former west virginia governor|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp747:former west virginia governor|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp817:american|serving attorney general#0",
+        "hit": 0
+      },
+      {
+        "k": "fp879:wolly sutinah|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp879:wolly sutinah|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp925:science fiction|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp925:science fiction|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp926:science fiction|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp926:science fiction|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp929:richard|was named#0",
+        "hit": 1
+      },
+      {
+        "k": "fp929:richard|was named#1",
+        "hit": 1
+      },
+      {
+        "k": "fp950:american|governor and governor#0",
+        "hit": 1
+      },
+      {
+        "k": "fp950:american|governor and governor#1",
+        "hit": 1
+      },
+      {
+        "k": "fp98:british|group#0",
+        "hit": 1
+      },
+      {
+        "k": "fp98:british|group#1",
+        "hit": 1
+      }
+    ],
+    "sparse": {
+      "n": 44,
+      "n_answerable": 44,
+      "n_unanswerable": 0,
+      "acc_answerable": 0.9545454545454546,
+      "refuse_recall": NaN,
+      "false_refusal": 0.0,
+      "rival_own_row_accuracy": 0.9772727272727273,
+      "n_no_own_row": 2,
+      "acc_no_own_row": 0.0
+    }
+  },
+  "exact_note": "count and compare left the weights: they are functions of the same-value relation alone (new_i = 1 - max_{j<i} s_ij; count = sum new_i; compare = sign of the side difference), computed exactly with zero parameters and no 5+ cap, because the invariant says whatever decides may not be approximate. Their accuracy is 1.0 by construction and is checked, not celebrated - G_exact_algebra_matches_tape is a sanity bolt. The interference that cost count 0.965 -> 0.903 is removed by construction: one trained task remains",
+  "ladder_note": "three wrong answers per question at increasing structural distance - same anchor / adjacent in tape order / anywhere on the tape - every rung a value the corpus wrote, no similarity chosen by anyone. Phi trained only against local wrong candidates learns a BOUNDARY; generation needs a LANDSCAPE, and a mind that cannot rank its own wrong answers by how wrong they are has no direction to move in. The objective is one Plackett-Luce term, not a task loss plus a ladder loss with a weight between them, and it reduces to the previous cross-entropy exactly when the tape cannot supply a ladder",
+  "retrieval_note": "two rivals now, because they answer two different questions. The counting rival knows nothing about context, so beating it shows only that the context channel carries information counts lack - not that reading it takes a mind. rival_cos is 1-NN over the same evidence rows by the same ctx_fp cosine, zero parameters, no training. With hash ink the representation IS Random Indexing over fastText-shaped word vectors, so the distance between this architecture and a classical retrieval system is exactly this one number. If rival_cos lands where Phi lands, 3489 parameters are decoration ON THIS VERB and the verdict is PHI_ADDS_NOTHING_ON_LOOKUP. Named for the brick and not for the wall: lookup is one verb, single-hop and retrieval-shaped by construction, and a rival that ties it says nothing about the exact algebra, about verbs where rows must be combined, or about generation, which 1-NN cannot do at all",
+  "paired_note": "the rival answers the same lookup questions in the same run, so the gate is McNemar over the discordant items at the usual one-sided 1.645 - never two marginals. The rival over survivors is Bayes-optimal when the query context carries nothing, so a paired win IS the claim that the context channel carries information counts do not have",
+  "curve": [
+    {
+      "step": 1,
+      "loss": 1.3862943649291992,
+      "probe_loss": 1.2689901995990012
+    }
+  ],
+  "arc_enc_hash_before": "not_loaded",
+  "arc_enc_hash_after": "not_loaded",
+  "fp_version": "stage191_p1_curve.pt",
+  "note": "The derivation moved into exact algebra and the mind kept only the judgment. Two runs measured 7.9k parameters approximating a quantity exactly computable from their own input, and the approximation degraded as the genuinely uncertain task grew beside it. Now count and compare are arithmetic over the same-value relation - exact, uncapped, scale-free - and the one trained surface is Phi, the coherence of a completed world: for each candidate the query row is filled in and the world that results is pooled to one scalar, 288's repair loop turned inward. The two trained surfaces this leaves in the whole architecture are Phi and, once values stop being exact strings, s_ij itself - both judgments, never arithmetic. Confidence for exact verbs reports 1.0, which is the honest statement that a computed answer is certain GIVEN the relation; when s_ij becomes a judgment its uncertainty enters through that same seam.",
+  "timestamp": "2026-08-11T23:28:21.516767+00:00",
+  "wall_s": 106.76778364181519
+}

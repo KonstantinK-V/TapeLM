@@ -105,7 +105,20 @@ Narrative: [`extension_memory_contract.md`](../results/extension_memory_contract
 | **260** | `_stage260_open_gate.py` | **OPEN_GATE_NO** (smoke) | Gate ignored tape (shuffled AUC = real); see **260b**. |
 | **260b** | `_stage260b_open_gate.py` | **OPEN_GATE2_NO** (smoke) | Line classifier; gate_reads_tape false → **260c** paired train. |
 | **260c** | `_stage260c_open_gate.py` | **OPEN_GATE3_NO** (smoke) | Paired same-line; **`feature_probe`** + **`features_move`**; read before 212b. |
-| **212b** | `_stage212b_instance_sem.py` | **queued** | Instance disambig via W_sem (258 channel); collision exam. |
+| **261** | `_stage261_nl_query.py`, **`261f`** `_stage261f_word_votes.py` | **`NL_QUERY_NO_AT_SCALE`** (train path); line **`WORD_VOTES_BEATS_MEAN`** (261f) | Open bank NL; blend harm; **261f** zero-train word votes — [`stage261_close.md`](../results/stage261_close.md) |
+| **262** | `_stage262_trunk_swap.py` | *(model-dependent)* | **258 exam** with external frozen trunk via `h_t` only; [`VERDICT_VOCABULARY.md`](VERDICT_VOCABULARY.md) |
+| **263** | `_stage263_votes_vs_mean.py` | `VOTES_*` | **256 exam**, retrieval only: cosine ctx_fp mean vs word votes; [`stage263_decision.json`](../results/stage263_decision.json) |
+| **264** | `_stage264_retrieval_blend.py` | **`VOTES_BEST_OPEN_BANK`** | Open bank: mean/idf/votes/cascade/fusion; blends lose on top1; silence→route — [`stage264_decision.json`](../results/stage264_decision.json) |
+| **265** | `_stage265_span_lock.py` | `SPAN_LOCK_*` | Gate opens once; tape emits value verbatim (A soft/soft, B soft/locked, C open/locked). Smoke: `--smoke --no-arm-c` |
+| **266** | `_stage266_instruct_trunk.py` | **`WORDS_FORMULATE_QUERY`** / remap **`QUERY_MUST_BE_WORDS`** | words ≫ W; any words suffice; paraphrase∪surface silence 0.449→0.426 (not enough) — mind doesn't break silence |
+| **267** | `_stage267_read_refine.py` | *(smoke)* | hop0→read passages→hop1; B vs C random control; copy_rate |
+| **268** | `_stage268_mind_learns_tape.py` | **`MIND_LEARNS_TAPE_PARTIAL`** | G_novel_tape **true** (1.0=1.0); beats frozen upper 1.0 vs 0.0; G_lang_intact false (hold 3.91→4.04) |
+
+## Scale-first retrieval (264+)
+
+Slot write path stores **ctx word lists + `SlotPostings`** alongside frozen keys (`_inprint_glue.py`). Glue **`retrieve_topk(mode="auto")`** uses **word votes when live slots ≥ `VOTES_AUTO_MIN_SLOTS` (512)**, else **cosine+W_q**. Stages **256** (decode) and **255** (stream ingest + recall metrics) populate postings on every append.
+
+| **212b** | `_stage212b_instance_sem.py` | **INSTANCE_SEM_NO_AT_SCALE** (full) | Instance disambig via W_sem (258 channel); collision exam. |
 
 Runner: `python _run_stages_240_245.py [--smoke]`. Night full: `python _run_queue_night_full.py`. Lib: `_stage24x_lib.py`. Curriculum: `_stage246_domain_curriculum.py`. Ingest: `_stage247_ingest_forks.py` → **251** CPC ladder.
 

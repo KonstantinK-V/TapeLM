@@ -469,14 +469,14 @@ def main() -> int:
             hold = s252.fixed_hold_ce(m, hold_batches[e], char_table, pad_id, device)
             held_out = [f for f in admitted_by_dom[e] if not f["wq_train"]]
             mem_q = (
-                L.tape_recall(held_out, all_values_union, bank_can, K_all, V_all, SEED, W_bwd=W_query)
+                L.tape_recall_decision(held_out, all_values_union, bank_can, K_all, V_all, SEED, W_bwd=W_query)
                 if held_out
-                else float("nan")
+                else {"four_way": float("nan"), "full_bank_top1": float("nan"), "full_bank_mrr": float("nan"), "full_bank_median_rank": float("nan")}
             )
             mem_shift = (
-                L.tape_recall(held_out, all_values_union, banks_q[e], K_all, V_all, SEED, W_bwd=W_bwd[e])
+                L.tape_recall_decision(held_out, all_values_union, banks_q[e], K_all, V_all, SEED, W_bwd=W_bwd[e])
                 if held_out and W_bwd.get(e) is not None
-                else float("nan")
+                else {"four_way": float("nan"), "full_bank_top1": float("nan"), "full_bank_mrr": float("nan"), "full_bank_median_rank": float("nan")}
             )
             leak = s251.curve_param_recall(
                 m, char_table, pad_id, tok, facts_by_dom[e], all_values_union, device, SEED + 300

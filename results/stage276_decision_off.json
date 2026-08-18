@@ -1,0 +1,459 @@
+{
+  "stage": 276,
+  "overall": "RETRIEVAL_UNUSABLE",
+  "subject_filter": "off",
+  "idf": "classic",
+  "filler_words": 4,
+  "frozen_trunk": false,
+  "trunk_mode": "upper",
+  "smoke": false,
+  "seed": 276,
+  "bc_episodes": 4000,
+  "rl_episodes": 3000,
+  "families": {
+    "clean": 4,
+    "decidable": 4,
+    "tie": 4
+  },
+  "witnesses": 5,
+  "liars": 2,
+  "topk": 7,
+  "reward": {
+    "correct": 1.0,
+    "wrong": -0.3,
+    "abstain": 0.0,
+    "read": -0.02
+  },
+  "teacher": "275's: repeats are the dispute signal; abstain only on a repeated tie",
+  "fp_version": "stage191_p1_curve.pt",
+  "used_pool_final": 1152,
+  "gates": {
+    "G_arc_enc_frozen": true,
+    "G_answer_is_slot": true,
+    "G_retrieval_usable": false,
+    "G_answers_when_decidable": true,
+    "G_teacher_abstains_on_tie": false,
+    "G_abstain_on_tie": false,
+    "G_acc_when_answering": false,
+    "G_beats_always_answer": true,
+    "G_novel_tape": true
+  },
+  "train_tape": {
+    "answer_is_slot": 1.0,
+    "reward_total": 0.4583333333333334,
+    "teacher_reward_total": 0.09499999999999997,
+    "retrieval_precision": 0.4761904761904761,
+    "witness_recall": 1.0,
+    "clean": {
+      "coverage": 1.0,
+      "acc_answered": 1.0,
+      "abstain": 0.0,
+      "mean_reads": 0.0,
+      "reward": 1.0,
+      "precision": 0.14285714285714285,
+      "recall": 1.0,
+      "teacher_abstain": 0.0,
+      "teacher_acc_all": 0.0
+    },
+    "decidable": {
+      "coverage": 1.0,
+      "acc_answered": 0.75,
+      "abstain": 0.0,
+      "mean_reads": 0.0,
+      "reward": 0.675,
+      "precision": 0.7142857142857143,
+      "recall": 1.0,
+      "teacher_abstain": 0.0,
+      "teacher_acc_all": 1.0
+    },
+    "tie": {
+      "coverage": 1.0,
+      "acc_answered": 0.0,
+      "abstain": 0.0,
+      "mean_reads": 0.0,
+      "reward": -0.3,
+      "precision": 0.5714285714285714,
+      "recall": 1.0,
+      "teacher_abstain": 0.75,
+      "teacher_acc_all": 0.0
+    },
+    "coverage_all": 1.0,
+    "acc_answered_all": 0.5833333333333334
+  },
+  "novel_tape": {
+    "answer_is_slot": 1.0,
+    "traces": [
+      {
+        "kind": "clean",
+        "trace": [
+          "ASK_Q",
+          "ANSWER_0"
+        ],
+        "correct": 1,
+        "abstained": false,
+        "prec": 0.14285714285714285
+      },
+      {
+        "kind": "clean",
+        "trace": [
+          "ASK_Q",
+          "ANSWER_0"
+        ],
+        "correct": 1,
+        "abstained": false,
+        "prec": 0.14285714285714285
+      },
+      {
+        "kind": "clean",
+        "trace": [
+          "ASK_Q",
+          "ANSWER_0"
+        ],
+        "correct": 1,
+        "abstained": false,
+        "prec": 0.14285714285714285
+      },
+      {
+        "kind": "clean",
+        "trace": [
+          "ASK_Q",
+          "ANSWER_0"
+        ],
+        "correct": 1,
+        "abstained": false,
+        "prec": 0.14285714285714285
+      },
+      {
+        "kind": "decidable",
+        "trace": [
+          "ASK_Q",
+          "ANSWER_0"
+        ],
+        "correct": 1,
+        "abstained": false,
+        "prec": 0.7142857142857143
+      },
+      {
+        "kind": "decidable",
+        "trace": [
+          "ASK_Q",
+          "ANSWER_0"
+        ],
+        "correct": 1,
+        "abstained": false,
+        "prec": 0.7142857142857143
+      },
+      {
+        "kind": "decidable",
+        "trace": [
+          "ASK_Q",
+          "ANSWER_0"
+        ],
+        "correct": 0,
+        "abstained": false,
+        "prec": 0.7142857142857143
+      },
+      {
+        "kind": "decidable",
+        "trace": [
+          "ASK_Q",
+          "ANSWER_0"
+        ],
+        "correct": 0,
+        "abstained": false,
+        "prec": 0.7142857142857143
+      },
+      {
+        "kind": "tie",
+        "trace": [
+          "ASK_Q",
+          "ANSWER_0"
+        ],
+        "correct": 0,
+        "abstained": false,
+        "prec": 0.5714285714285714
+      },
+      {
+        "kind": "tie",
+        "trace": [
+          "ASK_Q",
+          "ANSWER_0"
+        ],
+        "correct": 0,
+        "abstained": false,
+        "prec": 0.5714285714285714
+      },
+      {
+        "kind": "tie",
+        "trace": [
+          "ASK_Q",
+          "ANSWER_0"
+        ],
+        "correct": 0,
+        "abstained": false,
+        "prec": 0.5714285714285714
+      },
+      {
+        "kind": "tie",
+        "trace": [
+          "ASK_Q",
+          "ANSWER_0"
+        ],
+        "correct": 0,
+        "abstained": false,
+        "prec": 0.5714285714285714
+      }
+    ],
+    "reward_total": 0.3500000000000001,
+    "teacher_reward_total": 0.060000000000000005,
+    "retrieval_precision": 0.4761904761904761,
+    "witness_recall": 1.0,
+    "clean": {
+      "coverage": 1.0,
+      "acc_answered": 1.0,
+      "abstain": 0.0,
+      "mean_reads": 0.0,
+      "reward": 1.0,
+      "precision": 0.14285714285714285,
+      "recall": 1.0,
+      "teacher_abstain": 0.0,
+      "teacher_acc_all": 0.0
+    },
+    "decidable": {
+      "coverage": 1.0,
+      "acc_answered": 0.5,
+      "abstain": 0.0,
+      "mean_reads": 0.0,
+      "reward": 0.35,
+      "precision": 0.7142857142857143,
+      "recall": 1.0,
+      "teacher_abstain": 0.0,
+      "teacher_acc_all": 1.0
+    },
+    "tie": {
+      "coverage": 1.0,
+      "acc_answered": 0.0,
+      "abstain": 0.0,
+      "mean_reads": 0.0,
+      "reward": -0.3,
+      "precision": 0.5714285714285714,
+      "recall": 1.0,
+      "teacher_abstain": 0.5,
+      "teacher_acc_all": 0.0
+    },
+    "coverage_all": 1.0,
+    "acc_answered_all": 0.5
+  },
+  "arc_enc_hash_before": "64a764151ebd27ec5f4c1e92d72d9ce6dba381fb355c386d669f3a0ac2cf93d1",
+  "arc_enc_hash_after": "64a764151ebd27ec5f4c1e92d72d9ce6dba381fb355c386d669f3a0ac2cf93d1",
+  "curve": [
+    {
+      "phase": "bc",
+      "episode": 500,
+      "loss": 1.0231183767318726,
+      "kind": "decidable",
+      "trace": [
+        "ASK_Q",
+        "READ_0",
+        "READ_1",
+        "READ_2",
+        "READ_3",
+        "ANSWER_0"
+      ]
+    },
+    {
+      "phase": "bc",
+      "episode": 1000,
+      "loss": 0.8212202787399292,
+      "kind": "clean",
+      "trace": [
+        "ASK_Q",
+        "READ_0",
+        "READ_1",
+        "READ_2",
+        "READ_3",
+        "READ_4",
+        "READ_5",
+        "READ_6",
+        "ANSWER_4"
+      ]
+    },
+    {
+      "phase": "bc",
+      "episode": 1500,
+      "loss": 0.6941438317298889,
+      "kind": "clean",
+      "trace": [
+        "ASK_Q",
+        "READ_0",
+        "READ_1",
+        "READ_2",
+        "READ_3",
+        "READ_4",
+        "READ_5",
+        "READ_6",
+        "ANSWER_4"
+      ]
+    },
+    {
+      "phase": "bc",
+      "episode": 2000,
+      "loss": 0.6378043293952942,
+      "kind": "decidable",
+      "trace": [
+        "ASK_Q",
+        "READ_0",
+        "READ_1",
+        "READ_2",
+        "READ_3",
+        "READ_4",
+        "READ_5",
+        "READ_6",
+        "ANSWER_1"
+      ]
+    },
+    {
+      "phase": "bc",
+      "episode": 2500,
+      "loss": 0.7945281863212585,
+      "kind": "tie",
+      "trace": [
+        "ASK_Q",
+        "READ_0",
+        "READ_1",
+        "ANSWER_0"
+      ]
+    },
+    {
+      "phase": "bc",
+      "episode": 3000,
+      "loss": 0.5522335767745972,
+      "kind": "tie",
+      "trace": [
+        "ASK_Q",
+        "READ_0",
+        "READ_1",
+        "READ_2",
+        "READ_3",
+        "READ_4",
+        "READ_5",
+        "READ_6",
+        "STOP"
+      ]
+    },
+    {
+      "phase": "bc",
+      "episode": 3500,
+      "loss": 0.5523412823677063,
+      "kind": "tie",
+      "trace": [
+        "ASK_Q",
+        "READ_0",
+        "READ_1",
+        "READ_2",
+        "READ_3",
+        "READ_4",
+        "READ_5",
+        "READ_6",
+        "STOP"
+      ]
+    },
+    {
+      "phase": "bc",
+      "episode": 4000,
+      "loss": 1.145126223564148,
+      "kind": "decidable",
+      "trace": [
+        "ASK_Q",
+        "READ_0",
+        "READ_1",
+        "READ_2",
+        "READ_3",
+        "ANSWER_1"
+      ]
+    },
+    {
+      "phase": "rl",
+      "episode": 375,
+      "baseline": 0.29975110068021876,
+      "kind": "clean",
+      "trace": [
+        "ASK_Q",
+        "ANSWER_0"
+      ]
+    },
+    {
+      "phase": "rl",
+      "episode": 750,
+      "baseline": 0.3150371632783945,
+      "kind": "tie",
+      "trace": [
+        "ASK_Q",
+        "ANSWER_3"
+      ]
+    },
+    {
+      "phase": "rl",
+      "episode": 1125,
+      "baseline": 0.5152646992798043,
+      "kind": "clean",
+      "trace": [
+        "ASK_Q",
+        "ANSWER_0"
+      ]
+    },
+    {
+      "phase": "rl",
+      "episode": 1500,
+      "baseline": 0.384872589608807,
+      "kind": "decidable",
+      "trace": [
+        "ASK_Q",
+        "ANSWER_0"
+      ]
+    },
+    {
+      "phase": "rl",
+      "episode": 1875,
+      "baseline": 0.39035552478479446,
+      "kind": "decidable",
+      "trace": [
+        "ASK_Q",
+        "ANSWER_2"
+      ]
+    },
+    {
+      "phase": "rl",
+      "episode": 2250,
+      "baseline": 0.47561532616340996,
+      "kind": "clean",
+      "trace": [
+        "ASK_Q",
+        "ANSWER_0"
+      ]
+    },
+    {
+      "phase": "rl",
+      "episode": 2625,
+      "baseline": 0.4555203981449895,
+      "kind": "tie",
+      "trace": [
+        "ASK_Q",
+        "ANSWER_0"
+      ]
+    },
+    {
+      "phase": "rl",
+      "episode": 3000,
+      "baseline": 0.33728974829705705,
+      "kind": "decidable",
+      "trace": [
+        "ASK_Q",
+        "ANSWER_1"
+      ]
+    }
+  ],
+  "note": "275 dropped candidates that did not mention the asked subject. That was computable from the cue, but it handed retrieval to the policy for free, so 275 measured aggregation and abstention only. Here --subject-filter off is the headline and on is the 275 control; the gap between the two runs is the price of search. Two things had to change first: witnesses shared five fixed sentences, so cue boilerplate pulled neighbours' slots and the teacher built majorities out of them \u2014 each subject now carries its own filler; and 1/log(2+df) barely separated a term in five slots from one in five hundred, so classic log(N/df) is the default. G_retrieval_usable is a validity gate on the off arm.",
+  "timestamp": "2026-08-05T14:02:05.512337+00:00",
+  "wall_s": 5238.4518275260925
+}

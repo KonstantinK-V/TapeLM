@@ -1,0 +1,31 @@
+---
+description: SOTE path after 297–298 — tape exact, mind decides places, teacher is tape match
+alwaysApply: true
+---
+
+# SOTE path (keep us on it)
+
+Kostya wants a **trained neural mind over a tape** — not GPT next-token, not a frozen lookup script, not facts in weights.
+
+## The path (fixed)
+
+1. **Write = count.** Places are exact (e.g. frames). No tau/cosine merge at write. Width is not quality; **# distinct fillers (k)** may enter the graph as a count.
+2. **Interpolation lives in the mind.** Cosine answers “same place?” at read time (edge), never glues addresses when writing.
+3. **Output alphabet = places, not vocab.** Mind chooses **slot / frame / filler-from-tape / refuse** (or assemble literals). Text appears only as **content of the chosen place(s)**. Never a token from weight-softmax over the dictionary.
+4. **Teacher = match the record.** Reward/penalty vs the real tape entry (find / wrong / silence / priced step). Not next-token likelihood. Algorithms (search, import, Φ, repair) are tools; gradient pays for **mind work on the tape**.
+5. **Movement / composition.** Prefer reconnecting existing ops (import = step to another place’s rows; multi-row world = evidence composition) under that teacher — not inventing a new stack. Ranking a ready value-list alone is the old path.
+6. **Rival that bites.** On a frame tape the rival is **majority filler of that place**. Φ must beat it **pairwise**. If not, the route is decorative — say so immediately.
+7. **“Not GPT” is measurable.** Ours: loss/choice over places + beat the frequency table. Vocab CE in weights is the other disease.
+
+## On course (checklist)
+
+- Facts on rotating tape; answer licensed by tape literals (or refuse)
+- Queries are words; mind = policy (read / step / decide / stop) that can learn
+- Novel tape success beats lookup/majority with clean keep — habit, not one bank memorized
+- Slot-alphabet unfinished is OK to say; **do not pretend** shortlist-of-values ≡ choose-a-place
+
+## Off course — say it outright
+
+**«Костя, ты свернул не туда»** — then one short why and the fix.
+
+Drift examples: tau/merge as “mind”; softmax over vocab sold as generation; baking answer text into weights; policy ≡ majority/lookup with a mask; hand features so the mind need not learn; closing a gate on the train tape only; claiming place-alphabet while still only ranking a fixed candidate list; skipping the frequency rival.

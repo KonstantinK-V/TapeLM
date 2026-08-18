@@ -1,0 +1,118 @@
+{
+  "stage": "289a",
+  "overall": "PRESUPPOSITION_PARTIAL",
+  "seed": 2891,
+  "smoke": false,
+  "holdout": "corpus",
+  "run_tag": "w150probe",
+  "train_steps": 1,
+  "params": 5572,
+  "verdicts": [
+    "ok",
+    "wrong_relation",
+    "contested",
+    "false_premise"
+  ],
+  "gates": {
+    "G_arc_enc_frozen": true,
+    "G_task_exists": true,
+    "G_beats_counting_rival": false,
+    "G_beats_majority_floor": false,
+    "G_catches_wrong_relation": true,
+    "G_does_not_cry_wolf": false,
+    "G_separates_blind_pair": false
+  },
+  "rival_ceiling_note": "the counting rival solves contested and false_premise and is blind to the ok / wrong_relation split by construction, so its ceiling on a balanced set is about 0.50; overall accuracy above it is necessary, and G_catches_wrong_relation is the claim",
+  "held_out": {
+    "n": 702,
+    "model_accuracy": 0.11396011396011396,
+    "rival_accuracy": 0.5883190883190883,
+    "majority_floor": 0.36894586894586895,
+    "per_verdict": {
+      "ok": {
+        "n": 259,
+        "model_recall": 0.0,
+        "rival_recall": 0.5945945945945946
+      },
+      "wrong_relation": {
+        "n": 80,
+        "model_recall": 1.0,
+        "rival_recall": 0.0
+      },
+      "contested": {
+        "n": 105,
+        "model_recall": 0.0,
+        "rival_recall": 1.0
+      },
+      "false_premise": {
+        "n": 258,
+        "model_recall": 0.0,
+        "rival_recall": 0.5968992248062015
+      }
+    },
+    "blind_pair": {
+      "n": 339,
+      "model_accuracy": 0.2359882005899705,
+      "rival_accuracy": 0.7640117994100295,
+      "majority_floor": 0.7640117994100295
+    },
+    "confusion": {
+      "contested->wrong_relation": 105,
+      "false_premise->wrong_relation": 258,
+      "ok->wrong_relation": 259,
+      "wrong_relation->wrong_relation": 80
+    }
+  },
+  "train_control": {
+    "n": 2073,
+    "model_accuracy": 0.22672455378678244,
+    "rival_accuracy": 0.527255185721177,
+    "majority_floor": 0.32609744331886154,
+    "per_verdict": {
+      "ok": {
+        "n": 676,
+        "model_recall": 0.0,
+        "rival_recall": 0.6227810650887574
+      },
+      "wrong_relation": {
+        "n": 470,
+        "model_recall": 1.0,
+        "rival_recall": 0.0
+      },
+      "contested": {
+        "n": 255,
+        "model_recall": 0.0,
+        "rival_recall": 1.0
+      },
+      "false_premise": {
+        "n": 672,
+        "model_recall": 0.0,
+        "rival_recall": 0.6205357142857143
+      }
+    },
+    "blind_pair": {
+      "n": 1146,
+      "model_accuracy": 0.41012216404886565,
+      "rival_accuracy": 0.5898778359511344,
+      "majority_floor": 0.5898778359511344
+    },
+    "confusion": {
+      "contested->wrong_relation": 255,
+      "false_premise->wrong_relation": 672,
+      "ok->wrong_relation": 676,
+      "wrong_relation->wrong_relation": 470
+    }
+  },
+  "curve": [
+    {
+      "step": 1,
+      "loss": 1.3862943649291992
+    }
+  ],
+  "arc_enc_hash_before": "64a764151ebd27ec5f4c1e92d72d9ce6dba381fb355c386d669f3a0ac2cf93d1",
+  "arc_enc_hash_after": "64a764151ebd27ec5f4c1e92d72d9ce6dba381fb355c386d669f3a0ac2cf93d1",
+  "fp_version": "stage191_p1_curve.pt",
+  "note": "The first verb that is not a lookup: should this question be answered at all. Four verdicts built from the tape so the labels are free - ok, wrong_relation, contested, false_premise. The first draft was a tautology and was caught before the run: building 'absent' as evidence from other addresses and 'false premise' as a borrowed value makes each class exactly the property a two-line hand rule reads off, so the rule scores 1.0 and nothing is measured, which is 286's exam mistake again. wrong_relation replaces that: ask about one relation of a subject while the evidence answers another, and every counting signal stays HEALTHY - the subject is in every mention, the values cohere, the majority is clear - so a counter answers confidently and answers a different question. Its blindness there is by construction, as it is on 288's duplicated forgery. The query joins the graph as one more row carrying the asserted value and the question's own context, so the same relational machinery compares question to evidence with no new representation. Ranks and indicators only; the output is one of four verdicts, so no value is produced and nothing is generated. THE FIRST RUN WAS UNMEASURABLE and the defect was in the graph, not in the mind: the asserted value reached the graph only through the query row's same-value edges, and that row is all-zero both when the question claims nothing and when its claim is absent from the evidence, while ctx_fp excluded the value from the text as well - so ok, wrong_relation and false_premise were literally the same input and three of four classes were indistinguishable in principle. The mind put all of them in one class (ok recall 0.0, wrong_relation recall 0.0, on the held-out set AND on the train control) while the rival read the claim directly in python, so it was being compared against a strictly better-informed opponent. Fixed by one identity-free indicator - does this query assert anything - which leaves exactly one pair, ok / wrong_relation, blind to every count, and that pair is now scored on its own as blind_pair. Second defect, same run: one random sibling per item gave wrong_relation n=6 held out, under MIN_ANSWERED, so the class the stage exists for had no denominator; every eligible sibling is now its own question, and training samples the four verdicts uniformly so accuracy cannot be bought by never naming the rare one.",
+  "timestamp": "2026-08-09T11:50:11.979529+00:00",
+  "wall_s": 1361.0160341262817
+}

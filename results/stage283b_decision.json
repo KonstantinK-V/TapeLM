@@ -1,0 +1,300 @@
+{
+  "stage": "283b",
+  "overall": "SCALE_OK",
+  "seed": 283,
+  "smoke": false,
+  "corpus": "data\\_wikitext103_train.txt",
+  "merge_mode": "anchor_block",
+  "addr_key": "two",
+  "address": {
+    "tau": 0.9,
+    "overlap": 2,
+    "soft_match": 0.0,
+    "min_mentions": 2
+  },
+  "retrieval": {
+    "topk": 7,
+    "hop": "fp",
+    "hop_min": 1.0,
+    "k_gap": 0.35,
+    "subject_filter": "on"
+  },
+  "thresholds": {
+    "min_precision": 0.6,
+    "min_separation": 0.3,
+    "max_crowding": 0.2,
+    "max_foreign": 0.1
+  },
+  "mind_params": 7564290,
+  "gates": {
+    "G_precision_holds": true,
+    "G_return_path_separates": true,
+    "G_addresses_stay_distinct": true,
+    "G_k_covers_the_address": false,
+    "G_ties_exist_naturally": true,
+    "G_mind_does_not_grow": true
+  },
+  "slopes": {
+    "slots": [
+      787,
+      1523,
+      11074
+    ],
+    "precision": [
+      0.7612472604104403,
+      0.9133273809523809,
+      0.8167607142857143
+    ],
+    "return_path_separation": [
+      1.0,
+      1.0,
+      0.9983579638752053
+    ],
+    "address_crowding": [
+      0.24686192468619247,
+      0.2925,
+      0.6815
+    ],
+    "member_crowding": [
+      0.3054393305439331,
+      0.45,
+      0.7945
+    ],
+    "two_channel_crowding": [
+      0.0502092050209205,
+      0.025,
+      0.082
+    ],
+    "foreign_member_rate": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "distinct_anchors": [
+      238,
+      400,
+      1999
+    ],
+    "anchor_only_crowding": [
+      0.058823529411764705,
+      0.03,
+      0.12156078039019509
+    ],
+    "anchor_growth_exponent": 0.6257007230168199,
+    "k_covers_address": [
+      0.9288702928870293,
+      0.9225,
+      0.8845
+    ],
+    "tie_share": [
+      0.6820083682008368,
+      0.74,
+      0.6955
+    ],
+    "slots_growth": 14.071156289707751
+  },
+  "rungs": [
+    {
+      "n_addresses": 239,
+      "n_slots": 787,
+      "n_items": 239,
+      "slots_per_address": 3.292887029288703,
+      "write_actions": {
+        "WRITE": 239,
+        "DISPUTE": 448,
+        "CONFIRM": 100
+      },
+      "families_natural": {
+        "clean": 0.18410041841004185,
+        "decidable": 0.13389121338912133,
+        "tie": 0.6820083682008368
+      },
+      "retrieval_precision": 0.7612472604104403,
+      "witness_recall": 0.7131947973813589,
+      "precision_q": {
+        "p5": 0.25,
+        "p50": 1.0,
+        "p95": 1.0
+      },
+      "mean_candidates": 2.8200836820083683,
+      "words_silent_rate": 0.0,
+      "foreign_member_rate": 0.0,
+      "k_covers_address": 0.9288702928870293,
+      "return_path_true": 1.0,
+      "return_path_other": 0.0,
+      "return_path_separation": 1.0,
+      "nearest_other_q": {
+        "p50": 0.8748792409896851,
+        "p95": 0.9431585073471069,
+        "p99": 0.9714004397392273
+      },
+      "nearest_other_max": 0.9750691056251526,
+      "address_crowding": 0.24686192468619247,
+      "member_crowding_q": {
+        "p50": 0.8860948085784912,
+        "p95": 0.951397180557251,
+        "p99": 0.9665176868438721
+      },
+      "member_crowding": 0.3054393305439331,
+      "two_channel_crowding": 0.0502092050209205,
+      "two_channel_q": {
+        "p50": 0.756175696849823,
+        "p95": 0.8990361452102661,
+        "p99": 0.9257906079292297
+      },
+      "distinct_anchors": 238,
+      "anchor_only_q": {
+        "p50": 0.7561440467834473,
+        "p95": 0.901390227675438,
+        "p99": 0.9500864744186401
+      },
+      "anchor_only_crowding": 0.058823529411764705,
+      "chars": 4000000,
+      "n_addr_requested": 400,
+      "build_s": 3.2123279571533203,
+      "mind_params": 7564290,
+      "lines": 1437,
+      "merge_mode": "anchor_block"
+    },
+    {
+      "n_addresses": 400,
+      "n_slots": 1523,
+      "n_items": 400,
+      "slots_per_address": 3.8075,
+      "write_actions": {
+        "WRITE": 400,
+        "DISPUTE": 947,
+        "CONFIRM": 176
+      },
+      "families_natural": {
+        "clean": 0.125,
+        "decidable": 0.135,
+        "tie": 0.74
+      },
+      "retrieval_precision": 0.9133273809523809,
+      "witness_recall": 0.7502318697566597,
+      "precision_q": {
+        "p5": 0.5,
+        "p50": 1.0,
+        "p95": 1.0
+      },
+      "mean_candidates": 2.38,
+      "words_silent_rate": 0.0,
+      "foreign_member_rate": 0.0,
+      "k_covers_address": 0.9225,
+      "return_path_true": 1.0,
+      "return_path_other": 0.0,
+      "return_path_separation": 1.0,
+      "nearest_other_q": {
+        "p50": 0.883360743522644,
+        "p95": 0.934424877166748,
+        "p99": 0.9496948224306107
+      },
+      "nearest_other_max": 0.9544194936752319,
+      "address_crowding": 0.2925,
+      "member_crowding_q": {
+        "p50": 0.8963452279567719,
+        "p95": 0.9397330284118652,
+        "p99": 0.9558293318748474
+      },
+      "member_crowding": 0.45,
+      "two_channel_crowding": 0.025,
+      "two_channel_q": {
+        "p50": 0.7718223035335541,
+        "p95": 0.8609504699707031,
+        "p99": 0.9010626900196075
+      },
+      "distinct_anchors": 400,
+      "anchor_only_q": {
+        "p50": 0.772558331489563,
+        "p95": 0.8814284920692441,
+        "p99": 0.933590607047081
+      },
+      "anchor_only_crowding": 0.03,
+      "chars": 30000000,
+      "n_addr_requested": 400,
+      "build_s": 15.426985502243042,
+      "mind_params": 7564290,
+      "lines": 10463,
+      "merge_mode": "anchor_block"
+    },
+    {
+      "n_addresses": 2000,
+      "n_slots": 11074,
+      "n_items": 2000,
+      "slots_per_address": 5.537,
+      "write_actions": {
+        "WRITE": 2000,
+        "DISPUTE": 7415,
+        "CONFIRM": 1659
+      },
+      "families_natural": {
+        "clean": 0.126,
+        "decidable": 0.1785,
+        "tie": 0.6955
+      },
+      "retrieval_precision": 0.8167607142857143,
+      "witness_recall": 0.752723135275868,
+      "precision_q": {
+        "p5": 0.3333333333333333,
+        "p50": 1.0,
+        "p95": 1.0
+      },
+      "mean_candidates": 2.9635,
+      "words_silent_rate": 0.0,
+      "foreign_member_rate": 0.0,
+      "k_covers_address": 0.8845,
+      "return_path_true": 1.0,
+      "return_path_other": 0.0016420361247947454,
+      "return_path_separation": 0.9983579638752053,
+      "nearest_other_q": {
+        "p50": 0.9130930602550507,
+        "p95": 0.9557115435600281,
+        "p99": 0.9719528567790985
+      },
+      "nearest_other_max": 0.9890397191047668,
+      "address_crowding": 0.6815,
+      "member_crowding_q": {
+        "p50": 0.9207116961479187,
+        "p95": 0.956853625178337,
+        "p99": 0.9700486433506011
+      },
+      "member_crowding": 0.7945,
+      "two_channel_crowding": 0.082,
+      "two_channel_q": {
+        "p50": 0.8311461210250854,
+        "p95": 0.9102145314216613,
+        "p99": 0.9310366833209991
+      },
+      "distinct_anchors": 1999,
+      "anchor_only_q": {
+        "p50": 0.832974910736084,
+        "p95": 0.9278330206871033,
+        "p99": 0.9628872990608215
+      },
+      "anchor_only_crowding": 0.12156078039019509,
+      "chars": 120000000,
+      "n_addr_requested": 2000,
+      "build_s": 60.009681701660156,
+      "mind_params": 7564290,
+      "lines": 41151,
+      "merge_mode": "anchor_block"
+    }
+  ],
+  "fp_version": "stage191_p1_curve.pt",
+  "reference_write2": {
+    "n_addresses": 877,
+    "n_slots": 2765,
+    "foreign_member_rate": 0.00860178354884333,
+    "tie": 0.34891676168757124,
+    "clean": 0.5245153933865451
+  },
+  "reference_geom": {
+    "n_addresses": 936,
+    "n_slots": 4730,
+    "foreign_member_rate": 0.05161396505477364
+  },
+  "note": "Letter step 283b: write merge is blocked by exact normalized anchor; soft edges (overlap>=2 OR two-channel cos>=tau) only inside that block. Extract with min_mentions=1, keep addresses after clustering. Tau stays 0.90 \u2014 the claim is that scoping the domain, not retuning the threshold, recovers capacity without returning geom-scale foreign. Compare slopes to reference_write2 and reference_geom.",
+  "timestamp": "2026-08-07T16:36:30.244032+00:00",
+  "wall_s": 80.68998718261719
+}

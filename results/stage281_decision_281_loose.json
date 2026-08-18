@@ -1,0 +1,179 @@
+{
+  "stage": 281,
+  "overall": "FRAMES_DO_NOT_HELP",
+  "trained_parameters": 0,
+  "smoke": true,
+  "seed": 281,
+  "frame_in_address": false,
+  "thresholds": {
+    "min_n": 3,
+    "min_confirm": 0.05,
+    "min_anchors": 1,
+    "max_values_per_anchor": 5.0,
+    "allow_empty_frame": false
+  },
+  "frames": {
+    "total": 6,
+    "kept": 2,
+    "assertions_total": 392,
+    "assertions_kept": 9,
+    "kept_fraction": 0.02295918367346939,
+    "top": [
+      {
+        "frame": "the",
+        "n": 6,
+        "confirm_rate": 0.8333333333333334,
+        "dispute_rate": 0.0,
+        "anchors": 1,
+        "values_per_anchor": 1.0,
+        "empty": false
+      },
+      {
+        "frame": "the county seat",
+        "n": 3,
+        "confirm_rate": 0.6666666666666666,
+        "dispute_rate": 0.0,
+        "anchors": 1,
+        "values_per_anchor": 1.0,
+        "empty": false
+      },
+      {
+        "frame": "",
+        "n": 373,
+        "confirm_rate": 0.5656836461126006,
+        "dispute_rate": 0.2868632707774799,
+        "anchors": 55,
+        "values_per_anchor": 2.9454545454545453,
+        "empty": true
+      },
+      {
+        "frame": "title assigned bishop",
+        "n": 3,
+        "confirm_rate": 0.0,
+        "dispute_rate": 0.6666666666666666,
+        "anchors": 1,
+        "values_per_anchor": 3.0,
+        "empty": false
+      },
+      {
+        "frame": "title assigned archbishop",
+        "n": 3,
+        "confirm_rate": 0.0,
+        "dispute_rate": 0.6666666666666666,
+        "anchors": 1,
+        "values_per_anchor": 3.0,
+        "empty": false
+      },
+      {
+        "frame": "protector",
+        "n": 4,
+        "confirm_rate": 0.0,
+        "dispute_rate": 0.75,
+        "anchors": 1,
+        "values_per_anchor": 4.0,
+        "empty": false
+      }
+    ],
+    "worst": [
+      {
+        "frame": "the",
+        "n": 6,
+        "confirm_rate": 0.8333333333333334,
+        "dispute_rate": 0.0,
+        "anchors": 1,
+        "values_per_anchor": 1.0,
+        "empty": false
+      },
+      {
+        "frame": "the county seat",
+        "n": 3,
+        "confirm_rate": 0.6666666666666666,
+        "dispute_rate": 0.0,
+        "anchors": 1,
+        "values_per_anchor": 1.0,
+        "empty": false
+      },
+      {
+        "frame": "",
+        "n": 373,
+        "confirm_rate": 0.5656836461126006,
+        "dispute_rate": 0.2868632707774799,
+        "anchors": 55,
+        "values_per_anchor": 2.9454545454545453,
+        "empty": true
+      },
+      {
+        "frame": "title assigned bishop",
+        "n": 3,
+        "confirm_rate": 0.0,
+        "dispute_rate": 0.6666666666666666,
+        "anchors": 1,
+        "values_per_anchor": 3.0,
+        "empty": false
+      },
+      {
+        "frame": "title assigned archbishop",
+        "n": 3,
+        "confirm_rate": 0.0,
+        "dispute_rate": 0.6666666666666666,
+        "anchors": 1,
+        "values_per_anchor": 3.0,
+        "empty": false
+      },
+      {
+        "frame": "protector",
+        "n": 4,
+        "confirm_rate": 0.0,
+        "dispute_rate": 0.75,
+        "anchors": 1,
+        "values_per_anchor": 4.0,
+        "empty": false
+      }
+    ]
+  },
+  "gates": {
+    "G_frames_survive": true,
+    "G_tape_shrinks": true,
+    "G_kept_frames_functional": true,
+    "G_ceiling_clears_silence": false,
+    "G_ceiling_improves": false,
+    "G_teacher_abstains_on_tie": false
+  },
+  "ceiling_before": {
+    "n_items": 36,
+    "reward": -0.19222222222222232,
+    "addresses": 36,
+    "slots": 144,
+    "families": {
+      "decidable": 15,
+      "clean": 12,
+      "tie": 9
+    },
+    "clean": {
+      "n": 12,
+      "teacher_acc": 0.8333333333333334,
+      "teacher_abstain": 0.0
+    },
+    "decidable": {
+      "n": 15,
+      "teacher_acc": 0.4666666666666667,
+      "teacher_abstain": 0.0
+    },
+    "tie": {
+      "n": 9,
+      "teacher_acc": 0.0,
+      "teacher_abstain": 0.0
+    }
+  },
+  "ceiling_after": {
+    "n_items": 1,
+    "reward": NaN
+  },
+  "reference_280": {
+    "teacher_ceiling_reward": -0.18888888888888897,
+    "held_out_precision": 0.3412698412698412
+  },
+  "note": "280's gate caught a wall its own numbers explain: the held-out exam asked about behind, curious, experience and coast, and no rule of aggregation can be right about a question with no answer. 279 was extracting adjacent capitalised words rather than assertions. Writing a better regex would only move the problem, so the criterion is measured instead. Each pair carries the frame that stood between anchor and value, and a frame is judged by three statistics of the write journal, none of which reads a label: how often its assertions are corroborated by a second source, how many distinct subjects it applies to, and how nearly functional it is - a relation maps one subject to about one value, an enumeration does not. SKIP is then executable. --frame-in-address additionally requires two assertions to share a frame before they may dispute, which is the distinction GOAL.md left open between sources disagreeing and sources discussing different things. The gate needs no training at all: the teacher runs alone on the rebuilt tape, and 280 is worth repeating only if its ceiling clears half the value of unconditional silence.",
+  "timestamp": "2026-08-06T00:48:55.785694+00:00",
+  "wall_s": 2.4927031993865967
+}

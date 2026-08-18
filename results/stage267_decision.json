@@ -1,0 +1,319 @@
+{
+  "stage": 267,
+  "overall": "READ_REFINE_INVALID",
+  "model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "seed": 261,
+  "smoke": true,
+  "bank_slots": 451,
+  "exam_slots": 51,
+  "n_eval": 51,
+  "k_read": 5,
+  "margin_thresh": 0.15,
+  "overlap_median": 0.06896551724137931,
+  "trained_parameters": 0,
+  "fp_version": "stage191_p1_curve.pt",
+  "hop0_uncertain_n": 26,
+  "empty_generations": {
+    "grounded": 0,
+    "random": 0,
+    "blind": 0
+  },
+  "copy_rate_from_passages": 0.6363636363636364,
+  "gates": {
+    "G_hop0_reproduces_264": false,
+    "G_refine_beats_hop0": false,
+    "G_grounding_causal": true,
+    "G_silence_reduced": false,
+    "G_woken_useful": false,
+    "G_selective_beats_always": true,
+    "G_reads_passages": true,
+    "best_arm": "D_selective"
+  },
+  "arms": {
+    "A_hop0_surface": {
+      "top1": 0.35294117647058826,
+      "mrr": 0.4264690355077731,
+      "median_rank": 4.0,
+      "acc_20way": 0.5490196078431373,
+      "chance_20way": 0.05,
+      "tie_at_zero_frac": 0.37254901960784315,
+      "tie_at_zero_frac_low_overlap": 0.7307692307692307,
+      "tie_at_zero_frac_high_overlap": 0.0,
+      "top1_low_overlap": 0.038461538461538464,
+      "top1_high_overlap": 0.68,
+      "top1_low_overlap_given_vote": 0.14285714285714285,
+      "n": 51,
+      "n_tie_at_zero": 19,
+      "n_low_overlap": 26
+    },
+    "B_refine_grounded": {
+      "top1": 0.3137254901960784,
+      "mrr": 0.39660711709086743,
+      "median_rank": 6.0,
+      "acc_20way": 0.5490196078431373,
+      "chance_20way": 0.05,
+      "tie_at_zero_frac": 0.37254901960784315,
+      "tie_at_zero_frac_low_overlap": 0.7307692307692307,
+      "tie_at_zero_frac_high_overlap": 0.0,
+      "top1_low_overlap": 0.07692307692307693,
+      "top1_high_overlap": 0.56,
+      "top1_low_overlap_given_vote": 0.2857142857142857,
+      "n": 51,
+      "n_tie_at_zero": 19,
+      "n_low_overlap": 26
+    },
+    "C_refine_random_passages": {
+      "top1": 0.23529411764705882,
+      "mrr": 0.3223966630624504,
+      "median_rank": 10.0,
+      "acc_20way": 0.5490196078431373,
+      "chance_20way": 0.05,
+      "tie_at_zero_frac": 0.37254901960784315,
+      "tie_at_zero_frac_low_overlap": 0.7307692307692307,
+      "tie_at_zero_frac_high_overlap": 0.0,
+      "top1_low_overlap": 0.0,
+      "top1_high_overlap": 0.48,
+      "top1_low_overlap_given_vote": 0.0,
+      "n": 51,
+      "n_tie_at_zero": 19,
+      "n_low_overlap": 26
+    },
+    "D_refine_selective": {
+      "top1": 0.35294117647058826,
+      "mrr": 0.42239892261413076,
+      "median_rank": 5.0,
+      "acc_20way": 0.5686274509803921,
+      "chance_20way": 0.05,
+      "tie_at_zero_frac": 0.37254901960784315,
+      "tie_at_zero_frac_low_overlap": 0.7307692307692307,
+      "tie_at_zero_frac_high_overlap": 0.0,
+      "top1_low_overlap": 0.038461538461538464,
+      "top1_high_overlap": 0.68,
+      "top1_low_overlap_given_vote": 0.14285714285714285,
+      "n": 51,
+      "n_tie_at_zero": 19,
+      "n_low_overlap": 26
+    },
+    "E_refine_blind": null
+  },
+  "woken": {
+    "B_grounded": {
+      "woken_n": 0,
+      "woken_frac": 0.0,
+      "woken_top1": NaN,
+      "woken_median_rank": NaN
+    },
+    "C_random": {
+      "woken_n": 0,
+      "woken_frac": 0.0,
+      "woken_top1": NaN,
+      "woken_median_rank": NaN
+    },
+    "D_selective": {
+      "woken_n": 0,
+      "woken_frac": 0.0,
+      "woken_top1": NaN,
+      "woken_median_rank": NaN
+    }
+  },
+  "reference_264_votes": {
+    "top1": 0.2455621301775148,
+    "mrr": 0.28176380275777263,
+    "median_rank": 76.5,
+    "acc_20way": 0.4230769230769231,
+    "chance_20way": 0.05,
+    "top1_low_overlap": 0.023668639053254437,
+    "top1_high_overlap": 0.46745562130177515,
+    "tie_at_zero_frac": 0.4881656804733728,
+    "silence": {
+      "tie_at_zero_frac": 0.4881656804733728,
+      "tie_at_zero_frac_low_overlap": 0.863905325443787,
+      "tie_at_zero_frac_high_overlap": 0.11242603550295859,
+      "top1_low_overlap": 0.023668639053254437,
+      "top1_high_overlap": 0.46745562130177515,
+      "top1_low_overlap_given_vote": 0.17391304347826086,
+      "low_overlap_miss_is_silence_frac": 0.8848484848484849,
+      "n": 338,
+      "n_tie_at_zero": 165,
+      "n_low_overlap": 169
+    },
+    "n": 338
+  },
+  "samples": [
+    {
+      "qtext": "In 2005 Hibiscus was one of three restaurants to be awarded three @-@ stars by the Egon Ronay Restaurant Guide , along w",
+      "hop0_uncertain": false,
+      "passages_head": [
+        "@ star award was restored a year later in the 2009 Michelin Guide , as had been predicted ",
+        "ello Awards . In 2005 , 20 years after its release , the song was awarded Song of The Deca"
+      ],
+      "grounded": [
+        "restaurant",
+        "guide",
+        "awards",
+        "singer",
+        "decade",
+        "election",
+        "part",
+        "banner"
+      ],
+      "random_ctrl": [
+        "restaurant",
+        "guide",
+        "award",
+        "rating",
+        "review"
+      ],
+      "from_passages": [
+        "guide",
+        "awards",
+        "decade",
+        "part",
+        "banner",
+        "vote"
+      ]
+    },
+    {
+      "qtext": "The early uses of antimonium include the translations , in 1050 \u2013 1100 , by Constantine the",
+      "hop0_uncertain": true,
+      "passages_head": [
+        "Some of the most visited sites in Ireland include <unk> Castle , the Rock of Cashel , the ",
+        "Cunningham 's treatment was not followed by later authorities , who largely considered Ast"
+      ],
+      "grounded": [
+        "carbonaria",
+        "epithet",
+        "fungi",
+        "cup"
+      ],
+      "random_ctrl": [
+        "early",
+        "antimony",
+        "antimonium",
+        "oxide",
+        "ore",
+        "mining",
+        "industry",
+        "prices"
+      ],
+      "from_passages": [
+        "carbonaria",
+        "epithet",
+        "cup"
+      ]
+    },
+    {
+      "qtext": "1 battalion in Zabul ( 479 personnel ) , 1 guard detachment in Kandahar ( 193 personnel ) , a reconnaissance squad in <u",
+      "hop0_uncertain": true,
+      "passages_head": [
+        " , shotguns , and rifles ; received and repaired : ordnance stores and <unk> ; performed :",
+        "ns , and rifles ; received and repaired : ordnance stores and <unk> ; performed : guard , "
+      ],
+      "grounded": [
+        "guard",
+        "office",
+        "and",
+        "police",
+        "duties",
+        "sniper",
+        "rifles",
+        "ordnance"
+      ],
+      "random_ctrl": [
+        "battalion",
+        "zabul",
+        "personnel",
+        "guard",
+        "detachment",
+        "kandahar",
+        "reconnaissance",
+        "squad"
+      ],
+      "from_passages": [
+        "guard",
+        "office",
+        "and",
+        "police",
+        "duties",
+        "rifles",
+        "ordnance",
+        "stores"
+      ]
+    },
+    {
+      "qtext": "ptians called antimony <unk> ; in hieroglyphs , the vowels are uncertain , but there is an Arabic tradition that the wor",
+      "hop0_uncertain": false,
+      "passages_head": [
+        "The Egyptians called antimony <unk> ; in hieroglyphs , the vowels are uncertain , but ther",
+        "ed the divine order , the gods ' actions maintained maat and created and sustained all liv"
+      ],
+      "grounded": [
+        "antimony",
+        "egypt",
+        "heka",
+        "india",
+        "african",
+        "china",
+        "guizhou",
+        "minting"
+      ],
+      "random_ctrl": [
+        "antimony",
+        "arabic",
+        "blues",
+        "celtics",
+        "chicago",
+        "division",
+        "eagles",
+        "finlandia"
+      ],
+      "from_passages": [
+        "antimony",
+        "egypt",
+        "heka",
+        "china",
+        "guizhou",
+        "minting",
+        "acid"
+      ]
+    },
+    {
+      "qtext": "Kurzanov and colleagues in 2003 designated six teeth from Siberia as Allosaurus sp . ( meaning the authors found the spe",
+      "hop0_uncertain": false,
+      "passages_head": [
+        "Kurzanov and colleagues in 2003 designated six teeth from Siberia as Allosaurus sp . ( mea",
+        "he Treaty of Ciudad Ju\u00e1rez was a peace treaty signed between the then President of Mexico "
+      ],
+      "grounded": [
+        "historic",
+        "places",
+        "designation",
+        "sites",
+        "conservation",
+        "preserve",
+        "art",
+        "site"
+      ],
+      "random_ctrl": [
+        "allosaurus",
+        "valkyria",
+        "chronicles",
+        "azure",
+        "revolution",
+        "valk"
+      ],
+      "from_passages": [
+        "historic",
+        "places",
+        "sites",
+        "preserve",
+        "art",
+        "site",
+        "heritage"
+      ]
+    }
+  ],
+  "note": "The loop, not the projection: hop0 votes retrieve passages, the model picks words while LOOKING at them, hop1 votes again. C shows the same model the same number of RANDOM passages \u2014 if B does not beat C the loop is prompting, not reading, and the verdict is PROMPTING_NOT_READING however good B looks. D spends refinement only where hop0 is uncertain, because 266 showed extra words hurt an already-healthy query. Rank counts a silent gold as last: 266's paraphrase arm read top1 0.477 only because empty answers left an empty score table. Memory is untouched \u2014 same bank, same postings, zero trained parameters.",
+  "timestamp": "2026-08-04T23:09:44.479786+00:00",
+  "wall_s": 172.43988227844238
+}

@@ -73,7 +73,49 @@ Gate `G_found_dose` (≥0.95) is optional strictness; the **substantive claim** 
 | `SEM_QUERY_NO` | GPT succeeds where curve does not |
 | `SEM_QUERY_INVALID` | `G_fp_only_at_chance` failed or keys drifted |
 | `NL_QUERY_NO_AT_SCALE` | Open-bank NL; GPT parity on top1 (261) |
-| `NL_QUERY_*` | See [`stage261_close.md`](../results/stage261_close.md) for headline vs blend-harm read |
+| `NO_AT_TRUNK_SCALE` | 266: matched 0.5B-Instruct does not beat 0.5B base on 261 exam |
+| `INSTRUCT_TRUNK_OK` | 266: Instruct (+ladder/prompted) moves open-domain signal |
+| `INSTRUCT_TRUNK_INVALID` | 266: matched 0.5B pair incomplete (load fail) — not a substantive NO |
+| `MIXER_OVERFIT` | 266: fp+sem fit top1≈1, eval≈0 — mixer memorizes h→slot; remap 261 = mixer defect |
+| `HARVEST_FIXES_MIXER` | 266: bank-wide (prefix→slot) training closes fit/eval gap — defect was data, not architecture |
+| `PROMPTED_QUERY_SIGNAL` | 266: keyword→votes beats W_sem; interface still broken |
+| `WORDS_FORMULATE_QUERY` | 266: words (surface and/or Instruct keywords→votes) crush learned query vector; remap `QUERY_MUST_BE_WORDS` |
+| `MIND_REFINES_QUERY` | 266: surface ∪ keywords beats surface on headlines while keeping coverage — mind adds precision without silence tax |
+| `PARAPHRASE_BREAKS_SILENCE` | 266: novel paraphrase words on tape reduce `tie_at_zero_frac` (the only mind-chance metric) |
+| `MIND_LEARNS_TAPE_OK` | 268: upper learns with arc_enc frozen; novel-tape EM holds (≥ train−0.05) and beats frozen-upper control |
+| `MIND_LEARNS_TAPE_PARTIAL` | 268: novel tape transfers but not all sanitation gates |
+| `MIND_LEARNS_TAPE_NO` | 268: mind memorized banks / failed novel tape or arc_enc moved |
+| `QUERY_MUST_BE_WORDS` | remap of 261: formulate the query in words, not a learned projection |
+| `NL_QUERY_NWAY_FP_ONLY` | 20-way signal on fp; sem blend **hurts** vs trained fp-only (261 ablations) |
+| `NL_QUERY_MIXER_OK` | Sem neutral (≥90% fp 20-way) with causal shuffle band (261) |
+| `NL_QUERY_NWAY_ONLY` | Sem ≥ fp without harm — **requires** causal 20-way + fp ≥ 0.12 (261) |
+| `NL_QUERY_*` | See [`stage261_close.md`](../results/stage261_close.md) and [`stage261_mixer_ablation.md`](../results/stage261_mixer_ablation.md) |
+| `WORD_VOTES_OK` | Zero-train word postings; causal top1 + beats popularity 20-way + open top1 + low-overlap (261f) |
+| `WORD_VOTES_BEATS_MEAN` | Same, but open top1 below gate — still beats 261 ctx_fp mean and popularity floor (261f) |
+| `WORD_VOTES_SIGNAL_ONLY` | Causal + 20-way signal band only (261f) |
+| `WORD_VOTES_NO` | Fails gates (261f) |
+| `VOTES_BEAT_MEAN` | 263: word postings beat ctx_fp mean on 256 exam (ΔEM ≥ 0.10, causal) |
+| `VOTES_TIE_MEAN` | 263: |ΔEM| < 0.10 — mean ceiling likely open-bank only |
+| `MEAN_BEATS_VOTES` | 263: cosine/mean retrieval wins on 256 exam |
+| `COSINE_BASELINE_INVALID` | 263: cosine EM &lt; 0.50 — comparison not readable |
+| `BLEND_BEATS_SINGLE` | 264: cascade or fusion beats votes alone on open bank |
+| `IDF_MEAN_FIXES_FLAT` | 264: idf-weighted mean ≫ flat mean (≥+0.10 20-way) |
+| `VOTES_BEST_OPEN_BANK` | 264: votes still best among modes |
+| `NO_CLEAR_WINNER` | 264: no blend/idf clear win |
+
+---
+
+## Trunk swap (262)
+
+| Verdict | Meaning |
+|---------|---------|
+| `TRUNK_SWAP_OK` | External trunk **unseen_para** ≥ curve − 0.05 and above chance — **W_sem interface transfers** |
+| `TRUNK_SWAP_BETTER` | External **beats** curve by ≥0.10 on unseen paraphrase — understanding was the bottleneck |
+| `TRUNK_SWAP_PARTIAL` | External works but **clearly worse** than curve |
+| `TRUNK_SWAP_NO` | External fails — channel **tuned to curve states** ( sinks “any reasoner” claim ) |
+| `TRUNK_SWAP_INVALID` | fp-only not at chance — exam leaked |
+
+Same exam as **258** (`s258` helpers, seed **258**); keys stay P1 fp; external tokenizer never touches tape.
 
 ---
 

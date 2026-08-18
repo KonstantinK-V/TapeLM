@@ -119,7 +119,12 @@ def _tape_query(bank_q, fact, W_bwd=None):
 
 
 def init_query_adapter(device: torch.device) -> DomainAdapter:
-    """Trainable query warp; tape KEYS stay frozen canonical — only queries move."""
+    """Trainable query warp; tape KEYS stay frozen canonical — only queries move.
+
+    Naming in checkpoints:
+      W_q_glue  — stage 256 SlotBias.W_q (decode glue + gate)
+      W_q_stream — stage 255 stream ingest W_query (continual query adapter)
+    """
     W = DomainAdapter(256).to(device)
     with torch.no_grad():
         W.w.weight.copy_(torch.eye(256, device=device) + 0.02 * torch.randn(256, 256, device=device))
@@ -223,28 +228,52 @@ def train_query_adapter_pairs(
 
 
 def tape_recall_metrics(
-    facts, all_values, bank_q, Kmat, Vlist, seed: int, W_bwd=None, block: int = 200_000
+    facts,
+    all_values,
+    bank_q,
+    Kmat,
+    Vlist,
+    seed: int,
+    W_bwd=None,
+    block: int = 200_000,
+    postings=None,
+    retrieve_mode: str = "auto",
 ) -> dict:
     """Fixed-seed 4-way distractors plus full-bank rank metrics (scores are time-invariant if arc_enc frozen)."""
     if not facts or Kmat.numel() == 0:
         return {"four_way": float("nan"), "top1": float("nan"), "mrr": float("nan"), "median_rank": float("nan")}
+    from _inprint_glue import VOTES_AUTO_MIN_SLOTS, resolve_retrieve_mode, slot_query_words
+    from _retrieval_modes import vote_scores
+
     qrng = random.Random(seed + 3)
     by_val: dict[str, list[int]] = {}
     for j, v in enumerate(Vlist):
         by_val.setdefault(v, []).append(j)
     K = Kmat.detach().to("cpu", torch.float32) if Kmat.is_cuda else Kmat.float()
     n_slots = K.size(0)
+    use_votes = (
+        postings is not None
+        and n_slots >= VOTES_AUTO_MIN_SLOTS
+        and resolve_retrieve_mode(retrieve_mode, n_slots) == "votes"
+    )
     ok4 = 0
     ranks: list[int] = []
     for f in facts:
-        qq = _tape_query(bank_q, f, W_bwd).detach().cpu().float()
-        sc_all = []
-        for i in range(0, n_slots, block):
-            sc_all.append(K[i : i + block] @ qq)
-        sc_col = torch.cat(sc_all) if sc_all else torch.zeros(0)
-        gold = f["value"]
-        gold_sc = float(sc_col[by_val[gold]].max()) if gold in by_val else -1.0
-        rank = 1 + int((sc_col > gold_sc).sum().item())
+        if use_votes:
+            words = slot_query_words(f"In the report {f['S']} was appointed director of")
+            sc = vote_scores(words, postings.postings, postings.idf)
+            gold = f["value"]
+            gsc = max((sc.get(j, 0.0) for j in by_val.get(gold, ())), default=0.0)
+            rank = 1 + sum(1 for v in sc.values() if v > gsc)
+        else:
+            qq = _tape_query(bank_q, f, W_bwd).detach().cpu().float()
+            sc_all = []
+            for i in range(0, n_slots, block):
+                sc_all.append(K[i : i + block] @ qq)
+            sc_col = torch.cat(sc_all) if sc_all else torch.zeros(0)
+            gold = f["value"]
+            gold_sc = float(sc_col[by_val[gold]].max()) if gold in by_val else -1.0
+            rank = 1 + int((sc_col > gold_sc).sum().item())
         ranks.append(rank)
         others = [x for x in all_values if x != gold]
         qrng.shuffle(others)
@@ -252,7 +281,10 @@ def tape_recall_metrics(
         order = list(range(4))
         qrng.shuffle(order)
         shuf = [cands[i] for i in order]
-        sc4 = [float(sc_col[by_val[c]].max()) if c in by_val else -1.0 for c in shuf]
+        if use_votes:
+            sc4 = [max((sc.get(j, 0.0) for j in by_val.get(c, ())), default=-1.0) for c in shuf]
+        else:
+            sc4 = [float(sc_col[by_val[c]].max()) if c in by_val else -1.0 for c in shuf]
         ok4 += int(int(np.argmax(sc4)) == order.index(0))
     r = np.asarray(ranks, dtype=np.float64)
     return {
@@ -265,6 +297,32 @@ def tape_recall_metrics(
 
 def tape_recall(facts, all_values, bank_q, Kmat, Vlist, seed: int, W_bwd=None) -> float:
     return tape_recall_metrics(facts, all_values, bank_q, Kmat, Vlist, seed, W_bwd=W_bwd)["four_way"]
+
+
+def tape_recall_decision(
+    facts,
+    all_values,
+    bank_q,
+    Kmat,
+    Vlist,
+    seed: int,
+    W_bwd=None,
+    **kwargs,
+) -> dict:
+    """Closed-pool 4-way plus open full-bank rank — use in decision JSON."""
+    m = tape_recall_metrics(
+        facts, all_values, bank_q, Kmat, Vlist, seed, W_bwd=W_bwd, **kwargs
+    )
+    return {
+        "four_way": m["four_way"],
+        "full_bank_top1": m["top1"],
+        "full_bank_mrr": m["mrr"],
+        "full_bank_median_rank": m["median_rank"],
+    }
+
+
+def canonical_fp_version() -> str:
+    return CKPT_P1.name
 
 
 def load_next_tok_items(n_next: int):

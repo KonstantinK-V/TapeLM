@@ -1,0 +1,47 @@
+{
+  "stage": "261f",
+  "overall": "WORD_VOTES_BEATS_MEAN",
+  "soft": true,
+  "soft_k": 3,
+  "noise_typo": 0.15,
+  "n_way": 20,
+  "candidates": 4338,
+  "asked": 338,
+  "distractors": 4000,
+  "vocab": 11195,
+  "postings": 71110,
+  "overlap_median": 0.06316489361702127,
+  "trained_parameters": 0,
+  "gates": {
+    "G_signal": true,
+    "G_beats_mean_fp": true,
+    "G_low_overlap_works": true,
+    "G_open_top1": false,
+    "G_causal_top1": true,
+    "G_beats_popularity_20way": true
+  },
+  "summary": {
+    "votes": {
+      "top1": 0.19230769230769232,
+      "mrr": 0.22277398819366181,
+      "median_rank": 160.0,
+      "acc_20way": 0.5088757396449705,
+      "chance_20way": 0.05,
+      "top1_low_overlap": 0.011834319526627219,
+      "top1_high_overlap": 0.3727810650887574,
+      "n": 338
+    },
+    "popularity_floor": {
+      "top1": 0.0,
+      "acc_20way": 0.28994082840236685
+    },
+    "reference_261_ctx_fp_mean": {
+      "acc_20way": 0.226,
+      "top1": 0.034,
+      "top1_low_overlap": 0.0
+    }
+  },
+  "note": "Zero-train word postings + idf. Repointed postings = popularity floor (~0.29 20-way); causal read on top1 (0 vs signal). See stage261_close.md / stage261_262_research.md.",
+  "timestamp": "2026-08-04T14:41:51.647400+00:00",
+  "wall_s": 11.798423767089844
+}

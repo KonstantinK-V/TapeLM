@@ -1,0 +1,114 @@
+[
+  {
+    "cutter": "frames",
+    "frame_max": 12,
+    "hole": "one_token",
+    "tokens": 37652,
+    "addresses": 2428,
+    "slots": 10809,
+    "mentions_per_address_mean": 4.451812191103789,
+    "mentions_per_address_median": 2,
+    "distinct_fillers_per_address_median": 2,
+    "corpus_coverage": 0.2870763837246361,
+    "median_frame_width": 1,
+    "mean_frame_width": 1.0626329910259968,
+    "parser_ref": {
+      "addresses": 800,
+      "slots": 2500,
+      "mentions_per_address": 3.1
+    },
+    "vs_parser_addresses": 3.035,
+    "vs_parser_slots": 4.3236,
+    "sample": [
+      {
+        "w": 1,
+        "left": [
+          "<unk>"
+        ],
+        "right": [
+          "("
+        ],
+        "fillers": [
+          "\"",
+          "<unk>",
+          "Chronicles",
+          "rifle"
+        ],
+        "n_fillers": 4,
+        "rows": 4
+      },
+      {
+        "w": 1,
+        "left": [
+          "("
+        ],
+        "right": [
+          ":"
+        ],
+        "fillers": [
+          "German",
+          "Italian",
+          "Japanese"
+        ],
+        "n_fillers": 3,
+        "rows": 4
+      },
+      {
+        "w": 1,
+        "left": [
+          ":"
+        ],
+        "right": [
+          ","
+        ],
+        "fillers": [
+          "Amun",
+          "Guard",
+          "Scouts",
+          "Vogue",
+          "guard",
+          "himself",
+          "\u6226\u5834\u306e\u30f4\u30a1\u30eb\u30ad\u30e5\u30ea\u30a23"
+        ],
+        "n_fillers": 7,
+        "rows": 7
+      },
+      {
+        "w": 1,
+        "left": [
+          ","
+        ],
+        "right": [
+          "."
+        ],
+        "fillers": [
+          "1862",
+          "1863",
+          "1890",
+          "1911",
+          "1961",
+          "1964",
+          "1991",
+          "2011"
+        ],
+        "n_fillers": 21,
+        "rows": 24
+      },
+      {
+        "w": 1,
+        "left": [
+          "the"
+        ],
+        "right": [
+          "3"
+        ],
+        "fillers": [
+          "Battlefield",
+          "PlayStation"
+        ],
+        "n_fillers": 2,
+        "rows": 3
+      }
+    ]
+  }
+]

@@ -1,0 +1,19 @@
+{
+  "stage": "295",
+  "witnesses": 2,
+  "rules_train": 4,
+  "rules_eval": 18,
+  "rival_threshold": 44.75,
+  "base_survive": 0.2777777777777778,
+  "phi_accuracy": 0.7777777777777778,
+  "rival_accuracy": 0.5555555555555556,
+  "paired": {
+    "model_only_right": 5,
+    "rival_only_right": 1,
+    "discordant": 6,
+    "mcnemar_z": 1.6329931618554523,
+    "max_achievable_z": 2.449489742783178
+  },
+  "seed": 1337,
+  "timestamp": "2026-08-12T10:27:55.794757+00:00"
+}

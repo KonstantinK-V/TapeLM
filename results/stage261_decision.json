@@ -1,8 +1,42 @@
 {
   "stage": 261,
-  "overall": "NL_QUERY_NO_AT_SCALE",
+  "overall": "NL_QUERY_NO",
+  "recipe": "baseline",
+  "recipe_flags": {
+    "name": "baseline",
+    "tape_mode": null,
+    "fp_floor": false,
+    "fp_floor_strong": false,
+    "rrf": false,
+    "feat_gate": false,
+    "hygiene": false,
+    "alpha_cap": null,
+    "score_max_fusion": false,
+    "wq_fp_pretrain_steps": 0,
+    "freeze_wq": false
+  },
+  "use_anchor": true,
+  "query_names_entity": false,
+  "query_entity_diag": {
+    "query_names_entity": false,
+    "eval_n": 177,
+    "ent_in_natural_query_n": 23,
+    "fp_ent_absent": {
+      "n": 154,
+      "top1": 0.08441558441558442,
+      "acc_20way": 0.22727272727272727
+    },
+    "fp_ent_present_leak": {
+      "n": 23,
+      "top1": 0.08695652173913043,
+      "acc_20way": 0.21739130434782608
+    }
+  },
   "trunk": "stage253_joint_l02.pt",
+  "external_model": "Qwen/Qwen2.5-0.5B",
+  "external_hidden": 896,
   "steps": 800,
+  "steps_done": 800,
   "slots": 4353,
   "exam_slots": 353,
   "noise_slots": 4000,
@@ -16,16 +50,39 @@
     "G_low_overlap_works": false,
     "G_not_lexical": false,
     "G_tape_causal": true,
-    "G_signal_20way": false
+    "G_tape_causal_20way": false,
+    "G_signal_fp_20way": true,
+    "G_signal_sem_20way": false,
+    "G_sem_harms_fp": true,
+    "G_sem_neutral_vs_fp": false
   },
-  "gpt_parity": true,
+  "read": {
+    "acc_20way_fp": 0.20903954802259886,
+    "acc_20way_fp_init_Wq": 0.22033898305084745,
+    "acc_20way_fp_trained_Wq": 0.20903954802259886,
+    "acc_20way_sem": 0.0903954802259887,
+    "acc_20way_shuffled": 0.03389830508474576,
+    "sem_over_fp_20way": 0.43243243243243246,
+    "blend_alpha_eval": 0.9331201631470588
+  },
   "summary": {
     "fp_only": {
-      "top1": 0.03389830508474576,
-      "mrr": 0.058316468853679256,
-      "median_rank": 1451.0,
-      "top1_low_overlap": 0.0,
-      "top1_high_overlap": 0.06896551724137931,
+      "top1": 0.0847457627118644,
+      "mrr": 0.10713138940049854,
+      "median_rank": 1397.0,
+      "top1_low_overlap": 0.011111111111111112,
+      "top1_high_overlap": 0.16091954022988506,
+      "alpha": 0.0,
+      "n": 177,
+      "acc_20way": 0.20903954802259886,
+      "chance_20way": 0.05
+    },
+    "fp_only_frozen_Wq": {
+      "top1": 0.12994350282485875,
+      "mrr": 0.14315287733481866,
+      "median_rank": 1308.0,
+      "top1_low_overlap": 0.011111111111111112,
+      "top1_high_overlap": 0.25287356321839083,
       "alpha": 0.0,
       "n": 177,
       "acc_20way": 0.22033898305084745,
@@ -33,32 +90,30 @@
     },
     "fp_plus_sem": {
       "top1": 0.0,
-      "mrr": 0.012363488116295365,
-      "median_rank": 1907.0,
+      "mrr": 0.005825297946017729,
+      "median_rank": 1824.0,
       "top1_low_overlap": 0.0,
       "top1_high_overlap": 0.0,
-      "alpha": 0.7201506502210757,
+      "alpha": 0.9331201631470588,
       "n": 177,
       "acc_20way": 0.0903954802259887,
       "chance_20way": 0.05
     },
     "shuffled_keys": {
       "top1": 0.0,
-      "mrr": 0.002288968522044672,
-      "median_rank": 2205.0,
+      "mrr": 0.0014290012547255387,
+      "median_rank": 2153.0,
       "top1_low_overlap": 0.0,
       "top1_high_overlap": 0.0,
-      "alpha": 0.7201506502210757,
+      "alpha": 0.9331201631470588,
       "n": 177,
-      "acc_20way": 0.062146892655367235,
+      "acc_20way": 0.03389830508474576,
       "chance_20way": 0.05
     },
-    "gpt_control": {
-      "top1": 0.0,
-      "mrr": 0.007713390989363697
-    }
+    "gpt_control": null
   },
-  "note": "Full: 353 exam + 4000 wiki noise. Headline NL_QUERY_NO_AT_SCALE (GPT top1 0). Interpretation: acc_20way fp-only 0.22 vs chance 0.05 (shuffled 0.062) shows tape-causal signal; fp+sem 0.09 at alpha~0.72 — sem blend harms fp (calibration failure, same fp-confidence regime as 258 anchored when fp weak). Open top1 failed for everyone; 20-way separates 'any signal' from full-bank top1. See results/stage261_close.md. Deferred: loss term penalizing blend when losing to fp-only.",
-  "timestamp": "2026-08-04T04:42:52.206755+00:00",
-  "wall_s": 34.02979850769043
+  "gpt_parity": null,
+  "note": "Full: 353 exam + 4000 wiki noise. Headline NL_QUERY_NO_AT_SCALE (GPT top1 0). acc_20way: fp-only beats chance (~4.4x); fp+sem at high alpha can harm fp \u2014 see results/stage261_close.md. G_not_lexical requires top1_low_overlap > 0.",
+  "timestamp": "2026-08-04T14:03:17.928763+00:00",
+  "wall_s": 357.02114272117615
 }

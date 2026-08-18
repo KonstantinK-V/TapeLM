@@ -1,0 +1,1559 @@
+{
+  "stage": "289",
+  "overall": "DERIVATION_PARTIAL",
+  "seed": 2890,
+  "smoke": false,
+  "holdout": "corpus",
+  "run_tag": "smoke291b",
+  "train_steps": 1,
+  "params": 5697,
+  "objective": "cross_entropy_no_ladder",
+  "edge_channels": [
+    "anchor",
+    "cos",
+    "rare",
+    "rel",
+    "same"
+  ],
+  "import_k": 0,
+  "views": 1,
+  "reconciliation": null,
+  "neighbours": 3,
+  "open_verb": false,
+  "open_near_source": null,
+  "graph_rows": {
+    "mean": 4.419878296146044,
+    "max": 12,
+    "graphs": 493
+  },
+  "nb_channels": {
+    "anchor_nonzero_rate": 0.3911778962675715,
+    "rel_nonzero_rate": 0.6335433834222006,
+    "pairs": 4126
+  },
+  "refuse": {
+    "n": 145,
+    "n_answerable": 10,
+    "n_unanswerable": 135,
+    "unanswerable_rate": 0.9310344827586207,
+    "mind": {
+      "acc_answerable": 0.0,
+      "refuse_recall": 1.0,
+      "false_refusal": 1.0,
+      "coverage": 0.0,
+      "reward": 0.9827586206896551
+    },
+    "rival_counting": {
+      "threshold_from_probe": null,
+      "reward": 0.9827586206896551
+    },
+    "rival_retrieval": {
+      "threshold_from_probe": null,
+      "reward": 0.9827586206896551
+    },
+    "rival_own_row": {
+      "reward": 0.8793103448275862,
+      "acc_answerable": 0.4,
+      "refuse_recall": 0.9407407407407408
+    },
+    "blanket_refusal_reward": 0.9827586206896551,
+    "always_answer_ceiling": -0.8620689655172413,
+    "gates": {
+      "G_refuse_beats_blanket": false,
+      "G_refuse_beats_counting": false,
+      "G_refuse_beats_retrieval": false,
+      "G_refuse_beats_own_row_shortcut": true
+    }
+  },
+  "ink": "mean",
+  "fp": "hash",
+  "words": "ascii",
+  "write_ink": "mean",
+  "write_fp": "hash",
+  "write_words": "ascii",
+  "fp_ngram": 3,
+  "tau": {
+    "mode": "absolute",
+    "value": 0.4712,
+    "target_density": null,
+    "achieved_density": null,
+    "monotone": null,
+    "trace": null
+  },
+  "tape_shape": {
+    "held_out": {
+      "slots": 611,
+      "addresses": 591,
+      "mentions_per_address": 1.0338409475465313,
+      "lookup_questions": 145,
+      "mean_candidates": 3.986206896551724,
+      "paraphrase": {
+        "facts_written_twice": 6,
+        "same_anchor_diff_relation": 0.5,
+        "mean_addresses_per_fact": 1.5,
+        "reversed_pairs": 1,
+        "reversed_pair_rate": 0.0018796992481203006
+      }
+    },
+    "train": {
+      "slots": 617,
+      "addresses": 596,
+      "mentions_per_address": 1.0352348993288591,
+      "lookup_questions": 148,
+      "mean_candidates": 4.121621621621622,
+      "paraphrase": {
+        "facts_written_twice": 5,
+        "same_anchor_diff_relation": 0.2,
+        "mean_addresses_per_fact": 1.2,
+        "reversed_pairs": 2,
+        "reversed_pair_rate": 0.003745318352059925
+      }
+    }
+  },
+  "resample": {
+    "tape_period": 50,
+    "mean_overlap": NaN,
+    "n_resamples": 0,
+    "note": "Jaccard between consecutive tapes' address sets. Near 1 means the redraw returns the same addresses and the anti-memorisation argument in HANDOFF 1 is decorative - the fix is a larger address pool, i.e. more corpus, not fewer parameters"
+  },
+  "row_dropout": {
+    "rate": 0.0,
+    "mean_kept_fraction": NaN,
+    "note": "training only - the held-out tape is never thinned. Marginalisation, not noise: a subset of the evidence is a world the corpus could have written, and the low/high margin split is a density axis the mind was never trained across"
+  },
+  "early_stop": {
+    "enabled": true,
+    "best_step": 1,
+    "best_probe_loss": 1.4767955023050308,
+    "total_steps": 1,
+    "probe_questions": 200
+  },
+  "probe_curve": [
+    {
+      "step": 1,
+      "probe_loss": 1.4767955023050308
+    }
+  ],
+  "rare_nonzero_rate": 0.0,
+  "ink_degenerate_rate": NaN,
+  "cos_mean": 0.27438832836436,
+  "cos_std": 0.15768295865499507,
+  "ladder_coverage_train": {
+    "with_ladder": 0,
+    "lookup_questions": 148
+  },
+  "count_labels": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5+"
+  ],
+  "compare_labels": [
+    "first",
+    "second",
+    "equal"
+  ],
+  "gates": {
+    "G_arc_enc_frozen": true,
+    "G_ink_verified": true,
+    "G_task_exists": true,
+    "G_exact_algebra_matches_tape": true,
+    "G_lookup_beats_floor": true,
+    "G_lookup_beats_counts_paired": false,
+    "G_lookup_beats_retrieval_paired": false,
+    "G_phi_orders_negatives": false
+  },
+  "held_out": {
+    "count": {
+      "n": 11,
+      "model_accuracy": 1.0,
+      "rival_accuracy": 1.0,
+      "random_floor": 0.19999999999999998
+    },
+    "compare": {
+      "n": 5,
+      "model_accuracy": 1.0,
+      "rival_accuracy": 1.0,
+      "random_floor": 0.3333333333333333
+    },
+    "lookup": {
+      "n": 145,
+      "model_accuracy": 0.9310344827586207,
+      "rival_accuracy": 0.027586206896551724,
+      "random_floor": 0.2600821018062398,
+      "rival_cos_accuracy": 0.7,
+      "rival_cos_answered": 10
+    },
+    "lookup_paired_vs_rival": {
+      "model_only_right": 0,
+      "rival_only_right": 4,
+      "discordant": 4,
+      "mcnemar_z": -2.0
+    },
+    "lookup_paired_vs_rival_cos": {
+      "n": 10,
+      "model_only_right": 0,
+      "rival_only_right": 7,
+      "discordant": 7,
+      "mcnemar_z": -2.6457513110645903,
+      "max_achievable_z": 2.6457513110645907,
+      "underpowered": false
+    },
+    "lookup_paired_vs_rival_cos_by_margin": {
+      "median_margin": 0.16230255365371704,
+      "low_margin": {
+        "n": 6,
+        "model_only_right": 0,
+        "rival_only_right": 3,
+        "discordant": 3,
+        "mcnemar_z": -1.7320508075688774,
+        "max_achievable_z": 1.7320508075688772,
+        "underpowered": false
+      },
+      "high_margin": {
+        "n": 4,
+        "model_only_right": 0,
+        "rival_only_right": 4,
+        "discordant": 4,
+        "mcnemar_z": -2.0,
+        "max_achievable_z": 2.0,
+        "underpowered": false
+      }
+    },
+    "ladder": {
+      "n_questions": 0,
+      "pairs": 0,
+      "concordant": 0,
+      "ties_excluded": 0,
+      "import_budget_zero_rate": 0.0,
+      "import_budget_mean": 0.0,
+      "concordance": NaN,
+      "z_vs_half": NaN,
+      "mean_phi": {
+        "true": NaN,
+        "near": NaN,
+        "middle": NaN,
+        "far": NaN
+      }
+    },
+    "exact_mismatches": 0,
+    "confusion": {
+      "compare|equal->equal": 2,
+      "compare|second->second": 3,
+      "count|1->1": 3,
+      "count|2->2": 8,
+      "lookup|\u0000REFUSE->\u0000REFUSE": 135,
+      "lookup|Burston->\u0000REFUSE": 2,
+      "lookup|Flood->\u0000REFUSE": 2,
+      "lookup|Herzegovina->\u0000REFUSE": 2,
+      "lookup|Philippines->\u0000REFUSE": 2,
+      "lookup|Straight->\u0000REFUSE": 2
+    },
+    "lookup_item_hits": [
+      {
+        "k": "fp106:queer eye|for the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp107:queer eye|for the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp10:malaysia|holder week the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp115:tripoli|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp118:blamey|told#0",
+        "hit": 0
+      },
+      {
+        "k": "fp119:blamey|told#0",
+        "hit": 0
+      },
+      {
+        "k": "fp120:february|had not paid#0",
+        "hit": 1
+      },
+      {
+        "k": "fp137:cabinets|unk#0",
+        "hit": 1
+      },
+      {
+        "k": "fp139:july|inducted into the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp140:eurofighter typhoon|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp144:the judgment|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp147:manchester|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp148:malaysia|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp152:topeka|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp156:sudan|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp157:compton|retired#0",
+        "hit": 1
+      },
+      {
+        "k": "fp172:sorkin|twenty year marriage#0",
+        "hit": 1
+      },
+      {
+        "k": "fp173:bucalemu|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp174:dayton peace accords|with#0",
+        "hit": 1
+      },
+      {
+        "k": "fp17:friday|writer#0",
+        "hit": 1
+      },
+      {
+        "k": "fp18:weymouth|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp191:arlinsky|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp193:the shannon hotel|and the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp198:nickelodeon|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp19:british|army and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp19:british|army and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1:bosnia|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp204:march|special features the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp209:frank|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp20:november|moves south along#0",
+        "hit": 1
+      },
+      {
+        "k": "fp214:february|with#0",
+        "hit": 1
+      },
+      {
+        "k": "fp217:france|licence crenellate from#0",
+        "hit": 1
+      },
+      {
+        "k": "fp21:mikan|died#0",
+        "hit": 1
+      },
+      {
+        "k": "fp224:august|travelling taxi from#0",
+        "hit": 1
+      },
+      {
+        "k": "fp234:august|westward through the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp23:swinton|unk#0",
+        "hit": 1
+      },
+      {
+        "k": "fp240:september|the application#0",
+        "hit": 1
+      },
+      {
+        "k": "fp242:kwame anthony|unk and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp243:national historical commission|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp243:national historical commission|the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp248:september|was worked forwards#0",
+        "hit": 1
+      },
+      {
+        "k": "fp256:beyonc|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp257:pedra branca|applied#0",
+        "hit": 1
+      },
+      {
+        "k": "fp257:pedra branca|applied#1",
+        "hit": 1
+      },
+      {
+        "k": "fp25:ross robertson cup|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp262:new york|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp264:february|issue#0",
+        "hit": 1
+      },
+      {
+        "k": "fp26:france|with unk unk#0",
+        "hit": 1
+      },
+      {
+        "k": "fp273:november|the ethnic distribution#0",
+        "hit": 1
+      },
+      {
+        "k": "fp275:brad paisley|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp276:the fisher king|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp286:asher|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp288:malaysia|singapore#0",
+        "hit": 1
+      },
+      {
+        "k": "fp290:march|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp291:march|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp292:march|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp293:german|occupied#0",
+        "hit": 1
+      },
+      {
+        "k": "fp2:bosnia|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp302:german|sculptor#0",
+        "hit": 1
+      },
+      {
+        "k": "fp305:decision sets stage|for#0",
+        "hit": 1
+      },
+      {
+        "k": "fp306:berliner|unk#0",
+        "hit": 1
+      },
+      {
+        "k": "fp312:bennington|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp313:evans|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp314:young america stakes|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp315:second lady|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp316:mikan|inducted into the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp31:mikan|the board the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp325:april|unk and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp329:memramcook|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp330:tom swift|and the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp332:manning|told#0",
+        "hit": 1
+      },
+      {
+        "k": "fp33:phillip fulmer|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp350:dee productions|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp352:india|and the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp353:american|viewers and received#0",
+        "hit": 1
+      },
+      {
+        "k": "fp358:american|prominent role the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp362:august|the locomotive#0",
+        "hit": 1
+      },
+      {
+        "k": "fp365:john|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp36:fredericton|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp371:the story|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp384:germany|and the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp386:fond farewell|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp395:lord justice leveson|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp399:compton|died#0",
+        "hit": 1
+      },
+      {
+        "k": "fp400:sera gamble|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp402:november|non airworthy condition#0",
+        "hit": 1
+      },
+      {
+        "k": "fp404:great central|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp406:pedra branca|state had challenged#0",
+        "hit": 1
+      },
+      {
+        "k": "fp408:american|geologist#0",
+        "hit": 1
+      },
+      {
+        "k": "fp412:serbia|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp413:france|halve the number#0",
+        "hit": 1
+      },
+      {
+        "k": "fp417:new south wales|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp419:barro|unk and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp423:sorkin|been commissioned the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp432:february|recommended for the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp435:abelard|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp436:united states naval shipping control authority|for#0",
+        "hit": 1
+      },
+      {
+        "k": "fp449:midlands senior|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp452:controlled drugs|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp456:over performance|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp458:rotherham|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp464:the world before|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp464:the world before|the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp467:metal gear|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp470:james bowie|and the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp472:tinsley|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp474:sorkin|attended#0",
+        "hit": 1
+      },
+      {
+        "k": "fp476:april|sometimes given incorrectly#0",
+        "hit": 1
+      },
+      {
+        "k": "fp477:the bend|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp479:german|general serving under#0",
+        "hit": 1
+      },
+      {
+        "k": "fp485:newcastle|with#0",
+        "hit": 1
+      },
+      {
+        "k": "fp48:fourth united nations conference|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp493:europe|unk#0",
+        "hit": 1
+      },
+      {
+        "k": "fp494:blacks|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp497:cindy|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp499:portugal|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp4:defense forces|and the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp501:american|player for the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp505:australian national university|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp511:american|drama television series#0",
+        "hit": 1
+      },
+      {
+        "k": "fp517:jim prentice|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp518:james crawford|unk#0",
+        "hit": 1
+      },
+      {
+        "k": "fp544:american|politician from#0",
+        "hit": 1
+      },
+      {
+        "k": "fp553:ireland|and the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp555:eli|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp564:wiccan|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp567:sulphur|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp568:british|are concerned that#0",
+        "hit": 1
+      },
+      {
+        "k": "fp570:american|commander#0",
+        "hit": 1
+      },
+      {
+        "k": "fp572:french general|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp575:alaska forum|for#0",
+        "hit": 1
+      },
+      {
+        "k": "fp582:september|renamed two months#0",
+        "hit": 1
+      },
+      {
+        "k": "fp588:german|fought for the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp61:australian|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp63:august|front crowd the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp72:august|player five days#0",
+        "hit": 1
+      },
+      {
+        "k": "fp74:matt rowe|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp79:petrel lagoon|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp79:petrel lagoon|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp90:burton|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp92:april|released images the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp93:blamey|unk with both#0",
+        "hit": 1
+      },
+      {
+        "k": "fp93:blamey|unk with both#1",
+        "hit": 1
+      },
+      {
+        "k": "fp97:march|returned#0",
+        "hit": 1
+      },
+      {
+        "k": "fp98:compton|been working with#0",
+        "hit": 1
+      }
+    ],
+    "sparse": {
+      "n": 145,
+      "n_answerable": 10,
+      "n_unanswerable": 135,
+      "acc_answerable": 0.0,
+      "refuse_recall": 1.0,
+      "false_refusal": 1.0,
+      "n_no_own_row": 133,
+      "acc_no_own_row": 0.9548872180451128
+    }
+  },
+  "train_control": {
+    "count": {
+      "n": 15,
+      "model_accuracy": 1.0,
+      "rival_accuracy": 1.0,
+      "random_floor": 0.20000000000000004
+    },
+    "compare": {
+      "n": 7,
+      "model_accuracy": 1.0,
+      "rival_accuracy": 1.0,
+      "random_floor": 0.3333333333333333
+    },
+    "lookup": {
+      "n": 148,
+      "model_accuracy": 0.8986486486486487,
+      "rival_accuracy": 0.02702702702702703,
+      "random_floor": 0.2521074646074646,
+      "rival_cos_accuracy": 0.8666666666666667,
+      "rival_cos_answered": 15
+    },
+    "lookup_paired_vs_rival": {
+      "model_only_right": 0,
+      "rival_only_right": 4,
+      "discordant": 4,
+      "mcnemar_z": -2.0
+    },
+    "lookup_paired_vs_rival_cos": {
+      "n": 15,
+      "model_only_right": 0,
+      "rival_only_right": 13,
+      "discordant": 13,
+      "mcnemar_z": -3.6055512754639896,
+      "max_achievable_z": 3.605551275463989,
+      "underpowered": false
+    },
+    "lookup_paired_vs_rival_cos_by_margin": {
+      "median_margin": 0.25075146555900574,
+      "low_margin": {
+        "n": 8,
+        "model_only_right": 0,
+        "rival_only_right": 6,
+        "discordant": 6,
+        "mcnemar_z": -2.4494897427831783,
+        "max_achievable_z": 2.449489742783178,
+        "underpowered": false
+      },
+      "high_margin": {
+        "n": 7,
+        "model_only_right": 0,
+        "rival_only_right": 7,
+        "discordant": 7,
+        "mcnemar_z": -2.6457513110645903,
+        "max_achievable_z": 2.6457513110645907,
+        "underpowered": false
+      }
+    },
+    "ladder": {
+      "n_questions": 0,
+      "pairs": 0,
+      "concordant": 0,
+      "ties_excluded": 0,
+      "import_budget_zero_rate": 0.0,
+      "import_budget_mean": 0.0,
+      "concordance": NaN,
+      "z_vs_half": NaN,
+      "mean_phi": {
+        "true": NaN,
+        "near": NaN,
+        "middle": NaN,
+        "far": NaN
+      }
+    },
+    "exact_mismatches": 0,
+    "confusion": {
+      "compare|equal->equal": 2,
+      "compare|first->first": 3,
+      "compare|second->second": 2,
+      "count|1->1": 4,
+      "count|2->2": 10,
+      "count|3->3": 1,
+      "lookup|\u0000REFUSE->\u0000REFUSE": 133,
+      "lookup|Australian->\u0000REFUSE": 2,
+      "lookup|Canadian->\u0000REFUSE": 1,
+      "lookup|Christmas->\u0000REFUSE": 2,
+      "lookup|Jacob->\u0000REFUSE": 2,
+      "lookup|Misuse->\u0000REFUSE": 2,
+      "lookup|Palisades->\u0000REFUSE": 2,
+      "lookup|Patton->\u0000REFUSE": 2,
+      "lookup|William->\u0000REFUSE": 2
+    },
+    "lookup_item_hits": [
+      {
+        "k": "fp105:deira|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp106:lakshmi|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp107:haifa|his son#0",
+        "hit": 1
+      },
+      {
+        "k": "fp111:gopi|unk#0",
+        "hit": 1
+      },
+      {
+        "k": "fp115:loricatosaurus|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp119:american|and two#0",
+        "hit": 1
+      },
+      {
+        "k": "fp121:brooklyn|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp122:september|reprinted#0",
+        "hit": 1
+      },
+      {
+        "k": "fp122:september|reprinted#1",
+        "hit": 1
+      },
+      {
+        "k": "fp125:dale long|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp126:editing|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp12:japanese naval aces|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp131:colville|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp135:october|the episode#0",
+        "hit": 1
+      },
+      {
+        "k": "fp135:october|the episode#1",
+        "hit": 1
+      },
+      {
+        "k": "fp139:generalleutnant wilhelm|unk#0",
+        "hit": 1
+      },
+      {
+        "k": "fp140:french|produced#0",
+        "hit": 1
+      },
+      {
+        "k": "fp141:parliament debbie abrahams|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp145:gallipoli campaign|and the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp153:saprang|was appointed#0",
+        "hit": 1
+      },
+      {
+        "k": "fp160:david|unk#0",
+        "hit": 1
+      },
+      {
+        "k": "fp161:france|his personal friend#0",
+        "hit": 1
+      },
+      {
+        "k": "fp166:australia|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp166:australia|the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp167:australia|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp168:australia|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp168:australia|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp170:carlsen|won#0",
+        "hit": 1
+      },
+      {
+        "k": "fp171:rod gardner|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp183:september|one five hijackers#0",
+        "hit": 1
+      },
+      {
+        "k": "fp184:green world|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp188:munro|was#0",
+        "hit": 1
+      },
+      {
+        "k": "fp18:july|through#0",
+        "hit": 0
+      },
+      {
+        "k": "fp191:somali olympic committee|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp192:forest service|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp198:europe|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp207:maria|unk#0",
+        "hit": 1
+      },
+      {
+        "k": "fp207:maria|unk#1",
+        "hit": 1
+      },
+      {
+        "k": "fp209:emmy award|for#0",
+        "hit": 1
+      },
+      {
+        "k": "fp212:united states army|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp216:giri|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp219:mothers|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp221:simon|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp222:simon|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp224:iceland|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp226:kersal cricket ground|and the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp227:james weldon johnson|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp228:llanedeyrn interchange|and the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp24:carlsen|endgames from the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp254:australia|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp260:kingdom halls|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp261:tiberias|and the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp264:ptolemy|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp26:ljubljana|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp281:oliver|unk#0",
+        "hit": 1
+      },
+      {
+        "k": "fp286:isaac|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp287:isaac|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp287:isaac|and#1",
+        "hit": 0
+      },
+      {
+        "k": "fp297:folk music|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp298:secunda|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp2:november|was#0",
+        "hit": 0
+      },
+      {
+        "k": "fp303:vitruvius|and the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp310:yakima indian war|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp311:maria|degli#0",
+        "hit": 1
+      },
+      {
+        "k": "fp31:national research council|from#0",
+        "hit": 1
+      },
+      {
+        "k": "fp322:timm harmon|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp324:american league against war|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp327:october|through#0",
+        "hit": 0
+      },
+      {
+        "k": "fp328:alabama|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp329:alabama|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp32:sting|for#0",
+        "hit": 1
+      },
+      {
+        "k": "fp333:egon petri|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp337:the predatory wasp|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp337:the predatory wasp|the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp346:nki|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp363:mary|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp365:the struggle over|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp368:world tag team champions lance cade|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp375:jayne tyler|from#0",
+        "hit": 1
+      },
+      {
+        "k": "fp376:the british foreign service|and the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp390:spanish|unk#0",
+        "hit": 1
+      },
+      {
+        "k": "fp392:italy|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp393:italy|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp398:kubica|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp3:november|was#0",
+        "hit": 1
+      },
+      {
+        "k": "fp403:aims|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp408:carlsen|placed second#0",
+        "hit": 1
+      },
+      {
+        "k": "fp410:but paul|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp415:october|his second collection#0",
+        "hit": 1
+      },
+      {
+        "k": "fp416:tony skyrme|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp41:while mosley|was#0",
+        "hit": 1
+      },
+      {
+        "k": "fp424:federal election commission|and the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp428:hardaway|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp42:dale robertson|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp430:christianity|image hint pre#0",
+        "hit": 1
+      },
+      {
+        "k": "fp437:russ juskalian|from#0",
+        "hit": 1
+      },
+      {
+        "k": "fp43:andaman|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp455:bash|unk#0",
+        "hit": 1
+      },
+      {
+        "k": "fp458:ryan pinkston|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp464:breese|was#0",
+        "hit": 1
+      },
+      {
+        "k": "fp468:fleet street|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp476:soviet union|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp483:cantrell|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp4:saprang|the junta leader#0",
+        "hit": 1
+      },
+      {
+        "k": "fp500:liberal|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp501:los angeles philharmonic|and the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp505:sher khan|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp510:australia|won the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp511:protoceratops|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp515:mariana islands|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp521:ruggles|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp524:duke|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp525:duke|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp528:france|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp529:france|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp533:bellaire city library|unk#0",
+        "hit": 1
+      },
+      {
+        "k": "fp536:liverpool|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp537:beyonc|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp539:american|journalist#0",
+        "hit": 1
+      },
+      {
+        "k": "fp541:through town|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp543:john sealy hospital towers|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp54:south hill|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp554:saprang|his military career#0",
+        "hit": 1
+      },
+      {
+        "k": "fp556:really want|for#0",
+        "hit": 0
+      },
+      {
+        "k": "fp556:really want|for#1",
+        "hit": 0
+      },
+      {
+        "k": "fp559:charlestown|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp560:christianity|baptised fell the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp562:haifa|passenger traffic among#0",
+        "hit": 1
+      },
+      {
+        "k": "fp567:keweenaw county|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp569:ottomans|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp571:christianity|when the cult#0",
+        "hit": 1
+      },
+      {
+        "k": "fp576:wild fauna|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp587:romanian unknown soldier|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp589:grand army|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp592:steve alford|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp60:unicode|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp67:richard|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp68:august|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp72:indians|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp75:haifa|include unk unk#0",
+        "hit": 1
+      },
+      {
+        "k": "fp78:jewish question|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp80:keswick choral society|and the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp80:keswick choral society|and the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp84:oldham east|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp90:beyond chutzpah|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp90:beyond chutzpah|the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp99:american|was signed the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp9:argentina|and#0",
+        "hit": 1
+      }
+    ],
+    "sparse": {
+      "n": 148,
+      "n_answerable": 15,
+      "n_unanswerable": 133,
+      "acc_answerable": 0.0,
+      "refuse_recall": 1.0,
+      "false_refusal": 1.0,
+      "n_no_own_row": 128,
+      "acc_no_own_row": 0.953125
+    }
+  },
+  "exact_note": "count and compare left the weights: they are functions of the same-value relation alone (new_i = 1 - max_{j<i} s_ij; count = sum new_i; compare = sign of the side difference), computed exactly with zero parameters and no 5+ cap, because the invariant says whatever decides may not be approximate. Their accuracy is 1.0 by construction and is checked, not celebrated - G_exact_algebra_matches_tape is a sanity bolt. The interference that cost count 0.965 -> 0.903 is removed by construction: one trained task remains",
+  "ladder_note": "three wrong answers per question at increasing structural distance - same anchor / adjacent in tape order / anywhere on the tape - every rung a value the corpus wrote, no similarity chosen by anyone. Phi trained only against local wrong candidates learns a BOUNDARY; generation needs a LANDSCAPE, and a mind that cannot rank its own wrong answers by how wrong they are has no direction to move in. The objective is one Plackett-Luce term, not a task loss plus a ladder loss with a weight between them, and it reduces to the previous cross-entropy exactly when the tape cannot supply a ladder",
+  "retrieval_note": "two rivals now, because they answer two different questions. The counting rival knows nothing about context, so beating it shows only that the context channel carries information counts lack - not that reading it takes a mind. rival_cos is 1-NN over the same evidence rows by the same ctx_fp cosine, zero parameters, no training. With hash ink the representation IS Random Indexing over fastText-shaped word vectors, so the distance between this architecture and a classical retrieval system is exactly this one number. If rival_cos lands where Phi lands, 3489 parameters are decoration ON THIS VERB and the verdict is PHI_ADDS_NOTHING_ON_LOOKUP. Named for the brick and not for the wall: lookup is one verb, single-hop and retrieval-shaped by construction, and a rival that ties it says nothing about the exact algebra, about verbs where rows must be combined, or about generation, which 1-NN cannot do at all",
+  "paired_note": "the rival answers the same lookup questions in the same run, so the gate is McNemar over the discordant items at the usual one-sided 1.645 - never two marginals. The rival over survivors is Bayes-optimal when the query context carries nothing, so a paired win IS the claim that the context channel carries information counts do not have",
+  "curve": [
+    {
+      "step": 1,
+      "loss": 1.3862943649291992,
+      "probe_loss": 1.4767955023050308
+    }
+  ],
+  "arc_enc_hash_before": "not_loaded",
+  "arc_enc_hash_after": "not_loaded",
+  "fp_version": "stage191_p1_curve.pt",
+  "note": "The derivation moved into exact algebra and the mind kept only the judgment. Two runs measured 7.9k parameters approximating a quantity exactly computable from their own input, and the approximation degraded as the genuinely uncertain task grew beside it. Now count and compare are arithmetic over the same-value relation - exact, uncapped, scale-free - and the one trained surface is Phi, the coherence of a completed world: for each candidate the query row is filled in and the world that results is pooled to one scalar, 288's repair loop turned inward. The two trained surfaces this leaves in the whole architecture are Phi and, once values stop being exact strings, s_ij itself - both judgments, never arithmetic. Confidence for exact verbs reports 1.0, which is the honest statement that a computed answer is certain GIVEN the relation; when s_ij becomes a judgment its uncertainty enters through that same seam.",
+  "timestamp": "2026-08-11T22:54:34.358994+00:00",
+  "wall_s": 16.72879123687744
+}

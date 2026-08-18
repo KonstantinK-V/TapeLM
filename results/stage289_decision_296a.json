@@ -1,0 +1,10026 @@
+{
+  "stage": "289",
+  "overall": "DERIVATION_PARTIAL",
+  "seed": 1337,
+  "smoke": false,
+  "holdout": "corpus",
+  "run_tag": "296a",
+  "train_steps": 6000,
+  "params": 5601,
+  "objective": "expected_reward_280",
+  "edge_channels": [
+    "cos",
+    "rare",
+    "same"
+  ],
+  "import_k": 2,
+  "views": 1,
+  "reconciliation": null,
+  "neighbours": 0,
+  "open_verb": true,
+  "patterns_verb": false,
+  "address_from": "fp",
+  "open_cands": "uniform",
+  "anchor_max_rows": null,
+  "identity_verb": false,
+  "mixed_verb": true,
+  "mixed": {
+    "rival_threshold": 0.875660430206932,
+    "held_out": {
+      "n": 315,
+      "answerable_rate": 0.473015873015873,
+      "payoff_mind": 0.8817460317460317,
+      "payoff_rival": 0.8507936507936508,
+      "always_answer": -1.0,
+      "always_silent": 0.8817460317460317,
+      "found_rate": 0.0,
+      "rival_found_rate": 0.348993288590604,
+      "correct_silence": 1.0,
+      "false_silence": 1.0,
+      "found_where_rival_missed": 0,
+      "missed_where_rival_found": 52,
+      "paired_payoff": {
+        "mind_better": 5,
+        "rival_better": 0,
+        "discordant": 5,
+        "mcnemar_z": 2.23606797749979,
+        "max_achievable_z": 2.23606797749979,
+        "underpowered": false
+      }
+    },
+    "train_control": {
+      "n": 516,
+      "answerable_rate": 0.5038759689922481,
+      "payoff_mind": 0.874031007751938,
+      "payoff_rival": 0.875484496124031,
+      "always_answer": -1.0,
+      "always_silent": 0.874031007751938,
+      "found_rate": 0.0,
+      "rival_found_rate": 0.4,
+      "correct_silence": 1.0,
+      "false_silence": 1.0,
+      "found_where_rival_missed": 0,
+      "missed_where_rival_found": 104,
+      "paired_payoff": {
+        "mind_better": 0,
+        "rival_better": 3,
+        "discordant": 3,
+        "mcnemar_z": -1.7320508075688774,
+        "max_achievable_z": 1.7320508075688772,
+        "underpowered": false
+      }
+    }
+  },
+  "identity": null,
+  "open_near_source": {
+    "same_anchor": 0,
+    "neighbourhood": 0
+  },
+  "graph_rows": {
+    "mean": 0.0,
+    "max": 0,
+    "graphs": 0
+  },
+  "neighbourhood_audit": null,
+  "nb_channels": null,
+  "refuse": null,
+  "ink": "mean",
+  "fp": "hash",
+  "words": "ascii",
+  "write_ink": "mean",
+  "write_fp": "hash",
+  "write_words": "ascii",
+  "fp_ngram": 3,
+  "tau": {
+    "mode": "absolute",
+    "value": 0.4712,
+    "target_density": null,
+    "achieved_density": null,
+    "monotone": null,
+    "trace": null
+  },
+  "tape_shape": {
+    "held_out": {
+      "slots": 2297,
+      "addresses": 733,
+      "mentions_per_address": 3.1336971350613916,
+      "lookup_questions": 315,
+      "mean_candidates": 5.0,
+      "paraphrase": {
+        "facts_written_twice": 526,
+        "same_anchor_diff_relation": 0.045627376425855515,
+        "mean_addresses_per_fact": 1.0475285171102662,
+        "reversed_pairs": 2,
+        "reversed_pair_rate": 0.0015748031496062992
+      }
+    },
+    "train": {
+      "slots": 3057,
+      "addresses": 864,
+      "mentions_per_address": 3.5381944444444446,
+      "lookup_questions": 516,
+      "mean_candidates": 5.0,
+      "paraphrase": {
+        "facts_written_twice": 622,
+        "same_anchor_diff_relation": 0.08842443729903537,
+        "mean_addresses_per_fact": 1.1028938906752412,
+        "reversed_pairs": 5,
+        "reversed_pair_rate": 0.0030581039755351682
+      }
+    }
+  },
+  "resample": {
+    "tape_period": 50,
+    "mean_overlap": 1.6751658333294586e-05,
+    "n_resamples": 119,
+    "note": "Jaccard between consecutive tapes' address sets. Near 1 means the redraw returns the same addresses and the anti-memorisation argument in HANDOFF 1 is decorative - the fix is a larger address pool, i.e. more corpus, not fewer parameters"
+  },
+  "row_dropout": {
+    "rate": 0.0,
+    "mean_kept_fraction": NaN,
+    "note": "training only - the held-out tape is never thinned. Marginalisation, not noise: a subset of the evidence is a world the corpus could have written, and the low/high margin split is a density axis the mind was never trained across"
+  },
+  "early_stop": {
+    "enabled": true,
+    "best_step": 100,
+    "best_probe_loss": 3.361622373496003,
+    "total_steps": 6000,
+    "probe_questions": 200
+  },
+  "probe_curve": [
+    {
+      "step": 100,
+      "probe_loss": 3.361622373496003
+    },
+    {
+      "step": 200,
+      "probe_loss": 5.081738946069322
+    },
+    {
+      "step": 300,
+      "probe_loss": 5.507357290043022
+    },
+    {
+      "step": 400,
+      "probe_loss": 5.658245719214633
+    },
+    {
+      "step": 500,
+      "probe_loss": 6.193195782591722
+    },
+    {
+      "step": 600,
+      "probe_loss": 6.566088141863011
+    },
+    {
+      "step": 700,
+      "probe_loss": 6.734034481109856
+    },
+    {
+      "step": 800,
+      "probe_loss": 6.953944168227638
+    },
+    {
+      "step": 900,
+      "probe_loss": 7.052069857096979
+    },
+    {
+      "step": 1000,
+      "probe_loss": 7.194167692947328
+    },
+    {
+      "step": 1100,
+      "probe_loss": 7.239165614324678
+    },
+    {
+      "step": 1200,
+      "probe_loss": 7.4228562432648655
+    },
+    {
+      "step": 1300,
+      "probe_loss": 7.584630127690284
+    },
+    {
+      "step": 1400,
+      "probe_loss": 7.612723922979302
+    },
+    {
+      "step": 1500,
+      "probe_loss": 7.727148194896149
+    },
+    {
+      "step": 1600,
+      "probe_loss": 7.855870053888881
+    },
+    {
+      "step": 1700,
+      "probe_loss": 7.965490022783355
+    },
+    {
+      "step": 1800,
+      "probe_loss": 8.022522936924927
+    },
+    {
+      "step": 1900,
+      "probe_loss": 8.08378521546459
+    },
+    {
+      "step": 2000,
+      "probe_loss": 8.11670422695949
+    },
+    {
+      "step": 2100,
+      "probe_loss": 8.135242320655586
+    },
+    {
+      "step": 2200,
+      "probe_loss": 8.215532961609561
+    },
+    {
+      "step": 2300,
+      "probe_loss": 8.258556440525847
+    },
+    {
+      "step": 2400,
+      "probe_loss": 8.289777834065172
+    },
+    {
+      "step": 2500,
+      "probe_loss": 8.341823827115666
+    },
+    {
+      "step": 2600,
+      "probe_loss": 8.361833571014325
+    },
+    {
+      "step": 2700,
+      "probe_loss": 8.378241301776649
+    },
+    {
+      "step": 2800,
+      "probe_loss": 8.433949985341883
+    },
+    {
+      "step": 2900,
+      "probe_loss": 8.39152725632756
+    },
+    {
+      "step": 3000,
+      "probe_loss": 8.477035628472775
+    },
+    {
+      "step": 3100,
+      "probe_loss": 8.547086119533907
+    },
+    {
+      "step": 3200,
+      "probe_loss": 8.564119660226385
+    },
+    {
+      "step": 3300,
+      "probe_loss": 8.591875167461795
+    },
+    {
+      "step": 3400,
+      "probe_loss": 8.690291003434268
+    },
+    {
+      "step": 3500,
+      "probe_loss": 8.711652893288681
+    },
+    {
+      "step": 3600,
+      "probe_loss": 8.82102040186183
+    },
+    {
+      "step": 3700,
+      "probe_loss": 8.783440890231606
+    },
+    {
+      "step": 3800,
+      "probe_loss": 8.816909544959513
+    },
+    {
+      "step": 3900,
+      "probe_loss": 8.926130025298626
+    },
+    {
+      "step": 4000,
+      "probe_loss": 9.069380429974997
+    },
+    {
+      "step": 4100,
+      "probe_loss": 9.128592643195365
+    },
+    {
+      "step": 4200,
+      "probe_loss": 9.13478684974993
+    },
+    {
+      "step": 4300,
+      "probe_loss": 9.207170708178925
+    },
+    {
+      "step": 4400,
+      "probe_loss": 9.214329147881347
+    },
+    {
+      "step": 4500,
+      "probe_loss": 9.225915388923942
+    },
+    {
+      "step": 4600,
+      "probe_loss": 9.265323375935116
+    },
+    {
+      "step": 4700,
+      "probe_loss": 9.316994015542486
+    },
+    {
+      "step": 4800,
+      "probe_loss": 9.07320399813502
+    },
+    {
+      "step": 4900,
+      "probe_loss": 9.225926260290793
+    },
+    {
+      "step": 5000,
+      "probe_loss": 9.3532470756269
+    },
+    {
+      "step": 5100,
+      "probe_loss": 9.424691749164179
+    },
+    {
+      "step": 5200,
+      "probe_loss": 9.41180096025471
+    },
+    {
+      "step": 5300,
+      "probe_loss": 9.523491035653723
+    },
+    {
+      "step": 5400,
+      "probe_loss": 9.565370458914598
+    },
+    {
+      "step": 5500,
+      "probe_loss": 9.595515012096552
+    },
+    {
+      "step": 5600,
+      "probe_loss": 9.640661644886773
+    },
+    {
+      "step": 5700,
+      "probe_loss": 9.700517089921632
+    },
+    {
+      "step": 5800,
+      "probe_loss": 9.806129685005764
+    },
+    {
+      "step": 5900,
+      "probe_loss": 9.910294769984255
+    },
+    {
+      "step": 6000,
+      "probe_loss": 9.92630035219596
+    }
+  ],
+  "rare_nonzero_rate": 0.0,
+  "ink_degenerate_rate": NaN,
+  "cos_mean": 0.41920631504060574,
+  "cos_std": 0.18458708563111104,
+  "ladder_coverage_train": {
+    "with_ladder": 0,
+    "lookup_questions": 516
+  },
+  "count_labels": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5+"
+  ],
+  "compare_labels": [
+    "first",
+    "second",
+    "equal"
+  ],
+  "gates": {
+    "G_arc_enc_frozen": true,
+    "G_ink_verified": true,
+    "G_task_exists": true,
+    "G_exact_algebra_matches_tape": true,
+    "G_lookup_beats_floor": true,
+    "G_lookup_beats_counts_paired": false,
+    "G_lookup_beats_retrieval_paired": false,
+    "G_phi_orders_negatives": false
+  },
+  "held_out": {
+    "count": {
+      "n": 660,
+      "model_accuracy": 1.0,
+      "rival_accuracy": 1.0,
+      "random_floor": 0.2000000000000016
+    },
+    "lookup": {
+      "n": 315,
+      "model_accuracy": 0.526984126984127,
+      "rival_accuracy": 0.0,
+      "random_floor": 0.20000000000000112,
+      "rival_cos_accuracy": NaN,
+      "rival_cos_answered": 0
+    },
+    "lookup_paired_vs_rival": {
+      "model_only_right": 0,
+      "rival_only_right": 0,
+      "discordant": 0,
+      "mcnemar_z": NaN
+    },
+    "lookup_paired_vs_rival_cos": {
+      "n": 0,
+      "model_only_right": 0,
+      "rival_only_right": 0,
+      "discordant": 0,
+      "mcnemar_z": NaN,
+      "max_achievable_z": 0.0,
+      "underpowered": true
+    },
+    "lookup_paired_vs_rival_cos_by_margin": {
+      "median_margin": NaN,
+      "low_margin": {
+        "n": 0,
+        "model_only_right": 0,
+        "rival_only_right": 0,
+        "discordant": 0,
+        "mcnemar_z": NaN,
+        "max_achievable_z": 0.0,
+        "underpowered": true
+      },
+      "high_margin": {
+        "n": 0,
+        "model_only_right": 0,
+        "rival_only_right": 0,
+        "discordant": 0,
+        "mcnemar_z": NaN,
+        "max_achievable_z": 0.0,
+        "underpowered": true
+      }
+    },
+    "ladder": {
+      "n_questions": 0,
+      "pairs": 0,
+      "concordant": 0,
+      "ties_excluded": 0,
+      "import_budget_zero_rate": 0.0,
+      "import_budget_mean": 0.0,
+      "concordance": NaN,
+      "z_vs_half": NaN,
+      "mean_phi": {
+        "true": NaN,
+        "near": NaN,
+        "middle": NaN,
+        "far": NaN
+      }
+    },
+    "exact_mismatches": 0,
+    "confusion": {
+      "count|1->1": 377,
+      "count|2->2": 188,
+      "count|3->3": 37,
+      "count|4->4": 22,
+      "count|5+->5+": 36,
+      "lookup|\u0000REFUSE->\u0000REFUSE": 166,
+      "lookup|American->\u0000REFUSE": 4,
+      "lookup|Anglo->\u0000REFUSE": 1,
+      "lookup|Association->\u0000REFUSE": 2,
+      "lookup|Australia->\u0000REFUSE": 1,
+      "lookup|Australian->\u0000REFUSE": 1,
+      "lookup|Austrian->\u0000REFUSE": 1,
+      "lookup|Azerbaijan->\u0000REFUSE": 1,
+      "lookup|Battle->\u0000REFUSE": 1,
+      "lookup|Berlin->\u0000REFUSE": 1,
+      "lookup|Birmingham->\u0000REFUSE": 2,
+      "lookup|Black->\u0000REFUSE": 1,
+      "lookup|Boston->\u0000REFUSE": 1,
+      "lookup|Brigade->\u0000REFUSE": 1,
+      "lookup|British->\u0000REFUSE": 1,
+      "lookup|Caribbean->\u0000REFUSE": 1,
+      "lookup|Chicago->\u0000REFUSE": 2,
+      "lookup|Chief->\u0000REFUSE": 1,
+      "lookup|Chinese->\u0000REFUSE": 3,
+      "lookup|Class->\u0000REFUSE": 1,
+      "lookup|Colorado->\u0000REFUSE": 1,
+      "lookup|Court->\u0000REFUSE": 1,
+      "lookup|Danish->\u0000REFUSE": 1,
+      "lookup|Democrats->\u0000REFUSE": 1,
+      "lookup|Detroit->\u0000REFUSE": 1,
+      "lookup|Eastern->\u0000REFUSE": 1,
+      "lookup|English->\u0000REFUSE": 5,
+      "lookup|Europe->\u0000REFUSE": 5,
+      "lookup|European->\u0000REFUSE": 1,
+      "lookup|First->\u0000REFUSE": 1,
+      "lookup|Frank->\u0000REFUSE": 1,
+      "lookup|French->\u0000REFUSE": 1,
+      "lookup|George->\u0000REFUSE": 1,
+      "lookup|German->\u0000REFUSE": 1,
+      "lookup|Graham->\u0000REFUSE": 1,
+      "lookup|Grand->\u0000REFUSE": 1,
+      "lookup|Greco->\u0000REFUSE": 2,
+      "lookup|Greek->\u0000REFUSE": 1,
+      "lookup|Group->\u0000REFUSE": 1,
+      "lookup|House->\u0000REFUSE": 3,
+      "lookup|Hungarian->\u0000REFUSE": 1,
+      "lookup|Imperial->\u0000REFUSE": 1,
+      "lookup|Indian->\u0000REFUSE": 1,
+      "lookup|Infantry->\u0000REFUSE": 2,
+      "lookup|Institute->\u0000REFUSE": 1,
+      "lookup|James->\u0000REFUSE": 1,
+      "lookup|Japan->\u0000REFUSE": 2,
+      "lookup|Japanese->\u0000REFUSE": 3,
+      "lookup|Kansas->\u0000REFUSE": 1,
+      "lookup|Latin->\u0000REFUSE": 2,
+      "lookup|London->\u0000REFUSE": 2,
+      "lookup|Margaret->\u0000REFUSE": 1,
+      "lookup|Mexico->\u0000REFUSE": 1,
+      "lookup|Michigan->\u0000REFUSE": 1,
+      "lookup|Middle->\u0000REFUSE": 2,
+      "lookup|Moston->\u0000REFUSE": 1,
+      "lookup|Naktong->\u0000REFUSE": 2,
+      "lookup|National->\u0000REFUSE": 2,
+      "lookup|Netherlands->\u0000REFUSE": 2,
+      "lookup|Network->\u0000REFUSE": 1,
+      "lookup|Nintendo->\u0000REFUSE": 1,
+      "lookup|Norway->\u0000REFUSE": 1,
+      "lookup|Order->\u0000REFUSE": 3,
+      "lookup|Other->\u0000REFUSE": 1,
+      "lookup|Outstanding->\u0000REFUSE": 1,
+      "lookup|Panama->\u0000REFUSE": 1,
+      "lookup|Peter->\u0000REFUSE": 2,
+      "lookup|Pfeiffer->\u0000REFUSE": 1,
+      "lookup|Portuguese->\u0000REFUSE": 3,
+      "lookup|Prime->\u0000REFUSE": 1,
+      "lookup|Region->\u0000REFUSE": 1,
+      "lookup|Robert->\u0000REFUSE": 1,
+      "lookup|Roman->\u0000REFUSE": 1,
+      "lookup|Romania->\u0000REFUSE": 1,
+      "lookup|Royal->\u0000REFUSE": 2,
+      "lookup|Scotland->\u0000REFUSE": 1,
+      "lookup|Scott->\u0000REFUSE": 2,
+      "lookup|Second->\u0000REFUSE": 2,
+      "lookup|Secretary->\u0000REFUSE": 2,
+      "lookup|Senate->\u0000REFUSE": 1,
+      "lookup|Serbia->\u0000REFUSE": 1,
+      "lookup|Seven->\u0000REFUSE": 2,
+      "lookup|South->\u0000REFUSE": 3,
+      "lookup|Spain->\u0000REFUSE": 1,
+      "lookup|Spanish->\u0000REFUSE": 1,
+      "lookup|State->\u0000REFUSE": 1,
+      "lookup|Supreme->\u0000REFUSE": 1,
+      "lookup|Tennessee->\u0000REFUSE": 1,
+      "lookup|Union->\u0000REFUSE": 1,
+      "lookup|United->\u0000REFUSE": 6,
+      "lookup|Victorian->\u0000REFUSE": 1,
+      "lookup|Welsh->\u0000REFUSE": 1,
+      "lookup|Western->\u0000REFUSE": 3,
+      "lookup|Westminster->\u0000REFUSE": 2,
+      "lookup|White->\u0000REFUSE": 1,
+      "lookup|William->\u0000REFUSE": 1,
+      "lookup|Winter->\u0000REFUSE": 2,
+      "lookup|World->\u0000REFUSE": 1,
+      "lookup|Yankees->\u0000REFUSE": 1,
+      "lookup|Yugoslav->\u0000REFUSE": 1
+    },
+    "lookup_item_hits": [
+      {
+        "k": "fp1011:pok|mon#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1011:pok|mon#1",
+        "hit": 0
+      },
+      {
+        "k": "fp1024:sufis|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1027:singapore|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1027:singapore|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1027:singapore|the#4",
+        "hit": 1
+      },
+      {
+        "k": "fp102:english|plays striker for#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1031:november|was#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1031:november|was#1",
+        "hit": 0
+      },
+      {
+        "k": "fp1031:november|was#2",
+        "hit": 1
+      },
+      {
+        "k": "fp1031:november|was#3",
+        "hit": 0
+      },
+      {
+        "k": "fp1031:november|was#4",
+        "hit": 0
+      },
+      {
+        "k": "fp1031:november|was#5",
+        "hit": 0
+      },
+      {
+        "k": "fp1031:november|was#6",
+        "hit": 0
+      },
+      {
+        "k": "fp1049:harry potter|and the#5",
+        "hit": 0
+      },
+      {
+        "k": "fp1059:prime minister|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1059:prime minister|and#1",
+        "hit": 0
+      },
+      {
+        "k": "fp1059:prime minister|and#2",
+        "hit": 0
+      },
+      {
+        "k": "fp1059:prime minister|and#3",
+        "hit": 0
+      },
+      {
+        "k": "fp1076:edwin|comp#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1079:american|drama film directed#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1079:american|drama film directed#1",
+        "hit": 0
+      },
+      {
+        "k": "fp107:houston|and the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1093:florida|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1107:croatia|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1107:croatia|and#1",
+        "hit": 0
+      },
+      {
+        "k": "fp1113:jenner|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp112:canada|and the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp112:canada|and the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp1132:virginia|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1132:virginia|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1132:virginia|and#2",
+        "hit": 1
+      },
+      {
+        "k": "fp1132:virginia|and#5",
+        "hit": 1
+      },
+      {
+        "k": "fp113:canada|and the#11",
+        "hit": 0
+      },
+      {
+        "k": "fp113:canada|and the#13",
+        "hit": 1
+      },
+      {
+        "k": "fp113:canada|and the#4",
+        "hit": 1
+      },
+      {
+        "k": "fp113:canada|and the#6",
+        "hit": 0
+      },
+      {
+        "k": "fp113:canada|and the#7",
+        "hit": 0
+      },
+      {
+        "k": "fp113:canada|and the#8",
+        "hit": 1
+      },
+      {
+        "k": "fp1147:september|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1147:september|and#2",
+        "hit": 1
+      },
+      {
+        "k": "fp1153:robert|unk#2",
+        "hit": 0
+      },
+      {
+        "k": "fp1178:bulletin|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp117:roberts|and#4",
+        "hit": 0
+      },
+      {
+        "k": "fp119:november|four box set#11",
+        "hit": 0
+      },
+      {
+        "k": "fp119:november|four box set#14",
+        "hit": 1
+      },
+      {
+        "k": "fp119:november|four box set#18",
+        "hit": 1
+      },
+      {
+        "k": "fp119:november|four box set#19",
+        "hit": 1
+      },
+      {
+        "k": "fp119:november|four box set#30",
+        "hit": 1
+      },
+      {
+        "k": "fp119:november|four box set#31",
+        "hit": 1
+      },
+      {
+        "k": "fp119:november|four box set#33",
+        "hit": 0
+      },
+      {
+        "k": "fp119:november|four box set#34",
+        "hit": 1
+      },
+      {
+        "k": "fp119:november|four box set#38",
+        "hit": 1
+      },
+      {
+        "k": "fp119:november|four box set#4",
+        "hit": 0
+      },
+      {
+        "k": "fp119:november|four box set#5",
+        "hit": 0
+      },
+      {
+        "k": "fp119:november|four box set#6",
+        "hit": 1
+      },
+      {
+        "k": "fp119:november|four box set#7",
+        "hit": 0
+      },
+      {
+        "k": "fp1203:october|was#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1203:october|was#1",
+        "hit": 0
+      },
+      {
+        "k": "fp1217:november|near#7",
+        "hit": 1
+      },
+      {
+        "k": "fp1217:november|near#8",
+        "hit": 0
+      },
+      {
+        "k": "fp1245:the making|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1245:the making|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1249:spanish|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1249:spanish|and#1",
+        "hit": 0
+      },
+      {
+        "k": "fp1252:spanish|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1261:world tag team championship|times with#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1264:frith|with#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1264:frith|with#1",
+        "hit": 0
+      },
+      {
+        "k": "fp1281:toronto maple leafs|the#2",
+        "hit": 0
+      },
+      {
+        "k": "fp1281:toronto maple leafs|the#3",
+        "hit": 1
+      },
+      {
+        "k": "fp1292:washington|and#2",
+        "hit": 0
+      },
+      {
+        "k": "fp1292:washington|and#3",
+        "hit": 1
+      },
+      {
+        "k": "fp1292:washington|and#4",
+        "hit": 0
+      },
+      {
+        "k": "fp12:north america|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp12:north america|and#10",
+        "hit": 1
+      },
+      {
+        "k": "fp12:north america|and#4",
+        "hit": 1
+      },
+      {
+        "k": "fp12:north america|and#6",
+        "hit": 1
+      },
+      {
+        "k": "fp12:north america|and#8",
+        "hit": 1
+      },
+      {
+        "k": "fp12:north america|and#9",
+        "hit": 0
+      },
+      {
+        "k": "fp1300:november|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp132:americans|the#15",
+        "hit": 0
+      },
+      {
+        "k": "fp132:americans|the#21",
+        "hit": 0
+      },
+      {
+        "k": "fp1342:the feast|for#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1360:trondheim airport|rnes#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1393:the sandman|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1399:september|participating countries that#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1411:grand master|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1411:grand master|the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp1411:grand master|the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp1422:wind symphony|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp142:gibbs|sat the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp142:gibbs|sat the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp1465:united kingdom|unknown whether not#11",
+        "hit": 0
+      },
+      {
+        "k": "fp1465:united kingdom|unknown whether not#5",
+        "hit": 0
+      },
+      {
+        "k": "fp1465:united kingdom|unknown whether not#9",
+        "hit": 0
+      },
+      {
+        "k": "fp1481:san francisco giants|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1494:paris|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp149:broadway|debut#0",
+        "hit": 1
+      },
+      {
+        "k": "fp14:north america|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp14:north america|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp14:north america|and#3",
+        "hit": 1
+      },
+      {
+        "k": "fp151:february|episode#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1529:jews|the#2",
+        "hit": 0
+      },
+      {
+        "k": "fp1530:maryland line|the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp1534:portland|and#3",
+        "hit": 1
+      },
+      {
+        "k": "fp1551:james|unk#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1573:sharon|and the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1595:domitilla|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1595:domitilla|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp159:european union|working languages the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp159:european union|working languages the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp159:european union|working languages the#3",
+        "hit": 0
+      },
+      {
+        "k": "fp15:expressway system|eligible for the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp1607:latino|any race#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1627:europe|and the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp162:greeks|and#2",
+        "hit": 0
+      },
+      {
+        "k": "fp1658:louis|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1658:louis|and#1",
+        "hit": 0
+      },
+      {
+        "k": "fp1673:columbia|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1677:arab|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1686:randall|inducted into the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1686:randall|inducted into the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1724:july|was#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1724:july|was#1",
+        "hit": 0
+      },
+      {
+        "k": "fp172:november|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp172:november|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp172:november|and#5",
+        "hit": 0
+      },
+      {
+        "k": "fp172:november|and#8",
+        "hit": 1
+      },
+      {
+        "k": "fp172:november|and#9",
+        "hit": 0
+      },
+      {
+        "k": "fp1737:novak|and directed#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1783:mojave desert|and#1",
+        "hit": 0
+      },
+      {
+        "k": "fp1785:international law|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp17:pacific|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1802:november|the only child#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1802:november|the only child#1",
+        "hit": 1
+      },
+      {
+        "k": "fp180:major league baseball|for the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp180:major league baseball|for the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp180:major league baseball|for the#3",
+        "hit": 1
+      },
+      {
+        "k": "fp180:major league baseball|for the#4",
+        "hit": 0
+      },
+      {
+        "k": "fp180:major league baseball|for the#5",
+        "hit": 1
+      },
+      {
+        "k": "fp180:major league baseball|for the#6",
+        "hit": 1
+      },
+      {
+        "k": "fp1820:stimson|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1860:mallerais|plus#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1873:london|and#1",
+        "hit": 0
+      },
+      {
+        "k": "fp1873:london|and#2",
+        "hit": 1
+      },
+      {
+        "k": "fp1873:london|and#3",
+        "hit": 0
+      },
+      {
+        "k": "fp1896:rockefeller|was confirmed the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1896:rockefeller|was confirmed the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp1902:heinonline|behalf#2",
+        "hit": 1
+      },
+      {
+        "k": "fp190:commodore|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1949:republicans|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1953:nablus|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1953:nablus|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1962:benjamin|and#2",
+        "hit": 0
+      },
+      {
+        "k": "fp1977:the hague|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1977:the hague|the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp2006:john|unk#1",
+        "hit": 1
+      },
+      {
+        "k": "fp2014:new york yankees|and#2",
+        "hit": 0
+      },
+      {
+        "k": "fp2132:norwegian|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp2132:norwegian|and#1",
+        "hit": 0
+      },
+      {
+        "k": "fp2140:josh singer|and#1",
+        "hit": 0
+      },
+      {
+        "k": "fp215:england|for the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp269:petey williams|defeated#0",
+        "hit": 1
+      },
+      {
+        "k": "fp271:western australia|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp291:atlantic|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp291:atlantic|and#3",
+        "hit": 0
+      },
+      {
+        "k": "fp293:finland|and the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp293:finland|and the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp293:finland|and the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp296:edward|the#3",
+        "hit": 0
+      },
+      {
+        "k": "fp298:edward|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp30:new york giants|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp312:indian expeditionary force|consisted the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp32:january|the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp339:july|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp339:july|and#15",
+        "hit": 0
+      },
+      {
+        "k": "fp339:july|and#19",
+        "hit": 1
+      },
+      {
+        "k": "fp339:july|and#7",
+        "hit": 1
+      },
+      {
+        "k": "fp348:the secret|the#2",
+        "hit": 0
+      },
+      {
+        "k": "fp34:january|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp34:january|the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp34:january|the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp34:january|the#3",
+        "hit": 1
+      },
+      {
+        "k": "fp350:minneapolis millers|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp350:minneapolis millers|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp355:chief justice|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp355:chief justice|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp365:truman|and the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp369:candice|along with#1",
+        "hit": 1
+      },
+      {
+        "k": "fp378:the oval|partnership record with#0",
+        "hit": 1
+      },
+      {
+        "k": "fp391:august|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp391:august|the#11",
+        "hit": 0
+      },
+      {
+        "k": "fp391:august|the#12",
+        "hit": 0
+      },
+      {
+        "k": "fp391:august|the#16",
+        "hit": 1
+      },
+      {
+        "k": "fp391:august|the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp391:august|the#20",
+        "hit": 1
+      },
+      {
+        "k": "fp391:august|the#23",
+        "hit": 0
+      },
+      {
+        "k": "fp391:august|the#24",
+        "hit": 0
+      },
+      {
+        "k": "fp391:august|the#26",
+        "hit": 1
+      },
+      {
+        "k": "fp391:august|the#6",
+        "hit": 1
+      },
+      {
+        "k": "fp391:august|the#7",
+        "hit": 0
+      },
+      {
+        "k": "fp391:august|the#8",
+        "hit": 0
+      },
+      {
+        "k": "fp394:august|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp395:august|the#4",
+        "hit": 1
+      },
+      {
+        "k": "fp414:adams|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp420:april|was#1",
+        "hit": 0
+      },
+      {
+        "k": "fp431:february|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp431:february|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp433:kentucky|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp433:kentucky|and#1",
+        "hit": 0
+      },
+      {
+        "k": "fp438:spain|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp445:drama series|for the#4",
+        "hit": 1
+      },
+      {
+        "k": "fp445:drama series|for the#5",
+        "hit": 0
+      },
+      {
+        "k": "fp44:january|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp458:september|that#0",
+        "hit": 1
+      },
+      {
+        "k": "fp458:september|that#2",
+        "hit": 1
+      },
+      {
+        "k": "fp460:xbox|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp460:xbox|and#2",
+        "hit": 1
+      },
+      {
+        "k": "fp508:germany|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp508:germany|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp521:infantry division|was retained#0",
+        "hit": 0
+      },
+      {
+        "k": "fp521:infantry division|was retained#7",
+        "hit": 0
+      },
+      {
+        "k": "fp534:marvel comics|the film writer#1",
+        "hit": 1
+      },
+      {
+        "k": "fp535:community shield|match against#1",
+        "hit": 1
+      },
+      {
+        "k": "fp539:muhammad yunus|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp551:northern hemisphere|and the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp554:october|was announced that#0",
+        "hit": 0
+      },
+      {
+        "k": "fp554:october|was announced that#11",
+        "hit": 1
+      },
+      {
+        "k": "fp554:october|was announced that#12",
+        "hit": 0
+      },
+      {
+        "k": "fp554:october|was announced that#3",
+        "hit": 1
+      },
+      {
+        "k": "fp554:october|was announced that#6",
+        "hit": 1
+      },
+      {
+        "k": "fp554:october|was announced that#7",
+        "hit": 1
+      },
+      {
+        "k": "fp554:october|was announced that#9",
+        "hit": 1
+      },
+      {
+        "k": "fp557:arabic|unk unk#1",
+        "hit": 1
+      },
+      {
+        "k": "fp591:british|unk#10",
+        "hit": 0
+      },
+      {
+        "k": "fp591:british|unk#3",
+        "hit": 1
+      },
+      {
+        "k": "fp591:british|unk#5",
+        "hit": 1
+      },
+      {
+        "k": "fp591:british|unk#6",
+        "hit": 1
+      },
+      {
+        "k": "fp591:british|unk#7",
+        "hit": 0
+      },
+      {
+        "k": "fp591:british|unk#8",
+        "hit": 1
+      },
+      {
+        "k": "fp591:british|unk#9",
+        "hit": 0
+      },
+      {
+        "k": "fp614:manchester|and#2",
+        "hit": 0
+      },
+      {
+        "k": "fp632:korean war|the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp632:korean war|the#2",
+        "hit": 0
+      },
+      {
+        "k": "fp634:greek|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp634:greek|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp635:greek|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp635:greek|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp635:greek|and#2",
+        "hit": 1
+      },
+      {
+        "k": "fp645:british|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp645:british|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp646:british|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp646:british|and#1",
+        "hit": 0
+      },
+      {
+        "k": "fp674:gotha|and#1",
+        "hit": 0
+      },
+      {
+        "k": "fp686:george|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp690:george|and#5",
+        "hit": 0
+      },
+      {
+        "k": "fp690:george|and#7",
+        "hit": 0
+      },
+      {
+        "k": "fp699:serbia|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp741:california|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp741:california|and#3",
+        "hit": 1
+      },
+      {
+        "k": "fp76:german|and#2",
+        "hit": 0
+      },
+      {
+        "k": "fp76:german|and#3",
+        "hit": 1
+      },
+      {
+        "k": "fp772:trenton|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp781:oxford|and the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp786:hungary|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp786:hungary|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp793:july|the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp796:july|the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp796:july|the#3",
+        "hit": 0
+      },
+      {
+        "k": "fp796:july|the#5",
+        "hit": 1
+      },
+      {
+        "k": "fp797:july|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp797:july|the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp802:july|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp803:july|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp803:july|the#2",
+        "hit": 0
+      },
+      {
+        "k": "fp80:german|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp80:german|and#2",
+        "hit": 1
+      },
+      {
+        "k": "fp817:western front|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp817:western front|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp823:china|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp823:china|and#5",
+        "hit": 0
+      },
+      {
+        "k": "fp827:china|and#1",
+        "hit": 0
+      },
+      {
+        "k": "fp827:china|and#2",
+        "hit": 0
+      },
+      {
+        "k": "fp827:china|and#3",
+        "hit": 0
+      },
+      {
+        "k": "fp827:china|and#6",
+        "hit": 0
+      },
+      {
+        "k": "fp838:india|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp842:october|was century#0",
+        "hit": 0
+      },
+      {
+        "k": "fp842:october|was century#1",
+        "hit": 1
+      },
+      {
+        "k": "fp856:felix mendelssohn|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp868:australia|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp870:australia|and#1",
+        "hit": 0
+      },
+      {
+        "k": "fp882:october|team was honored#6",
+        "hit": 1
+      },
+      {
+        "k": "fp894:grand cross|the#4",
+        "hit": 1
+      },
+      {
+        "k": "fp903:austin|the#2",
+        "hit": 0
+      },
+      {
+        "k": "fp907:puerto rico|the#3",
+        "hit": 0
+      },
+      {
+        "k": "fp93:barbara|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp946:italy|and the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp946:italy|and the#5",
+        "hit": 1
+      },
+      {
+        "k": "fp946:italy|and the#6",
+        "hit": 1
+      },
+      {
+        "k": "fp98:sixth united states army|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp98:sixth united states army|the#10",
+        "hit": 0
+      },
+      {
+        "k": "fp98:sixth united states army|the#11",
+        "hit": 1
+      },
+      {
+        "k": "fp98:sixth united states army|the#13",
+        "hit": 1
+      },
+      {
+        "k": "fp98:sixth united states army|the#14",
+        "hit": 0
+      },
+      {
+        "k": "fp98:sixth united states army|the#21",
+        "hit": 1
+      },
+      {
+        "k": "fp98:sixth united states army|the#26",
+        "hit": 0
+      },
+      {
+        "k": "fp98:sixth united states army|the#28",
+        "hit": 1
+      },
+      {
+        "k": "fp98:sixth united states army|the#4",
+        "hit": 0
+      },
+      {
+        "k": "fp98:sixth united states army|the#6",
+        "hit": 0
+      },
+      {
+        "k": "fp99:world cup|held#0",
+        "hit": 1
+      },
+      {
+        "k": "fp99:world cup|held#11",
+        "hit": 1
+      },
+      {
+        "k": "fp99:world cup|held#12",
+        "hit": 0
+      },
+      {
+        "k": "fp99:world cup|held#6",
+        "hit": 0
+      },
+      {
+        "k": "fp99:world cup|held#9",
+        "hit": 0
+      }
+    ],
+    "_mixed": [
+      [
+        1,
+        1,
+        0,
+        0.460612123346403,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.6574802323564343,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.0007451650302433296,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.06927134873668307,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.01809953243090967,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.6070604802596282,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.8862888614920585,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.40349338413492825,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.05057437468645795,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.5465524086718299,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.17636746393272992,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.01581213430132712,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.1419274348258675,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.16539447108581795,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.2194785182032901,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.25491575264198624,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.12126652904108004,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.024809897554244602,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.1270322266203978,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.08066274118483356,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.30526310233840215,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.8453732740410203,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.04328674511979421,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.08816277222155273,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.18202035290376012,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.840613236645298,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.40480914181221717,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.32285941652227357,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.026260750768829985,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.0003580666286613491,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.7085431764660473,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.6114239131259709,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.198581991440314,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.07691147689855116,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.19491198092681028,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.31801384476216804,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.3619260806518005,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.18579359371250362,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.020410476320688778,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.3301528146912984,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.015287802690739236,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.14732477106758105,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.39315250307832805,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.010166869569709521,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.21823405004347574,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.5020345982159832,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.21374185717630462,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.39972016351571693,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.07886787523082638,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.18797702465625973,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.3189978250170842,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.7005306270387822,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.08838511197440165,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.16490207957280678,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.33675887050005926,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.37145466342112443,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.22019522823490775,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.15031106061241928,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.17706655638498064,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.020090183283004832,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.11509969622550754,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.19607254971727228,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.002407043343539786,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.7620836864483076,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.1917564800615073,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.09908098961507215,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.6837190558661257,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.018950936214395264,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.8814691986015947,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.2598047185826921,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.011153728325274165,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.18367165939658575,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.13980156880671976,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.6161551061709163,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.05578036012178055,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.07799998814205916,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.599713762627614,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.1164822858094156,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.08847584734208311,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.2170725725899566,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.20288407846713855,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.7948408696693435,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.6291818172082345,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.08121884582237673,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.47524129236535373,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.08714961690926469,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.31512954660604187,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.052239523647652365,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.18358677115083685,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.07865022263202816,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.35183935388013393,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.08447078326293785,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.2025793014654835,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.07553842468500703,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.9173943001180694,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.034808948090701904,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.3513039285266955,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.21506762888544792,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.6753640375004739,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.0022348455546889485,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.8755262463430067,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.4689738080485992,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.24912916102203564,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.4916138634058697,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.014259840713799826,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.3874724998661041,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.6030201769312462,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.39599648680108573,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.517797550473735,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.25951402581730165,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.3668425366461757,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.052912291077991024,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.2901354398414404,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.5311480253061416,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.3206939619006831,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.15360759622453557,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.36928666258815374,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.302678262044842,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.13038680764663865,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.42948372898928894,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.048393637320453105,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.20721490710227214,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.6281633362643897,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.6370138240450518,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.6124511217173128,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.10556232924948224,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.4892173809954838,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.4050874185582771,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.9315377553091425,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.302815851541285,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.5386908679840683,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.044237721875092006,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.46717930703096133,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.022552781514723792,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.01766196353309923,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.3025939425991018,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.14525358511797698,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.11578514114035564,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.018399604744273493,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.5341259171067896,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.015467782374775628,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.23179112262893384,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.18957917069411973,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.39068933172508513,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.09345726527496387,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.0771890031803225,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.021751458492411706,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.23324874248320265,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.14881681885985262,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.6056907596161746,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.13447330650103903,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.09042039454629841,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.2863312462701224,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.654540649623618,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.2816318481928331,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.1001211309709791,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.1704881898568676,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.4499098665337739,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.3518915099333017,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.019328450217766184,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.032836038742248226,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.03624169204617663,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.22810419551310854,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.2666123048419614,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.14113885278690866,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.0751418412311789,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.6226796005322608,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.6739063842150107,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.29140255059932674,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.4334045174552405,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.1539432422050324,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.20122875073615756,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.44052680569562536,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.1664638881376029,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.8509390767273766,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.38190376850523994,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.3781647876726005,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.4123136590702395,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.0812524367349426,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.3580364911034992,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.23583014515953374,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.9087736087990147,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.0723165725302697,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.4978352243436436,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.05790757899390131,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.3796575347545855,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.4220803615395586,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.13927019883777417,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.5676536135628066,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.27009624692468237,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.3462125745106316,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.07940294338629199,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.3241970105171737,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.3612389967504474,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.4725180660382904,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.31115426616819264,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.44730407179182236,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.32323091700902795,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.09649672843708897,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.17964614091693473,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.112397748771748,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.11291420599320758,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.17779445005484462,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.09697499518646067,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.5022625481095697,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.1858168319212728,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.19162096081554789,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.0226214477230549,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.09114893961341339,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.1494358708651201,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.793044249445246,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.39950194702293207,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.18668369473149335,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.10828241660126744,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.08501762004884202,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.10601147639627606,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.8383064667334186,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.7890557718651341,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.22678359507477638,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.08733627990592124,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.0531282394634733,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.1361947246429767,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.18331632226901115,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.20873037990418605,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.25541615557094033,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.15558506081161222,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.5496749561392509,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.6703612047288716,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.03228350756440976,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.007356333333771946,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.35964960877319024,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.20191638087607733,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.09219700224264508,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.03341892197340627,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.10784402866490934,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.1450060157021743,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.13485119028459183,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.4044691355845324,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.6748551450834201,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.7317195724922013,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.1478636629729714,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.12557571190417252,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.43733612318380777,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.0693525196065767,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.30640080214663074,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.2727572301038686,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.3918210506787903,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.07641741111563523,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.06216950184499567,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.25761985539875715,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.16681204989361179,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.4462696573319424,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.15328036961398436,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.682793155025866,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.7215048304255728,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.33437698065937177,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.3421823737288963,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.1030832515044524,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.02911982346260231,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.03830326410437405,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.2623578606414482,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.500793617787482,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.2717089311466742,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.6715760505194481,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.03964475697916934,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.11797615164414545,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.25956197852333895,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.25647804429219084,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.021171637327681157,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.3491762309474837,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.6710914869460429,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.22442794764819718,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.08566814121553717,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.2851681424210909,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.2906610424749934,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.20331353127851687,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.01571309686135047,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.6979261056843641,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.23459409809523069,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.23851095432223757,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.011857483784510394,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.2544147458848229,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.7908475037150834,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.7097108987541336,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.34277024313370513,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.8382255655019015,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.17358176167830666,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.4261725990547604,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.7703670779650617,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.4307923990749791,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.321547153429358,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.05208699497707877,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.6030196979746196,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.10481453516399064,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.3929283575937342,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.16223320188895923,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.5098376831069961,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.29862475818425765,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.7661807365625029,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.390124923857316,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.8611346532844444,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.00948369845110873,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.09022386876678723,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.32352496925330876,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.09055979823064188,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.5579528577169716,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.17775332851654918,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.38771776976825745,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.06545071121458347,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.11779097350158865,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.30315537047525676,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.09476257169266394,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.6198687656183853,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.19559977255802602,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.7190896306572949,
+        0
+      ]
+    ]
+  },
+  "train_control": {
+    "count": {
+      "n": 779,
+      "model_accuracy": 1.0,
+      "rival_accuracy": 1.0,
+      "random_floor": 0.19999999999999962
+    },
+    "lookup": {
+      "n": 516,
+      "model_accuracy": 0.49612403100775193,
+      "rival_accuracy": 0.0,
+      "random_floor": 0.2000000000000018,
+      "rival_cos_accuracy": NaN,
+      "rival_cos_answered": 0
+    },
+    "lookup_paired_vs_rival": {
+      "model_only_right": 0,
+      "rival_only_right": 0,
+      "discordant": 0,
+      "mcnemar_z": NaN
+    },
+    "lookup_paired_vs_rival_cos": {
+      "n": 0,
+      "model_only_right": 0,
+      "rival_only_right": 0,
+      "discordant": 0,
+      "mcnemar_z": NaN,
+      "max_achievable_z": 0.0,
+      "underpowered": true
+    },
+    "lookup_paired_vs_rival_cos_by_margin": {
+      "median_margin": NaN,
+      "low_margin": {
+        "n": 0,
+        "model_only_right": 0,
+        "rival_only_right": 0,
+        "discordant": 0,
+        "mcnemar_z": NaN,
+        "max_achievable_z": 0.0,
+        "underpowered": true
+      },
+      "high_margin": {
+        "n": 0,
+        "model_only_right": 0,
+        "rival_only_right": 0,
+        "discordant": 0,
+        "mcnemar_z": NaN,
+        "max_achievable_z": 0.0,
+        "underpowered": true
+      }
+    },
+    "ladder": {
+      "n_questions": 0,
+      "pairs": 0,
+      "concordant": 0,
+      "ties_excluded": 0,
+      "import_budget_zero_rate": 0.0,
+      "import_budget_mean": 0.0,
+      "concordance": NaN,
+      "z_vs_half": NaN,
+      "mean_phi": {
+        "true": NaN,
+        "near": NaN,
+        "middle": NaN,
+        "far": NaN
+      }
+    },
+    "exact_mismatches": 0,
+    "confusion": {
+      "count|1->1": 438,
+      "count|2->2": 214,
+      "count|3->3": 54,
+      "count|4->4": 23,
+      "count|5+->5+": 50,
+      "lookup|\u0000REFUSE->\u0000REFUSE": 256,
+      "lookup|Africa->\u0000REFUSE": 1,
+      "lookup|Airborne->\u0000REFUSE": 1,
+      "lookup|Alabama->\u0000REFUSE": 1,
+      "lookup|Allies->\u0000REFUSE": 2,
+      "lookup|American->\u0000REFUSE": 3,
+      "lookup|Andrew->\u0000REFUSE": 1,
+      "lookup|Apollo->\u0000REFUSE": 1,
+      "lookup|Atlantic->\u0000REFUSE": 2,
+      "lookup|Audience->\u0000REFUSE": 2,
+      "lookup|Australia->\u0000REFUSE": 3,
+      "lookup|Australian->\u0000REFUSE": 1,
+      "lookup|Avatar->\u0000REFUSE": 1,
+      "lookup|Battle->\u0000REFUSE": 4,
+      "lookup|Belgian->\u0000REFUSE": 1,
+      "lookup|Black->\u0000REFUSE": 1,
+      "lookup|Boston->\u0000REFUSE": 4,
+      "lookup|British->\u0000REFUSE": 7,
+      "lookup|Brooklyn->\u0000REFUSE": 1,
+      "lookup|California->\u0000REFUSE": 1,
+      "lookup|Canadian->\u0000REFUSE": 1,
+      "lookup|Caribbean->\u0000REFUSE": 1,
+      "lookup|Central->\u0000REFUSE": 1,
+      "lookup|Chicago->\u0000REFUSE": 2,
+      "lookup|Chris->\u0000REFUSE": 1,
+      "lookup|Civil->\u0000REFUSE": 1,
+      "lookup|Class->\u0000REFUSE": 1,
+      "lookup|Community->\u0000REFUSE": 1,
+      "lookup|Czech->\u0000REFUSE": 2,
+      "lookup|Danish->\u0000REFUSE": 1,
+      "lookup|Danny->\u0000REFUSE": 2,
+      "lookup|David->\u0000REFUSE": 2,
+      "lookup|Decatur->\u0000REFUSE": 1,
+      "lookup|Drama->\u0000REFUSE": 1,
+      "lookup|Dwight->\u0000REFUSE": 1,
+      "lookup|Eastern->\u0000REFUSE": 1,
+      "lookup|Electoral->\u0000REFUSE": 1,
+      "lookup|England->\u0000REFUSE": 5,
+      "lookup|English->\u0000REFUSE": 4,
+      "lookup|Europe->\u0000REFUSE": 1,
+      "lookup|European->\u0000REFUSE": 3,
+      "lookup|Family->\u0000REFUSE": 1,
+      "lookup|Federal->\u0000REFUSE": 2,
+      "lookup|Fifth->\u0000REFUSE": 1,
+      "lookup|First->\u0000REFUSE": 1,
+      "lookup|Foreign->\u0000REFUSE": 1,
+      "lookup|France->\u0000REFUSE": 2,
+      "lookup|Frank->\u0000REFUSE": 1,
+      "lookup|French->\u0000REFUSE": 4,
+      "lookup|German->\u0000REFUSE": 7,
+      "lookup|Germany->\u0000REFUSE": 2,
+      "lookup|Google->\u0000REFUSE": 1,
+      "lookup|Governor->\u0000REFUSE": 1,
+      "lookup|Grand->\u0000REFUSE": 1,
+      "lookup|Great->\u0000REFUSE": 2,
+      "lookup|Greek->\u0000REFUSE": 1,
+      "lookup|Greeks->\u0000REFUSE": 1,
+      "lookup|Green->\u0000REFUSE": 1,
+      "lookup|Guadalcanal->\u0000REFUSE": 1,
+      "lookup|Houston->\u0000REFUSE": 2,
+      "lookup|Impact->\u0000REFUSE": 1,
+      "lookup|India->\u0000REFUSE": 1,
+      "lookup|Indian->\u0000REFUSE": 2,
+      "lookup|Italian->\u0000REFUSE": 1,
+      "lookup|Japan->\u0000REFUSE": 2,
+      "lookup|Japanese->\u0000REFUSE": 2,
+      "lookup|Jewish->\u0000REFUSE": 1,
+      "lookup|Johnson->\u0000REFUSE": 2,
+      "lookup|Juliet->\u0000REFUSE": 1,
+      "lookup|Kentuckian->\u0000REFUSE": 1,
+      "lookup|Kevin->\u0000REFUSE": 1,
+      "lookup|Latvia->\u0000REFUSE": 1,
+      "lookup|London->\u0000REFUSE": 2,
+      "lookup|Louvre->\u0000REFUSE": 2,
+      "lookup|Lower->\u0000REFUSE": 1,
+      "lookup|Manchester->\u0000REFUSE": 1,
+      "lookup|Michael->\u0000REFUSE": 2,
+      "lookup|Michigan->\u0000REFUSE": 1,
+      "lookup|Middle->\u0000REFUSE": 1,
+      "lookup|Ministry->\u0000REFUSE": 1,
+      "lookup|Mississippi->\u0000REFUSE": 1,
+      "lookup|Modern->\u0000REFUSE": 1,
+      "lookup|Music->\u0000REFUSE": 1,
+      "lookup|National->\u0000REFUSE": 9,
+      "lookup|Netherlands->\u0000REFUSE": 1,
+      "lookup|Network->\u0000REFUSE": 1,
+      "lookup|Newport->\u0000REFUSE": 1,
+      "lookup|North->\u0000REFUSE": 7,
+      "lookup|Northwestern->\u0000REFUSE": 1,
+      "lookup|Norway->\u0000REFUSE": 1,
+      "lookup|Oklahoma->\u0000REFUSE": 3,
+      "lookup|Ontario->\u0000REFUSE": 1,
+      "lookup|Orange->\u0000REFUSE": 1,
+      "lookup|Ottoman->\u0000REFUSE": 2,
+      "lookup|Outstanding->\u0000REFUSE": 1,
+      "lookup|Oxford->\u0000REFUSE": 1,
+      "lookup|Pennsylvania->\u0000REFUSE": 2,
+      "lookup|Persian->\u0000REFUSE": 1,
+      "lookup|Philadelphia->\u0000REFUSE": 1,
+      "lookup|Philippines->\u0000REFUSE": 2,
+      "lookup|Playboy->\u0000REFUSE": 1,
+      "lookup|Portuguese->\u0000REFUSE": 1,
+      "lookup|President->\u0000REFUSE": 1,
+      "lookup|Prince->\u0000REFUSE": 1,
+      "lookup|Publishing->\u0000REFUSE": 1,
+      "lookup|Queen->\u0000REFUSE": 1,
+      "lookup|Ralph->\u0000REFUSE": 1,
+      "lookup|Robert->\u0000REFUSE": 3,
+      "lookup|Roosevelt->\u0000REFUSE": 1,
+      "lookup|Royal->\u0000REFUSE": 2,
+      "lookup|Russia->\u0000REFUSE": 2,
+      "lookup|Russian->\u0000REFUSE": 1,
+      "lookup|Samuel->\u0000REFUSE": 1,
+      "lookup|Santana->\u0000REFUSE": 1,
+      "lookup|Scotland->\u0000REFUSE": 1,
+      "lookup|Scottish->\u0000REFUSE": 2,
+      "lookup|Seattle->\u0000REFUSE": 1,
+      "lookup|Second->\u0000REFUSE": 4,
+      "lookup|Senate->\u0000REFUSE": 1,
+      "lookup|Singapore->\u0000REFUSE": 1,
+      "lookup|Single->\u0000REFUSE": 1,
+      "lookup|Sorkin->\u0000REFUSE": 1,
+      "lookup|South->\u0000REFUSE": 5,
+      "lookup|Southern->\u0000REFUSE": 2,
+      "lookup|Soviet->\u0000REFUSE": 2,
+      "lookup|Soviets->\u0000REFUSE": 1,
+      "lookup|Spanish->\u0000REFUSE": 2,
+      "lookup|Sports->\u0000REFUSE": 1,
+      "lookup|Starr->\u0000REFUSE": 1,
+      "lookup|State->\u0000REFUSE": 1,
+      "lookup|Studios->\u0000REFUSE": 1,
+      "lookup|Stukas->\u0000REFUSE": 1,
+      "lookup|Sweden->\u0000REFUSE": 3,
+      "lookup|Swiss->\u0000REFUSE": 2,
+      "lookup|Switzerland->\u0000REFUSE": 5,
+      "lookup|Sydney->\u0000REFUSE": 1,
+      "lookup|Tallinn->\u0000REFUSE": 1,
+      "lookup|Texas->\u0000REFUSE": 2,
+      "lookup|Third->\u0000REFUSE": 1,
+      "lookup|Toronto->\u0000REFUSE": 1,
+      "lookup|Tracy->\u0000REFUSE": 1,
+      "lookup|Treaty->\u0000REFUSE": 2,
+      "lookup|Triple->\u0000REFUSE": 2,
+      "lookup|United->\u0000REFUSE": 10,
+      "lookup|University->\u0000REFUSE": 1,
+      "lookup|Victoria->\u0000REFUSE": 1,
+      "lookup|Vietnam->\u0000REFUSE": 2,
+      "lookup|Weimar->\u0000REFUSE": 1,
+      "lookup|Western->\u0000REFUSE": 1,
+      "lookup|William->\u0000REFUSE": 1,
+      "lookup|World->\u0000REFUSE": 4
+    },
+    "lookup_item_hits": [
+      {
+        "k": "fp1001:june|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1001:june|the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp1005:june|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1005:june|the#3",
+        "hit": 1
+      },
+      {
+        "k": "fp1005:june|the#4",
+        "hit": 0
+      },
+      {
+        "k": "fp1009:june|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1012:june|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1019:june|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1019:june|the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp1029:june|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp102:european commission|and the#18",
+        "hit": 1
+      },
+      {
+        "k": "fp102:european commission|and the#2",
+        "hit": 0
+      },
+      {
+        "k": "fp102:european commission|and the#22",
+        "hit": 1
+      },
+      {
+        "k": "fp102:european commission|and the#30",
+        "hit": 1
+      },
+      {
+        "k": "fp102:european commission|and the#32",
+        "hit": 1
+      },
+      {
+        "k": "fp102:european commission|and the#34",
+        "hit": 0
+      },
+      {
+        "k": "fp102:european commission|and the#35",
+        "hit": 1
+      },
+      {
+        "k": "fp102:european commission|and the#37",
+        "hit": 1
+      },
+      {
+        "k": "fp102:european commission|and the#42",
+        "hit": 1
+      },
+      {
+        "k": "fp102:european commission|and the#51",
+        "hit": 1
+      },
+      {
+        "k": "fp102:european commission|and the#54",
+        "hit": 0
+      },
+      {
+        "k": "fp102:european commission|and the#55",
+        "hit": 1
+      },
+      {
+        "k": "fp102:european commission|and the#8",
+        "hit": 1
+      },
+      {
+        "k": "fp1045:june|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1045:june|the#2",
+        "hit": 0
+      },
+      {
+        "k": "fp104:atlantic ocean|the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp1054:deputy secretary|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1057:harrison|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1058:harrison|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1070:australasia|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1070:australasia|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1070:australasia|and#2",
+        "hit": 0
+      },
+      {
+        "k": "fp1070:australasia|and#3",
+        "hit": 0
+      },
+      {
+        "k": "fp1070:australasia|and#4",
+        "hit": 0
+      },
+      {
+        "k": "fp1070:australasia|and#5",
+        "hit": 0
+      },
+      {
+        "k": "fp1070:australasia|and#7",
+        "hit": 0
+      },
+      {
+        "k": "fp1070:australasia|and#8",
+        "hit": 1
+      },
+      {
+        "k": "fp1070:australasia|and#9",
+        "hit": 0
+      },
+      {
+        "k": "fp1091:standing committees|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1110:sheffield|are provided#0",
+        "hit": 0
+      },
+      {
+        "k": "fp112:minnesota|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp112:minnesota|and#1",
+        "hit": 0
+      },
+      {
+        "k": "fp112:minnesota|and#2",
+        "hit": 0
+      },
+      {
+        "k": "fp1148:albion|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1150:belgium|unknown but the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1150:belgium|unknown but the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1151:leger|winner#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1152:thomas|the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp1157:mexico|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1157:mexico|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1157:mexico|and#2",
+        "hit": 1
+      },
+      {
+        "k": "fp1177:england|captain#5",
+        "hit": 1
+      },
+      {
+        "k": "fp1178:england|captain#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1178:england|captain#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1182:new york city|the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp1182:new york city|the#2",
+        "hit": 0
+      },
+      {
+        "k": "fp1182:new york city|the#4",
+        "hit": 0
+      },
+      {
+        "k": "fp1189:canadian|playing for the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1189:canadian|playing for the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp1204:wyoming|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1207:world series|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1207:world series|and#3",
+        "hit": 1
+      },
+      {
+        "k": "fp1207:world series|and#4",
+        "hit": 1
+      },
+      {
+        "k": "fp1209:grand jury prize|and the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1252:normandy landings|and the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1253:acting president|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1259:guangxi|and#1",
+        "hit": 0
+      },
+      {
+        "k": "fp1261:kansas|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1261:kansas|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1261:kansas|the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp1261:kansas|the#3",
+        "hit": 0
+      },
+      {
+        "k": "fp1263:american|journalist#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1281:sevastopol|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1284:canadian|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1284:canadian|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1294:appellate division|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1294:appellate division|the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp12:kuznetsova|the quarterfinals the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp1305:mary|had married#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1305:mary|had married#1",
+        "hit": 0
+      },
+      {
+        "k": "fp1309:the day|the#2",
+        "hit": 0
+      },
+      {
+        "k": "fp1309:the day|the#7",
+        "hit": 0
+      },
+      {
+        "k": "fp1315:brennan|writer#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1315:brennan|writer#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1327:american|rock band#2",
+        "hit": 1
+      },
+      {
+        "k": "fp1348:greece|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1348:greece|and#2",
+        "hit": 0
+      },
+      {
+        "k": "fp1352:greece|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1352:greece|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1352:greece|and#2",
+        "hit": 1
+      },
+      {
+        "k": "fp1361:dutch|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1361:dutch|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1362:dutch|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1362:dutch|and#2",
+        "hit": 0
+      },
+      {
+        "k": "fp137:british empire|and#16",
+        "hit": 1
+      },
+      {
+        "k": "fp137:british empire|and#18",
+        "hit": 0
+      },
+      {
+        "k": "fp137:british empire|and#20",
+        "hit": 0
+      },
+      {
+        "k": "fp137:british empire|and#21",
+        "hit": 0
+      },
+      {
+        "k": "fp137:british empire|and#25",
+        "hit": 0
+      },
+      {
+        "k": "fp137:british empire|and#4",
+        "hit": 1
+      },
+      {
+        "k": "fp137:british empire|and#40",
+        "hit": 1
+      },
+      {
+        "k": "fp1386:czech|unk#1",
+        "hit": 0
+      },
+      {
+        "k": "fp144:matthew weiner|and writer#0",
+        "hit": 1
+      },
+      {
+        "k": "fp144:matthew weiner|and writer#1",
+        "hit": 0
+      },
+      {
+        "k": "fp1452:january|commissioned into the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1465:falstaff|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1466:humber|contract with the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1470:best picture|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1470:best picture|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1503:commonwealth games|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1504:communist party|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1504:communist party|the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp1509:california|and#3",
+        "hit": 0
+      },
+      {
+        "k": "fp1513:california|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1517:south australia|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1517:south australia|and#2",
+        "hit": 0
+      },
+      {
+        "k": "fp1518:south australia|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1518:south australia|and#2",
+        "hit": 0
+      },
+      {
+        "k": "fp1518:south australia|and#3",
+        "hit": 1
+      },
+      {
+        "k": "fp1518:south australia|and#6",
+        "hit": 1
+      },
+      {
+        "k": "fp1525:claire|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1525:claire|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1528:april|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1528:april|the#2",
+        "hit": 0
+      },
+      {
+        "k": "fp1529:april|the#2",
+        "hit": 0
+      },
+      {
+        "k": "fp1529:april|the#3",
+        "hit": 1
+      },
+      {
+        "k": "fp1529:april|the#4",
+        "hit": 1
+      },
+      {
+        "k": "fp1529:april|the#5",
+        "hit": 0
+      },
+      {
+        "k": "fp1529:april|the#6",
+        "hit": 1
+      },
+      {
+        "k": "fp1529:april|the#7",
+        "hit": 1
+      },
+      {
+        "k": "fp1536:april|the#10",
+        "hit": 0
+      },
+      {
+        "k": "fp1536:april|the#11",
+        "hit": 1
+      },
+      {
+        "k": "fp1536:april|the#17",
+        "hit": 0
+      },
+      {
+        "k": "fp1536:april|the#4",
+        "hit": 1
+      },
+      {
+        "k": "fp1536:april|the#5",
+        "hit": 1
+      },
+      {
+        "k": "fp1536:april|the#7",
+        "hit": 0
+      },
+      {
+        "k": "fp1536:april|the#8",
+        "hit": 1
+      },
+      {
+        "k": "fp1538:april|the#11",
+        "hit": 1
+      },
+      {
+        "k": "fp1538:april|the#12",
+        "hit": 1
+      },
+      {
+        "k": "fp1538:april|the#14",
+        "hit": 1
+      },
+      {
+        "k": "fp1538:april|the#15",
+        "hit": 0
+      },
+      {
+        "k": "fp1538:april|the#6",
+        "hit": 0
+      },
+      {
+        "k": "fp1538:april|the#7",
+        "hit": 1
+      },
+      {
+        "k": "fp1539:april|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1539:april|the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp1547:april|the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp1553:april|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1593:new york|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1593:new york|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1593:new york|and#3",
+        "hit": 0
+      },
+      {
+        "k": "fp1593:new york|and#4",
+        "hit": 0
+      },
+      {
+        "k": "fp1594:new york|and#2",
+        "hit": 0
+      },
+      {
+        "k": "fp1597:new york|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1597:new york|and#1",
+        "hit": 0
+      },
+      {
+        "k": "fp159:june|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp159:june|and#2",
+        "hit": 1
+      },
+      {
+        "k": "fp1602:new york|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1614:germany|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1614:germany|and#2",
+        "hit": 1
+      },
+      {
+        "k": "fp1614:germany|and#3",
+        "hit": 0
+      },
+      {
+        "k": "fp1614:germany|and#4",
+        "hit": 0
+      },
+      {
+        "k": "fp1614:germany|and#5",
+        "hit": 0
+      },
+      {
+        "k": "fp1614:germany|and#6",
+        "hit": 0
+      },
+      {
+        "k": "fp1614:germany|and#7",
+        "hit": 0
+      },
+      {
+        "k": "fp161:june|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp161:june|and#15",
+        "hit": 0
+      },
+      {
+        "k": "fp161:june|and#18",
+        "hit": 0
+      },
+      {
+        "k": "fp161:june|and#23",
+        "hit": 0
+      },
+      {
+        "k": "fp161:june|and#24",
+        "hit": 1
+      },
+      {
+        "k": "fp161:june|and#26",
+        "hit": 1
+      },
+      {
+        "k": "fp161:june|and#29",
+        "hit": 1
+      },
+      {
+        "k": "fp161:june|and#9",
+        "hit": 0
+      },
+      {
+        "k": "fp163:june|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp163:june|and#1",
+        "hit": 0
+      },
+      {
+        "k": "fp1648:brittany|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1648:brittany|and#1",
+        "hit": 0
+      },
+      {
+        "k": "fp1651:britain|and the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1651:britain|and the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1651:britain|and the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp1665:chinese|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1665:chinese|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1665:chinese|and#2",
+        "hit": 0
+      },
+      {
+        "k": "fp1665:chinese|and#3",
+        "hit": 1
+      },
+      {
+        "k": "fp1668:chinese|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1668:chinese|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1688:john cena|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1690:senate committee|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1694:susan|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1694:susan|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1702:europe|and#3",
+        "hit": 1
+      },
+      {
+        "k": "fp1717:the australians|defeated#3",
+        "hit": 1
+      },
+      {
+        "k": "fp1717:the australians|defeated#4",
+        "hit": 1
+      },
+      {
+        "k": "fp1717:the australians|defeated#6",
+        "hit": 0
+      },
+      {
+        "k": "fp1749:ottoman empire|and the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1763:edmonton oilers|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1763:edmonton oilers|the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp176:green car vision award|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp176:green car vision award|the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp1781:robert|unk and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1809:july|for the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1819:concord|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1819:concord|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1838:nintendo|and#2",
+        "hit": 1
+      },
+      {
+        "k": "fp1839:pratchett|won the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1852:september|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1852:september|the#2",
+        "hit": 0
+      },
+      {
+        "k": "fp1863:september|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp1863:september|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1894:july|former#2",
+        "hit": 1
+      },
+      {
+        "k": "fp1897:chris carter|and directed#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1897:chris carter|and directed#1",
+        "hit": 1
+      },
+      {
+        "k": "fp1916:argentina|unk#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1936:dunder mifflin paper company|the episode#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1936:dunder mifflin paper company|the episode#1",
+        "hit": 0
+      },
+      {
+        "k": "fp1937:labrador|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp195:simon|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp195:simon|and#5",
+        "hit": 1
+      },
+      {
+        "k": "fp1970:portugal|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp1970:portugal|the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp2005:albert einstein|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp2005:albert einstein|and#2",
+        "hit": 0
+      },
+      {
+        "k": "fp2005:albert einstein|and#3",
+        "hit": 1
+      },
+      {
+        "k": "fp2015:traverse city film festival|where won the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp2017:billboard hot|and the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp2033:sri lanka|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp2042:january|was announced that#0",
+        "hit": 0
+      },
+      {
+        "k": "fp2042:january|was announced that#10",
+        "hit": 1
+      },
+      {
+        "k": "fp2042:january|was announced that#2",
+        "hit": 0
+      },
+      {
+        "k": "fp2042:january|was announced that#5",
+        "hit": 0
+      },
+      {
+        "k": "fp2042:january|was announced that#7",
+        "hit": 0
+      },
+      {
+        "k": "fp2046:antonin scalia|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp2064:the glenlivet|unk#1",
+        "hit": 0
+      },
+      {
+        "k": "fp206:new zealand military forces|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp2078:late night|with#0",
+        "hit": 1
+      },
+      {
+        "k": "fp2097:the times|reported that#1",
+        "hit": 0
+      },
+      {
+        "k": "fp209:florida|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp209:florida|the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp2117:kentucky|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp2124:danish|and#1",
+        "hit": 0
+      },
+      {
+        "k": "fp2142:nederlandsche|unk#0",
+        "hit": 1
+      },
+      {
+        "k": "fp2151:swiss|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp2159:big ten|media and coaches#0",
+        "hit": 0
+      },
+      {
+        "k": "fp2159:big ten|media and coaches#1",
+        "hit": 1
+      },
+      {
+        "k": "fp2163:louisiana|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp2163:louisiana|and#1",
+        "hit": 0
+      },
+      {
+        "k": "fp2164:louisiana|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp2164:louisiana|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp216:sweden|and the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp216:sweden|and the#2",
+        "hit": 0
+      },
+      {
+        "k": "fp2174:lifetime achievement award|from the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp217:sweden|and the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp217:sweden|and the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp2184:calgary flames|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp2186:taiwan|unk#0",
+        "hit": 0
+      },
+      {
+        "k": "fp2200:lewis hamilton|was leading the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp2212:latin|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp2213:latin|and#1",
+        "hit": 0
+      },
+      {
+        "k": "fp2213:latin|and#2",
+        "hit": 0
+      },
+      {
+        "k": "fp2218:formula one|season and the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp2218:formula one|season and the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp2224:british|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp2224:british|and#2",
+        "hit": 0
+      },
+      {
+        "k": "fp2224:british|and#3",
+        "hit": 0
+      },
+      {
+        "k": "fp222:united states army|based#2",
+        "hit": 1
+      },
+      {
+        "k": "fp2236:lithuanian|envoy#1",
+        "hit": 1
+      },
+      {
+        "k": "fp224:korea|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp224:korea|the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp2251:february|was revealed that#0",
+        "hit": 1
+      },
+      {
+        "k": "fp2258:soviet union|and#1",
+        "hit": 0
+      },
+      {
+        "k": "fp2258:soviet union|and#2",
+        "hit": 0
+      },
+      {
+        "k": "fp2258:soviet union|and#3",
+        "hit": 1
+      },
+      {
+        "k": "fp2258:soviet union|and#5",
+        "hit": 1
+      },
+      {
+        "k": "fp2269:romans|and#1",
+        "hit": 0
+      },
+      {
+        "k": "fp2273:sam allardyce|was appointed#0",
+        "hit": 0
+      },
+      {
+        "k": "fp240:malaysia|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp255:january|with the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp255:january|with the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp255:january|with the#2",
+        "hit": 0
+      },
+      {
+        "k": "fp273:november|unk#20",
+        "hit": 1
+      },
+      {
+        "k": "fp273:november|unk#24",
+        "hit": 1
+      },
+      {
+        "k": "fp273:november|unk#25",
+        "hit": 0
+      },
+      {
+        "k": "fp273:november|unk#31",
+        "hit": 0
+      },
+      {
+        "k": "fp273:november|unk#32",
+        "hit": 1
+      },
+      {
+        "k": "fp273:november|unk#35",
+        "hit": 0
+      },
+      {
+        "k": "fp273:november|unk#39",
+        "hit": 1
+      },
+      {
+        "k": "fp273:november|unk#46",
+        "hit": 1
+      },
+      {
+        "k": "fp273:november|unk#48",
+        "hit": 1
+      },
+      {
+        "k": "fp273:november|unk#51",
+        "hit": 0
+      },
+      {
+        "k": "fp273:november|unk#53",
+        "hit": 0
+      },
+      {
+        "k": "fp273:november|unk#55",
+        "hit": 1
+      },
+      {
+        "k": "fp273:november|unk#59",
+        "hit": 0
+      },
+      {
+        "k": "fp273:november|unk#61",
+        "hit": 1
+      },
+      {
+        "k": "fp273:november|unk#62",
+        "hit": 0
+      },
+      {
+        "k": "fp273:november|unk#64",
+        "hit": 0
+      },
+      {
+        "k": "fp273:november|unk#67",
+        "hit": 0
+      },
+      {
+        "k": "fp273:november|unk#76",
+        "hit": 0
+      },
+      {
+        "k": "fp273:november|unk#86",
+        "hit": 1
+      },
+      {
+        "k": "fp273:november|unk#87",
+        "hit": 0
+      },
+      {
+        "k": "fp273:november|unk#91",
+        "hit": 0
+      },
+      {
+        "k": "fp273:november|unk#94",
+        "hit": 1
+      },
+      {
+        "k": "fp283:national highway system|from the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp285:western pacific|were named the#4",
+        "hit": 1
+      },
+      {
+        "k": "fp293:potro|won the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp293:potro|won the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp309:pennsylvania|unk#0",
+        "hit": 1
+      },
+      {
+        "k": "fp316:urdu|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp316:urdu|and#1",
+        "hit": 0
+      },
+      {
+        "k": "fp321:indian|intercourse with the#10",
+        "hit": 0
+      },
+      {
+        "k": "fp321:indian|intercourse with the#6",
+        "hit": 0
+      },
+      {
+        "k": "fp321:indian|intercourse with the#8",
+        "hit": 0
+      },
+      {
+        "k": "fp328:american|sitcom#11",
+        "hit": 1
+      },
+      {
+        "k": "fp328:american|sitcom#12",
+        "hit": 0
+      },
+      {
+        "k": "fp328:american|sitcom#18",
+        "hit": 0
+      },
+      {
+        "k": "fp328:american|sitcom#19",
+        "hit": 1
+      },
+      {
+        "k": "fp328:american|sitcom#2",
+        "hit": 1
+      },
+      {
+        "k": "fp328:american|sitcom#35",
+        "hit": 0
+      },
+      {
+        "k": "fp328:american|sitcom#41",
+        "hit": 1
+      },
+      {
+        "k": "fp328:american|sitcom#42",
+        "hit": 1
+      },
+      {
+        "k": "fp328:american|sitcom#43",
+        "hit": 1
+      },
+      {
+        "k": "fp328:american|sitcom#5",
+        "hit": 0
+      },
+      {
+        "k": "fp331:july|was revealed that#1",
+        "hit": 0
+      },
+      {
+        "k": "fp331:july|was revealed that#2",
+        "hit": 1
+      },
+      {
+        "k": "fp331:july|was revealed that#5",
+        "hit": 1
+      },
+      {
+        "k": "fp335:lieutenant commander|aircraft board the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp336:india|that connects the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp336:india|that connects the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp339:alberta|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp339:alberta|and#1",
+        "hit": 0
+      },
+      {
+        "k": "fp348:york|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp348:york|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp348:york|the#10",
+        "hit": 0
+      },
+      {
+        "k": "fp348:york|the#11",
+        "hit": 1
+      },
+      {
+        "k": "fp348:york|the#12",
+        "hit": 1
+      },
+      {
+        "k": "fp348:york|the#13",
+        "hit": 0
+      },
+      {
+        "k": "fp348:york|the#16",
+        "hit": 0
+      },
+      {
+        "k": "fp348:york|the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp348:york|the#9",
+        "hit": 0
+      },
+      {
+        "k": "fp351:david|and#1",
+        "hit": 0
+      },
+      {
+        "k": "fp352:david|and#2",
+        "hit": 1
+      },
+      {
+        "k": "fp367:american|who served the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp367:american|who served the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp379:ireland|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp395:north america|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp395:north america|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp395:north america|the#25",
+        "hit": 1
+      },
+      {
+        "k": "fp395:north america|the#3",
+        "hit": 0
+      },
+      {
+        "k": "fp395:north america|the#32",
+        "hit": 1
+      },
+      {
+        "k": "fp395:north america|the#35",
+        "hit": 0
+      },
+      {
+        "k": "fp405:september|was buried the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp405:september|was buried the#2",
+        "hit": 0
+      },
+      {
+        "k": "fp415:october|was#0",
+        "hit": 0
+      },
+      {
+        "k": "fp415:october|was#1",
+        "hit": 1
+      },
+      {
+        "k": "fp416:october|was#1",
+        "hit": 1
+      },
+      {
+        "k": "fp416:october|was#2",
+        "hit": 0
+      },
+      {
+        "k": "fp422:october|was#0",
+        "hit": 0
+      },
+      {
+        "k": "fp422:october|was#1",
+        "hit": 1
+      },
+      {
+        "k": "fp422:october|was#2",
+        "hit": 1
+      },
+      {
+        "k": "fp422:october|was#3",
+        "hit": 0
+      },
+      {
+        "k": "fp422:october|was#4",
+        "hit": 0
+      },
+      {
+        "k": "fp429:november|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp429:november|the#10",
+        "hit": 1
+      },
+      {
+        "k": "fp429:november|the#12",
+        "hit": 0
+      },
+      {
+        "k": "fp429:november|the#13",
+        "hit": 1
+      },
+      {
+        "k": "fp429:november|the#14",
+        "hit": 1
+      },
+      {
+        "k": "fp429:november|the#15",
+        "hit": 1
+      },
+      {
+        "k": "fp429:november|the#16",
+        "hit": 1
+      },
+      {
+        "k": "fp429:november|the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp429:november|the#23",
+        "hit": 0
+      },
+      {
+        "k": "fp429:november|the#24",
+        "hit": 1
+      },
+      {
+        "k": "fp429:november|the#25",
+        "hit": 0
+      },
+      {
+        "k": "fp429:november|the#26",
+        "hit": 1
+      },
+      {
+        "k": "fp429:november|the#28",
+        "hit": 1
+      },
+      {
+        "k": "fp429:november|the#30",
+        "hit": 1
+      },
+      {
+        "k": "fp429:november|the#4",
+        "hit": 0
+      },
+      {
+        "k": "fp429:november|the#8",
+        "hit": 1
+      },
+      {
+        "k": "fp430:november|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp430:november|the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp430:november|the#2",
+        "hit": 0
+      },
+      {
+        "k": "fp432:november|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp432:november|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp439:november|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp43:battlecruiser squadron|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp43:battlecruiser squadron|the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp44:main street|and#1",
+        "hit": 0
+      },
+      {
+        "k": "fp450:november|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp450:november|the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp454:november|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp457:november|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp457:november|the#2",
+        "hit": 0
+      },
+      {
+        "k": "fp45:new york city|unk#0",
+        "hit": 0
+      },
+      {
+        "k": "fp45:new york city|unk#1",
+        "hit": 1
+      },
+      {
+        "k": "fp45:new york city|unk#2",
+        "hit": 1
+      },
+      {
+        "k": "fp45:new york city|unk#3",
+        "hit": 1
+      },
+      {
+        "k": "fp45:new york city|unk#4",
+        "hit": 0
+      },
+      {
+        "k": "fp45:new york city|unk#5",
+        "hit": 1
+      },
+      {
+        "k": "fp462:november|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp467:september|off the coast#1",
+        "hit": 1
+      },
+      {
+        "k": "fp491:hawaiian|for#1",
+        "hit": 0
+      },
+      {
+        "k": "fp492:arizona cardinals|and the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp50:persian|invasion#0",
+        "hit": 1
+      },
+      {
+        "k": "fp50:persian|invasion#2",
+        "hit": 0
+      },
+      {
+        "k": "fp527:australia|for the tour#0",
+        "hit": 0
+      },
+      {
+        "k": "fp533:romeo|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp56:paddington|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp582:german|invasion#0",
+        "hit": 1
+      },
+      {
+        "k": "fp582:german|invasion#11",
+        "hit": 0
+      },
+      {
+        "k": "fp582:german|invasion#2",
+        "hit": 0
+      },
+      {
+        "k": "fp582:german|invasion#3",
+        "hit": 0
+      },
+      {
+        "k": "fp582:german|invasion#4",
+        "hit": 0
+      },
+      {
+        "k": "fp582:german|invasion#5",
+        "hit": 1
+      },
+      {
+        "k": "fp582:german|invasion#6",
+        "hit": 0
+      },
+      {
+        "k": "fp582:german|invasion#8",
+        "hit": 1
+      },
+      {
+        "k": "fp598:northwest territory|the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp598:northwest territory|the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp598:northwest territory|the#3",
+        "hit": 0
+      },
+      {
+        "k": "fp614:new york knicks|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp614:new york knicks|and#4",
+        "hit": 1
+      },
+      {
+        "k": "fp614:new york knicks|and#5",
+        "hit": 1
+      },
+      {
+        "k": "fp614:new york knicks|and#6",
+        "hit": 1
+      },
+      {
+        "k": "fp614:new york knicks|and#8",
+        "hit": 0
+      },
+      {
+        "k": "fp620:oxford|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp620:oxford|and#3",
+        "hit": 1
+      },
+      {
+        "k": "fp625:american|mycologist#1",
+        "hit": 1
+      },
+      {
+        "k": "fp638:mongolia|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp638:mongolia|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp640:christian|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp64:world war|operated the#10",
+        "hit": 1
+      },
+      {
+        "k": "fp64:world war|operated the#15",
+        "hit": 0
+      },
+      {
+        "k": "fp64:world war|operated the#17",
+        "hit": 0
+      },
+      {
+        "k": "fp64:world war|operated the#18",
+        "hit": 0
+      },
+      {
+        "k": "fp64:world war|operated the#20",
+        "hit": 0
+      },
+      {
+        "k": "fp64:world war|operated the#21",
+        "hit": 1
+      },
+      {
+        "k": "fp64:world war|operated the#22",
+        "hit": 1
+      },
+      {
+        "k": "fp64:world war|operated the#24",
+        "hit": 0
+      },
+      {
+        "k": "fp64:world war|operated the#30",
+        "hit": 1
+      },
+      {
+        "k": "fp653:year award|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp653:year award|the#2",
+        "hit": 0
+      },
+      {
+        "k": "fp65:outstanding sound editing|for#16",
+        "hit": 1
+      },
+      {
+        "k": "fp65:outstanding sound editing|for#4",
+        "hit": 0
+      },
+      {
+        "k": "fp669:memphis redbirds|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp669:memphis redbirds|the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp686:ralph garman|and writers#0",
+        "hit": 0
+      },
+      {
+        "k": "fp686:ralph garman|and writers#2",
+        "hit": 0
+      },
+      {
+        "k": "fp695:france|and#10",
+        "hit": 1
+      },
+      {
+        "k": "fp695:france|and#11",
+        "hit": 0
+      },
+      {
+        "k": "fp695:france|and#2",
+        "hit": 1
+      },
+      {
+        "k": "fp695:france|and#3",
+        "hit": 0
+      },
+      {
+        "k": "fp695:france|and#6",
+        "hit": 1
+      },
+      {
+        "k": "fp695:france|and#8",
+        "hit": 0
+      },
+      {
+        "k": "fp695:france|and#9",
+        "hit": 1
+      },
+      {
+        "k": "fp698:france|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp699:france|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp702:france|and#13",
+        "hit": 1
+      },
+      {
+        "k": "fp702:france|and#16",
+        "hit": 1
+      },
+      {
+        "k": "fp702:france|and#22",
+        "hit": 0
+      },
+      {
+        "k": "fp702:france|and#24",
+        "hit": 1
+      },
+      {
+        "k": "fp702:france|and#25",
+        "hit": 0
+      },
+      {
+        "k": "fp702:france|and#3",
+        "hit": 1
+      },
+      {
+        "k": "fp702:france|and#8",
+        "hit": 0
+      },
+      {
+        "k": "fp702:france|and#9",
+        "hit": 0
+      },
+      {
+        "k": "fp70:abraham lincoln|the#0",
+        "hit": 0
+      },
+      {
+        "k": "fp742:october|within the#3",
+        "hit": 0
+      },
+      {
+        "k": "fp742:october|within the#4",
+        "hit": 0
+      },
+      {
+        "k": "fp742:october|within the#5",
+        "hit": 0
+      },
+      {
+        "k": "fp75:january|against the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp764:athenians|through the mediation#2",
+        "hit": 0
+      },
+      {
+        "k": "fp764:athenians|through the mediation#3",
+        "hit": 0
+      },
+      {
+        "k": "fp769:the encyclopedia|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp769:the encyclopedia|the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp772:italia|and#0",
+        "hit": 1
+      },
+      {
+        "k": "fp77:texas|the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp791:the battle|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp791:the battle|the#19",
+        "hit": 1
+      },
+      {
+        "k": "fp791:the battle|the#20",
+        "hit": 0
+      },
+      {
+        "k": "fp795:costen|quarterback#0",
+        "hit": 1
+      },
+      {
+        "k": "fp826:poland|and the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp826:poland|and the#10",
+        "hit": 1
+      },
+      {
+        "k": "fp826:poland|and the#11",
+        "hit": 0
+      },
+      {
+        "k": "fp826:poland|and the#12",
+        "hit": 1
+      },
+      {
+        "k": "fp826:poland|and the#13",
+        "hit": 1
+      },
+      {
+        "k": "fp826:poland|and the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp826:poland|and the#3",
+        "hit": 1
+      },
+      {
+        "k": "fp826:poland|and the#4",
+        "hit": 1
+      },
+      {
+        "k": "fp826:poland|and the#6",
+        "hit": 0
+      },
+      {
+        "k": "fp826:poland|and the#7",
+        "hit": 0
+      },
+      {
+        "k": "fp827:poland|and the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp827:poland|and the#1",
+        "hit": 1
+      },
+      {
+        "k": "fp827:poland|and the#2",
+        "hit": 1
+      },
+      {
+        "k": "fp843:dublin|and the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp844:clinton|the#0",
+        "hit": 1
+      },
+      {
+        "k": "fp844:clinton|the#3",
+        "hit": 0
+      },
+      {
+        "k": "fp854:national guard|and#1",
+        "hit": 0
+      },
+      {
+        "k": "fp854:national guard|and#2",
+        "hit": 0
+      },
+      {
+        "k": "fp854:national guard|and#3",
+        "hit": 0
+      },
+      {
+        "k": "fp867:nani|home victory over#1",
+        "hit": 0
+      },
+      {
+        "k": "fp867:nani|home victory over#2",
+        "hit": 1
+      },
+      {
+        "k": "fp87:november|also debuted the#6",
+        "hit": 0
+      },
+      {
+        "k": "fp87:november|also debuted the#7",
+        "hit": 0
+      },
+      {
+        "k": "fp890:jim|and#0",
+        "hit": 0
+      },
+      {
+        "k": "fp904:current all|time#0",
+        "hit": 1
+      },
+      {
+        "k": "fp904:current all|time#1",
+        "hit": 0
+      },
+      {
+        "k": "fp90:football league cup|the teams the#2",
+        "hit": 0
+      },
+      {
+        "k": "fp913:james wong|and directed#3",
+        "hit": 0
+      },
+      {
+        "k": "fp913:james wong|and directed#5",
+        "hit": 0
+      },
+      {
+        "k": "fp913:james wong|and directed#6",
+        "hit": 0
+      },
+      {
+        "k": "fp940:new england|coastal town#2",
+        "hit": 0
+      },
+      {
+        "k": "fp940:new england|coastal town#3",
+        "hit": 0
+      },
+      {
+        "k": "fp940:new england|coastal town#4",
+        "hit": 0
+      },
+      {
+        "k": "fp953:los angeles|and#1",
+        "hit": 1
+      },
+      {
+        "k": "fp96:spain|the#1",
+        "hit": 0
+      },
+      {
+        "k": "fp976:the witch|the#4",
+        "hit": 0
+      },
+      {
+        "k": "fp976:the witch|the#5",
+        "hit": 1
+      },
+      {
+        "k": "fp979:december|was announced that#0",
+        "hit": 0
+      },
+      {
+        "k": "fp999:june|the#2",
+        "hit": 0
+      },
+      {
+        "k": "fp999:june|the#4",
+        "hit": 1
+      },
+      {
+        "k": "fp999:june|the#7",
+        "hit": 1
+      }
+    ],
+    "_mixed": [
+      [
+        1,
+        1,
+        0,
+        0.2671623998309457,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.26517841031679096,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.3896869960166798,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.046758383117740256,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.19704390150232373,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.44328483856921774,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.35961514994841565,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.7350950276894472,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.1556176588809824,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.7522353039911357,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.0947114948762686,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.30704235995866,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.24010656499153643,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.26166918696850466,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.03107512923793443,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.25423380240582033,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.20643993276489306,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.450667537780679,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.4411901822730817,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.2265696325482337,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.2479043808487941,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.4463442126442762,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.4524262965889466,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.24796345924536228,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.4608479989269738,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.003814124294176183,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.35334998585064525,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.01209920240553001,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.37573173265592785,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.19874421956435528,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.07568360986238186,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.40329137182927144,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.32071648667184344,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.35474116882222,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.3519619826322077,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.6136130313208333,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.07431730938492641,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.011804005175754407,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.3153787768645046,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.054872371197753095,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.0691143640764822,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.10967219264737925,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.3641100013871975,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.0999695223860353,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.03231790151269134,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.19516795126040112,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.42595160958385486,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.639683683042761,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.6236249986747887,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.46626546474769454,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.018414888457580485,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.4546405465664933,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.8278759033795771,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.05731662083635284,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.26936027076880514,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.2519575241078512,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.20610105991800473,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.7547807753107536,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.4537793056301509,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.2816244498568897,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.34295360279174036,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.3485197285944848,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.13303955987677765,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.02516090045674522,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.20638083895029807,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.30810132359733533,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.21571214323250362,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.007043314556577317,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.5435816989907098,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.482816320119757,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.27116013101145475,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.08977159450471636,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.4118935229592053,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.17492900688151272,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.9511585624645726,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.22410945251796136,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.008061308089366712,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.3591553370047529,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.569767998690216,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.13917088094180383,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.2212307091709377,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.6453493823570464,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.05504419114380598,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.6160114996853459,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.09704663906333375,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.641902281658231,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.34968558570348857,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.3599788996091965,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.07543652182628337,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.14877602501065149,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.6342927929346037,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.007335576219288815,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.22905393230616247,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.2341829561343989,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.7229503304536199,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.2293271678116913,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.5844266066195597,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.2896524526928211,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.0025469335024290154,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.39672743026286617,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.008183543253457807,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.552917798082468,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.16306772804130085,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.3664764067035337,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.3333556209976216,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.23343513574760166,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.7565663844123832,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.3725186032510766,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.06647377889274475,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.12934132023768835,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.5825945716589516,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.33134113064970505,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.09824506605013504,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.5331303405370963,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.0618543052376877,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.022826717241421414,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.2590770237771605,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.8284477485531454,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.5189225307038369,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.26477252337116874,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.34335934779934524,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.086687561638278,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.3813109638763382,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.3228916989310851,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.3793056280853986,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.3162068913568979,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.1957502199840852,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.6547811584436907,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.04903409735727837,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.39136501515512623,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.35329494479909135,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.6162458874425587,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.08749799009770735,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.33361438190041126,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.3359710429542348,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.07090537105226744,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.3081782777433326,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.25843333895704546,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.16309915933048236,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.2113532232762762,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.4212820869545466,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.11369730367735967,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.03719286705440782,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.38577034802001536,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.0007961475378120895,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.04906879331251325,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.5410228970306198,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.1297770518217376,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.41430882919780926,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.2310145334766505,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.16148808616257704,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.21914207252529222,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.3947388504186226,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.030368272416804305,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.1532154032604467,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.38593520657698827,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.20969517682475236,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.05847854995713518,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.5086502847956363,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.001771549639431275,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.43707672744538373,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.15281191534036428,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.2665906606128713,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.053789927242482674,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.164413107255388,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.22120713777037818,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.4340477884119152,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.13694633785942814,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.012430412450404453,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.8683030831199678,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.4282085209244558,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.1886538890737598,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.15708422267955865,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.21568738198869483,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.25491222159196725,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.21446819590102636,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.33646238468712564,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.34966346773050844,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.021294430505696196,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.17542081526626013,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.07312211817698948,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.23170125903412536,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.06315813216276316,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.7850525298438498,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.7699611946702595,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.15466321764181737,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.37872927303479126,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.20604415944057553,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.3543987717569988,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.34709727045597033,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.4222149374325599,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.7413734125002237,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.5096128209743273,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.3844065375650053,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.7178411190917194,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.06982136817818826,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.0343113952199123,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.4298575462048404,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.026456211531690036,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.11947081074191172,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.25743162759381727,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.5726202579977736,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.09179057965918773,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.7818065400232934,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.23393395136081943,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.21502909700216588,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.38365917247307224,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.423565008536957,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.26941446288390153,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.41195113179188864,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.6084276252370321,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.09657072298238065,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.2662921104668562,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.25329625206364237,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.323833127705729,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.27722442761321486,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.13194990164645862,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.051370320440263344,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.267311739572961,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.18402454460751633,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.875660430206932,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.22844558965376424,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.34525220501263726,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.11619476662233853,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.5270139956345384,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.13539025937305338,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.07241461156803637,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.2766183098652466,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.4142108349966871,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.02219782537968205,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.3002402160048314,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.23949365936805064,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.19493612021109188,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.8111001315129805,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.07455392738849059,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.34775390311912696,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.5993768253274195,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.044309225243294864,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.26369606341338836,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.38214467433276833,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.24561383675644977,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.19090425035718536,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.020152119960668617,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.3378535081323035,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.00891934531918417,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.7846631737929979,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.390680561247483,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.34290919534140873,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.2137112028770639,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.3852488032285666,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.5294350840880493,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.3917643249225155,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.8395979217062421,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.07228516946654687,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.4514967567769851,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.16824797135045494,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.5905123174411278,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.5973819454849749,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.7986002294605892,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.04339917706001492,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.44938058894625965,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.17201508445185706,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.3557652249516225,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.3154200008213548,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.5090409320142568,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.17719909793267308,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.19348359755975864,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.29290698707542023,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.5337762558109366,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.12189979283979746,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.07264457734446758,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.5437221508601351,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.2623510720815823,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.5694057137912888,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.6755149724655629,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.34857743805951485,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.5342532302825937,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.32169042439462,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.19107811721935422,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.38443932225261646,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.049667375939237646,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.13897990738177748,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.6004314450401097,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.39449749992992367,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.022205983303099596,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.32256411451735756,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.4228142114852277,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.4688856972700783,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.11017055260038214,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.3473800093230799,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.26056686188373357,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.8318856918511006,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.18167791185189805,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.2825457150943259,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.03592026036067658,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.039891604428171044,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.656882521143279,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.2521406862409936,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.18780599404126772,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.055836729078091604,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.2905944541978976,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.41304952503235004,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.7527320967837408,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.16329948377285233,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.346278407200534,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.0710936112532047,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.19343083593664956,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.21175113567240866,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.051150196040002135,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.05025006426123071,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.039016455170958184,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.223572004316426,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.15117934151221085,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.08522764735253138,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.485866063303076,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.09178893375695397,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.31274810802635256,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.248828583731243,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.19067861145217527,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.37330709820862296,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.37166183192115115,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.05403729632652306,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.31179706922905276,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.19759693788769955,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.2836483763471367,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.7078615791259235,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.1733000298851997,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.44670454908890195,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.17530042753906747,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.1587423391276436,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.49937911139045055,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.20635668678575309,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.6627656546595878,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.43450753440860107,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.2183051704501475,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.007391554868666144,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.3395576201620395,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.31267212186056104,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.08633691951551974,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.8964504674760289,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.009991620438480451,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.20409876493145906,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.29667865920429043,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.16061414694597714,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.13869337661667472,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.1095384575227993,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.3629934540287164,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.06812510102977412,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.14147182310188705,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.056688213202207016,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.042514700291583274,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.11245082850221905,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.0316501020301475,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.006358841128039061,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.37752256124172817,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.19516521909950224,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.3022713327529255,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.280543118910764,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.18683317436116745,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.6112701432065711,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.4375373331104631,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.2720534604435809,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.6372115011396107,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.40371227217637956,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.7582452645898908,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.0018932059122633493,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.2680057375762505,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.20116368157064451,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.15877468915958937,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.5391008793705411,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.7089902273197193,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.31619578147657895,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.031200303959825298,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.5116565111316607,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.8062208671732588,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.39966502882954263,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.41275032623437274,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.11140910279041955,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.2761569885426377,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.4095745096084249,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.08876892928406142,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.04179803278589415,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.3123345848670483,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.12924456746756025,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.06998262456685694,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.5041834811588957,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.20566739768050094,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.22632536332892347,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.059113022026037354,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.09853296560246677,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.23740505236452286,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.15823223249170648,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.44521735327045575,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.3263791707633103,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.021458468083528057,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.3606367203713094,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.22864075417803498,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.11033637622356744,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.7090721593035034,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.3782267142700947,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.05850951023683219,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.0720028374599577,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.011918521982824355,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.5777206790130135,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.15577762991661298,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.06759462856278212,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.27086609719830335,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.3145876107791547,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.642579671509984,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.6373793426062481,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.31496269606969574,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.158079107049692,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.4909120854295422,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.30415182010680225,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.6229144472557445,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.6091843530582152,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.48124648174911466,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.10831397254930536,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.20010868386963274,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.20161751672162653,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.19245086644784656,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.5524442802804681,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.6108704903705853,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.28255654016133347,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.47752154882001946,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.07125772018135733,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.01936095348897146,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.502788513189364,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.47449768650036134,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.4426544034888435,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.12041797286597783,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.2702453652721924,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.6506548830012725,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.1634380983122029,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.008849798038250263,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.2221007288496473,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.5029743269181323,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.526422648093261,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.3657791789405847,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.3682136641077014,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.2740467234404025,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.15144688245661736,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.06491755400176792,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.1521126429374154,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.13055635089566806,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.04732556062542091,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.5199082958681617,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.2009358914105824,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.19301203146515789,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.6103985071585383,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.1974818168976613,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.3828522468097654,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.10452096063344543,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.18317121360645275,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.2131296804150548,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.03634129165612213,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.35128181863308683,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.006769331642133775,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.15763693788454003,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.006555486814822905,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.18761458195097735,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.29016317160296096,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.041386647783186147,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.4654024220397852,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.2967247042621095,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.02096356157710037,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.706544661740291,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.1772612094170106,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.30584779098168163,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.03906240959344187,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.2909127879138271,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.25433441202564394,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.010100202839263966,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.20566212831080524,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.15730612611249675,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.007660051836457554,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.17402728436062917,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.14157326551580313,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.5013562688730829,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.18120400438347703,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.1933618069035828,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.035282756738688546,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.02741145723603614,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.16260171434020756,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.06790642285049887,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.0650369676391841,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.40195884270292814,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.24829177249314308,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.41300972195156654,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.2899262867496936,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.6132732909345209,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.1488109290627099,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.2019218694245862,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.1381638967386337,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.6048081967049823,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.5506738138834595,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.3704442163187871,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.5805837599387521,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.20381576141950386,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.08140539528647515,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.5512788589207375,
+        1
+      ],
+      [
+        0,
+        1,
+        0,
+        0.05994756383240771,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.0974690990033188,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.5588943375214358,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.020297290748802568,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.5215394518477342,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.39250655257940004,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.3162322297976638,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.2917392940491652,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.30900682002050467,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.4477884540513603,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.12502108956136598,
+        0
+      ],
+      [
+        1,
+        1,
+        0,
+        0.457042647452164,
+        1
+      ],
+      [
+        1,
+        1,
+        0,
+        0.6991572508621474,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.14885627844223617,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0.11042477114121858,
+        0
+      ]
+    ]
+  },
+  "exact_note": "count and compare left the weights: they are functions of the same-value relation alone (new_i = 1 - max_{j<i} s_ij; count = sum new_i; compare = sign of the side difference), computed exactly with zero parameters and no 5+ cap, because the invariant says whatever decides may not be approximate. Their accuracy is 1.0 by construction and is checked, not celebrated - G_exact_algebra_matches_tape is a sanity bolt. The interference that cost count 0.965 -> 0.903 is removed by construction: one trained task remains",
+  "ladder_note": "three wrong answers per question at increasing structural distance - same anchor / adjacent in tape order / anywhere on the tape - every rung a value the corpus wrote, no similarity chosen by anyone. Phi trained only against local wrong candidates learns a BOUNDARY; generation needs a LANDSCAPE, and a mind that cannot rank its own wrong answers by how wrong they are has no direction to move in. The objective is one Plackett-Luce term, not a task loss plus a ladder loss with a weight between them, and it reduces to the previous cross-entropy exactly when the tape cannot supply a ladder",
+  "retrieval_note": "two rivals now, because they answer two different questions. The counting rival knows nothing about context, so beating it shows only that the context channel carries information counts lack - not that reading it takes a mind. rival_cos is 1-NN over the same evidence rows by the same ctx_fp cosine, zero parameters, no training. With hash ink the representation IS Random Indexing over fastText-shaped word vectors, so the distance between this architecture and a classical retrieval system is exactly this one number. If rival_cos lands where Phi lands, 3489 parameters are decoration ON THIS VERB and the verdict is PHI_ADDS_NOTHING_ON_LOOKUP. Named for the brick and not for the wall: lookup is one verb, single-hop and retrieval-shaped by construction, and a rival that ties it says nothing about the exact algebra, about verbs where rows must be combined, or about generation, which 1-NN cannot do at all",
+  "paired_note": "the rival answers the same lookup questions in the same run, so the gate is McNemar over the discordant items at the usual one-sided 1.645 - never two marginals. The rival over survivors is Bayes-optimal when the query context carries nothing, so a paired win IS the claim that the context channel carries information counts do not have",
+  "curve": [
+    {
+      "step": 750,
+      "loss": -0.8822386100888252,
+      "probe_loss": 6.734034481109856
+    },
+    {
+      "step": 1500,
+      "loss": -0.8761551398038864,
+      "probe_loss": 7.727148194896149
+    },
+    {
+      "step": 2250,
+      "loss": -0.8687258833646774,
+      "probe_loss": 8.215532961609561
+    },
+    {
+      "step": 3000,
+      "loss": -0.8587224844098091,
+      "probe_loss": 8.477035628472775
+    },
+    {
+      "step": 3750,
+      "loss": -0.8824891024827957,
+      "probe_loss": 8.783440890231606
+    },
+    {
+      "step": 4500,
+      "loss": -0.8837478643655777,
+      "probe_loss": 9.225915388923942
+    },
+    {
+      "step": 5250,
+      "loss": -0.8799973213672638,
+      "probe_loss": 9.41180096025471
+    },
+    {
+      "step": 6000,
+      "loss": -0.8749954906105996,
+      "probe_loss": 9.92630035219596
+    }
+  ],
+  "arc_enc_hash_before": "not_loaded",
+  "arc_enc_hash_after": "not_loaded",
+  "fp_version": "stage191_p1_curve.pt",
+  "note": "The derivation moved into exact algebra and the mind kept only the judgment. Two runs measured 7.9k parameters approximating a quantity exactly computable from their own input, and the approximation degraded as the genuinely uncertain task grew beside it. Now count and compare are arithmetic over the same-value relation - exact, uncapped, scale-free - and the one trained surface is Phi, the coherence of a completed world: for each candidate the query row is filled in and the world that results is pooled to one scalar, 288's repair loop turned inward. The two trained surfaces this leaves in the whole architecture are Phi and, once values stop being exact strings, s_ij itself - both judgments, never arithmetic. Confidence for exact verbs reports 1.0, which is the honest statement that a computed answer is certain GIVEN the relation; when s_ij becomes a judgment its uncertainty enters through that same seam.",
+  "timestamp": "2026-08-12T13:05:34.877697+00:00",
+  "wall_s": 637.2282500267029
+}

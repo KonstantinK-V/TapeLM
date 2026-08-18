@@ -1,0 +1,387 @@
+{
+  "stage": 273,
+  "overall": "READ_INFORM_PARTIAL",
+  "frozen_trunk": false,
+  "trunk_mode": "upper",
+  "smoke": false,
+  "seed": 273,
+  "bc_episodes": 4000,
+  "rl_episodes": 0,
+  "tape_period": 200,
+  "actions": [
+    "ASK_Q",
+    "ASK_READ",
+    "READ_0",
+    "READ_1",
+    "READ_2",
+    "READ_3",
+    "ANSWER_0",
+    "ANSWER_1",
+    "ANSWER_2",
+    "ANSWER_3",
+    "STOP"
+  ],
+  "topk": 4,
+  "max_steps": 6,
+  "read_cost": 0.02,
+  "entropy_bonus": 0.01,
+  "answer_after_read_weight": 5.0,
+  "witnesses": 5,
+  "liars": 2,
+  "fp_version": "stage191_p1_curve.pt",
+  "used_pool_final": 630,
+  "gates": {
+    "G_arc_enc_frozen": true,
+    "G_answer_is_slot": true,
+    "G_beats_lookup": false,
+    "G_beats_majority": false,
+    "G_clean_kept": true,
+    "G_novel_tape": false,
+    "G_reads_economical": true,
+    "G_read_informed": true
+  },
+  "train_tape": {
+    "policy_clean": 1.0,
+    "policy_lying": 1.0,
+    "lookup_clean": 1.0,
+    "lookup_lying": 0.5,
+    "majority_lying": 0.6666666666666666,
+    "mean_reads": 0.5,
+    "mean_reads_clean": 0.0,
+    "mean_reads_lying": 1.0,
+    "answer_is_slot": 1.0,
+    "n": 12,
+    "traces": [
+      {
+        "kind": "clean",
+        "trace": [
+          "ASK_Q",
+          "ANSWER_0"
+        ],
+        "correct": 1
+      },
+      {
+        "kind": "clean",
+        "trace": [
+          "ASK_Q",
+          "ANSWER_0"
+        ],
+        "correct": 1
+      },
+      {
+        "kind": "clean",
+        "trace": [
+          "ASK_Q",
+          "ANSWER_0"
+        ],
+        "correct": 1
+      },
+      {
+        "kind": "clean",
+        "trace": [
+          "ASK_Q",
+          "ANSWER_0"
+        ],
+        "correct": 1
+      },
+      {
+        "kind": "clean",
+        "trace": [
+          "ASK_Q",
+          "ANSWER_0"
+        ],
+        "correct": 1
+      },
+      {
+        "kind": "clean",
+        "trace": [
+          "ASK_Q",
+          "ANSWER_0"
+        ],
+        "correct": 1
+      },
+      {
+        "kind": "lying",
+        "trace": [
+          "ASK_Q",
+          "READ_1",
+          "ANSWER_1"
+        ],
+        "correct": 1
+      },
+      {
+        "kind": "lying",
+        "trace": [
+          "ASK_Q",
+          "READ_1",
+          "ANSWER_1"
+        ],
+        "correct": 1
+      },
+      {
+        "kind": "lying",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "ANSWER_0"
+        ],
+        "correct": 1
+      },
+      {
+        "kind": "lying",
+        "trace": [
+          "ASK_Q",
+          "READ_1",
+          "ANSWER_1"
+        ],
+        "correct": 1
+      },
+      {
+        "kind": "lying",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "ANSWER_0"
+        ],
+        "correct": 1
+      },
+      {
+        "kind": "lying",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "ANSWER_0"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  "novel_tape": {
+    "policy_clean": 1.0,
+    "policy_lying": 0.6666666666666666,
+    "lookup_clean": 1.0,
+    "lookup_lying": 0.6666666666666666,
+    "majority_lying": 0.8333333333333334,
+    "mean_reads": 0.5,
+    "mean_reads_clean": 0.5,
+    "mean_reads_lying": 0.5,
+    "answer_is_slot": 1.0,
+    "n": 12,
+    "traces": [
+      {
+        "kind": "clean",
+        "trace": [
+          "ASK_Q",
+          "ANSWER_0"
+        ],
+        "correct": 1
+      },
+      {
+        "kind": "clean",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "ANSWER_0"
+        ],
+        "correct": 1
+      },
+      {
+        "kind": "clean",
+        "trace": [
+          "ASK_Q",
+          "ANSWER_0"
+        ],
+        "correct": 1
+      },
+      {
+        "kind": "clean",
+        "trace": [
+          "ASK_Q",
+          "ANSWER_0"
+        ],
+        "correct": 1
+      },
+      {
+        "kind": "clean",
+        "trace": [
+          "ASK_Q",
+          "READ_1",
+          "ANSWER_0"
+        ],
+        "correct": 1
+      },
+      {
+        "kind": "clean",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "ANSWER_0"
+        ],
+        "correct": 1
+      },
+      {
+        "kind": "lying",
+        "trace": [
+          "ASK_Q",
+          "ANSWER_0"
+        ],
+        "correct": 0
+      },
+      {
+        "kind": "lying",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "ANSWER_0"
+        ],
+        "correct": 1
+      },
+      {
+        "kind": "lying",
+        "trace": [
+          "ASK_Q",
+          "ANSWER_0"
+        ],
+        "correct": 1
+      },
+      {
+        "kind": "lying",
+        "trace": [
+          "ASK_Q",
+          "READ_1",
+          "ANSWER_1"
+        ],
+        "correct": 1
+      },
+      {
+        "kind": "lying",
+        "trace": [
+          "ASK_Q",
+          "ANSWER_0"
+        ],
+        "correct": 0
+      },
+      {
+        "kind": "lying",
+        "trace": [
+          "ASK_Q",
+          "READ_1",
+          "ANSWER_1"
+        ],
+        "correct": 1
+      }
+    ]
+  },
+  "arc_enc_hash_before": "64a764151ebd27ec5f4c1e92d72d9ce6dba381fb355c386d669f3a0ac2cf93d1",
+  "arc_enc_hash_after": "64a764151ebd27ec5f4c1e92d72d9ce6dba381fb355c386d669f3a0ac2cf93d1",
+  "curve": [
+    {
+      "phase": "bc",
+      "episode": 400,
+      "loss": 1.6066585885710083e-05,
+      "reward": 1.0,
+      "trace": [
+        "ASK_Q",
+        "ANSWER_0"
+      ]
+    },
+    {
+      "phase": "bc",
+      "episode": 800,
+      "loss": 1.771728966559749e-05,
+      "reward": 0.98,
+      "trace": [
+        "ASK_Q",
+        "READ_1",
+        "ANSWER_1"
+      ]
+    },
+    {
+      "phase": "bc",
+      "episode": 1200,
+      "loss": 1.3377812138060108e-05,
+      "reward": 1.0,
+      "trace": [
+        "ASK_Q",
+        "ANSWER_0"
+      ]
+    },
+    {
+      "phase": "bc",
+      "episode": 1600,
+      "loss": 5.973679890303174e-06,
+      "reward": 1.0,
+      "trace": [
+        "ASK_Q",
+        "ANSWER_0"
+      ]
+    },
+    {
+      "phase": "bc",
+      "episode": 2000,
+      "loss": 5.558108568948228e-06,
+      "reward": 0.98,
+      "trace": [
+        "ASK_Q",
+        "READ_0",
+        "ANSWER_0"
+      ]
+    },
+    {
+      "phase": "bc",
+      "episode": 2400,
+      "loss": 8.808186976239085e-06,
+      "reward": 1.0,
+      "trace": [
+        "ASK_Q",
+        "ANSWER_0"
+      ]
+    },
+    {
+      "phase": "bc",
+      "episode": 2800,
+      "loss": 1.4901160305669237e-08,
+      "reward": 0.98,
+      "trace": [
+        "ASK_Q",
+        "READ_0",
+        "ANSWER_0"
+      ]
+    },
+    {
+      "phase": "bc",
+      "episode": 3200,
+      "loss": 2.3775121007929556e-05,
+      "reward": 1.0,
+      "trace": [
+        "ASK_Q",
+        "ANSWER_0"
+      ]
+    },
+    {
+      "phase": "bc",
+      "episode": 3600,
+      "loss": 1.028178644446598e-06,
+      "reward": 0.98,
+      "trace": [
+        "ASK_Q",
+        "READ_0",
+        "ANSWER_0"
+      ]
+    },
+    {
+      "phase": "bc",
+      "episode": 4000,
+      "loss": 1.5795199033163954e-06,
+      "reward": 0.98,
+      "trace": [
+        "ASK_Q",
+        "READ_1",
+        "ANSWER_1"
+      ]
+    }
+  ],
+  "note": "Course correction after 272: ANSWER cand scorer sees was_said (value in transcript) instead of agreement; max_agree removed from globals. READ is the only way to light was_said for the truth on lying items \u2014 majority-in-retrieve is not an answer feature.",
+  "timestamp": "2026-08-05T10:28:01.544622+00:00",
+  "wall_s": 670.8261706829071
+}

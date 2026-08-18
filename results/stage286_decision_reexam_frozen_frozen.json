@@ -1,0 +1,376 @@
+{
+  "stage": 286,
+  "overall": "EVIDENCE_NO",
+  "seed": 286,
+  "smoke": false,
+  "run_tag": "reexam_frozen",
+  "no_hidden": false,
+  "addr_key": "two",
+  "train_steps": 6000,
+  "min_mentions": 2,
+  "min_evidence": 2,
+  "min_candidates": 1,
+  "min_per_family": 8,
+  "reward": {
+    "correct": 1.0,
+    "wrong": -1.0,
+    "abstain": 0.75
+  },
+  "gates": {
+    "G_arc_enc_frozen": true,
+    "G_task_exists": true,
+    "G_judges_non_vacuous": true,
+    "G_learns_evidence": false,
+    "G_abstains_unknowable": false,
+    "G_survives_lie": false,
+    "G_beats_silence": false
+  },
+  "judges_compared": [
+    "votes",
+    "return"
+  ],
+  "judges_compared_lie": [
+    "votes",
+    "return"
+  ],
+  "train_distribution": {
+    "n": 6000,
+    "sampling": "pair_uniform",
+    "mean_candidates": 2.07,
+    "target_unknown_rate": 0.37733333333333335,
+    "single_candidate_rate": 0.4325,
+    "truncated_skipped": 0,
+    "min_candidates_skipped": 0
+  },
+  "head_input_norms": {
+    "reading": 18.999608993530273,
+    "features": 6.137183666229248,
+    "reading_per_dim": 0.8396720224511357,
+    "features_per_dim": 2.0457278887430825
+  },
+  "leave_one_out": {
+    "n": 70,
+    "mean_candidates": 3.557142857142857,
+    "target_unknown_rate": 0.2,
+    "truncated_rate": 0.014285714285714285,
+    "silence_reward": 0.75,
+    "break_even_accuracy": 0.875,
+    "model": {
+      "n": 70,
+      "coverage": 0.7571428571428571,
+      "accuracy": 0.37735849056603776,
+      "reward": -0.0035714285714285713,
+      "n_answered": 53,
+      "vacuous": false
+    },
+    "votes": {
+      "n": 70,
+      "coverage": 0.8285714285714286,
+      "accuracy": 0.43103448275862066,
+      "reward": 0.014285714285714285,
+      "n_answered": 58,
+      "vacuous": false
+    },
+    "return": {
+      "n": 70,
+      "coverage": 0.12857142857142856,
+      "accuracy": 0.8888888888888888,
+      "reward": 0.7535714285714286,
+      "n_answered": 9,
+      "vacuous": false
+    },
+    "unknown_auc": 0.41581632653061223,
+    "p_unknown_when_absent": 0.07876620679046807,
+    "p_unknown_when_present": 0.26329131098895314,
+    "unknown_when_absent": 0.07142857142857142,
+    "unknown_when_present": 0.2857142857142857,
+    "n_absent": 14,
+    "n_present": 56,
+    "model_reward": -0.0035714285714285713,
+    "votes_reward": 0.014285714285714285,
+    "return_reward": 0.7535714285714286,
+    "model_acc_answered": 0.37735849056603776,
+    "model_abstain": 0.24285714285714288,
+    "matched_coverage": {
+      "votes": {
+        "judge_coverage": 0.8285714285714286,
+        "judge_accuracy": 0.43103448275862066,
+        "model_accuracy_at_that_coverage": 0.41379310344827586,
+        "n_compared": 58,
+        "judge_vacuous": false
+      },
+      "return": {
+        "judge_coverage": 0.12857142857142856,
+        "judge_accuracy": 0.8888888888888888,
+        "model_accuracy_at_that_coverage": 0.5555555555555556,
+        "n_compared": 9,
+        "judge_vacuous": false
+      }
+    },
+    "selective_curve": {
+      "0.10": 0.42857142857142855,
+      "0.25": 0.4444444444444444,
+      "0.50": 0.4857142857142857,
+      "0.75": 0.38461538461538464,
+      "1.00": 0.4857142857142857
+    }
+  },
+  "leave_one_out_train_control": {
+    "n": 84,
+    "mean_candidates": 2.1547619047619047,
+    "target_unknown_rate": 0.38095238095238093,
+    "truncated_rate": 0.0,
+    "silence_reward": 0.75,
+    "break_even_accuracy": 0.875,
+    "model": {
+      "n": 84,
+      "coverage": 0.6904761904761905,
+      "accuracy": 0.896551724137931,
+      "reward": 0.7797619047619048,
+      "n_answered": 58,
+      "vacuous": false
+    },
+    "votes": {
+      "n": 84,
+      "coverage": 0.6904761904761905,
+      "accuracy": 0.6896551724137931,
+      "reward": 0.49404761904761907,
+      "n_answered": 58,
+      "vacuous": false
+    },
+    "return": {
+      "n": 84,
+      "coverage": 0.35714285714285715,
+      "accuracy": 0.43333333333333335,
+      "reward": 0.43452380952380953,
+      "n_answered": 30,
+      "vacuous": false
+    },
+    "unknown_auc": 0.9855769230769231,
+    "p_unknown_when_absent": 0.821046712982934,
+    "p_unknown_when_present": 0.008058599594749007,
+    "unknown_when_absent": 0.8125,
+    "unknown_when_present": 0.0,
+    "n_absent": 32,
+    "n_present": 52,
+    "model_reward": 0.7797619047619048,
+    "votes_reward": 0.49404761904761907,
+    "return_reward": 0.43452380952380953,
+    "model_acc_answered": 0.896551724137931,
+    "model_abstain": 0.30952380952380953,
+    "matched_coverage": {
+      "votes": {
+        "judge_coverage": 0.6904761904761905,
+        "judge_accuracy": 0.6896551724137931,
+        "model_accuracy_at_that_coverage": 0.896551724137931,
+        "n_compared": 58,
+        "judge_vacuous": false
+      },
+      "return": {
+        "judge_coverage": 0.35714285714285715,
+        "judge_accuracy": 0.43333333333333335,
+        "model_accuracy_at_that_coverage": 1.0,
+        "n_compared": 30,
+        "judge_vacuous": false
+      }
+    },
+    "selective_curve": {
+      "0.10": 1.0,
+      "0.25": 1.0,
+      "0.50": 1.0,
+      "0.75": 0.8253968253968254,
+      "1.00": 0.6190476190476191
+    }
+  },
+  "lying_tape": {
+    "n": 61,
+    "mean_candidates": 3.8688524590163933,
+    "target_unknown_rate": 0.36065573770491804,
+    "truncated_rate": 0.01639344262295082,
+    "silence_reward": 0.75,
+    "break_even_accuracy": 0.875,
+    "model": {
+      "n": 61,
+      "coverage": 0.639344262295082,
+      "accuracy": 0.3076923076923077,
+      "reward": 0.02459016393442623,
+      "n_answered": 39,
+      "vacuous": false
+    },
+    "votes": {
+      "n": 61,
+      "coverage": 0.639344262295082,
+      "accuracy": 0.46153846153846156,
+      "reward": 0.22131147540983606,
+      "n_answered": 39,
+      "vacuous": false
+    },
+    "return": {
+      "n": 61,
+      "coverage": 0.21311475409836064,
+      "accuracy": 0.6153846153846154,
+      "reward": 0.639344262295082,
+      "n_answered": 13,
+      "vacuous": false
+    },
+    "unknown_auc": 0.5501165501165501,
+    "p_unknown_when_absent": 0.3324977125128364,
+    "p_unknown_when_present": 0.40953931996218185,
+    "unknown_when_absent": 0.2727272727272727,
+    "unknown_when_present": 0.41025641025641024,
+    "n_absent": 22,
+    "n_present": 39,
+    "model_reward": 0.02459016393442623,
+    "votes_reward": 0.22131147540983606,
+    "return_reward": 0.639344262295082,
+    "model_acc_answered": 0.3076923076923077,
+    "model_abstain": 0.360655737704918,
+    "matched_coverage": {
+      "votes": {
+        "judge_coverage": 0.639344262295082,
+        "judge_accuracy": 0.46153846153846156,
+        "model_accuracy_at_that_coverage": 0.3076923076923077,
+        "n_compared": 39,
+        "judge_vacuous": false
+      },
+      "return": {
+        "judge_coverage": 0.21311475409836064,
+        "judge_accuracy": 0.6153846153846154,
+        "model_accuracy_at_that_coverage": 0.38461538461538464,
+        "n_compared": 13,
+        "judge_vacuous": false
+      }
+    },
+    "selective_curve": {
+      "0.10": 0.5,
+      "0.25": 0.3333333333333333,
+      "0.50": 0.3,
+      "0.75": 0.2826086956521739,
+      "1.00": 0.2786885245901639
+    }
+  },
+  "exam": {
+    "n": 37,
+    "reward": 0.3581081081081081,
+    "votes_reward": 0.9324324324324325,
+    "return_reward": 0.7635135135135135,
+    "oracle_reward": 0.9324324324324325,
+    "gap_to_oracle": 0.5743243243243243,
+    "votes_is_the_label": true,
+    "clean": {
+      "n": 21,
+      "abstain": 0.5714285714285714,
+      "acc_answered": 1.0,
+      "reward": 0.8571428571428571
+    },
+    "decidable": {
+      "n": 6,
+      "abstain": 0.16666666666666666,
+      "acc_answered": 0.6,
+      "reward": 0.2916666666666667
+    },
+    "tie": {
+      "n": 10,
+      "abstain": 0.2,
+      "acc_answered": 0.0,
+      "reward": -0.65
+    }
+  },
+  "curve": [
+    {
+      "step": 750,
+      "loss": 0.6436411290014911,
+      "kind": "tie",
+      "n_cands": 3,
+      "mean_cands_so_far": 2.2226666666666666
+    },
+    {
+      "step": 1500,
+      "loss": 0.26667550186867767,
+      "kind": "clean",
+      "n_cands": 1,
+      "mean_cands_so_far": 2.220666666666667
+    },
+    {
+      "step": 2250,
+      "loss": 0.41002929789586395,
+      "kind": "clean",
+      "n_cands": 1,
+      "mean_cands_so_far": 2.1364444444444444
+    },
+    {
+      "step": 3000,
+      "loss": 0.18827156657962227,
+      "kind": "decidable",
+      "n_cands": 1,
+      "mean_cands_so_far": 2.069
+    },
+    {
+      "step": 3750,
+      "loss": 0.454263541162373,
+      "kind": "clean",
+      "n_cands": 1,
+      "mean_cands_so_far": 2.0984
+    },
+    {
+      "step": 4500,
+      "loss": 0.1189689873078946,
+      "kind": "decidable",
+      "n_cands": 3,
+      "mean_cands_so_far": 2.069111111111111
+    },
+    {
+      "step": 5250,
+      "loss": 0.26922907274711727,
+      "kind": "clean",
+      "n_cands": 1,
+      "mean_cands_so_far": 2.0655238095238095
+    },
+    {
+      "step": 6000,
+      "loss": 0.33696542368548793,
+      "kind": "tie",
+      "n_cands": 3,
+      "mean_cands_so_far": 2.07
+    }
+  ],
+  "arc_enc_hash_before": "64a764151ebd27ec5f4c1e92d72d9ce6dba381fb355c386d669f3a0ac2cf93d1",
+  "arc_enc_hash_after": "64a764151ebd27ec5f4c1e92d72d9ce6dba381fb355c386d669f3a0ac2cf93d1",
+  "fp_version": "stage191_p1_curve.pt",
+  "reference_280_baseline": {
+    "held_out_reward": 0.704,
+    "acc_answered_all": 0.9
+  },
+  "reference_286_first_full_nohid": {
+    "overall": "EVIDENCE_NO",
+    "model_reward": 0.1,
+    "votes_reward": 0.014,
+    "return_reward": 0.754,
+    "unknown_when_absent": 0.0,
+    "unknown_when_present": 0.218,
+    "exam_reward": 0.777,
+    "exam_votes_reward": 0.932,
+    "note": "scored by the examiners this file replaces; not comparable term by term"
+  },
+  "reference_286_ablation_pair_gen2": {
+    "code": "second-generation examiners, item-uniform sampler, no train control",
+    "nohid": {
+      "overall": "EVIDENCE_PARTIAL",
+      "loo_accuracy": 0.641,
+      "loo_coverage": 0.557,
+      "unknown_auc": 0.412,
+      "selective_10pct": 1.0
+    },
+    "hidden": {
+      "overall": "EVIDENCE_NO",
+      "loo_accuracy": 0.325,
+      "loo_coverage": 0.571,
+      "unknown_auc": 0.259,
+      "selective_10pct": 0.286
+    },
+    "note": "same tapes - judge numbers byte-identical between the runs. Reading halved accuracy at equal coverage and inverted the confidence ordering; the features-only ablation beat the arm carrying the stage's claim."
+  },
+  "note": "The direction of teaching is inverted: nobody demonstrates, the tape is the label. Hide one mention of an address, show the rest, require the hidden value - so there are as many examples as slots, no judge is imitated, and what the weights learn is what the judges were hand-written approximations of: weighing evidence. Votes and corroboration are features on the candidates now, every row reads the same schema so the UNKNOWN row can see the corroboration too, and each candidate is READ from the mentions that carry it. The examiners changed after the first full run, which measured four properties of the scoring rather than of the mind. The exam is no longer gated: with every mention visible, votes computes the majority and the label IS the majority, so votes was an oracle and 0.932 was the ceiling. Reward is no longer the comparison: at abstain 0.75 against wrong -1.0 nothing beats silence under 87.5% accuracy, so every scorer piles up at the constant and coverage and accuracy are now reported apart, with a judge under 10% coverage marked vacuous instead of being ranked against. The mind is compared to each judge at THAT JUDGE'S coverage, ranked by its own confidence. And honesty is measured in the distribution: whether the hidden value is visible is a property of the hidden slot, and where the evidence is unanimous the UNKNOWN row is the same input under both labels, so an argmax can never choose it against a 20% base rate - what the evidence can be asked is whether it moves P(UNKNOWN), which is an AUC. The lying tape stays the sharpest test of the concept: a forged mention has no external corroboration and a mind that weighs evidence should discount it, while votes by construction cannot. The address itself is still 280's plumbing - this stage is about weighing WITHIN the evidence set, so the ceiling here is what a correct address makes visible.",
+  "timestamp": "2026-08-08T06:29:09.694768+00:00",
+  "wall_s": 3988.7250118255615
+}

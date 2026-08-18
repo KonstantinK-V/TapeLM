@@ -617,6 +617,7 @@ def main() -> int:
         "stage": 258,
         "overall": overall,
         "trunk": trunk_ckpt.name,
+        "fp_version": L.canonical_fp_version(),
         "chance": CHANCE,
         "steps": steps,
         "n_subjects": len(subjects),

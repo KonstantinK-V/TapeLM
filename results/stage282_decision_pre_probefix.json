@@ -1,0 +1,890 @@
+{
+  "stage": 282,
+  "overall": "MIND_PARTIAL",
+  "actions": 37,
+  "topk": 7,
+  "query_words": 6,
+  "max_probes": 2,
+  "no_hidden": false,
+  "no_edit": false,
+  "no_probe": false,
+  "run_tag": "",
+  "smoke": false,
+  "seed": 282,
+  "bc_episodes": 4000,
+  "rl_episodes": 3000,
+  "min_mentions": 2,
+  "min_per_family": 8,
+  "reward": {
+    "correct": 1.0,
+    "wrong": -1.0,
+    "abstain": 0.75,
+    "stall": 0.0,
+    "read": -0.02
+  },
+  "teacher_ceiling_reward": 0.6557894736842106,
+  "gates": {
+    "G_arc_enc_frozen": true,
+    "G_answer_is_slot": true,
+    "G_all_families_present": true,
+    "G_teacher_usable": true,
+    "G_reaches_teacher": true,
+    "G_silence_is_typed": false,
+    "G_conflict_on_tie": true,
+    "G_probe_filters_wrong_answers": false,
+    "G_acc_when_answering": true
+  },
+  "train_tape": {
+    "answer_is_slot": 1.0,
+    "stall_rate": 0.0,
+    "words_silent_rate": 0.0,
+    "hops_per_episode": 0.1837837837837838,
+    "unknown_when_silent": 0.0,
+    "conflict_when_tie": 0.8536585365853658,
+    "probe_hit_rate": 0.0,
+    "acc_when_probe_hit": NaN,
+    "acc_when_probe_miss": 1.0,
+    "reward_total": 0.6217297297297297,
+    "teacher_reward_total": 0.6176756756756757,
+    "retrieval_precision": 0.32581724581724575,
+    "witness_recall": 0.8293479193479194,
+    "n_items": 185,
+    "clean": {
+      "n": 85,
+      "coverage": 0.03529411764705881,
+      "acc_answered": 1.0,
+      "abstain": 0.9647058823529412,
+      "stop_conflict": 0.08235294117647059,
+      "stop_unknown": 0.8823529411764706,
+      "mean_reads": 6.458823529411765,
+      "mean_edits": 0.0,
+      "mean_probes": 1.3176470588235294,
+      "reward": 0.6296470588235294,
+      "teacher_abstain": 1.0,
+      "teacher_acc_all": 0.0
+    },
+    "decidable": {
+      "n": 18,
+      "coverage": 0.0,
+      "acc_answered": NaN,
+      "abstain": 1.0,
+      "stop_conflict": 0.2777777777777778,
+      "stop_unknown": 0.7222222222222222,
+      "mean_reads": 6.833333333333333,
+      "mean_edits": 0.0,
+      "mean_probes": 1.3333333333333333,
+      "reward": 0.6133333333333333,
+      "teacher_abstain": 1.0,
+      "teacher_acc_all": 0.0
+    },
+    "tie": {
+      "n": 82,
+      "coverage": 0.0,
+      "acc_answered": NaN,
+      "abstain": 1.0,
+      "stop_conflict": 0.8536585365853658,
+      "stop_unknown": 0.14634146341463414,
+      "mean_reads": 6.7317073170731705,
+      "mean_edits": 0.0,
+      "mean_probes": 0.15853658536585366,
+      "reward": 0.6153658536585367,
+      "teacher_abstain": 1.0,
+      "teacher_acc_all": 0.0
+    },
+    "coverage_all": 0.016216216216216217,
+    "acc_answered_all": 1.0
+  },
+  "held_out": {
+    "answer_is_slot": 1.0,
+    "stall_rate": 0.0,
+    "words_silent_rate": 0.0,
+    "hops_per_episode": 0.07017543859649122,
+    "unknown_when_silent": 0.0,
+    "conflict_when_tie": 0.7058823529411765,
+    "probe_hit_rate": 0.025,
+    "acc_when_probe_hit": NaN,
+    "acc_when_probe_miss": 1.0,
+    "reward_total": 0.6601754385964913,
+    "teacher_reward_total": 0.6557894736842106,
+    "retrieval_precision": 0.5840434419381787,
+    "witness_recall": 0.9713059823471722,
+    "n_items": 57,
+    "traces": [
+      {
+        "kind": "clean",
+        "S": "goldie",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "READ_1",
+          "READ_2",
+          "READ_3",
+          "READ_4",
+          "STOP_CONFLICT"
+        ],
+        "correct": 0,
+        "stop": "conflict",
+        "edits": 0,
+        "probes": 0
+      },
+      {
+        "kind": "clean",
+        "S": "rafale",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "READ_1",
+          "READ_2",
+          "ASK_VALUE_0",
+          "ASK_VALUE_1",
+          "STOP_UNKNOWN"
+        ],
+        "correct": 0,
+        "stop": "unknown",
+        "edits": 0,
+        "probes": 2
+      },
+      {
+        "kind": "clean",
+        "S": "one times square",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "READ_1",
+          "READ_2",
+          "READ_3",
+          "READ_4",
+          "READ_5",
+          "READ_6",
+          "ASK_VALUE_0",
+          "ASK_VALUE_1",
+          "STOP_UNKNOWN"
+        ],
+        "correct": 0,
+        "stop": "unknown",
+        "edits": 0,
+        "probes": 2
+      },
+      {
+        "kind": "clean",
+        "S": "jayakumar",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "READ_1",
+          "READ_2",
+          "READ_3",
+          "READ_4",
+          "READ_5",
+          "STOP_CONFLICT"
+        ],
+        "correct": 0,
+        "stop": "conflict",
+        "edits": 0,
+        "probes": 0
+      },
+      {
+        "kind": "clean",
+        "S": "queer eye",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "READ_1",
+          "READ_2",
+          "READ_3",
+          "ASK_VALUE_0",
+          "ASK_VALUE_1",
+          "STOP_UNKNOWN"
+        ],
+        "correct": 0,
+        "stop": "unknown",
+        "edits": 0,
+        "probes": 2
+      },
+      {
+        "kind": "clean",
+        "S": "arniston",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "READ_1",
+          "READ_2",
+          "READ_3",
+          "READ_4",
+          "READ_5",
+          "ASK_VALUE_0",
+          "ASK_VALUE_1",
+          "ANSWER_2"
+        ],
+        "correct": 1,
+        "stop": null,
+        "edits": 0,
+        "probes": 2
+      },
+      {
+        "kind": "clean",
+        "S": "anita diehl",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "READ_1",
+          "READ_2",
+          "ASK_VALUE_0",
+          "ASK_VALUE_1",
+          "STOP_UNKNOWN"
+        ],
+        "correct": 0,
+        "stop": "unknown",
+        "edits": 0,
+        "probes": 2
+      },
+      {
+        "kind": "clean",
+        "S": "barbara",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "READ_1",
+          "READ_2",
+          "READ_3",
+          "READ_4",
+          "READ_5",
+          "READ_6",
+          "STOP_CONFLICT"
+        ],
+        "correct": 0,
+        "stop": "conflict",
+        "edits": 0,
+        "probes": 0
+      },
+      {
+        "kind": "decidable",
+        "S": "united states",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "READ_1",
+          "READ_2",
+          "READ_3",
+          "READ_6",
+          "READ_4",
+          "READ_5",
+          "ASK_VALUE_0",
+          "ASK_VALUE_1",
+          "STOP_UNKNOWN"
+        ],
+        "correct": 0,
+        "stop": "unknown",
+        "edits": 0,
+        "probes": 2
+      },
+      {
+        "kind": "decidable",
+        "S": "nonviolent communication",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "READ_1",
+          "READ_2",
+          "READ_3",
+          "READ_4",
+          "ASK_VALUE_0",
+          "ASK_VALUE_1",
+          "STOP_UNKNOWN"
+        ],
+        "correct": 0,
+        "stop": "unknown",
+        "edits": 0,
+        "probes": 2
+      },
+      {
+        "kind": "decidable",
+        "S": "texas",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "READ_2",
+          "READ_1",
+          "READ_4",
+          "READ_3",
+          "READ_5",
+          "READ_6",
+          "ASK_VALUE_0",
+          "ASK_VALUE_2",
+          "STOP_UNKNOWN"
+        ],
+        "correct": 0,
+        "stop": "unknown",
+        "edits": 0,
+        "probes": 2
+      },
+      {
+        "kind": "decidable",
+        "S": "case concerning sovereignty",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "READ_1",
+          "READ_2",
+          "READ_3",
+          "READ_4",
+          "READ_5",
+          "READ_6",
+          "ASK_VALUE_0",
+          "ASK_VALUE_1",
+          "STOP_UNKNOWN"
+        ],
+        "correct": 0,
+        "stop": "unknown",
+        "edits": 0,
+        "probes": 2
+      },
+      {
+        "kind": "decidable",
+        "S": "drama series",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "READ_1",
+          "READ_2",
+          "READ_4",
+          "READ_5",
+          "READ_3",
+          "READ_6",
+          "ASK_VALUE_2",
+          "ASK_VALUE_4",
+          "STOP_UNKNOWN"
+        ],
+        "correct": 0,
+        "stop": "unknown",
+        "edits": 0,
+        "probes": 2
+      },
+      {
+        "kind": "decidable",
+        "S": "sleaford",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "READ_1",
+          "READ_2",
+          "READ_3",
+          "ASK_VALUE_0",
+          "STOP_UNKNOWN"
+        ],
+        "correct": 0,
+        "stop": "unknown",
+        "edits": 0,
+        "probes": 1
+      },
+      {
+        "kind": "decidable",
+        "S": "speaker",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "READ_1",
+          "READ_2",
+          "READ_3",
+          "READ_4",
+          "ASK_VALUE_0",
+          "ASK_VALUE_2",
+          "STOP_UNKNOWN"
+        ],
+        "correct": 0,
+        "stop": "unknown",
+        "edits": 0,
+        "probes": 2
+      },
+      {
+        "kind": "decidable",
+        "S": "the straits times",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "READ_1",
+          "READ_2",
+          "READ_3",
+          "ASK_VALUE_1",
+          "ASK_VALUE_2",
+          "STOP_UNKNOWN"
+        ],
+        "correct": 0,
+        "stop": "unknown",
+        "edits": 0,
+        "probes": 2
+      },
+      {
+        "kind": "tie",
+        "S": "august",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "READ_1",
+          "READ_2",
+          "READ_3",
+          "READ_4",
+          "ASK_VALUE_0",
+          "ASK_VALUE_1",
+          "STOP_UNKNOWN"
+        ],
+        "correct": 0,
+        "stop": "unknown",
+        "edits": 0,
+        "probes": 2
+      },
+      {
+        "kind": "tie",
+        "S": "brahmins",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "READ_1",
+          "READ_2",
+          "STOP_CONFLICT"
+        ],
+        "correct": 0,
+        "stop": "conflict",
+        "edits": 0,
+        "probes": 0
+      },
+      {
+        "kind": "tie",
+        "S": "andrew",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "READ_1",
+          "READ_2",
+          "STOP_CONFLICT"
+        ],
+        "correct": 0,
+        "stop": "conflict",
+        "edits": 0,
+        "probes": 0
+      },
+      {
+        "kind": "tie",
+        "S": "december",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "READ_1",
+          "READ_2",
+          "READ_3",
+          "READ_4",
+          "READ_5",
+          "READ_6",
+          "ASK_VALUE_0",
+          "ASK_VALUE_1",
+          "STOP_UNKNOWN"
+        ],
+        "correct": 0,
+        "stop": "unknown",
+        "edits": 0,
+        "probes": 2
+      },
+      {
+        "kind": "tie",
+        "S": "american",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "READ_1",
+          "STOP_CONFLICT"
+        ],
+        "correct": 0,
+        "stop": "conflict",
+        "edits": 0,
+        "probes": 0
+      },
+      {
+        "kind": "tie",
+        "S": "tonbridge",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "READ_1",
+          "READ_2",
+          "STOP_CONFLICT"
+        ],
+        "correct": 0,
+        "stop": "conflict",
+        "edits": 0,
+        "probes": 0
+      },
+      {
+        "kind": "tie",
+        "S": "china",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "READ_1",
+          "READ_2",
+          "READ_3",
+          "ASK_VALUE_0",
+          "ASK_VALUE_1",
+          "STOP_UNKNOWN"
+        ],
+        "correct": 0,
+        "stop": "unknown",
+        "edits": 0,
+        "probes": 2
+      },
+      {
+        "kind": "tie",
+        "S": "national historical landmark",
+        "trace": [
+          "ASK_Q",
+          "READ_0",
+          "READ_1",
+          "READ_2",
+          "READ_3",
+          "READ_4",
+          "READ_5",
+          "READ_6",
+          "ASK_VALUE_0",
+          "ASK_VALUE_1",
+          "STOP_UNKNOWN"
+        ],
+        "correct": 0,
+        "stop": "unknown",
+        "edits": 0,
+        "probes": 2
+      }
+    ],
+    "clean": {
+      "n": 29,
+      "coverage": 0.06896551724137934,
+      "acc_answered": 1.0,
+      "abstain": 0.9310344827586207,
+      "stop_conflict": 0.1724137931034483,
+      "stop_unknown": 0.7586206896551724,
+      "mean_reads": 4.862068965517241,
+      "mean_edits": 0.0,
+      "mean_probes": 1.6206896551724137,
+      "reward": 0.67,
+      "teacher_abstain": 0.9655172413793104,
+      "teacher_acc_all": 0.034482758620689655
+    },
+    "decidable": {
+      "n": 8,
+      "coverage": 0.0,
+      "acc_answered": NaN,
+      "abstain": 1.0,
+      "stop_conflict": 0.0,
+      "stop_unknown": 1.0,
+      "mean_reads": 5.75,
+      "mean_edits": 0.0,
+      "mean_probes": 1.875,
+      "reward": 0.635,
+      "teacher_abstain": 1.0,
+      "teacher_acc_all": 0.0
+    },
+    "tie": {
+      "n": 20,
+      "coverage": 0.0,
+      "acc_answered": NaN,
+      "abstain": 1.0,
+      "stop_conflict": 0.6,
+      "stop_unknown": 0.4,
+      "mean_reads": 4.7,
+      "mean_edits": 0.0,
+      "mean_probes": 0.8,
+      "reward": 0.6559999999999999,
+      "teacher_abstain": 1.0,
+      "teacher_acc_all": 0.0
+    },
+    "coverage_all": 0.03508771929824561,
+    "acc_answered_all": 1.0
+  },
+  "curve": [
+    {
+      "phase": "bc",
+      "episode": 500,
+      "loss": 0.8218788504600525,
+      "kind": "clean",
+      "trace": [
+        "ASK_Q",
+        "READ_0",
+        "READ_1",
+        "READ_2",
+        "READ_3",
+        "READ_4",
+        "READ_5",
+        "ASK_VALUE_0",
+        "STOP_UNKNOWN"
+      ]
+    },
+    {
+      "phase": "bc",
+      "episode": 1000,
+      "loss": 0.7457895874977112,
+      "kind": "tie",
+      "trace": [
+        "ASK_Q",
+        "READ_0",
+        "READ_1",
+        "READ_2",
+        "READ_3",
+        "READ_4",
+        "READ_5",
+        "READ_6",
+        "STOP_CONFLICT"
+      ]
+    },
+    {
+      "phase": "bc",
+      "episode": 1500,
+      "loss": 0.7263137102127075,
+      "kind": "clean",
+      "trace": [
+        "ASK_Q",
+        "READ_0",
+        "READ_1",
+        "READ_2",
+        "READ_3",
+        "READ_4",
+        "READ_5",
+        "ASK_VALUE_0",
+        "STOP_UNKNOWN"
+      ]
+    },
+    {
+      "phase": "bc",
+      "episode": 2000,
+      "loss": 0.5006106495857239,
+      "kind": "decidable",
+      "trace": [
+        "ASK_Q",
+        "READ_0",
+        "READ_1",
+        "READ_2",
+        "READ_3",
+        "READ_4",
+        "READ_5",
+        "READ_6",
+        "STOP_CONFLICT"
+      ]
+    },
+    {
+      "phase": "bc",
+      "episode": 2500,
+      "loss": 0.5375002026557922,
+      "kind": "tie",
+      "trace": [
+        "ASK_Q",
+        "READ_0",
+        "READ_1",
+        "READ_2",
+        "READ_3",
+        "READ_4",
+        "READ_5",
+        "READ_6",
+        "STOP_CONFLICT"
+      ]
+    },
+    {
+      "phase": "bc",
+      "episode": 3000,
+      "loss": 0.9235934615135193,
+      "kind": "tie",
+      "trace": [
+        "ASK_Q",
+        "READ_0",
+        "READ_1",
+        "READ_2",
+        "READ_3",
+        "READ_4",
+        "READ_5",
+        "STOP_CONFLICT"
+      ]
+    },
+    {
+      "phase": "bc",
+      "episode": 3500,
+      "loss": 0.8441158533096313,
+      "kind": "clean",
+      "trace": [
+        "ASK_Q",
+        "READ_0",
+        "READ_1",
+        "READ_2",
+        "READ_3",
+        "READ_4",
+        "READ_5",
+        "READ_6",
+        "ASK_VALUE_4",
+        "STOP_UNKNOWN"
+      ]
+    },
+    {
+      "phase": "bc",
+      "episode": 4000,
+      "loss": 0.755748450756073,
+      "kind": "clean",
+      "trace": [
+        "ASK_Q",
+        "READ_0",
+        "READ_1",
+        "READ_2",
+        "READ_3",
+        "READ_4",
+        "READ_5",
+        "READ_6",
+        "ASK_VALUE_0",
+        "STOP_UNKNOWN"
+      ]
+    },
+    {
+      "phase": "rl",
+      "episode": 375,
+      "v_mse": 0.3951532405812759,
+      "kind": "decidable",
+      "trace": [
+        "ASK_Q",
+        "READ_1",
+        "READ_2",
+        "READ_3",
+        "READ_0",
+        "READ_4",
+        "READ_5",
+        "READ_6",
+        "ANSWER_3"
+      ]
+    },
+    {
+      "phase": "rl",
+      "episode": 750,
+      "v_mse": 0.45178106436651433,
+      "kind": "clean",
+      "trace": [
+        "ASK_Q",
+        "READ_1",
+        "READ_0",
+        "READ_2",
+        "READ_3",
+        "READ_5",
+        "READ_4",
+        "ASK_VALUE_0",
+        "ASK_VALUE_1",
+        "STOP_UNKNOWN"
+      ]
+    },
+    {
+      "phase": "rl",
+      "episode": 1125,
+      "v_mse": 0.27961078935649314,
+      "kind": "clean",
+      "trace": [
+        "ASK_Q",
+        "READ_5",
+        "READ_3",
+        "READ_0",
+        "READ_1",
+        "READ_2",
+        "READ_4",
+        "READ_6",
+        "STOP_UNKNOWN"
+      ]
+    },
+    {
+      "phase": "rl",
+      "episode": 1500,
+      "v_mse": 0.4712531568528175,
+      "kind": "clean",
+      "trace": [
+        "ASK_Q",
+        "READ_4",
+        "READ_3",
+        "READ_1",
+        "READ_2",
+        "READ_0",
+        "READ_5",
+        "READ_6",
+        "ASK_VALUE_4",
+        "ASK_VALUE_5",
+        "STOP_UNKNOWN"
+      ]
+    },
+    {
+      "phase": "rl",
+      "episode": 1875,
+      "v_mse": 0.457764725309753,
+      "kind": "decidable",
+      "trace": [
+        "ASK_Q",
+        "READ_2",
+        "READ_0",
+        "READ_1",
+        "READ_3",
+        "READ_4",
+        "READ_6",
+        "READ_5",
+        "STOP_CONFLICT"
+      ]
+    },
+    {
+      "phase": "rl",
+      "episode": 2250,
+      "v_mse": 0.5481347295781416,
+      "kind": "tie",
+      "trace": [
+        "ASK_Q",
+        "READ_0",
+        "READ_1",
+        "READ_3",
+        "READ_2",
+        "READ_5",
+        "READ_4",
+        "READ_6",
+        "STOP_CONFLICT"
+      ]
+    },
+    {
+      "phase": "rl",
+      "episode": 2625,
+      "v_mse": 0.36760957821326884,
+      "kind": "decidable",
+      "trace": [
+        "ASK_Q",
+        "READ_2",
+        "READ_0",
+        "READ_3",
+        "READ_1",
+        "READ_4",
+        "READ_5",
+        "READ_6",
+        "STOP_CONFLICT"
+      ]
+    },
+    {
+      "phase": "rl",
+      "episode": 3000,
+      "v_mse": 0.4425190388842748,
+      "kind": "tie",
+      "trace": [
+        "ASK_Q",
+        "READ_0",
+        "READ_2",
+        "READ_1",
+        "READ_3",
+        "READ_5",
+        "READ_6",
+        "READ_4",
+        "ASK_VALUE_4",
+        "STOP_UNKNOWN"
+      ]
+    }
+  ],
+  "arc_enc_hash_before": "64a764151ebd27ec5f4c1e92d72d9ce6dba381fb355c386d669f3a0ac2cf93d1",
+  "arc_enc_hash_after": "64a764151ebd27ec5f4c1e92d72d9ce6dba381fb355c386d669f3a0ac2cf93d1",
+  "fp_version": "stage191_p1_curve.pt",
+  "reference_280": {
+    "teacher_ceiling": 0.36666666666666653,
+    "policy_q8": 0.4666666666666666
+  },
+  "note": "One mind over the 280 tape, with three things the policy could not express. Silence is typed - STOP_CONFLICT where support is equal, STOP_UNKNOWN where nothing was found - so abstention is a diagnosis and G_silence_is_typed checks the diagnosis against the situation rather than counting refusals. The query is an editable set of words, since 261 established the query must be words, so DROP_i and ADD_i make retrieval part of the policy instead of a fixed function applied to it; a typed silence is what tells the two apart, UNKNOWN meaning reformulate and CONFLICT meaning stop. And ASK_VALUE_i verifies by the return path: ask the tape about the value before answering with it, as a probe that restores the candidate list, so a plausible-but-wrong value with no way back is caught by something other than a vote count. The teacher demonstrates all three and reads no label. --no-edit and --no-probe are the ablations.",
+  "timestamp": "2026-08-07T00:52:51.347704+00:00",
+  "wall_s": 12081.980478286743
+}

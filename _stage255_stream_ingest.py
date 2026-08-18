@@ -1,4 +1,4 @@
-﻿"""
+"""
 Stage 255 тАФ Stream-ingest engine: chunked training with domain switching, bounded RAM.
 
 North star: never hold the corpus in memory, never re-read it, switch domains mid-stream,
@@ -48,6 +48,7 @@ import _stage24x_lib as L
 from _stage191_night import MAX_ARCS, PAD, SelfModelXL, load_data
 from _stage192_fp_lexicon import gen_fakes
 from _stage194_fp_fact_memory import ENT_RE, FpBank
+from _inprint_glue import slot_query_words
 from _tapelm_ext import DomainAdapter
 
 RES = Path("results")
@@ -157,6 +158,20 @@ class Tape:
         self.values: list[str] = []
         self.meta: list[dict] = []
         self._value_set: set[str] = set()
+        self._ctxw: list[list[str]] = []
+        self._postings = None
+
+    def _sync_postings(self) -> None:
+        from _inprint_glue import SlotPostings
+
+        if len(self._ctxw) == len(self.values) and self._ctxw:
+            self._postings = SlotPostings.from_ctxw(self._ctxw, torch.device("cpu"))
+        else:
+            self._postings = None
+
+    @property
+    def postings(self):
+        return self._postings
 
     def __len__(self) -> int:
         return len(self.values)
@@ -172,7 +187,13 @@ class Tape:
     def has_value(self, value: str) -> bool:
         return value in self._value_set
 
-    def append(self, keys: torch.Tensor, values: list[str], meta: list[dict]) -> int:
+    def append(
+        self,
+        keys: torch.Tensor,
+        values: list[str],
+        meta: list[dict],
+        ctxw: list[list[str]] | None = None,
+    ) -> int:
         if not values:
             return 0
         self._blocks.append(keys.detach().to("cpu", torch.float16))
@@ -180,6 +201,9 @@ class Tape:
         self.values.extend(values)
         self.meta.extend(meta)
         self._value_set.update(values)
+        if ctxw is not None:
+            self._ctxw.extend(ctxw)
+        self._sync_postings()
         return len(values)
 
     def scores(self, q: torch.Tensor, block: int = 200_000) -> torch.Tensor:
@@ -279,7 +303,7 @@ def ingest_entities(
     Keys must use the SAME convention as probe facts (subject anchor + context). A context-only
     key is a generic direction that outscores anchored keys for any query and blinds the bank.
     """
-    keys, vals, meta, qraw = [], [], [], []
+    keys, vals, meta, qraw, ctxw_batch = [], [], [], [], []
     seen_local = set()
     line_order = list(range(len(lines)))
     rng_scan.shuffle(line_order)
@@ -306,6 +330,7 @@ def ingest_entities(
             # key, but with the entity itself still unseen. These are the pairs W_q trains on.
             cq = bank_can.ctx_fp(ln[lo : m.start()])
             qraw.append(F.normalize(a_fp + cq, dim=-1) if cq is not None else None)
+            ctxw_batch.append(slot_query_words(ln[lo:hi], exclude=ent))
             vals.append(ent)
             meta.append({"domain": dom, "chunk": chunk_i, "kind": "entity", "anchor": s_anchor})
             if len(keys) >= cap:
@@ -315,7 +340,7 @@ def ingest_entities(
     if not keys:
         return 0, 0, []
     Kn = torch.stack(keys, 0)
-    kept_k, kept_v, kept_m, pairs = [], [], [], []
+    kept_k, kept_v, kept_m, kept_ctxw, pairs = [], [], [], [], []
     dropped = 0
     for i in range(len(vals)):
         if tape.has_value(vals[i]):
@@ -329,17 +354,18 @@ def ingest_entities(
         kept_k.append(Kn[i])
         kept_v.append(vals[i])
         kept_m.append(meta[i])
+        kept_ctxw.append(ctxw_batch[i])
         if qraw[i] is not None:
             pairs.append({"q": qraw[i].detach().to("cpu", torch.float16), "value": vals[i]})
     if kept_k:
-        tape.append(torch.stack(kept_k, 0), kept_v, kept_m)
+        tape.append(torch.stack(kept_k, 0), kept_v, kept_m, ctxw=kept_ctxw)
     return len(kept_v), dropped, pairs
 
 
 def make_probe_facts(bank_can: FpBank, values_pool: list[str], n: int, dom: str, rng: random.Random):
     """Controlled facts written to the tape only. Half fit W_q, half are held out for recall."""
     subs = [w for w in gen_fakes(set(values_pool), rng, n + 20) if len(w) >= 5][:n]
-    facts, keys = [], []
+    facts, keys, ctxw_list = [], [], []
     for i, S in enumerate(subs):
         Vv = values_pool[rng.randrange(len(values_pool))]
         sent = f"{S} was appointed director of {Vv} in the {dom} chronicle of 1987 ."
@@ -354,12 +380,15 @@ def make_probe_facts(bank_can: FpBank, values_pool: list[str], n: int, dom: str,
         k = bank_can.fp([S])[0]
         c = bank_can.ctx_fp(sent, exclude=Vv)
         keys.append(F.normalize(k + c, dim=-1) if c is not None else k)
+        ctxw_list.append(slot_query_words(sent, exclude=Vv))
         facts.append(f)
-    return facts, (torch.stack(keys, 0) if keys else torch.zeros(0, 256))
+    return facts, (torch.stack(keys, 0) if keys else torch.zeros(0, 256)), ctxw_list
 
 
 def probe_bank_metrics(bank_q, tape: Tape, facts, all_values, W=None) -> dict:
-    return L.tape_recall_metrics(facts, all_values, bank_q, tape.K, tape.values, RECALL_SEED, W_bwd=W)
+    return L.tape_recall_metrics(
+        facts, all_values, bank_q, tape.K, tape.values, RECALL_SEED, W_bwd=W, postings=tape.postings
+    )
 
 
 def parse_schedule(s: str) -> list[tuple[str, int]]:
@@ -506,7 +535,8 @@ def main() -> int:
                     banks_q[dom] = FpBank(sh, stoi, device)
         qp = RUN / "query_adapter.pt"
         if W_query is not None and qp.exists():
-            W_query.load_state_dict(torch.load(qp, map_location=device, weights_only=False))
+            qck = torch.load(qp, map_location=device, weights_only=False)
+            W_query.load_state_dict(qck["W_q_stream"] if isinstance(qck, dict) and "W_q_stream" in qck else qck)
         pp = RUN / "qpairs.pt"
         if pp.exists():
             d = torch.load(pp, map_location="cpu", weights_only=False)
@@ -545,9 +575,9 @@ def main() -> int:
             holdouts[dom] = hb[:n_hold] if len(hb) >= n_hold else hb
             baseline_hold_ce[dom] = s252.fixed_hold_ce(model_can, holdouts[dom], char_table, pad_id, device)
             train_docs = list(range(0, n_docs - n_h))
-            pf, pk = make_probe_facts(bank_can, values_pool, n_probe_facts, dom, rng)
+            pf, pk, pctx = make_probe_facts(bank_can, values_pool, n_probe_facts, dom, rng)
             probe_facts[dom] = pf
-            tape.append(pk, [f["value"] for f in pf], [{"domain": dom, "kind": "probe"} for _ in pf])
+            tape.append(pk, [f["value"] for f in pf], [{"domain": dom, "kind": "probe"} for _ in pf], ctxw=pctx)
             log(f"  [{dom}] holdout={len(holdouts[dom])} probe_facts={len(pf)} P1_hold_ce={baseline_hold_ce[dom]:.3f}")
         else:
             train_docs = list(range(0, n_docs))
@@ -669,7 +699,10 @@ def main() -> int:
             if W_era:
                 safe_torch_save({k: v.state_dict() for k, v in W_era.items()}, RUN / "w_era.pt")
             if W_query is not None:
-                safe_torch_save(W_query.state_dict(), RUN / "query_adapter.pt")
+                safe_torch_save(
+                    {"W_q_stream": W_query.state_dict(), "W_query": W_query.state_dict()},
+                    RUN / "query_adapter.pt",
+                )
             if q_pairs:
                 safe_torch_save(
                     {"q": torch.stack([p["q"] for p in q_pairs]), "values": [p["value"] for p in q_pairs]},

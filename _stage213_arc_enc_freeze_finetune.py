@@ -120,7 +120,10 @@ def load_p1(device: torch.device, n_char: int, V: int) -> SelfModelXL:
 def set_train_mode(model: SelfModelXL, which: str) -> None:
     for p in model.parameters():
         p.requires_grad = False
-    if which == "upper":
+    if which == "none":
+        # Product / frozen-mind control: nothing in the trunk trains.
+        model.eval()
+    elif which == "upper":
         for mod in (model.fast, model.slow, model.head):
             mod.train()
             for p in mod.parameters():

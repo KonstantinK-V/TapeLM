@@ -1,0 +1,1039 @@
+{
+  "soft": [
+    {
+      "S": "Defruhozco",
+      "gold": "Philippine",
+      "got": "Philippine Early Philippine Early Philippine Early",
+      "em_first_word": "Philippine",
+      "gold_decode": "Philippine",
+      "gate_mean": 0.9942870934804281,
+      "n_opens": 0,
+      "opened_value": null,
+      "opened_at": null,
+      "opened_correct": false,
+      "truncated": false,
+      "verbatim": false,
+      "n_val_tokens": 3,
+      "opens": [],
+      "em": true,
+      "em3": true
+    },
+    {
+      "S": "Camesokah",
+      "gold": "Normal",
+      "got": "Norman Norman Norman Norman",
+      "em_first_word": "Norman",
+      "gold_decode": "Normal",
+      "gate_mean": 0.4289413528948292,
+      "n_opens": 0,
+      "opened_value": null,
+      "opened_at": null,
+      "opened_correct": false,
+      "truncated": false,
+      "verbatim": false,
+      "n_val_tokens": 3,
+      "opens": [],
+      "em": false,
+      "em3": false
+    },
+    {
+      "S": "Fisat",
+      "gold": "Sleaford",
+      "got": "Sleaford Fair Sela Sela",
+      "em_first_word": "Sleaford",
+      "gold_decode": "Sleaford",
+      "gate_mean": 0.4578074635283353,
+      "n_opens": 0,
+      "opened_value": null,
+      "opened_at": null,
+      "opened_correct": false,
+      "truncated": false,
+      "verbatim": false,
+      "n_val_tokens": 4,
+      "opens": [],
+      "em": true,
+      "em3": true
+    },
+    {
+      "S": "Nagikecpa",
+      "gold": "Investiture",
+      "got": "Institute Institute of the United States , and",
+      "em_first_word": "Institute",
+      "gold_decode": "Investiture",
+      "gate_mean": 0.18373016118080918,
+      "n_opens": 0,
+      "opened_value": null,
+      "opened_at": null,
+      "opened_correct": false,
+      "truncated": false,
+      "verbatim": false,
+      "n_val_tokens": 5,
+      "opens": [],
+      "em": false,
+      "em3": false
+    },
+    {
+      "S": "Huvigi",
+      "gold": "Whammy",
+      "got": "Whammy Comp Whammy Comp Whammy Comp",
+      "em_first_word": "Whammy",
+      "gold_decode": "Whammy",
+      "gate_mean": 0.9208962122599283,
+      "n_opens": 0,
+      "opened_value": null,
+      "opened_at": null,
+      "opened_correct": false,
+      "truncated": false,
+      "verbatim": false,
+      "n_val_tokens": 3,
+      "opens": [],
+      "em": true,
+      "em3": true
+    },
+    {
+      "S": "Topolagu",
+      "gold": "Ahead",
+      "got": "Ahead Salam Ahead Southampton ,",
+      "em_first_word": "Ahead",
+      "gold_decode": "Ahead",
+      "gate_mean": 0.41084610913232683,
+      "n_opens": 0,
+      "opened_value": null,
+      "opened_at": null,
+      "opened_correct": false,
+      "truncated": false,
+      "verbatim": false,
+      "n_val_tokens": 2,
+      "opens": [],
+      "em": true,
+      "em3": true
+    },
+    {
+      "S": "Dozorlorna",
+      "gold": "Scripture",
+      "got": "Scient Scient Scient Scient Scient Scient",
+      "em_first_word": "Scient",
+      "gold_decode": "Scripture",
+      "gate_mean": 0.5044082591505988,
+      "n_opens": 0,
+      "opened_value": null,
+      "opened_at": null,
+      "opened_correct": false,
+      "truncated": false,
+      "verbatim": false,
+      "n_val_tokens": 3,
+      "opens": [],
+      "em": false,
+      "em3": false
+    },
+    {
+      "S": "Piturve",
+      "gold": "Rascal",
+      "got": "Rascot Rascot Rasmond",
+      "em_first_word": "Rascot",
+      "gold_decode": "Rascal",
+      "gate_mean": 0.4652254438096861,
+      "n_opens": 0,
+      "opened_value": null,
+      "opened_at": null,
+      "opened_correct": false,
+      "truncated": false,
+      "verbatim": false,
+      "n_val_tokens": 4,
+      "opens": [],
+      "em": false,
+      "em3": false
+    },
+    {
+      "S": "Cengi",
+      "gold": "Ningaloo",
+      "got": "Ningol Napole Napoleon , who",
+      "em_first_word": "Ningol",
+      "gold_decode": "Ningaloo",
+      "gate_mean": 0.3283145260211313,
+      "n_opens": 0,
+      "opened_value": null,
+      "opened_at": null,
+      "opened_correct": false,
+      "truncated": false,
+      "verbatim": false,
+      "n_val_tokens": 5,
+      "opens": [],
+      "em": false,
+      "em3": false
+    },
+    {
+      "S": "Vibonlezah",
+      "gold": "Ascension",
+      "got": "Ascot Ascot Ascot , Asc",
+      "em_first_word": "Ascot",
+      "gold_decode": "Ascension",
+      "gate_mean": 0.45919524828256425,
+      "n_opens": 0,
+      "opened_value": null,
+      "opened_at": null,
+      "opened_correct": false,
+      "truncated": false,
+      "verbatim": false,
+      "n_val_tokens": 4,
+      "opens": [],
+      "em": false,
+      "em3": false
+    },
+    {
+      "S": "Vagso",
+      "gold": "Maasai",
+      "got": "Maasai Ag Maasina Maasar Maas",
+      "em_first_word": "Maasai",
+      "gold_decode": "Maasai",
+      "gate_mean": 0.7580597350218644,
+      "n_opens": 0,
+      "opened_value": null,
+      "opened_at": null,
+      "opened_correct": false,
+      "truncated": false,
+      "verbatim": false,
+      "n_val_tokens": 3,
+      "opens": [],
+      "em": true,
+      "em3": true
+    },
+    {
+      "S": "Rikusdos",
+      "gold": "Shotwell",
+      "got": "Shoten Show Show Show Show with",
+      "em_first_word": "Shoten",
+      "gold_decode": "Shotwell",
+      "gate_mean": 0.43995411362637543,
+      "n_opens": 0,
+      "opened_value": null,
+      "opened_at": null,
+      "opened_correct": false,
+      "truncated": false,
+      "verbatim": false,
+      "n_val_tokens": 3,
+      "opens": [],
+      "em": false,
+      "em3": false
+    }
+  ],
+  "locked": [
+    {
+      "S": "Defruhozco",
+      "gold": "Philippine",
+      "got": "Philippine Early Philippine Early Philippine Early",
+      "em_first_word": "Philippine",
+      "gold_decode": "Philippine",
+      "gate_mean": 0.9936498701572418,
+      "n_opens": 1,
+      "opened_value": "Philippine",
+      "opened_at": 0,
+      "opened_correct": true,
+      "truncated": false,
+      "verbatim": true,
+      "n_val_tokens": 3,
+      "opens": [
+        {
+          "at": 0,
+          "slot": 1,
+          "value": "Philippine",
+          "g": 0.9999948740005493,
+          "n_tok": 3,
+          "truncated": false
+        }
+      ],
+      "em": true,
+      "em3": true
+    },
+    {
+      "S": "Camesokah",
+      "gold": "Normal",
+      "got": "Normal S. Norman Norman N",
+      "em_first_word": "Normal",
+      "gold_decode": "Normal",
+      "gate_mean": 0.4987492313574876,
+      "n_opens": 1,
+      "opened_value": "Normal",
+      "opened_at": 0,
+      "opened_correct": true,
+      "truncated": false,
+      "verbatim": true,
+      "n_val_tokens": 3,
+      "opens": [
+        {
+          "at": 0,
+          "slot": 3,
+          "value": "Normal",
+          "g": 1.0,
+          "n_tok": 3,
+          "truncated": false
+        }
+      ],
+      "em": true,
+      "em3": true
+    },
+    {
+      "S": "Fisat",
+      "gold": "Sleaford",
+      "got": "Sleaford Fair Sela Sela",
+      "em_first_word": "Sleaford",
+      "gold_decode": "Sleaford",
+      "gate_mean": 0.3656664204221569,
+      "n_opens": 1,
+      "opened_value": "Sleaford",
+      "opened_at": 0,
+      "opened_correct": true,
+      "truncated": false,
+      "verbatim": true,
+      "n_val_tokens": 4,
+      "opens": [
+        {
+          "at": 0,
+          "slot": 5,
+          "value": "Sleaford",
+          "g": 0.9999935626983643,
+          "n_tok": 4,
+          "truncated": false
+        }
+      ],
+      "em": true,
+      "em3": true
+    },
+    {
+      "S": "Nagikecpa",
+      "gold": "Investiture",
+      "got": "Investiture Hospital , a Institute",
+      "em_first_word": "Investiture",
+      "gold_decode": "Investiture",
+      "gate_mean": 0.374749529131833,
+      "n_opens": 1,
+      "opened_value": "Investiture",
+      "opened_at": 0,
+      "opened_correct": true,
+      "truncated": false,
+      "verbatim": true,
+      "n_val_tokens": 5,
+      "opens": [
+        {
+          "at": 0,
+          "slot": 7,
+          "value": "Investiture",
+          "g": 0.9999957084655762,
+          "n_tok": 5,
+          "truncated": false
+        }
+      ],
+      "em": true,
+      "em3": true
+    },
+    {
+      "S": "Huvigi",
+      "gold": "Whammy",
+      "got": "Whammy Comp Whammy Comp Whammy Comp",
+      "em_first_word": "Whammy",
+      "gold_decode": "Whammy",
+      "gate_mean": 0.9052340149879455,
+      "n_opens": 1,
+      "opened_value": "Whammy",
+      "opened_at": 0,
+      "opened_correct": true,
+      "truncated": false,
+      "verbatim": true,
+      "n_val_tokens": 3,
+      "opens": [
+        {
+          "at": 0,
+          "slot": 9,
+          "value": "Whammy",
+          "g": 1.0,
+          "n_tok": 3,
+          "truncated": false
+        }
+      ],
+      "em": true,
+      "em3": true
+    },
+    {
+      "S": "Topolagu",
+      "gold": "Ahead",
+      "got": "Ahead Salam Ahead Southampton ,",
+      "em_first_word": "Ahead",
+      "gold_decode": "Ahead",
+      "gate_mean": 0.3573655539646552,
+      "n_opens": 1,
+      "opened_value": "Ahead",
+      "opened_at": 0,
+      "opened_correct": true,
+      "truncated": false,
+      "verbatim": true,
+      "n_val_tokens": 2,
+      "opens": [
+        {
+          "at": 0,
+          "slot": 11,
+          "value": "Ahead",
+          "g": 0.999566376209259,
+          "n_tok": 2,
+          "truncated": false
+        }
+      ],
+      "em": true,
+      "em3": true
+    },
+    {
+      "S": "Dozorlorna",
+      "gold": "Scripture",
+      "got": "Scripture El Sche Sche Sche Sche",
+      "em_first_word": "Scripture",
+      "gold_decode": "Scripture",
+      "gate_mean": 0.5910662900467287,
+      "n_opens": 1,
+      "opened_value": "Scripture",
+      "opened_at": 0,
+      "opened_correct": true,
+      "truncated": false,
+      "verbatim": true,
+      "n_val_tokens": 3,
+      "opens": [
+        {
+          "at": 0,
+          "slot": 13,
+          "value": "Scripture",
+          "g": 0.9999983310699463,
+          "n_tok": 3,
+          "truncated": false
+        }
+      ],
+      "em": true,
+      "em3": true
+    },
+    {
+      "S": "Piturve",
+      "gold": "Rascal",
+      "got": "Rascal P Rascal Potter",
+      "em_first_word": "Rascal",
+      "gold_decode": "Rascal",
+      "gate_mean": 0.48030363920669417,
+      "n_opens": 1,
+      "opened_value": "Rascal",
+      "opened_at": 0,
+      "opened_correct": true,
+      "truncated": false,
+      "verbatim": true,
+      "n_val_tokens": 4,
+      "opens": [
+        {
+          "at": 0,
+          "slot": 15,
+          "value": "Rascal",
+          "g": 0.9999997615814209,
+          "n_tok": 4,
+          "truncated": false
+        }
+      ],
+      "em": true,
+      "em3": true
+    },
+    {
+      "S": "Cengi",
+      "gold": "Ningaloo",
+      "got": "Ningaloo F Nations , who had been",
+      "em_first_word": "Ningaloo",
+      "gold_decode": "Ningaloo",
+      "gate_mean": 0.30903008484652095,
+      "n_opens": 1,
+      "opened_value": "Ningaloo",
+      "opened_at": 0,
+      "opened_correct": true,
+      "truncated": false,
+      "verbatim": true,
+      "n_val_tokens": 5,
+      "opens": [
+        {
+          "at": 0,
+          "slot": 17,
+          "value": "Ningaloo",
+          "g": 0.9999994039535522,
+          "n_tok": 5,
+          "truncated": false
+        }
+      ],
+      "em": true,
+      "em3": true
+    },
+    {
+      "S": "Vibonlezah",
+      "gold": "Ascension",
+      "got": "Ascension For Asian Minor Ascen",
+      "em_first_word": "Ascension",
+      "gold_decode": "Ascension",
+      "gate_mean": 0.4449228132292562,
+      "n_opens": 1,
+      "opened_value": "Ascension",
+      "opened_at": 0,
+      "opened_correct": true,
+      "truncated": false,
+      "verbatim": true,
+      "n_val_tokens": 4,
+      "opens": [
+        {
+          "at": 0,
+          "slot": 19,
+          "value": "Ascension",
+          "g": 0.9999997615814209,
+          "n_tok": 4,
+          "truncated": false
+        }
+      ],
+      "em": true,
+      "em3": true
+    },
+    {
+      "S": "Vagso",
+      "gold": "Maasai",
+      "got": "Maasai Ag Maasina Maasar Maas",
+      "em_first_word": "Maasai",
+      "gold_decode": "Maasai",
+      "gate_mean": 0.7148218988440931,
+      "n_opens": 1,
+      "opened_value": "Maasai",
+      "opened_at": 0,
+      "opened_correct": true,
+      "truncated": false,
+      "verbatim": true,
+      "n_val_tokens": 3,
+      "opens": [
+        {
+          "at": 0,
+          "slot": 21,
+          "value": "Maasai",
+          "g": 0.9999998807907104,
+          "n_tok": 3,
+          "truncated": false
+        }
+      ],
+      "em": true,
+      "em3": true
+    },
+    {
+      "S": "Rikusdos",
+      "gold": "Shotwell",
+      "got": "Shotwell Pro Show Show Show Show",
+      "em_first_word": "Shotwell",
+      "gold_decode": "Shotwell",
+      "gate_mean": 0.5448177543560633,
+      "n_opens": 1,
+      "opened_value": "Shotwell",
+      "opened_at": 0,
+      "opened_correct": true,
+      "truncated": false,
+      "verbatim": true,
+      "n_val_tokens": 3,
+      "opens": [
+        {
+          "at": 0,
+          "slot": 23,
+          "value": "Shotwell",
+          "g": 0.9999866485595703,
+          "n_tok": 3,
+          "truncated": false
+        }
+      ],
+      "em": true,
+      "em3": true
+    }
+  ],
+  "open_locked": [
+    {
+      "S": "Defruhozco",
+      "gold": "Philippine",
+      "got": "Philippine War , who had been in the United States",
+      "em_first_word": "Philippine",
+      "gold_decode": "Philippine",
+      "gate_mean": 0.10113788593858486,
+      "n_opens": 1,
+      "opened_value": "Philippine",
+      "opened_at": 0,
+      "opened_correct": true,
+      "truncated": false,
+      "verbatim": true,
+      "n_val_tokens": 3,
+      "opens": [
+        {
+          "at": 0,
+          "slot": 1,
+          "value": "Philippine",
+          "g": 0.9999750852584839,
+          "n_tok": 3,
+          "truncated": false
+        }
+      ],
+      "em": true,
+      "em3": true
+    },
+    {
+      "S": "Camesokah",
+      "gold": "Normal",
+      "got": "Normal Civil War , and the first time in",
+      "em_first_word": "Normal",
+      "gold_decode": "Normal",
+      "gate_mean": 0.10007727870174729,
+      "n_opens": 1,
+      "opened_value": "Normal",
+      "opened_at": 0,
+      "opened_correct": true,
+      "truncated": false,
+      "verbatim": true,
+      "n_val_tokens": 3,
+      "opens": [
+        {
+          "at": 0,
+          "slot": 3,
+          "value": "Normal",
+          "g": 0.9999966621398926,
+          "n_tok": 3,
+          "truncated": false
+        }
+      ],
+      "em": true,
+      "em3": true
+    },
+    {
+      "S": "Fisat",
+      "gold": "Sleaford",
+      "got": "Sleaford 's first time in the United States",
+      "em_first_word": "Sleaford",
+      "gold_decode": "Sleaford",
+      "gate_mean": 0.11111035251150168,
+      "n_opens": 1,
+      "opened_value": "Sleaford",
+      "opened_at": 0,
+      "opened_correct": true,
+      "truncated": false,
+      "verbatim": true,
+      "n_val_tokens": 4,
+      "opens": [
+        {
+          "at": 0,
+          "slot": 5,
+          "value": "Sleaford",
+          "g": 0.9999808073043823,
+          "n_tok": 4,
+          "truncated": false
+        }
+      ],
+      "em": true,
+      "em3": true
+    },
+    {
+      "S": "Nagikecpa",
+      "gold": "Investiture",
+      "got": "Investiture , Institute of the United",
+      "em_first_word": "Investiture",
+      "gold_decode": "Investiture",
+      "gate_mean": 0.13655223212756187,
+      "n_opens": 1,
+      "opened_value": "Investiture",
+      "opened_at": 0,
+      "opened_correct": true,
+      "truncated": false,
+      "verbatim": true,
+      "n_val_tokens": 5,
+      "opens": [
+        {
+          "at": 0,
+          "slot": 7,
+          "value": "Investiture",
+          "g": 0.9999951124191284,
+          "n_tok": 5,
+          "truncated": false
+        }
+      ],
+      "em": true,
+      "em3": true
+    },
+    {
+      "S": "Huvigi",
+      "gold": "Whammy",
+      "got": "Whammyn , who was the first time in the",
+      "em_first_word": "Whammyn",
+      "gold_decode": "Whammy",
+      "gate_mean": 0.10410493515879751,
+      "n_opens": 1,
+      "opened_value": "Whammy",
+      "opened_at": 0,
+      "opened_correct": true,
+      "truncated": false,
+      "verbatim": true,
+      "n_val_tokens": 3,
+      "opens": [
+        {
+          "at": 0,
+          "slot": 9,
+          "value": "Whammy",
+          "g": 0.9999961853027344,
+          "n_tok": 3,
+          "truncated": false
+        }
+      ],
+      "em": false,
+      "em3": false
+    },
+    {
+      "S": "Topolagu",
+      "gold": "Ahead",
+      "got": "Ahead of Aldermaston , who was the",
+      "em_first_word": "Ahead",
+      "gold_decode": "Ahead",
+      "gate_mean": 0.1755477137859445,
+      "n_opens": 1,
+      "opened_value": "Ahead",
+      "opened_at": 0,
+      "opened_correct": true,
+      "truncated": false,
+      "verbatim": true,
+      "n_val_tokens": 2,
+      "opens": [
+        {
+          "at": 0,
+          "slot": 11,
+          "value": "Ahead",
+          "g": 0.9999874830245972,
+          "n_tok": 2,
+          "truncated": false
+        }
+      ],
+      "em": true,
+      "em3": true
+    },
+    {
+      "S": "Dozorlorna",
+      "gold": "Scripture",
+      "got": "Scripture , and the first time the first time of",
+      "em_first_word": "Scripture",
+      "gold_decode": "Scripture",
+      "gate_mean": 0.10003146785181256,
+      "n_opens": 1,
+      "opened_value": "Scripture",
+      "opened_at": 0,
+      "opened_correct": true,
+      "truncated": false,
+      "verbatim": true,
+      "n_val_tokens": 3,
+      "opens": [
+        {
+          "at": 0,
+          "slot": 13,
+          "value": "Scripture",
+          "g": 0.9999884366989136,
+          "n_tok": 3,
+          "truncated": false
+        }
+      ],
+      "em": true,
+      "em3": true
+    },
+    {
+      "S": "Piturve",
+      "gold": "Rascal",
+      "got": "Rascalibur , and the first time the",
+      "em_first_word": "Rascalibur",
+      "gold_decode": "Rascal",
+      "gate_mean": 0.11146141357694549,
+      "n_opens": 1,
+      "opened_value": "Rascal",
+      "opened_at": 0,
+      "opened_correct": true,
+      "truncated": false,
+      "verbatim": true,
+      "n_val_tokens": 4,
+      "opens": [
+        {
+          "at": 0,
+          "slot": 15,
+          "value": "Rascal",
+          "g": 0.9999966621398926,
+          "n_tok": 4,
+          "truncated": false
+        }
+      ],
+      "em": false,
+      "em3": false
+    },
+    {
+      "S": "Cengi",
+      "gold": "Ningaloo",
+      "got": "Ningaloo , who had been in the United",
+      "em_first_word": "Ningaloo",
+      "gold_decode": "Ningaloo",
+      "gate_mean": 0.12592860986573756,
+      "n_opens": 1,
+      "opened_value": "Ningaloo",
+      "opened_at": 0,
+      "opened_correct": true,
+      "truncated": false,
+      "verbatim": true,
+      "n_val_tokens": 5,
+      "opens": [
+        {
+          "at": 0,
+          "slot": 17,
+          "value": "Ningaloo",
+          "g": 0.9999972581863403,
+          "n_tok": 5,
+          "truncated": false
+        }
+      ],
+      "em": true,
+      "em3": true
+    },
+    {
+      "S": "Vibonlezah",
+      "gold": "Ascension",
+      "got": "Ascension , who had been in the United States",
+      "em_first_word": "Ascension",
+      "gold_decode": "Ascension",
+      "gate_mean": 0.11351794779650994,
+      "n_opens": 1,
+      "opened_value": "Ascension",
+      "opened_at": 0,
+      "opened_correct": true,
+      "truncated": false,
+      "verbatim": true,
+      "n_val_tokens": 4,
+      "opens": [
+        {
+          "at": 0,
+          "slot": 19,
+          "value": "Ascension",
+          "g": 0.9999843835830688,
+          "n_tok": 4,
+          "truncated": false
+        }
+      ],
+      "em": true,
+      "em3": true
+    },
+    {
+      "S": "Vagso",
+      "gold": "Maasai",
+      "got": "Maasai , who had been in the United States ,",
+      "em_first_word": "Maasai",
+      "gold_decode": "Maasai",
+      "gate_mean": 0.10839736595845595,
+      "n_opens": 1,
+      "opened_value": "Maasai",
+      "opened_at": 0,
+      "opened_correct": true,
+      "truncated": false,
+      "verbatim": true,
+      "n_val_tokens": 3,
+      "opens": [
+        {
+          "at": 0,
+          "slot": 21,
+          "value": "Maasai",
+          "g": 0.9999939203262329,
+          "n_tok": 3,
+          "truncated": false
+        }
+      ],
+      "em": true,
+      "em3": true
+    },
+    {
+      "S": "Rikusdos",
+      "gold": "Shotwell",
+      "got": "Shotwell 's first two @-@ year @-@ old son",
+      "em_first_word": "Shotwell",
+      "gold_decode": "Shotwell",
+      "gate_mean": 0.09999780294748534,
+      "n_opens": 1,
+      "opened_value": "Shotwell",
+      "opened_at": 0,
+      "opened_correct": true,
+      "truncated": false,
+      "verbatim": true,
+      "n_val_tokens": 3,
+      "opens": [
+        {
+          "at": 0,
+          "slot": 23,
+          "value": "Shotwell",
+          "g": 0.999977707862854,
+          "n_tok": 3,
+          "truncated": false
+        }
+      ],
+      "em": true,
+      "em3": true
+    }
+  ],
+  "C_verbatim_em_mismatch": [
+    {
+      "S": "Huvigi",
+      "gold": "Whammy",
+      "got": "Whammyn , who was the first time in the",
+      "em_first_word": "Whammyn",
+      "gold_decode": "Whammy",
+      "em": false,
+      "em3": false,
+      "verbatim": true,
+      "opened_correct": true,
+      "opened_at": 0,
+      "opened_value": "Whammy",
+      "truncated": false,
+      "n_val_tokens": 3,
+      "opens": [
+        {
+          "at": 0,
+          "slot": 9,
+          "value": "Whammy",
+          "g": 0.9999961853027344,
+          "n_tok": 3,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "S": "Piturve",
+      "gold": "Rascal",
+      "got": "Rascalibur , and the first time the",
+      "em_first_word": "Rascalibur",
+      "gold_decode": "Rascal",
+      "em": false,
+      "em3": false,
+      "verbatim": true,
+      "opened_correct": true,
+      "opened_at": 0,
+      "opened_value": "Rascal",
+      "truncated": false,
+      "n_val_tokens": 4,
+      "opens": [
+        {
+          "at": 0,
+          "slot": 15,
+          "value": "Rascal",
+          "g": 0.9999966621398926,
+          "n_tok": 4,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "S": "Nuhevufru",
+      "gold": "Abdirashid",
+      "got": "Abdirashidas , who had been in the",
+      "em_first_word": "Abdirashidas",
+      "gold_decode": "Abdirashid",
+      "em": false,
+      "em3": false,
+      "verbatim": true,
+      "opened_correct": true,
+      "opened_at": 0,
+      "opened_value": "Abdirashid",
+      "truncated": false,
+      "n_val_tokens": 5,
+      "opens": [
+        {
+          "at": 0,
+          "slot": 33,
+          "value": "Abdirashid",
+          "g": 0.9999886751174927,
+          "n_tok": 5,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "S": "Vilinbervac",
+      "gold": "Forlorn",
+      "got": "Forlorne , who was the first time in the",
+      "em_first_word": "Forlorne",
+      "gold_decode": "Forlorn",
+      "em": false,
+      "em3": false,
+      "verbatim": true,
+      "opened_correct": true,
+      "opened_at": 0,
+      "opened_value": "Forlorn",
+      "truncated": false,
+      "n_val_tokens": 3,
+      "opens": [
+        {
+          "at": 0,
+          "slot": 37,
+          "value": "Forlorn",
+          "g": 0.9999845027923584,
+          "n_tok": 3,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "S": "Totrolzami",
+      "gold": "Razufcan",
+      "got": "Razufcani , who was the first time in",
+      "em_first_word": "Razufcani",
+      "gold_decode": "Razufcan",
+      "em": false,
+      "em3": false,
+      "verbatim": true,
+      "opened_correct": true,
+      "opened_at": 0,
+      "opened_value": "Razufcan",
+      "truncated": false,
+      "n_val_tokens": 4,
+      "opens": [
+        {
+          "at": 0,
+          "slot": 48,
+          "value": "Razufcan",
+          "g": 0.9999783039093018,
+          "n_tok": 4,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "S": "Kukga",
+      "gold": "Gihafke",
+      "got": "Gihafkee , who was the first time in",
+      "em_first_word": "Gihafkee",
+      "gold_decode": "Gihafke",
+      "em": false,
+      "em3": false,
+      "verbatim": true,
+      "opened_correct": true,
+      "opened_at": 0,
+      "opened_value": "Gihafke",
+      "truncated": false,
+      "n_val_tokens": 4,
+      "opens": [
+        {
+          "at": 0,
+          "slot": 58,
+          "value": "Gihafke",
+          "g": 0.9999974966049194,
+          "n_tok": 4,
+          "truncated": false
+        }
+      ]
+    }
+  ],
+  "B_verbatim_em_mismatch": [
+    {
+      "S": "Nuhevufru",
+      "gold": "Abdirashid",
+      "got": "Abdirashidas Abdas , who had",
+      "em_first_word": "Abdirashidas",
+      "gold_decode": "Abdirashid",
+      "em": false,
+      "verbatim": true,
+      "opened_correct": true,
+      "opened_at": 0,
+      "truncated": false,
+      "n_val_tokens": 5
+    }
+  ]
+}

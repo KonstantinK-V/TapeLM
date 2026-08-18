@@ -1,0 +1,46 @@
+{
+  "stage": 263,
+  "overall": "VOTES_TIE_MEAN",
+  "trunk": "stage253_joint_l02.pt",
+  "steps": 800,
+  "topk": 8,
+  "fp_version": "stage191_p1_curve.pt",
+  "slots": 1248,
+  "n_fit": 24,
+  "n_eval": 24,
+  "vocab": 4426,
+  "gates": {
+    "G_votes_causal": true,
+    "G_cosine_causal": true,
+    "G_cosine_reproduces_256": true
+  },
+  "summary": {
+    "cosine_mean": {
+      "em": 1.0,
+      "em_after_delete": 0.0,
+      "full_bank_top1": 1.0,
+      "full_bank_mrr": 1.0,
+      "full_bank_median_rank": 1.0,
+      "n": 24,
+      "em_shuffled_keys": 0.0
+    },
+    "word_votes": {
+      "em": 1.0,
+      "em_after_delete": 0.0,
+      "full_bank_top1": 1.0,
+      "full_bank_mrr": 1.0,
+      "full_bank_median_rank": 1.0,
+      "n": 24
+    },
+    "delta_em": 0.0,
+    "delta_full_bank_top1": 0.0,
+    "reference_256_em_glue": 0.667,
+    "reference_261f": {
+      "votes_20way": 0.601,
+      "mean_20way": 0.226
+    }
+  },
+  "note": "256's exam with one line changed: retrieval by cos(q, key) over the context mean, or by word postings with an idf weight and nothing fitted. Cosine arm gets wiki InfoNCE on W_q like 256; votes arm does not. If G_cosine_reproduces_256 is false, delta_em is not readable.",
+  "timestamp": "2026-08-04T16:30:41.527085+00:00",
+  "wall_s": 95.79477429389954
+}

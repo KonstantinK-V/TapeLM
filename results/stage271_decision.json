@@ -1,0 +1,161 @@
+{
+  "stage": 271,
+  "overall": "CONTROLLER_NO",
+  "frozen_trunk": false,
+  "trunk_mode": "upper",
+  "smoke": false,
+  "seed": 271,
+  "episodes": 6000,
+  "tape_period": 200,
+  "actions": [
+    "ASK_Q",
+    "ASK_READ",
+    "READ_0",
+    "READ_1",
+    "READ_2",
+    "READ_3",
+    "ANSWER_0",
+    "ANSWER_1",
+    "ANSWER_2",
+    "ANSWER_3",
+    "STOP"
+  ],
+  "topk": 4,
+  "max_steps": 6,
+  "read_cost": 0.02,
+  "entropy_bonus": 0.05,
+  "witnesses": 5,
+  "liars": 2,
+  "fp_version": "stage191_p1_curve.pt",
+  "used_pool_final": 930,
+  "gates": {
+    "G_arc_enc_frozen": true,
+    "G_answer_is_slot": true,
+    "G_beats_lookup": false,
+    "G_beats_majority": true,
+    "G_clean_kept": false,
+    "G_novel_tape": false,
+    "G_reads_economical": true
+  },
+  "train_tape": {
+    "policy_clean": 1.0,
+    "policy_lying": 0.8333333333333334,
+    "lookup_clean": 1.0,
+    "lookup_lying": 0.5,
+    "majority_lying": 0.8333333333333334,
+    "mean_reads": 0.0,
+    "answer_is_slot": 1.0,
+    "n": 12
+  },
+  "novel_tape": {
+    "policy_clean": 0.6666666666666666,
+    "policy_lying": 0.6666666666666666,
+    "lookup_clean": 1.0,
+    "lookup_lying": 0.6666666666666666,
+    "majority_lying": 0.6666666666666666,
+    "mean_reads": 0.0,
+    "answer_is_slot": 1.0,
+    "n": 12
+  },
+  "arc_enc_hash_before": "64a764151ebd27ec5f4c1e92d72d9ce6dba381fb355c386d669f3a0ac2cf93d1",
+  "arc_enc_hash_after": "64a764151ebd27ec5f4c1e92d72d9ce6dba381fb355c386d669f3a0ac2cf93d1",
+  "curve": [
+    {
+      "episode": 600,
+      "baseline": 0.7255305100095732,
+      "reward": 0.98,
+      "trace": [
+        "ASK_Q",
+        "READ_2",
+        "ANSWER_0"
+      ]
+    },
+    {
+      "episode": 1200,
+      "baseline": 0.8591646578908686,
+      "reward": 1.0,
+      "trace": [
+        "ASK_Q",
+        "ANSWER_0"
+      ]
+    },
+    {
+      "episode": 1800,
+      "baseline": 0.8692336340446235,
+      "reward": -0.02,
+      "trace": [
+        "ASK_Q",
+        "READ_2",
+        "ANSWER_2"
+      ]
+    },
+    {
+      "episode": 2400,
+      "baseline": 0.8697422065255617,
+      "reward": 1.0,
+      "trace": [
+        "ASK_Q",
+        "ANSWER_0"
+      ]
+    },
+    {
+      "episode": 3000,
+      "baseline": 0.7935407066767214,
+      "reward": 1.0,
+      "trace": [
+        "ASK_Q",
+        "ANSWER_0"
+      ]
+    },
+    {
+      "episode": 3600,
+      "baseline": 0.798104155685697,
+      "reward": 1.0,
+      "trace": [
+        "ASK_Q",
+        "ANSWER_0"
+      ]
+    },
+    {
+      "episode": 4200,
+      "baseline": 0.8622526831560936,
+      "reward": 0.98,
+      "trace": [
+        "ASK_Q",
+        "READ_0",
+        "ANSWER_0"
+      ]
+    },
+    {
+      "episode": 4800,
+      "baseline": 0.9005553965990057,
+      "reward": 1.0,
+      "trace": [
+        "ASK_Q",
+        "ANSWER_0"
+      ]
+    },
+    {
+      "episode": 5400,
+      "baseline": 0.8328058518829586,
+      "reward": 1.0,
+      "trace": [
+        "ASK_Q",
+        "ANSWER_0"
+      ]
+    },
+    {
+      "episode": 6000,
+      "baseline": 0.870867438373022,
+      "reward": 0.98,
+      "trace": [
+        "ASK_Q",
+        "READ_3",
+        "ANSWER_0"
+      ]
+    }
+  ],
+  "note": "One policy over five lexical actions: ASK with the question's words, ASK with what was just read, READ a candidate, ANSWER a candidate verbatim, STOP. No vector leaves the tape and no fact can live in the weights \u2014 the tape is rebuilt every tape_period episodes and the answer must be some slot's value. Clean and lying subjects share every bank on purpose: a policy that only aggregates loses the clean family, and the per-family split says which habit it settled into. Reward is correctness minus reads, so halting is learned rather than fixed as in 257. REINFORCE with a running baseline.",
+  "timestamp": "2026-08-05T08:45:21.137006+00:00",
+  "wall_s": 934.0811123847961
+}
