@@ -2703,3 +2703,21 @@ of the address graph, not of two facts in one document. Bind-two-facts on this t
 the way 354 closed memory. Understanding is not this bind. 393, if any, is a walker, not
 "gets smarter".
 
+## 36. 393: THE WALKER. VOID — ORACLE STEP LOSES TO STAYING
+
+One step to a hop-1 place, then that place's walk@8. Not a hop-2 dump into eight (347).
+Four seeds, qprof, same-line drop. Checker holds on a designed hop-2 tape.
+
+    seed    hop1   committed   oracle   dump2    rand   oracle-hop1
+    1337   0.120      0.045    0.089    0.129   0.006      -0.031
+    8642   0.130      0.050    0.106    0.131   0.004      -0.024
+    2890   0.129      0.054    0.099    0.130   0.007      -0.030
+    4711   0.123      0.048    0.091    0.135   0.008      -0.032
+
+VOID (oracle-hop1 < 0.02): fires on 4/4, and the gap is negative. Leaving the question
+place loses more than a perfect choice among eight bridges returns. dump2 ties hop1
+(388). committed is worse still (~0.05). walk_only ~0.04 — a few holes a step can
+reach, not a route.
+
+The walker is closed on this tape. Not a ranking-of-bridges lever: even oracle loses.
+
