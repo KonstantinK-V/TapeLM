@@ -2564,3 +2564,95 @@ STILL DOES NOT CHOOSE WHERE TO LOOK."
 channels. Nothing in the project lets the mind name a place it was not offered. That is the same
 wall as A (speaks) in section 29 approached from the other side - an output space - and it is
 where the next lever has to go, not into another read-side reordering.
+
+## 32. 390: THE ADDRESS AS A HANDLE. PRE-REGISTERED, NOTHING RUN YET
+
+Written after 31 closed the gauge and after Kostya's reading of what is left: "the next move is
+not another term on Phi - the mind still does not choose WHERE TO LOOK." This section is the
+pre-registration. No number in it is measured on a corpus; two are measured on a designed tape and
+they are plumbing, not evidence.
+
+### 32.1 The structural fact this rests on, which is 387's complaint used the other way round
+
+The arm runs `fp=fillers`, so a place's fingerprint IS its bag of fillers, and the cosine of two
+filler profiles is ZERO unless they share a filler. `connect` walks places that share a filler.
+`copy` reads the neighbouring lines. So EVERY CHANNEL THE MIND HAS - step, share, lines, home -
+has the same non-zero support: places that share a filler with this one. A place that shares none
+is not ranked low by the current machinery. IT IS INVISIBLE TO IT, at any cap, at any depth, and
+no reordering of eight candidates can ever reach it. 387's own gate said what that implies: if the
+lanes are redundant, "what is needed is a genuinely different move, one that reaches somewhere the
+walk cannot".
+
+There is exactly one relation on this tape that is not a function of what stands in the hole, and
+the tape already wrote it: `frame_keep` makes a place the key `(w, left, right)`. A place can be
+NAMED by its halves, and halves compose:
+
+    my place        the | sat        L0 | R0
+    keep my left    the | ran        L0 | Rj      a place I share no filler with
+    keep my right   a   | sat        Li | R0
+    compose         a   | ran        Li | Rj      a place NOBODY offered me
+
+The output space is a PRODUCT, |L| x |R|, while naming a member of it costs |L| + |R|. That is the
+one shape that does not walk into 347's law - measured four times, a wider offer costs more than
+it brings - because the offer stays eight; only the place it is drawn from is chosen. It is also
+section 29's wall A (an output space) entered from the place side rather than the word side.
+
+### 32.2 What is built, and it is torch-free
+
+  * `_audit390_address.py` - the CEILING, measured before any head is built for it. std8 (the
+    standing arm's eight, step interleaved with connect), half8 / half_only (the truth in the
+    address lane's eight and not in the standing one), comp8 / comp_only for composed addresses,
+    orc8, a random-place floor, a frequency-matched decoy through the same lane, the ranks, and
+    the costs (n_half, n_comp, the pool). One question is one call to `measure`.
+  * `_check390_address.py` - twelve properties on a DESIGNED twelve-line tape where the answer is
+    reachable by address and unreachable by the walk, by construction. Every property is a wrong
+    number. ELEVEN OF THE TWELVE ARE MUTATION-VERIFIED IN THE FILE ITSELF: the failure each check
+    exists to catch is re-introduced by monkeypatch and the check must fire, or the checker
+    reports itself as a comment. The twelfth is a source check and is the second lock on the
+    first.
+  * Section 27's leak is the first thing guarded: every lane takes `qprof`, the profile with the
+    hidden row removed, and no lane reads the asking place's own profile. Mutation 1 puts the leak
+    back and the checker catches it.
+  * Same-line places are dropped from EVERY lane. Frames overlap, so a place holding another slot
+    of the hidden slot's line is the same words seen twice. Uniform across lanes, so it stays a
+    lane-against-lane comparison, and its direction is conservative.
+
+### 32.3 THE VOID CHECK, READ BEFORE ANYTHING ELSE
+
+`n_half_new` and `new_share` - how many places sharing a half of my address share NO filler with
+it. If that is near zero the address names nothing the walk cannot already see, the premise is
+false on this tape, and 390 closes here without a training run. 389's gate 4 is the reason this
+line exists and the reason it is read first.
+
+### 32.4 THE GATE, DECLARED BEFORE THE RUN
+
+Four seeds (1337, 8642, 2890, 4711), the population where reach matters (the truth is not among
+the question's own values).
+
+  1. PRIMARY. `half_only > 0.05` OR `comp_only > 0.05` on at least 3 of 4 seeds.
+  2. GAIN. `orc8 - std8 > 0.05` on the same seeds - a perfect chooser of WHERE must be worth
+     having, not merely different.
+  3. NULL. `rand_only` below half the winning lane's, AND `d_half_only < 0.05` - a
+     frequency-matched decoy must not ride the same lane. 317, 383 and 387 each found a lane that
+     was really frequency; this is the third lock.
+  4. COST. The address lane is read at the same `--places` budget as the walk, and the offer stays
+     at eight. If a number needs the uncapped lane to appear, it is a ceiling and is reported as
+     one.
+
+If it passes, the next lever is the address as an output space IN THE STAGE, at the unchanged cap,
+with the usual paired control and four seeds. If the address lane is empty, or is only frequency,
+the handle is closed on this tape and wall A has to be pushed on the word side instead.
+
+### 32.5 What is NOT claimed
+
+Nothing about wikitext. The audit was exercised here on a synthetic corpus and on the designed
+tape only, to prove the plumbing: no number printed in this session may be cited as a result. The
+debt of section 29.4 also still stands - 387 and 388 must be re-run after the leak fix, and no
+leaked number may support any of this.
+
+    python _check390_address.py
+    python _audit390_address.py --seed 1337
+    python _audit390_address.py --seed 8642
+    python _audit390_address.py --seed 2890
+    python _audit390_address.py --seed 4711
+    python _audit390_address.py --seed 1337 --window-lines 1600 --places 16   (the scale leg)

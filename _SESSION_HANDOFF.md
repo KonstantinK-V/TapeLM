@@ -1,7 +1,7 @@
-# READ FIRST — orientation for a fresh session (written at step 391, after 389 was voided)
+# READ FIRST — orientation for a fresh session (written at step 392, 390 pre-registered)
 
 `HANDOFF.md` in this repo is 5101 lines and froze around step 299. It is history, not state.
-**The live memory is `_STATE_353.md`, sections 1–31.** This file is the map to it.
+**The live memory is `_STATE_353.md`, sections 1–32.** This file is the map to it.
 
 ---
 
@@ -124,6 +124,17 @@ it was not offered**. That is section 29's wall A (speaks / an output space) app
 other side, and it is where the next lever goes — not into a fifth way of reordering eight
 candidates.
 
+**What is pre-registered and NOT yet run — section 32.** `_audit390_address.py`, the ceiling of
+naming a place by its ADDRESS instead of by shared fillers. The point of leverage: with
+`fp=fillers` every channel the mind has (step, share, lines, home) has the same support — places
+that share a filler — so a place that shares none is invisible to all of them, at any cap. The
+address `(w, left, right)` is the one relation on the tape that is not a function of what stands
+in the hole, and its halves compose: an output space of size |L|×|R| named at a cost of |L|+|R|,
+which is the only shape that does not walk into 347's law. Void check, gate and null are declared
+in 32.3–32.4 and must be read in that order. `_check390_address.py` holds twelve properties on a
+designed tape; eleven re-introduce their own failure and require the check to fire.
+**Nothing has been measured on a corpus. The runs are on the user's machine.**
+
 **Order the user set** (they chose it, overriding the assistant's): understanding first — speaking
 without it is a parrot, and measuring growth without it scales a non-answer. With the caveat that
 "produces what was never offered" is defined *through* an output space, while "combines two facts"
@@ -135,7 +146,7 @@ and "abandons a wrong path" are not.
 
 | file | what it is |
 |---|---|
-| `_STATE_353.md` | **the live memory**, sections 1–31. Read 20–31 for this session. |
+| `_STATE_353.md` | **the live memory**, sections 1–32. Read 27–32 for this session. |
 | `_stage289_derivation.py` | the single stage, ~8800 lines |
 | `_read299.py` | the reader. Header prints the arm; `GAUGE` prints raw-score AUC beside the margin |
 | `_check3*.py` | one checker per lever. Every property is a **wrong number**, not an exception, and every checker was verified by deliberately reintroducing the failure it catches |

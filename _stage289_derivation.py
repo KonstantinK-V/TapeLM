@@ -2598,6 +2598,23 @@ def calib_term(scores, labels, device):
 
     SECOND TERM, SO IT IS PRICED LIKE ONE: 321 and 341 each measured a second objective at ~4x the
     route on these 5633 parameters. Declared weight, default off, never pooled with its control.
+
+    389 IS VOID AND THIS FLAG IS CLOSED - _STATE_353.md section 31. Gate 4 of the pre-registration
+    ("read this before reading anything else") fired on the CONTROL, before the arm was ever run:
+    on 365r3 held, four seeds, the raw mind_score AUC is 0.639-0.725 against the coin's 0.500 and
+    beats BOTH counting rivals on 4/4, and on the never-trained target `right` it is 0.616-0.738.
+    The scale this term was built to buy, a standing world already holds.
+
+    THE ERROR WAS AN INFERENCE, NOT THE ALGEBRA. softmax(l + c) = softmax(l) says the LOSS does
+    not constrain a per-question offset. It does not say the learned function is free: Phi is a
+    function of the world's CONTENT with shared weights, so the offset is whatever that shared
+    function emits for that question's material. Unconstrained is not arbitrary, and a symmetry
+    of the objective is not a symmetry of the learned function.
+
+    The flag stays here, OFF, so that the fourth refusal-shaped proposal meets this paragraph
+    first. What survives is the reading above of why the three refusal attempts failed - that was
+    never the gauge argument - and the GAUGE line in _read299, which reports a real quantity that
+    had gone unread for eighty steps and answered the opposite of the prediction.
     """
     s = torch.stack(scores)
     y = torch.tensor(labels, device=device, dtype=s.dtype)
