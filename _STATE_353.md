@@ -2500,3 +2500,67 @@ precondition named in 29: a mind cannot carry a result between reads until it ca
 FAILED, cannot abandon a path without "not here", and cannot stop generating without a threshold.
 All three need one scale. This step buys the scale and nothing else, and if it fails the honest
 reading is that Phi's single scalar cannot hold one.
+
+## 31. 389 IS VOID. THE GAUGE WAS NEVER FREE, AND THE VOID CHECK COST NOTHING
+
+Gate 4 of 30.5 - "read this before reading anything else" - fired on the control, before the arm
+was ever run. 389 is closed without a training run.
+
+### 31.1 The numbers (365r3, held, four seeds, target `answerable`)
+
+    seed    raw-score AUC   vs coin   margin   rivals own/share
+    1337        0.7191       +0.219    0.780     0.396 / 0.501
+    8642        0.7250       +0.225    0.757     0.470 / 0.497
+    2890        0.6385       +0.139    0.740     0.373 / 0.500
+    4711        0.6643       +0.164    0.750     0.477 / 0.500
+
+Target `right`, which the term would never have seen: 0.723 / 0.713 / 0.616 / 0.738.
+
+On all four seeds the RAW score already beats both counting rivals. The thing 389's gate was
+built to buy, a standing world already holds.
+
+### 31.2 The exact error, which is mine
+
+The algebra is right: `softmax(l + c) = softmax(l)`, so the loss does not constrain a
+per-question offset. THE INFERENCE IS WRONG. Phi is a function of the world's CONTENT with shared
+weights - the offset is not a free parameter attached to each question, it is whatever the shared
+function emits for that question's material. Unconstrained by the loss is not the same as
+arbitrary. A symmetry of the objective does not become a symmetry of the learned function, and I
+turned one into the other in a single step and called the result a theorem.
+
+It is the same shape of mistake as 387's rerank (a precedent transferred without checking the
+quantity was the same kind) and as 377/369's gates (a gate specified on a composition-dependent
+quantity). Three times now the fault has been an argument that looked like arithmetic.
+
+### 31.3 It was refutable from dumps already in hand
+
+353margin s1337 prints `AUC mind 0.860 (score 0.872)` - the parenthesis was never a coin. Of every
+s1337 dump carrying `question_rank`, exactly three read FREE: 366own 0.500, 341speak 0.476,
+362marg 0.530 - and none of them is the standing world. The prediction was already contradicted by
+the same dumps I quoted in 30.3 when I said the number had never been read. It had never been read
+by ME; it was on screen, and it disagreed.
+
+### 31.4 What survives, and what does not
+
+  * DOES NOT: `--calib-batch` as a step. The premise is false on the control, and running it would
+    pay a second term at ~4x the route (321, 341) for a scale that is not empty. The flag stays in
+    the code, off, with this section named at its docstring so it is not re-proposed a fourth
+    time - the refusal lever's own history is the reason that matters.
+  * DOES: the reading of why the three refusal attempts failed (30.2) is unaffected - REFUSE
+    inside a per-question softmax contributes a gap, and "always refuse" meets the base rate.
+    That was never the gauge argument.
+  * DOES: the GAUGE line in `_read299`. It reports a real quantity that had gone unread for eighty
+    steps, and its answer is the opposite of what I expected, which is exactly what it is for.
+  * DOES: 30.6's dependency claim, now standing on its own without the gauge story. A mind still
+    cannot carry a result between reads, abandon a path, or stop generating. Those need a
+    MECHANISM, and 389 shows they will not fall out of a better-scaled score.
+
+### 31.5 The open direction, in the user's words
+
+"The next move is not another term on Phi, but the thing a scale does not give either: THE MIND
+STILL DOES NOT CHOOSE WHERE TO LOOK."
+
+`--moves` (385/386) is the only thing built in that direction and it chooses among three fixed
+channels. Nothing in the project lets the mind name a place it was not offered. That is the same
+wall as A (speaks) in section 29 approached from the other side - an output space - and it is
+where the next lever has to go, not into another read-side reordering.

@@ -2552,6 +2552,16 @@ def speak_term(margins, advs, device):
 def calib_term(scores, labels, device):
     """389: ONE SCALE ACROSS QUESTIONS. The hole this closes is a GAUGE, not a missing option.
 
+    CLOSED BEFORE IT RAN - DO NOT RE-PROPOSE. See _STATE_353.md section 31. The void check this
+    arm declared as gate 4 fired on its own control: raw-score AUC on the standing world is
+    0.6385-0.7250 across four seeds, not the 0.50 the argument below predicts, and it already
+    beats both counting rivals on all four. The algebra is right and the INFERENCE FROM IT IS
+    WRONG: the loss does not constrain a per-question offset, but Phi is a function of the
+    world's content with shared weights, so the offset is not a free parameter - unconstrained
+    is not arbitrary. The flag is left in place, off, so this note has somewhere to live.
+
+    ------------------------------------------------------------------ the original argument
+
     WHAT IS ACTUALLY BROKEN. Every gradient Phi has ever received arrives through a softmax over
     the worlds OF ONE QUESTION, and softmax(l + c) = softmax(l). So a constant added to every
     world of a question is invisible to the loss - each question carries its own free offset, and
