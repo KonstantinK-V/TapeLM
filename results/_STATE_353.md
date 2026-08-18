@@ -2656,3 +2656,50 @@ leaked number may support any of this.
     python _audit390_address.py --seed 2890
     python _audit390_address.py --seed 4711
     python _audit390_address.py --seed 1337 --window-lines 1600 --places 16   (the scale leg)
+
+## 33. 391: REQUIREMENT 4, SAME QUESTIONS, TAPE 1x/2x/4x/8x. CLOSED ON THE OFFER
+
+369 scaled `--addresses`. This cut the tape. One seed (1337). Frozen standing offer (walk+connect
+@8), not Phi: 365r3 left no weights. Questions drawn on the 1x prefix and replayed by
+(line, word). Mapping intact (`broken` 0).
+
+    scale   lines   places    n     std8    half8   half_any
+      1x     400    5340    3000   0.1197  0.0767    0.4547
+      2x     800   10773    2863   0.1271  0.0702    0.5162
+      4x    1600   24004    2660   0.1256  0.0669    0.5801
+      8x    3200   50458    2448   0.1172  0.0707    0.6450
+
+GATE (monotonicity of std8): FAIL. 2x ticks up, 4x and 8x fall through the 1x line.
+`n` falls because a thicker place absorbs the hidden token as `own` - those questions leave the
+reach population. `half_any` IS monotone (0.45 -> 0.65): the tape holds more, the eight do not
+take it. 347 again, now on requirement 4.
+
+Requirement 4 is closed by this measurement on the offer Phi ranks. A frozen-Phi eval would
+need a saved net; it cannot overturn an eight that does not grow.
+
+## 34. 387/388 DEBT CLEARED. BUILD NOTHING ON THEM
+
+Re-run with `qprof` (section 27 leak fixed), seed 1337, same window as 390. Numbers match the
+noleak files already on disk. Recorded so 29.4 is no longer open. Not a lever.
+
+  387  only_share 0.095  oracle-merged +0.017  cut@128 +0.156  mean-rerank -0.117
+  388  region reach 0.012 vs decoy 0.0007  hop2-only 0.183  hop2@8 0.117 (does not beat hop1@8)
+
+## 35. 392: TWO PLACES. VOID HOLDS, NULL DOES NOT. BIND IS CLOSED
+
+B2 as a count: A,B from one document-window, gold = unique-filler place in addr-N(A) ∩ addr-N(B).
+Rivals walk A / walk B / concat@8. Four seeds. Checker: designed tape holds, mutations caught.
+
+VOID (gold in walk(A)@8 > 0.5): 0.022-0.036. Not cloze. Read the gate.
+
+    seed    hit A    hit B   concat    both    vs max(A,B)   null both
+    1337    0.025    0.037    0.046   0.405      +0.368        0.408
+    8642    0.036    0.037    0.047   0.439      +0.403        0.438
+    2890    0.022    0.017    0.027   0.408      +0.386        0.429
+    4711    0.024    0.030    0.026   0.550      +0.520        0.563
+
+`both` beats max(A,B)+0.05 on 4/4. The null is the same number. The intersection is a property
+of the address graph, not of two facts in one document. Bind-two-facts on this tape is closed
+the way 354 closed memory. Understanding is not this bind. 393, if any, is a walker, not
+"gets smarter".
+

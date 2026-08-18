@@ -1,7 +1,7 @@
-# READ FIRST — orientation for a fresh session (written at step 392, 390 pre-registered)
+# READ FIRST — orientation for a fresh session (written at step 393, after 391 and 392)
 
 `HANDOFF.md` in this repo is 5101 lines and froze around step 299. It is history, not state.
-**The live memory is `_STATE_353.md`, sections 1–32.** This file is the map to it.
+**The live memory is `_STATE_353.md`, sections 1–35.** This file is the map to it.
 
 ---
 
@@ -79,7 +79,9 @@ never a measurement of tape size.
 strict two-filler connect (365) · intersecting two lenses (346) · value-lenses at all (384) ·
 the move as an output space (387) · a wider offer (347 ×4) · mean-instead-of-sum ranking (387) ·
 `--copy` (retired after the 380 rerun) · `--copy-backfill` (378) · refusal as a per-question price
-(299_hash, 311, 339) · **`--calib-batch` (389 — voided on its own control, section 31)**.
+(299_hash, 311, 339) · **`--calib-batch` (389 — voided on its own control, section 31)** ·
+**requirement 4 on the standing offer (391 — std8 not monotone, section 33)** · **B2 bind
+(392 — null equals both, section 35)**.
 
 ---
 
@@ -99,7 +101,7 @@ And one worse: **a leak in the assistant's own audits** (section 27). `_audit387
 hidden token. **Every number 387 and 388 printed is void and must not be cited.** Fixed by passing
 `qprof`; stage-measured numbers (385, 386 and earlier) are unaffected.
 
-**Debt: 387 and 388 must be re-run after that fix.**
+**Debt: 387 and 388 were re-run with `qprof` (section 34). Build nothing on them.**
 
 ---
 
@@ -114,31 +116,23 @@ Four requirements, honestly scored:
 | understands / speaks | **never operationalised** — the exam only ranks eight names in a hole |
 | smarter as the tape grows | **never measured cleanly** — 369 scaled the *questions*, not the tape; and "fine-tuning on a second tape buys nothing" was double-counted as a separation control instead of a failure of this requirement |
 
-**The user's own next move, stated at step 390:**
+**The user's own next move, stated at step 390, still stands after 391/392:**
 
 > «Следующий ход не "ещё один терм на Φ", а то, чего шкала всё равно не даёт: ум по-прежнему не
 > выбирает, куда смотреть.»
 
-`--moves` chooses among three fixed channels. Nothing in the project lets the mind **name a place
-it was not offered**. That is section 29's wall A (speaks / an output space) approached from the
-other side, and it is where the next lever goes — not into a fifth way of reordering eight
-candidates.
+391 closed "smarter as the tape grows" on the eight the mind ranks. 392 closed bind-two-places:
+the intersection pays, and a B from another window pays the same. 393, if any, is a walker —
+not a claim that the mind got smarter.
 
-**What is pre-registered and NOT yet run — section 32.** `_audit390_address.py`, the ceiling of
-naming a place by its ADDRESS instead of by shared fillers. The point of leverage: with
-`fp=fillers` every channel the mind has (step, share, lines, home) has the same support — places
-that share a filler — so a place that shares none is invisible to all of them, at any cap. The
-address `(w, left, right)` is the one relation on the tape that is not a function of what stands
-in the hole, and its halves compose: an output space of size |L|×|R| named at a cost of |L|+|R|,
-which is the only shape that does not walk into 347's law. Void check, gate and null are declared
-in 32.3–32.4 and must be read in that order. `_check390_address.py` holds twelve properties on a
-designed tape; eleven re-introduce their own failure and require the check to fire.
-**Nothing has been measured on a corpus. The runs are on the user's machine.**
+`--moves` chooses among three fixed channels. 390: address neighbourhood is real (`new_share`
+~0.87) and `half_only` misses the 0.05 gate — 347 on a new relation. 391: same questions, tape
+1×–8×, std8 not monotone. 392: two places, void ok, null = both, bind closed.
 
 **Order the user set** (they chose it, overriding the assistant's): understanding first — speaking
 without it is a parrot, and measuring growth without it scales a non-answer. With the caveat that
 "produces what was never offered" is defined *through* an output space, while "combines two facts"
-and "abandons a wrong path" are not.
+and "abandons a wrong path" are not. 392 closed the bind operationalisation; B1/B3 remain.
 
 ---
 
@@ -146,12 +140,11 @@ and "abandons a wrong path" are not.
 
 | file | what it is |
 |---|---|
-| `_STATE_353.md` | **the live memory**, sections 1–32. Read 27–32 for this session. |
+| `_STATE_353.md` | **the live memory**, sections 1–35. Read 31–35 for this session. |
 | `_stage289_derivation.py` | the single stage, ~8800 lines |
 | `_read299.py` | the reader. Header prints the arm; `GAUGE` prints raw-score AUC beside the margin |
-| `_check3*.py` | one checker per lever. Every property is a **wrong number**, not an exception, and every checker was verified by deliberately reintroducing the failure it catches |
-| `_audit3*.py` | offline audits (387/388 leak-fixed but their results are void until re-run) |
+| `_check3*.py` | one checker per lever. Every property is a **wrong number**, not an exception |
+| `_audit3*.py` | offline audits. 387/388 qprof-rerun is section 34, not a lever |
 | `HANDOFF.md` | frozen at ~299. History. |
 
-**Push has returned 403 at the gateway for this entire session.** Work is delivered as files; the
-user pushes from their own machine.
+GitHub `main` is the copy. Push from this machine.

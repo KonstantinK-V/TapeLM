@@ -1,0 +1,12 @@
+tape     5340 places, 3907 values, 3000 questions where the truth is not among the question's own values, 4 rounds
+LEVEL    1820 regions over the values (inv)   mean 2.1   largest 118 (3.0% of the values)   the lane keeps 0.0566 of itself
+BELONGS  truth 0.0123   frequency twin 0.0007   permuted labels 0.0020   gain +0.0117
+REACH    @8 0.1223->0.0087  @16 0.1530->0.0103  @32 0.1847->0.0113   (whole lane -> its region)
+SOURCE   region holds 10.1 values   reach 0.0123   only region 0.0057   region+lane@8 0.1280   over lane@8 +0.0057   cost 18
+HOP2     @8 0.1173  @16 0.1600  @32 0.1940   present 0.4890   lane 1113   only hop2 0.1827   only hop1 0.0220
+
+THIS CONSTRUCTION FINDS NO USABLE LEVEL. The truth shares the question's region 0.0123 against 0.0007 for a frequency twin and 0.0020 for permuted labels - so what looks like a region is mostly its own size. Propagating labels over the tape finds communities of places, and they are not the communities a question needs. Sweep --weight and --rounds before concluding: the claim earned here is about LABEL PROPAGATION on this tape, not about every possible level, and a level may still have to be BUILT from something the tape does not already say.
+
+TRANSITIVITY REACHES WHERE ONE HOP CANNOT. 0.1827 of these questions have the truth at a place two hops away and NOWHERE one hop away - related through a bridge, sharing nothing with the question directly. That is a relation this project has never had: connect is one hop and --reach-depth 2 is a second sequential read rooted at a candidate, not this. Whether it PAYS is the @8 column, and whether it is affordable is the lane size.
+
+written to results\_stage388_level.json

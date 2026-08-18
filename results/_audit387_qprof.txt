@@ -1,0 +1,19 @@
+tape     5340 places, 3000 questions where the truth is NOT among the question's own values, 8 places walked, top-8
+LANES    step 0.0517   share 0.1293   random 0.0167   mean Jaccard of the two eights 0.1793
+WHO      both 0.0343   only step 0.0173   only share 0.0950
+CEILING  merged 0.1297 (today)   oracle 0.1467 (a perfect move)   headroom +0.0170
+DEPTH    lane sizes: step 23.8   share 396.3   (step sees 8 places, share every place sharing a filler)
+  step   @8 0.0517  @16 0.0617  @32 0.0747  @64 0.0803  @128 0.0857   present 0.0890   mean rank when present 20.6
+  share  @8 0.1293  @16 0.1683  @32 0.2053  @64 0.2377  @128 0.2797   present 0.3797   mean rank when present 135.0
+  sh/pl  @8 0.0120  @16 0.0207  @32 0.0343  @64 0.0610  @128 0.1197   present 0.3797   mean rank when present 305.2
+  union  @8 0.1467  @16 0.1850  @32 0.2210  @64 0.2490  @128 0.2860
+  decoy  @8 0.0237->0.0020  @16 0.0380->0.0043  @32 0.0523->0.0070  @64 0.0680->0.0140  @128 0.0833->0.0297   (3000 frequency twins, sum -> per-place)
+RERANK   share@8 0.1293 -> 0.0120 (-0.1173)   decoy -0.0217   net -0.0957
+
+THE LANES DIFFER AND THE INTERLEAVE ALREADY TAKES BOTH. 0.0950 of these questions are reachable through share alone, so the second move is a real route - but the interleave already reaches 0.1297 against a perfect move's 0.1467, headroom +0.0170. CHOOSING CANNOT ADD WHAT POOLING ALREADY HAS: committing to one lane can only lose the other, which is precisely what 385 and 386 measured. A move pays only where the cap forces the interleave to drop something the chooser would have kept.
+
+THE ORDERING IS NOT THE FAULT. Mean overlap instead of sum moves the truth -0.1173 into the eight. The truth sits deep in this lane for some other reason than frequency, and the next question is what the top of the lane is actually full of.
+
+THE CUT BINDS, NOT THE MATERIAL. Read to depth 128 the two lanes together hold the truth 0.2860 of the time against the offered 0.1297 - +0.1563 is sitting below rank eight. The question stops being WHERE TO LOOK and becomes HOW MANY the mind can weigh, which 368 tested on a merged offer and never on the depth of one lane.
+
+written to results\_stage387_moves.json
