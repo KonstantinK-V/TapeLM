@@ -1,0 +1,107 @@
+{
+ "1337": {
+  "seed": 1337,
+  "corpus": "given",
+  "windows": 32,
+  "n_mark": 307,
+  "n": 719,
+  "teacher_mean_d1": 0.02195178488641632,
+  "rnd_mean_d1": 0.015252665739452942,
+  "extra_teacher": 0.1571627260083449,
+  "extra_rnd": 0.24478442280945759,
+  "boxes": {
+   "newnode": {
+    "n": 176,
+    "win1": 27,
+    "lose1": 12,
+    "neut1": 137,
+    "sum_d1": 15.0
+   },
+   "reorder": {
+    "n": 117,
+    "win1": 15,
+    "lose1": 2,
+    "neut1": 100,
+    "sum_d1": 13.0
+   },
+   "silent": {
+    "n": 426,
+    "win1": 0,
+    "lose1": 0,
+    "neut1": 426,
+    "sum_d1": 0.0
+   }
+  },
+  "void": false
+ },
+ "8642": {
+  "seed": 8642,
+  "corpus": "given",
+  "windows": 32,
+  "n_mark": 368,
+  "n": 718,
+  "teacher_mean_d1": 0.015575673166202411,
+  "rnd_mean_d1": 0.00712627669452182,
+  "extra_teacher": 0.18384401114206128,
+  "extra_rnd": 0.27715877437325903,
+  "boxes": {
+   "newnode": {
+    "n": 199,
+    "win1": 27,
+    "lose1": 18,
+    "neut1": 154,
+    "sum_d1": 9.0
+   },
+   "reorder": {
+    "n": 155,
+    "win1": 11,
+    "lose1": 7,
+    "neut1": 137,
+    "sum_d1": 4.0
+   },
+   "silent": {
+    "n": 364,
+    "win1": 0,
+    "lose1": 0,
+    "neut1": 364,
+    "sum_d1": 0.0
+   }
+  },
+  "void": false
+ },
+ "2890": {
+  "seed": 2890,
+  "corpus": "given",
+  "windows": 32,
+  "n_mark": 328,
+  "n": 707,
+  "teacher_mean_d1": 0.008675153229608679,
+  "rnd_mean_d1": 0.0008015087223008011,
+  "extra_teacher": 0.2036775106082037,
+  "extra_rnd": 0.26874115983026875,
+  "boxes": {
+   "newnode": {
+    "n": 190,
+    "win1": 13,
+    "lose1": 12,
+    "neut1": 165,
+    "sum_d1": 1.0
+   },
+   "reorder": {
+    "n": 122,
+    "win1": 15,
+    "lose1": 8,
+    "neut1": 99,
+    "sum_d1": 7.0
+   },
+   "silent": {
+    "n": 395,
+    "win1": 0,
+    "lose1": 0,
+    "neut1": 395,
+    "sum_d1": 0.0
+   }
+  },
+  "void": false
+ }
+}

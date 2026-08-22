@@ -1,0 +1,47 @@
+{
+ "1337": {
+  "seed": 1337,
+  "corpus": "given",
+  "windows": 32,
+  "n_mark": 308,
+  "n": 719,
+  "n_seen": 1499,
+  "have": 543,
+  "recmiss": 955,
+  "would": 1,
+  "p_have": 0.36224149432955305,
+  "p_rec": 0.6370913942628419,
+  "p_add": 0.00066711140760507,
+  "void": false
+ },
+ "8642": {
+  "seed": 8642,
+  "corpus": "given",
+  "windows": 32,
+  "n_mark": 369,
+  "n": 718,
+  "n_seen": 1857,
+  "have": 664,
+  "recmiss": 1191,
+  "would": 2,
+  "p_have": 0.35756596661281637,
+  "p_rec": 0.6413570274636511,
+  "p_add": 0.0010770059235325794,
+  "void": false
+ },
+ "2890": {
+  "seed": 2890,
+  "corpus": "given",
+  "windows": 32,
+  "n_mark": 327,
+  "n": 707,
+  "n_seen": 1559,
+  "have": 595,
+  "recmiss": 964,
+  "would": 0,
+  "p_have": 0.3816549069916613,
+  "p_rec": 0.6183450930083387,
+  "p_add": 0.0,
+  "void": false
+ }
+}
