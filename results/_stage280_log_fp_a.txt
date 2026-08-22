@@ -1,0 +1,7 @@
+Stage280 raw exam start 2026-08-06T07:05:09.769669+00:00 device=cuda hop=fp no_hidden=False bc=4000 rl=3000 k=7 mode=upper
+  corpus split: 7324 train lines / 3139 held-out lines
+  tape: 48 addresses, 194 slots, write {"WRITE": 48, "CONFIRM": 59, "DISPUTE": 87} | items {"clean": 12, "decidable": 16, "tie": 20} (6s)
+  bc 500/4000 loss=1.1431 [decidable] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'READ_3', 'READ_4', 'READ_5', 'READ_6', 'ANSWER_0']
+  bc 1000/4000 loss=0.4976 [clean] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'READ_3', 'ANSWER_1']
+  bc 1500/4000 loss=0.6447 [tie] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'READ_3', 'READ_4', 'READ_5', 'READ_6', 'ANSWER_5']
+  bc 2000/4000 loss=1.0156 [decidable] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'READ_3', 'READ_4', 'READ_5', 'READ_6', 'ANSWER_0']

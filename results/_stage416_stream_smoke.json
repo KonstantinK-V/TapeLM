@@ -1,0 +1,24 @@
+{
+ "1337": {
+  "ge2": {
+   "n": 176,
+   "mind_hit": 0.0625,
+   "rival_hit": 0.0625,
+   "refuse": 0.10227272727272728
+  },
+  "one": {
+   "n": 24,
+   "mind_hit": 0.041666666666666664,
+   "rival_hit": 0.041666666666666664,
+   "refuse": 0.041666666666666664
+  },
+  "gate_mind_beats_rival": false,
+  "gate_refuse_one_gt_ge2": false,
+  "mean_cands": 14.105,
+  "seed": 1337,
+  "steps": 500,
+  "n_train": 18579,
+  "n_exam": 200,
+  "params": 4225
+ }
+}

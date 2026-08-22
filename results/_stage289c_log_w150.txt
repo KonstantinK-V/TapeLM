@@ -1,0 +1,34 @@
+Stage289c audit start 2026-08-10T00:28:08.904267+00:00 device=cuda
+  tape: 676 addresses | questions {"count": 676, "lookup": 392, "compare": 338} | params 6857
+  step 750/6000 loss=6.5736
+  step 1500/6000 loss=0.0184
+  step 2250/6000 loss=0.0111
+  step 3000/6000 loss=0.0116
+  step 3750/6000 loss=0.0002
+  step 4500/6000 loss=2.0793
+  step 5250/6000 loss=0.0000
+  step 6000/6000 loss=0.0000
+  MAP_HELD {"compare|deep|majority": {"n": 12, "stated_confidence": 0.9950528790553411, "realised_accuracy": 1.0, "random_floor": 0.3333333333333333}, "compare|deep|split": {"n": 45, "stated_confidence": 0.8590780059496562, "realised_accuracy": 0.5333333333333333, "random_floor": 0.33333333333333337}, "compare|mid|split": {"n": 71, "stated_confidence": 0.9906899307815122, "realised_accuracy": 1.0, "random_floor": 0.3333333333333332}, "count|deep|split": {"n": 14, "stated_confidence": 0.46880977707249777, "realised_accuracy": 0.6428571428571429, "random_floor": 0.20000000000000004}, "count|mid|majority": {"n": 11, "stated_confidence": 0.8539208336309954, "realised_accuracy": 0.8181818181818182, "random_floor": 0.2}, "count|mid|split": {"n": 20, "stated_confidence": 0.5151830613613129, "realised_accuracy": 0.5, "random_floor": 0.20000000000000004}, "count|mid|unanimous": {"n": 19, "stated_confidence": 0.9955204537040309, "realised_accuracy": 1.0, "random_floor": 0.20000000000000004}, "count|thin|split": {"n": 81, "stated_confidence": 0.9964130182325104, "realised_accuracy": 1.0, "random_floor": 0.19999999999999998}, "count|thin|unanimous": {"n": 107, "stated_confidence": 0.999764621257782, "realised_accuracy": 1.0, "random_floor": 0.19999999999999998}, "lookup|deep|majority": {"n": 9, "stated_confidence": 0.9312988188531663, "realised_accuracy": 0.7777777777777778, "random_floor": 0.4629629629629629}, "lookup|deep|split": {"n": 66, "stated_confidence": 0.7530931595600012, "realised_accuracy": 0.7272727272727273, "random_floor": 0.2282467532467532}, "lookup|mid|split": {"n": 35, "stated_confidence": 0.9985239437648228, "realised_accuracy": 0.6285714285714286, "random_floor": 0.4619047619047618}}
+{
+  "overall": "AUDIT_PARTIAL",
+  "gates": {
+    "G_arc_enc_frozen": true,
+    "G_task_exists": true,
+    "G_calibrated": false,
+    "G_calibrated_after_train_temperature": false,
+    "G_ranks_regions": true,
+    "G_refusal_is_informed": false,
+    "G_map_transfers": true
+  },
+  "ece": 0.08605416070835795,
+  "noise": 0.033818617697005185,
+  "rho": 0.5873421648877502,
+  "refusal": {
+    "threshold": 0.334,
+    "answered_n": 493,
+    "refused_n": 1,
+    "answered_accuracy": 0.8539553752535497,
+    "refused_would_have_been": 0.0,
+    "vacuous": false
+  }
+}

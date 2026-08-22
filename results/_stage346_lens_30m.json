@@ -1,0 +1,20 @@
+{
+ "bytes": 30000000,
+ "corpus": "data/_wikitext103_train.txt",
+ "places": 1500,
+ "questions": 3000,
+ "mentions_per_place": 4.24,
+ "mean_lens_offer": 37.8,
+ "in_own": 0.261,
+ "one_present_topm": 0.1933,
+ "one_count_right": 0.0373,
+ "one_share_right": 0.0013,
+ "pair_nonempty": 0.5083,
+ "pair_present_topm": 0.088,
+ "pair_count_right": 0.0127,
+ "pair_mean_size": 16.0,
+ "pairs_per_question": 1.7,
+ "support_1": 0.84,
+ "support_2plus": 0.16,
+ "support_3plus": 0.0645
+}

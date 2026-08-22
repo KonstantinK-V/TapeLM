@@ -1,0 +1,245 @@
+From 5d78b56f0464fa9a7813f4d10f7bf0ef9700b726 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Sat, 8 Aug 2026 08:54:43 +0000
+Subject: [PATCH] 286: the ink returns as sliced RANKS and as an observer - not
+ as a term in the loss
+
+Answering a design question with the two thirds of it that survive the
+measurements already on record, and refusing the third.
+
+--ink-slices adds two edge channels to the relational graph: the RANK of the
+context-fp cosine taken before the value and the rank taken after it,
+separately. 277 closed fp as a search channel because it is order-blind, but
+that is order-blindness INSIDE a word - arc_enc mean-pools characters. Slicing
+the CONTEXT at the value is a different question and an open one, because it
+recovers order BETWEEN chunks with no new machinery: two mentions that agree
+on the frame but not the aftermath are a paraphrase, two that agree on both
+are a duplicate, and telling those apart is exactly where the relational mind
+just beat votes 0.450 to 0.000. Ranks only, never coordinates - an absolute fp
+IS an identity, and identity is what turned every reading arm into a lookup
+table. So the mind gets the option and decides for itself whether to weigh it.
+
+ink_coherence is the eval-time observer: for the value the mind answered,
+the mean context-fp cosine WITHIN its mentions minus the mean cosine ACROSS to
+the rest. Below zero says the mentions agreeing on the value agree on nothing
+else - a coalition assembled by coincidence. Reported for every arm as
+when_correct against when_wrong with both denominators, and it becomes load
+bearing only if those two come apart. That is the same bar the return path had
+to clear in 280, and the reason it is reported beside accuracy rather than
+consulted.
+
+What is refused, and why, because the reasoning matters more than the answer:
+
+  A term added to the loss would be a teacher through the back door. 286
+  exists to remove the circularity of writing a heuristic, training the
+  weights to resemble it, and scoring the resemblance - and lambda times an
+  ink-disagreement penalty is that circle with an extra symbol. The tape is
+  the label. If ink knowledge belongs in the mind it enters as a FEATURE the
+  weights may ignore, which is what --ink-slices does.
+
+  "Mean or trajectory over the last K slots" is two closed failure modes at
+  once. A fixed window over a growing tape is failure mode 1, which cost the
+  return path its measurement when top-k lost the corroborating mention; and
+  collapsing a set into its mean is failure mode 8, the thing that was fixed
+  by making an address a SET of member keys after 283 measured crowding at
+  0.345 for the averaged key against 0.061 for two channels. The part of the
+  idea worth keeping - "do these mentions point the same way" - is already in
+  the graph as the pairwise cosine rank, and it is there without a window and
+  without an average.
+
+Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01RYDM9MUk761CZjn7SmTaug
+---
+ _stage286_evidence.py | 88 +++++++++++++++++++++++++++++++++++++++----
+ 1 file changed, 81 insertions(+), 7 deletions(-)
+
+diff --git a/_stage286_evidence.py b/_stage286_evidence.py
+index 5eb8eaa..b4b8303 100644
+--- a/_stage286_evidence.py
++++ b/_stage286_evidence.py
+@@ -538,9 +538,9 @@ class Relational(nn.Module):
+     its own reason to exist.
+     """
+ 
+-    def __init__(self, device, d: int = 32):
++    def __init__(self, device, d: int = 32, n_edge: int = 3):
+         super().__init__()
+-        self.edge = nn.Sequential(nn.Linear(3, d), nn.GELU()).to(device)
++        self.edge = nn.Sequential(nn.Linear(n_edge, d), nn.GELU()).to(device)
+         self.node = nn.Sequential(nn.Linear(2 + 2 * d, d), nn.GELU()).to(device)
+         self.cand = nn.Sequential(nn.Linear(2 * d + 1, d), nn.GELU(),
+                                   nn.Linear(d, 1)).to(device)
+@@ -683,6 +683,15 @@ def main() -> int:
+                          "absolute coordinate of any kind reaches the weights, so the lookup "
+                          "channel that killed every reading arm is closed by construction, "
+                          "not by regularisation. Trains in minutes: the trunk is never read.")
++    ap.add_argument("--ink-slices", action="store_true",
++                    help="two more edge channels: the RANK of the context-fp cosine taken "
++                         "before the value and after it, separately. fp is order-blind inside "
++                         "a word (277, closed) but slicing the CONTEXT at the value recovers "
++                         "order BETWEEN chunks, which is a different question and an open one: "
++                         "two mentions agreeing on the frame but not the aftermath are a "
++                         "paraphrase, agreeing on both are a duplicate. Ranks only - an "
++                         "absolute fp coordinate is an identity, and identity is what turned "
++                         "every reading arm into a lookup table.")
+     ap.add_argument("--lie-dup", type=int, default=1, metavar="K",
+                     help="lying tape with the forged mention repeated K times. Votes scale "
+                          "linearly in K by construction; a mind that models duplication "
+@@ -714,6 +723,7 @@ def main() -> int:
+     tag += "_anon" if args.read_anon else ""
+     tag += "_rel" if args.mind == "relational" else ""
+     tag += f"_dup{args.lie_dup}" if args.lie_dup > 1 else ""
++    tag += "_slices" if args.ink_slices else ""
+     LOG_PATH = RES / f"_stage286_log{tag}.txt"
+     LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+     LOG_PATH.write_text("", encoding="utf-8")
+@@ -787,7 +797,8 @@ def main() -> int:
+         return 1
+ 
+     d_hidden = 0 if args.no_hidden else 2 * (model.head.in_features // 2)
+-    net = (Relational(device) if args.mind == "relational"
++    net = (Relational(device, n_edge=3 + 2 * int(args.ink_slices))
++           if args.mind == "relational"
+            else Evidence(d_hidden, device, read_rank=args.read_rank))
+     live = [p for p in model.parameters() if p.requires_grad]
+     opt = torch.optim.AdamW([{"params": net.parameters(), "lr": args.lr_head}]
+@@ -831,6 +842,42 @@ def main() -> int:
+             read_cache[key] = h
+         return h
+ 
++    @torch.no_grad()
++    def ink_coherence(p, ex, value):
++        """Is the answered value's coalition tighter than its split from the rest?
++
++        The ink's one surviving job, used as an OBSERVER rather than a judge. For the value the
++        mind answered, compare the mean context-fp cosine WITHIN its mentions against the mean
++        cosine ACROSS to the others. Below zero means the mentions that agree on the value do
++        not agree on anything else - a coalition assembled by coincidence.
++
++        Deliberately not in the loss. A hand-written signal added to L is a teacher through the
++        back door, and the circularity 286 exists to remove is precisely "train the weights to
++        resemble a heuristic, then score resemblance". It earns its way in the way the return
++        path had to: only if the two rates below come apart does it become load bearing.
++        """
++        slots, vals_e = ex["ev_slots"], ex["vals"]
++        ck = p.setdefault("_rel_ctx", {})
++        for sl in set(slots):
++            if sl not in ck:
++                c = bank.ctx_fp(p["texts"][sl], exclude=p["tape"].values[sl])
++                ck[sl] = F.normalize(c, dim=-1) if c is not None else None
++        inn, out = [], []
++        for i in range(len(slots)):
++            for j in range(i + 1, len(slots)):
++                a, b = ck[slots[i]], ck[slots[j]]
++                if a is None or b is None:
++                    continue
++                c = float(a @ b)
++                mine = (vals_e[i] == value) + (vals_e[j] == value)
++                if mine == 2:
++                    inn.append(c)
++                elif mine == 1:
++                    out.append(c)
++        if not inn or not out:
++            return float("nan")
++        return float(np.mean(inn) - np.mean(out))
++
+     def rel_inputs(p, ex):
+         """The graph, in ranks. Everything here comes from plumbing that already existed -
+         ctx fingerprints, the inverted index, the probe counts - and leaves as an order
+@@ -840,11 +887,19 @@ def main() -> int:
+         n = len(slots)
+         ck = p.setdefault("_rel_ctx", {})
+         ws = p.setdefault("_rel_words", {})
++        lk, rk = p.setdefault("_rel_left", {}), p.setdefault("_rel_right", {})
+         for sl in set(slots):
+             if sl not in ck:
+-                c = bank.ctx_fp(p["texts"][sl], exclude=p["tape"].values[sl])
++                t, v = p["texts"][sl], p["tape"].values[sl]
++                c = bank.ctx_fp(t, exclude=v)
+                 ck[sl] = F.normalize(c, dim=-1) if c is not None else None
+-                ws[sl] = set(context_words(p["texts"][sl], exclude=p["tape"].values[sl]))
++                ws[sl] = set(context_words(t, exclude=v))
++                # split at the value: what leads up to it, and what follows
++                i = t.lower().find(v.lower())
++                left, right = ((t[:i], t[i + len(v):]) if i >= 0 else (t, ""))
++                for store, part in ((lk, left), (rk, right)):
++                    cc = bank.ctx_fp(part, exclude=v) if part.strip() else None
++                    store[sl] = F.normalize(cc, dim=-1) if cc is not None else None
+         med = p.get("_rel_median")
+         if med is None:
+             lens = sorted(len(v) for v in p["postings"].values())
+@@ -853,6 +908,7 @@ def main() -> int:
+         same = torch.zeros(n, n)
+         cos = torch.zeros(n, n)
+         shared = torch.zeros(n, n)
++        cosL, cosR = torch.zeros(n, n), torch.zeros(n, n)
+         for i in range(n):
+             for j in range(i + 1, n):
+                 si, sj = slots[i], slots[j]
+@@ -862,6 +918,10 @@ def main() -> int:
+                 rare = sum(1 for w in (ws[si] & ws[sj])
+                            if len(p["postings"].get(w, ())) < med)
+                 shared[i, j] = shared[j, i] = rare / max(1, min(len(ws[si]), len(ws[sj])))
++                if args.ink_slices:
++                    for M, store in ((cosL, lk), (cosR, rk)):
++                        if store[si] is not None and store[sj] is not None:
++                            M[i, j] = M[j, i] = float(store[si] @ store[sj])
+ 
+         iu = torch.triu_indices(n, n, offset=1)
+ 
+@@ -892,7 +952,10 @@ def main() -> int:
+             R[iu[1], iu[0]] = r
+             return R
+ 
+-        E = torch.stack([same, rank_norm(cos), rank_norm(shared)], -1).to(device)
++        chans = [same, rank_norm(cos), rank_norm(shared)]
++        if args.ink_slices:
++            chans += [rank_norm(cosL), rank_norm(cosR)]
++        E = torch.stack(chans, -1).to(device)
+         ext_per = [ex["ext"].get(v, 0) for v in vals_e]
+         levels = sorted(set(ext_per))
+         nf = torch.tensor([[ex["cnt"][vals_e[i]] / n,
+@@ -1038,6 +1101,7 @@ def main() -> int:
+         # leave-one-out, EVIDENCE_OK is a copying rule that learned when to keep quiet, and
+         # the honest thing is for the gates to say so rather than for a reader to divide
+         # coverage by unanimity and notice.
++        coh_ok, coh_bad = [], []
+         uni_ans, con_ans, uni_ok, con_ok = [], [], [], []
+         con_conf, con_forced_ok, con_votes_ans, con_votes_ok, con_rand = [], [], [], [], []
+         for it in p["items"]:
+@@ -1076,6 +1140,9 @@ def main() -> int:
+                     rew[name].append(reward_of(a, truth, args.abstain_reward, args.wrong_cost))
+                 if model_ans is not None:
+                     acc_model.append(int(model_ans == truth))
++                    coh = ink_coherence(p, ex, model_ans)
++                    if not math.isnan(coh):
++                        (coh_ok if model_ans == truth else coh_bad).append(coh)
+                 # Honesty in the distribution, not at the argmax. Whether the hidden value is
+                 # among the visible ones is a property of the HIDDEN slot; where the evidence is
+                 # unanimous the UNKNOWN row is identical under both labels, so with a ~20% base
+@@ -1161,6 +1228,13 @@ def main() -> int:
+         out["matched_coverage"] = matched
+         out["selective_curve"] = {f"{c:.2f}": acc_at_coverage(conf, forced_ok, c)
+                                   for c in (0.1, 0.25, 0.5, 0.75, 1.0)}
++        # An observer, never a vote: the mind does not see it and the loss does not move with
++        # it. Useful only if the two numbers come apart - the same bar the return path had to
++        # clear before 280 would report it beside accuracy.
++        out["ink_coherence"] = {
++            "when_correct": _mean(coh_ok), "when_wrong": _mean(coh_bad),
++            "separation": _mean(coh_ok) - _mean(coh_bad),
++            "n_correct": len(coh_ok), "n_wrong": len(coh_bad)}
+         v_cov = _mean(con_votes_ans)
+         out["by_evidence_shape"] = {
+             "unanimous_rate": len(uni_ans) / max(1, len(conf)),
+@@ -1333,7 +1407,7 @@ def main() -> int:
+             "G_beats_silence": g_beats_silence,
+         },
+         "judges_compared": live_judges, "judges_compared_lie": lie_judges,
+-        "mind": args.mind, "lie_dup": args.lie_dup,
++        "mind": args.mind, "lie_dup": args.lie_dup, "ink_slices": args.ink_slices,
+         "train_distribution": train_dist, "head_input_norms": head_norms,
+         "leave_one_out": loo, "leave_one_out_train_control": loo_train,
+         "lying_tape": lied, "lying_tape_dup": lied_dup, "exam": ex_out, "curve": curve,
+-- 
+2.43.0
+

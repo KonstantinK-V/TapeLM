@@ -1,0 +1,66 @@
+{
+ "lines": 400,
+ "places": 5340,
+ "vocab": 4644,
+ "seen": 3001,
+ "unreachable_questions": 1500,
+ "scored": 1357,
+ "no_neighbourhood": 143,
+ "pool": 128,
+ "cap": 500,
+ "min_fillers": 1,
+ "match_freq": true,
+ "auc_useful": 0.6009781457258658,
+ "auc_freq": 0.5775723102431835,
+ "auc_null": 0.5136214996315401,
+ "auc_places": 0.6036725082903464,
+ "auc_places_null": 0.5142288826455417,
+ "truth_nonzero": 0.3249815770081061,
+ "pool_all_zero": 0.14222549742078114,
+ "null_all_zero": 0.3006632277081798,
+ "p_at_1": 0.018422991893883568,
+ "p_at_5": 0.07663964627855564,
+ "chance_p_at_5": 0.03875968992248062,
+ "chance_p_at_1": 0.007751937984496124,
+ "by_neighbourhood": [
+  {
+   "quartile": 1,
+   "n": 339,
+   "neigh_lo": 1,
+   "neigh_hi": 9,
+   "auc_places": 0.5176875921828908,
+   "p_at_5": 0.032448377581120944,
+   "truth_nonzero": 0.05604719764011799
+  },
+  {
+   "quartile": 2,
+   "n": 339,
+   "neigh_lo": 9,
+   "neigh_hi": 41,
+   "auc_places": 0.5966883296460177,
+   "p_at_5": 0.08849557522123894,
+   "truth_nonzero": 0.25958702064896755
+  },
+  {
+   "quartile": 3,
+   "n": 339,
+   "neigh_lo": 41,
+   "neigh_hi": 168,
+   "auc_places": 0.6326166113569321,
+   "p_at_5": 0.07669616519174041,
+   "truth_nonzero": 0.4277286135693215
+  },
+  {
+   "quartile": 4,
+   "n": 340,
+   "neigh_lo": 170,
+   "neigh_hi": 1046,
+   "auc_places": 0.6675091911764706,
+   "p_at_5": 0.10882352941176471,
+   "truth_nonzero": 0.5558823529411765
+  }
+ ],
+ "over_freq": 0.02340583548268238,
+ "over_null": 0.0873566460943257,
+ "places_over_null": 0.08944362564480468
+}

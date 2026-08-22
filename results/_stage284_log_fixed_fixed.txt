@@ -1,0 +1,58 @@
+Stage284 scalefree start 2026-08-07T17:58:13.793338+00:00 rule=fixed rungs=[4000000, 30000000, 120000000] mind_params=7564290
+  rung 4M -> 26 addr / 60 slots | precision 0.532 | return sep +1.000 | foreign 0.000 | covers 1.000 | cands 4.65 | ties 0.231 (1s)
+  rung 30M -> 154 addr / 407 slots | precision 0.380 | return sep +0.990 | foreign 0.003 | covers 0.994 | cands 5.88 | ties 0.370 (71s)
+  rung 120M -> 893 addr / 2748 slots | precision 0.259 | return sep +0.995 | foreign 0.013 | covers 0.953 | cands 7.00 | ties 0.364 (2010s)
+{
+  "overall": "SCALEFREE_NO",
+  "gates": {
+    "G_one_config_all_rungs": false,
+    "G_mind_does_not_grow": true
+  },
+  "per_rung_pass": [
+    false,
+    false,
+    false
+  ],
+  "slopes": {
+    "n_slots": [
+      60,
+      407,
+      2748
+    ],
+    "n_addresses": [
+      26,
+      154,
+      893
+    ],
+    "retrieval_precision": [
+      0.531959706959707,
+      0.38008658008658003,
+      0.25931850903855375
+    ],
+    "witness_recall": [
+      1.0,
+      0.8891789853771419,
+      0.7392419056631853
+    ],
+    "return_path_separation": [
+      1.0,
+      0.9896907216494846,
+      0.9947183098591549
+    ],
+    "foreign_member_rate": [
+      0.0,
+      0.003246753246753247,
+      0.012545527631299666
+    ],
+    "reader_covers_address": [
+      1.0,
+      0.9935064935064936,
+      0.9529675251959686
+    ],
+    "mean_candidates": [
+      4.653846153846154,
+      5.883116883116883,
+      7.0
+    ]
+  }
+}

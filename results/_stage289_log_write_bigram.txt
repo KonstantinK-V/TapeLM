@@ -1,0 +1,12 @@
+Stage289 derivation start 2026-08-11T21:39:56.213218+00:00 device=cuda holdout=corpus
+  lines: train 127626, eval 54697 (the probe reserves ANCHORS, not lines - see `reserved`)
+  word rule matches stage194: True  (rule=ascii, fp=arc, ink=bigram)
+  bigram tokenisation matches base mean-ink: True
+  tau calibrated: 0.6908 -> density 2.9624 (target 2.9701, 665 addresses, 14 probes, 31s)
+  tape: 665 addresses, 1970 slots | questions {"count": 591, "lookup": 267, "compare": 295} | params 5601
+  ladder coverage: 0/267 lookup questions have all three rungs; the rest train on the task term alone
+  probe pack: 249 reserved addresses (45s to build)
+  probe tape: 200 lookup questions, never trained on; 4389 graphs cached (1 view(s)/question) in 198s
+  probe eval: 2.51s x 60 = 2.5 min added to this run
+  step 750/6000 train=0.9773 probe=1.7947
+  step 1500/6000 train=1.2660 probe=1.4431

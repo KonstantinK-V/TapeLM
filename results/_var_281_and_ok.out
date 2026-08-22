@@ -1,0 +1,9 @@
+Stage281 frames start 2026-08-06T00:49:20.636808+00:00 device=cuda frame_in_address=False
+  pass 1: 392 assertions over 6 frames -> keep 0 frames / 0 assertions (0.000) (1s)
+    KEEP  'the' n=6 confirm=0.83 anchors=1 vpa=1.00
+    KEEP  '' n=373 confirm=0.57 anchors=55 vpa=2.95
+    KEEP  'protector' n=4 confirm=0.00 anchors=1 vpa=4.00
+    DROP? 'the' n=6 confirm=0.83 anchors=1 vpa=1.00
+    DROP? '' n=373 confirm=0.57 anchors=55 vpa=2.95
+    DROP? 'protector' n=4 confirm=0.00 anchors=1 vpa=4.00
+  no frame survived; loosen --min-confirm or --min-n

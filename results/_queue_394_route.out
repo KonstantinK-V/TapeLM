@@ -1,0 +1,15 @@
+﻿
+2026-08-19 10:26:15 394 --route-on walk_only. Void checks on dumps did not fire on standing 365r3. Control is 365r3 (--route-on all).
+2026-08-19 10:26:15 GATE 35.3: walk_only hit(step) > hit(stay)+0.05; full-pop hop1 must not fall >0.03 vs 365r3; report route_on_live.
+2026-08-19 10:26:15 ==== 394route_s1337 ====
+2026-08-19 10:30:57 OK 394route_s1337
+2026-08-19 10:30:57 ==== 394route_s8642 ====
+2026-08-19 10:34:51 OK 394route_s8642
+2026-08-19 10:34:51 ==== 394route_s2890 ====
+2026-08-19 10:38:59 OK 394route_s2890
+2026-08-19 10:38:59 ==== 394route_s4711 ====
+2026-08-19 10:43:01 OK 394route_s4711
+2026-08-19 10:43:01 ==== _read299 394route ====
+2026-08-19 10:43:01 ==== _read299 365r3 control ====
+2026-08-19 10:43:01 ==== _read394_walkonly 394route ====
+2026-08-19 10:43:01 DONE 394route

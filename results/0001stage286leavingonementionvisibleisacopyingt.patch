@@ -1,0 +1,179 @@
+From d8b95cbd4c07a2bbbcee1f25933e31e504c86ebe Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Fri, 7 Aug 2026 19:32:58 +0000
+Subject: [PATCH] stage 286: leaving one mention visible is a copying task, not
+ a weighing one
+
+The smoke ran entirely in a degenerate regime and every gate in it was
+measuring nothing. At --min-mentions 2 an address holds two mentions;
+hiding one leaves one, so the candidate list had a single entry - n_cands
+was 1 at every logged step - and the only choice left was that value or
+UNKNOWN. The model learned to answer the only candidate, scored 0.875 by
+doing so, and never abstained once.
+
+The lying tape collapsed the same way. It forges one visible mention, and
+with a single mention visible that is the entire record replaced rather
+than a lie among evidence. Model and votes both scored -1.0 because
+nothing survived to contradict the forgery.
+
+So an address must be able to spare a mention and still hold a
+comparison: --min-evidence, default 2, is how many mentions stay visible,
+and examples that cannot meet it are refused rather than scored. The lie
+is refused below two visible mentions for the same reason.
+
+And a gate before the gates. G_task_exists requires at least twenty
+leave-one-out examples, more than one candidate on average, and some
+target the visible evidence genuinely cannot supply; NO_TASK is the
+overall verdict when it fails, so a degenerate run says so instead of
+reporting numbers about a copying exercise. Verified on a hand tape:
+two mentions are refused, three give a real two-candidate choice, hiding
+a lone minority value yields target UNKNOWN, and the forgery now leaves
+votes tied where the corroboration feature still separates.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01PGuqHAMhjCxVAADm3R4wxK
+---
+ _stage286_evidence.py | 49 ++++++++++++++++++++++++++++++++++++-------
+ 1 file changed, 41 insertions(+), 8 deletions(-)
+
+diff --git a/_stage286_evidence.py b/_stage286_evidence.py
+index d1ef9fc..c0d4385 100644
+--- a/_stage286_evidence.py
++++ b/_stage286_evidence.py
+@@ -70,6 +70,7 @@ CKPT_JOINT = Path("checkpoints/stage253_joint_l02.pt")
+ WIKI = Path("data/_wikitext103_train.txt")
+ SEED = 286
+ N_FEAT = 4
++MIN_EVIDENCE = 2      # mentions that must remain visible after one is hidden
+ LOG_PATH = RES / "_stage286_log.txt"
+ 
+ 
+@@ -109,12 +110,21 @@ def example(pack, item, hidden: int | None, lie_from: int | None = None):
+     """
+     vals, texts = pack["tape"].values, pack["texts"]
+     ev = [c for c in item["slots"] if c != hidden]
+-    if not ev:
++    # Leaving ONE mention visible is not a weighing task, it is a copying task: the candidate
++    # list has a single entry and the only choice left is that value or UNKNOWN. The first smoke
++    # ran entirely in that regime - n_cands was 1 at every step - so nothing about evidence
++    # could be learned or measured. An address must be able to spare a mention and still hold a
++    # comparison.
++    if len(ev) < (MIN_EVIDENCE if hidden is not None else 1):
+         return None
+     ev_vals = [vals[c] for c in ev]
+     ev_texts = [texts[c] for c in ev]
+     if lie_from is not None:
+-        # the lying tape: one visible mention is forged wholesale - foreign text, foreign value
++        # The lying tape forges ONE visible mention. With a single mention visible that is not a
++        # lie to catch, it is the whole record replaced, and the first smoke scored exactly that
++        # - model and votes both at -1.0, because no evidence survived to contradict it.
++        if len(ev) < 2:
++            return None
+         j = len(ev) - 1
+         ev_vals = ev_vals[:j] + [vals[lie_from]]
+         ev_texts = ev_texts[:j] + [texts[lie_from]]
+@@ -214,6 +224,9 @@ def main() -> int:
+     ap.add_argument("--tape-period", type=int, default=0)
+     ap.add_argument("--addresses", type=int, default=0)
+     ap.add_argument("--min-mentions", type=int, default=2)
++    ap.add_argument("--min-evidence", type=int, default=2,
++                    help="mentions left visible after hiding one; under 2 there is nothing "
++                         "to weigh")
+     ap.add_argument("--min-per-family", type=int, default=8)
+     ap.add_argument("--address-tau", type=float, default=0.90)
+     ap.add_argument("--address-overlap", type=int, default=2)
+@@ -243,6 +256,8 @@ def main() -> int:
+     n_steps = args.train_steps or (600 if args.smoke else 6000)
+     tape_period = args.tape_period or (150 if args.smoke else 500)
+     n_addr = args.addresses or (60 if args.smoke else 400)
++    global MIN_EVIDENCE
++    MIN_EVIDENCE = args.min_evidence
+ 
+     log(f"Stage286 evidence start {datetime.now(timezone.utc).isoformat()} device={device} "
+         f"steps={n_steps} no_hidden={args.no_hidden}")
+@@ -283,8 +298,13 @@ def main() -> int:
+     if len(pack["items"]) < 8:
+         log("  too few items")
+         return 1
++    usable = [it for it in pack["items"] if len(it["slots"]) > args.min_evidence]
+     log(f"  tape: {pack['n_addresses']} addresses, {pack['n_slots']} slots | "
+-        f"items {json.dumps(dict(Counter(i['kind'] for i in pack['items'])))}")
++        f"items {json.dumps(dict(Counter(i['kind'] for i in pack['items'])))} | "
++        f"usable for leave-one-out (>{args.min_evidence} mentions): {len(usable)}")
++    if not usable:
++        log("  no address can spare a mention: raise --addresses or lower --min-evidence")
++        return 1
+ 
+     d_hidden = 0 if args.no_hidden else 2 * (model.head.in_features // 2)
+     net = Evidence(d_hidden, device)
+@@ -309,11 +329,11 @@ def main() -> int:
+     net.train()
+     model.train(not args.frozen_trunk)
+     curve, losses = [], []
+-    multi = [it for it in pack["items"] if len(it["slots"]) >= 2]
++    multi = [it for it in pack["items"] if len(it["slots"]) > MIN_EVIDENCE]
+     for step in range(1, n_steps + 1):
+         if (step - 1) % tape_period == 0 and step > 1:
+             pack = new_pack(rng, train_lines)
+-            multi = [it for it in pack["items"] if len(it["slots"]) >= 2]
++            multi = [it for it in pack["items"] if len(it["slots"]) > MIN_EVIDENCE]
+         if not multi:
+             log("  no multi-mention addresses on this tape")
+             return 1
+@@ -349,7 +369,7 @@ def main() -> int:
+         r = random.Random(SEED + (1 if lie else 0))
+         n_slots = p["n_slots"]
+         for it in p["items"]:
+-            if len(it["slots"]) < 2:
++            if len(it["slots"]) <= MIN_EVIDENCE:
+                 continue
+             for hidden in it["slots"]:
+                 lie_from = None
+@@ -378,8 +398,15 @@ def main() -> int:
+                     agg["model_acc"].append(int(model_ans == truth))
+                 agg["unk_when_absent" if not present else "unk_when_present"].append(
+                     int(model_ans is None))
++                agg["target_unknown"].append(int(not present))
++                agg["n_cands"].append(len(ex["cands"]))
+         m = lambda k: float(np.mean(agg[k])) if agg[k] else float("nan")
+-        return {"n": len(agg["model_r"]), "model_reward": m("model_r"),
++        return {"n": len(agg["model_r"]),
++                # The two numbers that say whether a task existed at all. The first smoke had
++                # one candidate everywhere and no unknowable target anywhere, so its gates were
++                # measuring a copying exercise.
++                "mean_candidates": m("n_cands"), "target_unknown_rate": m("target_unknown"),
++                "model_reward": m("model_r"),
+                 "votes_reward": m("votes_r"), "return_reward": m("return_r"),
+                 "model_acc_answered": m("model_acc"), "model_abstain": m("model_abstain"),
+                 "unknown_when_absent": m("unk_when_absent"),
+@@ -426,13 +453,18 @@ def main() -> int:
+     log(f"  EXAM {json.dumps(ex_out)}")
+ 
+     g_arc = arc0 == arc1
++    # Before any claim about learning: was there something to learn from? Two candidates on
++    # average, and some target the evidence cannot supply, or this measured nothing.
++    g_task = (loo["n"] >= 20 and loo["mean_candidates"] > 1.05
++              and loo["target_unknown_rate"] > 0.0)
+     g_learns = (loo["model_reward"] > loo["votes_reward"]
+                 and loo["model_reward"] > loo["return_reward"])
+     g_honest = loo["unknown_when_absent"] > loo["unknown_when_present"]
+     g_lie = lied["model_reward"] > lied["votes_reward"]
+     g_exam = ex_out["reward"] >= max(ex_out["votes_reward"], ex_out["return_reward"])
+ 
+-    overall = ("EVIDENCE_OK" if (g_arc and g_learns and g_honest and g_lie)
++    overall = ("NO_TASK" if not g_task
++               else "EVIDENCE_OK" if (g_arc and g_learns and g_honest and g_lie)
+                else "EVIDENCE_PARTIAL" if (g_arc and (g_learns or g_lie))
+                else "EVIDENCE_NO")
+ 
+@@ -444,6 +476,7 @@ def main() -> int:
+         "reward": {"correct": 1.0, "wrong": -args.wrong_cost, "abstain": args.abstain_reward},
+         "gates": {
+             "G_arc_enc_frozen": g_arc,
++            "G_task_exists": g_task,
+             "G_learns_evidence": g_learns,
+             "G_abstains_unknowable": g_honest,
+             "G_survives_lie": g_lie,
+-- 
+2.43.0
+

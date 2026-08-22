@@ -1,0 +1,20 @@
+﻿
+2026-08-20 16:39:37 415 construction: DECLARED mind = 412ref_ce freeze. Paths below. Gate before numbers.
+2026-08-20 16:39:37   out/_mind_constr_412ref_ce_s1337.pt
+2026-08-20 16:39:37   out/_mind_constr_412ref_ce_s8642.pt
+2026-08-20 16:39:37   out/_mind_constr_412ref_ce_s2890.pt
+2026-08-20 16:39:37 GATE ge2: mind_hit > count_hit on 3/3. GATE one: refuse > refuse(ge2) on 3/3. No GATE-WO.
+2026-08-20 16:39:37 ==== TRAIN+SAVE out/_mind_constr_412ref_ce_s1337.pt ====
+2026-08-20 16:44:01 OK saved out/_mind_constr_412ref_ce_s1337.pt
+2026-08-20 16:44:01 ==== FREEZE EXAM 415raw_s1337 ====
+2026-08-20 16:45:01 OK 415raw_s1337
+2026-08-20 16:45:01 ==== TRAIN+SAVE out/_mind_constr_412ref_ce_s8642.pt ====
+2026-08-20 16:48:55 OK saved out/_mind_constr_412ref_ce_s8642.pt
+2026-08-20 16:48:55 ==== FREEZE EXAM 415raw_s8642 ====
+2026-08-20 16:49:53 OK 415raw_s8642
+2026-08-20 16:49:53 ==== TRAIN+SAVE out/_mind_constr_412ref_ce_s2890.pt ====
+2026-08-20 16:53:42 OK saved out/_mind_constr_412ref_ce_s2890.pt
+2026-08-20 16:53:42 ==== FREEZE EXAM 415raw_s2890 ====
+2026-08-20 16:54:36 OK 415raw_s2890
+2026-08-20 16:54:36 ==== verdict (per seed, no pool) ====
+2026-08-20 16:54:36 DONE 415 construction

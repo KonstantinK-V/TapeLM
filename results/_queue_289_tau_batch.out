@@ -1,0 +1,28 @@
+﻿===== 289 tau batch resume 2026-08-11T21:34:35.2738620+03:00 =====
+2026-08-11T21:34:35.3018678+03:00 wait for region3 pid=992 (row-dropout run) to finish
+2026-08-11T21:50:28.2875369+03:00 region3 pid=992 done
+2026-08-11T21:50:28.2985392+03:00 copied results\stage289_decision_region3.json -> results\stage289_decision_region3_rowdrop35.json
+2026-08-11T21:50:28.3075414+03:00 copied region3 out -> region3_rowdrop35.out
+2026-08-11T21:50:28.3195449+03:00 289 region3 --views 3 --view-mode region (no row-dropout)
+2026-08-11T22:37:36.1733577+03:00 EXIT_region3=0
+2026-08-11T22:37:36.1773590+03:00 289 ink_hash --fp hash
+2026-08-11T22:37:52.6476086+03:00 EXIT_ink_hash=1
+2026-08-11T22:37:52.6486085+03:00 STOP after ink_hash
+===== 289 tau batch from ink_hash 2026-08-11T22:45:49.5009821+03:00 =====
+2026-08-11T22:45:49.5289890+03:00 289 ink_hash --fp hash
+2026-08-11T23:12:53.6363310+03:00 EXIT_ink_hash=0
+2026-08-11T23:12:53.6449497+03:00 289 ink_bigram --ink bigram
+2026-08-11T23:13:03.8884361+03:00 EXIT_ink_bigram=1
+2026-08-11T23:13:03.8894354+03:00 STOP after ink_bigram
+===== 289 from ink_bigram 2026-08-11T23:16:04.0155410+03:00 =====
+2026-08-11T23:16:04.0415466+03:00 289 ink_bigram --ink bigram
+2026-08-11T23:43:57.7472246+03:00 EXIT_ink_bigram=0
+2026-08-11T23:43:57.7632284+03:00 289 tau_smoke
+2026-08-11T23:44:12.8954619+03:00 EXIT_tau_smoke=0
+2026-08-11T23:44:12.9224704+03:00 SMOKE_CAL: tau calibrated: 0.3162 -> density 2.9638 (target 2.9701, 138 addresses, 14 probes, 4s)
+2026-08-11T23:44:12.9244715+03:00 tau smoke OK
+2026-08-11T23:44:12.9344738+03:00 289 write_hash
+2026-08-12T00:39:50.3890661+03:00 EXIT_write_hash=0
+2026-08-12T00:39:50.3920666+03:00 289 write_bigram
+2026-08-12T01:01:38.7364391+03:00 EXIT_write_bigram=1
+2026-08-12T01:01:38.7384426+03:00 STOP after write_bigram

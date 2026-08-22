@@ -1,0 +1,25 @@
+Stage278 value baseline start 2026-08-05T16:23:16.121847+00:00 device=cuda value_head=True wrong=1.0 abstain=0.1 subject_filter=off bc=400 rl=0 k=7 mode=upper
+  bc 50/400 loss=1.1630 [clean] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'READ_3', 'READ_4', 'READ_5', 'READ_6', 'ANSWER_4']
+  bc 100/400 loss=0.9079 [tie] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'READ_3', 'READ_4', 'READ_5', 'READ_6', 'STOP']
+  bc 150/400 loss=0.8360 [tie] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'READ_3', 'READ_4', 'READ_5', 'READ_6', 'STOP']
+  bc 200/400 loss=1.1070 [clean] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'READ_3', 'READ_4', 'READ_5', 'READ_6', 'ANSWER_4']
+  bc 250/400 loss=0.6802 [tie] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'READ_3', 'READ_4', 'READ_5', 'READ_6', 'STOP']
+  bc 300/400 loss=1.0145 [clean] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'READ_3', 'READ_4', 'READ_5', 'READ_6', 'ANSWER_4']
+  bc 350/400 loss=0.9835 [clean] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'READ_3', 'READ_4', 'READ_5', 'READ_6', 'ANSWER_5']
+  bc 400/400 loss=0.9561 [clean] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'READ_3', 'READ_4', 'READ_5', 'READ_6', 'ANSWER_5']
+  NOVEL {"answer_is_slot": 1.0, "reward_total": -0.40666666666666673, "teacher_reward_total": -0.10666666666666673, "retrieval_precision": 0.4761904761904761, "witness_recall": 1.0, "clean": {"coverage": 1.0, "acc_answered": 0.0, "abstain": 0.0, "mean_reads": 7.0, "reward": -1.1400000000000001, "precision": 0.14285714285714285, "recall": 1.0, "teacher_abstain": 0.0, "teacher_acc_all": 0.0}, "decidable": {"coverage": 0.0, "acc_answered": NaN, "abstain": 1.0, "mean_reads": 7.0, "reward": -0.04000000000000001, "precision": 0.7142857142857143, "recall": 1.0, "teacher_abstain": 0.0, "teacher_acc_all": 1.0}, "tie": {"coverage": 0.0, "acc_answered": NaN, "abstain": 1.0, "mean_reads": 7.0, "reward": -0.04000000000000001, "precision": 0.5714285714285714, "recall": 1.0, "teacher_abstain": 1.0, "teacher_acc_all": 0.0}, "coverage_all": 0.3333333333333333, "acc_answered_all": 0.0}
+{
+  "overall": "RETRIEVAL_UNUSABLE",
+  "gates": {
+    "G_arc_enc_frozen": true,
+    "G_answer_is_slot": true,
+    "G_retrieval_usable": false,
+    "G_teacher_ceiling": false,
+    "G_answers_when_decidable": false,
+    "G_abstain_on_tie": true,
+    "G_acc_when_answering": false,
+    "G_beats_always_answer": false,
+    "G_novel_tape": false,
+    "G_reaches_teacher": false
+  }
+}

@@ -1,0 +1,14 @@
+Stage289 derivation start 2026-08-14T07:55:11.436496+00:00 device=cpu holdout=corpus
+  corpus data\_wikitext103_train.txt
+  lines: train 7324, eval 3139 (the probe reserves ANCHORS, not lines - see `reserved`)
+  word rule matches stage194: True  (rule=ascii, fp=hash, ink=mean)
+  hash ink deterministic and digest-faithful: True  {'anagram_cos': -0.0135, 'perm_fixed_points': 1}
+  tape: 1500 addresses, 6339 slots | questions {"pair": 1090} | params 5633
+  node vector 9 wide, matches the body
+  ladder coverage: 0/0 lookup questions have all three rungs; the rest train on the task term alone
+  probe pack: 2822 reserved addresses (18s to build)
+  probe tape: 60 lookup questions, never trained on; 0 graphs cached (1 view(s)/question) in 0s
+  probe eval: 1.19s x 4 = 0.1 min added to this run
+  step 500/4000 train=-0.0319 probe=nan
+  step 1000/4000 train=-0.0563 probe=-0.1263
+  step 1500/4000 train=-0.0690 probe=-0.1263

@@ -1,0 +1,203 @@
+From 99248a65198e9b4778b7ce0b8388a6fd35f26640 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Fri, 7 Aug 2026 13:56:49 +0000
+Subject: [PATCH 1/2] stage 280: identity and situation are two channels, not
+ one sum
+
+283 answered the question the other way round from my prediction. Bare
+anchors barely crowd - nearest-other cosine p50 0.793, only 0.018 of them
+at tau - while the summed address key crowds at 0.345. The context is not
+what saves the address, it is what fills the space: every English
+sentence has much the same character statistics, so adding a context
+fingerprint pulls every key toward one mean.
+
+So the two stay apart. --addr-key two scores a mention by the MINIMUM of
+its anchor cosine and its context cosine, where neither channel can drag
+the other and both have to agree, and it is the default now. set (members
+kept, channels summed) and mean (the original) remain as arms.
+
+Also settles the coverage question: --k-gap 0.35 against 0.0 at the same
+rung changes precision 0.6638 -> 0.6625, recall 0.7714 -> 0.7717 and mean
+candidates 3.996 -> 4.005. The cut was doing nothing; the missing witnesses
+are vote recall, which is the same failure the return path had before it
+stopped ranking.
+
+The write side still merges on the summed key - fp_addresses in 279 is
+where foreign_member_rate 0.052 comes from - and is not touched here.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01PGuqHAMhjCxVAADm3R4wxK
+---
+ _stage280_raw_exam.py | 19 +++++++++++++++++--
+ _stage282_mind.py     |  2 +-
+ _stage283_scale.py    |  2 +-
+ 3 files changed, 19 insertions(+), 4 deletions(-)
+
+diff --git a/_stage280_raw_exam.py b/_stage280_raw_exam.py
+index e444e79..3bd6d9a 100644
+--- a/_stage280_raw_exam.py
++++ b/_stage280_raw_exam.py
+@@ -107,12 +107,19 @@ def pack_from_corpus(lines, *, bank, tok, pad_id, device, rng, n_addr, min_menti
+     for a in asserts:
+         tape_w.decide(a["address"], a["value"], a["source"])
+ 
+-    keys, vals, texts, by_addr = [], [], [], defaultdict(list)
++    keys, akeys, ckeys, vals, texts, by_addr = [], [], [], [], [], defaultdict(list)
+     for a in asserts:
+         anchor = a["address"].split(":", 1)[-1].split("|")[0]
+         c = bank.ctx_fp(a["ctx"], exclude=a["value"])
+         k = bank.fp([anchor])[0]
+         keys.append(F.normalize((k + c) if c is not None else k, dim=-1))
++        # Kept apart as well as summed. 283 measured what the sum costs: bare anchors crowd at
++        # 0.018 while the summed key crowds at 0.345, because every English sentence has much
++        # the same character statistics and adding context pulls all keys toward one mean. So
++        # identity and situation stay as two channels and --addr-key two scores them by their
++        # MINIMUM, where neither can drag the other and both have to agree.
++        akeys.append(F.normalize(k, dim=-1))
++        ckeys.append(F.normalize(c, dim=-1) if c is not None else F.normalize(k, dim=-1))
+         by_addr[a["address"]].append(len(vals))
+         vals.append(a["value"])
+         texts.append(a["ctx"])
+@@ -212,6 +219,10 @@ def pack_from_corpus(lines, *, bank, tok, pad_id, device, rng, n_addr, min_menti
+         "slot_keys": (F.normalize(torch.stack([keys[i] for sids in aslots for i in sids])
+                                   .float(), dim=-1).to(device) if aslots else None),
+         "slot_keys_slot": [i for sids in aslots for i in sids],
++        "anc_keys": (torch.stack([akeys[i] for sids in aslots for i in sids]).float().to(device)
++                     if aslots else None),
++        "ctx_keys": (torch.stack([ckeys[i] for sids in aslots for i in sids]).float().to(device)
++                     if aslots else None),
+         "bank": bank,
+         "write_actions": dict(tape_w.counts),
+         "n_addresses": len(addrs), "n_slots": n_slots,
+@@ -246,7 +257,11 @@ def retrieve(pack, words, k, hop: str, item=None, subject_filter=False, hop_min=
+             len(cands) < k or top < hop_min):
+         q = pack["bank"].fp(words).float()
+         q = F.normalize(F.normalize(q, dim=-1).mean(0), dim=-1).to(pack["addr_keys"].device)
+-        if pack.get("addr_key", "mean") == "set" and pack.get("slot_keys") is not None:
++        mode = pack.get("addr_key", "mean")
++        if mode == "two" and pack.get("anc_keys") is not None:
++            row = int(torch.minimum(pack["anc_keys"] @ q, pack["ctx_keys"] @ q).argmax())
++            best = pack["slot_addr"][pack["slot_keys_slot"][row]]
++        elif mode == "set" and pack.get("slot_keys") is not None:
+             # MaxSim over the members: whichever single mention answers decides the address.
+             row = int((pack["slot_keys"] @ q).argmax())
+             best = pack["slot_addr"][pack["slot_keys_slot"][row]]
+diff --git a/_stage282_mind.py b/_stage282_mind.py
+index bf4052d..4b10c99 100644
+--- a/_stage282_mind.py
++++ b/_stage282_mind.py
+@@ -499,7 +499,7 @@ def main() -> int:
+     ap.add_argument("--tie-probe", action="store_true",
+                     help="ablation: let the return path overturn a tie (two witnesses)")
+     ap.add_argument("--subject-filter", choices=("off", "on"), default="on")
+-    ap.add_argument("--addr-key", choices=("set", "mean"), default="set")
++    ap.add_argument("--addr-key", choices=("two", "set", "mean"), default="two")
+     ap.add_argument("--frozen-trunk", action="store_true")
+     ap.add_argument("--run-tag", type=str, default="")
+     args = ap.parse_args()
+diff --git a/_stage283_scale.py b/_stage283_scale.py
+index 3d2129b..1746b3a 100644
+--- a/_stage283_scale.py
++++ b/_stage283_scale.py
+@@ -224,7 +224,7 @@ def main() -> int:
+     ap.add_argument("--hop-min", type=float, default=1.0)
+     ap.add_argument("--k-gap", type=float, default=0.35)
+     ap.add_argument("--subject-filter", choices=("off", "on"), default="on")
+-    ap.add_argument("--addr-key", choices=("set", "mean"), default="set")
++    ap.add_argument("--addr-key", choices=("two", "set", "mean"), default="two")
+     ap.add_argument("--min-precision", type=float, default=0.60)
+     ap.add_argument("--min-separation", type=float, default=0.30)
+     ap.add_argument("--max-crowding", type=float, default=0.20)
+-- 
+2.43.0
+
+
+From a678b10ff8cbc1338447152e79b98ad0575f3b49 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Fri, 7 Aug 2026 13:57:34 +0000
+Subject: [PATCH 2/2] stage 283: measure crowding the way the rule scores it
+
+address_crowding reads the summed key whatever --addr-key is set to, so
+the arm that changes the rule would have moved nothing and the run would
+have proved only that the metric was blind to it. Crowding is now
+reported three ways at every rung - the averaged key, the members, and
+the two channels scored by their minimum - so the arms are comparable
+against numbers computed under their own rule.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01PGuqHAMhjCxVAADm3R4wxK
+---
+ _stage283_scale.py | 28 ++++++++++++++++++++++++++--
+ 1 file changed, 26 insertions(+), 2 deletions(-)
+
+diff --git a/_stage283_scale.py b/_stage283_scale.py
+index 1746b3a..80774c0 100644
+--- a/_stage283_scale.py
++++ b/_stage283_scale.py
+@@ -103,6 +103,24 @@ def nearest_other(keys: torch.Tensor, chunk: int = 512) -> np.ndarray:
+     return best.cpu().numpy()
+ 
+ 
++def nearest_other_two(anc, ctx, group: torch.Tensor, chunk: int = 256):
++    """The same closest-other-member number, scored the way --addr-key two scores it.
++
++    Written because the first version of this measurement read the summed key whatever rule was
++    in force, so an arm that changes the rule would have moved nothing and the run would have
++    proved only that the metric was blind.
++    """
++    n = anc.size(0)
++    n_g = int(group.max()) + 1 if n else 0
++    best = torch.full((n_g,), -2.0, device=anc.device)
++    for i in range(0, n, chunk):
++        j = min(i + chunk, n)
++        sims = torch.minimum(anc[i:j] @ anc.T, ctx[i:j] @ ctx.T)
++        sims[group[i:j].unsqueeze(1) == group.unsqueeze(0)] = -2
++        best.scatter_reduce_(0, group[i:j], sims.max(dim=1).values, reduce="amax")
++    return best.cpu().numpy()
++
++
+ def nearest_other_member(keys: torch.Tensor, group: torch.Tensor, chunk: int = 256):
+     """Closest member of a DIFFERENT address, per address. The set rule's own crowding.
+ 
+@@ -177,8 +195,10 @@ def measure(pack, bank, rng, k, hop, hop_min, k_gap, subject_filter, tau) -> dic
+         g = torch.tensor([pack["slot_addr"][i] for i in pack["slot_keys_slot"]],
+                          device=pack["slot_keys"].device)
+         near_m = nearest_other_member(pack["slot_keys"], g)
++        near_t = (nearest_other_two(pack["anc_keys"], pack["ctx_keys"], g)
++                  if pack.get("anc_keys") is not None else np.array([float("nan")]))
+     else:
+-        near_m = np.array([float("nan")])
++        near_m = near_t = np.array([float("nan")])
+     anchors = sorted({it["S"] for it in items})
+     a_keys = torch.nn.functional.normalize(bank.fp(anchors).float(), dim=-1) \
+         if anchors else None
+@@ -203,6 +223,8 @@ def measure(pack, bank, rng, k, hop, hop_min, k_gap, subject_filter, tau) -> dic
+         "address_crowding": float(np.mean(near >= tau)),
+         "member_crowding_q": q(near_m, 50, 95, 99),
+         "member_crowding": float(np.mean(near_m >= tau)),
++        "two_channel_crowding": float(np.mean(near_t >= tau)),
++        "two_channel_q": q(near_t, 50, 95, 99),
+         "distinct_anchors": len(anchors),
+         "anchor_only_q": q(a_near, 50, 95, 99),
+         "anchor_only_crowding": float(np.mean(a_near >= tau)),
+@@ -294,7 +316,8 @@ def main() -> int:
+             f" | return true {r['return_path_true']:.3f} other {r['return_path_other']:.3f}"
+             f" (sep {r['return_path_separation']:+.3f})"
+             f" | crowding {r['address_crowding']:.3f}"
+-            f" (anchors alone {r['anchor_only_crowding']:.3f})"
++            f" (members {r['member_crowding']:.3f} two {r['two_channel_crowding']:.3f}"
++            f" anchors alone {r['anchor_only_crowding']:.3f})"
+             f" foreign {r['foreign_member_rate']:.3f}"
+             f" | k covers {r['k_covers_address']:.3f}"
+             f" | ties {r['families_natural']['tie']:.3f} ({build_s:.0f}s)")
+@@ -344,6 +367,7 @@ def main() -> int:
+             "return_path_separation": [r["return_path_separation"] for r in out_rungs],
+             "address_crowding": [r["address_crowding"] for r in out_rungs],
+             "member_crowding": [r["member_crowding"] for r in out_rungs],
++            "two_channel_crowding": [r["two_channel_crowding"] for r in out_rungs],
+             "foreign_member_rate": [r["foreign_member_rate"] for r in out_rungs],
+             "distinct_anchors": [r["distinct_anchors"] for r in out_rungs],
+             "anchor_only_crowding": [r["anchor_only_crowding"] for r in out_rungs],
+-- 
+2.43.0
+

@@ -1,0 +1,515 @@
+From 86cdd19e36b25f2f549839dd01a64a3596188556 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Fri, 7 Aug 2026 19:04:55 +0000
+Subject: [PATCH] stage 286: the tape is its own exam - judgment moves from
+ code into weights
+
+285's smoke made the flaw undeniable: every judgment was hand-written,
+the weights only copied whichever judge was pointed at them, and with two
+judges the disagreement was one-sided - votes was simply always wrong
+where they differed - so arbitration collapsed into trusting the better
+heuristic.
+
+This stage inverts the direction of teaching. Nobody demonstrates. The
+signal is L = -log P(value(s) | evidence of the address with s hidden):
+hide one mention, show the rest, require the hidden value. The label is
+the tape, so there are as many examples as slots rather than a quota of
+questions, and what the weights must learn is the thing the judges were
+hand-written approximations of - weighing evidence. Votes and external
+corroboration are demoted to features on the candidates; if arbitration
+exists it emerges inside P and is measured, not coded.
+
+UNKNOWN is a candidate whose target is real whenever the hidden value is
+absent from the visible evidence, so honesty is trained rather than
+assumed, and the answer is the argmax - no threshold constants, in 284's
+sense. The separation invariant holds by construction: the mind predicts
+a value of the tape given evidence from the tape, the tape resamples
+during training, and scoring runs on a tape from a disjoint corpus.
+
+Three relative examiners, none tunable. Beat BOTH hand-written judges at
+leave-one-out on the held-out tape. Say UNKNOWN more when the answer is
+absent than when present. And the lying tape: forge one visible mention
+wholesale and keep beating votes - the forged value has no external
+corroboration, so a mind that weighs evidence discounts it while votes by
+construction cannot. Verified on a hand tape: hiding the only mention of
+a value yields target UNKNOWN, and the injected lie turns votes into a
+1-1 abstain while the corroboration feature still separates 1 to 0.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01PGuqHAMhjCxVAADm3R4wxK
+---
+ _stage286_evidence.py | 462 ++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 462 insertions(+)
+ create mode 100644 _stage286_evidence.py
+
+diff --git a/_stage286_evidence.py b/_stage286_evidence.py
+new file mode 100644
+index 0000000..9ced033
+--- /dev/null
++++ b/_stage286_evidence.py
+@@ -0,0 +1,462 @@
++"""
++Stage 286 — The tape is its own exam: judgment moves from code into weights.
++
++Everything before this point had the shape 285's smoke finally made undeniable. Every judgment
++was written by hand - votes, return paths, tie rules - and the weights only learned to copy
++whichever hand-written judge was pointed at them. Adding a second judge produced arbitration of
++plumbing, not understanding; where the judges disagreed, one of them was simply always wrong,
++and "learn whom to trust" collapsed into "trust the better heuristic".
++
++So this stage inverts the direction of teaching. Nobody demonstrates anything. The training
++signal is the tape itself:
++
++    L = -log P( value(s) | evidence of the address, with s hidden )
++
++Hide one mention of an address, show the mind the others, require the hidden value. The label
++is the tape, so there are as many examples as there are slots - not a quota of questions - and
++no judge is imitated because no judge is asked. What the weights must learn is the thing the
++judges were hand-written approximations of: how to weigh evidence. Votes and corroboration are
++demoted to FEATURES on the candidates; if arbitration between them exists, it emerges inside
++P and is measured, not coded.
++
++Abstention stops being a habit and becomes an output. UNKNOWN is a candidate like any other,
++and the target IS unknown whenever the hidden value does not appear in the visible evidence -
++so the mind is trained, not told, that what the tape does not hold cannot be answered. No
++threshold constant anywhere: the answer is the argmax, in 284's sense.
++
++The separation invariant holds by construction. The mind predicts a value OF THE TAPE given
++evidence FROM THE TAPE, the tape is resampled during training, and the same weights are scored
++on a tape built from a disjoint corpus - so hiding facts in the parameters has no payoff, and
++the leak test stays available: delete the evidence and the answer must die with it.
++
++Three examiners, all relative, none tunable:
++  G_learns_evidence   beat BOTH hand-written judges on the same leave-one-out task
++  G_abstains_unknowable  say UNKNOWN more when the answer is absent than when it is present
++  G_survives_lie      keep beating votes when one visible mention is forged - the lying tape
++
++  python _stage286_evidence.py --smoke
++  python _stage286_evidence.py --train-steps 6000 --min-mentions 2
++"""
++from __future__ import annotations
++
++import argparse
++import json
++import math
++import random
++import time
++from collections import Counter, defaultdict
++from datetime import datetime, timezone
++from pathlib import Path
++
++import numpy as np
++import torch
++import torch.nn as nn
++import torch.nn.functional as F
++from tokenizers import Tokenizer
++
++import _stage177_curve_bpe as s177
++import _stage185_tape_read as s185
++import _stage213_arc_enc_freeze_finetune as s213
++import _stage271_controller as s271
++import _stage280_raw_exam as s280
++from _stage191_night import PAD, SelfModelXL, load_data
++from _stage194_fp_fact_memory import FpBank
++from _inprint_glue import hidden_and_logits
++from _tape_index import context_words
++
++RES = Path("results")
++CKPT_P1 = Path("checkpoints/stage191_p1_curve.pt")
++CKPT_JOINT = Path("checkpoints/stage253_joint_l02.pt")
++WIKI = Path("data/_wikitext103_train.txt")
++SEED = 286
++N_FEAT = 4
++LOG_PATH = RES / "_stage286_log.txt"
++
++
++def log(m: str) -> None:
++    line = m if m.endswith("\n") else m + "\n"
++    try:
++        print(line, end="", flush=True)
++    except UnicodeEncodeError:
++        print(line.encode("ascii", "replace").decode("ascii"), end="", flush=True)
++    LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
++    with LOG_PATH.open("a", encoding="utf-8") as f:
++        f.write(line)
++
++
++# --------------------------------------------------------------------------- evidence -> P
++
++def ext_support(pack, S: str, value: str, own: set[int]) -> int:
++    """Mentions OUTSIDE the address that carry subject and value together.
++
++    Outside, because inside is what the model already sees - and because the hidden slot is a
++    member, counting members would hand the target back through the index. This is 285's return
++    judge reduced to a number the model may weigh however the evidence warrants.
++    """
++    words = context_words(value) or [value]
++    scan = min((pack["postings_probe"].get(w, ()) for w in words), key=len, default=())
++    v = value.lower()
++    return sum(1 for c in scan
++               if c not in own and S in pack["texts_lc"][c] and v in pack["texts_lc"][c])
++
++
++def example(pack, item, hidden: int | None, lie_from: int | None = None):
++    """One evidence set. hidden=None is exam mode: all mentions visible, predict the address.
++
++    The candidate list is what the EVIDENCE says plus UNKNOWN, so the model can only answer
++    with a value the tape holds, and must answer UNKNOWN when the tape (as visible) does not
++    hold the answer - which is the honesty this stage trains instead of assuming.
++    """
++    vals, texts = pack["tape"].values, pack["texts"]
++    ev = [c for c in item["slots"] if c != hidden]
++    if not ev:
++        return None
++    ev_vals = [vals[c] for c in ev]
++    ev_texts = [texts[c] for c in ev]
++    if lie_from is not None:
++        # the lying tape: one visible mention is forged wholesale - foreign text, foreign value
++        j = len(ev) - 1
++        ev_vals = ev_vals[:j] + [vals[lie_from]]
++        ev_texts = ev_texts[:j] + [texts[lie_from]]
++    cnt = Counter(ev_vals)
++    cands = [v for v, _ in cnt.most_common(8)]
++    if hidden is not None:
++        target_val = vals[hidden]
++        target = cands.index(target_val) if target_val in cands else len(cands)
++    else:
++        target = cands.index(item["truth"]) if item["truth"] in cands else len(cands)
++    own = set(item["slots"])
++    n = len(ev)
++    top2 = cnt.most_common(2)
++    lead = top2[0][1]
++    second = top2[1][1] if len(top2) > 1 else 0
++    rows = []
++    for v in cands:
++        rows.append([cnt[v] / n, (cnt[v] - max((c for w, c in cnt.items() if w != v),
++                                               default=0)) / n,
++                     min(ext_support(pack, item["S"], v, own), 3) / 3.0, 0.0])
++    rows.append([1.0 / n, (lead - second) / n, len(cnt) / n, 1.0])   # the UNKNOWN row
++    return {"texts": ev_texts, "vals": ev_vals, "cands": cands, "rows": rows,
++            "target": target, "cnt": cnt}
++
++
++class Evidence(nn.Module):
++    """Scores each candidate (and UNKNOWN) given the trunk's reading of the evidence."""
++
++    def __init__(self, d_hidden: int, device):
++        super().__init__()
++        self.f = nn.Sequential(nn.Linear(d_hidden + N_FEAT, 128), nn.GELU(),
++                               nn.Linear(128, 1)).to(device)
++        nn.init.zeros_(self.f[-1].weight)
++        nn.init.zeros_(self.f[-1].bias)
++
++    def forward(self, h, rows):
++        n = rows.size(0)
++        x = torch.cat([h.unsqueeze(0).expand(n, -1), rows], dim=-1)
++        return self.f(x).squeeze(-1)
++
++
++def encode(model, char_table, tok, pad_id, device, texts):
++    ids = [i for i in tok.encode(" | ".join(texts)[-2000:]).ids if i != pad_id][-256:]
++    if not ids:
++        return None
++    h, _ = hidden_and_logits(model, char_table,
++                             torch.tensor([ids], dtype=torch.long, device=device), pad_id)
++    return h[0, -1]
++
++
++# --------------------------------------------------------------------------- the two old judges
++
++def votes_judge(ex):
++    top = ex["cnt"].most_common(2)
++    if len(top) > 1 and top[0][1] == top[1][1]:
++        return None
++    return top[0][0]
++
++
++def return_judge(pack, item, ex):
++    own = set(item["slots"])
++    scored = sorted(((v, ext_support(pack, item["S"], v, own)) for v in ex["cands"]),
++                    key=lambda t: -t[1])
++    if not scored:
++        return None
++    (v1, n1), n2 = scored[0], (scored[1][1] if len(scored) > 1 else 0)
++    return None if (n1 < 2 or n1 == n2) else v1
++
++
++def reward_of(answered, truth, abstain_reward, wrong_cost):
++    if answered is None:
++        return abstain_reward
++    return 1.0 if (truth is not None and answered == truth) else -wrong_cost
++
++
++def main() -> int:
++    ap = argparse.ArgumentParser()
++    ap.add_argument("--smoke", action="store_true")
++    ap.add_argument("--train-steps", type=int, default=0)
++    ap.add_argument("--tape-period", type=int, default=0)
++    ap.add_argument("--addresses", type=int, default=0)
++    ap.add_argument("--min-mentions", type=int, default=2)
++    ap.add_argument("--min-per-family", type=int, default=8)
++    ap.add_argument("--address-tau", type=float, default=0.90)
++    ap.add_argument("--address-overlap", type=int, default=2)
++    ap.add_argument("--soft-match", type=float, default=0.0)
++    ap.add_argument("--addr-key", choices=("two", "set", "mean"), default="two")
++    ap.add_argument("--abstain-reward", type=float, default=0.75)
++    ap.add_argument("--wrong-cost", type=float, default=1.0)
++    ap.add_argument("--lr-head", type=float, default=1e-3)
++    ap.add_argument("--lr-upper", type=float, default=3e-5)
++    ap.add_argument("--no-hidden", action="store_true",
++                    help="ablation: features only, no reading of the evidence text")
++    ap.add_argument("--frozen-trunk", action="store_true")
++    ap.add_argument("--run-tag", type=str, default="")
++    args = ap.parse_args()
++
++    global LOG_PATH
++    tag = (args.run_tag and f"_{args.run_tag}") or ""
++    tag += "_nohid" if args.no_hidden else ""
++    LOG_PATH = RES / f"_stage286_log{tag}.txt"
++    LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
++    LOG_PATH.write_text("", encoding="utf-8")
++
++    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
++    rng = random.Random(SEED)
++    torch.manual_seed(SEED)
++    t0 = time.time()
++    n_steps = args.train_steps or (600 if args.smoke else 6000)
++    tape_period = args.tape_period or (150 if args.smoke else 500)
++    n_addr = args.addresses or (60 if args.smoke else 400)
++
++    log(f"Stage286 evidence start {datetime.now(timezone.utc).isoformat()} device={device} "
++        f"steps={n_steps} no_hidden={args.no_hidden}")
++
++    _, _, stoi, n_char = load_data()
++    tok = Tokenizer.from_file(str(s177.TOK_PATH))
++    V = tok.get_vocab_size()
++    pad_id = tok.token_to_id(PAD) or 0
++    char_table = s185.build_char_table(tok, stoi, pad_id, V).to(device)
++    trunk = CKPT_JOINT if CKPT_JOINT.exists() else CKPT_P1
++    model = SelfModelXL(n_char, V).to(device)
++    model.load_state_dict(torch.load(trunk, map_location=device, weights_only=False)["model"])
++    s213.set_train_mode(model, "none" if args.frozen_trunk else "upper")
++    arc0 = s271.arc_enc_hash(model)
++    can = SelfModelXL(n_char, V).to(device)
++    can.load_state_dict(torch.load(CKPT_P1, map_location=device, weights_only=False)["model"])
++    can.eval()
++    for p in can.parameters():
++        p.requires_grad_(False)
++    bank = FpBank(can, stoi, device)
++
++    with WIKI.open("r", encoding="utf-8", errors="ignore") as f:
++        wtext = f.read(4_000_000 if args.smoke else 30_000_000)
++    all_lines = [l.strip() for l in wtext.split("\n") if 80 <= len(l.strip()) <= 400]
++    cut = int(0.7 * len(all_lines))
++    train_lines = all_lines[:cut][: (3000 if args.smoke else 25000)]
++    eval_lines = all_lines[cut:][: (1500 if args.smoke else 12000)]
++
++    def new_pack(r, lines):
++        return s280.pack_from_corpus(lines, bank=bank, tok=tok, pad_id=pad_id, device=device,
++                                     rng=r, n_addr=n_addr, min_mentions=args.min_mentions,
++                                     tau=args.address_tau, overlap=args.address_overlap,
++                                     soft_match=args.soft_match,
++                                     min_per_family=args.min_per_family,
++                                     addr_key=args.addr_key)
++
++    pack = new_pack(rng, train_lines)
++    if len(pack["items"]) < 8:
++        log("  too few items")
++        return 1
++    log(f"  tape: {pack['n_addresses']} addresses, {pack['n_slots']} slots | "
++        f"items {json.dumps(dict(Counter(i['kind'] for i in pack['items'])))}")
++
++    d_hidden = 0 if args.no_hidden else 2 * (model.head.in_features // 2)
++    net = Evidence(d_hidden, device)
++    live = [p for p in model.parameters() if p.requires_grad]
++    opt = torch.optim.AdamW([{"params": net.parameters(), "lr": args.lr_head}]
++                            + ([{"params": live, "lr": args.lr_upper}] if live else []),
++                            weight_decay=0.01)
++
++    def forward(p, it, ex):
++        rows = torch.tensor(ex["rows"], dtype=torch.float32, device=device)
++        if args.no_hidden:
++            h = torch.zeros(0, device=device)
++        else:
++            h = encode(model, char_table, tok, pad_id, device, ex["texts"])
++            if h is None:
++                return None
++        return net(h.float() if h.numel() else h, rows)
++
++    # ---------------------------------------------------------------- train: the tape teaches
++    net.train()
++    model.train(not args.frozen_trunk)
++    curve, losses = [], []
++    multi = [it for it in pack["items"] if len(it["slots"]) >= 2]
++    for step in range(1, n_steps + 1):
++        if (step - 1) % tape_period == 0 and step > 1:
++            pack = new_pack(rng, train_lines)
++            multi = [it for it in pack["items"] if len(it["slots"]) >= 2]
++        if not multi:
++            log("  no multi-mention addresses on this tape")
++            return 1
++        it = multi[rng.randrange(len(multi))]
++        hidden = it["slots"][rng.randrange(len(it["slots"]))]
++        ex = example(pack, it, hidden)
++        if ex is None:
++            continue
++        logits = forward(pack, it, ex)
++        if logits is None:
++            continue
++        loss = F.cross_entropy(logits.unsqueeze(0),
++                               torch.tensor([ex["target"]], device=device))
++        opt.zero_grad(set_to_none=True)
++        loss.backward()
++        torch.nn.utils.clip_grad_norm_(list(net.parameters()) + live, 1.0)
++        opt.step()
++        losses.append(float(loss))
++        if step % max(1, n_steps // 8) == 0:
++            curve.append({"step": step, "loss": float(np.mean(losses[-200:])),
++                          "kind": it["kind"], "n_cands": len(ex["cands"])})
++            log(f"  step {step}/{n_steps} loss={np.mean(losses[-200:]):.4f} [{it['kind']}] "
++                f"cands={len(ex['cands'])}")
++
++    net.eval()
++    model.eval()
++    arc1 = s271.arc_enc_hash(model)
++
++    # ---------------------------------------------------------------- score: three examiners
++    @torch.no_grad()
++    def leave_one_out(p, lie: bool):
++        agg = defaultdict(list)
++        r = random.Random(SEED + (1 if lie else 0))
++        n_slots = p["n_slots"]
++        for it in p["items"]:
++            if len(it["slots"]) < 2:
++                continue
++            for hidden in it["slots"]:
++                lie_from = None
++                if lie:
++                    lie_from = r.randrange(n_slots)
++                    if lie_from in set(it["slots"]):
++                        continue
++                ex = example(p, it, hidden, lie_from=lie_from)
++                if ex is None or not ex["cands"]:
++                    continue
++                logits = forward(p, it, ex)
++                if logits is None:
++                    continue
++                pick = int(logits.argmax())
++                model_ans = ex["cands"][pick] if pick < len(ex["cands"]) else None
++                truth = p["tape"].values[hidden]
++                present = ex["target"] < len(ex["cands"])
++                agg["model_r"].append(reward_of(model_ans, truth, args.abstain_reward,
++                                                args.wrong_cost))
++                agg["votes_r"].append(reward_of(votes_judge(ex), truth, args.abstain_reward,
++                                                args.wrong_cost))
++                agg["return_r"].append(reward_of(return_judge(p, it, ex), truth,
++                                                 args.abstain_reward, args.wrong_cost))
++                agg["model_abstain"].append(int(model_ans is None))
++                if model_ans is not None:
++                    agg["model_acc"].append(int(model_ans == truth))
++                agg["unk_when_absent" if not present else "unk_when_present"].append(
++                    int(model_ans is None))
++        m = lambda k: float(np.mean(agg[k])) if agg[k] else float("nan")
++        return {"n": len(agg["model_r"]), "model_reward": m("model_r"),
++                "votes_reward": m("votes_r"), "return_reward": m("return_r"),
++                "model_acc_answered": m("model_acc"), "model_abstain": m("model_abstain"),
++                "unknown_when_absent": m("unk_when_absent"),
++                "unknown_when_present": m("unk_when_present")}
++
++    @torch.no_grad()
++    def exam(p):
++        agg = defaultdict(list)
++        per = {f: defaultdict(list) for f in s280.FAMILIES}
++        for it in p["items"]:
++            ex = example(p, it, None)
++            if ex is None or not ex["cands"]:
++                continue
++            logits = forward(p, it, ex)
++            if logits is None:
++                continue
++            pick = int(logits.argmax())
++            ans = ex["cands"][pick] if pick < len(ex["cands"]) else None
++            rew = reward_of(ans, it["truth"], args.abstain_reward, args.wrong_cost)
++            agg["r"].append(rew)
++            agg["votes_r"].append(reward_of(votes_judge(ex), it["truth"],
++                                            args.abstain_reward, args.wrong_cost))
++            agg["return_r"].append(reward_of(return_judge(p, it, ex), it["truth"],
++                                             args.abstain_reward, args.wrong_cost))
++            f = it["kind"]
++            per[f]["abstain"].append(int(ans is None))
++            per[f]["reward"].append(rew)
++            if ans is not None:
++                per[f]["acc"].append(int(it["truth"] is not None and ans == it["truth"]))
++        m = lambda xs: float(np.mean(xs)) if len(xs) else float("nan")
++        out = {"n": len(agg["r"]), "reward": m(agg["r"]), "votes_reward": m(agg["votes_r"]),
++               "return_reward": m(agg["return_r"])}
++        for f in s280.FAMILIES:
++            out[f] = {"n": len(per[f]["abstain"]), "abstain": m(per[f]["abstain"]),
++                      "acc_answered": m(per[f]["acc"]), "reward": m(per[f]["reward"])}
++        return out
++
++    held = new_pack(random.Random(SEED + 99), eval_lines)
++    loo = leave_one_out(held, lie=False)
++    lied = leave_one_out(held, lie=True)
++    ex_out = exam(held)
++    log(f"  LOO {json.dumps(loo)}")
++    log(f"  LIE {json.dumps(lied)}")
++    log(f"  EXAM {json.dumps(ex_out)}")
++
++    g_arc = arc0 == arc1
++    g_learns = (loo["model_reward"] > loo["votes_reward"]
++                and loo["model_reward"] > loo["return_reward"])
++    g_honest = loo["unknown_when_absent"] > loo["unknown_when_present"]
++    g_lie = lied["model_reward"] > lied["votes_reward"]
++    g_exam = ex_out["reward"] >= max(ex_out["votes_reward"], ex_out["return_reward"])
++
++    overall = ("EVIDENCE_OK" if (g_arc and g_learns and g_honest and g_lie)
++               else "EVIDENCE_PARTIAL" if (g_arc and (g_learns or g_lie))
++               else "EVIDENCE_NO")
++
++    out = {
++        "stage": 286, "overall": overall, "seed": SEED, "smoke": args.smoke,
++        "run_tag": args.run_tag, "no_hidden": args.no_hidden, "addr_key": args.addr_key,
++        "train_steps": n_steps, "min_mentions": args.min_mentions,
++        "min_per_family": args.min_per_family,
++        "reward": {"correct": 1.0, "wrong": -args.wrong_cost, "abstain": args.abstain_reward},
++        "gates": {
++            "G_arc_enc_frozen": g_arc,
++            "G_learns_evidence": g_learns,
++            "G_abstains_unknowable": g_honest,
++            "G_survives_lie": g_lie,
++            "G_exam_matches_judges": g_exam,
++        },
++        "leave_one_out": loo, "lying_tape": lied, "exam": ex_out, "curve": curve,
++        "arc_enc_hash_before": arc0, "arc_enc_hash_after": arc1,
++        "fp_version": s271.fp_version(),
++        "reference_280_baseline": {"held_out_reward": 0.704, "acc_answered_all": 0.900},
++        "note": (
++            "The direction of teaching is inverted: nobody demonstrates, the tape is the label. "
++            "Hide one mention of an address, show the rest, require the hidden value - so there "
++            "are as many examples as slots, no judge is imitated, and what the weights learn is "
++            "what the judges were hand-written approximations of: weighing evidence. Votes and "
++            "corroboration are features on the candidates now; UNKNOWN is a candidate whose "
++            "target is real whenever the hidden value is absent from the visible evidence, so "
++            "honesty is trained rather than assumed, and the answer is the argmax - no "
++            "threshold anywhere. Scored on a tape from a disjoint corpus by three relative "
++            "examiners: beat both hand-written judges at leave-one-out, say UNKNOWN more when "
++            "the answer is absent than when it is present, and keep beating votes when one "
++            "visible mention is forged. The lying tape is the test that judgment lives in "
++            "reading, not in the parameters: the forged mention has no external corroboration "
++            "and a mind that weighs evidence should discount it, while votes by construction "
++            "cannot."
++        ),
++        "timestamp": datetime.now(timezone.utc).isoformat(), "wall_s": time.time() - t0,
++    }
++    RES.mkdir(parents=True, exist_ok=True)
++    (RES / f"stage286_decision{tag}.json").write_text(json.dumps(out, indent=2), encoding="utf-8")
++    log(json.dumps({"overall": overall, "gates": out["gates"]}, indent=2))
++    return 0
++
++
++if __name__ == "__main__":
++    raise SystemExit(main())
+-- 
+2.43.0
+

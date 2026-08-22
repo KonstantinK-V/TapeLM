@@ -1,0 +1,68 @@
+{
+ "1337": {
+  "seed": 1337,
+  "corpus": "data\\_tinystories_raw_scale.txt",
+  "base": {
+   "hunt": 0.1968,
+   "rand": 0.0996,
+   "lift": 0.0972,
+   "n_windows": 2500,
+   "n_pre": 102,
+   "elapsed_s": 354.4
+  },
+  "rarity": {
+   "hunt": 0.924,
+   "rand": 0.1056,
+   "lift": 0.8184,
+   "n_windows": 2500,
+   "n_pre": 202,
+   "elapsed_s": 266.3
+  },
+  "delta_lift": 0.7212000000000001,
+  "note": "rarity bin in pre vs base pre"
+ },
+ "2024": {
+  "seed": 2024,
+  "corpus": "data\\_tinystories_raw_scale.txt",
+  "base": {
+   "hunt": 0.2384,
+   "rand": 0.0976,
+   "lift": 0.1408,
+   "n_windows": 2500,
+   "n_pre": 99,
+   "elapsed_s": 347.4
+  },
+  "rarity": {
+   "hunt": 0.9444,
+   "rand": 0.0976,
+   "lift": 0.8468,
+   "n_windows": 2500,
+   "n_pre": 191,
+   "elapsed_s": 255.7
+  },
+  "delta_lift": 0.706,
+  "note": "rarity bin in pre vs base pre"
+ },
+ "7": {
+  "seed": 7,
+  "corpus": "data\\_tinystories_raw_scale.txt",
+  "base": {
+   "hunt": 0.1736,
+   "rand": 0.1088,
+   "lift": 0.0648,
+   "n_windows": 2500,
+   "n_pre": 105,
+   "elapsed_s": 357.3
+  },
+  "rarity": {
+   "hunt": 0.9436,
+   "rand": 0.11,
+   "lift": 0.8336,
+   "n_windows": 2500,
+   "n_pre": 182,
+   "elapsed_s": 259.7
+  },
+  "delta_lift": 0.7688,
+  "note": "rarity bin in pre vs base pre"
+ }
+}

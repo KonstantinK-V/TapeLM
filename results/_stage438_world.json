@@ -1,0 +1,47 @@
+{
+ "1337": {
+  "seed": 1337,
+  "n_lines": 8,
+  "n_df1": 1,
+  "n_df2": 7,
+  "n_const": 3,
+  "n_mixed": 4,
+  "n_empty": 0,
+  "const_hit": 1.0,
+  "refuse_mixed": 1.0,
+  "hop2_sees_pin": 1.0,
+  "void": false,
+  "gate": true,
+  "think": "436 unchanged; P majority APPLES + decoy; Q PEARS/PLUMS tie"
+ },
+ "8642": {
+  "seed": 8642,
+  "n_lines": 8,
+  "n_df1": 1,
+  "n_df2": 7,
+  "n_const": 3,
+  "n_mixed": 4,
+  "n_empty": 0,
+  "const_hit": 1.0,
+  "refuse_mixed": 1.0,
+  "hop2_sees_pin": 1.0,
+  "void": false,
+  "gate": true,
+  "think": "436 unchanged; P majority APPLES + decoy; Q PEARS/PLUMS tie"
+ },
+ "2890": {
+  "seed": 2890,
+  "n_lines": 8,
+  "n_df1": 1,
+  "n_df2": 7,
+  "n_const": 3,
+  "n_mixed": 4,
+  "n_empty": 0,
+  "const_hit": 1.0,
+  "refuse_mixed": 1.0,
+  "hop2_sees_pin": 1.0,
+  "void": false,
+  "gate": true,
+  "think": "436 unchanged; P majority APPLES + decoy; Q PEARS/PLUMS tie"
+ }
+}

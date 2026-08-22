@@ -1,0 +1,50 @@
+{
+ "today": {
+  "pin": false,
+  "truth": {
+   "corpus_untouched": true,
+   "here": 1,
+   "here_is_place": true,
+   "here_is_string": false,
+   "here_eq_question": true,
+   "hop2_origin": 1,
+   "working_cells": 0
+  },
+  "wrong": {
+   "corpus_untouched": true,
+   "here": 1,
+   "here_is_place": true,
+   "here_is_string": false,
+   "here_eq_question": true,
+   "hop2_origin": 1,
+   "working_cells": 0
+  },
+  "hop2_moved": false,
+  "wrong_pin_differs": false,
+  "no_letter_in_register": true
+ },
+ "pin": {
+  "pin": true,
+  "truth": {
+   "corpus_untouched": true,
+   "here": 12,
+   "here_is_place": true,
+   "here_is_string": false,
+   "here_eq_question": false,
+   "hop2_origin": 12,
+   "working_cells": 0
+  },
+  "wrong": {
+   "corpus_untouched": true,
+   "here": 23,
+   "here_is_place": true,
+   "here_is_string": false,
+   "here_eq_question": false,
+   "hop2_origin": 23,
+   "working_cells": 0
+  },
+  "hop2_moved": true,
+  "wrong_pin_differs": true,
+  "no_letter_in_register": true
+ }
+}

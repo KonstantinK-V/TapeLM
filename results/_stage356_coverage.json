@@ -1,0 +1,64 @@
+{
+ "tokens": 3192733,
+ "interior": 3192731,
+ "types": 83219,
+ "frame_max": 1,
+ "min_fillers": 2,
+ "addressable": 2179637,
+ "addressable_share": 0.6826873294367737,
+ "places": 296919,
+ "kept_places": 204602,
+ "on_tape": 1895551,
+ "on_tape_share": 0.5937083330853743,
+ "width": {
+  "1": 2179637
+ },
+ "width_on_tape": {
+  "1": 1895551
+ },
+ "fillers_hist": {
+  "2": 107421,
+  "3": 36159,
+  "4": 17823,
+  "5": 10660,
+  "6": 6935,
+  "7": 4659,
+  "8": 3351,
+  "9": 2573
+ },
+ "by_frequency": {
+  "1-1": {
+   "positions": 27775,
+   "on_tape": 19055,
+   "share": 0.686048604860486
+  },
+  "2-2": {
+   "positions": 25146,
+   "on_tape": 17478,
+   "share": 0.6950608446671439
+  },
+  "3-5": {
+   "positions": 59316,
+   "on_tape": 42055,
+   "share": 0.7089992582102637
+  },
+  "6-20": {
+   "positions": 162082,
+   "on_tape": 116589,
+   "share": 0.7193210843893831
+  },
+  "21-100": {
+   "positions": 369615,
+   "on_tape": 268464,
+   "share": 0.726334158516294
+  },
+  "101-inf": {
+   "positions": 2548797,
+   "on_tape": 1431910,
+   "share": 0.5617983699761103
+  }
+ },
+ "hapax_share_all": 0.00869944884175961,
+ "hapax_share_on_tape": 0.010052486058143515,
+ "frame_keep_agrees": true
+}

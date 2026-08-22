@@ -1,0 +1,22 @@
+{
+ "bytes": 30000000,
+ "window_lines": 3200,
+ "places": 1500,
+ "questions": 3000,
+ "in_own": 0.393,
+ "paradigm": {
+  "present_topm": 0.18466666666666667,
+  "argmax_right": 0.015333333333333332,
+  "offer": 73.32569584509883,
+  "support_2plus": 0.6014939397406895
+ },
+ "syntagm": {
+  "present_topm": 0.10066666666666667,
+  "argmax_right": 0.006,
+  "offer": 40.86244453408632,
+  "support_2plus": 0.19017749610061402,
+  "empty": 0.115
+ },
+ "syn_only": 0.028666666666666667,
+ "par_only": 0.11266666666666666
+}

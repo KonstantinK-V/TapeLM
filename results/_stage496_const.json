@@ -1,0 +1,65 @@
+{
+ "1337": {
+  "seed": 1337,
+  "corpus": "data\\_tinystories_raw_scale.txt",
+  "soft": {
+   "frac": 0.6,
+   "hunt": 0.1968,
+   "rand": 0.0996,
+   "lift": 0.0972,
+   "n_windows": 2500,
+   "elapsed_s": 364.8
+  },
+  "const": {
+   "frac": 0.999,
+   "hunt": 0.0,
+   "rand": 0.0,
+   "lift": 0.0,
+   "n_windows": 2500,
+   "elapsed_s": 383.3
+  },
+  "note": "soft0.6 vs const0.999 unique hunt"
+ },
+ "2024": {
+  "seed": 2024,
+  "corpus": "data\\_tinystories_raw_scale.txt",
+  "soft": {
+   "frac": 0.6,
+   "hunt": 0.2384,
+   "rand": 0.0976,
+   "lift": 0.1408,
+   "n_windows": 2500,
+   "elapsed_s": 353.0
+  },
+  "const": {
+   "frac": 0.999,
+   "hunt": 0.0,
+   "rand": 0.0,
+   "lift": 0.0,
+   "n_windows": 2500,
+   "elapsed_s": 387.5
+  },
+  "note": "soft0.6 vs const0.999 unique hunt"
+ },
+ "7": {
+  "seed": 7,
+  "corpus": "data\\_tinystories_raw_scale.txt",
+  "soft": {
+   "frac": 0.6,
+   "hunt": 0.1736,
+   "rand": 0.1088,
+   "lift": 0.0648,
+   "n_windows": 2500,
+   "elapsed_s": 373.2
+  },
+  "const": {
+   "frac": 0.999,
+   "hunt": 0.0,
+   "rand": 0.0,
+   "lift": 0.0,
+   "n_windows": 2500,
+   "elapsed_s": 386.3
+  },
+  "note": "soft0.6 vs const0.999 unique hunt"
+ }
+}

@@ -1,0 +1,135 @@
+From ceb4f6381c622d5125e370bbaa853a55b5168bb3 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Fri, 7 Aug 2026 19:19:13 +0000
+Subject: [PATCH] stage 286: read each candidate from its own mentions, and
+ stay inside the trunk's window
+
+Two fixes, one of them mine and fatal to the point of the stage.
+
+encode truncated to 256 BPE tokens while the trunk's positional table is
+Embedding(MAX_ARCS, d) with MAX_ARCS 64, so a long enough evidence set
+indexed past the table and the run died on the device. 271 truncates to
+MAX_ARCS for exactly this reason and now so does this.
+
+The larger one: the head pooled every mention into one vector and gave
+the same vector to every candidate row. Such a reading cannot say which
+candidate the text supports - it is constant across the softmax and can
+only modulate how the counts are weighed - so the head would have been
+votes and corroboration wearing a hat, and --no-hidden would have tied by
+construction rather than by measurement. Each candidate is now read from
+the mentions that carry it, cued with the subject, and UNKNOWN reads them
+all. Verified on a hand tape that the rows and the readings align and
+that each candidate sees only its own text.
+
+Also stated plainly in the note what the stage is not: the address comes
+from 280's plumbing, the candidates are what the evidence says, so the
+ceiling here is what a correct address makes visible. This is about
+weighing within the evidence set, nothing more.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01PGuqHAMhjCxVAADm3R4wxK
+---
+ _stage286_evidence.py | 50 ++++++++++++++++++++++++++++++++-----------
+ 1 file changed, 37 insertions(+), 13 deletions(-)
+
+diff --git a/_stage286_evidence.py b/_stage286_evidence.py
+index 9ced033..d1ef9fc 100644
+--- a/_stage286_evidence.py
++++ b/_stage286_evidence.py
+@@ -136,12 +136,25 @@ def example(pack, item, hidden: int | None, lie_from: int | None = None):
+                                                default=0)) / n,
+                      min(ext_support(pack, item["S"], v, own), 3) / 3.0, 0.0])
+     rows.append([1.0 / n, (lead - second) / n, len(cnt) / n, 1.0])   # the UNKNOWN row
++    # The mentions each candidate is made of, cued with the subject, so a reading can be ABOUT
++    # a candidate. UNKNOWN reads everything, which is the right thing for it to be about.
++    cue = s271.CUE.format(S=item.get("query") or item["S"])
++    per = [[cue] + [t for t, v2 in zip(ev_texts, ev_vals) if v2 == v] for v in cands]
++    per.append([cue] + ev_texts)
+     return {"texts": ev_texts, "vals": ev_vals, "cands": cands, "rows": rows,
+-            "target": target, "cnt": cnt}
++            "cand_texts": per, "target": target, "cnt": cnt}
+ 
+ 
+ class Evidence(nn.Module):
+-    """Scores each candidate (and UNKNOWN) given the trunk's reading of the evidence."""
++    """Scores each candidate (and UNKNOWN) from ITS OWN mentions, read by the trunk.
++
++    The first version pooled every mention into one vector and handed the same vector to every
++    candidate row. That reading cannot say which candidate the text supports - it is a constant
++    across the softmax and only modulates how the counts are weighed - so the head would have
++    been votes and corroboration wearing a hat, and --no-hidden would have tied on purpose.
++    Each candidate now gets the mentions that actually carry it, cued with the subject, so the
++    weights compare readings and not only numbers. That is the whole claim of this stage.
++    """
+ 
+     def __init__(self, d_hidden: int, device):
+         super().__init__()
+@@ -150,14 +163,18 @@ class Evidence(nn.Module):
+         nn.init.zeros_(self.f[-1].weight)
+         nn.init.zeros_(self.f[-1].bias)
+ 
+-    def forward(self, h, rows):
+-        n = rows.size(0)
+-        x = torch.cat([h.unsqueeze(0).expand(n, -1), rows], dim=-1)
+-        return self.f(x).squeeze(-1)
++    def forward(self, H, rows):
++        """H is one reading PER ROW, not one reading for the example."""
++        return self.f(torch.cat([H, rows], dim=-1)).squeeze(-1) if H.numel() \
++            else self.f(rows).squeeze(-1)
+ 
+ 
+ def encode(model, char_table, tok, pad_id, device, texts):
+-    ids = [i for i in tok.encode(" | ".join(texts)[-2000:]).ids if i != pad_id][-256:]
++    """Read a set of mentions. The window is the trunk's own - pos is Embedding(MAX_ARCS, d),
++    so anything longer indexes past the table and the run dies on the device rather than in
++    Python. 271 truncates the same way and for the same reason."""
++    ids = [i for i in tok.encode(" | ".join(texts)[-2000:]).ids
++           if i != pad_id][-s177.MAX_ARCS:]
+     if not ids:
+         return None
+     h, _ = hidden_and_logits(model, char_table,
+@@ -279,12 +296,14 @@ def main() -> int:
+     def forward(p, it, ex):
+         rows = torch.tensor(ex["rows"], dtype=torch.float32, device=device)
+         if args.no_hidden:
+-            h = torch.zeros(0, device=device)
+-        else:
+-            h = encode(model, char_table, tok, pad_id, device, ex["texts"])
++            return net(torch.zeros(0, device=device), rows)
++        hs = []
++        for texts in ex["cand_texts"]:
++            h = encode(model, char_table, tok, pad_id, device, texts)
+             if h is None:
+                 return None
+-        return net(h.float() if h.numel() else h, rows)
++            hs.append(h.float())
++        return net(torch.stack(hs), rows)
+ 
+     # ---------------------------------------------------------------- train: the tape teaches
+     net.train()
+@@ -439,7 +458,10 @@ def main() -> int:
+             "Hide one mention of an address, show the rest, require the hidden value - so there "
+             "are as many examples as slots, no judge is imitated, and what the weights learn is "
+             "what the judges were hand-written approximations of: weighing evidence. Votes and "
+-            "corroboration are features on the candidates now; UNKNOWN is a candidate whose "
++            "corroboration are features on the candidates now, and each candidate is READ from "
++            "the mentions that carry it - a single pooled vector would have been the same for "
++            "every row and could not have said which candidate the text supports. UNKNOWN is a "
++            "candidate whose "
+             "target is real whenever the hidden value is absent from the visible evidence, so "
+             "honesty is trained rather than assumed, and the answer is the argmax - no "
+             "threshold anywhere. Scored on a tape from a disjoint corpus by three relative "
+@@ -448,7 +470,9 @@ def main() -> int:
+             "visible mention is forged. The lying tape is the test that judgment lives in "
+             "reading, not in the parameters: the forged mention has no external corroboration "
+             "and a mind that weighs evidence should discount it, while votes by construction "
+-            "cannot."
++            "cannot. The address itself is still 280's plumbing - this stage is about weighing "
++            "WITHIN the evidence set, and the candidate list is what the evidence says, so the "
++            "ceiling here is what a correct address makes visible."
+         ),
+         "timestamp": datetime.now(timezone.utc).isoformat(), "wall_s": time.time() - t0,
+     }
+-- 
+2.43.0
+

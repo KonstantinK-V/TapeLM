@@ -1,0 +1,50 @@
+{
+ "1337": {
+  "seed": 1337,
+  "n_train": 1461,
+  "n_test": 1455,
+  "random": 0.03613307467381234,
+  "oracle": 0.6598958333333335,
+  "learned": 0.229000946969697,
+  "oracle_gain": 0.6237627586595211,
+  "learned_gain": 0.19286787229588465,
+  "recovered": 0.30920068506552334,
+  "best_single": 0.27881823873045725,
+  "best_single_feat": "mean_ov",
+  "over_single": -0.049817291760760246,
+  "void": false,
+  "gate": false
+ },
+ "8642": {
+  "seed": 8642,
+  "n_train": 1457,
+  "n_test": 1457,
+  "random": 0.03380034830528442,
+  "oracle": 0.5895833333333335,
+  "learned": 0.17421922467152728,
+  "oracle_gain": 0.555782985028049,
+  "learned_gain": 0.14041887636624287,
+  "recovered": 0.252650549133231,
+  "best_single": 0.20324619594595308,
+  "best_single_feat": "mean_ov",
+  "over_single": -0.0290269712744258,
+  "void": false,
+  "gate": false
+ },
+ "2890": {
+  "seed": 2890,
+  "n_train": 1441,
+  "n_test": 1466,
+  "random": 0.03228629493101922,
+  "oracle": 0.6,
+  "learned": 0.15598958333333335,
+  "oracle_gain": 0.5677137050689808,
+  "learned_gain": 0.12370328840231412,
+  "recovered": 0.21789730862192835,
+  "best_single": 0.1602470224814553,
+  "best_single_feat": "mean_ov",
+  "over_single": -0.004257439148121961,
+  "void": false,
+  "gate": false
+ }
+}

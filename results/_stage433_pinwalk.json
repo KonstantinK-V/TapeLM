@@ -1,0 +1,44 @@
+{
+ "1337": {
+  "seed": 1337,
+  "n": 6182,
+  "n_df2": 4443,
+  "live": 0.029259509340535676,
+  "ceil_ora": 1.0,
+  "ceil_rnd": 0.004501462975467027,
+  "ceil_maj": 0.005176682421787081,
+  "ceil_d": 0.995498537024533,
+  "void": true,
+  "k": 8,
+  "working_cells": 1,
+  "feat": "jaccard_keys,same_place,log_line,other_line"
+ },
+ "8642": {
+  "seed": 8642,
+  "n": 6405,
+  "n_df2": 4767,
+  "live": 0.025173064820641914,
+  "ceil_ora": 1.0,
+  "ceil_rnd": 0.003356408642752255,
+  "ceil_maj": 0.003775959723096287,
+  "ceil_d": 0.9966435913572478,
+  "void": true,
+  "k": 8,
+  "working_cells": 1,
+  "feat": "jaccard_keys,same_place,log_line,other_line"
+ },
+ "2890": {
+  "seed": 2890,
+  "n": 7197,
+  "n_df2": 5453,
+  "live": 0.022189620392444525,
+  "ceil_ora": 1.0,
+  "ceil_rnd": 0.0020172382174949567,
+  "ceil_maj": 0.002750779387493123,
+  "ceil_d": 0.997982761782505,
+  "void": true,
+  "k": 8,
+  "working_cells": 1,
+  "feat": "jaccard_keys,same_place,log_line,other_line"
+ }
+}

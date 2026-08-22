@@ -1,0 +1,26 @@
+Stage271 controller start 2026-08-05T08:45:27.753250+00:00 device=cuda episodes=6000 tape_period=200 clean=6 lying=6 wit=5 liars=2 k=4 mode=none
+  trunk=stage253_joint_l02.pt mode=none fp_version=stage191_p1_curve.pt arc=64a764151ebd…
+  ep 600/6000 baseline=0.676 last_trace=['ASK_Q', 'READ_2', 'ANSWER_0'] (37s)
+  ep 1200/6000 baseline=0.741 last_trace=['ASK_Q', 'READ_1', 'ANSWER_0'] (86s)
+  ep 1800/6000 baseline=0.795 last_trace=['ASK_Q', 'ANSWER_0'] (127s)
+  ep 2400/6000 baseline=0.806 last_trace=['ASK_Q', 'ANSWER_0'] (156s)
+  ep 3000/6000 baseline=0.741 last_trace=['ASK_Q', 'ANSWER_0'] (186s)
+  ep 3600/6000 baseline=0.801 last_trace=['ASK_Q', 'ANSWER_2'] (214s)
+  ep 4200/6000 baseline=0.819 last_trace=['ASK_Q', 'ANSWER_0'] (248s)
+  ep 4800/6000 baseline=0.867 last_trace=['ASK_Q', 'READ_2', 'ANSWER_0'] (300s)
+  ep 5400/6000 baseline=0.751 last_trace=['ASK_Q', 'READ_2', 'ANSWER_0'] (363s)
+  ep 6000/6000 baseline=0.848 last_trace=['ASK_Q', 'ASK_Q', 'READ_2', 'ANSWER_0'] (423s)
+  TRAIN {"policy_clean": 1.0, "policy_lying": 0.8333333333333334, "lookup_clean": 1.0, "lookup_lying": 0.5, "majority_lying": 0.8333333333333334, "mean_reads": 1.0, "answer_is_slot": 1.0, "n": 12}
+  NOVEL {"policy_clean": 1.0, "policy_lying": 0.5, "lookup_clean": 1.0, "lookup_lying": 0.6666666666666666, "majority_lying": 0.6666666666666666, "mean_reads": 1.0, "answer_is_slot": 1.0, "n": 12}
+{
+  "overall": "CONTROLLER_PARTIAL",
+  "gates": {
+    "G_arc_enc_frozen": true,
+    "G_answer_is_slot": true,
+    "G_beats_lookup": false,
+    "G_beats_majority": false,
+    "G_clean_kept": true,
+    "G_novel_tape": false,
+    "G_reads_economical": true
+  }
+}

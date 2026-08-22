@@ -1,0 +1,12 @@
+﻿
+2026-08-15 07:20:42 332: depth 2 with count-rival that sees deep candidates+places (honest PICK vs COUNT / deep_only)
+2026-08-15 07:20:42 ==== 332_s1337 --reach-depth 2 (deep rival sees both depths) ====
+2026-08-15 07:28:36 OK 332_s1337
+2026-08-15 07:28:36 ==== 332_s8642 --reach-depth 2 (deep rival sees both depths) ====
+2026-08-15 07:36:26 OK 332_s8642
+2026-08-15 07:36:26 ==== 332_s2890 --reach-depth 2 (deep rival sees both depths) ====
+2026-08-15 07:44:13 OK 332_s2890
+2026-08-15 07:44:13 ==== 332_s4711 --reach-depth 2 (deep rival sees both depths) ====
+2026-08-15 07:51:57 OK 332_s4711
+2026-08-15 07:51:57 ==== _read299 332 (PICK vs COUNT / hit_of_deep_only / CONFIRM) ====
+2026-08-15 07:51:57 DONE 332

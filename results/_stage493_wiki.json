@@ -1,0 +1,38 @@
+{
+ "1337": {
+  "seed": 1337,
+  "corpus": "data\\_wikitext103_train.txt",
+  "n_windows": 2500,
+  "hunt": 0.116,
+  "rand": 0.0952,
+  "lift": 0.0208,
+  "hop": 0.0248,
+  "n_pre": 90,
+  "elapsed_s": 1645.0,
+  "note": "486 machine on wiki; cross-corpus unique hunt"
+ },
+ "2024": {
+  "seed": 2024,
+  "corpus": "data\\_wikitext103_train.txt",
+  "n_windows": 2500,
+  "hunt": 0.326,
+  "rand": 0.0932,
+  "lift": 0.2328,
+  "hop": 0.1124,
+  "n_pre": 81,
+  "elapsed_s": 1498.2,
+  "note": "486 machine on wiki; cross-corpus unique hunt"
+ },
+ "7": {
+  "seed": 7,
+  "corpus": "data\\_wikitext103_train.txt",
+  "n_windows": 2500,
+  "hunt": 0.5928,
+  "rand": 0.0896,
+  "lift": 0.5032,
+  "hop": 0.212,
+  "n_pre": 68,
+  "elapsed_s": 1412.8,
+  "note": "486 machine on wiki; cross-corpus unique hunt"
+ }
+}

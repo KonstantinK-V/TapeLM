@@ -1,0 +1,209 @@
+{
+ "1337": {
+  "seed": 1337,
+  "void": false,
+  "gate": false,
+  "with_soon": {
+   "D1": {
+    "ep": 18,
+    "pin": 1.0,
+    "refuse": 0.0,
+    "mean_hops": 1.0
+   },
+   "D2": {
+    "ep": 18,
+    "pin": 1.0,
+    "refuse": 0.0,
+    "mean_hops": 2.0
+   },
+   "BOTH": {
+    "ep": 18,
+    "pin": 0.0,
+    "refuse": 1.0,
+    "mean_hops": 5.0
+   },
+   "D4": {
+    "ep": 18,
+    "pin": 1.0,
+    "refuse": 0.0,
+    "mean_hops": 4.0
+   },
+   "STOP": {
+    "ep": 18,
+    "pin": 0.0,
+    "refuse": 1.0,
+    "mean_hops": 1.0
+   }
+  },
+  "no_soon": {
+   "D1": {
+    "ep": 18,
+    "pin": 1.0,
+    "refuse": 0.0,
+    "mean_hops": 1.0
+   },
+   "D2": {
+    "ep": 18,
+    "pin": 1.0,
+    "refuse": 0.0,
+    "mean_hops": 2.0
+   },
+   "BOTH": {
+    "ep": 18,
+    "pin": 1.0,
+    "refuse": 0.0,
+    "mean_hops": 2.1666666666666665
+   },
+   "D4": {
+    "ep": 18,
+    "pin": 1.0,
+    "refuse": 0.0,
+    "mean_hops": 4.0
+   },
+   "STOP": {
+    "ep": 18,
+    "pin": 0.0,
+    "refuse": 1.0,
+    "mean_hops": 1.0
+   }
+  }
+ },
+ "8642": {
+  "seed": 8642,
+  "void": false,
+  "gate": false,
+  "with_soon": {
+   "D1": {
+    "ep": 18,
+    "pin": 1.0,
+    "refuse": 0.0,
+    "mean_hops": 1.0
+   },
+   "D2": {
+    "ep": 18,
+    "pin": 1.0,
+    "refuse": 0.0,
+    "mean_hops": 2.0
+   },
+   "BOTH": {
+    "ep": 18,
+    "pin": 0.0,
+    "refuse": 1.0,
+    "mean_hops": 5.0
+   },
+   "D4": {
+    "ep": 18,
+    "pin": 1.0,
+    "refuse": 0.0,
+    "mean_hops": 4.0
+   },
+   "STOP": {
+    "ep": 18,
+    "pin": 0.0,
+    "refuse": 1.0,
+    "mean_hops": 1.0
+   }
+  },
+  "no_soon": {
+   "D1": {
+    "ep": 18,
+    "pin": 1.0,
+    "refuse": 0.0,
+    "mean_hops": 1.0
+   },
+   "D2": {
+    "ep": 18,
+    "pin": 1.0,
+    "refuse": 0.0,
+    "mean_hops": 2.0
+   },
+   "BOTH": {
+    "ep": 18,
+    "pin": 1.0,
+    "refuse": 0.0,
+    "mean_hops": 2.5
+   },
+   "D4": {
+    "ep": 18,
+    "pin": 1.0,
+    "refuse": 0.0,
+    "mean_hops": 4.0
+   },
+   "STOP": {
+    "ep": 18,
+    "pin": 0.0,
+    "refuse": 1.0,
+    "mean_hops": 1.0
+   }
+  }
+ },
+ "2890": {
+  "seed": 2890,
+  "void": false,
+  "gate": false,
+  "with_soon": {
+   "D1": {
+    "ep": 18,
+    "pin": 1.0,
+    "refuse": 0.0,
+    "mean_hops": 1.0
+   },
+   "D2": {
+    "ep": 18,
+    "pin": 1.0,
+    "refuse": 0.0,
+    "mean_hops": 2.0
+   },
+   "BOTH": {
+    "ep": 18,
+    "pin": 0.0,
+    "refuse": 1.0,
+    "mean_hops": 5.0
+   },
+   "D4": {
+    "ep": 18,
+    "pin": 1.0,
+    "refuse": 0.0,
+    "mean_hops": 4.0
+   },
+   "STOP": {
+    "ep": 18,
+    "pin": 0.0,
+    "refuse": 1.0,
+    "mean_hops": 1.0
+   }
+  },
+  "no_soon": {
+   "D1": {
+    "ep": 18,
+    "pin": 1.0,
+    "refuse": 0.0,
+    "mean_hops": 1.0
+   },
+   "D2": {
+    "ep": 18,
+    "pin": 1.0,
+    "refuse": 0.0,
+    "mean_hops": 2.0
+   },
+   "BOTH": {
+    "ep": 18,
+    "pin": 1.0,
+    "refuse": 0.0,
+    "mean_hops": 2.5
+   },
+   "D4": {
+    "ep": 18,
+    "pin": 1.0,
+    "refuse": 0.0,
+    "mean_hops": 4.0
+   },
+   "STOP": {
+    "ep": 18,
+    "pin": 0.0,
+    "refuse": 1.0,
+    "mean_hops": 1.0
+   }
+  }
+ }
+}

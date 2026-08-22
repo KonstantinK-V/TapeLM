@@ -1,0 +1,124 @@
+From da9bb286d77f8f0617f22131928a97db009f40c3 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Sat, 8 Aug 2026 21:57:50 +0000
+Subject: [PATCH] ROADMAP: name the three remaining hand-choices, and add the
+ wishes section
+
+Asked whether any heuristic survives in the plan, the honest answer is almost
+none and not quite none, so section 7 names what is left rather than letting
+"derived" cover it.
+
+The smoothness radius is under-specified: "where accuracy still beats the
+floor" needs to say which floor and by how much, and it now says so - the
+majority-class floor, exceeded by more than its own noise at the same 1.645
+the honesty gate uses. Until that was written down it was a hole with a
+confident name on it. The 1.645 and the 0.05 behind MIN_ANSWERED are
+conventions rather than measurements, shared with the rest of statistics, and
+they are the only constants the examiners still contain. And the verb
+vocabulary is hand-installed, deliberately - nothing emerges here that was not
+built, and the verb curve is the measurement that judges that choice.
+
+Section 8 answers a question that was put directly: what the mind would ask
+for. Five items, each with a mechanism already in the system and a falsifier
+attached, because a wish without one is decoration.
+
+Know why it was wrong, not only that it was - provenance already records the
+premises a conjecture stood on and nothing reads them, so credit could land on
+the premise that failed instead of being smeared across the derivation.
+
+Turn silence into a question - when the mind abstains it usually knows where
+the hole is, and emitting "no slot here, a mention carrying this subject and a
+value would settle it" converts a dead end into a request to the write side,
+which is where this project says improvement comes from.
+
+Remember the mistakes, not only the successes - the mind tape stores what
+worked; storing what failed costs the same and makes "this resembles a case
+where I was wrong" expressible.
+
+Never be scored by something the mind can edit - already honoured, but by
+discipline rather than construction; every new reward should have to state
+which part of it the mind can influence. The one that could not answer that
+is the one that ranked two arms backwards.
+
+Report the margin with every answer, not only in the eval JSON. It is already
+computed, and an answer without its confidence is a claim without its
+evidence.
+
+Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01RYDM9MUk761CZjn7SmTaug
+---
+ ROADMAP.md | 61 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 61 insertions(+)
+
+diff --git a/ROADMAP.md b/ROADMAP.md
+index e5c733a..6128f6b 100644
+--- a/ROADMAP.md
++++ b/ROADMAP.md
+@@ -165,3 +165,64 @@ which is a claim worth making.
+ 
+ Any one of these is publishable as a negative result. That is the point of writing them here
+ before the runs.
++
++---
++
++## 7. Remaining hand-choices, named rather than hidden
++
++Three things in this plan are still chosen. None is a tuned threshold, but calling them
++"derived" would be a lie.
++
++1. **The smoothness radius is under-specified.** "Where accuracy still beats the floor" needs
++   *which* floor and *by how much*. Fix at 289b's reading: the majority-class floor, exceeded
++   by more than its own noise — the same one-sided 1.645 the honesty gate uses. Then the radius
++   is read, not picked. Until that is written down it is a hole.
++2. **`1.645` and `0.05`.** Conventions, not measurements. They are the only constants the
++   examiners still contain, they are shared with the rest of statistics, and `MIN_ANSWERED = 5`
++   follows from the second (0.5^5 < 0.05 ≤ 0.5^4).
++3. **The verb vocabulary is hand-installed** — `COUNT`, `COMPARE`, and whatever follows. This
++   is the one place hand-design remains, and it is deliberate: nothing emerges here that was
++   not built. The verb curve in §6 is the measurement that judges that choice, and it is the
++   project's central bet.
++
++Minor, and worth stating so nobody later mistakes them for findings: the pattern quantile set
++`(0, .25, .5, .75, 1)` is a fixed summary rather than a tuned one; `k = 1` in 289b avoids
++choosing a `k`; `--tapes 8` and `--tape-period 50` are compute budgets, and 286 measured what
++the second one costs and buys.
++
++---
++
++## 8. Wishes — what the mind would ask for, if asked
++
++Written because the question was put directly. Each is small, each has a mechanism already
++present, and each can be falsified rather than admired.
++
++**Know *why* it was wrong, not only *that* it was.** Refutation currently deletes a slot and
++docks the pattern. But provenance already records which premises a conjecture stood on, and
++nothing reads it: the credit could be assigned to the premise that turned out false rather
++than smeared over the whole derivation. Same data, sharper lesson, no new storage. Falsifier:
++premise-level credit must beat uniform docking at the next round of conjectures, or it is
++bookkeeping.
++
++**Turn silence into a question.** Abstention today is terminal. But when the mind abstains it
++usually knows *where* the hole is — the address is identified, the evidence is just thin. A
++mind that emits "no slot here; a mention carrying this subject and a value would settle it"
++converts a dead end into a **request to the write side**, which is exactly where this project
++says improvement comes from. Cheap: the address and the gap are already computed. Falsifier:
++tapes grown by answering those requests must beat tapes grown by reading the same volume of
++arbitrary text.
++
++**Remember the mistakes, not only the successes.** The mind tape stores patterns that worked.
++Storing the ones that failed, with their outcome, costs the same and makes "this resembles a
++case where I was wrong" expressible. Falsifier: including failures must improve held-out
++accuracy, or it is sentiment.
++
++**Never be scored by something I can edit.** Already honoured — that is why judge-consistency
++was refused as a gradient — but honoured by discipline rather than by construction. The wish
++is procedural: every new reward should have to state, in one line, which part of it the mind
++can influence. The one that could not answer that question is the one that ranked two arms
++backwards.
++
++**Report the margin with every answer, not only in the eval JSON.** It is already computed. An
++answer without its confidence is a claim without its evidence, and this project has spent a
++lot of effort making sure claims come with evidence.
+-- 
+2.43.0
+

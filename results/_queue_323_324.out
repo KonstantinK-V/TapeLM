@@ -1,0 +1,9 @@
+﻿
+2026-08-15 00:19:10 323/324 audits (torch-free), parallel with 322
+2026-08-15 00:19:10 ==== 323 shared-filler vs cosine ====
+2026-08-15 00:20:58 OK 323
+2026-08-15 00:20:58 ==== 324 memory ceiling recall=1.0 ====
+2026-08-15 00:21:22 OK 324 r1.0 -> results\_stage324_memory_r1.0.json
+2026-08-15 00:21:22 ==== 324 memory ceiling recall=0.5 ====
+2026-08-15 00:21:48 OK 324 r0.5 -> results\_stage324_memory_r0.5.json
+2026-08-15 00:21:48 DONE

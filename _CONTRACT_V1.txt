@@ -1,0 +1,64 @@
+TapeLM contract v1  (freeze 2026-08-22)
+Walk the tape. Do not bake answer letters into Φ.
+
+══════════════════════════════════════
+LAW (closed with enough mass — do not reopen as a lever)
+══════════════════════════════════════
+STAR     word = all recurrent companions, not unique.
+BUDGET   mid allow = k·n/df  (k from a 400-line home prefix).
+         high allow = 1      (glue; 510 / 519 GO, 522 GO on unseen wiki lines).
+LENGTH   mid ring grows with tape; absolute 200/df was the 516 knob, not death of the star.
+PIN ≠ STAR   agreed place ≠ seed of a star (512).
+MEET     may be written on T; no policy privilege as next-read or new center (514, 515 STOP).
+W        working window exists (GPT analog). On wiki-400 hop2 / fork is not a teacher (517, 520 STOP).
+HOP+     do not pay a chain on held-rec membership (521 STOP).
+MIX      do not cut ring2 because mention-halves disagree (523 STOP: mix extra still +).
+UNIQUE   not the definition of walk.
+
+══════════════════════════════════════
+OPEN — thin / scale, NOT a wall
+══════════════════════════════════════
+CONFIRM  525 VOID: PEAK+conf n = 2–4 on wiki-400. Exam starved, not “confirm failed”.
+         Other-branch same node is still the candidate for context-on-intersections
+         once the tape is long enough that the bin fills. Do not invent a third MEET
+         on 400 lines; do not treat VOID as STOP.
+
+INTERSECTIONS AS CONTEXT
+         Same idea as CONFIRM: when two walks meet, that is a fact on T.
+         Catch it in an open / longer world. 514 forbids using MEET as the next hop
+         on this window. It does not forbid the mark, and it does not close the idea.
+
+══════════════════════════════════════
+OPEN — think later, not a wall
+══════════════════════════════════════
+PEAK     524 GO 2/3 (one seed short). Pin on a peaked hop is allowed as a *soft* try.
+         Refuse-on-tie is not a law on every slice. Leave 511 order on a weak window.
+
+CONTRADICTION / UNCERTAINTY
+         436 (place agree → pin, differ → refuse) still stands for a *place*.
+         How to catch fight / doubt *inside a hop* or across a star: open branch.
+         523 said do not refuse depth on mix. 524 said peak vs tie is a direction.
+         Keep counting; do not freeze a new refuse rule.
+
+FOREIGN FILE
+         522 = unseen lines of the *same* wiki. 526 = other file + curve to 9600.
+         Other corpus (news, TinyStories train) GO with wiki home k. Code VOID.
+         python _audit526_openxfer.py --home-corpus data/_wikitext103_train.txt
+             --corpus data/_stage254_news.txt --seed 1337
+
+══════════════════════════════════════
+DO NOT
+══════════════════════════════════════
+  unique as definition of walk
+  Q[H] as transferable state
+  CE over a token vocabulary in Φ
+  patch 517 out of curiosity
+  mix = hop1 only
+  confirm as a pin gate on wiki-400
+  call 525 VOID a wall
+
+══════════════════════════════════════
+RUN
+══════════════════════════════════════
+  python _contract_v1.py --seed 1337
+  python _contract_v1.py --corpus data/other.txt --seed 1337

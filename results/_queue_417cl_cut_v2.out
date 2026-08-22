@@ -1,0 +1,11 @@
+﻿
+2026-08-20 19:03:18 417cl v2: matched primary (freq band + illegal in exact frame). PRIOR gate. Not local-leak.
+2026-08-20 19:03:18 check OK
+2026-08-20 19:03:18 ==== 417cl v2 seed 1337 ====
+2026-08-20 19:03:23 OK s1337
+2026-08-20 19:03:23 ==== 417cl v2 seed 8642 ====
+2026-08-20 19:03:27 OK s8642
+2026-08-20 19:03:27 ==== 417cl v2 seed 2890 ====
+2026-08-20 19:03:34 OK s2890
+2026-08-20 19:03:34 ==== verdict (PRIOR -> SIGNAL -> ROOM on matched) ====
+2026-08-20 19:03:34 DONE 417cl v2

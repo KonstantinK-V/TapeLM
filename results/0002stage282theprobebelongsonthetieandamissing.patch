@@ -1,0 +1,96 @@
+From b6e3002bc45e0f9c2c790cb18f24f29ba9cee4a6 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Fri, 7 Aug 2026 02:37:26 +0000
+Subject: [PATCH 2/2] stage 282: the probe belongs on the tie, and a missing
+ probe index must fail loudly
+
+Two things the last smoke showed.
+
+The probe index fell back silently. retrieve(index='probe') used
+pack.get('postings_probe', pack['postings']), so a pack built by an
+older copy of 280 answered every probe with a miss and reported
+probe_hit_rate 0.000 - the same number the broken index produced, which
+makes a version mismatch indistinguishable from a result. It raises now.
+
+And the teacher never probed where the probe is worth the most. On raw
+text retrieval precision runs 0.33-0.74, so a foreign slot in the
+candidate list votes with a foreign value and a clean address holding one
+value can show 2-2. The teacher called that a conflict on sight:
+stop_conflict 0.778 on the held-out clean family, on addresses where a
+tie is impossible. It now asks both leaders for their return path first.
+Exactly one leading back means the tie was pollution and that one is the
+witness; both or neither leading back is a conflict the tape really has.
+Verified on 11 shapes, each checkable by hand.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01PGuqHAMhjCxVAADm3R4wxK
+---
+ _stage280_raw_exam.py | 12 ++++++++++--
+ _stage282_mind.py     | 25 ++++++++++++++++++++++---
+ 2 files changed, 32 insertions(+), 5 deletions(-)
+
+diff --git a/_stage280_raw_exam.py b/_stage280_raw_exam.py
+index 4fe55c8..9b19e58 100644
+--- a/_stage280_raw_exam.py
++++ b/_stage280_raw_exam.py
+@@ -211,8 +211,16 @@ def retrieve(pack, words, k, hop: str, item=None, subject_filter=False, hop_min=
+     the hop fires on a low top score or a short list, and its slots are APPENDED behind the
+     votes rather than replacing them. The exact channel keeps the front of the ranking.
+     """
+-    post = pack["postings"] if index == "main" else pack.get("postings_probe", pack["postings"])
+-    idfs = pack["idf"] if index == "main" else pack.get("idf_probe", pack["idf"])
++    if index == "main":
++        post, idfs = pack["postings"], pack["idf"]
++    else:
++        # No silent fallback. A pack built by an older copy of this file has no probe index, and
++        # falling back to the main one would answer every probe with a miss - which is exactly
++        # the failure the probe index exists to remove, reported as a result rather than as a
++        # version mismatch. Fail loudly instead.
++        if "postings_probe" not in pack:
++            raise KeyError("pack has no probe index: _stage280_raw_exam.py is out of date")
++        post, idfs = pack["postings_probe"], pack["idf_probe"]
+     cands, sc = s271.vote(words, post, idfs, k)
+     top = max((sc.get(c, 0.0) for c in cands), default=0.0)
+     used_hop = False
+diff --git a/_stage282_mind.py b/_stage282_mind.py
+index b392e13..ab08125 100644
+--- a/_stage282_mind.py
++++ b/_stage282_mind.py
+@@ -263,12 +263,31 @@ def teacher(pack, st, acts, item, max_steps, max_reads):
+     second = ranked[1][1] if len(ranked) > 1 else 0
+     if lead == 0:
+         return acts.STOP_UNKNOWN
++
++    def slot_of(val):
++        return next((i for i, c in enumerate(cands[: acts.k])
++                     if pack["tape"].values[c] == val), None)
++
+     if lead == second:
++        # A tie is where the return path is worth the most, and it was the one place the probe
++        # was never used. Retrieval brings foreign slots - precision runs 0.33-0.74 on raw text -
++        # and a foreign slot votes with a foreign value, so a clean address with one value can
++        # show 2-2 and be called a conflict. Ask both leaders before believing the tie: a value
++        # that leads back to the subject is a witness, one that does not is pollution. Only a
++        # tie among values that BOTH lead back (or neither) is a conflict the tape really has.
++        for val in (ranked[0][0], ranked[1][0]):
++            j = slot_of(val)
++            if j is not None and st["ret_ok"].get(cands[j], -1.0) < 0 \
++                    and st["probes"] < st["max_probes"] and (st["n_reads"] + 2) <= max_steps:
++                return acts.ASK_VALUE + j
++        backs = [(val, slot_of(val)) for val in (ranked[0][0], ranked[1][0])]
++        backs = [(val, j) for val, j in backs
++                 if j is not None and st["ret_ok"].get(cands[j], -1.0) > 0]
++        if len(backs) == 1:
++            return acts.ANSWER + backs[0][1]         # the tie was pollution, not disagreement
+         return acts.STOP_CONFLICT                    # equal support: the tape never settled
+ 
+-    lead_val = ranked[0][0]
+-    idx = next((i for i, c in enumerate(cands[: acts.k])
+-                if pack["tape"].values[c] == lead_val), None)
++    idx = slot_of(ranked[0][0])
+     if idx is None:
+         return acts.STOP_UNKNOWN
+     # the return path: ask the tape about the value before answering with it
+-- 
+2.43.0
+

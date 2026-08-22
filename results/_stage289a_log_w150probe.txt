@@ -1,0 +1,24 @@
+Stage289a presupposition start 2026-08-09T11:27:30.963496+00:00 device=cuda holdout=corpus
+  tape: 676 addresses, 2000 slots | questions {"ok": 676, "false_premise": 669, "wrong_relation": 470, "contested": 255} | params 5572
+  step 1/1 loss=1.3863
+  CONTROL {"n": 2073, "model_accuracy": 0.22672455378678244, "rival_accuracy": 0.527255185721177, "majority_floor": 0.32609744331886154, "per_verdict": {"ok": {"n": 676, "model_recall": 0.0, "rival_recall": 0.6227810650887574}, "wrong_relation": {"n": 470, "model_recall": 1.0, "rival_recall": 0.0}, "contested": {"n": 255, "model_recall": 0.0, "rival_recall": 1.0}, "false_premise": {"n": 672, "model_recall": 0.0, "rival_recall": 0.6205357142857143}}, "blind_pair": {"n": 1146, "model_accuracy": 0.41012216404886565, "rival_accuracy": 0.5898778359511344, "majority_floor": 0.5898778359511344}, "confusion": {"contested->wrong_relation": 255, "false_premise->wrong_relation": 672, "ok->wrong_relation": 676, "wrong_relation->wrong_relation": 470}}
+  HELD {"n": 702, "model_accuracy": 0.11396011396011396, "rival_accuracy": 0.5883190883190883, "majority_floor": 0.36894586894586895, "per_verdict": {"ok": {"n": 259, "model_recall": 0.0, "rival_recall": 0.5945945945945946}, "wrong_relation": {"n": 80, "model_recall": 1.0, "rival_recall": 0.0}, "contested": {"n": 105, "model_recall": 0.0, "rival_recall": 1.0}, "false_premise": {"n": 258, "model_recall": 0.0, "rival_recall": 0.5968992248062015}}, "blind_pair": {"n": 339, "model_accuracy": 0.2359882005899705, "rival_accuracy": 0.7640117994100295, "majority_floor": 0.7640117994100295}, "confusion": {"contested->wrong_relation": 105, "false_premise->wrong_relation": 258, "ok->wrong_relation": 259, "wrong_relation->wrong_relation": 80}}
+{
+  "overall": "PRESUPPOSITION_PARTIAL",
+  "gates": {
+    "G_arc_enc_frozen": true,
+    "G_task_exists": true,
+    "G_beats_counting_rival": false,
+    "G_beats_majority_floor": false,
+    "G_catches_wrong_relation": true,
+    "G_does_not_cry_wolf": false,
+    "G_separates_blind_pair": false
+  },
+  "model": 0.11396011396011396,
+  "rival": 0.5883190883190883,
+  "wrong_relation": {
+    "n": 80,
+    "model_recall": 1.0,
+    "rival_recall": 0.0
+  }
+}

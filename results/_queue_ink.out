@@ -1,0 +1,22 @@
+﻿
+2026-08-11 01:48:28 ink queue v18: ROADMAP/HANDOFF; ink_mean (=exact2) -> ink_bigram -> fp_hash -> fp_hash_bigram
+2026-08-11 01:48:28 289 ink_mean --ink mean
+2026-08-11 03:44:42 EXIT_ink_mean=0
+2026-08-11 03:44:42 289 ink_bigram --ink bigram
+2026-08-11 03:44:50 EXIT_ink_bigram=1
+2026-08-11 03:44:50 STOP after ink_bigram
+2026-08-11 05:16:20 ink queue v18 resume: bigram word-path fix; ink_bigram -> fp_hash -> fp_hash_bigram (ink_mean kept)
+2026-08-11 05:16:20 ink queue v18 resume: bigram word-path fix; ink_bigram -> fp_hash -> fp_hash_bigram (ink_mean kept)
+2026-08-11 05:16:20 289 ink_bigram --ink bigram
+2026-08-11 05:16:20 289 ink_bigram --ink bigram
+2026-08-11 05:16:20 EXIT_ink_bigram=1
+2026-08-11 05:16:20 STOP after ink_bigram
+2026-08-11 05:16:20 289 ink_bigram --ink bigram
+2026-08-11 05:16:20 EXIT_ink_bigram=1
+2026-08-11 05:16:20 STOP after ink_bigram
+2026-08-11 05:16:37 EXIT_ink_bigram=1
+2026-08-11 05:16:37 STOP after ink_bigram
+2026-08-11 05:18:28 ink queue v18 resume2: skip ink_bigram (arc+bigram collapses lookup to 2; addressing uses ink); fp_hash -> fp_hash_bigram
+2026-08-11 05:18:28 289 fp_hash --fp hash
+2026-08-11 05:18:51 EXIT_fp_hash=1
+2026-08-11 05:18:51 STOP after fp_hash

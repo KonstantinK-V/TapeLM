@@ -1,0 +1,20 @@
+Stage287 two-layer ink start 2026-08-08T12:00:36.112730+00:00 device=cuda span=3
+  tape: 104 addresses, 249 slots
+  usable slots: 249
+  shuffle control: max|dL| = 4.470e-08 (must be ~0), median cos(U, U_shuffled) = 0.9866 (must be < 1)
+  pairs: 211 same-address, 211 different-address
+  L {"auc": 0.9349969677230969, "auc_z": 15.459275051502122}
+  U {"auc": 0.9167134610633184, "auc_z": 14.80950096264132}
+  U|L {"auc": 0.4669931043777094, "auc_z": -1.1730258274950227}
+  nulls {"permutation": {"auc": 0.49971639759604985, "auc_z": -0.010078892252700436, "auc_p05": 0.456994452056333, "auc_p95": 0.5502504436108803, "n_permutations": 99}, "redundant_channel": {"auc": 0.49927000741223243, "auc_z": -0.025943068658447234}}
+{
+  "overall": "SECOND_LAYER_REDUNDANT",
+  "gates": {
+    "G_lower_is_order_blind": true,
+    "G_residual_test_can_say_no": true,
+    "G_upper_sees_word_order": true,
+    "G_channels_are_distinct": true,
+    "G_upper_carries_unique_signal": false,
+    "G_upper_beats_lower_alone": false
+  }
+}

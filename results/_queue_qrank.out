@@ -1,0 +1,10 @@
+﻿
+2026-08-11 10:53:28 qrank queue v25: probe by reserved anchors (not lines); qrank -> bigram -> hash
+2026-08-11 10:53:28 289 qrank 
+2026-08-11 11:18:35 watcher: wait for qrank JSON, then kill queue leftover and start v26 tail (period 100)
+2026-08-11 11:25:55 plan: qrank-in-flight keeps answering early-stop; then preserve JSON as *_earlystop; then A/B triple with --probe-period 100
+2026-08-11 11:33:58 watcher: qrank finished
+2026-08-11 11:33:58 watcher: preserved earlystop JSON + log; launching A/B triple (qrank, bigram, hash) period 100
+2026-08-11 11:33:59 289 qrank 
+2026-08-11 11:43:25 watcher: A/B exit=-1
+STOP_GATE_UNREACHABLE 2026-08-11T11:43:27.6851859+03:00

@@ -1,0 +1,115 @@
+From 1f971b7ff62456701315a7c79a545a16be851e14 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Sat, 8 Aug 2026 19:55:53 +0000
+Subject: [PATCH] 288: REPAIR_OK on the first honest run - and the refused
+ reward ranks arms backwards
+
+The min>=3 full run passes all seven gates. Held out: forgery detection 0.683
+against the counting detector's 0.387 and a random floor of 0.213; on the
+duplicated forgery 0.831 against 0.254, where counting is wrong by
+construction; clean-margin AUC 0.672 at +4.09 sigma; repair reward 0.433
+against majority-of-the-rest at 0.049; UNKNOWN margin AUC 0.622 at +2.18
+sigma. That is the first time a stage in this project has passed its own
+examiners end to end, and the examiners are the strict ones - matched floors,
+derived thresholds, a control on the training tape.
+
+The refused reward earned its refusal, and not by argument. verdict_restored -
+"is the world more consistent by the judges", kept as an observer only -
+ranks the two arms EXACTLY BACKWARDS:
+
+  min3   repair reward   model 0.433 vs votes 0.049   observer 0.507 vs 0.775
+  min2   repair reward   model 0.085 vs votes 0.184   observer 0.842 vs 0.803
+
+Trained on that signal we would have selected the broken arm and called it
+progress. It stays an observer, and now it has a measurement saying why
+rather than a story.
+
+And my min>=2 change was half wrong, in a way this project has now hit four
+times. It helped detection - dup detection rose 0.831 to 0.940 - and it broke
+repair, because a two-mention address always leaves exactly one survivor:
+
+  {A,A} forged -> keep [A], original A   -> the answer is that candidate
+  {A,B} forged -> keep [A], original B   -> the answer is UNKNOWN
+
+Identical input, opposite labels. Undecidable, so answering always is optimal
+and the head learned precisely that: repair coverage 0.966 against min3's
+0.535, and G_repairs false. Failure mode 12 - a target that is not a function
+of the input - arriving through a change I made to fix a different problem.
+
+The fix keeps both halves: detection still sees every two-mention address,
+repair is trained and scored only where at least two values survive, and the
+skipped count is reported as single_candidate_skipped so the restriction is
+visible rather than assumed. That is 286's --min-candidates lesson applied to
+the head it actually belongs to.
+
+Next: the address holdout on this file. min2 detection numbers were the best
+measured, so the two-mention addresses are worth keeping for the half of the
+task that can use them.
+
+Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01RYDM9MUk761CZjn7SmTaug
+---
+ _stage288_repair.py | 22 ++++++++++++++++++----
+ 1 file changed, 18 insertions(+), 4 deletions(-)
+
+diff --git a/_stage288_repair.py b/_stage288_repair.py
+index 3c726e5..985de30 100644
+--- a/_stage288_repair.py
++++ b/_stage288_repair.py
+@@ -383,7 +383,15 @@ def main() -> int:
+         loss = d_loss
+         if ev["forged"]:
+             cands, target, keep = repair_candidates(ev, ev["forged"])
+-            if cands:
++            # Only where more than one value survives. With a single survivor the repair
++            # question is "copy it or say UNKNOWN", and those two cases are the SAME INPUT:
++            # {A,A} broken gives keep=[A] with the original A, {A,B} broken gives keep=[A]
++            # with the original B. Identical shape, opposite labels - undecidable, so
++            # answering always is optimal and the head learns exactly that. Measured: at
++            # min-mentions 2 the model's repair coverage went to 0.966 and G_repairs failed
++            # while detection improved, which is that trap and nothing else. Detection keeps
++            # every two-mention address; only repair is restricted.
++            if len(cands) >= 2:
+                 masks = [torch.tensor([i not in ev["forged"] and ev["vals"][i] == c
+                                        for i in range(n)], device=device) for c in cands]
+                 rp = net.repair(h, g, masks)
+@@ -412,6 +420,7 @@ def main() -> int:
+         unk_margin_rec, unk_margin_unrec = [], []
+         restored_model, restored_votes = [], []
+         rand_floor_det, rand_floor_rep = [], []
++        single_cand = 0
+         for it in p["items"]:
+             if len(it["slots"]) < 2:
+                 continue
+@@ -438,7 +447,8 @@ def main() -> int:
+                     rand_floor_det.append(len(ev["forged"]) / (n + 1))
+                     # ---- repair with the true flag: the pure "what stood here" question
+                     cands, target, keep = repair_candidates(ev, ev["forged"])
+-                    if not cands:
++                    if len(cands) < 2:
++                        single_cand += 1      # undecidable by construction, see the note above
+                         continue
+                     masks = [torch.tensor([i not in ev["forged"] and ev["vals"][i] == c
+                                            for i in range(n)], device=device) for c in cands]
+@@ -496,12 +506,16 @@ def main() -> int:
+                 "unknown_margin_auc": um_auc,
+                 "unknown_margin_auc_z": s286.auc_z(um_auc, len(unk_margin_unrec),
+                                                    len(unk_margin_rec)),
+-                "n_recoverable": len(unk_margin_rec), "n_unrecoverable": len(unk_margin_unrec)},
++                "n_recoverable": len(unk_margin_rec), "n_unrecoverable": len(unk_margin_unrec),
++                "single_candidate_skipped": single_cand},
+             "observer_verdict_restored": {
+                 "model": m(restored_model), "votes": m(restored_votes),
+                 "n": len(restored_model),
+                 "note": "the proposal's original reward, demoted to an observer: gradient on "
+-                        "this has an empty tape as its fixed point"},
++                        "this has an empty tape as its fixed point - and measured to rank two "
++                        "real arms backwards (min3 repair 0.433 vs votes 0.049 while the "
++                        "observer said 0.507 vs 0.775; min2 repair 0.085 vs 0.184 while the "
++                        "observer said 0.842 vs 0.803)"},
+         }
+ 
+     ctrl = examine(pack)
+-- 
+2.43.0
+

@@ -1,0 +1,25 @@
+Stage288 repair start 2026-08-09T20:34:03.384137+00:00 device=cuda steps=6000 holdout=corpus
+  tape: 103 addresses, 249 slots, 249 corruption sites, params=6562
+  step 750/6000 loss=1.0956 [replace]
+  step 1500/6000 loss=1.2948 [dup]
+  step 2250/6000 loss=0.9706 [none]
+  step 3000/6000 loss=0.8926 [none]
+  step 3750/6000 loss=1.0117 [replace]
+  step 4500/6000 loss=1.0182 [replace]
+  step 5250/6000 loss=1.0466 [replace]
+  step 6000/6000 loss=1.0935 [replace]
+  held tape: 36 addresses, 117 slots
+  CONTROL {"n_by_op": {"none": 250, "replace": 250, "dup": 249}, "detection": {"model_forged": 0.7695390781563126, "votes_forged": 0.30861723446893785, "random_floor": 0.39147089272339763, "model_dup": 0.9839357429718876, "votes_dup": 0.07228915662650602, "model_clean_pass": 0.556, "votes_clean_pass": 0.58, "clean_margin_auc": 0.8988256513026052, "clean_margin_auc_z": 17.81818039737354}, "repair_true_flag": {"model_reward": 0.5212765957446809, "votes_reward": 0.3882978723404255, "model_accuracy": 0.46153846153846156, "votes_accuracy": 0.45, "model_coverage": 0.2765957446808511, "votes_coverage": 0.425531914893617, "random_floor": 0.17375886524822695, "unknown_margin_auc": 0.7887687969924813, "unknown_margin_auc_z": 4.73439943284374, "n_recoverable": 38, "n_unrecoverable": 56, "single_candidate_skipped": 405}, "observer_verdict_restored": {"model": 0.23404255319148937, "votes": 0.3829787234042553, "n": 94, "note": "the proposal's original reward, demoted to an observer: gradient on this has an empty tape as its fixed point - and measured to rank two real arms backwards (min3 repair 0.433 vs votes 0.049 while the observer said 0.507 vs 0.775; min2 repair 0.085 vs 0.184 while the observer said 0.842 vs 0.803)"}}
+  HELD {"n_by_op": {"none": 117, "replace": 117, "dup": 117}, "detection": {"model_forged": 0.6709401709401709, "votes_forged": 0.3333333333333333, "random_floor": 0.3038111579778246, "model_dup": 0.9401709401709402, "votes_dup": 0.1623931623931624, "model_clean_pass": 0.5042735042735043, "votes_clean_pass": 0.452991452991453, "clean_margin_auc": 0.7289429468916648, "clean_margin_auc_z": 6.994350945707142}, "repair_true_flag": {"model_reward": 0.75, "votes_reward": -0.2777777777777778, "model_accuracy": NaN, "votes_accuracy": 0.12903225806451613, "model_coverage": 0.0, "votes_coverage": 0.6888888888888889, "random_floor": 0.24259259259259258, "unknown_margin_auc": 0.47596153846153844, "unknown_margin_auc_z": -0.356084653758674, "n_recoverable": 64, "n_unrecoverable": 26, "single_candidate_skipped": 144}, "observer_verdict_restored": {"model": 0.0, "votes": 0.6444444444444445, "n": 90, "note": "the proposal's original reward, demoted to an observer: gradient on this has an empty tape as its fixed point - and measured to rank two real arms backwards (min3 repair 0.433 vs votes 0.049 while the observer said 0.507 vs 0.775; min2 repair 0.085 vs 0.184 while the observer said 0.842 vs 0.803)"}}
+{
+  "overall": "REPAIR_PARTIAL",
+  "gates": {
+    "G_arc_enc_frozen": true,
+    "G_task_exists": true,
+    "G_detects_forgery": true,
+    "G_detects_dup": true,
+    "G_flags_clean": true,
+    "G_repairs": false,
+    "G_honest_unrecoverable": false
+  }
+}

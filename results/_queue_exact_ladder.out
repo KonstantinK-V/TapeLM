@@ -1,0 +1,22 @@
+﻿
+2026-08-10 03:09:16 1 WAIT current 289(6) pair+289c - do not touch code
+2026-08-10 04:02:56 1 DONE current run finished
+2026-08-10 04:02:56 1 BACKUP C:\Users\Kostya\sote-letter-assembly\results\backup_289v6_20260810_040256
+2026-08-10 04:02:56 backed _stage289_derivation.py
+2026-08-10 04:02:56 backed _stage289c_audit.py
+2026-08-10 04:02:56 backed results\_stage289_full_w150.out
+2026-08-10 04:02:56 backed results\_stage289_full_w150_noderiv.out
+2026-08-10 04:02:56 backed results\_stage289c_full_w150.out
+2026-08-10 04:02:56 backed results\_queue_289_pair_289c.out
+2026-08-10 04:02:56 backed results\stage289_decision_w150.json
+2026-08-10 04:02:56 backed results\stage289_decision_w150_noderiv.json
+2026-08-10 04:02:56 backed results\stage289c_decision_w150.json
+2026-08-10 04:02:56 INSTALLED derivation(10) + audit(6)
+2026-08-10 04:02:56 2 289 exact --no-ladder
+2026-08-10 05:50:27 EXIT_2=0
+2026-08-10 05:50:27 3 289c exact --no-ladder
+2026-08-10 07:40:51 EXIT_3=0
+2026-08-10 07:40:51 4 289 ladder (default)
+2026-08-10 09:37:46 EXIT_4=0
+2026-08-10 09:37:46 5 289c ladder
+STOP_289c_ladder 2026-08-10T09:48:04.3017666+03:00

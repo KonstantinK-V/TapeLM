@@ -1,0 +1,48 @@
+From 3d2f6a9c366994a98152c8e48db4e644bf1accdf Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Fri, 7 Aug 2026 03:24:07 +0000
+Subject: [PATCH] stage 282: leading back means one text carries both names
+
+The return test asked only whether some other slot mentions the subject.
+That gets easier the more common the anchor is - on the smoke corpus the
+anchors are words like september, gold and behind, which appear in most
+of the tape, so any value at all appeared corroborated and two of nine
+real ties were resolved into answers.
+
+A path from a value back to a subject is a text that holds both. The test
+now requires the pair, which leaves the discrimination the last smoke
+measured intact (accuracy 1.0 after a hit, 0.0 after a miss) while making
+a frequent anchor stop being free evidence.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01PGuqHAMhjCxVAADm3R4wxK
+---
+ _stage282_mind.py | 12 +++++++++---
+ 1 file changed, 9 insertions(+), 3 deletions(-)
+
+diff --git a/_stage282_mind.py b/_stage282_mind.py
+index 0481176..816f549 100644
+--- a/_stage282_mind.py
++++ b/_stage282_mind.py
+@@ -370,9 +370,15 @@ def rollout(policy, model, char_table, tok, pack, item, pad_id, device, acts, *,
+             # The slot the value came from is not a return path - it is the same reading twice.
+             # Its own text holds the subject by construction, so counting it made every probe
+             # succeed (hit rate 1.000, the miss bucket empty) exactly as the folded-case bug had
+-            # made every probe fail. A value corroborates when some OTHER mention leads back.
+-            st["ret_ok"][slot] = float(any(c != slot and item["S"] in pack["texts_lc"][c]
+-                                           for c in back))
++            # made every probe fail. A value corroborates when some OTHER mention leads back,
++            # and leading back means one text carries BOTH names: a slot that merely says
++            # "september" is not a path from a value to september, it is the anchor being a
++            # common word. Requiring the pair is what keeps the test from getting easier as
++            # the anchor gets more frequent.
++            val_lc = pack["tape"].values[slot].lower()
++            st["ret_ok"][slot] = float(any(
++                c != slot and item["S"] in pack["texts_lc"][c] and val_lc in pack["texts_lc"][c]
++                for c in back))
+             st["cands"], st["sc"] = keep_c, keep_s
+             st["probes"] += 1
+         elif acts.DROP <= a < acts.DROP + acts.w:
+-- 
+2.43.0
+

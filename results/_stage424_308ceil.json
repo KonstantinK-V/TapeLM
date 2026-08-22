@@ -1,0 +1,53 @@
+{
+ "1337": {
+  "slots": 6182,
+  "questions": 785,
+  "both_offered": 0.05732484076433121,
+  "marginal_right": 0.26666666666666666,
+  "joint_seen": 0.2222222222222222,
+  "comp_only": 0.035668789808917196,
+  "comp_only_of_offered": 0.6222222222222222,
+  "pair_price_mean": 123.43184713375796,
+  "n_line_place_dups": 575,
+  "working_cells": 0,
+  "seed": 1337,
+  "void": false,
+  "room": true,
+  "arena": true,
+  "go": true
+ },
+ "8642": {
+  "slots": 6405,
+  "questions": 773,
+  "both_offered": 0.0724450194049159,
+  "marginal_right": 0.16071428571428573,
+  "joint_seen": 0.25,
+  "comp_only": 0.04915912031047866,
+  "comp_only_of_offered": 0.6785714285714286,
+  "pair_price_mean": 161.0556274256145,
+  "n_line_place_dups": 483,
+  "working_cells": 0,
+  "seed": 8642,
+  "void": false,
+  "room": true,
+  "arena": true,
+  "go": true
+ },
+ "2890": {
+  "slots": 7197,
+  "questions": 765,
+  "both_offered": 0.06928104575163399,
+  "marginal_right": 0.09433962264150944,
+  "joint_seen": 0.1320754716981132,
+  "comp_only": 0.05359477124183006,
+  "comp_only_of_offered": 0.7735849056603774,
+  "pair_price_mean": 381.1843137254902,
+  "n_line_place_dups": 725,
+  "working_cells": 0,
+  "seed": 2890,
+  "void": false,
+  "room": true,
+  "arena": true,
+  "go": true
+ }
+}

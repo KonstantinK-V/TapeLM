@@ -1,0 +1,104 @@
+{
+ "1337": {
+  "seed": 1337,
+  "void": false,
+  "gate": true,
+  "scan_a": {
+   "places": 8,
+   "pin": 8,
+   "mixed": 0,
+   "df1": 0
+  },
+  "scan_b": {
+   "places": 8,
+   "pin": 8,
+   "mixed": 0,
+   "df1": 0
+  },
+  "walk_a": {
+   "ep": 3,
+   "pin": 1.0,
+   "refuse": 0.0,
+   "mean_hops": 2.0
+  },
+  "walk_b": {
+   "ep": 3,
+   "pin": 1.0,
+   "refuse": 0.0,
+   "mean_hops": 2.0
+  },
+  "qh_on_a": 1.0,
+  "qh_on_b": 0.0,
+  "crisp_equal": false,
+  "addr_overlap": 0,
+  "n_qh": 3
+ },
+ "8642": {
+  "seed": 8642,
+  "void": false,
+  "gate": true,
+  "scan_a": {
+   "places": 8,
+   "pin": 8,
+   "mixed": 0,
+   "df1": 0
+  },
+  "scan_b": {
+   "places": 8,
+   "pin": 8,
+   "mixed": 0,
+   "df1": 0
+  },
+  "walk_a": {
+   "ep": 3,
+   "pin": 1.0,
+   "refuse": 0.0,
+   "mean_hops": 2.0
+  },
+  "walk_b": {
+   "ep": 3,
+   "pin": 1.0,
+   "refuse": 0.0,
+   "mean_hops": 2.0
+  },
+  "qh_on_a": 1.0,
+  "qh_on_b": 0.0,
+  "crisp_equal": false,
+  "addr_overlap": 0,
+  "n_qh": 3
+ },
+ "2890": {
+  "seed": 2890,
+  "void": false,
+  "gate": true,
+  "scan_a": {
+   "places": 8,
+   "pin": 8,
+   "mixed": 0,
+   "df1": 0
+  },
+  "scan_b": {
+   "places": 8,
+   "pin": 8,
+   "mixed": 0,
+   "df1": 0
+  },
+  "walk_a": {
+   "ep": 3,
+   "pin": 1.0,
+   "refuse": 0.0,
+   "mean_hops": 2.0
+  },
+  "walk_b": {
+   "ep": 3,
+   "pin": 1.0,
+   "refuse": 0.0,
+   "mean_hops": 2.0
+  },
+  "qh_on_a": 1.0,
+  "qh_on_b": 0.0,
+  "crisp_equal": false,
+  "addr_overlap": 0,
+  "n_qh": 3
+ }
+}

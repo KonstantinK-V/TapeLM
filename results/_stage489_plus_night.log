@@ -1,0 +1,85 @@
+=== 489+ 2026-08-22T00:52:28 ===
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit491_shuffle.py --seed 1337 --steps 2500 --log-every 500
+491 shuffle control  corpus=data\_tinystories_raw_scale.txt  steps=2500
+  REAL 500/2500  hunt 0.240  rand 0.098  lift 0.142  q 72  68s
+  REAL 1000/2500  hunt 0.197  rand 0.106  lift 0.091  q 83  135s
+  REAL 1500/2500  hunt 0.199  rand 0.105  lift 0.094  q 91  211s
+  REAL 2000/2500  hunt 0.203  rand 0.104  lift 0.099  q 100  286s
+  REAL 2500/2500  hunt 0.197  rand 0.100  lift 0.097  q 102  366s
+  SHUF 500/2500  hunt 0.000  rand 0.000  lift 0.000  q 62  66s
+  SHUF 1000/2500  hunt 0.001  rand 0.001  lift 0.000  q 66  143s
+  SHUF 1500/2500  hunt 0.001  rand 0.001  lift 0.001  q 70  221s
+  SHUF 2000/2500  hunt 0.001  rand 0.001  lift 0.001  q 74  303s
+  SHUF 2500/2500  hunt 0.001  rand 0.001  lift 0.000  q 76  391s
+---- done ----
+REAL lift 0.0972  SHUF lift 0.0000  drop 0.0972
+wrote results\_stage491_shuffle.json
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit491_shuffle.py --seed 7 --steps 2500 --log-every 500
+491 shuffle control  corpus=data\_tinystories_raw_scale.txt  steps=2500
+  REAL 500/2500  hunt 0.150  rand 0.110  lift 0.040  q 72  67s
+  REAL 1000/2500  hunt 0.137  rand 0.106  lift 0.031  q 86  135s
+  REAL 1500/2500  hunt 0.145  rand 0.109  lift 0.036  q 96  207s
+  REAL 2000/2500  hunt 0.151  rand 0.111  lift 0.041  q 102  282s
+  REAL 2500/2500  hunt 0.174  rand 0.109  lift 0.065  q 105  364s
+  SHUF 500/2500  hunt 0.002  rand 0.000  lift 0.002  q 63  66s
+  SHUF 1000/2500  hunt 0.001  rand 0.000  lift 0.001  q 71  138s
+  SHUF 1500/2500  hunt 0.001  rand 0.000  lift 0.001  q 74  214s
+  SHUF 2000/2500  hunt 0.001  rand 0.001  lift 0.001  q 78  301s
+  SHUF 2500/2500  hunt 0.001  rand 0.001  lift 0.000  q 79  387s
+---- done ----
+REAL lift 0.0648  SHUF lift 0.0000  drop 0.0648
+wrote results\_stage491_shuffle.json
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit489_transfer.py --train-seed 1337 --eval-seed 2024 --train-steps 2500 --eval-steps 1500
+489 transfer train=1337 eval=2024 pool=80000
+  train 500  hit 0.124  q 76  63s
+  train 1000  hit 0.164  q 93  129s
+  train 1500  hit 0.199  q 98  202s
+  train 2000  hit 0.208  q 103  275s
+  train 2500  hit 0.211  q 107  353s
+  eval 500  q 0.242  rand 0.100  lift 0.142
+  eval 1000  q 0.239  rand 0.096  lift 0.143
+  eval 1500  q 0.241  rand 0.096  lift 0.145
+---- done ----
+eval q 0.2407 rand 0.0960 lift 0.1447
+wrote results\_stage489_transfer.json
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit489_transfer.py --train-seed 7 --eval-seed 1337 --train-steps 2500 --eval-steps 1500
+489 transfer train=7 eval=1337 pool=80000
+  train 500  hit 0.088  q 69  63s
+  train 1000  hit 0.087  q 84  130s
+  train 1500  hit 0.107  q 93  207s
+  train 2000  hit 0.138  q 97  280s
+  train 2500  hit 0.160  q 100  356s
+  eval 500  q 0.264  rand 0.092  lift 0.172
+  eval 1000  q 0.232  rand 0.100  lift 0.132
+  eval 1500  q 0.233  rand 0.099  lift 0.134
+---- done ----
+eval q 0.2327 rand 0.0987 lift 0.1340
+wrote results\_stage489_transfer.json
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit493_wiki.py --seed 1337 --steps 2500 --log-every 500
+493 wiki-hunt  corpus=data\_wikitext103_train.txt  lines=56840  steps=2500
+  step 500/2500  hunt 0.134  rand 0.098  lift 0.036  hop 0.030  q 68  291s
+  step 1000/2500  hunt 0.119  rand 0.090  lift 0.029  hop 0.021  q 78  599s
+  step 1500/2500  hunt 0.109  rand 0.095  lift 0.013  hop 0.020  q 80  933s
+  step 2000/2500  hunt 0.110  rand 0.098  lift 0.013  hop 0.021  q 85  1284s
+  step 2500/2500  hunt 0.116  rand 0.095  lift 0.021  hop 0.025  q 90  1645s
+---- done ----
+hunt 0.1160 rand 0.0952 lift 0.0208
+wrote results\_stage493_wiki.json
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit493_wiki.py --seed 2024 --steps 2500 --log-every 500
+493 wiki-hunt  corpus=data\_wikitext103_train.txt  lines=56840  steps=2500
+  step 500/2500  hunt 0.238  rand 0.096  lift 0.142  hop 0.086  q 61  278s
+  step 1000/2500  hunt 0.294  rand 0.092  lift 0.202  hop 0.091  q 69  564s
+  step 1500/2500  hunt 0.309  rand 0.096  lift 0.213  hop 0.106  q 71  864s
+  step 2000/2500  hunt 0.317  rand 0.096  lift 0.221  hop 0.107  q 79  1177s
+  step 2500/2500  hunt 0.326  rand 0.093  lift 0.233  hop 0.112  q 81  1498s
+---- done ----
+hunt 0.3260 rand 0.0932 lift 0.2328
+wrote results\_stage493_wiki.json
+
+=== 489+ done 2026-08-22T02:29:56 ===

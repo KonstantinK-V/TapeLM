@@ -1,0 +1,112 @@
+{
+ "bytes": 30000000,
+ "addresses": 1500,
+ "window": {
+  "400": {
+   "places": 1500,
+   "mentions_per_place": 4.24,
+   "support_1": 0.8399651369380845,
+   "support_2plus": 0.16003486306191544,
+   "support_3plus": 0.06446314236867688,
+   "one_present_topm": 0.19333333333333333,
+   "one_count_right": 0.037333333333333336,
+   "pair_present_topm": 0.088,
+   "mean_lens_offer": 37.81256111111118,
+   "in_own": 0.261,
+   "questions": 3000
+  },
+  "800": {
+   "places": 1500,
+   "mentions_per_place": 4.157333333333334,
+   "support_1": 0.8577424483306836,
+   "support_2plus": 0.14225755166931636,
+   "support_3plus": 0.045500794912559615,
+   "one_present_topm": 0.16966666666666666,
+   "one_count_right": 0.04466666666666667,
+   "pair_present_topm": 0.08766666666666667,
+   "mean_lens_offer": 32.910338888888845,
+   "in_own": 0.22233333333333333,
+   "questions": 3000
+  },
+  "1600": {
+   "places": 1500,
+   "mentions_per_place": 4.696,
+   "support_1": 0.8451741558096251,
+   "support_2plus": 0.1548258441903749,
+   "support_3plus": 0.06131348045732518,
+   "one_present_topm": 0.189,
+   "one_count_right": 0.03833333333333333,
+   "pair_present_topm": 0.096,
+   "mean_lens_offer": 48.64948888888889,
+   "in_own": 0.2803333333333333,
+   "questions": 3000
+  },
+  "3200": {
+   "places": 1500,
+   "mentions_per_place": 5.886666666666667,
+   "support_1": 0.7517828803310633,
+   "support_2plus": 0.2482171196689367,
+   "support_3plus": 0.12304385383394605,
+   "one_present_topm": 0.18033333333333335,
+   "one_count_right": 0.032,
+   "pair_present_topm": 0.12433333333333334,
+   "mean_lens_offer": 86.12835000000084,
+   "in_own": 0.393,
+   "questions": 3000
+  },
+  "6400": {
+   "places": 1500,
+   "mentions_per_place": 8.694,
+   "support_1": 0.6487719871480695,
+   "support_2plus": 0.3512280128519305,
+   "support_3plus": 0.2034444262920002,
+   "one_present_topm": 0.16,
+   "one_count_right": 0.03966666666666667,
+   "pair_present_topm": 0.092,
+   "mean_lens_offer": 202.88774444444417,
+   "in_own": 0.5116666666666667,
+   "questions": 3000
+  }
+ },
+ "frame_max": {
+  "3": {
+   "places": 1500,
+   "mentions_per_place": 4.24,
+   "support_1": 0.8399651369380845,
+   "support_2plus": 0.16003486306191544,
+   "support_3plus": 0.06446314236867688,
+   "one_present_topm": 0.19333333333333333,
+   "one_count_right": 0.037333333333333336,
+   "pair_present_topm": 0.088,
+   "mean_lens_offer": 37.81256111111118,
+   "in_own": 0.261,
+   "questions": 3000
+  },
+  "2": {
+   "places": 1500,
+   "mentions_per_place": 4.371333333333333,
+   "support_1": 0.8470894398027667,
+   "support_2plus": 0.15291056019723326,
+   "support_3plus": 0.06629228872757156,
+   "one_present_topm": 0.18766666666666668,
+   "one_count_right": 0.04066666666666666,
+   "pair_present_topm": 0.10466666666666667,
+   "mean_lens_offer": 44.48640000000005,
+   "in_own": 0.244,
+   "questions": 3000
+  },
+  "1": {
+   "places": 1500,
+   "mentions_per_place": 4.679333333333333,
+   "support_1": 0.8026320619654198,
+   "support_2plus": 0.19736793803458022,
+   "support_3plus": 0.08415623508681766,
+   "one_present_topm": 0.18966666666666668,
+   "one_count_right": 0.04533333333333334,
+   "pair_present_topm": 0.091,
+   "mean_lens_offer": 50.73517222222231,
+   "in_own": 0.278,
+   "questions": 3000
+  }
+ }
+}

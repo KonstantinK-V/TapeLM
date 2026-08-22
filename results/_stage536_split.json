@@ -1,0 +1,122 @@
+{
+ "1337": {
+  "seed": 1337,
+  "corpus": "given",
+  "n_mark": 307,
+  "n": 719,
+  "extra_n": 113,
+  "extra": 0.1571627260083449,
+  "boxes": {
+   "newnode": {
+    "n": 113,
+    "win1": 29,
+    "lose1": 5,
+    "neut1": 79,
+    "sum_d1": 24.0,
+    "extra_in_held": 2,
+    "disp_in_held": 6
+   },
+   "reorder": {
+    "n": 84,
+    "win1": 16,
+    "lose1": 2,
+    "neut1": 66,
+    "sum_d1": 14.0,
+    "extra_in_held": 0,
+    "disp_in_held": 0
+   },
+   "silent": {
+    "n": 522,
+    "win1": 0,
+    "lose1": 0,
+    "neut1": 522,
+    "sum_d1": 0.0,
+    "extra_in_held": 0,
+    "disp_in_held": 0
+   }
+  },
+  "mean_d1": 0.02195178488641632,
+  "mean_dg": -0.002665739452943903,
+  "void": false
+ },
+ "8642": {
+  "seed": 8642,
+  "corpus": "given",
+  "n_mark": 369,
+  "n": 718,
+  "extra_n": 131,
+  "extra": 0.18245125348189414,
+  "boxes": {
+   "newnode": {
+    "n": 131,
+    "win1": 23,
+    "lose1": 8,
+    "neut1": 100,
+    "sum_d1": 15.0,
+    "extra_in_held": 5,
+    "disp_in_held": 8
+   },
+   "reorder": {
+    "n": 97,
+    "win1": 16,
+    "lose1": 4,
+    "neut1": 77,
+    "sum_d1": 12.0,
+    "extra_in_held": 0,
+    "disp_in_held": 0
+   },
+   "silent": {
+    "n": 490,
+    "win1": 0,
+    "lose1": 0,
+    "neut1": 490,
+    "sum_d1": 0.0,
+    "extra_in_held": 0,
+    "disp_in_held": 0
+   }
+  },
+  "mean_d1": 0.015575673166202411,
+  "mean_dg": -0.0027623026926648095,
+  "void": false
+ },
+ "2890": {
+  "seed": 2890,
+  "corpus": "given",
+  "n_mark": 328,
+  "n": 707,
+  "extra_n": 144,
+  "extra": 0.2036775106082037,
+  "boxes": {
+   "newnode": {
+    "n": 144,
+    "win1": 22,
+    "lose1": 10,
+    "neut1": 112,
+    "sum_d1": 12.0,
+    "extra_in_held": 5,
+    "disp_in_held": 3
+   },
+   "reorder": {
+    "n": 75,
+    "win1": 15,
+    "lose1": 7,
+    "neut1": 53,
+    "sum_d1": 8.0,
+    "extra_in_held": 0,
+    "disp_in_held": 0
+   },
+   "silent": {
+    "n": 488,
+    "win1": 0,
+    "lose1": 0,
+    "neut1": 488,
+    "sum_d1": 0.0,
+    "extra_in_held": 0,
+    "disp_in_held": 0
+   }
+  },
+  "mean_d1": 0.008675153229608679,
+  "mean_dg": 0.0015322960867515324,
+  "void": false
+ }
+}

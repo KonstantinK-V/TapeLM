@@ -1,0 +1,128 @@
+{
+ "1337": {
+  "seed": 1337,
+  "void": false,
+  "gate": true,
+  "rate": {
+   "1,1": 1.0,
+   "0,4": 1.0,
+   "3,3": 0.667
+  },
+  "D1": {
+   "ep": 18,
+   "pin": 1.0,
+   "refuse": 0.0,
+   "greedy": 1.0,
+   "mean_hops": 1.0,
+   "greedy_hops": 1.0
+  },
+  "D2": {
+   "ep": 18,
+   "pin": 1.0,
+   "refuse": 0.0,
+   "greedy": 1.0,
+   "mean_hops": 2.0,
+   "greedy_hops": 3.0
+  },
+  "D4": {
+   "ep": 18,
+   "pin": 1.0,
+   "refuse": 0.0,
+   "greedy": 1.0,
+   "mean_hops": 4.0,
+   "greedy_hops": 5.0
+  },
+  "STOP": {
+   "ep": 18,
+   "pin": 0.0,
+   "refuse": 1.0,
+   "greedy": 0.0,
+   "mean_hops": 1.0,
+   "greedy_hops": 1.0
+  }
+ },
+ "8642": {
+  "seed": 8642,
+  "void": false,
+  "gate": true,
+  "rate": {
+   "1,1": 1.0,
+   "3,3": 0.667,
+   "0,4": 1.0
+  },
+  "D1": {
+   "ep": 18,
+   "pin": 1.0,
+   "refuse": 0.0,
+   "greedy": 1.0,
+   "mean_hops": 1.0,
+   "greedy_hops": 1.0
+  },
+  "D2": {
+   "ep": 18,
+   "pin": 1.0,
+   "refuse": 0.0,
+   "greedy": 1.0,
+   "mean_hops": 2.0,
+   "greedy_hops": 3.0
+  },
+  "D4": {
+   "ep": 18,
+   "pin": 1.0,
+   "refuse": 0.0,
+   "greedy": 1.0,
+   "mean_hops": 4.0,
+   "greedy_hops": 5.0
+  },
+  "STOP": {
+   "ep": 18,
+   "pin": 0.0,
+   "refuse": 1.0,
+   "greedy": 0.0,
+   "mean_hops": 1.0,
+   "greedy_hops": 1.0
+  }
+ },
+ "2890": {
+  "seed": 2890,
+  "void": false,
+  "gate": true,
+  "rate": {
+   "1,1": 1.0,
+   "0,4": 1.0,
+   "3,3": 0.667
+  },
+  "D1": {
+   "ep": 18,
+   "pin": 1.0,
+   "refuse": 0.0,
+   "greedy": 1.0,
+   "mean_hops": 1.0,
+   "greedy_hops": 1.0
+  },
+  "D2": {
+   "ep": 18,
+   "pin": 1.0,
+   "refuse": 0.0,
+   "greedy": 1.0,
+   "mean_hops": 2.0,
+   "greedy_hops": 3.0
+  },
+  "D4": {
+   "ep": 18,
+   "pin": 1.0,
+   "refuse": 0.0,
+   "greedy": 1.0,
+   "mean_hops": 4.0,
+   "greedy_hops": 5.0
+  },
+  "STOP": {
+   "ep": 18,
+   "pin": 0.0,
+   "refuse": 1.0,
+   "greedy": 0.0,
+   "mean_hops": 1.0,
+   "greedy_hops": 1.0
+  }
+ }
+}

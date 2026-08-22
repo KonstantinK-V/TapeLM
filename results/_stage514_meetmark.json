@@ -1,0 +1,68 @@
+{
+ "1337": {
+  "seed": 1337,
+  "corpus": "wiki",
+  "n_lines": 400,
+  "mid": {
+   "n": 891,
+   "hit_meet": 0.002244668911335578,
+   "hit_rnd": 0.017957351290684626,
+   "delta": -0.015712682379349047,
+   "marks": 0.5420875420875421
+  },
+  "high": {
+   "n": 95,
+   "hit_meet": 0.031578947368421054,
+   "hit_rnd": 0.0,
+   "delta": 0.031578947368421054,
+   "marks": 0.09473684210526316
+  },
+  "void": false,
+  "gate": false,
+  "contract": "TapeLM star contract (after 512 STOP, 513 STOP)\nPIN  \u2260 STAR. Do not pipeline 436 into 511.\nSTAR: all rec hops, 1/df budget, ring2 only if leftover allow.\nMEET: write working tape[m]=MEET; not Q[H], not unique.\nand: ~1 hop glue; must not flood.\nUnique hop is a special case (toy 440), not the definition of walk."
+ },
+ "8642": {
+  "seed": 8642,
+  "corpus": "wiki",
+  "n_lines": 400,
+  "mid": {
+   "n": 836,
+   "hit_meet": 0.023923444976076555,
+   "hit_rnd": 0.04665071770334928,
+   "delta": -0.022727272727272728,
+   "marks": 1.8157894736842106
+  },
+  "high": {
+   "n": 94,
+   "hit_meet": 0.010638297872340425,
+   "hit_rnd": 0.0,
+   "delta": 0.010638297872340425,
+   "marks": 0.010638297872340425
+  },
+  "void": false,
+  "gate": false,
+  "contract": "TapeLM star contract (after 512 STOP, 513 STOP)\nPIN  \u2260 STAR. Do not pipeline 436 into 511.\nSTAR: all rec hops, 1/df budget, ring2 only if leftover allow.\nMEET: write working tape[m]=MEET; not Q[H], not unique.\nand: ~1 hop glue; must not flood.\nUnique hop is a special case (toy 440), not the definition of walk."
+ },
+ "2890": {
+  "seed": 2890,
+  "corpus": "wiki",
+  "n_lines": 400,
+  "mid": {
+   "n": 1034,
+   "hit_meet": 0.020309477756286266,
+   "hit_rnd": 0.0551257253384913,
+   "delta": -0.03481624758220503,
+   "marks": 2.0841392649903288
+  },
+  "high": {
+   "n": 98,
+   "hit_meet": 0.0,
+   "hit_rnd": 0.0,
+   "delta": 0.0,
+   "marks": 0.0
+  },
+  "void": false,
+  "gate": false,
+  "contract": "TapeLM star contract (after 512 STOP, 513 STOP)\nPIN  \u2260 STAR. Do not pipeline 436 into 511.\nSTAR: all rec hops, 1/df budget, ring2 only if leftover allow.\nMEET: write working tape[m]=MEET; not Q[H], not unique.\nand: ~1 hop glue; must not flood.\nUnique hop is a special case (toy 440), not the definition of walk."
+ }
+}

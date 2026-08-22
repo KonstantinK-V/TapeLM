@@ -1,0 +1,35 @@
+{
+ "1337": {
+  "n": 1500,
+  "question_hit": 0.47333333333333333,
+  "pin_hit": 0.388,
+  "gain": -0.08533333333333333,
+  "moved": 0.8473333333333334,
+  "working_cells": 0,
+  "seed": 1337,
+  "void": false,
+  "gate": false
+ },
+ "8642": {
+  "n": 1500,
+  "question_hit": 0.48,
+  "pin_hit": 0.3933333333333333,
+  "gain": -0.08666666666666667,
+  "moved": 0.8313333333333334,
+  "working_cells": 0,
+  "seed": 8642,
+  "void": false,
+  "gate": false
+ },
+ "2890": {
+  "n": 1500,
+  "question_hit": 0.45466666666666666,
+  "pin_hit": 0.36666666666666664,
+  "gain": -0.088,
+  "moved": 0.8506666666666667,
+  "working_cells": 0,
+  "seed": 2890,
+  "void": false,
+  "gate": false
+ }
+}

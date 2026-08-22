@@ -1,0 +1,34 @@
+
+out/_stage289_decision_384place_s1337.json  [held_out]  seed=1337  lenses 6  mean 2.84
+  void    n 837  beyond_own 602  constrain_rate 0.2963  own_hit 0.2808
+  GATE b  answerable 0.0084 vs walk 0.2007   present@topm 0.0263   reads 1 vs 8   behind
+  GATE a  beyond_own hit 0.0000   decisive 0.0033   rare 0.0000   frequent 0.0017
+          vs decisive  0/2 of 602   z -1.41   |   vs walk rival 0/1 z -1.00
+  hit     0.0896   chosen lens share when constrained 0.1042
+
+out/_stage289_decision_384place_s8642.json  [held_out]  seed=8642  lenses 6  mean 2.41
+  void    n 844  beyond_own 597  constrain_rate 0.1967  own_hit 0.2927
+  GATE b  answerable 0.0024 vs walk 0.2429   present@topm 0.0071   reads 1 vs 8   behind
+  GATE a  beyond_own hit 0.0000   decisive 0.0034   rare 0.0000   frequent 0.0017
+          vs decisive  0/2 of 597   z -1.41   |   vs walk rival 0/1 z -1.00
+  hit     0.2358   chosen lens share when constrained 0.1235
+
+out/_stage289_decision_384place_s2890.json  [held_out]  seed=2890  lenses 6  mean 2.46
+  void    n 762  beyond_own 499  constrain_rate 0.2388  own_hit 0.3451
+  GATE b  answerable 0.0000 vs walk 0.2756   present@topm 0.0026   reads 1 vs 8   behind
+  GATE a  beyond_own hit 0.0000   decisive 0.0000   rare 0.0000   frequent 0.0000
+          vs decisive  0/0 of 499   z +nan   |   vs walk rival 0/0 z +nan
+  hit     0.2257   chosen lens share when constrained 0.0698
+
+out/_stage289_decision_384place_s4711.json  [held_out]  seed=4711  lenses 6  mean 2.57
+  void    n 844  beyond_own 564  constrain_rate 0.2666  own_hit 0.3318
+  GATE b  answerable 0.0000 vs walk 0.2642   present@topm 0.0036   reads 1 vs 8   behind
+  GATE a  beyond_own hit 0.0000   decisive 0.0000   rare 0.0000   frequent 0.0000
+          vs decisive  0/0 of 564   z +nan   |   vs walk rival 0/0 z +nan
+  hit     0.1896   chosen lens share when constrained 0.1503
+
+POOLED held_out over 4 runs
+  GATE a  mind 0 / decisive 4 of 2262   z -2.00   ahead on 0/4 seeds   -> FAIL
+  GATE b  reaches more than the walk on 0/4 seeds   -> FAIL
+          coverage at a MATCHED offer (top{m} vs the walk's eight): ahead on 0/4 seeds
+  STEP 1 FAILS both gates. One retry, then the step is closed and the constraint interface is not the way past 335.

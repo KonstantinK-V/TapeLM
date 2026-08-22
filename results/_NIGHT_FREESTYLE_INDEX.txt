@@ -1,0 +1,24 @@
+# Night freestyle index (not ladder). Morning: skim JSON lifts.
+
+## Done / in flight
+- 485 hunt+wander  results/_stage485_hunt.json
+- 486 unique-only   results/_stage486_unique_only.json   << lift ~+0.09..0.12
+- 487 soft-arrive   results/_stage487_arrive.json        (running)
+- 488 chain         results/_stage488_chain.json
+- 489 transfer      results/_stage489_transfer.json
+- 491 shuffle CTRL  results/_stage491_shuffle.json       << if lift survives = fake
+- 493 wiki hunt     results/_stage493_wiki.json
+
+## Morning pack (after 489+)
+- 494 rarity pre    results/_stage494_rarity.json
+- 495 curriculum    results/_stage495_curriculum.json
+- 496 const vs soft results/_stage496_const.json
+- 497 refuse GO     results/_stage497_refuse.json
+- 499 free-swim     results/_stage499_free_swim.json   hard|soft05|any_slot + hops
+- 500 max-loose     results/_stage500_maxloose.json    any-slot pin, 8–12 hops
+
+Logs:
+- results/_stage485_hunt_night.log
+- results/_stage487_488_night.log
+- results/_stage489_plus_night.log
+- results/_stage_morning_night.log

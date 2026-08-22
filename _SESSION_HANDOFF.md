@@ -1,7 +1,7 @@
-# READ FIRST — orientation for a fresh session (written at step 393, after 391 and 392)
+# READ FIRST — orientation for a fresh session (written after 34.4 was built)
 
 `HANDOFF.md` in this repo is 5101 lines and froze around step 299. It is history, not state.
-**The live memory is `_STATE_353.md`, sections 1–35.** This file is the map to it.
+**The live memory is `_STATE_353.md`, sections 1–46.** This file is the map to it.
 
 ---
 
@@ -79,9 +79,7 @@ never a measurement of tape size.
 strict two-filler connect (365) · intersecting two lenses (346) · value-lenses at all (384) ·
 the move as an output space (387) · a wider offer (347 ×4) · mean-instead-of-sum ranking (387) ·
 `--copy` (retired after the 380 rerun) · `--copy-backfill` (378) · refusal as a per-question price
-(299_hash, 311, 339) · **`--calib-batch` (389 — voided on its own control, section 31)** ·
-**requirement 4 on the standing offer (391 — std8 not monotone, section 33)** · **B2 bind
-(392 — null equals both, section 35)**.
+(299_hash, 311, 339) · **`--calib-batch` (389 — voided on its own control, section 31)**.
 
 ---
 
@@ -101,7 +99,7 @@ And one worse: **a leak in the assistant's own audits** (section 27). `_audit387
 hidden token. **Every number 387 and 388 printed is void and must not be cited.** Fixed by passing
 `qprof`; stage-measured numbers (385, 386 and earlier) are unaffected.
 
-**Debt: 387 and 388 were re-run with `qprof` (section 34). Build nothing on them.**
+**Debt: 387 and 388 must be re-run after that fix.**
 
 ---
 
@@ -116,23 +114,34 @@ Four requirements, honestly scored:
 | understands / speaks | **never operationalised** — the exam only ranks eight names in a hole |
 | smarter as the tape grows | **never measured cleanly** — 369 scaled the *questions*, not the tape; and "fine-tuning on a second tape buys nothing" was double-counted as a separation control instead of a failure of this requirement |
 
-**The user's own next move, stated at step 390, still stands after 391/392:**
+**The user's own next move, stated at step 390:**
 
 > «Следующий ход не "ещё один терм на Φ", а то, чего шкала всё равно не даёт: ум по-прежнему не
 > выбирает, куда смотреть.»
 
-391 closed "smarter as the tape grows" on the eight the mind ranks. 392 closed bind-two-places:
-the intersection pays, and a B from another window pays the same. 393, if any, is a walker —
-not a claim that the mind got smarter.
+`--moves` chooses among three fixed channels. Nothing in the project lets the mind **name a place
+it was not offered**. That is section 29's wall A (speaks / an output space) approached from the
+other side, and it is where the next lever goes — not into a fifth way of reordering eight
+candidates.
 
-`--moves` chooses among three fixed channels. 390: address neighbourhood is real (`new_share`
-~0.87) and `half_only` misses the 0.05 gate — 347 on a new relation. 391: same questions, tape
-1×–8×, std8 not monotone. 392: two places, void ok, null = both, bind closed.
+**The law that now decides levers before they are built — section 34.3.** EVERY COMMITMENT TO A
+NARROWER SOURCE COSTS MORE THAN THE CHOICE BUYS: measured at the offer (347, four times), at the
+lane (387 re-run, a perfect chooser is worth +0.017) and at the place (393, 0.09 against the
+merge's 0.12). It closed three levers in one session — 390's address handle (void check passed,
+primary failed), 391's move term (demoted to a fix with no step number), and the place ballot.
+**Read a ceiling before building a chooser; 391's gate was declared on a quantity whose ceiling
+was already in hand.**
+
+**What is live — §46 / 407.** Door two of 351 (**where you stand**) — ceiling **PASS** 3/3 on
+wiki w400: oracle−random +0.55…+0.64, spread ~0.30–0.38 (median 0, not void). Trajectory loop
+has a decision in it. **406:** three repair policies identical (body property). **405:** family
+joint fails on own output. **404:** first fitted joint (+0.13, transplants). Door two was never
+closed before — dropped after 358; now on paper in §46.
 
 **Order the user set** (they chose it, overriding the assistant's): understanding first — speaking
 without it is a parrot, and measuring growth without it scales a non-answer. With the caveat that
 "produces what was never offered" is defined *through* an output space, while "combines two facts"
-and "abandons a wrong path" are not. 392 closed the bind operationalisation; B1/B3 remain.
+and "abandons a wrong path" are not.
 
 ---
 
@@ -140,11 +149,13 @@ and "abandons a wrong path" are not. 392 closed the bind operationalisation; B1/
 
 | file | what it is |
 |---|---|
-| `_STATE_353.md` | **the live memory**, sections 1–35. Read 31–35 for this session. |
+| `_STATE_353.md` | **the live memory**, sections 1–46. Read 46 (407) for door two. |
+| `_audit407_where.py` | 351 door-two ceiling: value(place), oracle vs random |
 | `_stage289_derivation.py` | the single stage, ~8800 lines |
 | `_read299.py` | the reader. Header prints the arm; `GAUGE` prints raw-score AUC beside the margin |
-| `_check3*.py` | one checker per lever. Every property is a **wrong number**, not an exception |
-| `_audit3*.py` | offline audits. 387/388 qprof-rerun is section 34, not a lever |
+| `_check3*.py` | one checker per lever. Every property is a **wrong number**, not an exception, and every checker was verified by deliberately reintroducing the failure it catches |
+| `_audit3*.py` | offline audits (387/388 leak-fixed but their results are void until re-run) |
 | `HANDOFF.md` | frozen at ~299. History. |
 
-GitHub `main` is the copy. Push from this machine.
+**Push has returned 403 at the gateway for this entire session.** Work is delivered as files; the
+user pushes from their own machine.

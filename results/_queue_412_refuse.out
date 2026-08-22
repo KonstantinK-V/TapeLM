@@ -1,0 +1,23 @@
+﻿
+2026-08-20 15:27:01 412 fair race: CE vs reward WITH refuse (no --reach-no-refuse). Tags 412ref_*.
+2026-08-20 15:27:01 VOID first: pick_target ~1. Read per seed; do NOT pool 1337 with 4711.
+2026-08-20 15:27:01 Ask after: place-policy awake, or again eight names.
+2026-08-20 15:27:01 ==== 412ref_ce_s1337  pick-teacher=ce ====
+2026-08-20 15:31:19 OK 412ref_ce_s1337
+2026-08-20 15:31:19 ==== 412ref_ce_s8642  pick-teacher=ce ====
+2026-08-20 15:35:15 OK 412ref_ce_s8642
+2026-08-20 15:35:15 ==== 412ref_ce_s2890  pick-teacher=ce ====
+2026-08-20 15:39:05 OK 412ref_ce_s2890
+2026-08-20 15:39:05 ==== 412ref_ce_s4711  pick-teacher=ce ====
+2026-08-20 15:43:01 OK 412ref_ce_s4711
+2026-08-20 15:43:01 ==== 412ref_rw_s1337  pick-teacher=reward ====
+2026-08-20 15:47:05 OK 412ref_rw_s1337
+2026-08-20 15:47:05 ==== 412ref_rw_s8642  pick-teacher=reward ====
+2026-08-20 15:50:54 OK 412ref_rw_s8642
+2026-08-20 15:50:54 ==== 412ref_rw_s2890  pick-teacher=reward ====
+2026-08-20 15:55:14 OK 412ref_rw_s2890
+2026-08-20 15:55:14 ==== 412ref_rw_s4711  pick-teacher=reward ====
+2026-08-20 15:59:07 OK 412ref_rw_s4711
+2026-08-20 15:59:07 ==== _read299 412ref_ce ====
+2026-08-20 15:59:07 ==== _read299 412ref_rw ====
+2026-08-20 15:59:07 DONE 412 fair refuse race

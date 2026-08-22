@@ -1,0 +1,6 @@
+Stage289 derivation start 2026-08-11T02:18:34.084185+00:00 device=cuda holdout=corpus
+  word rule matches stage194: True  (rule=ascii, fp=hash, ink=mean)
+  hash ink deterministic and digest-faithful: True  {'anagram_cos': -0.0135, 'perm_fixed_points': 1}
+  tape: 203 addresses, 442 slots | questions {"count": 203, "lookup": 6, "compare": 101} | params 3489
+  ladder coverage: 0/6 lookup questions have all three rungs; the rest train on the task term alone
+  empty tape after resample

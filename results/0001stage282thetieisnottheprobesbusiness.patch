@@ -1,0 +1,112 @@
+From 75a3de27d8fa0579f4d136ac5641adf9cb076d78 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Fri, 7 Aug 2026 11:21:31 +0000
+Subject: [PATCH] stage 282: the tie is not the probe's business
+
+Two runs settle it. The return path was supposed to break ties invented
+by retrieval pollution; at one witness the teacher resolved 45% of the
+held-out ties and its ceiling fell to 0.445, at two witnesses it resolved
+fewer and reached 0.533 - still below the 0.594 it scores with the probe
+switched off entirely. A tied address has no settled value, so every
+resolution can only be wrong, and the pollution the rule was written for
+has largely gone since --subject-filter started matching case.
+
+So a tie is a conflict again, without asking. The probe keeps the job it
+demonstrably does: on the lead it is worth +0.030 reward and +0.022
+accuracy on held-out, +0.018 and +0.016 on the training tape, with clean
+answers at 1.000 against 0.960 without it. --tie-probe restores the
+two-witness rule, since that is the arm these numbers came from and it
+should stay runnable rather than only described.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01PGuqHAMhjCxVAADm3R4wxK
+---
+ _stage282_mind.py | 31 +++++++++++++++++++++----------
+ 1 file changed, 21 insertions(+), 10 deletions(-)
+
+diff --git a/_stage282_mind.py b/_stage282_mind.py
+index 74437fe..b880218 100644
+--- a/_stage282_mind.py
++++ b/_stage282_mind.py
+@@ -268,13 +268,18 @@ def teacher(pack, st, acts, item, max_steps, max_reads):
+         return next((i for i, c in enumerate(cands[: acts.k])
+                      if pack["tape"].values[c] == val), None)
+ 
++    if lead == second and not st.get("tie_probe"):
++        # Measured, twice, and it lost twice. The idea was that retrieval pollution invents
++        # false ties, so the return path should break them; at one witness the teacher resolved
++        # 45% of the held-out ties and its ceiling fell to 0.445, at two witnesses it resolved
++        # fewer and reached 0.533 - still below the 0.594 it scores when it never touches a tie
++        # at all. A tied address has no settled value, so every resolution can only be wrong,
++        # and the pollution the rule was built for is largely gone since --subject-filter
++        # started working. The probe keeps its job on the lead; the tie is not its business.
++        # --tie-probe restores the two-witness rule, which is the run these numbers come from.
++        return acts.STOP_CONFLICT
++
+     if lead == second:
+-        # A tie is where the return path is worth the most, and it was the one place the probe
+-        # was never used. Retrieval brings foreign slots - precision runs 0.33-0.74 on raw text -
+-        # and a foreign slot votes with a foreign value, so a clean address with one value can
+-        # show 2-2 and be called a conflict. Ask both leaders before believing the tie: a value
+-        # that leads back to the subject is a witness, one that does not is pollution. Only a
+-        # tie among values that BOTH lead back (or neither) is a conflict the tape really has.
+         for val in (ranked[0][0], ranked[1][0]):
+             j = slot_of(val)
+             if j is not None and st["ret_ok"].get(cands[j], -1.0) < 0 \
+@@ -316,13 +321,14 @@ def teacher(pack, st, acts, item, max_steps, max_reads):
+ 
+ def rollout(policy, model, char_table, tok, pack, item, pad_id, device, acts, *, max_steps,
+             max_reads, read_cost, wrong_cost, abstain_reward, hop, hop_min, k_gap, subject_filter,
+-            max_probes=2, bc=False, greedy=True, teacher_only=False, bc_anchor=0.0):
++            max_probes=2, tie_probe=False, bc=False, greedy=True, teacher_only=False,
++            bc_anchor=0.0):
+     k = acts.k
+     st = {"transcript": s271.CUE.format(S=item.get("query") or item["S"]),
+           "qwords": context_words(s271.CUE.format(S=item.get("query") or item["S"]))[: acts.w],
+           "cands": [], "sc": {}, "seen": set(), "opened": [], "last_words": [], "addable": [],
+           "n_reads": 0, "n_edits": 0, "probes": 0, "max_probes": max_probes,
+-          "asked": False, "ret_ok": {}}
++          "asked": False, "ret_ok": {}, "tie_probe": tie_probe}
+     losses, logps, ents, trace = [], [], [], []
+     answered, stop_kind, stalled = None, None, True
+     prec, rec, hops = float("nan"), float("nan"), 0
+@@ -490,6 +496,8 @@ def main() -> int:
+     ap.add_argument("--no-hidden", action="store_true")
+     ap.add_argument("--no-edit", action="store_true", help="ablation: drop B")
+     ap.add_argument("--no-probe", action="store_true", help="ablation: drop C")
++    ap.add_argument("--tie-probe", action="store_true",
++                    help="ablation: let the return path overturn a tie (two witnesses)")
+     ap.add_argument("--subject-filter", choices=("off", "on"), default="on")
+     ap.add_argument("--frozen-trunk", action="store_true")
+     ap.add_argument("--run-tag", type=str, default="")
+@@ -501,6 +509,7 @@ def main() -> int:
+     tag += "_nohid" if args.no_hidden else ""
+     tag += "_noedit" if args.no_edit else ""
+     tag += "_noprobe" if args.no_probe else ""
++    tag += "_tieprobe" if args.tie_probe else ""
+     LOG_PATH = RES / f"_stage282_log{tag}.txt"
+     LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+     LOG_PATH.write_text("", encoding="utf-8")
+@@ -574,7 +583,8 @@ def main() -> int:
+                   wrong_cost=args.wrong_cost, abstain_reward=args.abstain_reward,
+                   hop=args.hop, hop_min=args.hop_min, k_gap=args.k_gap,
+                   subject_filter=args.subject_filter == "on",
+-                  max_probes=0 if args.no_probe else args.max_probes)
++                  max_probes=0 if args.no_probe else args.max_probes,
++                  tie_probe=args.tie_probe)
+     curve, v_err = [], []
+ 
+     policy.train()
+@@ -742,7 +752,8 @@ def main() -> int:
+     out = {
+         "stage": 282, "overall": overall, "actions": acts.n, "topk": k, "query_words": w,
+         "max_probes": common["max_probes"], "no_hidden": args.no_hidden,
+-        "no_edit": args.no_edit, "no_probe": args.no_probe, "run_tag": args.run_tag,
++        "no_edit": args.no_edit, "no_probe": args.no_probe, "tie_probe": args.tie_probe,
++        "run_tag": args.run_tag,
+         "smoke": args.smoke, "seed": SEED, "bc_episodes": n_bc, "rl_episodes": n_rl,
+         "min_mentions": args.min_mentions, "min_per_family": args.min_per_family,
+         "reward": {"correct": 1.0, "wrong": -args.wrong_cost,
+-- 
+2.43.0
+

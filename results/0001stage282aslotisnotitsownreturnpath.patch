@@ -1,0 +1,45 @@
+From 9aecf04a6ba542106bfb98602c3f34cdcbd6adc1 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Fri, 7 Aug 2026 03:10:50 +0000
+Subject: [PATCH] stage 282: a slot is not its own return path
+
+With the probe index in place and the case folded, every probe now
+succeeds: hit rate 1.000 on both tapes, the miss bucket empty, and
+G_probe_filters_wrong_answers passing through its isnan escape rather
+than on evidence. The reason is that the probe retrieves the slot the
+value came from - the probe index no longer hides value words, so the
+value's own mention ranks first, and that mention holds the subject by
+construction.
+
+That is the same reading twice, not a return path. A value corroborates
+when some OTHER mention leads back to the subject, which is also what
+makes the test discriminate: a sibling mention of a clean address does
+lead back, and a foreign slot dragged in by retrieval does not.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01PGuqHAMhjCxVAADm3R4wxK
+---
+ _stage282_mind.py | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/_stage282_mind.py b/_stage282_mind.py
+index 07b4569..0481176 100644
+--- a/_stage282_mind.py
++++ b/_stage282_mind.py
+@@ -367,7 +367,12 @@ def rollout(policy, model, char_table, tok, pack, item, pad_id, device, acts, *,
+             val_words = context_words(pack["tape"].values[slot]) or [pack["tape"].values[slot]]
+             back, _, _ = s280.retrieve(pack, val_words, k, hop, None, False, hop_min, k_gap,
+                                        index="probe")
+-            st["ret_ok"][slot] = float(any(item["S"] in pack["texts_lc"][c] for c in back))
++            # The slot the value came from is not a return path - it is the same reading twice.
++            # Its own text holds the subject by construction, so counting it made every probe
++            # succeed (hit rate 1.000, the miss bucket empty) exactly as the folded-case bug had
++            # made every probe fail. A value corroborates when some OTHER mention leads back.
++            st["ret_ok"][slot] = float(any(c != slot and item["S"] in pack["texts_lc"][c]
++                                           for c in back))
+             st["cands"], st["sc"] = keep_c, keep_s
+             st["probes"] += 1
+         elif acts.DROP <= a < acts.DROP + acts.w:
+-- 
+2.43.0
+

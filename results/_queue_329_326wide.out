@@ -1,0 +1,23 @@
+﻿
+2026-08-15 05:59:52 329ctrl (coherence on clean mind) then 326wide (compass both + cands 32)
+2026-08-15 05:59:52 ==== BLOCK 329ctrl: --coherence 400 on clean ctrl x4 ====
+2026-08-15 05:59:52 ==== 329ctrl_s1337 --coherence 400 ====
+2026-08-15 06:06:35 OK 329ctrl_s1337
+2026-08-15 06:06:35 ==== 329ctrl_s8642 --coherence 400 ====
+2026-08-15 06:12:22 OK 329ctrl_s8642
+2026-08-15 06:12:22 ==== 329ctrl_s2890 --coherence 400 ====
+2026-08-15 06:18:01 OK 329ctrl_s2890
+2026-08-15 06:18:01 ==== 329ctrl_s4711 --coherence 400 ====
+2026-08-15 06:23:40 OK 329ctrl_s4711
+2026-08-15 06:23:40 ==== _read299 329ctrl ====
+2026-08-15 06:23:40 ==== BLOCK 326wide: --reach-compass both --reach-cands 32 x4 ====
+2026-08-15 06:23:40 ==== 326wide_s1337 compass=both cands=32 ====
+2026-08-15 06:34:42 OK 326wide_s1337
+2026-08-15 06:34:42 ==== 326wide_s8642 compass=both cands=32 ====
+2026-08-15 06:46:17 OK 326wide_s8642
+2026-08-15 06:46:17 ==== 326wide_s2890 compass=both cands=32 ====
+2026-08-15 06:57:45 OK 326wide_s2890
+2026-08-15 06:57:45 ==== 326wide_s4711 compass=both cands=32 ====
+2026-08-15 07:09:29 OK 326wide_s4711
+2026-08-15 07:09:29 ==== _read299 326wide (reachable / PICK / vs COUNT) ====
+2026-08-15 07:09:30 DONE 329ctrl+326wide

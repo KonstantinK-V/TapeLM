@@ -1,0 +1,19 @@
+{
+ "corpus": "data\\_wikitext103_train.txt",
+ "lines": 400,
+ "places": 5340,
+ "questions": 3000,
+ "reach_k": 16,
+ "topm": 8,
+ "min_fillers": 1,
+ "reach_step": 0.4696666666666667,
+ "reach_share": 0.5156666666666667,
+ "reach_merged": 0.5353333333333333,
+ "reach_oracle": 0.561,
+ "reach_only_step": 0.04533333333333334,
+ "reach_only_share": 0.09133333333333334,
+ "reach_both": 0.42433333333333334,
+ "reach_random": 0.018,
+ "lane_overlap": 0.19389872455297943,
+ "headroom": 0.025666666666666726
+}

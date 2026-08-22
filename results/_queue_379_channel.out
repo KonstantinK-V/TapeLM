@@ -1,0 +1,14 @@
+﻿
+2026-08-18 12:35:42 379 channel indicators on 377copy offer: standing + --copy --copy-d 4 --reach-channel, 4 seeds; ctrl=377copy.
+2026-08-18 12:35:42 GATE (declared): hit >= 377copy on 4/4; reach not below 377copy; PICK pooled not below 1258/1572. If hit does not move, provenance is unused and interleave can be fixed forever.
+2026-08-18 12:35:42 ==== 379ch_s1337 ====
+2026-08-18 12:40:13 OK 379ch_s1337
+2026-08-18 12:40:13 ==== 379ch_s8642 ====
+2026-08-18 12:44:23 OK 379ch_s8642
+2026-08-18 12:44:23 ==== 379ch_s2890 ====
+2026-08-18 12:48:35 OK 379ch_s2890
+2026-08-18 12:48:35 ==== 379ch_s4711 ====
+2026-08-18 12:52:53 OK 379ch_s4711
+2026-08-18 12:52:53 ==== _read299 379ch ====
+2026-08-18 12:52:53 ==== _read299 377copy control ====
+2026-08-18 12:52:53 DONE 379ch

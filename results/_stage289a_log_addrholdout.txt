@@ -1,0 +1,2 @@
+Stage289a presupposition start 2026-08-09T09:59:05.261734+00:00 device=cuda holdout=address
+  tape: 104 addresses, 248 slots | questions {"ok": 52, "wrong_relation": 14, "false_premise": 51, "contested": 16} | params 5572

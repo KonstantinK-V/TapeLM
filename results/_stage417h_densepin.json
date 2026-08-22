@@ -1,0 +1,53 @@
+{
+ "1337": {
+  "n": 1500,
+  "thin": 0,
+  "live": 0.23533333333333334,
+  "oracle": 0.23533333333333334,
+  "random": 0.023333333333333334,
+  "oracle_minus_random": 0.212,
+  "refuse_df1": 1.0,
+  "refuse_df2": 0.7313546423135464,
+  "n_df1": 186,
+  "n_df2": 1314,
+  "working_cells": 0,
+  "seed": 1337,
+  "void": false,
+  "gate": true,
+  "refuse_ok": true
+ },
+ "8642": {
+  "n": 1500,
+  "thin": 0,
+  "live": 0.22133333333333333,
+  "oracle": 0.22133333333333333,
+  "random": 0.042666666666666665,
+  "oracle_minus_random": 0.17866666666666667,
+  "refuse_df1": 1.0,
+  "refuse_df2": 0.7455938697318008,
+  "n_df1": 195,
+  "n_df2": 1305,
+  "working_cells": 0,
+  "seed": 8642,
+  "void": false,
+  "gate": true,
+  "refuse_ok": true
+ },
+ "2890": {
+  "n": 1500,
+  "thin": 0,
+  "live": 0.21066666666666667,
+  "oracle": 0.21066666666666667,
+  "random": 0.03,
+  "oracle_minus_random": 0.18066666666666667,
+  "refuse_df1": 1.0,
+  "refuse_df2": 0.7625845229151015,
+  "n_df1": 169,
+  "n_df2": 1331,
+  "working_cells": 0,
+  "seed": 2890,
+  "void": false,
+  "gate": true,
+  "refuse_ok": true
+ }
+}

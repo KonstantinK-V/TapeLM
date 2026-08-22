@@ -1,0 +1,1 @@
+--reach --tape frames --frame-max 3 --min-mentions 1 --fp hash --write-fp hash --ink mean --write-ink mean --words ascii --reach-no-refuse --reach-lookahead --frame-fp fillers --tape-sample region --objective reward --addresses 1500 --reach-max-q 8000 --import-k 1 --gamma 1.0 --probe-period 1000 --probe-size 60 --cpu --reach-depth 2 --two-way

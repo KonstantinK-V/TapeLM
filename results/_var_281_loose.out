@@ -1,0 +1,26 @@
+Stage281 frames start 2026-08-06T00:48:53.292990+00:00 device=cuda frame_in_address=False
+  pass 1: 392 assertions over 6 frames -> keep 2 frames / 9 assertions (0.023) (1s)
+    KEEP  'the' n=6 confirm=0.83 anchors=1 vpa=1.00
+    KEEP  'the county seat' n=3 confirm=0.67 anchors=1 vpa=1.00
+    KEEP  '' n=373 confirm=0.57 anchors=55 vpa=2.95
+    KEEP  'title assigned bishop' n=3 confirm=0.00 anchors=1 vpa=3.00
+    KEEP  'title assigned archbishop' n=3 confirm=0.00 anchors=1 vpa=3.00
+    KEEP  'protector' n=4 confirm=0.00 anchors=1 vpa=4.00
+    DROP? 'the county seat' n=3 confirm=0.67 anchors=1 vpa=1.00
+    DROP? '' n=373 confirm=0.57 anchors=55 vpa=2.95
+    DROP? 'title assigned bishop' n=3 confirm=0.00 anchors=1 vpa=3.00
+    DROP? 'title assigned archbishop' n=3 confirm=0.00 anchors=1 vpa=3.00
+    DROP? 'protector' n=4 confirm=0.00 anchors=1 vpa=4.00
+  ceiling BEFORE frames: {"n_items": 36, "reward": -0.19222222222222232, "addresses": 36, "slots": 144, "families": {"decidable": 15, "clean": 12, "tie": 9}, "clean": {"n": 12, "teacher_acc": 0.8333333333333334, "teacher_abstain": 0.0}, "decidable": {"n": 15, "teacher_acc": 0.4666666666666667, "teacher_abstain": 0.0}, "tie": {"n": 9, "teacher_acc": 0.0, "teacher_abstain": 0.0}}
+  ceiling AFTER  frames: {"n_items": 1, "reward": NaN}
+{
+  "overall": "FRAMES_DO_NOT_HELP",
+  "gates": {
+    "G_frames_survive": true,
+    "G_tape_shrinks": true,
+    "G_kept_frames_functional": true,
+    "G_ceiling_clears_silence": false,
+    "G_ceiling_improves": false,
+    "G_teacher_abstains_on_tie": false
+  }
+}

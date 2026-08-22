@@ -1,0 +1,112 @@
+From 86b303e48011685d00dce023b2b07b07890e8583 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Sun, 9 Aug 2026 06:22:34 +0000
+Subject: [PATCH] ROADMAP 5: the plan revised by the results - judgment first,
+ production later
+
+289b came back MIND_TAPE_REAL on both holdouts with nothing trained. 1-NN
+0.730 and 0.801 against a 0.333 floor; smoothness AUC 0.701 at +5.77 sigma and
+0.594 at +2.51, with wrong neighbours two to five times further away than
+right ones; and the number the whole plan hung on, interpolation at 0.8225 and
+0.7325 against controls of 0.4575 and 0.4050. Midpoints between two same-shape
+situations land on that shape. Sections 3 and 4 are not cancelled - their
+precondition is measured rather than assumed.
+
+Two caveats kept in the text because they are real. Growth saturates at an
+eighth of the memory, so "the repertoire grows without retraining" is true but
+plateaus early at 28 dimensions. And the labels are the three corruption ops,
+not an open-ended target.
+
+288-refuse says the thing the plan has to obey. Detection transfers across
+both splits and beats counting by two and a half times on forgery and by up to
+seventeen on the duplicated forgery, with clean-margin AUC at 7 and 11 sigma.
+Repair is either total silence - coverage 0.000 on the corpus arm - or the
+majority rule, matching votes to sixteen decimal places on the address arm.
+The mind can judge and cannot yet produce.
+
+So the order changes, because 290 asked the mind to produce values in a harder
+setting than repair, with no ground truth at write time. Sending it there next
+would build directly on the one measured weakness. Judgment first:
+REJECT_PRESUPPOSITION, then derivations with G_depth_does_not_cost_recall
+written in as it is built, then the audit sweep that turns the strongest
+measured capability into an artefact. Conjecture writing waits until
+production works somewhere, and the arrival index is mandatory before it.
+
+And the result poses a question worth answering cheaply: is producing a value
+hard here, or hard for this mind? 289b's memory can be asked to repair by
+neighbourhood on the same subset. If the memory produces where the head does
+not, the bottleneck is 6,562 weights and not the concept.
+
+Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01RYDM9MUk761CZjn7SmTaug
+---
+ ROADMAP.md | 49 +++++++++++++++++++++++++++++++++++++++++++++++--
+ 1 file changed, 47 insertions(+), 2 deletions(-)
+
+diff --git a/ROADMAP.md b/ROADMAP.md
+index 557fe53..ce7fd3c 100644
+--- a/ROADMAP.md
++++ b/ROADMAP.md
+@@ -129,12 +129,57 @@ judge-consistency reward.
+ 
+ ---
+ 
+-## 5. The plan
++## 5. The plan — revised by the 289b / 288-refuse results
+ 
+-Cheapest first. Each stage names what would kill it.
++**289b came back `MIND_TAPE_REAL` on both holdouts, with nothing trained.** 1-NN 0.730 and
++0.801 against a 0.333 floor; smoothness AUC 0.701 (z +5.77) and 0.594 (z +2.51), with wrong
++neighbours 2.4–4.8× further away than right ones; and the one that matters —
++**interpolation 0.8225 and 0.7325 against controls of 0.4575 and 0.4050.** Midpoints between
++two same-shape situations land on that shape. §3 and §4 are not cancelled; their precondition
++is measured.
++
++Two caveats, stated because they are real: growth **saturates at an eighth of the memory**
++(0.718 → 0.730), so "the repertoire grows without retraining" is true but plateaus early at 28
++dimensions; and the labels here are the three corruption ops, not an open-ended target.
++
++**288-refuse says something the plan has to obey: the mind can JUDGE but cannot yet PRODUCE.**
++
++| | corpus holdout | address holdout |
++|---|---|---|
++| detect forgery | 0.671 vs votes 0.333 vs random 0.304 | **0.760** vs 0.297 vs 0.400 |
++| detect duplicated forgery | 0.940 vs **0.162** | 0.984 vs **0.057** |
++| clean-margin AUC | 0.729 (z 7.0) | 0.859 (z 11.2) |
++| repair | coverage **0.000** — abstained on everything | model **identical to votes** to 16 digits |
++
++Detection transfers across both splits and beats counting by 2.5× on forgery and up to 17× on
++duplication. Repair is either silence or the majority rule — and the gate that said otherwise
++was passing on total abstention, now fixed. Producing a value is the thing that does not work.
++
++**So the order changes.** 290 asked the mind to produce values in a *harder* setting than
++repair — no ground truth at write time. Sending it there next would be building on the one
++measured weakness. Judgment first:
+ 
+ | # | stage | cost | dies if |
+ |---|---|---|---|
++| **289a** | **`REJECT_PRESUPPOSITION`** (§12.4). Pure judgment about the *query*: absent address, disputed address, presupposition contradicting a depth-0 slot. Questions built from the tape by construction | ~1 h | rejection of malformed questions is not above the rate of rejecting good ones — the cheapest thing that is not a reference book fails |
++| **289** | **Answers become derivations.** `COUNT`, `COMPARE` over a slot set — still judgment, not production. `G_answer_is_derivation` replaces `G_answer_is_slot`; add **`G_depth_does_not_cost_recall`** (§12.2) while writing it | ~1 h | the slot set cannot be picked above the random floor |
++| **289c** | **Audit sweep** (§10): 288's diagnosis head over the whole tape, unprompted, publishing the map of §12.6. This is the strongest measured capability turned into an artefact | ~min | flagged addresses are no more worth enriching than random ones |
++| **290** | **Conjecture writing** — only after production works somewhere. Gap-filling, licensed by 289b's radius, `Tape.decide` writes | ~2 h | a tape with conjectures does not predict incoming text better than one without |
++| **291** | **Selection.** Pattern support rises on confirmation, falls on refutation | ~2 h | fitness-weighted mind tape does not beat the unweighted one |
++| **292** | **Generation** as structure plus pointers | ~1 d | fluency needs content the tape cannot supply |
++
++**Before 290, mandatory** (§9): a monotone arrival index per slot, or "predicts *incoming*
++text" is unenforceable.
++
++**Cross-cutting, do with 289:** derive the abstain value as `2/c − 1`. The corpus arm just
++demonstrated why — total silence scored 0.750 and looked like a win.
++
++**And the open question the repair result poses:** is producing a value hard *here*, or hard
++*for this mind*? The cheap discriminator is 289b's own memory — ask the mind tape to repair by
++neighbourhood instead of by head, on the same subset. If the memory produces and the head does
++not, the bottleneck is the 6.5k weights, not the concept.
++
++---|---|---|---|
+ | **289b** | *running.* Is the pattern space smooth? Signal, smoothness, interpolation, growth — zero trained parameters | ~min | midpoints land nowhere → no mind tape, and §3–§4 are cancelled |
+ | **289** | **Answers become derivations.** `COUNT`, `COMPARE` over an address set. Questions generated from the tape. `G_answer_is_derivation` replaces `G_answer_is_slot` | ~1 h | the mind cannot pick the slot set above the random floor → composite questions are out of reach and the project stays a reader |
+ | **290** | **Conjecture writing.** Gap-filling only, licensed by 289b's radius, `Tape.decide` performs the write so restatements become `CONFIRM` | ~2 h | a tape with conjectures does **not** predict incoming text better than the same tape without them |
+-- 
+2.43.0
+

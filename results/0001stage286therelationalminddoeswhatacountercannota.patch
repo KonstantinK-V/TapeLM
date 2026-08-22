@@ -1,0 +1,210 @@
+From 88c60b71409a7b99e9cfec3c557143eae0dfbc5f Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Sat, 8 Aug 2026 08:47:31 +0000
+Subject: [PATCH] 286: the relational mind does what a counter cannot - and the
+ honesty gate was diluted
+
+--mind relational --lie-dup 3. 4,417 parameters, no text and no absolute
+coordinate reaching the weights. EVIDENCE_PARTIAL, and the three falsifiers
+staked before the run split cleanly instead of blurring.
+
+Passed: the train-control AUC FELL, 0.997 -> 0.841. Ranks re-shuffle on a
+fresh tape, so the graph cannot be keyed the way a text can, and the number
+says the class did the one thing it existed to do. Passed: matched coverage
+reached nohid exactly - 0.431 against votes' 0.431, 1.000 against return's
+0.889 - confirming the nine counters are derivable from the graph rather than
+lost by leaving them out.
+
+Passed, and this is the result the stage was for. On the duplicated lying
+tape, the forged mention repeated three times, votes scores accuracy 0.000
+across 40 answered items, reward -0.398. Not "worse than usual": exactly
+zero, by construction, because a counter cannot distinguish three copies of
+one witness from three witnesses. The relational mind scores 0.773 across 22
+answered, reward 0.676, and 0.450 against votes' 0.000 at votes' own
+coverage. That is not a better heuristic - it is a capability the counting
+family does not possess. And the mechanism is visible rather than inferred:
+duplicates arrive as pairs whose context-cosine rank and shared-rare-word
+rank both sit at the top, and the model answers 0.36 of duplicated-lie sets
+against 0.04 of ordinary contested ones. It acts precisely where the graph
+says "one witness, repeated".
+
+Failed: G_weighs_contested, on two contested answers held out at accuracy
+0.0. Before calling that a defect - on that subset votes scores 0.121 against
+a random-pick floor of 0.268, so majority reasoning is worse than chance
+there and silence is the calibrated response. But two items is not evidence
+of weighing either, and the gate is right to refuse.
+
+The run also caught the honesty examiner measuring through a confound of its
+own making. P(UNKNOWN) shares one softmax with however many candidate rows an
+example happens to have, so it is mechanically diluted by |cands| - and
+absent targets live in contested evidence, which has MORE candidates. The
+measure was biased against the very hypothesis it tests. This arm made it
+undeniable: at the argmax UNKNOWN won 0.714 of absent against 0.589 of
+present, the correct ordering, while the mean probabilities were 0.478 and
+0.484 and the AUC read 0.482 - chance. The logit margin over the best
+candidate is what an argmax actually compares and it is invariant to how many
+other rows exist, so the gate reads unknown_margin_auc now, with the
+probability form kept beside it so earlier runs stay comparable.
+
+Next: rerun this arm under the margin gate, minutes not hours, and then a
+--lie-dup ladder at 1/2/3/5. Duplication is the one axis on which this mind
+provably leaves the counting family, so it deserves a curve and not a point.
+
+Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01RYDM9MUk761CZjn7SmTaug
+---
+ HANDOFF.md            | 29 ++++++++++++++++++++
+ _stage286_evidence.py | 62 ++++++++++++++++++++++++++++++++++++++++---
+ 2 files changed, 88 insertions(+), 3 deletions(-)
+
+diff --git a/HANDOFF.md b/HANDOFF.md
+index 0cbaf56..c87f37c 100644
+--- a/HANDOFF.md
++++ b/HANDOFF.md
+@@ -408,6 +408,35 @@ win must show on contested or the duplicated lie. Runs in minutes — the trunk
+ python _stage286_evidence.py --train-steps 6000 --min-mentions 2 --mind relational --lie-dup 3
+ ```
+ 
++**The relational mind works, and produced the first counter-impossible result.** 4,417
++parameters, no text or absolute coordinate in the weights. `EVIDENCE_PARTIAL`; the three
++pre-registered falsifiers split cleanly:
++
++- ✅ **train-control AUC fell** 0.997 → 0.841 — the graph is not the lookup table the text was.
++- ✅ **matched coverage reached nohid** exactly: 0.431 vs votes 0.431, **1.000** vs return 0.889.
++- ✅ **the duplicated lie** — the result. Forged mention ×3: votes accuracy **0.000** on 40
++  answered (reward −0.398), *by construction* — a counter cannot tell three copies of one
++  witness from three witnesses. The relational mind: **0.773** on 22 answered (reward 0.676),
++  **0.450 vs 0.000** at votes' own coverage. Mechanism confirmed, not luck: it answers 36% of
++  duplicated-lie sets versus 4% of ordinary contested ones — it acts where the graph says
++  "one witness, repeated".
++- ❌ **`G_weighs_contested`**: 2 contested answers held out, accuracy 0.0. Caveat before calling
++  it a defect — on that subset votes scores 0.121 against a **random floor of 0.268**, so
++  majority reasoning is worse than chance there and silence is calibrated; but two items is not
++  evidence of weighing either.
++
++**Failure mode 13: a softmax probability is diluted by however many rows share it.**
++`P(UNKNOWN)` competes with |cands| candidate rows, and absent targets live in contested sets
++with *more* candidates — so the honesty measure was biased against its own hypothesis. This run
++exposed it: at the argmax UNKNOWN won 0.714 of absent vs 0.589 of present (right ordering),
++while mean probabilities were 0.478 vs 0.484 and AUC read 0.482. Gate now reads
++`unknown_margin_auc` — the logit margin over the best candidate, which is what the argmax
++compares and is invariant to row count.
++
++Next: rerun `--mind relational --lie-dup 3` under the margin gate (minutes), and a `--lie-dup`
++ladder (1/2/3/5) — the duplication gap is the one axis where this mind provably leaves the
++counting family, so it deserves a curve rather than a point.
++
+ Nothing here breaches the invariant: `G_arc_enc_frozen` held in every arm and answers are still
+ values from the visible evidence. What reached the weights is a tape-specific *way of reading* —
+ which the invariant does not name, and which the held-out tape catches regardless.
+diff --git a/_stage286_evidence.py b/_stage286_evidence.py
+index 0d02350..5eb8eaa 100644
+--- a/_stage286_evidence.py
++++ b/_stage286_evidence.py
+@@ -275,6 +275,41 @@ ANON RESOLVES THE PRE-REGISTERED FORK; THE WALL GETS A NAME; --mind relational I
+ 
+   python _stage286_evidence.py --train-steps 6000 --min-mentions 2 --mind relational --lie-dup 3
+ 
++------------------------------------------------------------------------------------------
++THE RELATIONAL MIND: THE FIRST THING A COUNTER CANNOT DO
++
++  --mind relational --lie-dup 3, 4,417 parameters, no text and no absolute coordinate reaching
++  the weights. EVIDENCE_PARTIAL, and the three falsifiers stated before the run split cleanly.
++
++  PASSED. The train-control AUC fell, 0.997 -> 0.841, so the graph is not the lookup table the
++  text was. Matched coverage reached nohid exactly: 0.431 against votes' 0.431, 1.000 against
++  return's 0.889 - the nine counters really are derivable from the graph, as claimed.
++
++  PASSED, and this is the result. On the duplicated lying tape - the forged mention repeated
++  three times - votes scores accuracy 0.000 on 40 answered, reward -0.398. Not "worse": zero,
++  by construction, because a counter cannot tell three copies of one witness from three
++  witnesses. The relational mind scores 0.773 on 22 answered, reward 0.676, and 0.450 against
++  votes' 0.000 at votes' own coverage. That is not a better heuristic, it is a capability the
++  counting family does not have. It also confirms the mechanism rather than a lucky number:
++  duplicates arrive as pairs whose context-cosine rank and shared-rare-word rank both sit at
++  the top, and the model answers 0.36 of the duplicated-lie sets while answering only 0.04 of
++  ordinary contested ones - it acts exactly where the graph says "one witness, repeated".
++
++  FAILED. G_weighs_contested: two contested answers held out, accuracy 0.0. On ordinary
++  contested evidence this mind abstains almost totally. Worth noting before calling that a
++  defect: on that subset votes scores 0.121 against a random-pick floor of 0.268, so majority
++  reasoning there is WORSE than chance and silence is the calibrated response - but two items
++  is no evidence of weighing either, and the gate says so.
++
++  And the honesty gate was measuring through a confound of its own. P(UNKNOWN) shares one
++  softmax with however many candidate rows an example has, so it is mechanically diluted by
++  |cands| - while absent targets live in contested evidence, which has MORE candidates. The
++  measure was biased against its own hypothesis, and this run made it visible: at the argmax
++  UNKNOWN won 0.714 of absent against 0.589 of present, the right ordering, while the mean
++  probabilities were 0.478 and 0.484 and the AUC read 0.482. The logit MARGIN over the best
++  candidate is what the argmax actually compares and it does not care how many other rows
++  exist; that is what the gate reads now, with the probability form kept for comparability.
++
+   python _stage286_evidence.py --smoke
+   python _stage286_evidence.py --train-steps 6000 --min-mentions 2
+   python _stage286_evidence.py --train-steps 6000 --min-mentions 2 --no-hidden
+@@ -992,6 +1027,7 @@ def main() -> int:
+         ans, cor, rew = defaultdict(list), defaultdict(list), defaultdict(list)
+         conf, forced_ok = [], []
+         p_unk_absent, p_unk_present = [], []
++        m_unk_absent, m_unk_present = [], []
+         n_cands, unknowable, trunc = [], [], 0
+         unk_argmax = {"absent": [], "present": []}
+         acc_model = []
+@@ -1048,6 +1084,17 @@ def main() -> int:
+                 # whether it moves P(UNKNOWN), and AUC asks exactly that.
+                 pu = float(prob[-1])
+                 (p_unk_absent if not ex["present"] else p_unk_present).append(pu)
++                # P(UNKNOWN) shares one softmax with however many candidate rows the example
++                # happens to have, so it is mechanically diluted by |cands|. Absent targets
++                # live in CONTESTED evidence, which has more candidates - so the probability
++                # measure is biased against exactly the hypothesis it tests. The relational
++                # run made the confound visible: at the argmax it chose UNKNOWN on 0.714 of
++                # absent against 0.589 of present, while the mean probabilities were 0.478 and
++                # 0.484 - the same ordering, erased by dilution. The logit MARGIN against the
++                # best candidate is what the argmax actually compares, and it does not care
++                # how many other rows exist.
++                mu = float(logits[-1] - logits[: len(ex["cands"])].max())
++                (m_unk_absent if not ex["present"] else m_unk_present).append(mu)
+                 unk_argmax["absent" if not ex["present"] else "present"].append(
+                     int(model_ans is None))
+                 n_cands.append(len(ex["cands"]))
+@@ -1077,6 +1124,14 @@ def main() -> int:
+                "model": scorer_stats(ans["model"], cor["model"], rew["model"]),
+                "votes": scorer_stats(ans["votes"], cor["votes"], rew["votes"]),
+                "return": scorer_stats(ans["return"], cor["return"], rew["return"]),
++               # the competition-invariant one: gated on, because it measures what the
++               # argmax decides. The probability pair below is kept so older runs stay
++               # comparable term by term.
++               "unknown_margin_auc": auc(m_unk_absent, m_unk_present),
++               "unknown_margin_auc_z": auc_z(auc(m_unk_absent, m_unk_present),
++                                             len(m_unk_absent), len(m_unk_present)),
++               "unknown_margin_when_absent": _mean(m_unk_absent),
++               "unknown_margin_when_present": _mean(m_unk_present),
+                "unknown_auc": auc(p_unk_absent, p_unk_present),
+                "unknown_auc_z": auc_z(auc(p_unk_absent, p_unk_present),
+                                       len(p_unk_absent), len(p_unk_present)),
+@@ -1233,7 +1288,7 @@ def main() -> int:
+     # 4.73 sigma. "> 0.5" cannot separate a real effect from a coin, and 1.645 is the one-sided
+     # 95% point of the null, not a number picked to make an arm pass.
+     g_honest = (None if not honest_testable
+-                else bool(loo["unknown_auc_z"] > 1.645))
++                else bool(loo["unknown_margin_auc_z"] > 1.645))
+     # Did it weigh anything, or only decline to copy? Restricted to contested evidence, where
+     # unanimity cannot answer for it, and guarded by a denominator.
+     bes = loo["by_evidence_shape"]
+@@ -1357,8 +1412,9 @@ def main() -> int:
+           f"coverage {bes['votes_coverage_contested']:.2f} model "
+           f"{bes['model_accuracy_at_votes_coverage_contested']:.2f} vs votes "
+           f"{bes['votes_accuracy_contested']:.2f}\n"
+-        + f"- P(UNKNOWN) separates absent from present at AUC **{loo['unknown_auc']:.3f}** "
+-          f"({loo['unknown_auc_z']:+.2f} sigma) "
++        + f"- UNKNOWN's margin over the best candidate separates absent from present at AUC "
++          f"**{loo['unknown_margin_auc']:.3f}** ({loo['unknown_margin_auc_z']:+.2f} sigma); "
++          f"the diluted probability form says {loo['unknown_auc']:.3f} "
+           f"({loo['p_unknown_when_absent']:.3f} vs {loo['p_unknown_when_present']:.3f}); at the "
+           f"argmax {loo['unknown_when_absent']:.3f} vs {loo['unknown_when_present']:.3f}\n"
+         f"- training saw {train_dist['mean_candidates']:.2f} candidates on average, "
+-- 
+2.43.0
+

@@ -1,0 +1,113 @@
+From 6482753416254d4527798a728fbeda35aca1c001 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Fri, 7 Aug 2026 13:38:03 +0000
+Subject: [PATCH] stage 283: which limit is the tape approaching
+
+foreign_member_rate reads 0.000 / 0.019 / 0.052 across the ladder, so
+crowded keys are not yet merged addresses - shared words hold the line
+where cosine alone would not. But the trend roughly doubles per rung, and
+there are two quite different reasons a tape can run out of room, wanting
+opposite repairs.
+
+Either the corpus stops producing new anchors, which is the benign one:
+vocabulary is sublinear in text, so crowding would level off on its own.
+Or the anchors stay distinct as strings and crowd anyway, because fp is a
+character histogram with about 26 effective dimensions (277 measured the
+participation ratio) and 26 dimensions hold only so many points however
+many different names exist.
+
+An address key carries context as well as anchor, so the anchor measured
+ALONE separates the two: bare anchors crowding while full addresses do
+not means the context is what is saving this and the ink cannot address a
+large tape by itself. Reported per rung beside the address crowding, with
+the anchor growth exponent across rungs - below 1 the names are running
+out, at 1 they are not and only the space can give.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01PGuqHAMhjCxVAADm3R4wxK
+---
+ _stage283_scale.py | 33 ++++++++++++++++++++++++++++++---
+ 1 file changed, 30 insertions(+), 3 deletions(-)
+
+diff --git a/_stage283_scale.py b/_stage283_scale.py
+index 76f550f..933fcd0 100644
+--- a/_stage283_scale.py
++++ b/_stage283_scale.py
+@@ -110,7 +110,7 @@ def q(xs, *ps):
+     return {f"p{int(p)}": float(np.percentile(a, p)) for p in ps}
+ 
+ 
+-def measure(pack, rng, k, hop, hop_min, k_gap, subject_filter, tau) -> dict:
++def measure(pack, bank, rng, k, hop, hop_min, k_gap, subject_filter, tau) -> dict:
+     items = pack["items"]
+     values = pack["tape"].values
+     distinct_values = sorted(set(values))
+@@ -147,6 +147,19 @@ def measure(pack, rng, k, hop, hop_min, k_gap, subject_filter, tau) -> dict:
+ 
+     near = nearest_other(pack["addr_keys"]) if pack["addr_keys"] is not None \
+         else np.array([float("nan")])
++    # Two ways for a tape to run out of room, and they call for opposite repairs. Either the
++    # corpus stops producing new anchors - vocabulary is sublinear in text, so this is the
++    # benign one - or the anchors stay distinct as strings and crowd anyway, because fp is a
++    # character histogram with about 26 effective dimensions (277) and 26 dimensions hold only
++    # so many points however many different names there are. The address key carries context as
++    # well as anchor, so measuring the anchor ALONE says which limit is being approached: if
++    # bare anchors crowd while full addresses do not, the context is what is saving this and
++    # the ink cannot address a large tape by itself.
++    anchors = sorted({it["S"] for it in items})
++    a_keys = torch.nn.functional.normalize(bank.fp(anchors).float(), dim=-1) \
++        if anchors else None
++    a_near = nearest_other(a_keys.to(pack["addr_keys"].device)) \
++        if a_keys is not None and a_keys.size(0) > 1 else np.array([float("nan")])
+     fam = Counter(it["kind"] for it in items)
+     m = lambda xs: float(np.mean(xs)) if len(xs) else float("nan")
+     return {
+@@ -164,6 +177,9 @@ def measure(pack, rng, k, hop, hop_min, k_gap, subject_filter, tau) -> dict:
+         "nearest_other_q": q(near, 50, 95, 99),
+         "nearest_other_max": float(np.nanmax(near)),
+         "address_crowding": float(np.mean(near >= tau)),
++        "distinct_anchors": len(anchors),
++        "anchor_only_q": q(a_near, 50, 95, 99),
++        "anchor_only_crowding": float(np.mean(a_near >= tau)),
+     }
+ 
+ 
+@@ -240,7 +256,7 @@ def main() -> int:
+         if not pack["items"]:
+             log(f"  rung {chars}:{n_addr} produced no items, skipped")
+             continue
+-        r = measure(pack, rng, args.topk, args.hop, args.hop_min, args.k_gap,
++        r = measure(pack, bank, rng, args.topk, args.hop, args.hop_min, args.k_gap,
+                     args.subject_filter == "on", args.address_tau)
+         r.update({"chars": chars, "n_addr_requested": n_addr, "build_s": build_s,
+                   "mind_params": mind_params, "lines": len(lines)})
+@@ -249,7 +265,9 @@ def main() -> int:
+             f" | precision {r['retrieval_precision']:.3f}"
+             f" | return true {r['return_path_true']:.3f} other {r['return_path_other']:.3f}"
+             f" (sep {r['return_path_separation']:+.3f})"
+-            f" | crowding {r['address_crowding']:.3f} foreign {r['foreign_member_rate']:.3f}"
++            f" | crowding {r['address_crowding']:.3f}"
++            f" (anchors alone {r['anchor_only_crowding']:.3f})"
++            f" foreign {r['foreign_member_rate']:.3f}"
+             f" | k covers {r['k_covers_address']:.3f}"
+             f" | ties {r['families_natural']['tie']:.3f} ({build_s:.0f}s)")
+ 
+@@ -297,6 +315,15 @@ def main() -> int:
+             "return_path_separation": [r["return_path_separation"] for r in out_rungs],
+             "address_crowding": [r["address_crowding"] for r in out_rungs],
+             "foreign_member_rate": [r["foreign_member_rate"] for r in out_rungs],
++            "distinct_anchors": [r["distinct_anchors"] for r in out_rungs],
++            "anchor_only_crowding": [r["anchor_only_crowding"] for r in out_rungs],
++            # How fast anchors arrive per character of corpus. Below 1 the corpus is running
++            # out of new names, which is the limit that fixes itself; at or near 1 it is not,
++            # and the space is the only thing that can give.
++            "anchor_growth_exponent": (
++                math.log(max(1, last["distinct_anchors"]) / max(1, first["distinct_anchors"]))
++                / math.log(last["chars"] / max(1, first["chars"]))
++                if len(out_rungs) > 1 and last["chars"] != first["chars"] else float("nan")),
+             "k_covers_address": [r["k_covers_address"] for r in out_rungs],
+             "tie_share": [r["families_natural"]["tie"] for r in out_rungs],
+             "slots_growth": last["n_slots"] / max(1, first["n_slots"]),
+-- 
+2.43.0
+

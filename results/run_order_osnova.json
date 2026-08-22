@@ -1,0 +1,1142 @@
+{
+  "kind": "osnova",
+  "title": "RUN_ORDER foundation (289a / 289 / 289c)",
+  "assembled_at": "2026-08-09T20:38:36.438560+00:00",
+  "note": "Steps 1-5 after speedups; smoke skipped as gate (lookup short on tiny pack). Decides: auc_z, derivation pair, audit.",
+  "stages": {
+    "289a_corpus": {
+      "stage": "289a",
+      "overall": "PRESUPPOSITION_PARTIAL",
+      "seed": 2891,
+      "smoke": false,
+      "holdout": "corpus",
+      "run_tag": "w150auc",
+      "train_steps": 6000,
+      "params": 5572,
+      "verdicts": [
+        "ok",
+        "wrong_relation",
+        "contested",
+        "false_premise"
+      ],
+      "gates": {
+        "G_arc_enc_frozen": true,
+        "G_task_exists": true,
+        "G_beats_counting_rival": true,
+        "G_beats_majority_floor": true,
+        "G_catches_wrong_relation": true,
+        "G_does_not_cry_wolf": false,
+        "G_separates_blind_pair": true,
+        "G_blind_pair_usable_at_argmax": false
+      },
+      "rival_ceiling_note": "the counting rival solves contested and false_premise and is blind to the ok / wrong_relation split by construction, so its ceiling on a balanced set is about 0.50; overall accuracy above it is necessary, and G_catches_wrong_relation is the claim",
+      "blind_pair_note": "G_separates_blind_pair reads the AUC because the argmax cannot settle it: training draws the four verdicts uniformly, by design, and the examiner sees the tape's natural mix, so comparing an argmax against the majority floor charges the mind for a prior shift the examiner introduced. The AUC is prior-free and its null point is 286's usual 1.645. prior_corrected_accuracy is the argmax after the exact Bayes correction using the TRAIN tape's frequencies - never the held-out ones - and it is what someone using this mind would actually get",
+      "held_out": {
+        "n": 702,
+        "model_accuracy": 0.7863247863247863,
+        "rival_accuracy": 0.5883190883190883,
+        "majority_floor": 0.36894586894586895,
+        "per_verdict": {
+          "ok": {
+            "n": 259,
+            "model_recall": 0.5135135135135135,
+            "rival_recall": 0.5945945945945946
+          },
+          "wrong_relation": {
+            "n": 80,
+            "model_recall": 0.7,
+            "rival_recall": 0.0
+          },
+          "contested": {
+            "n": 105,
+            "model_recall": 1.0,
+            "rival_recall": 1.0
+          },
+          "false_premise": {
+            "n": 258,
+            "model_recall": 1.0,
+            "rival_recall": 0.5968992248062015
+          }
+        },
+        "blind_pair": {
+          "n": 339,
+          "model_accuracy": 0.5575221238938053,
+          "prior_corrected_accuracy": 0.56047197640118,
+          "auc": 0.6101833976833977,
+          "auc_z": 2.9796290545549673,
+          "n_wrong_relation": 80,
+          "n_ok": 259,
+          "rival_accuracy": 0.7640117994100295,
+          "majority_floor": 0.7640117994100295
+        },
+        "confusion": {
+          "contested->contested": 105,
+          "false_premise->false_premise": 258,
+          "ok->ok": 133,
+          "ok->wrong_relation": 126,
+          "wrong_relation->ok": 24,
+          "wrong_relation->wrong_relation": 56
+        }
+      },
+      "train_control": {
+        "n": 1911,
+        "model_accuracy": 0.8048142333856619,
+        "rival_accuracy": 0.5677655677655677,
+        "majority_floor": 0.3464154892726321,
+        "per_verdict": {
+          "ok": {
+            "n": 662,
+            "model_recall": 0.5498489425981873,
+            "rival_recall": 0.6404833836858006
+          },
+          "wrong_relation": {
+            "n": 351,
+            "model_recall": 0.7863247863247863,
+            "rival_recall": 0.0
+          },
+          "contested": {
+            "n": 238,
+            "model_recall": 1.0,
+            "rival_recall": 1.0
+          },
+          "false_premise": {
+            "n": 660,
+            "model_recall": 1.0,
+            "rival_recall": 0.6409090909090909
+          }
+        },
+        "blind_pair": {
+          "n": 1013,
+          "model_accuracy": 0.631786771964462,
+          "prior_corrected_accuracy": 0.6367226061204343,
+          "auc": 0.6894221086063986,
+          "auc_z": 9.933101316625494,
+          "n_wrong_relation": 351,
+          "n_ok": 662,
+          "rival_accuracy": 0.6535044422507403,
+          "majority_floor": 0.6535044422507403
+        },
+        "confusion": {
+          "contested->contested": 238,
+          "false_premise->false_premise": 660,
+          "ok->ok": 364,
+          "ok->wrong_relation": 298,
+          "wrong_relation->ok": 75,
+          "wrong_relation->wrong_relation": 276
+        }
+      },
+      "curve": [
+        {
+          "step": 750,
+          "loss": 0.45236689287412446
+        },
+        {
+          "step": 1500,
+          "loss": 0.8291245394150973
+        },
+        {
+          "step": 2250,
+          "loss": 0.678216275742634
+        },
+        {
+          "step": 3000,
+          "loss": 0.6171328877196902
+        },
+        {
+          "step": 3750,
+          "loss": 0.5287523611787583
+        },
+        {
+          "step": 4500,
+          "loss": 0.582963740039404
+        },
+        {
+          "step": 5250,
+          "loss": 0.6368858734346031
+        },
+        {
+          "step": 6000,
+          "loss": 0.5333540223778027
+        }
+      ],
+      "n_tapes": 120,
+      "tape_curve": [
+        {
+          "tapes": 10,
+          "step": 451,
+          "blind_pair_accuracy": 0.225
+        },
+        {
+          "tapes": 20,
+          "step": 951,
+          "blind_pair_accuracy": 0.57
+        },
+        {
+          "tapes": 30,
+          "step": 1451,
+          "blind_pair_accuracy": 0.535
+        },
+        {
+          "tapes": 40,
+          "step": 1951,
+          "blind_pair_accuracy": 0.565
+        },
+        {
+          "tapes": 50,
+          "step": 2451,
+          "blind_pair_accuracy": 0.55
+        },
+        {
+          "tapes": 60,
+          "step": 2951,
+          "blind_pair_accuracy": 0.565
+        },
+        {
+          "tapes": 70,
+          "step": 3451,
+          "blind_pair_accuracy": 0.56
+        },
+        {
+          "tapes": 80,
+          "step": 3951,
+          "blind_pair_accuracy": 0.56
+        },
+        {
+          "tapes": 90,
+          "step": 4451,
+          "blind_pair_accuracy": 0.535
+        },
+        {
+          "tapes": 100,
+          "step": 4951,
+          "blind_pair_accuracy": 0.535
+        },
+        {
+          "tapes": 110,
+          "step": 5451,
+          "blind_pair_accuracy": 0.56
+        },
+        {
+          "tapes": 120,
+          "step": 5951,
+          "blind_pair_accuracy": 0.535
+        }
+      ],
+      "tape_curve_note": "blind-pair accuracy on ONE fixed held-out tape, measured every 10 distinct training tapes against floor 0.7750. Where it flattens is how many tapes the mind actually needs; resampling is not a simulation of use - real use is one growing tape - it is the proof that no single tape was memorised, which is the whole separation claim",
+      "tape_curve_floor": 0.775,
+      "tape_curve_n": 200,
+      "arc_enc_hash_before": "64a764151ebd27ec5f4c1e92d72d9ce6dba381fb355c386d669f3a0ac2cf93d1",
+      "arc_enc_hash_after": "64a764151ebd27ec5f4c1e92d72d9ce6dba381fb355c386d669f3a0ac2cf93d1",
+      "fp_version": "stage191_p1_curve.pt",
+      "note": "The first verb that is not a lookup: should this question be answered at all. Four verdicts built from the tape so the labels are free - ok, wrong_relation, contested, false_premise. The first draft was a tautology and was caught before the run: building 'absent' as evidence from other addresses and 'false premise' as a borrowed value makes each class exactly the property a two-line hand rule reads off, so the rule scores 1.0 and nothing is measured, which is 286's exam mistake again. wrong_relation replaces that: ask about one relation of a subject while the evidence answers another, and every counting signal stays HEALTHY - the subject is in every mention, the values cohere, the majority is clear - so a counter answers confidently and answers a different question. Its blindness there is by construction, as it is on 288's duplicated forgery. The query joins the graph as one more row carrying the asserted value and the question's own context, so the same relational machinery compares question to evidence with no new representation. Ranks and indicators only; the output is one of four verdicts, so no value is produced and nothing is generated. THE FIRST RUN WAS UNMEASURABLE and the defect was in the graph, not in the mind: the asserted value reached the graph only through the query row's same-value edges, and that row is all-zero both when the question claims nothing and when its claim is absent from the evidence, while ctx_fp excluded the value from the text as well - so ok, wrong_relation and false_premise were literally the same input and three of four classes were indistinguishable in principle. The mind put all of them in one class (ok recall 0.0, wrong_relation recall 0.0, on the held-out set AND on the train control) while the rival read the claim directly in python, so it was being compared against a strictly better-informed opponent. Fixed by one identity-free indicator - does this query assert anything - which leaves exactly one pair, ok / wrong_relation, blind to every count, and that pair is now scored on its own as blind_pair. Second defect, same run: one random sibling per item gave wrong_relation n=6 held out, under MIN_ANSWERED, so the class the stage exists for had no denominator; every eligible sibling is now its own question, and training samples the four verdicts uniformly so accuracy cannot be bought by never naming the rare one.",
+      "timestamp": "2026-08-09T20:06:31.975769+00:00",
+      "wall_s": 396.73050689697266
+    },
+    "289a_address": {
+      "stage": "289a",
+      "overall": "PRESUPPOSITION_PARTIAL",
+      "seed": 2891,
+      "smoke": false,
+      "holdout": "address",
+      "run_tag": "w150auc",
+      "train_steps": 6000,
+      "params": 5572,
+      "verdicts": [
+        "ok",
+        "wrong_relation",
+        "contested",
+        "false_premise"
+      ],
+      "gates": {
+        "G_arc_enc_frozen": true,
+        "G_task_exists": true,
+        "G_beats_counting_rival": true,
+        "G_beats_majority_floor": true,
+        "G_catches_wrong_relation": true,
+        "G_does_not_cry_wolf": false,
+        "G_separates_blind_pair": true,
+        "G_blind_pair_usable_at_argmax": true
+      },
+      "rival_ceiling_note": "the counting rival solves contested and false_premise and is blind to the ok / wrong_relation split by construction, so its ceiling on a balanced set is about 0.50; overall accuracy above it is necessary, and G_catches_wrong_relation is the claim",
+      "blind_pair_note": "G_separates_blind_pair reads the AUC because the argmax cannot settle it: training draws the four verdicts uniformly, by design, and the examiner sees the tape's natural mix, so comparing an argmax against the majority floor charges the mind for a prior shift the examiner introduced. The AUC is prior-free and its null point is 286's usual 1.645. prior_corrected_accuracy is the argmax after the exact Bayes correction using the TRAIN tape's frequencies - never the held-out ones - and it is what someone using this mind would actually get",
+      "held_out": {
+        "n": 1018,
+        "model_accuracy": 0.7838899803536346,
+        "rival_accuracy": 0.5412573673870335,
+        "majority_floor": 0.33104125736738704,
+        "per_verdict": {
+          "ok": {
+            "n": 337,
+            "model_recall": 0.599406528189911,
+            "rival_recall": 0.6439169139465876
+          },
+          "wrong_relation": {
+            "n": 228,
+            "model_recall": 0.6271929824561403,
+            "rival_recall": 0.0
+          },
+          "contested": {
+            "n": 120,
+            "model_recall": 1.0,
+            "rival_recall": 1.0
+          },
+          "false_premise": {
+            "n": 333,
+            "model_recall": 1.0,
+            "rival_recall": 0.6426426426426426
+          }
+        },
+        "blind_pair": {
+          "n": 565,
+          "model_accuracy": 0.6106194690265486,
+          "prior_corrected_accuracy": 0.6070796460176991,
+          "auc": 0.6438323181841845,
+          "auc_z": 5.805254469660151,
+          "n_wrong_relation": 228,
+          "n_ok": 337,
+          "rival_accuracy": 0.5964601769911504,
+          "majority_floor": 0.5964601769911504
+        },
+        "confusion": {
+          "contested->contested": 120,
+          "false_premise->false_premise": 333,
+          "ok->ok": 202,
+          "ok->wrong_relation": 135,
+          "wrong_relation->ok": 85,
+          "wrong_relation->wrong_relation": 143
+        }
+      },
+      "train_control": {
+        "n": 951,
+        "model_accuracy": 0.8128286014721346,
+        "rival_accuracy": 0.5888538380651945,
+        "majority_floor": 0.35751840168243953,
+        "per_verdict": {
+          "ok": {
+            "n": 340,
+            "model_recall": 0.6205882352941177,
+            "rival_recall": 0.65
+          },
+          "wrong_relation": {
+            "n": 154,
+            "model_recall": 0.6818181818181818,
+            "rival_recall": 0.0
+          },
+          "contested": {
+            "n": 119,
+            "model_recall": 1.0,
+            "rival_recall": 1.0
+          },
+          "false_premise": {
+            "n": 338,
+            "model_recall": 1.0,
+            "rival_recall": 0.650887573964497
+          }
+        },
+        "blind_pair": {
+          "n": 494,
+          "model_accuracy": 0.6396761133603239,
+          "prior_corrected_accuracy": 0.6417004048582996,
+          "auc": 0.6668926661573721,
+          "auc_z": 5.946002605705728,
+          "n_wrong_relation": 154,
+          "n_ok": 340,
+          "rival_accuracy": 0.6882591093117408,
+          "majority_floor": 0.6882591093117408
+        },
+        "confusion": {
+          "contested->contested": 119,
+          "false_premise->false_premise": 338,
+          "ok->ok": 211,
+          "ok->wrong_relation": 129,
+          "wrong_relation->ok": 49,
+          "wrong_relation->wrong_relation": 105
+        }
+      },
+      "curve": [
+        {
+          "step": 750,
+          "loss": 0.5807775407965527
+        },
+        {
+          "step": 1500,
+          "loss": 0.5562821248777527
+        },
+        {
+          "step": 2250,
+          "loss": 0.6854176747872225
+        },
+        {
+          "step": 3000,
+          "loss": 0.7792908670672841
+        },
+        {
+          "step": 3750,
+          "loss": 0.49206808568969335
+        },
+        {
+          "step": 4500,
+          "loss": 0.6014712942274809
+        },
+        {
+          "step": 5250,
+          "loss": 0.6662554451681398
+        },
+        {
+          "step": 6000,
+          "loss": 0.5781291242951784
+        }
+      ],
+      "n_tapes": 120,
+      "tape_curve": [
+        {
+          "tapes": 10,
+          "step": 451,
+          "blind_pair_accuracy": 0.62
+        },
+        {
+          "tapes": 20,
+          "step": 951,
+          "blind_pair_accuracy": 0.615
+        },
+        {
+          "tapes": 30,
+          "step": 1451,
+          "blind_pair_accuracy": 0.62
+        },
+        {
+          "tapes": 40,
+          "step": 1951,
+          "blind_pair_accuracy": 0.62
+        },
+        {
+          "tapes": 50,
+          "step": 2451,
+          "blind_pair_accuracy": 0.615
+        },
+        {
+          "tapes": 60,
+          "step": 2951,
+          "blind_pair_accuracy": 0.625
+        },
+        {
+          "tapes": 70,
+          "step": 3451,
+          "blind_pair_accuracy": 0.62
+        },
+        {
+          "tapes": 80,
+          "step": 3951,
+          "blind_pair_accuracy": 0.62
+        },
+        {
+          "tapes": 90,
+          "step": 4451,
+          "blind_pair_accuracy": 0.625
+        },
+        {
+          "tapes": 100,
+          "step": 4951,
+          "blind_pair_accuracy": 0.625
+        },
+        {
+          "tapes": 110,
+          "step": 5451,
+          "blind_pair_accuracy": 0.625
+        },
+        {
+          "tapes": 120,
+          "step": 5951,
+          "blind_pair_accuracy": 0.62
+        }
+      ],
+      "tape_curve_note": "blind-pair accuracy on ONE fixed held-out tape, measured every 10 distinct training tapes against floor 0.6000. Where it flattens is how many tapes the mind actually needs; resampling is not a simulation of use - real use is one growing tape - it is the proof that no single tape was memorised, which is the whole separation claim",
+      "tape_curve_floor": 0.6,
+      "tape_curve_n": 200,
+      "arc_enc_hash_before": "64a764151ebd27ec5f4c1e92d72d9ce6dba381fb355c386d669f3a0ac2cf93d1",
+      "arc_enc_hash_after": "64a764151ebd27ec5f4c1e92d72d9ce6dba381fb355c386d669f3a0ac2cf93d1",
+      "fp_version": "stage191_p1_curve.pt",
+      "note": "The first verb that is not a lookup: should this question be answered at all. Four verdicts built from the tape so the labels are free - ok, wrong_relation, contested, false_premise. The first draft was a tautology and was caught before the run: building 'absent' as evidence from other addresses and 'false premise' as a borrowed value makes each class exactly the property a two-line hand rule reads off, so the rule scores 1.0 and nothing is measured, which is 286's exam mistake again. wrong_relation replaces that: ask about one relation of a subject while the evidence answers another, and every counting signal stays HEALTHY - the subject is in every mention, the values cohere, the majority is clear - so a counter answers confidently and answers a different question. Its blindness there is by construction, as it is on 288's duplicated forgery. The query joins the graph as one more row carrying the asserted value and the question's own context, so the same relational machinery compares question to evidence with no new representation. Ranks and indicators only; the output is one of four verdicts, so no value is produced and nothing is generated. THE FIRST RUN WAS UNMEASURABLE and the defect was in the graph, not in the mind: the asserted value reached the graph only through the query row's same-value edges, and that row is all-zero both when the question claims nothing and when its claim is absent from the evidence, while ctx_fp excluded the value from the text as well - so ok, wrong_relation and false_premise were literally the same input and three of four classes were indistinguishable in principle. The mind put all of them in one class (ok recall 0.0, wrong_relation recall 0.0, on the held-out set AND on the train control) while the rival read the claim directly in python, so it was being compared against a strictly better-informed opponent. Fixed by one identity-free indicator - does this query assert anything - which leaves exactly one pair, ok / wrong_relation, blind to every count, and that pair is now scored on its own as blind_pair. Second defect, same run: one random sibling per item gave wrong_relation n=6 held out, under MIN_ANSWERED, so the class the stage exists for had no denominator; every eligible sibling is now its own question, and training samples the four verdicts uniformly so accuracy cannot be bought by never naming the rare one.",
+      "timestamp": "2026-08-09T20:13:05.202326+00:00",
+      "wall_s": 386.75284123420715
+    },
+    "289_full": {
+      "stage": "289",
+      "overall": "DERIVATION_OK",
+      "seed": 2890,
+      "smoke": false,
+      "holdout": "corpus",
+      "run_tag": "w150",
+      "no_derivation": false,
+      "train_steps": 6000,
+      "params": 6825,
+      "count_labels": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5+"
+      ],
+      "compare_labels": [
+        "first",
+        "second",
+        "equal"
+      ],
+      "gates": {
+        "G_arc_enc_frozen": true,
+        "G_task_exists": true,
+        "G_count_beats_floor": true,
+        "G_compare_beats_floor": true,
+        "G_answer_is_derivation": true,
+        "G_depth_does_not_cost_recall": true
+      },
+      "held_out": {
+        "count": {
+          "n": 257,
+          "model_accuracy": 0.9649805447470817,
+          "rival_accuracy": 1.0,
+          "random_floor": 0.20000000000000073
+        },
+        "compare": {
+          "n": 128,
+          "model_accuracy": 0.8828125,
+          "rival_accuracy": 1.0,
+          "random_floor": 0.33333333333333354
+        },
+        "lookup": {
+          "n": 21,
+          "model_accuracy": 0.42857142857142855,
+          "rival_accuracy": 0.42857142857142855,
+          "random_floor": 0.3793290043290043
+        },
+        "confusion": {
+          "compare|equal->equal": 45,
+          "compare|equal->first": 1,
+          "compare|first->equal": 4,
+          "compare|first->first": 30,
+          "compare|first->second": 1,
+          "compare|second->equal": 9,
+          "compare|second->second": 38,
+          "count|1->1": 129,
+          "count|2->2": 92,
+          "count|3->3": 18,
+          "count|4->3": 8,
+          "count|4->5+": 1,
+          "count|5+->5+": 9,
+          "lookup|American->American": 1,
+          "lookup|Black->Azure": 1,
+          "lookup|Catherine->Catherine": 1,
+          "lookup|Chinese->Arabic": 1,
+          "lookup|Costen->Pritchard": 1,
+          "lookup|Dawson->Dawson": 1,
+          "lookup|Germany->Liberia": 1,
+          "lookup|Leipzig->Weimar": 1,
+          "lookup|Millennium->Veronica": 1,
+          "lookup|Nangka->Pelawan": 1,
+          "lookup|Northern->Northern": 1,
+          "lookup|Province->Colony": 1,
+          "lookup|Randall->Randall": 1,
+          "lookup|Scandinavia->Irish": 1,
+          "lookup|Singapore->Macau": 1,
+          "lookup|Stone->Stone": 1,
+          "lookup|Sweden->Sweden": 1,
+          "lookup|Tigers->Tigers": 1,
+          "lookup|United->Beverly": 1,
+          "lookup|United->Canada": 1,
+          "lookup|Women->Women": 1
+        }
+      },
+      "train_control": {
+        "count": {
+          "n": 670,
+          "model_accuracy": 0.9671641791044776,
+          "rival_accuracy": 1.0,
+          "random_floor": 0.2000000000000014
+        },
+        "compare": {
+          "n": 335,
+          "model_accuracy": 0.8149253731343283,
+          "rival_accuracy": 1.0,
+          "random_floor": 0.3333333333333318
+        },
+        "lookup": {
+          "n": 63,
+          "model_accuracy": 0.49206349206349204,
+          "rival_accuracy": 0.5079365079365079,
+          "random_floor": 0.39962836986646505
+        },
+        "confusion": {
+          "compare|equal->equal": 131,
+          "compare|equal->first": 9,
+          "compare|equal->second": 5,
+          "compare|first->equal": 20,
+          "compare|first->first": 73,
+          "compare|first->second": 4,
+          "compare|second->equal": 23,
+          "compare|second->first": 1,
+          "compare|second->second": 69,
+          "count|1->1": 347,
+          "count|2->2": 220,
+          "count|3->2": 2,
+          "count|3->3": 40,
+          "count|4->3": 14,
+          "count|4->5+": 5,
+          "count|5+->3": 1,
+          "count|5+->5+": 41,
+          "lookup|American->Summer": 1,
+          "lookup|Australia->Nielsen": 1,
+          "lookup|Bolliger->Bolliger": 1,
+          "lookup|Cambridge->Cambridge": 1,
+          "lookup|Christians->Christians": 1,
+          "lookup|Coldplay->American": 1,
+          "lookup|Comedy->Comedy": 1,
+          "lookup|Deathly->Deathly": 1,
+          "lookup|District->Eastern": 1,
+          "lookup|Elder->Elder": 1,
+          "lookup|Electricity->Electricity": 1,
+          "lookup|English->English": 1,
+          "lookup|Europe->Europe": 1,
+          "lookup|European->European": 1,
+          "lookup|French->Irish": 1,
+          "lookup|French->United": 1,
+          "lookup|Fringe->David": 1,
+          "lookup|Germany->North": 1,
+          "lookup|Goldie->Cambridge": 1,
+          "lookup|Ireland->Canada": 1,
+          "lookup|Ireland->Ireland": 1,
+          "lookup|Levant->Afghanistan": 1,
+          "lookup|Logan->Washington": 1,
+          "lookup|Mahabharata->India": 1,
+          "lookup|Margaret->Elizabeth": 1,
+          "lookup|Melrose->Melrose": 1,
+          "lookup|Nadeen->American": 1,
+          "lookup|Native->Native": 1,
+          "lookup|Newfoundland->Newfoundland": 1,
+          "lookup|Nielsen->Nielsen": 1,
+          "lookup|Nintendo->Gliders": 1,
+          "lookup|North->North": 1,
+          "lookup|Osijek->Upper": 1,
+          "lookup|Outstanding->Episodic": 1,
+          "lookup|Outstanding->Outstanding": 1,
+          "lookup|Oxford->Oxford": 1,
+          "lookup|Pakistan->Boxer": 1,
+          "lookup|Paralympics->Paralympics": 1,
+          "lookup|Pedra->Pedra": 1,
+          "lookup|Pflueger->Arthur": 1,
+          "lookup|Philippines->National": 1,
+          "lookup|Poland->Poland": 1,
+          "lookup|Primetime->Primetime": 1,
+          "lookup|Province->Europe": 1,
+          "lookup|Richard->Richard": 1,
+          "lookup|Royal->Portuguese": 1,
+          "lookup|Schenectady->Jerramungup": 1,
+          "lookup|Share->United": 1,
+          "lookup|Slayer->Kanye": 1,
+          "lookup|Spanish->Spanish": 1,
+          "lookup|Supreme->Supreme": 1,
+          "lookup|Swinton->Sylvia": 1,
+          "lookup|Texas->Veracruz": 1,
+          "lookup|Trade->Trade": 1,
+          "lookup|Tyldesley->Tyldesley": 1,
+          "lookup|United->Kawakita": 1,
+          "lookup|United->Moncton": 1,
+          "lookup|United->United": 2,
+          "lookup|Universities->University": 1,
+          "lookup|Weimar->Weimar": 1,
+          "lookup|Women->Women": 1,
+          "lookup|Woodall->African": 1
+        }
+      },
+      "permutation_null": {
+        "count": 0.39020555752073255,
+        "compare": 0.3368844696969697
+      },
+      "gap_to_exact_rule": {
+        "count": 0.035019455252918275,
+        "compare": 0.1171875
+      },
+      "depth_cost_note": "G_depth_does_not_cost_recall as computed here only says the lookup head still works. The real charge is the DIFFERENCE against the --no-derivation run on the same seed and the same tape: run both, compare held_out.lookup.model_accuracy, and if depth costs recall the capability is not additive and the tape is fighting itself",
+      "rival_note": "count_rival and compare_rival read the value STRINGS - they are the optimal rules given a value-identity oracle, not strawmen. Beating them is not the claim and should not be expected. The claim is that the mind approaches them while seeing only the same-value indicator on edges, which is what gap_to_exact_rule measures",
+      "curve": [
+        {
+          "step": 750,
+          "loss": 0.9020442097034538
+        },
+        {
+          "step": 1500,
+          "loss": 0.8308525051502511
+        },
+        {
+          "step": 2250,
+          "loss": 0.630443724778961
+        },
+        {
+          "step": 3000,
+          "loss": 0.6012185977486365
+        },
+        {
+          "step": 3750,
+          "loss": 0.6335800625414535
+        },
+        {
+          "step": 4500,
+          "loss": 0.7698355745949386
+        },
+        {
+          "step": 5250,
+          "loss": 0.7054482893076996
+        },
+        {
+          "step": 6000,
+          "loss": 0.6184334667926494
+        }
+      ],
+      "arc_enc_hash_before": "64a764151ebd27ec5f4c1e92d72d9ce6dba381fb355c386d669f3a0ac2cf93d1",
+      "arc_enc_hash_after": "64a764151ebd27ec5f4c1e92d72d9ce6dba381fb355c386d669f3a0ac2cf93d1",
+      "fp_version": "stage191_p1_curve.pt",
+      "note": "The answer stops being a lookup. COUNT asks how many distinct values an address carries and COMPARE asks which of two addresses carries more; neither answer is written at any slot, both truths are computed from the tape so nothing is authored, and the closed answer sets mean no value is generated. The mind never sees the values - only the same-value indicator on edges, the two context ranks, and shares - so counting has to be done from agreement structure, which is what a derivation runs on. COUNT is capped at 5+ because an answer set that grows with the tape is a lookup with extra steps. The lookup head carries 286's question unchanged into the same body so depth can be charged for: if deriving makes recall worse, the capability is not additive, and that gate is written in from the start rather than discovered after the fact.",
+      "timestamp": "2026-08-09T20:19:41.730912+00:00",
+      "wall_s": 382.74484610557556
+    },
+    "289_no_derivation": {
+      "stage": "289",
+      "overall": "ABLATION_NO_DERIVATION",
+      "seed": 2890,
+      "smoke": false,
+      "holdout": "corpus",
+      "run_tag": "w150",
+      "no_derivation": true,
+      "train_steps": 6000,
+      "params": 6825,
+      "count_labels": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5+"
+      ],
+      "compare_labels": [
+        "first",
+        "second",
+        "equal"
+      ],
+      "gates": {
+        "G_arc_enc_frozen": true,
+        "G_task_exists": true,
+        "G_count_beats_floor": false,
+        "G_compare_beats_floor": false,
+        "G_answer_is_derivation": false,
+        "G_depth_does_not_cost_recall": true
+      },
+      "held_out": {
+        "lookup": {
+          "n": 21,
+          "model_accuracy": 0.42857142857142855,
+          "rival_accuracy": 0.42857142857142855,
+          "random_floor": 0.3793290043290043
+        },
+        "confusion": {
+          "lookup|American->American": 1,
+          "lookup|Black->Azure": 1,
+          "lookup|Catherine->Catherine": 1,
+          "lookup|Chinese->Arabic": 1,
+          "lookup|Costen->Pritchard": 1,
+          "lookup|Dawson->Dawson": 1,
+          "lookup|Germany->Liberia": 1,
+          "lookup|Leipzig->Weimar": 1,
+          "lookup|Millennium->Veronica": 1,
+          "lookup|Nangka->Pelawan": 1,
+          "lookup|Northern->Northern": 1,
+          "lookup|Province->Colony": 1,
+          "lookup|Randall->Randall": 1,
+          "lookup|Scandinavia->Irish": 1,
+          "lookup|Singapore->Macau": 1,
+          "lookup|Stone->Stone": 1,
+          "lookup|Sweden->Sweden": 1,
+          "lookup|Tigers->Tigers": 1,
+          "lookup|United->Beverly": 1,
+          "lookup|United->Canada": 1,
+          "lookup|Women->Women": 1
+        }
+      },
+      "train_control": {
+        "lookup": {
+          "n": 63,
+          "model_accuracy": 0.5396825396825397,
+          "rival_accuracy": 0.5873015873015873,
+          "random_floor": 0.40617098567409116
+        },
+        "confusion": {
+          "lookup|Advancement->Space": 1,
+          "lookup|American->American": 1,
+          "lookup|Archbishops->Sussex": 1,
+          "lookup|Australia->Nielsen": 1,
+          "lookup|Baptist->Baptist": 1,
+          "lookup|Become->Become": 1,
+          "lookup|Bolliger->Bolliger": 1,
+          "lookup|British->Viking": 1,
+          "lookup|Cambridge->Cambridge": 1,
+          "lookup|Canada->Canada": 1,
+          "lookup|Christians->Christians": 1,
+          "lookup|Coldplay->American": 1,
+          "lookup|Comedy->Comedy": 1,
+          "lookup|Conqueror->Conqueror": 1,
+          "lookup|County->Wales": 1,
+          "lookup|Deathly->Deathly": 1,
+          "lookup|Electricity->Electricity": 1,
+          "lookup|English->English": 1,
+          "lookup|Europe->Europe": 1,
+          "lookup|Flanders->Flanders": 1,
+          "lookup|French->French": 1,
+          "lookup|Fuchs->Canada": 1,
+          "lookup|Gliders->Gliders": 1,
+          "lookup|Goldie->Cambridge": 1,
+          "lookup|Ireland->Australia": 1,
+          "lookup|Ireland->Ireland": 1,
+          "lookup|Jonathan->Sylvia": 1,
+          "lookup|Kellex->Kellex": 1,
+          "lookup|Labrador->Labrador": 1,
+          "lookup|Lightship->Lightship": 1,
+          "lookup|Margaret->Elizabeth": 1,
+          "lookup|Melrose->Melrose": 1,
+          "lookup|Middle->Australia": 1,
+          "lookup|Nadeen->American": 1,
+          "lookup|Newfoundland->Newfoundland": 1,
+          "lookup|Nielsen->Nielsen": 1,
+          "lookup|North->Germany": 1,
+          "lookup|North->Mitch": 1,
+          "lookup|North->North": 1,
+          "lookup|Osijek->Upper": 1,
+          "lookup|Outstanding->Episodic": 1,
+          "lookup|Paralympics->Paralympics": 1,
+          "lookup|Parliament->Labour": 1,
+          "lookup|Philippines->National": 1,
+          "lookup|Primetime->Primetime": 1,
+          "lookup|Richard->Richard": 1,
+          "lookup|Royal->Portuguese": 1,
+          "lookup|Schenectady->Jerramungup": 1,
+          "lookup|Shakerley->Tyldesley": 1,
+          "lookup|Slayer->Kanye": 1,
+          "lookup|South->South": 1,
+          "lookup|Supreme->Supreme": 1,
+          "lookup|Thomas->Allen": 1,
+          "lookup|Trade->Trade": 1,
+          "lookup|United->Japan": 1,
+          "lookup|United->South": 1,
+          "lookup|United->United": 2,
+          "lookup|University->Universities": 1,
+          "lookup|Weimar->Weimar": 1,
+          "lookup|White->Armenia": 1,
+          "lookup|Women->Women": 1,
+          "lookup|Woodall->African": 1
+        }
+      },
+      "permutation_null": {},
+      "gap_to_exact_rule": {},
+      "depth_cost_note": "G_depth_does_not_cost_recall as computed here only says the lookup head still works. The real charge is the DIFFERENCE against the --no-derivation run on the same seed and the same tape: run both, compare held_out.lookup.model_accuracy, and if depth costs recall the capability is not additive and the tape is fighting itself",
+      "rival_note": "count_rival and compare_rival read the value STRINGS - they are the optimal rules given a value-identity oracle, not strawmen. Beating them is not the claim and should not be expected. The claim is that the mind approaches them while seeing only the same-value indicator on edges, which is what gap_to_exact_rule measures",
+      "curve": [
+        {
+          "step": 750,
+          "loss": 1.3033252738416194
+        },
+        {
+          "step": 1500,
+          "loss": 1.0655916074023117
+        },
+        {
+          "step": 2250,
+          "loss": 1.0745346305682324
+        },
+        {
+          "step": 3000,
+          "loss": 1.1876709530799416
+        },
+        {
+          "step": 3750,
+          "loss": 1.1182256391039118
+        },
+        {
+          "step": 4500,
+          "loss": 1.1383099917846267
+        },
+        {
+          "step": 5250,
+          "loss": 0.9397905528265983
+        },
+        {
+          "step": 6000,
+          "loss": 1.130931740999222
+        }
+      ],
+      "arc_enc_hash_before": "64a764151ebd27ec5f4c1e92d72d9ce6dba381fb355c386d669f3a0ac2cf93d1",
+      "arc_enc_hash_after": "64a764151ebd27ec5f4c1e92d72d9ce6dba381fb355c386d669f3a0ac2cf93d1",
+      "fp_version": "stage191_p1_curve.pt",
+      "note": "The answer stops being a lookup. COUNT asks how many distinct values an address carries and COMPARE asks which of two addresses carries more; neither answer is written at any slot, both truths are computed from the tape so nothing is authored, and the closed answer sets mean no value is generated. The mind never sees the values - only the same-value indicator on edges, the two context ranks, and shares - so counting has to be done from agreement structure, which is what a derivation runs on. COUNT is capped at 5+ because an answer set that grows with the tape is a lookup with extra steps. The lookup head carries 286's question unchanged into the same body so depth can be charged for: if deriving makes recall worse, the capability is not additive, and that gate is written in from the start rather than discovered after the fact.",
+      "timestamp": "2026-08-09T20:26:24.808395+00:00",
+      "wall_s": 396.4240667819977
+    },
+    "289c_audit": {
+      "stage": "289c",
+      "overall": "AUDIT_PARTIAL",
+      "seed": 2893,
+      "smoke": false,
+      "holdout": "corpus",
+      "run_tag": "w150",
+      "train_steps": 6000,
+      "params": 6825,
+      "gates": {
+        "G_arc_enc_frozen": true,
+        "G_task_exists": true,
+        "G_calibrated": false,
+        "G_ranks_regions": true,
+        "G_refusal_is_informed": false,
+        "G_map_transfers": true
+      },
+      "competence_map_held": {
+        "compare|deep|majority": {
+          "n": 19,
+          "stated_confidence": 0.9876098475958172,
+          "realised_accuracy": 0.9473684210526315,
+          "random_floor": 0.33333333333333326
+        },
+        "compare|deep|split": {
+          "n": 40,
+          "stated_confidence": 0.9211254701018333,
+          "realised_accuracy": 0.675,
+          "random_floor": 0.3333333333333333
+        },
+        "compare|mid|split": {
+          "n": 68,
+          "stated_confidence": 0.9295154818717171,
+          "realised_accuracy": 0.8970588235294118,
+          "random_floor": 0.33333333333333326
+        },
+        "count|deep|split": {
+          "n": 14,
+          "stated_confidence": 0.8360986688307354,
+          "realised_accuracy": 0.7142857142857143,
+          "random_floor": 0.20000000000000004
+        },
+        "count|mid|majority": {
+          "n": 11,
+          "stated_confidence": 0.9957102591341193,
+          "realised_accuracy": 1.0,
+          "random_floor": 0.2
+        },
+        "count|mid|split": {
+          "n": 20,
+          "stated_confidence": 0.6881158664822579,
+          "realised_accuracy": 0.6,
+          "random_floor": 0.20000000000000004
+        },
+        "count|mid|unanimous": {
+          "n": 19,
+          "stated_confidence": 0.9985695732267279,
+          "realised_accuracy": 1.0,
+          "random_floor": 0.20000000000000004
+        },
+        "count|thin|split": {
+          "n": 81,
+          "stated_confidence": 0.9998165597150355,
+          "realised_accuracy": 1.0,
+          "random_floor": 0.19999999999999998
+        },
+        "count|thin|unanimous": {
+          "n": 107,
+          "stated_confidence": 0.9999998807907104,
+          "realised_accuracy": 1.0,
+          "random_floor": 0.19999999999999998
+        },
+        "lookup|deep|split": {
+          "n": 7,
+          "stated_confidence": 0.6780057123729161,
+          "realised_accuracy": 0.2857142857142857,
+          "random_floor": 0.2442176870748299
+        },
+        "lookup|thin|split": {
+          "n": 5,
+          "stated_confidence": 0.5,
+          "realised_accuracy": 0.4,
+          "random_floor": 0.5
+        }
+      },
+      "competence_map_train": {
+        "compare|deep|majority": {
+          "n": 42,
+          "stated_confidence": 0.9751226972965967,
+          "realised_accuracy": 0.9047619047619048,
+          "random_floor": 0.3333333333333333
+        },
+        "compare|deep|split": {
+          "n": 121,
+          "stated_confidence": 0.8906372076223704,
+          "realised_accuracy": 0.743801652892562,
+          "random_floor": 0.3333333333333333
+        },
+        "compare|mid|split": {
+          "n": 166,
+          "stated_confidence": 0.9404178268938179,
+          "realised_accuracy": 0.9337349397590361,
+          "random_floor": 0.3333333333333333
+        },
+        "count|deep|majority": {
+          "n": 12,
+          "stated_confidence": 0.8718211477001508,
+          "realised_accuracy": 0.4166666666666667,
+          "random_floor": 0.20000000000000004
+        },
+        "count|deep|split": {
+          "n": 42,
+          "stated_confidence": 0.8793802495513644,
+          "realised_accuracy": 0.8095238095238095,
+          "random_floor": 0.19999999999999996
+        },
+        "count|deep|unanimous": {
+          "n": 11,
+          "stated_confidence": 0.9943165291439403,
+          "realised_accuracy": 1.0,
+          "random_floor": 0.2
+        },
+        "count|mid|majority": {
+          "n": 32,
+          "stated_confidence": 0.9952291417866945,
+          "realised_accuracy": 1.0,
+          "random_floor": 0.2
+        },
+        "count|mid|split": {
+          "n": 55,
+          "stated_confidence": 0.7013116760687395,
+          "realised_accuracy": 0.5454545454545454,
+          "random_floor": 0.1999999999999999
+        },
+        "count|mid|unanimous": {
+          "n": 35,
+          "stated_confidence": 0.9983777233532497,
+          "realised_accuracy": 1.0,
+          "random_floor": 0.20000000000000004
+        },
+        "count|thin|split": {
+          "n": 163,
+          "stated_confidence": 0.9998171179572497,
+          "realised_accuracy": 1.0,
+          "random_floor": 0.19999999999999996
+        },
+        "count|thin|unanimous": {
+          "n": 308,
+          "stated_confidence": 0.9999998807907104,
+          "realised_accuracy": 1.0,
+          "random_floor": 0.19999999999999998
+        },
+        "lookup|deep|majority": {
+          "n": 7,
+          "stated_confidence": 0.9446573853492737,
+          "realised_accuracy": 0.7142857142857143,
+          "random_floor": 0.39285714285714285
+        },
+        "lookup|deep|split": {
+          "n": 13,
+          "stated_confidence": 0.4639712686722095,
+          "realised_accuracy": 0.3076923076923077,
+          "random_floor": 0.14640522875816991
+        },
+        "lookup|mid|majority": {
+          "n": 8,
+          "stated_confidence": 0.9946135431528091,
+          "realised_accuracy": 0.75,
+          "random_floor": 0.5
+        },
+        "lookup|mid|split": {
+          "n": 7,
+          "stated_confidence": 0.521914222410747,
+          "realised_accuracy": 0.42857142857142855,
+          "random_floor": 0.3095238095238095
+        },
+        "lookup|thin|split": {
+          "n": 21,
+          "stated_confidence": 0.5,
+          "realised_accuracy": 0.42857142857142855,
+          "random_floor": 0.5
+        }
+      },
+      "calibration": {
+        "ece": 0.0665852572023869,
+        "ece_sampling_noise": 0.02839070863190133,
+        "bins": [
+          {
+            "bin": 1,
+            "n": 1,
+            "stated": 0.15845012664794922,
+            "realised": 0.0
+          },
+          {
+            "bin": 2,
+            "n": 1,
+            "stated": 0.26933908462524414,
+            "realised": 0.0
+          },
+          {
+            "bin": 3,
+            "n": 1,
+            "stated": 0.3908909559249878,
+            "realised": 1.0
+          },
+          {
+            "bin": 4,
+            "n": 4,
+            "stated": 0.461957722902298,
+            "realised": 0.5
+          },
+          {
+            "bin": 5,
+            "n": 14,
+            "stated": 0.5393799245357513,
+            "realised": 0.35714285714285715
+          },
+          {
+            "bin": 6,
+            "n": 14,
+            "stated": 0.6353494695254734,
+            "realised": 0.35714285714285715
+          },
+          {
+            "bin": 7,
+            "n": 15,
+            "stated": 0.7397998571395874,
+            "realised": 0.8666666666666667
+          },
+          {
+            "bin": 8,
+            "n": 10,
+            "stated": 0.8463752150535584,
+            "realised": 0.6
+          },
+          {
+            "bin": 9,
+            "n": 340,
+            "stated": 0.9959766756085788,
+            "realised": 0.9529411764705882
+          }
+        ]
+      },
+      "spearman_conf_vs_accuracy": 0.958398736710425,
+      "spearman_train_map_vs_held_accuracy": 0.9677035788144097,
+      "refusal": {
+        "threshold": 0.158,
+        "answered_n": 400,
+        "refused_n": 0,
+        "answered_accuracy": 0.89,
+        "refused_would_have_been": NaN,
+        "vacuous": true
+      },
+      "region_note": "regions are cut by depth and agreement only - both readable without the answer. Cutting by anything that needs the truth would make the map a restatement of the score, which is 286's exam tautology wearing a chart",
+      "calibration_note": "the ECE bound is DERIVED: each bin's realised accuracy is a binomial mean whose own noise is sqrt(acc(1-acc)/n), weighted the same way ECE is. A perfectly calibrated mind still shows that much on this many questions, so the gate is ECE under its own noise floor and no threshold was chosen by taste",
+      "arc_enc_hash_before": "64a764151ebd27ec5f4c1e92d72d9ce6dba381fb355c386d669f3a0ac2cf93d1",
+      "arc_enc_hash_after": "64a764151ebd27ec5f4c1e92d72d9ce6dba381fb355c386d669f3a0ac2cf93d1",
+      "fp_version": "stage191_p1_curve.pt",
+      "note": "The unprompted audit. The mind sweeps its own tape and publishes where it can be trusted, before anyone asks. The claim is narrow and checkable: stated confidence must be an empirical frequency - 0.8 must mean right eight times in ten - and the ordering of regions must be right, because a map that is accurate on average but orders regions wrongly makes you trust the wrong half of your tape. Refusal is a cell in the map, not an absence: the tape knows what the refused questions would have scored, so declining is checkable too. No new capability and no new model - 289's mind and 289's questions, read through the confidence they already produce, because a competence map that needed its own model would be a second mind grading the first.",
+      "timestamp": "2026-08-09T20:32:55.153273+00:00",
+      "wall_s": 383.98748564720154
+    }
+  }
+}

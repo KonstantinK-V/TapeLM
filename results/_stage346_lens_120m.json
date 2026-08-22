@@ -1,0 +1,20 @@
+{
+ "bytes": 120000000,
+ "corpus": "data\\_wikitext103_train.txt",
+ "places": 1500,
+ "questions": 3000,
+ "mentions_per_place": 3.992,
+ "mean_lens_offer": 33.03593888888881,
+ "in_own": 0.21966666666666668,
+ "one_present_topm": 0.19566666666666666,
+ "one_count_right": 0.049666666666666665,
+ "one_share_right": 0.002,
+ "pair_nonempty": 0.43866666666666665,
+ "pair_present_topm": 0.09733333333333333,
+ "pair_count_right": 0.020666666666666667,
+ "pair_mean_size": 11.57688338493292,
+ "pairs_per_question": 1.615,
+ "support_1": 0.8653689034137331,
+ "support_2plus": 0.13463109658626693,
+ "support_3plus": 0.05417214308550318
+}

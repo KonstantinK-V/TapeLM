@@ -1,0 +1,8 @@
+C:\Users\Kostya\sote-letter-assembly\_stage289_derivation.py:3678: UserWarning: index_reduce() is in beta and the API may change at any time. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\pytorch\aten\src\ATen\native\TensorAdvancedIndexing.cpp:1218.)
+  mean_r = torch.zeros(len(uniq)).index_reduce_(0, inv, r, "mean", include_self=False)
+C:\Users\Kostya\sote-letter-assembly\_stage289_derivation.py:3678: UserWarning: index_reduce() is in beta and the API may change at any time. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\pytorch\aten\src\ATen\native\TensorAdvancedIndexing.cpp:1218.)
+  mean_r = torch.zeros(len(uniq)).index_reduce_(0, inv, r, "mean", include_self=False)
+C:\Users\Kostya\sote-letter-assembly\_stage289_derivation.py:3678: UserWarning: index_reduce() is in beta and the API may change at any time. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\pytorch\aten\src\ATen\native\TensorAdvancedIndexing.cpp:1218.)
+  mean_r = torch.zeros(len(uniq)).index_reduce_(0, inv, r, "mean", include_self=False)
+C:\Users\Kostya\sote-letter-assembly\_stage289_derivation.py:3678: UserWarning: index_reduce() is in beta and the API may change at any time. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\pytorch\aten\src\ATen\native\TensorAdvancedIndexing.cpp:1218.)
+  mean_r = torch.zeros(len(uniq)).index_reduce_(0, inv, r, "mean", include_self=False)

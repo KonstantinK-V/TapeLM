@@ -1,0 +1,119 @@
+From a376a33538ec476caf0962547eda8bfe06017269 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Fri, 7 Aug 2026 12:03:28 +0000
+Subject: [PATCH] stage 280: the return path moves in as an observer
+
+282 gave the mind a probe action and it did not pay for its place. On the
+same tape the mind that never probes scores 0.704 held-out against 0.594
+for the mind that does, and both arms that probed carried a tie-breaking
+rule that measurably cost the teacher. The action goes.
+
+The question it asked does not. Today an answer is a slot index, so
+G_answer_is_slot proves the answer came off the tape; when the answer
+stops being an index that proof disappears and the only label-free
+replacement is to ask the tape about the value and see whether some other
+mention carries the subject and the value together. So the check lives
+here now, computed after the policy has answered, invisible to the policy
+and absent from the reward - reported as return_path_when_correct against
+return_path_when_wrong, since a check worth building on has to separate
+those two before anything depends on it. Verified on a hand-built tape
+where the right value has a second mention and the wrong ones do not.
+
+It costs nothing during training: the diagnostic runs on the evaluation
+pass only.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01PGuqHAMhjCxVAADm3R4wxK
+---
+ _stage280_raw_exam.py | 43 +++++++++++++++++++++++++++++++++++++++++--
+ 1 file changed, 41 insertions(+), 2 deletions(-)
+
+diff --git a/_stage280_raw_exam.py b/_stage280_raw_exam.py
+index 81506fb..e56a331 100644
+--- a/_stage280_raw_exam.py
++++ b/_stage280_raw_exam.py
+@@ -260,7 +260,7 @@ def retrieve(pack, words, k, hop: str, item=None, subject_filter=False, hop_min=
+ def rollout(policy, model, char_table, tok, pack, item, pad_id, device, *, k, max_steps,
+             max_reads, read_cost, wrong_cost, abstain_reward, subject_filter, hop,
+             hop_min=0.0, k_gap=0.0,
+-            bc=False, greedy=True, teacher_only=False, bc_anchor=0.0):
++            bc=False, greedy=True, teacher_only=False, bc_anchor=0.0, diag=False):
+     """278's rollout with one line changed: retrieval may take the ink's hop when words fail."""
+     tape = pack["tape"]
+     s274._VALUE_OF = {i: v for i, v in enumerate(tape.values)}
+@@ -362,9 +362,36 @@ def rollout(policy, model, char_table, tok, pack, item, pad_id, device, *, k, ma
+         "retrieval_precision": prec, "witness_recall": rec,
+         "hops": hops, "words_silent": bool(silent_first), "n_cands": n_cands_first,
+         "stalled": bool(stalled and abstained),
++        "return_path": return_path(pack, item, answered) if diag else float("nan"),
+     }
+ 
+ 
++def return_path(pack, item, answered) -> float:
++    """Does the tape lead from the answer back to the subject? An observer, never a vote.
++
++    282 gave the policy this as an action and it did not pay for its place: on the same tape the
++    mind that never probes scores 0.704 held-out against 0.594 for the mind that does. But the
++    question the probe asks outlives the exam that rejected it. Today an answer is a slot index,
++    so G_answer_is_slot proves the answer came off the tape; when the answer stops being an
++    index there is no such proof, and the only label-free replacement is this - ask the tape
++    about the value and see whether some OTHER mention carries the subject and the value
++    together. So it is measured here on every answer, costs the policy nothing, and is reported
++    beside accuracy, where a reader can see whether it separates right answers from wrong ones
++    before anything is built on it.
++    """
++    if answered is None or "postings_probe" not in pack:
++        return float("nan")
++    words = context_words(answered) or [answered]
++    back, _ = s271.vote(words, pack["postings_probe"], pack["idf_probe"], 7)
++    val_lc = answered.lower()
++    # Two distinct mentions, because one is the slot the answer was read from and a text cannot
++    # corroborate itself. The probe index is the one that does not hide a slot's own value -
++    # without it the words of a value can never reach the slot holding it and every return is a
++    # miss by construction, which is how this measurement failed the first three times.
++    return float(sum(1 for c in back if item["S"] in pack["texts_lc"][c]
++                     and val_lc in pack["texts_lc"][c]) >= 2)
++
++
+ def main() -> int:
+     ap = argparse.ArgumentParser()
+     ap.add_argument("--smoke", action="store_true")
+@@ -561,8 +588,10 @@ def main() -> int:
+         per = {f: defaultdict(list) for f in FAMILIES}
+         tper = {f: defaultdict(list) for f in FAMILIES}
+         slot_ok, traces, hops, silent, ncand, stalls = [], [], [], [], [], []
++        ret, ret_c, ret_w = [], [], []
+         for it in p["items"]:
+-            o = rollout(policy, model, char_table, tok, p, it, pad_id, device, **common)
++            o = rollout(policy, model, char_table, tok, p, it, pad_id, device, diag=True,
++                        **common)
+             t = rollout(policy, model, char_table, tok, p, it, pad_id, device,
+                         teacher_only=True, **common)
+             f = it["kind"]
+@@ -576,6 +605,9 @@ def main() -> int:
+             slot_ok.append(int(o["answer_is_slot"]))
+             hops.append(o["hops"]); silent.append(int(o["words_silent"]))
+             ncand.append(o["n_cands"]); stalls.append(int(o["stalled"]))
++            if not math.isnan(o["return_path"]):
++                ret.append(o["return_path"])
++                (ret_c if o["correct"] else ret_w).append(o["return_path"])
+             if len(traces) < 24:
+                 traces.append({"kind": f, "S": it["S"], "trace": o["trace"],
+                                "correct": o["correct"], "abstained": o["abstained"],
+@@ -588,6 +620,13 @@ def main() -> int:
+                "witness_recall": m([x for f in FAMILIES for x in per[f]["rec"]]),
+                "words_silent_rate": m(silent), "hops_per_episode": m(hops),
+                "mean_candidates": m(ncand), "stall_rate": m(stalls),
++               # An observer, not a vote: the policy never sees these and the reward does not
++               # move with them. They exist so that the check meant to replace G_answer_is_slot
++               # once an answer stops being a slot index has a track record before it is load
++               # bearing. Useful only if the two rates below come apart.
++               "return_path_rate": m(ret),
++               "return_path_when_correct": m(ret_c),
++               "return_path_when_wrong": m(ret_w),
+                "n_items": len(p["items"])}
+         ac, an = 0, 0
+         for f in FAMILIES:
+-- 
+2.43.0
+

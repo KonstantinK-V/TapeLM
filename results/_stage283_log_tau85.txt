@@ -1,0 +1,75 @@
+Stage283 scale start 2026-08-07T15:47:26.592768+00:00 device=cuda rungs=[(4000000, 400), (30000000, 400), (120000000, 2000)] mind_params=7564290
+  corpus 120.0M chars read (1s)
+  rung 4M:400 -> 31 addr / 77 slots | precision 0.796 | return true 1.000 other 0.000 (sep +1.000) | crowding 0.323 (members 0.484 two 0.065 anchors alone 0.065) foreign 0.000 | k covers 0.968 | ties 0.258 (1s)
+  rung 30M:400 -> 218 addr / 639 slots | precision 0.746 | return true 1.000 other 0.000 (sep +1.000) | crowding 0.743 (members 0.839 two 0.138 anchors alone 0.044) foreign 0.015 | k covers 0.968 | ties 0.431 (52s)
+  rung 120M:2000 -> 988 addr / 4008 slots | precision 0.632 | return true 0.974 other 0.002 (sep +0.972) | crowding 0.928 (members 0.957 two 0.234 anchors alone 0.138) foreign 0.040 | k covers 0.915 | ties 0.421 (1354s)
+{
+  "overall": "SCALE_OK",
+  "gates": {
+    "G_precision_holds": true,
+    "G_return_path_separates": true,
+    "G_addresses_stay_distinct": true,
+    "G_k_covers_the_address": true,
+    "G_ties_exist_naturally": true,
+    "G_mind_does_not_grow": true
+  },
+  "slopes": {
+    "slots": [
+      77,
+      639,
+      4008
+    ],
+    "precision": [
+      0.7956989247311829,
+      0.7464067278287461,
+      0.6320464623096201
+    ],
+    "return_path_separation": [
+      1.0,
+      1.0,
+      0.972027972027972
+    ],
+    "address_crowding": [
+      0.3225806451612903,
+      0.7431192660550459,
+      0.9281376518218624
+    ],
+    "member_crowding": [
+      0.4838709677419355,
+      0.8394495412844036,
+      0.9574898785425101
+    ],
+    "two_channel_crowding": [
+      0.06451612903225806,
+      0.13761467889908258,
+      0.23380566801619435
+    ],
+    "foreign_member_rate": [
+      0.0,
+      0.014984709480122324,
+      0.03996447340338629
+    ],
+    "distinct_anchors": [
+      31,
+      204,
+      870
+    ],
+    "anchor_only_crowding": [
+      0.06451612903225806,
+      0.04411764705882353,
+      0.13793103448275862
+    ],
+    "anchor_growth_exponent": 0.9803917952959025,
+    "k_covers_address": [
+      0.967741935483871,
+      0.9678899082568807,
+      0.9149797570850202
+    ],
+    "tie_share": [
+      0.25806451612903225,
+      0.43119266055045874,
+      0.42105263157894735
+    ],
+    "slots_growth": 52.05194805194805
+  }
+}

@@ -1,0 +1,41 @@
+529 experiment pack (contract v1 legs frozen)
+============================================
+
+Foundation: walk_v1 / bands / high=1. Learner = go/stop only. No CE.
+
+A) _audit529_sweep.py  → results/_stage529_sweep.json  (54 runs)
+   - wiki-like long windows thin ceiling
+   - stories W=200–300 ceiling +0.11…+0.18 (ALLGO hops ~10)
+   - cost sweep: c does not unlock alone
+   - hard GO (528 gate): 0/54
+
+B) _audit529b_focus.py → results/_stage529b_focus.json  (87 runs)
+   - short W=150…300 + episodic cover_end/adv + mini
+   - soft GO = cover > hop1+0.05 AND hops ≈ allgo AND high glue
+   - soft/hard GO: 17 runs with cover lift +0.09…+0.39
+
+What worked
+-----------
+1. Short tape window (150–300 lines stories) — ceiling alive
+2. mini cover_end — ceiling +0.36, lift +0.39 (same physics you saw)
+3. Episodic return (cover_end / adv vs hop1), c≈0 — Q learns to GO
+4. When lift happens, policy ≈ always-go on mid (uses full allow)
+
+What did not
+------------
+1. 528 hard gate "hops < allgo−0.5" fights cover: to cover you must walk
+2. Per-step novelty + step tax → usually collapses to hop1
+3. Longer stories (700–2400) — ceiling dies again (like wiki)
+
+Contract read
+-------------
+- Legs OK everywhere we tried
+- Mind can learn "keep going on mid" when ceiling exists
+- Mind has NOT yet learned "when to stop" (soft GO ≈ allgo)
+- Next: stop-when-no-remaining-novelty as real action reward,
+  or gate = cover lift + waste penalty (extra hops after last novelty)
+
+Best recipes to carry
+---------------------
+  mini + cover_end + c=0 + W=400
+  stories W=200–300 + adv/cover_end + c=0..0.01 + eps~0.35

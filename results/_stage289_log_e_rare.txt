@@ -1,0 +1,49 @@
+Stage289 derivation start 2026-08-10T10:36:57.907855+00:00 device=cuda holdout=corpus
+  tape: 673 addresses, 2018 slots | questions {"count": 673, "lookup": 403, "compare": 336} | params 3457
+  ladder coverage: 0/403 lookup questions have all three rungs; the rest train on the task term alone
+  step 750/6000 loss=1.7771
+  step 1500/6000 loss=1.6369
+  step 2250/6000 loss=1.5011
+  step 3000/6000 loss=1.5881
+  step 3750/6000 loss=1.5925
+  step 4500/6000 loss=1.6672
+  step 5250/6000 loss=1.5024
+  step 6000/6000 loss=1.6573
+  HELD {"count": {"n": 257, "model_accuracy": 1.0, "rival_accuracy": 1.0, "random_floor": 0.20000000000000073}, "compare": {"n": 128, "model_accuracy": 1.0, "rival_accuracy": 1.0, "random_floor": 0.33333333333333354}, "lookup": {"n": 104, "model_accuracy": 0.36538461538461536, "rival_accuracy": 0.41346153846153844, "random_floor": 0.32982226107226087}, "lookup_paired_vs_rival": {"model_only_right": 10, "rival_only_right": 15, "discordant": 25, "mcnemar_z": -1.0}, "ladder": {"n_questions": 0, "pairs": 0, "concordant": 0, "concordance": NaN, "z_vs_half": NaN, "mean_phi": {"true": NaN, "near": NaN, "middle": NaN, "far": NaN}}, "exact_mismatches": 0, "confusion": {"compare|equal->equal": 37, "compare|first->first": 48, "compare|second->second": 43, "count|1->1": 129, "count|2->2": 92, "count|3->3": 18, "count|4->4": 9, "count|5+->5+": 9, "lookup|American->American": 1, "lookup|American->German": 1, "lookup|American->Tucker": 2, "lookup|Beverly->Beverly": 3, "lookup|Black->Azure": 2, "lookup|Canada->Canada": 5, "lookup|Catherine->Libyan": 2, "lookup|Chinese->Vietnam": 2, "lookup|Chorn->Stone": 2, "lookup|Costen->Costen": 9, "lookup|Craig->Costen": 6, "lookup|Craig->Craig": 2, "lookup|Dawson->Dawson": 2, "lookup|Germany->Britain": 2, "lookup|Indian->British": 2, "lookup|Leipzig->Weimar": 2, "lookup|Major->World": 2, "lookup|Manier->Costen": 2, "lookup|Millennium->Veronica": 3, "lookup|Nagasaki->Maebashi": 2, "lookup|Nangka->Nangka": 1, "lookup|Nangka->Pelawan": 1, "lookup|Network->Canada": 2, "lookup|Northern->Northern": 3, "lookup|Pritchard->Costen": 7, "lookup|Province->Colony": 2, "lookup|Randall->Randall": 1, "lookup|Randall->Sully": 1, "lookup|River->Women": 2, "lookup|Scandinavia->Irish": 2, "lookup|Singapore->Macau": 2, "lookup|Stone->Stone": 5, "lookup|Sweden->Carson": 2, "lookup|Tigers->Tigers": 2, "lookup|United->Beverly": 2, "lookup|United->Canada": 2, "lookup|United->Ireland": 2, "lookup|Veronica->Millennium": 3, "lookup|Weimar->Leipzig": 2, "lookup|Women->Women": 4, "lookup|World->Major": 2}}
+  CONTROL {"count": {"n": 668, "model_accuracy": 1.0, "rival_accuracy": 1.0, "random_floor": 0.20000000000000143}, "compare": {"n": 334, "model_accuracy": 1.0, "rival_accuracy": 1.0, "random_floor": 0.3333333333333318}, "lookup": {"n": 375, "model_accuracy": 0.49066666666666664, "rival_accuracy": 0.48533333333333334, "random_floor": 0.2983240694892874}, "lookup_paired_vs_rival": {"model_only_right": 38, "rival_only_right": 36, "discordant": 74, "mcnemar_z": 0.23249527748763857}, "ladder": {"n_questions": 0, "pairs": 0, "concordant": 0, "concordance": NaN, "z_vs_half": NaN, "mean_phi": {"true": NaN, "near": NaN, "middle": NaN, "far": NaN}}, "exact_mismatches": 0, "confusion": {"compare|equal->equal": 127, "compare|first->first": 101, "compare|second->second": 106, "count|1->1": 356, "count|2->2": 213, "count|3->3": 51, "count|4->4": 17, "count|5+->5+": 31, "lookup|America->Germany": 2, "lookup|American->Nadeen": 2, "lookup|American->Summer": 3, "lookup|Australia->Japan": 3, "lookup|Australia->Palau": 2, "lookup|Baptist->Baptist": 2, "lookup|Become->Become": 3, "lookup|Bolliger->Bolliger": 2, "lookup|British->Millennium": 3, "lookup|California->Canada": 3, "lookup|Cambridge->Cambridge": 7, "lookup|Canada->Canada": 22, "lookup|Canadian->Millennium": 2, "lookup|Canary->Majority": 2, "lookup|Chairman->Chairman": 2, "lookup|Chester->Chester": 3, "lookup|Christopher->Cambridge": 2, "lookup|Combined->Germany": 2, "lookup|Comedy->Comedy": 4, "lookup|Conqueror->Conqueror": 2, "lookup|County->County": 2, "lookup|Creative->Europe": 2, "lookup|Deathly->Deathly": 2, "lookup|Desperate->Millennium": 2, "lookup|District->District": 1, "lookup|District->Southern": 1, "lookup|Drama->Comedy": 2, "lookup|Edmonton->Edmonton": 3, "lookup|Edward->China": 2, "lookup|Elder->Elder": 5, "lookup|Electricity->Electricity": 2, "lookup|English->English": 6, "lookup|English->Spanish": 2, "lookup|Enterprise->Enterprise": 2, "lookup|Europe->Europe": 5, "lookup|Flanders->Flanders": 5, "lookup|France->Canada": 2, "lookup|French->Ashton": 2, "lookup|French->Italy": 2, "lookup|Fringe->Millennium": 4, "lookup|Fuchs->Hungaroring": 2, "lookup|Georgia->Canada": 2, "lookup|Germany->Korea": 3, "lookup|Gilda->Gilda": 2, "lookup|Gliders->Gliders": 2, "lookup|Godwin->Richard": 2, "lookup|Grade->America": 2, "lookup|Great->Canada": 2, "lookup|Ireland->Britain": 2, "lookup|Ireland->Ireland": 3, "lookup|Ireland->Summer": 2, "lookup|Italy->French": 2, "lookup|Japan->Australia": 3, "lookup|Japan->Europe": 2, "lookup|Japan->Japan": 1, "lookup|Kellex->Louis": 2, "lookup|Kingdom->Kingdom": 2, "lookup|Korea->Germany": 2, "lookup|Labrador->Labrador": 2, "lookup|Levant->Afghanistan": 2, "lookup|Logan->Newark": 2, "lookup|London->London": 2, "lookup|Louviers->Spanish": 2, "lookup|Margaret->Elizabeth": 1, "lookup|Margaret->Margaret": 1, "lookup|Medieval->Crusades": 2, "lookup|Melrose->Melrose": 2, "lookup|Middle->Japan": 2, "lookup|Millennium->Veronica": 6, "lookup|Montgomery->Montgomery": 2, "lookup|Nadeen->American": 2, "lookup|Native->United": 2, "lookup|Newfoundland->Newfoundland": 2, "lookup|Nielsen->Haitians": 2, "lookup|Nielsen->Nielsen": 6, "lookup|Nielsen->Ottawa": 2, "lookup|North->Atlantic": 1, "lookup|North->Germany": 2, "lookup|North->Imbudo": 1, "lookup|North->Millennium": 2, "lookup|North->North": 4, "lookup|North->United": 2, "lookup|Osijek->Upper": 2, "lookup|Outstanding->Episodic": 2, "lookup|Outstanding->Outstanding": 2, "lookup|Oxford->William": 2, "lookup|Pakistan->Africa": 1, "lookup|Pakistan->Imperial": 1, "lookup|Paralympics->Paralympics": 2, "lookup|Parliament->Labour": 2, "lookup|Pedra->Pedra": 2, "lookup|Philippines->United": 2, "lookup|Poland->Poland": 2, "lookup|Primetime->Primetime": 7, "lookup|Richard->Richard": 4, "lookup|River->Women": 5, "lookup|Schenectady->Jerramungup": 2, "lookup|Screen->Primetime": 2, "lookup|Shakerley->Tyldesley": 2, "lookup|Share->United": 2, "lookup|South->South": 2, "lookup|Space->Advancement": 2, "lookup|Spanish->English": 2, "lookup|Spanish->Louviers": 1, "lookup|Summer->American": 3, "lookup|Supreme->Supreme": 3, "lookup|Tennessee->Canada": 2, "lookup|Texas->Canada": 4, "lookup|Texas->Swedes": 2, "lookup|Thebes->Agora": 2, "lookup|Thomas->Allen": 2, "lookup|Trade->Trade": 4, "lookup|Tyldesley->Tyldesley": 3, "lookup|United->Japan": 2, "lookup|United->Jewish": 1, "lookup|United->Johnston": 1, "lookup|United->North": 3, "lookup|United->South": 1, "lookup|United->United": 28, "lookup|Universities->University": 4, "lookup|University->Universities": 4, "lookup|Upper->Osijek": 2, "lookup|Veronica->Millennium": 5, "lookup|Viking->Millennium": 2, "lookup|Weimar->Weimar": 3, "lookup|Welsh->England": 2, "lookup|Welshman->American": 2, "lookup|White->Millennium": 2, "lookup|William->Oxford": 2, "lookup|Women->Women": 9, "lookup|Woodall->African": 2, "lookup|World->Canada": 3, "lookup|World->World": 2}}
+{
+  "overall": "DERIVATION_PARTIAL",
+  "gates": {
+    "G_arc_enc_frozen": true,
+    "G_task_exists": true,
+    "G_exact_algebra_matches_tape": true,
+    "G_lookup_beats_floor": true,
+    "G_lookup_beats_counts_paired": false,
+    "G_phi_orders_negatives": false
+  },
+  "lookup": {
+    "n": 104,
+    "model_accuracy": 0.36538461538461536,
+    "rival_accuracy": 0.41346153846153844,
+    "random_floor": 0.32982226107226087
+  },
+  "paired": {
+    "model_only_right": 10,
+    "rival_only_right": 15,
+    "discordant": 25,
+    "mcnemar_z": -1.0
+  },
+  "ladder": {
+    "n_questions": 0,
+    "pairs": 0,
+    "concordant": 0,
+    "concordance": NaN,
+    "z_vs_half": NaN,
+    "mean_phi": {
+      "true": NaN,
+      "near": NaN,
+      "middle": NaN,
+      "far": NaN
+    }
+  }
+}

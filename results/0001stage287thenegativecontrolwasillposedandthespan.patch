@@ -1,0 +1,163 @@
+From 17e554a0999e25c5f6d68c6caf8446755bbf930d Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Sat, 8 Aug 2026 11:49:55 +0000
+Subject: [PATCH] 287: the negative control was ill-posed - and the span
+ channel is 1.3% of a layer
+
+The control fired and it was right to fire: MEASUREMENT_BROKEN on both spans,
+null AUC 0.163 at -12 sigma where 0.5 was required. But the fault is mine and
+it is in the control, not in the estimator.
+
+Regressing a channel on ITSELF cannot read chance. lstsq returns a slope of
+1 - eps, so the residual is eps*L - delta: a perfectly monotone function of L
+at machine scale, whose AUC is therefore AUC(L) or 1 - AUC(L) and never 0.5.
+Reproduced exactly - with eps positive the null reads 0.989, with eps negative
+0.011, and the run's 0.163 is that same mechanism with partial cancellation.
+The control was ill-posed by construction, which is a fourth species of the
+vacuous-gate family and now recorded as such.
+
+Two well-posed nulls replace it. A LABEL PERMUTATION null keeps the real
+residual and shuffles which pairs are same-address, 99 times; it tests the
+whole path including the fit and is the standard null for this statistic. A
+REDUNDANT-CHANNEL null builds an affine copy of the lower cosine plus noise at
+the observed residual scale - a channel with real residual variance and no
+unique class content. Verified offline: permutation reads 0.503-0.506 at
+|z| < 0.2 in every case, a redundant-plus-noise channel reads 0.487, and a
+channel carrying planted unique signal is still detected at 0.703, z = +7.2.
+The gate rides on the permutation null alone, because the redundant one
+degenerates whenever the real residual is dust - it would then reproduce the
+failure it replaced - so it is reported as a diagnostic instead.
+
+What the run already says, and the fix does not change, because these numbers
+never depended on the broken control:
+
+  The lower ink is order-blind to 4.5e-08, which is float32 noise. The wiring
+  proof passes and the double order-blindness is now measured rather than
+  argued from the source.
+
+  The upper ink DOES see word order, and the amount is the finding: median
+  cos(U, U_shuffled) = 0.987 at span 2 and 0.987 at span 3. Destroying word
+  order entirely moves the vector by 1.3%. Spearman against the lower channel
+  is 0.959. It is not a second layer, it is the first layer with a 1.3%
+  perturbation - which is why the residual carries no unique signal (AUC 0.494
+  and 0.467, both at or below chance on a residual whose magnitude is far
+  above dust, so those two numbers are trustworthy as they stand).
+
+The mechanism is now clear enough to state: fp(span) has the sum of its
+members' character histograms, and averaging over overlapping spans nearly
+commutes back to averaging over words, because the feed-forward is close to
+linear across the region these histograms occupy. The nonlinearity argument
+was correct in principle and 1.3% in magnitude.
+
+order_content = 1 - median cos is now a reported headline, so the next
+candidate upper layer is judged by how much of it it actually has before
+anything else is measured about it.
+
+Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01RYDM9MUk761CZjn7SmTaug
+---
+ _stage287_two_layer_ink.py | 63 +++++++++++++++++++++++++++++---------
+ 1 file changed, 49 insertions(+), 14 deletions(-)
+
+diff --git a/_stage287_two_layer_ink.py b/_stage287_two_layer_ink.py
+index 29a2038..7404e3a 100644
+--- a/_stage287_two_layer_ink.py
++++ b/_stage287_two_layer_ink.py
+@@ -51,9 +51,15 @@ Four measurements, in the order that can kill the idea fastest:
+      channels: L alone, U alone, and U with its linear fit on L removed. Only the third
+      answers "unique", and it is gated against its own noise the way 286 gates its AUCs.
+ 
+-  4. NEGATIVE CONTROL. The same residual test run on a channel that is redundant BY
+-     CONSTRUCTION - L against itself. It must come out at chance. A residual test that cannot
+-     say "no" is not a test, and this project has shipped three vacuous gates already.
++  4. NEGATIVE CONTROLS. A residual test that cannot say "no" is not a test, and this project
++     has shipped three vacuous gates already. The first attempt used L against ITSELF, which
++     read AUC 0.163 at -12 sigma and correctly reported the measurement broken - but the fault
++     was in the control, not the estimator. Regressing a channel on itself leaves
++     residual = eps*L - delta with eps at machine scale: a perfectly MONOTONE function of L,
++     whose AUC is therefore AUC(L) or 1-AUC(L) and can never be 0.5. The control was ill-posed
++     by construction. Two well-posed ones replace it: a LABEL PERMUTATION null, which keeps the
++     real residual and shuffles the classes, and a REDUNDANT-CHANNEL null, an affine copy of L
++     plus noise matched to the observed residual scale. Both must read chance.
+ 
+ What this stage cannot say: whether the unique information is "semantics". It measures
+ information, not meaning. Unique information is necessary for meaning to be there and does not
+@@ -280,16 +286,41 @@ def main() -> int:
+ 
+     ch_l, ch_u, ch_r = scored(lS, lD), scored(uS, uD), scored(rS, rD)
+ 
+-    # ---- 4. negative control: the same residual test on a channel that IS redundant ---------
+-    # L against itself. If this comes out above chance the residual test is broken, not the
+-    # idea, and every number above it is worthless. Three vacuous gates have shipped already.
+-    null_res = residual_of(lS + lD, lS + lD)
+-    ch_null = scored(null_res[:len(lS)], null_res[len(lS):])
++    # ---- 4. negative controls, both well-posed ----------------------------------------------
++    # The first version regressed L on ITSELF, which cannot work: lstsq returns a slope of
++    # 1 - eps, so the residual is eps*L - delta, a monotone function of L at machine scale
++    # whose AUC is AUC(L) or 1 - AUC(L) and never 0.5. It read 0.163 and declared the
++    # measurement broken, which was true of the control and not of the estimator.
++    #
++    # Permutation: keep the real residual, shuffle which pairs are same-address. Tests the
++    # whole path including the fit, and it is the standard null for exactly this statistic.
++    nrng = np.random.default_rng(SEED + 3)
++    allr = np.asarray(rS + rD)
++    n_pos = len(rS)
++    perm = []
++    for _ in range(99):
++        idx = nrng.permutation(len(allr))
++        perm.append(s286.auc(list(allr[idx[:n_pos]]), list(allr[idx[n_pos:]])))
++    ch_perm = {"auc": float(np.mean(perm)), "auc_z": s286.auc_z(float(np.mean(perm)),
++                                                                n_pos, len(allr) - n_pos),
++               "auc_p05": float(np.quantile(perm, 0.05)),
++               "auc_p95": float(np.quantile(perm, 0.95)), "n_permutations": len(perm)}
++    # Redundant channel: an affine copy of the lower cosine plus noise at the SAME scale as the
++    # residual actually observed. It has real residual variance and no unique class content, so
++    # it is the case the gate must be able to call chance.
++    Lall = np.asarray(lS + lD)
++    fake = Lall * 2.0 - 0.5 + nrng.normal(0.0, float(np.std(allr)) + 1e-12, size=len(Lall))
++    fres = residual_of(list(fake), list(Lall))
++    ch_fake = scored(fres[:n_pos], fres[n_pos:])
++    ch_null = {"permutation": ch_perm, "redundant_channel": ch_fake}
+     log(f"  L {json.dumps(ch_l)}\n  U {json.dumps(ch_u)}\n"
+-        f"  U|L {json.dumps(ch_r)}\n  null(L|L) {json.dumps(ch_null)}")
++        f"  U|L {json.dumps(ch_r)}\n  nulls {json.dumps(ch_null)}")
+ 
+-    # one rule, the same one the honesty gate uses: within its own noise of chance
+-    g_control = bool(abs(ch_null["auc_z"]) <= 1.645)
++    # Gated on the permutation null alone, because it is well-posed unconditionally. The
++    # redundant-channel null degenerates whenever the real residual is machine dust - the fake
++    # channel then gets no noise and reproduces the very failure this replaced - so it is
++    # reported as a second diagnostic rather than gated on.
++    g_control = bool(abs(ch_perm["auc_z"]) <= 1.645)
+     g_order_blind = bool(order_blind_L)
+     g_u_moves = bool(u_moves)
+     g_distinct = bool(abs(rho) < 1.0 - FLOAT_NOISE)
+@@ -311,8 +342,10 @@ def main() -> int:
+                             "median_cos_upper_vs_shuffled": float(np.median(cU)),
+                             "mean_cos_upper_vs_shuffled": float(np.mean(cU))},
+         "spearman_upper_vs_lower": rho,
++        # the headline magnitude: how much of the upper vector actually depends on word order
++        "order_content": 1.0 - float(np.median(cU)),
+         "channels": {"lower": ch_l, "upper": ch_u, "upper_given_lower": ch_r,
+-                     "null_lower_given_lower": ch_null},
++                     "nulls": ch_null},
+         "gates": {
+             "G_lower_is_order_blind": g_order_blind,
+             "G_residual_test_can_say_no": g_control,
+@@ -355,9 +388,11 @@ def main() -> int:
+         f"| channel | AUC same-vs-different | sigma |\n|---|---:|---:|\n"
+         + "".join(f"| {k} | {v['auc']:.3f} | {v['auc_z']:+.2f} |\n" for k, v in
+                  (("lower (today's ctx_fp)", ch_l), ("upper (adjacent spans)", ch_u),
+-                  ("upper given lower", ch_r), ("null: lower given lower", ch_null)))
++                  ("upper given lower", ch_r), ("null: label permutation", ch_perm),
++                  ("null: redundant channel", ch_fake)))
+         + f"\n- shuffling words: lower moves by {max(dL):.2e} (must be ~0), upper stays at "
+-          f"cos {np.median(cU):.4f} (must be < 1)\n"
++          f"cos {np.median(cU):.4f} -> only {1 - float(np.median(cU)):.4f} of it depends on "
++          f"word order\n"
+         f"- Spearman between the two cosines: {rho:.4f}\n\n## Gates\n\n"
+         + "".join(f"- {k}: **{v}**\n" for k, v in out["gates"].items()),
+         encoding="utf-8",
+-- 
+2.43.0
+

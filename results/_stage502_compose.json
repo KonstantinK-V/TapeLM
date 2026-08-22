@@ -1,0 +1,41 @@
+{
+ "1337": {
+  "seed": 1337,
+  "corpus": "wiki",
+  "n_lines": 400,
+  "n_pop": 65,
+  "hop_ok": 1.0,
+  "n_pin": 25,
+  "n_refuse": 40,
+  "pin_rate": 0.38461538461538464,
+  "pin_rand": 0.1076923076923077,
+  "void": false,
+  "gate": true
+ },
+ "8642": {
+  "seed": 8642,
+  "corpus": "wiki",
+  "n_lines": 400,
+  "n_pop": 43,
+  "hop_ok": 1.0,
+  "n_pin": 8,
+  "n_refuse": 35,
+  "pin_rate": 0.18604651162790697,
+  "pin_rand": 0.046511627906976744,
+  "void": false,
+  "gate": true
+ },
+ "2890": {
+  "seed": 2890,
+  "corpus": "wiki",
+  "n_lines": 400,
+  "n_pop": 51,
+  "hop_ok": 1.0,
+  "n_pin": 2,
+  "n_refuse": 49,
+  "pin_rate": 0.0392156862745098,
+  "pin_rand": 0.21568627450980393,
+  "void": false,
+  "gate": false
+ }
+}

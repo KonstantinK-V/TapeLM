@@ -1,0 +1,33 @@
+{
+ "1337": {
+  "seed": 1337,
+  "corpus": "given",
+  "n_lines": 400,
+  "void": false,
+  "gate": true,
+  "pin": {
+   "n": 765,
+   "questions": 765,
+   "n_df1": 264,
+   "n_df2": 501,
+   "n_empty": 0,
+   "n_const": 68,
+   "n_mixed": 433,
+   "const_live": 0.13572854291417166,
+   "mixed_of_df2": 0.8642714570858283,
+   "const_hit": 1.0,
+   "refuse_mixed": 1.0,
+   "refuse_df1": 1.0,
+   "hop2_sees_pin": 1.0,
+   "k": 8,
+   "working_cells": 1,
+   "think": "agree\u2192pin majority e(P); differ\u2192refuse; missing\u2192refuse"
+  },
+  "compose": {
+   "unique_next": 0.0,
+   "n_const_c": 0,
+   "n_uniq": 0,
+   "hop3_if_live": 0.0
+  }
+ }
+}

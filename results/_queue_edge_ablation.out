@@ -1,0 +1,19 @@
+﻿
+2026-08-10 09:50:49 edge-channel ablation: e_both (control) then e_rare then e_cos; --no-ladder like mcnemar 4.42 baseline
+2026-08-10 09:50:49 289 e_both channels=same,cos,rare
+2026-08-10 11:41:33 EXIT_289_e_both=0
+2026-08-10 11:41:33 289c e_both channels=same,cos,rare
+2026-08-10 13:36:23 EXIT_289c_e_both=0
+2026-08-10 13:36:23 289 e_rare channels=same,rare
+2026-08-10 14:33:39 WATCHDOG: no more 289c - wait e_rare 289, kill any 289c, then e_cos 289 only
+2026-08-10 15:27:13 EXIT_289_e_rare=0
+2026-08-10 15:27:13 289c e_rare channels=same,rare
+2026-08-10 15:27:39 e_rare 289 decision present
+2026-08-10 15:27:40 KILL 289c 24080
+2026-08-10 15:27:40 KILL 289c 2136
+2026-08-10 15:27:40 EXIT_289c_e_rare=-1
+2026-08-10 15:27:40 STOP
+2026-08-10 15:27:40 KILL old queue 24804
+2026-08-10 15:27:40 289 e_cos channels=same,cos
+2026-08-10 17:13:18 EXIT_289_e_cos=0
+2026-08-10 17:13:18 QUEUE_DONE 289-only

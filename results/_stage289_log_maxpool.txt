@@ -1,0 +1,62 @@
+Stage289 derivation start 2026-08-11T10:53:56.753711+00:00 device=cuda holdout=corpus
+  lines: train 127626, eval 54697 (the probe reserves ANCHORS, not lines - see `reserved`)
+  word rule matches stage194: True  (rule=ascii, fp=arc, ink=mean)
+  tape: 814 addresses, 2333 slots | questions {"count": 735, "lookup": 290, "compare": 367} | params 5601
+  ladder coverage: 0/290 lookup questions have all three rungs; the rest train on the task term alone
+  probe pack: 365 reserved addresses (45s to build)
+  probe tape: 200 lookup questions, never trained on; 4570 graphs cached in 430s
+  probe eval: 2.92s x 60 = 2.9 min added to this run
+  step 750/6000 train=1.2649 probe=1.2520
+  step 1500/6000 train=0.8927 probe=1.1394
+  step 2250/6000 train=1.0833 probe=1.1509
+  step 3000/6000 train=1.0856 probe=1.0751
+  step 3750/6000 train=1.3480 probe=1.0552
+  step 4500/6000 train=0.9690 probe=1.0669
+  step 5250/6000 train=1.1358 probe=1.1864
+  step 6000/6000 train=1.0149 probe=1.1345
+  early stop: restored step 4900 (probe 1.0178) of 6000
+  HELD {"count": {"n": 642, "model_accuracy": 1.0, "rival_accuracy": 1.0, "random_floor": 0.20000000000000195}, "compare": {"n": 321, "model_accuracy": 1.0, "rival_accuracy": 1.0, "random_floor": 0.333333333333332}, "lookup": {"n": 266, "model_accuracy": 0.8157894736842105, "rival_accuracy": 0.4924812030075188, "random_floor": 0.3018068140855747, "rival_cos_accuracy": 0.8007518796992481, "rival_cos_answered": 266}, "lookup_paired_vs_rival": {"model_only_right": 98, "rival_only_right": 12, "discordant": 110, "mcnemar_z": 8.199778267512094}, "lookup_paired_vs_rival_cos": {"n": 266, "model_only_right": 10, "rival_only_right": 6, "discordant": 16, "mcnemar_z": 1.0, "max_achievable_z": 4.0, "underpowered": false}, "lookup_paired_vs_rival_cos_by_margin": {"median_margin": 0.03394496440887451, "low_margin": {"n": 134, "model_only_right": 10, "rival_only_right": 3, "discordant": 13, "mcnemar_z": 1.9414506867883021, "max_achievable_z": 3.605551275463989, "underpowered": false}, "high_margin": {"n": 132, "model_only_right": 0, "rival_only_right": 3, "discordant": 3, "mcnemar_z": -1.7320508075688774, "max_achievable_z": 1.7320508075688772, "underpowered": false}}, "ladder": {"n_questions": 0, "pairs": 0, "concordant": 0, "ties_excluded": 0, "import_budget_zero_rate": 0.0, "import_budget_mean": 0.0, "concordance": NaN, "z_vs_half": NaN, "mean_phi": {"true": NaN, "near": NaN, "middle": NaN, "far": NaN}}, "exact_mismatches": 0, "confusion": {"compare|equal->equal": 130, "compare|first->first": 84, "compare|second->second": 107, "count|1->1": 338, "count|2->2": 214, "count|3->3": 45, "count|4->4": 12, "count|5+->5+": 33, "lookup|African->Canadian": 2, "lookup|American->Indians": 1, "lookup|American->Italian": 1, "lookup|American->Spanish": 1, "lookup|Andhra->Andhra": 2, "lookup|Aubame->Aubame": 2, "lookup|Australia->Australia": 2, "lookup|Australia->France": 1, "lookup|Australia->Member": 1, "lookup|Australia->North": 1, "lookup|Battle->Battle": 4, "lookup|Beatles->Beatles": 2, "lookup|Benton->Benton": 2, "lookup|Caligula->Caligula": 3, "lookup|Cambridge->Cambridge": 2, "lookup|Canadian->Brooklyn": 1, "lookup|Canadian->Sufjan": 1, "lookup|Canadian->Veronica": 2, "lookup|China->China": 2, "lookup|Clark->Clark": 2, "lookup|Confederate->Confederate": 2, "lookup|Conqueror->Conqueror": 1, "lookup|Conqueror->Eliza": 1, "lookup|Conqueror->London": 1, "lookup|Dirty->Dirty": 2, "lookup|District->District": 2, "lookup|Doctor->Doctor": 10, "lookup|Dunder->Dunder": 3, "lookup|English->Paris": 2, "lookup|Enterprise->Enterprise": 4, "lookup|European->Battle": 1, "lookup|European->Nielsen": 1, "lookup|Fargo->Carthage": 1, "lookup|Fargo->Fargo": 1, "lookup|France->Australia": 1, "lookup|France->France": 2, "lookup|Fringe->Fringe": 5, "lookup|Frost->Caligula": 1, "lookup|Frost->Frost": 1, "lookup|German->German": 4, "lookup|German->Kaiserliche": 1, "lookup|Green->Green": 2, "lookup|Griffith->Wagga": 2, "lookup|Harrow->Harrow": 2, "lookup|Harvard->Harvard": 2, "lookup|Heinrich->Heinrich": 2, "lookup|Hungarian->Bombay": 2, "lookup|Impact->British": 1, "lookup|Impact->Impact": 1, "lookup|International->International": 3, "lookup|International->Portuguese": 1, "lookup|Ireland->Australia": 2, "lookup|Ireland->Ireland": 1, "lookup|Italian->Spanish": 2, "lookup|Jalisco->Jalisco": 2, "lookup|Jimmy->Jimmy": 2, "lookup|Joint->Joint": 3, "lookup|Keyes->Keyes": 7, "lookup|Korean->Korean": 2, "lookup|Larrabee->Larrabee": 2, "lookup|Lebanon->Lebanon": 2, "lookup|London->London": 6, "lookup|Maharashtra->Maharashtra": 2, "lookup|Margaret->Margaret": 3, "lookup|Mediterranean->Mediterranean": 2, "lookup|Member->Member": 4, "lookup|Mexican->Puerto": 2, "lookup|Mickey->Mickey": 2, "lookup|Middle->Australia": 1, "lookup|Middle->Middle": 1, "lookup|National->National": 2, "lookup|Network->Network": 2, "lookup|Nielsen->Nielsen": 11, "lookup|Norman->Norman": 2, "lookup|North->Australia": 1, "lookup|North->Japan": 1, "lookup|North->North": 6, "lookup|Officers->Officers": 6, "lookup|Olympiads->Olympiads": 2, "lookup|Pearce->Pearce": 5, "lookup|Perth->Perth": 2, "lookup|Philadelphia->Philadelphia": 2, "lookup|Porlock->Porlock": 2, "lookup|Portias->Portias": 2, "lookup|Portuguese->French": 1, "lookup|Portuguese->Portuguese": 2, "lookup|Prince->Prince": 2, "lookup|Records->Records": 18, "lookup|Siberia->Siberia": 2, "lookup|Somerset->American": 1, "lookup|Somerset->Italian": 1, "lookup|South->South": 2, "lookup|Southeast->Australia": 1, "lookup|Southeast->Busan": 1, "lookup|Spanish->American": 1, "lookup|Spanish->Italian": 1, "lookup|Sports->Sports": 2, "lookup|State->State": 3, "lookup|Switzerland->Switzerland": 2, "lookup|Third->Third": 2, "lookup|United->Enterprise": 2, "lookup|United->United": 2, "lookup|Uttarakhand->Uttarakhand": 2, "lookup|Veronica->Fringe": 2, "lookup|Veronica->Veronica": 2, "lookup|Victorian->Victorian": 2, "lookup|Virgin->Duchesses": 1, "lookup|Virgin->Virgin": 1, "lookup|Wedding->Wedding": 3, "lookup|Whitehills->Whitehills": 2, "lookup|Wilhelmshaven->Wilhelmshaven": 2, "lookup|Women->Women": 7, "lookup|Woodcraft->Woodcraft": 2}}
+  CONTROL {"count": {"n": 714, "model_accuracy": 1.0, "rival_accuracy": 1.0, "random_floor": 0.20000000000000062}, "compare": {"n": 357, "model_accuracy": 1.0, "rival_accuracy": 1.0, "random_floor": 0.3333333333333316}, "lookup": {"n": 265, "model_accuracy": 0.7811320754716982, "rival_accuracy": 0.5547169811320755, "random_floor": 0.31817795334975146, "rival_cos_accuracy": 0.769811320754717, "rival_cos_answered": 265}, "lookup_paired_vs_rival": {"model_only_right": 79, "rival_only_right": 19, "discordant": 98, "mcnemar_z": 6.0609152673132645}, "lookup_paired_vs_rival_cos": {"n": 265, "model_only_right": 12, "rival_only_right": 9, "discordant": 21, "mcnemar_z": 0.6546536707079772, "max_achievable_z": 4.58257569495584, "underpowered": false}, "lookup_paired_vs_rival_cos_by_margin": {"median_margin": 0.03358173370361328, "low_margin": {"n": 133, "model_only_right": 11, "rival_only_right": 6, "discordant": 17, "mcnemar_z": 1.212678125181665, "max_achievable_z": 4.123105625617661, "underpowered": false}, "high_margin": {"n": 132, "model_only_right": 1, "rival_only_right": 3, "discordant": 4, "mcnemar_z": -1.0, "max_achievable_z": 2.0, "underpowered": false}}, "ladder": {"n_questions": 0, "pairs": 0, "concordant": 0, "ties_excluded": 0, "import_budget_zero_rate": 0.0, "import_budget_mean": 0.0, "concordance": NaN, "z_vs_half": NaN, "mean_phi": {"true": NaN, "near": NaN, "middle": NaN, "far": NaN}}, "exact_mismatches": 0, "confusion": {"compare|equal->equal": 161, "compare|first->first": 103, "compare|second->second": 93, "count|1->1": 428, "count|2->2": 194, "count|3->3": 48, "count|4->4": 18, "count|5+->5+": 26, "lookup|Afghanistan->Afghanistan": 2, "lookup|Alekhine->Sicilian": 2, "lookup|Australia->Australia": 2, "lookup|Australian->Australian": 1, "lookup|Australian->French": 1, "lookup|Battle->Battles": 1, "lookup|Battle->Siege": 1, "lookup|Battles->Battle": 2, "lookup|Birthday->Birthday": 3, "lookup|Black->Black": 2, "lookup|Bolton->Bolton": 2, "lookup|Brien->Brien": 4, "lookup|Brien->Tucker": 1, "lookup|Carausius->Carausius": 1, "lookup|Carausius->Madhya": 1, "lookup|Chicago->Boston": 1, "lookup|Chicago->Tampa": 1, "lookup|China->Chief": 1, "lookup|China->China": 1, "lookup|Coldplay->Catherine": 1, "lookup|Coldplay->Coldplay": 1, "lookup|Columbia->Victor": 2, "lookup|Conan->Jimmy": 1, "lookup|Conan->Thomas": 1, "lookup|Conqueror->Conqueror": 5, "lookup|Craig->Craig": 2, "lookup|Creative->Creative": 2, "lookup|Diocese->Diocese": 4, "lookup|Eleanor->Eleanor": 2, "lookup|Elizabeth->Elizabeth": 2, "lookup|England->England": 10, "lookup|English->English": 2, "lookup|English->Halland": 1, "lookup|English->Norwegian": 1, "lookup|Europe->Europe": 2, "lookup|Federer->Murray": 1, "lookup|Federer->Nadal": 1, "lookup|Florida->Clemson": 1, "lookup|Florida->Florida": 1, "lookup|French->American": 1, "lookup|French->French": 2, "lookup|French->Welsh": 1, "lookup|Fuchs->Fuchs": 2, "lookup|Gateway->Gateway": 2, "lookup|George->George": 4, "lookup|Great->Great": 2, "lookup|Greece->Greece": 8, "lookup|Halland->English": 2, "lookup|Hammerstein->Hammerstein": 1, "lookup|Hammerstein->Nationwide": 1, "lookup|Henry->Henry": 2, "lookup|Independence->Independence": 2, "lookup|Isaac->Isaac": 2, "lookup|Italy->Italy": 2, "lookup|Joyce->Joyce": 2, "lookup|Kendrick->Chelmsford": 1, "lookup|Kendrick->Queen": 1, "lookup|Korean->Korean": 2, "lookup|Labrador->Quebec": 2, "lookup|Leslie->Leslie": 2, "lookup|Lightship->Lightship": 3, "lookup|Lithuania->Albert": 2, "lookup|Logan->Newark": 1, "lookup|Logan->Washington": 1, "lookup|Malaysia->Brunei": 1, "lookup|Malaysia->Malaysia": 5, "lookup|Margaret->Margaret": 4, "lookup|Married->Melrose": 2, "lookup|Mauritius->Mauritius": 2, "lookup|Mediterranean->Mediterranean": 2, "lookup|Meliphagoidea->Meliphagoidea": 2, "lookup|Melrose->Married": 1, "lookup|Melrose->Melrose": 3, "lookup|Melrose->Party": 1, "lookup|Murray->Djokovic": 1, "lookup|Murray->Murray": 1, "lookup|Netherlands->Netherlands": 1, "lookup|Netherlands->Soviet": 1, "lookup|Neumann->Neumann": 4, "lookup|Nimzo->Nimzo": 2, "lookup|North->Australia": 1, "lookup|North->Bishops": 1, "lookup|North->Edward": 1, "lookup|North->English": 1, "lookup|North->Netheravon": 1, "lookup|North->North": 1, "lookup|Northampton->Northampton": 2, "lookup|Parsons->Parsons": 2, "lookup|Philippines->Philippines": 2, "lookup|Pierre->Pierre": 2, "lookup|Province->Colony": 1, "lookup|Province->Province": 1, "lookup|Rescue->Rescue": 2, "lookup|Scully->Scully": 8, "lookup|Sheffield->Rochdale": 1, "lookup|Sheffield->Sheffield": 1, "lookup|Sicilian->Nimzo": 1, "lookup|Sicilian->Sicilian": 3, "lookup|Smith->Smith": 2, "lookup|South->Rochdale": 1, "lookup|South->Weston": 1, "lookup|Suffolk->Suffolk": 6, "lookup|Sylvanus->Sylvanus": 2, "lookup|Texas->Texas": 2, "lookup|Title->Title": 2, "lookup|Treaty->Treaty": 2, "lookup|Tucker->Tucker": 7, "lookup|United->Kodak": 1, "lookup|United->North": 1, "lookup|United->Southern": 2, "lookup|United->United": 17, "lookup|Vancouver->Vancouver": 2, "lookup|Victor->Victor": 13, "lookup|Vogue->Vogue": 2, "lookup|Welshman->Welshman": 2, "lookup|Western->Western": 3, "lookup|Weston->South": 1, "lookup|Weston->Weston": 1, "lookup|White->White": 2, "lookup|Wimbledon->Australian": 1, "lookup|Wimbledon->Wimbledon": 1, "lookup|World->World": 2}}
+{
+  "overall": "PHI_HELPS_WHERE_SIMILARITY_RUNS_OUT",
+  "gates": {
+    "G_arc_enc_frozen": true,
+    "G_ink_verified": true,
+    "G_task_exists": true,
+    "G_exact_algebra_matches_tape": true,
+    "G_lookup_beats_floor": true,
+    "G_lookup_beats_counts_paired": true,
+    "G_lookup_beats_retrieval_paired": false,
+    "G_phi_orders_negatives": false
+  },
+  "lookup": {
+    "n": 266,
+    "model_accuracy": 0.8157894736842105,
+    "rival_accuracy": 0.4924812030075188,
+    "random_floor": 0.3018068140855747,
+    "rival_cos_accuracy": 0.8007518796992481,
+    "rival_cos_answered": 266
+  },
+  "paired": {
+    "model_only_right": 98,
+    "rival_only_right": 12,
+    "discordant": 110,
+    "mcnemar_z": 8.199778267512094
+  },
+  "ladder": {
+    "n_questions": 0,
+    "pairs": 0,
+    "concordant": 0,
+    "ties_excluded": 0,
+    "import_budget_zero_rate": 0.0,
+    "import_budget_mean": 0.0,
+    "concordance": NaN,
+    "z_vs_half": NaN,
+    "mean_phi": {
+      "true": NaN,
+      "near": NaN,
+      "middle": NaN,
+      "far": NaN
+    }
+  }
+}

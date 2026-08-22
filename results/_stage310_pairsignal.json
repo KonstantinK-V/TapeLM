@@ -1,0 +1,17 @@
+{
+ "bytes": 30000000,
+ "frame_max": 3,
+ "sample": "region",
+ "window_lines": 400,
+ "min_fillers": 2,
+ "slots": 12162,
+ "questions": 1590,
+ "strict": 1142,
+ "cooccur_dropped": 448,
+ "no_distractor": 0,
+ "signal_nonzero": 0.45271453590192645,
+ "mean_true": 0.34938704028021017,
+ "mean_wrong": 0.5140105078809106,
+ "differ_rate": 0.38879159369527144,
+ "separates": 0.3536036036036036
+}

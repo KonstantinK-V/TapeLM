@@ -1,0 +1,4 @@
+Stage283 scale start 2026-08-07T13:51:33.195727+00:00 device=cuda rungs=[(4000000, 400), (30000000, 400), (120000000, 2000)] mind_params=7564290
+  corpus 120.0M chars read (1s)
+  rung 4M:400 -> 38 addr / 91 slots | precision 0.796 | return true 1.000 other 0.040 (sep +0.960) | crowding 0.000 (anchors alone 0.000) foreign 0.000 | k covers 0.974 | ties 0.342 (1s)
+  rung 30M:400 -> 251 addr / 792 slots | precision 0.740 | return true 0.986 other 0.000 (sep +0.986) | crowding 0.195 (anchors alone 0.000) foreign 0.019 | k covers 0.932 | ties 0.446 (28s)

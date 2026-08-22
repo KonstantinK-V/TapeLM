@@ -1,0 +1,7 @@
+C:\Users\Kostya\sote-letter-assembly\_overnight_282.ps1:64 знак:12
++ if ($hard) {
++            ~
+Отсутствует закрывающий знак "}" в блоке операторов или определении типа.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : MissingEndCurlyBrace
+ 

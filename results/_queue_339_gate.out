@@ -1,0 +1,13 @@
+﻿
+2026-08-16 13:12:32 339 gate: same four-seed 336news reach (no new flag) - GATE lines from gateblock
+2026-08-16 13:12:32 ==== BLOCK 339: re-run 336news x4 (native news + wiki rival; free GATE) ====
+2026-08-16 13:12:32 ==== 336news_s1337 rival=minds/320_wiki_s1337.pt ====
+2026-08-16 13:19:29 OK 336news_s1337
+2026-08-16 13:19:29 ==== 336news_s8642 rival=minds/320_wiki_s8642.pt ====
+2026-08-16 13:25:54 OK 336news_s8642
+2026-08-16 13:25:54 ==== 336news_s2890 rival=minds/320_wiki_s2890.pt ====
+2026-08-16 13:32:17 OK 336news_s2890
+2026-08-16 13:32:17 ==== 336news_s4711 rival=minds/320_wiki_s4711.pt ====
+2026-08-16 13:38:41 OK 336news_s4711
+2026-08-16 13:38:41 ==== _read299 339 GATE (held) ====
+2026-08-16 13:38:41 DONE 339 gate

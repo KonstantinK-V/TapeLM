@@ -1,0 +1,237 @@
+From fbc88dd717352500f38522dafe37d5e08eaaa156 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Sat, 8 Aug 2026 06:59:50 +0000
+Subject: [PATCH] 286: rank 8 falsifies capacity - the reading is a lookup key,
+ so strip identity
+
+--frozen-trunk --read-rank 8, same tapes. The reading path shrank 12.8x -
+65,536 to 5,120 trainable parameters, projection included, which the first
+head_norms accounting missed and now counts - and the train fit did not move:
+accuracy 0.897 @ 0.690 identical to the digit, control AUC 0.986 -> 0.996.
+Held out it is the same collapse as full width: 0.353 accuracy, unknown AUC
+0.302 at -2.3 sigma (inverted, third time), lying tape 0.143 at 0.689
+coverage.
+
+A 12.8x capacity cut that changes neither the fit nor the failure means
+capacity was never the binding constraint. Hypothesis (b) follows (a) into the
+ground, and the mechanism left standing is the input itself: a text with its
+names in it is a unique identifier, and a lookup table over unique identifiers
+is cheap at any width. The head does not need 65k parameters to key 1,008
+examples - 5k did it identically.
+
+So the third arm strips identity instead of width. --read-anon folds the
+subject and every candidate value in the READ text to constant common words
+("someone" / "something"), leaving only the phrasing - which is the one part
+of a reading that could conceivably transfer between disjoint corpus halves.
+Stated before the run, so the result can falsify it: the train control may
+stay memorised regardless, because an anonymised sentence is still a unique
+string; the decision is held-out only. If anon beats nohid there, phrasing
+carries signal. If it ties, reading adds nothing at this tape size and nohid
+IS the model. If it still inverts, the channel gets dropped and the stage's
+verdict is that judgment lives in the counters.
+
+The run also caught a gate lying by omission. G_weighs_contested passed at
+0.152 against votes' 0.121 while every other gate failed: two scorers under
+the floor, ranked solemnly. Random choice among the candidates is the null
+that comparison forgot - expected accuracy of a uniform pick, computed per
+example from the candidate count and the target's presence, no constant
+anywhere. by_evidence_shape now reports random_accuracy_contested and the
+gate requires beating it; under that rule this run's lone TRUE flips FALSE.
+
+Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01RYDM9MUk761CZjn7SmTaug
+---
+ HANDOFF.md            | 18 +++++++++++
+ _stage286_evidence.py | 70 +++++++++++++++++++++++++++++++++++++++++--
+ 2 files changed, 85 insertions(+), 3 deletions(-)
+
+diff --git a/HANDOFF.md b/HANDOFF.md
+index 38523ea..e6ef4e9 100644
+--- a/HANDOFF.md
++++ b/HANDOFF.md
+@@ -360,6 +360,24 @@ arm's hour. Next, cheapest first: `--frozen-trunk --read-rank 8` and `--read-ran
+ narrow reading beats nohid, reading carries signal; if it merely ties, it carries none at this
+ tape size and the stage's verdict is that judgment lives in the counters.
+ 
++**Rank 8 killed the capacity story too.** `--frozen-trunk --read-rank 8`: the reading path
++shrank **12.8×** (65,536 → 5,120 trainable params, projection included) and the train fit did
++not move — 0.897 @ 0.690 identical to the digit, control AUC 0.986 → 0.996. Held out: 0.353
++accuracy, `unknown_auc` 0.302 (−2.3σ, inverted again), lying tape 0.143. A capacity cut that
++changes nothing means capacity was never binding: **the reading is a lookup key** — a text
++with its names in it is a unique identifier, and a lookup table over identifiers is cheap at
++any width. (a) trunk ✝, (b) capacity ✝; what remains is (c) identity in the input.
++`--read-anon` folds subject and candidate values in the read text to constant words, leaving
++phrasing — the only part that could transfer. Train control may still memorise (the sentence
++remains a unique string); the question is held-out only. Next run:
++`--frozen-trunk --read-rank 8 --read-anon` (cheap, cache applies). Beats nohid → phrasing
++carries signal; ties → nohid *is* the model; still inverted → drop the channel, verdict
++"judgment lives in the counters".
++
++Also: `G_weighs_contested` passed on that run at 0.152 vs votes' 0.121 — two scorers under the
++floor, ranked solemnly. The gate now also requires beating `random_accuracy_contested`
++(expected accuracy of a uniform pick among the candidates), the null the comparison forgot.
++
+ Nothing here breaches the invariant: `G_arc_enc_frozen` held in every arm and answers are still
+ values from the visible evidence. What reached the weights is a tape-specific *way of reading* —
+ which the invariant does not name, and which the held-out tape catches regardless.
+diff --git a/_stage286_evidence.py b/_stage286_evidence.py
+index dce9db9..82f0d59 100644
+--- a/_stage286_evidence.py
++++ b/_stage286_evidence.py
+@@ -215,6 +215,32 @@ THE FROZEN ARM ANSWERS IT: THE TRUNK IS INNOCENT, THE CAPACITY IS NOT
+   the invariant forbids. What reached them is a tape-specific way of reading - which the
+   invariant does not name, and which the held-out tape catches anyway.
+ 
++------------------------------------------------------------------------------------------
++RANK 8 KILLS THE CAPACITY STORY TOO: THE READING IS A LOOKUP KEY
++
++  --frozen-trunk --read-rank 8. The reading path shrank 12.8x (65,536 -> 5,120 trainable
++  parameters, projection included - the first head_norms count missed the projection and is
++  fixed now) and the train fit DID NOT MOVE: accuracy 0.897 @ 0.690 identical to the digit,
++  control AUC 0.986 -> 0.996. Held out: accuracy 0.353, unknown AUC 0.302 (-2.3 sigma,
++  inverted again), lying tape 0.143 at 0.689 coverage. A 12.8x capacity cut that changes
++  nothing about the fit and nothing about the collapse means capacity was never the binding
++  constraint. The reading is being used as a lookup KEY: a text with its names in it is a
++  unique identifier, and a lookup table from unique identifiers is cheap at any width.
++
++  So (a) trunk and (b) capacity are both dead, and what remains is (c): identity in the input.
++  --read-anon folds the subject and every candidate value in the READ text to constant words,
++  leaving only the phrasing - the one part of a reading that could transfer across disjoint
++  corpora. The whole sentence is still a unique string, so the train control may memorise
++  regardless; the question anon answers is HELD OUT only: does phrasing carry signal? Beats
++  nohid there - it does. Ties nohid - reading adds nothing at this tape size and nohid IS the
++  model. Still inverted - the channel is dropped, and the stage's verdict is that judgment
++  lives in the counters.
++
++  The gate this run exposed: G_weighs_contested passed at 0.152 against votes' 0.121 while
++  every other gate failed - two scorers under the floor, ranked solemnly. Random choice among
++  the candidates is the null that comparison forgot; by_evidence_shape now carries
++  random_accuracy_contested and the gate requires beating it.
++
+   python _stage286_evidence.py --smoke
+   python _stage286_evidence.py --train-steps 6000 --min-mentions 2
+   python _stage286_evidence.py --train-steps 6000 --min-mentions 2 --no-hidden
+@@ -225,6 +251,7 @@ import argparse
+ import json
+ import math
+ import random
++import re
+ import time
+ from collections import Counter, defaultdict
+ from datetime import datetime, timezone
+@@ -521,6 +548,13 @@ def main() -> int:
+     ap.add_argument("--no-hidden", action="store_true",
+                     help="ablation: features only, no reading of the evidence text")
+     ap.add_argument("--frozen-trunk", action="store_true")
++    ap.add_argument("--read-anon", action="store_true",
++                    help="replace the subject and every candidate value in the READ text with "
++                         "fixed common words. The r8 arm showed the reading is used as a lookup "
++                         "key - identity is what memorises, phrasing is the only part that "
++                         "could transfer - so this is the arm that asks whether phrasing alone "
++                         "carries signal. Features keep identity either way; that split is the "
++                         "point.")
+     ap.add_argument("--read-rank", type=int, default=0, metavar="R",
+                     help="project the reading to R dimensions before the head. 0 is the wide "
+                          "512-dim channel that the frozen arm showed memorising the training "
+@@ -537,6 +571,7 @@ def main() -> int:
+     # (a)/(b) discriminator, so the comparison would destroy one of its own halves.
+     tag += "_frozen" if args.frozen_trunk else ""
+     tag += f"_r{args.read_rank}" if args.read_rank else ""
++    tag += "_anon" if args.read_anon else ""
+     LOG_PATH = RES / f"_stage286_log{tag}.txt"
+     LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+     LOG_PATH.write_text("", encoding="utf-8")
+@@ -621,6 +656,24 @@ def main() -> int:
+     # Caching them is exact, not an approximation - and it is what makes a capacity sweep over
+     # the reading channel affordable, since each frozen arm otherwise costs an hour.
+     read_cache: dict[str, torch.Tensor] = {}
++    anon_rx: dict = {}
++
++    def anon_texts(it, ex, texts):
++        # Identity is what memorises; phrasing is what could generalise. A reading with the
++        # names left in is a unique key per example, and the r8 run showed a lookup table
++        # being built on such keys at 5k parameters as happily as at 65k. With subject and
++        # candidate values folded to constants the reading can only say HOW things are said.
++        # The whole text is still a unique string, so the train control may memorise anyway -
++        # the question this answers is held-out only: does phrasing transfer?
++        key = (it["S"], tuple(ex["cands"]))
++        rx = anon_rx.get(key)
++        if rx is None:
++            pats = sorted([it["S"]] + list(ex["cands"]), key=len, reverse=True)
++            rx = re.compile("|".join(re.escape(p) for p in pats), re.IGNORECASE)
++            anon_rx[key] = rx
++        subj = it["S"].lower()
++        return [rx.sub(lambda m: "someone" if m.group(0).lower() == subj else "something", t)
++                for t in texts]
+ 
+     def read_of(texts):
+         if not args.frozen_trunk:
+@@ -641,6 +694,8 @@ def main() -> int:
+             return net(torch.zeros(0, device=device), rows)
+         hs = []
+         for texts in ex["cand_texts"]:
++            if args.read_anon:
++                texts = anon_texts(it, ex, texts)
+             h = read_of(texts)
+             if h is None:
+                 return None
+@@ -679,6 +734,7 @@ def main() -> int:
+             pack = new_pack(rng, train_lines)
+             pairs = loo_pairs(pack)
+             read_cache.clear()          # new tape, new texts; bounds the cache to one tape
++            anon_rx.clear()
+         if not pairs:
+             log("  no multi-mention addresses on this tape")
+             return 1
+@@ -737,7 +793,8 @@ def main() -> int:
+                                 if d_read else 0.0),
+             "features_per_dim": float(w0[:, d_read:].norm()) / math.sqrt(N_FEAT),
+             # what the run is fitting, against what it has to fit it with
+-            "reading_path_params": d_read * 128,
++            "reading_path_params": d_read * 128 + (d_hidden * d_read
++                                                    if net.proj is not None else 0),
+             "distinct_train_examples_est": len(pairs) * max(1, n_steps // tape_period),
+         }
+     log(f"  HEAD NORMS {json.dumps(head_norms)}")
+@@ -761,7 +818,7 @@ def main() -> int:
+         # the honest thing is for the gates to say so rather than for a reader to divide
+         # coverage by unanimity and notice.
+         uni_ans, con_ans, uni_ok, con_ok = [], [], [], []
+-        con_conf, con_forced_ok, con_votes_ans, con_votes_ok = [], [], [], []
++        con_conf, con_forced_ok, con_votes_ans, con_votes_ok, con_rand = [], [], [], [], []
+         for it in p["items"]:
+             if len(it["slots"]) <= MIN_EVIDENCE:
+                 continue
+@@ -825,6 +882,7 @@ def main() -> int:
+                     con_votes_ans.append(int(vj is not None))
+                     if vj is not None:
+                         con_votes_ok.append(int(vj == truth))
++                    con_rand.append((1.0 / len(ex["cands"])) if ex["present"] else 0.0)
+         out = {"n": len(conf), "mean_candidates": _mean(n_cands),
+                "target_unknown_rate": _mean(unknowable), "truncated_rate": trunc / max(1, len(conf)),
+                "silence_reward": args.abstain_reward,
+@@ -874,6 +932,10 @@ def main() -> int:
+             # votes on the same subset, and the mind at votes' coverage there. This is the
+             # comparison the stage's claim actually rests on: on unanimous evidence there is
+             # nothing to weigh and any scorer copies the only value.
++            # expected accuracy of picking a candidate at random: the null that "beats
++            # votes" forgot. The r8 arm passed the old gate at 0.152 against votes' 0.121 -
++            # two scorers under the floor, ranked solemnly.
++            "random_accuracy_contested": _mean(con_rand),
+             "votes_coverage_contested": v_cov,
+             "votes_accuracy_contested": _mean(con_votes_ok),
+             "model_accuracy_at_votes_coverage_contested":
+@@ -985,7 +1047,9 @@ def main() -> int:
+                     and not math.isnan(bes["model_accuracy_at_votes_coverage_contested"])
+                     and not math.isnan(bes["votes_accuracy_contested"])
+                     and bes["model_accuracy_at_votes_coverage_contested"]
+-                    >= bes["votes_accuracy_contested"])
++                    >= bes["votes_accuracy_contested"]
++                    and bes["model_accuracy_at_votes_coverage_contested"]
++                    > bes["random_accuracy_contested"])
+     g_judges = bool(live_judges)
+     g_beats_silence = bool(loo["model"]["reward"] > args.abstain_reward)
+ 
+-- 
+2.43.0
+

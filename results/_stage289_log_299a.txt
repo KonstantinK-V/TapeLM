@@ -1,0 +1,11 @@
+Stage289 derivation start 2026-08-12T19:42:11.992893+00:00 device=cuda holdout=corpus
+  lines: train 7324, eval 3139 (the probe reserves PLACES, not lines - see `reserved`)
+  word rule matches stage194: True  (rule=ascii, fp=hash, ink=mean)
+  hash ink deterministic and digest-faithful: True  {'anagram_cos': -0.0135, 'perm_fixed_points': 1}
+  tape: 3000 addresses, 15733 slots | questions {"reach": 2000, "count": 2724} | params 5633
+  frame_pool: 25204 (expected resample_overlap ~ 0.119)
+  node vector 9 wide, matches the body
+  ladder coverage: 0/0 lookup questions have all three rungs; the rest train on the task term alone
+  probe pack: 2519 reserved addresses (77s to build)
+  probe tape: 60 lookup questions, never trained on; 0 graphs cached (1 view(s)/question) in 0s
+  probe eval: 6640.55s x 16 = 1770.8 min added to this run

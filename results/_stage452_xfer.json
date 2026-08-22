@@ -1,0 +1,68 @@
+{
+ "1337": {
+  "seed": 1337,
+  "void": false,
+  "gate": true,
+  "pos_learned": 1.0,
+  "pos_greedy": 0.0,
+  "pos_ep": 30,
+  "pos_sig": 2,
+  "pos_rate": {
+   "0,4": 1.0,
+   "3,3": 0.0
+  },
+  "neg_frozen": 0.0,
+  "neg_retrain": 1.0,
+  "neg_greedy": 1.0,
+  "neg_ep": 30,
+  "neg_sig": 2,
+  "neg_rate": {
+   "0,4": 0.0,
+   "3,3": 1.0
+  }
+ },
+ "8642": {
+  "seed": 8642,
+  "void": false,
+  "gate": true,
+  "pos_learned": 1.0,
+  "pos_greedy": 0.0,
+  "pos_ep": 30,
+  "pos_sig": 2,
+  "pos_rate": {
+   "0,4": 1.0,
+   "3,3": 0.0
+  },
+  "neg_frozen": 0.0,
+  "neg_retrain": 1.0,
+  "neg_greedy": 1.0,
+  "neg_ep": 30,
+  "neg_sig": 2,
+  "neg_rate": {
+   "0,4": 0.0,
+   "3,3": 1.0
+  }
+ },
+ "2890": {
+  "seed": 2890,
+  "void": false,
+  "gate": true,
+  "pos_learned": 1.0,
+  "pos_greedy": 0.0,
+  "pos_ep": 30,
+  "pos_sig": 2,
+  "pos_rate": {
+   "3,3": 0.0,
+   "0,4": 1.0
+  },
+  "neg_frozen": 0.0,
+  "neg_retrain": 1.0,
+  "neg_greedy": 1.0,
+  "neg_ep": 30,
+  "neg_sig": 2,
+  "neg_rate": {
+   "0,4": 0.0,
+   "3,3": 1.0
+  }
+ }
+}

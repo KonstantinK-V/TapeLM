@@ -1,0 +1,41 @@
+{
+ "1337": {
+  "n": 1500,
+  "stay": 0.0,
+  "random": 0.004,
+  "addr": 0.009333333333333334,
+  "addr_minus_random": 0.005333333333333334,
+  "addr_minus_stay": 0.009333333333333334,
+  "scored": 0.5853333333333334,
+  "working_cells": 0,
+  "seed": 1337,
+  "void": false,
+  "gate": false
+ },
+ "8642": {
+  "n": 1500,
+  "stay": 0.0,
+  "random": 0.006666666666666667,
+  "addr": 0.014,
+  "addr_minus_random": 0.007333333333333333,
+  "addr_minus_stay": 0.014,
+  "scored": 0.5913333333333334,
+  "working_cells": 0,
+  "seed": 8642,
+  "void": false,
+  "gate": false
+ },
+ "2890": {
+  "n": 1500,
+  "stay": 0.0,
+  "random": 0.0026666666666666666,
+  "addr": 0.008,
+  "addr_minus_random": 0.005333333333333334,
+  "addr_minus_stay": 0.008,
+  "scored": 0.5326666666666666,
+  "working_cells": 0,
+  "seed": 2890,
+  "void": false,
+  "gate": false
+ }
+}

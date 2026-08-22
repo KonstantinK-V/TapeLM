@@ -1,0 +1,5 @@
+Stage284 scalefree start 2026-08-07T17:57:52.372662+00:00 rule=margin rungs=[4000000, 30000000, 120000000] mind_params=7564290
+  rung 4000000 produced nothing, skipped
+  rung 30000000 produced nothing, skipped
+  rung 120000000 produced nothing, skipped
+  nothing measured

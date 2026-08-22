@@ -1,0 +1,44 @@
+{
+ "1337": {
+  "seed": 1337,
+  "n": 523,
+  "places": 5340,
+  "close_rate": 0.616098144823459,
+  "truth": 0.5831739961759083,
+  "decoy": 0.6363636363636364,
+  "random": 0.0,
+  "truth_n": 523,
+  "decoy_n": 11,
+  "truth_minus_decoy": -0.05318964018772809,
+  "truth_minus_random": 0.5831739961759083,
+  "gate": false
+ },
+ "8642": {
+  "seed": 8642,
+  "n": 577,
+  "places": 5229,
+  "close_rate": 0.7196189495365602,
+  "truth": 0.729636048526863,
+  "decoy": 0.375,
+  "random": 0.0017513134851138354,
+  "truth_n": 577,
+  "decoy_n": 8,
+  "truth_minus_decoy": 0.35463604852686303,
+  "truth_minus_random": 0.7278847350417492,
+  "gate": true
+ },
+ "2890": {
+  "seed": 2890,
+  "n": 721,
+  "places": 6762,
+  "close_rate": 0.6163671790430829,
+  "truth": 0.6158113730929264,
+  "decoy": 0.4444444444444444,
+  "random": 0.0,
+  "truth_n": 721,
+  "decoy_n": 9,
+  "truth_minus_decoy": 0.17136692864848202,
+  "truth_minus_random": 0.6158113730929264,
+  "gate": true
+ }
+}

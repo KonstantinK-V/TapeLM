@@ -1,0 +1,1471 @@
+diff --git a/HANDOFF.md b/HANDOFF.md
+index c84dc85..41679ad 100644
+--- a/HANDOFF.md
++++ b/HANDOFF.md
+@@ -55,6 +55,80 @@ so there is nothing to bake into the weights as a vocabulary distribution.
+ an answer from several records — is the next step, and the walk's ORDER is still fixed by cosine
+ (the mind chooses whether to use it, not where to go).
+ 
++### WHAT 299 ACTUALLY SETTLED (a–f, four seeds, hash ink, frame tape)
++
++**Void first.** 299a was void as a payoff measurement: reachable 10%, so silence pays 0.975 and
++the mind matched it to four decimals — found_rate 0.0. Correct play, no information. `--reach-no-refuse`
++removes the bet and scores hits instead.
++
++**Replicated, all four seeds.**
++- The filler-bag fingerprint (`--frame-fp fillers`) gives the walk direction: reachable
++  17.95/18.85/20.80/19.45 against reachable_random 1.85/1.65/2.10/2.05. Nine to ten fold.
++  The address fingerprint hashed six characters like `the|of` and carried nothing.
++- ~~The walk saturates at eight places~~ **WRONG, and the control could not have said otherwise.**
++  `reach_reachable` ends in `out[:REACH_CANDS]`, so widening the PLACES to 32 while the CANDIDATE
++  list stays at 8 cannot move the number. The 300 audit measured the real shape: `share` — the
++  truth stands at a frame sharing a filler with this one, the exact ceiling of any filler-bag
++  walk — is **0.575**, against ~0.20 reached. The eight nearest places hold **1060** distinct
++  fillers and the walk names 8 of them. The aperture is the bottleneck, not the fingerprint.
++- `--reach-lookahead` (step logit = max(l2), no blob world) woke the step: 0 → ~1%.
++  `step_vs_size_r` −0.03..−0.07, so row count is not what moves it.
++- Steps are selective: `steps_on_walk_only` 0.64/0.40/0.46 against a 5% walk-only base.
++
++**Refuted.** The walk-only advantage. Seed 1337 read 12/6; the next three read 5/7, 6/6, 9/9.
++Pooled 32 against 28 on 401 questions, z 0.52. A lucky throw, found in 24 minutes of extra seeds.
++
++**Unchanged across everything.** The mind ties counting wherever it is measured: hit_rate ≈
++own_rival_hit_rate, hit_of_own ≈ own_rival_of_own. Live channels are the reason — `rare_nonzero_rate`
++0.0009 is dead, and `cos_mean` near 1 is NOT evidence either way (most row pairs in a world share
++an address, so they share a fingerprint exactly; I once read that number as a channel test and was
++wrong — `reachable_rate` is the test).
++
++**The route beats counting, on four seeds twice over.** At an equal step budget the mind puts
++38 of 77 steps (299f) and 40 of 85 (299h) on walk-only questions; a counting router given the
++same budget puts 8 and 10. Enrichment ~10x against ~2x over a 5% base, and the mind wins on
++every seed of both arms. This is the first replicated win over counting in the line, and it is
++about WHEN to look, not what to say. `--reach-import homes` destroyed it (enrichment fell to
++~1.0, below the counting router) by letting worlds grow with arbitrary imported rows - the
++row-count marker took the step over. Standing arm: `--frame-fp fillers --reach-lookahead
++--reach-import walk`.
++
++**CONFIRMED, on four fresh seeds registered in advance: `--reach-home-cos` beats counting at
++ANSWERING.** On the CONFIRM subset - the answer already stands at the place - pooled 156 against
++74 of 1630, z +5.41, every seed positive (+2.32/+2.88/+3.16/+2.63), +5.0 points of accuracy. It
++is not a blanket preference for local values: every candidate there stands at this place, and
++what separates them is where else they stand.
++
++**The same feature makes walk-only significantly WORSE** - pooled 13/37, z -3.39, a loss and not
++a tie. The mechanism is the feature working as designed against the wrong question: home_cos asks
++whether a value usually stands in places like this one, which is true of a CONFIRM answer by
++construction and false of a walk-only answer by definition. It penalises exactly the answers the
++walk exists to reach.
++
++**And the route is now CONFOUNDED.** With home_cos on fresh seeds, enrichment is
++0.00/1.13/4.74/6.88 against a counting router at 3.02/1.13/2.37/1.97 - two of four, not four of
++four. But the routing win was only ever measured on seeds 1337/8642/5200/2718, so seeds and
++feature moved together. The missing cell is the standing arm WITHOUT home_cos on the four fresh
++seeds; until it is run, the route claim above is not settled.
++
++**300, on the run's own slice: the aperture is the limit, and our tape has no structure because
++we scatter it.** Reachability against the candidate cap over the walk's own eight places: C=8
++0.162, C=16 0.226, C=32 0.262, C=64 0.288, C=all 0.481, against SHARE 0.596 over every sharing
++place. So the slit costs +0.319 and the number of places only +0.115, and the median rank of the
++truth in the walk's list is **21** - the order nearly works and is cut at 8.
++
++And the adjacency test was confounded, in a way that matters beyond the test. `line` fell from
++0.041 to 0.0067 between two audits, exactly with the sampling fraction (7.7% then 1.2% of the
++qualifying frames), and `line_candidates_mean` is 1.089 - a line holds barely one frame OF THE
++TAPE. A tape of 3000 addresses drawn uniformly from 250195 is a scatter of unrelated holes, so
++every relation between places - adjacency, shared anchor, co-occurrence - is diluted eighty-fold
++BY CONSTRUCTION. We looked for structure in an object we had removed it from. `--sample region`
++in the audit builds the same-size tape out of a contiguous stretch of lines instead.
++
++**So: routing works, picking does not.** The open question is whether the routing is a decision
++or a count in a costume — `router` in the report gives a counting router the same step budget and
++prints both enrichments.
++
+ ### READING PROTOCOL FOR 299a — void conditions first, in this order
+ 
+ Any of these fires ⇒ the run is void. Fix and rerun; do not interpret the payoffs.
+diff --git a/_audit300_structure.py b/_audit300_structure.py
+new file mode 100644
+index 0000000..b4a6fe6
+--- /dev/null
++++ b/_audit300_structure.py
+@@ -0,0 +1,234 @@
++"""How much structure is there to compose over - measured before anything is built for it.
++
++WHY THIS COMES FIRST. 299 settled that the mind ties counting nearly everywhere and beats it in
++one corner, and the corner turned out to be the boring one: ceiling 23-27%, of which own_hit is
++18-22% and walk_only about 5%. So roughly four fifths of every answerable question is CONFIRM -
++the hole repeats a filler its own frame already showed - and the walk, the whole point of 299,
++can affect a twentieth of the outcome. Polishing a reader against that is polishing a lookup.
++
++The reason is structural, not statistical. THE FRAME TAPE IS A FLAT BAG OF INDEPENDENT PLACES.
++The parsed tape's address had two halves, so places were tied together by a shared anchor and
++one could ask what a subject's OTHER relations say. That tie went out with the parser - rightly,
++its relation half was a function word - and what replaced it, filler-bag similarity, is not a
++tie between places at all. It is a measure of resemblance, and resemblance lets you find
++something similar; it does not let you put two records together.
++
++So this asks whether the corpus carries a tie we have not used, and it asks in counts only - no
++ink, no training, no model. Three candidate ties, each exact:
++
++  OWN      the truth already stands at this very frame (the CONFIRM case, today's 18-22%)
++  SHARE    it stands at a frame that shares at least one filler with this one. This is the exact
++           ceiling of the filler-bag walk - no fingerprint can reach a place with nothing in
++           common, so whatever the cosine does, it cannot beat this.
++  LINE     it stands at ANOTHER FRAME IN THE SAME LINE. Two frames written in one sentence are
++           about one thing. Counted, no grammar, no stopwords - the same kind of fact the cutter
++           itself is built from.
++  NEAR     the same, one line either side.
++
++What decides whether to build anything is not LINE's size but LINE MINUS (OWN or SHARE): the
++questions only adjacency can answer. And beside it, the price - how many candidates a step along
++the line offers, against the eight the walk offers now. A tie that answers a third of the
++questions by handing over two hundred candidates is not an answer, it is a bigger haystack.
++
++    python _audit300_structure.py                       600 KB, frame_max 3, as 299 ran
++    python _audit300_structure.py --bytes 4000000 --frame-max 3 --addresses 3000
++"""
++from __future__ import annotations
++
++import argparse
++import json
++import random
++from collections import Counter, defaultdict
++from pathlib import Path
++
++import _tape_frames as tframes
++
++WIKI = Path("data/_wikitext103_train.txt")
++OUT = Path("results/_stage300_structure.json")
++
++
++def main() -> int:
++    ap = argparse.ArgumentParser()
++    ap.add_argument("--bytes", type=int, default=4_000_000)
++    ap.add_argument("--frame-max", type=int, default=3)
++    ap.add_argument("--addresses", type=int, default=3000)
++    ap.add_argument("--lines", type=int, default=25000)
++    ap.add_argument("--seed", type=int, default=1337)
++    ap.add_argument("--max-questions", type=int, default=20000)
++    ap.add_argument("--sample", choices=("uniform", "region"), default="uniform",
++                    help="how the tape's addresses are chosen. `uniform` is what every run has "
++                         "done: 3000 drawn from the whole corpus's qualifying frames, 1.2% of "
++                         "250195, so two frames of one sentence are on the tape together about "
++                         "one time in a hundred. `region` takes EVERY frame of a contiguous "
++                         "stretch of lines until the budget is full, which is the same tape "
++                         "size over a connected object")
++    args = ap.parse_args()
++
++    # the same slice the stage takes, so the numbers are comparable to a run rather than to
++    # another audit: same length filter, same 70% cut, same line cap
++    text = WIKI.open("r", encoding="utf-8", errors="ignore").read(args.bytes)
++    all_lines = [l.strip() for l in text.split("\n") if len(l.strip()) >= 80]
++    lines = all_lines[:int(0.7 * len(all_lines))][:args.lines]
++
++    rng = random.Random(args.seed)
++    # frame_keep, not frame_assertions: it hands back `owner`, the line each token came from.
++    # Recovering the line by looking its TEXT up would silently merge duplicate lines into one
++    # and count two unrelated frames as neighbours - the exact direction that would flatter the
++    # thing being tested.
++    keep, toks, owner = tframes.frame_keep(lines, args.frame_max, 2)
++    pool = len(keep)
++    if args.sample == "region":
++        # A TAPE THAT IS A PLACE, NOT A SCATTER. Uniform sampling dilutes every relation between
++        # frames by the sampling ratio - the first audit read line 0.041 at 7.7% of the pool and
++        # 0.0067 at 1.2%, falling with the fraction, which is dilution and not a corpus fact.
++        # Here the window grows line by line and an address is kept with only the mentions that
++        # fall INSIDE it, because a tape that is a region cannot borrow evidence from outside
++        # itself. Fewer mentions per address is the honest price and the report shows it.
++        first = min((min(pos) for _k, pos in keep), default=0)
++        by_line = defaultdict(list)
++        for k, pos in keep:
++            for i in pos:
++                by_line[owner[i]].append((k, i))
++        keep = tframes.frame_region(keep, toks, owner, len(lines), args.addresses, rng)
++        _ = first
++    elif args.addresses and pool > args.addresses:
++        keep = rng.sample(keep, args.addresses)
++    if not keep:
++        print("no tape")
++        return 1
++
++    place, value, line, addrs = [], [], [], []
++    for (w, left, right), pos in keep:
++        name = f"{' '.join(left)}|{' '.join(right)}"
++        addrs.append(name)
++        for i in pos:
++            place.append(name)
++            value.append(toks[i])
++            line.append(owner[i])
++    n = len(place)
++    slots_at = defaultdict(list)                    # place -> its slots
++    fillers_at = defaultdict(set)                   # place -> its distinct fillers
++    places_with = defaultdict(set)                  # filler -> places holding it
++    on_line = defaultdict(list)                     # line -> slots written on it
++    for s in range(n):
++        slots_at[place[s]].append(s)
++        fillers_at[place[s]].add(value[s])
++        places_with[value[s]].add(place[s])
++        if line[s] >= 0:
++            on_line[line[s]].append(s)
++
++    qs = list(range(n))
++    if args.max_questions and n > args.max_questions:
++        qs = rng.sample(qs, args.max_questions)
++
++    # HOW MUCH OF THE WALK'S CEILING THE APERTURE THROWS AWAY.
++    #
++    # reachable_wide was supposed to separate "the tape does not say it" from "our K was too
++    # small", and it could not: reach_reachable ends in out[:REACH_CANDS], so widening the
++    # PLACES while the CANDIDATE list stays at eight cannot move the number. I read the flat
++    # result as the fingerprint's limit and wrote that into HANDOFF. This sweeps the cap
++    # instead, over the walk's own ordering - nearest place first, fillers in tape order,
++    # exactly as reach_candidates takes them.
++    CAPS = (8, 16, 32, 64, 128, 256, 512, 10 ** 9)
++    hit_at = Counter()
++    c = Counter()
++    line_cands, share_cands, line_places, ranks = [], [], [], []
++    for s in qs:
++        p, v, li = place[s], value[s], line[s]
++        # OWN: the truth stands at this frame on some OTHER row - exactly the CONFIRM case
++        own = any(value[t] == v for t in slots_at[p] if t != s)
++        # SHARE: it stands at a frame sharing a filler with this one. The walk's hard ceiling.
++        #
++        # THE HIDDEN ROW IS TAKEN OUT OF THIS PLACE FIRST. Without that, p and every place
++        # holding v share v itself by construction, share collapses onto `anywhere`, and the
++        # audit answers yes to everything. Same discipline as removing the hidden mention from
++        # the query fingerprint in reach_places.
++        seen_here = {value[t] for t in slots_at[p] if t != s}
++        share = any(fillers_at[q] & seen_here for q in places_with[v] if q != p)
++        # LINE: it stands at another frame of the same sentence
++        sib = [t for t in on_line.get(li, ()) if place[t] != p] if li >= 0 else []
++        ln = any(value[t] == v for t in sib)
++        near = ln
++        for d in (-1, 1):
++            if not near and li >= 0:
++                near = any(value[t] == v and place[t] != p for t in on_line.get(li + d, ()))
++        anywhere = len(places_with[v] - {p}) > 0
++
++        c["n"] += 1
++        c["own"] += own
++        c["share"] += share
++        c["line"] += ln
++        c["near"] += near
++        c["anywhere"] += anywhere
++        c["own_or_share"] += (own or share)
++        # THE NUMBER THAT DECIDES. Questions adjacency answers and today's machinery cannot.
++        c["line_only"] += (ln and not (own or share))
++        c["near_only"] += (near and not (own or share))
++        c["nothing"] += not (own or share or ln or near)
++        # and the price of a step along the line, against the eight the walk offers now
++        line_cands.append(len({value[t] for t in sib}))
++        line_places.append(len({place[t] for t in sib}))
++        # the price of the filler walk, ink-free: its eight nearest by SHARED FILLER COUNT,
++        # which is what any filler-bag cosine is approximating
++        near8 = sorted(({q for f in seen_here for q in places_with[f]} - {p}),
++                       key=lambda q: -len(fillers_at[q] & seen_here))[:8]
++        share_cands.append(sum(len(fillers_at[q]) for q in near8))
++        # the walk's own offer, in the walk's own order, and where the truth falls in it
++        seen_c, rank = set(), None
++        for q in near8:
++            for t in slots_at[q]:
++                w = value[t]
++                if w not in seen_c:
++                    seen_c.add(w)
++                    if w == v and rank is None:
++                        rank = len(seen_c)
++        for cap in CAPS:
++            hit_at[cap] += int(rank is not None and rank <= cap)
++        if rank is not None:
++            ranks.append(rank)
++
++    def pct(k):
++        return c[k] / max(1, c["n"])
++
++    rep = {
++        "bytes": args.bytes, "frame_max": args.frame_max, "sample": args.sample,
++        "addresses": len(addrs),
++        "frame_pool": pool, "slots": n, "questions": c["n"],
++        "lines": len(lines), "mentions_per_address": n / max(1, len(addrs)),
++        "own": pct("own"), "share": pct("share"), "line": pct("line"), "near": pct("near"),
++        "anywhere": pct("anywhere"),
++        "own_or_share": pct("own_or_share"),
++        "line_only": pct("line_only"), "near_only": pct("near_only"),
++        "nothing": pct("nothing"),
++        "line_candidates_mean": sum(line_cands) / max(1, len(line_cands)),
++        "line_places_mean": sum(line_places) / max(1, len(line_places)),
++        "share_candidates_mean_at_8": sum(share_cands) / max(1, len(share_cands)),
++        "reachable_at_cap": {("all" if k > 10 ** 8 else k): hit_at[k] / max(1, c["n"])
++                             for k in CAPS},
++        "truth_rank_median": (sorted(ranks)[len(ranks) // 2] if ranks else None),
++        "truth_found_share": len(ranks) / max(1, c["n"]),
++    }
++    OUT.parent.mkdir(parents=True, exist_ok=True)
++    OUT.write_text(json.dumps(rep, indent=1), encoding="utf-8")
++
++    print(f"tape   [{args.sample}] {rep['addresses']} addresses, {n} slots, "
++          f"{rep['mentions_per_address']:.2f} mentions/address, pool {pool}")
++    print(f"reach  own {rep['own']:.3f}  share {rep['share']:.3f} (the walk's exact ceiling)  "
++          f"own_or_share {rep['own_or_share']:.3f}")
++    print(f"ties   line {rep['line']:.3f}  near {rep['near']:.3f}  "
++          f"anywhere {rep['anywhere']:.3f}")
++    print(f"NEW    line_only {rep['line_only']:.3f}   near_only {rep['near_only']:.3f}   "
++          f"unanswerable by anything {rep['nothing']:.3f}")
++    print("APERTURE  reachable when the walk may name the top C fillers of its eight places:")
++    print("          " + "  ".join(f"C={k}:{v:.3f}" for k, v in rep["reachable_at_cap"].items()))
++    print(f"          the truth sits at rank {rep['truth_rank_median']} of that list "
++          f"(median, over the {rep['truth_found_share']:.3f} where it is in the list at all)")
++    print(f"price  a line step offers {rep['line_candidates_mean']:.1f} fillers from "
++          f"{rep['line_places_mean']:.1f} places; the filler walk offers "
++          f"{rep['share_candidates_mean_at_8']:.1f} from 8")
++    print(f"\nwritten to {OUT}")
++    return 0
++
++
++if __name__ == "__main__":
++    raise SystemExit(main())
+diff --git a/_read299.py b/_read299.py
+new file mode 100644
+index 0000000..8c44deb
+--- /dev/null
++++ b/_read299.py
+@@ -0,0 +1,132 @@
++"""Twenty lines out of a two-megabyte report - the numbers 299 is actually read by.
++
++WHY THIS EXISTS. The stage writes everything it measured, which is right: a report that keeps
++only what looked interesting on the day cannot be re-read when the question changes. But the
++file is megabytes, and pasting it into a conversation burns the budget on braces. This prints
++the void conditions first and the claim second, in the order HANDOFF 0 says to read them, and
++nothing else.
++
++    python _read299.py out/_stage289_decision_299e_both.json [more.json ...]
++    python _read299.py out/_stage289_decision_299e_s*.json --held      seeds of one arm
++
++POOLING SEEDS. Given several files it adds the walk-only counts and prints one McNemar over the
++total - the honest way to buy power on a subset of ~104 questions per run: more seeds, same
++mechanism, counts added, not a rerun kept because it read better. It pools only files that agree
++on fingerprint, lookahead, refusal, import budget, places and candidate cap; mixed arms are
++printed side by side and refused, because summing two different configurations produces a
++real-looking z for a comparison nobody made. `--held` drops the train control.
++"""
++from __future__ import annotations
++
++import json
++import math
++import sys
++
++
++VOID = ("reachable_rate", "reachable_random", "reachable_wide", "own_hit_rate", "ceiling",
++        "walk_only_rate", "step_rate")
++CLAIM = ("hit_of_walk_only", "rival_of_walk_only", "hit_rate", "own_rival_hit_rate",
++         "rival_hit_rate", "hit_of_own", "own_rival_of_own", "steps_on_walk_only")
++SIZE = ("cand_places", "world_rows_own", "world_rows_candidate", "world_rows_expand", "world_rows_expand_when_stepped",
++        "world_rows_expand_when_not", "step_vs_size_r")
++
++
++def counts(r):
++    """The walk-only contest as integers. Rates rounded to four places hide the denominator,
++    and on 104 questions the denominator is the whole story."""
++    wp = r.get("walk_only_paired")
++    if wp:
++        return wp["mind_only"], wp["rival_only"], wp["n"]
++    n = int(round(r["walk_only_rate"] * r["n"]))
++    return (int(round(r["hit_of_walk_only"] * n)), int(round(r["rival_of_walk_only"] * n)), n)
++
++
++def z_of(b, c):
++    return (b - c) / math.sqrt(b + c) if b + c else float("nan")
++
++
++def one(path, arm):
++    d = json.load(open(path, encoding="utf-8"))
++    rc = d.get("reach")
++    if not rc or not rc.get(arm):
++        return None
++    r = rc[arm]
++    cfg = (rc.get("frame_fp"), rc.get("lookahead"), rc.get("no_refuse"),
++           d.get("import_k"), rc.get("places"), rc.get("cands_cap"))
++    print(f"\n{path}  [{arm}]  {d['wall_s']:.0f}s  fp={rc.get('frame_fp')} "
++          f"lookahead={rc.get('lookahead')} import={rc.get('import')} "
++          f"no_refuse={rc.get('no_refuse')} seed={d['seed']}")
++    print(f"  tape   resample_overlap {d['resample']['mean_overlap']:.3f}   "
++          f"rare_nnz {d['rare_nonzero_rate']:.5f}   params {d['params']}")
++    # cos_mean is NOT a channel health check: most row pairs in a world share an address and so
++    # share a fingerprint exactly, which pins the average near 1 whatever the ink is doing. It
++    # is printed because it was once read as evidence, and a number that misled once should stay
++    # visible with its warning attached rather than quietly disappear.
++    print(f"  cos    mean {d['cos_mean']:.3f} std {d['cos_std']:.3f}  "
++          f"(dominated by same-address pairs - not a channel test)")
++    print("  void   " + "  ".join(f"{k.replace('_rate', '')} {r[k]:.4f}"
++                                  for k in VOID if k in r))
++    print("  size   " + "  ".join(f"{k.replace('world_rows_', '')} {r[k]:.2f}"
++                                  for k in SIZE if k in r and r[k] == r[k]))
++    print("  claim  " + "  ".join(f"{k} {r[k]:.4f}" for k in CLAIM if k in r and r[k] == r[k]))
++    op = r.get("own_paired")
++    if op and op["n"]:
++        print(f"  CONFIRM    mind {op['mind_only']} / rival {op['rival_only']} of {op['n']}"
++              f"   z {op['mcnemar_z']:+.2f}"
++              f"{'   UNDERPOWERED' if math.sqrt(op['mind_only'] + op['rival_only']) <= 1.645 else ''}")
++    rt = r.get("router")
++    if rt and rt["mind_enrichment"] == rt["mind_enrichment"]:
++        print(f"  ROUTER     stepped {rt['n_stepped']}  mind {rt['mind_enrichment']:.2f}x  "
++              f"counting {rt['count_enrichment']:.2f}x  "
++              f"|own| stepped {rt['n_own_when_stepped']:.2f} vs {rt['n_own_when_not']:.2f}")
++    b, c, n = counts(r)
++    print(f"  WALK-ONLY  mind {b} / rival {c} of {n}   z {z_of(b, c):+.2f}"
++          f"{'   UNDERPOWERED' if math.sqrt(b + c) <= 1.645 else ''}")
++    return b, c, n, cfg
++
++
++def main(argv) -> int:
++    files = [a for a in argv if not a.startswith("--")]
++    if not files:
++        print(__doc__)
++        return 1
++    arms = ["held_out"] if "--held" in argv else ["held_out", "train_control"]
++    tot = {a: [0, 0, 0] for a in arms}
++    con = {a: [0, 0, 0] for a in arms}
++    cfgs = {a: set() for a in arms}
++    for f in files:
++        for a in arms:
++            got = one(f, a)
++            if got:
++                for i in range(3):
++                    tot[a][i] += got[i]
++                cfgs[a].add(got[3])
++                op = json.load(open(f, encoding="utf-8"))["reach"][a].get("own_paired")
++                if op:
++                    con[a][0] += op["mind_only"]
++                    con[a][1] += op["rival_only"]
++                    con[a][2] += op["n"]
++    if len(files) > 1:
++        for a in arms:
++            b, c, n = tot[a]
++            # POOLING IS FOR SEEDS, NOT FOR ARMS. Adding the walk-only counts of two different
++            # configurations answers no question anyone asked: the first version of this script
++            # summed 299d and 299e and printed z 0.00, which is a real-looking number for a
++            # comparison that does not exist. Different arms are reported side by side and never
++            # added.
++            if len(cfgs[a]) > 1:
++                print(f"\nNOT POOLED ({a}): {len(cfgs[a])} different arms among these files. "
++                      f"Pool seeds of ONE configuration; arms are compared, not summed.")
++                continue
++            print(f"\nPOOLED {a} over {len(files)} runs: mind {b} / rival {c} of {n}   "
++                  f"z {z_of(b, c):+.2f}"
++                  f"{'   UNDERPOWERED' if math.sqrt(b + c) <= 1.645 else ''}")
++            cb, cc, cn = con[a]
++            if cn:
++                print(f"POOLED CONFIRM {a} over {len(files)} runs: mind {cb} / rival {cc} "
++                      f"of {cn}   z {z_of(cb, cc):+.2f}")
++    return 0
++
++
++if __name__ == "__main__":
++    raise SystemExit(main(sys.argv[1:]))
+diff --git a/_stage289_derivation.py b/_stage289_derivation.py
+index a5b5a7f..49482f3 100644
+--- a/_stage289_derivation.py
++++ b/_stage289_derivation.py
+@@ -689,7 +689,8 @@ def run_patterns(p, held, bank, device, args):
+         log("  295: empty rule set - need more addresses or lower co-occurrence bar")
+         return 1
+ 
+-    net = Deriver(device, d=args.dim, n_node=8 + (1 if TAPE == "frames" else 0))
++    net = Deriver(device, d=args.dim,
++                  n_node=8 + (1 if TAPE == "frames" else 0) + (1 if REACH_HOME_COS else 0))
+     opt = torch.optim.AdamW(net.parameters(), lr=args.lr, weight_decay=0.01)
+     rng = random.Random(SEED)
+     steps = args.train_steps or 3000
+@@ -861,6 +862,88 @@ REACH_K = 8            # places the walk may reach: a cost bound, like ANCHOR_MA
+ REACH_CANDS = 8        # fillers scored, taken in the walk's own order - nearest place first,
+                        # never by frequency, because frequency is precisely the rival's rule
+ REACH_MAX_Q = 2000     # questions scored per pack: a cost bound, sampled and never truncated
++REACH_MAX_ROWS = 12    # rows of the question's OWN place, the hidden one included.
++                       #
++                       # THE FRAME TAPE HAS NO ANCHOR_MAX_ROWS, and that is what hung 299a. The
++                       # parsed tape capped an anchor's rows; a frame does not, and `the|of` on
++                       # this corpus holds hundreds of mentions - 297 measured 29% of the slot
++                       # mass at places with more than 20 fillers and a worst case of 525. A
++                       # question at such a place asked for |own| worlds of n rows each, with
++                       # graph building quadratic in n: hundreds of worlds over a thousand rows
++                       # is billions of loop iterations on ONE question, which is not slow, it
++                       # is stuck. The same bound also makes worlds comparable in size ACROSS
++                       # questions, which the payoff needs anyway.
++REACH_HOME_COS = False # WHERE THIS VALUE USUALLY STANDS, AS ONE NUMBER.
++                       #
++                       # 299g tried to ask that question by IMPORTING a candidate's mentions
++                       # from elsewhere, and it failed for a reason that was mine and not the
++                       # idea's: outside_mentions returns tape order and the world takes the
++                       # first `budget`, so a frequent filler contributed two arbitrary homes.
++                       # The cosine became noise, worlds grew from 15.3 rows to 17.4, and Phi
++                       # took the row count instead - step_vs_size_r flipped from -0.07 to
++                       # +0.14, the mind began stepping at RICH places (|own| 9.95 against 2.7),
++                       # and the routing win died: enrichment 1.05/0.54/0.92/1.06 against a
++                       # counting router still at 1.75-2.70. Pooled walk-only 4 against 33.
++                       #
++                       # Choosing the most SIMILAR home instead would fix the noise and destroy
++                       # the claim: that argmax is open_rival_cos, a retrieval rival, and doing
++                       # it for the mind is doing the reading for it.
++                       #
++                       # So it is a summary, not a sample. Every place a value stands in, summed
++                       # exactly and hashed, against this place. No row is chosen, no world grows
++                       # by a single row, and the number differs per candidate. The current place
++                       # is subtracted from every candidate alike, so nothing here needs to know
++                       # which value was hidden.
++REACH_IMPORT = "walk"  # WHERE A CANDIDATE'S EVIDENCE COMES FROM, and why `walk` cannot work.
++                       #
++                       # Stage two imported `rows_of[c]` - the rows AT THE WALKED PLACES where
++                       # the value was seen. Under a filler-bag fingerprint every row of one
++                       # place carries the SAME vector, so two candidates found at one place are
++                       # bit-identical in the cosine channel and differ only by `same` and count
++                       # share, which is the rival. With eight candidates drawn from two or three
++                       # places, the whole stage was being decided by counting - measured: the
++                       # mind ties own_rival everywhere while beating it 9.8x against 2.1x on the
++                       # ROUTE. Routing works, picking does not, and this is why.
++                       #
++                       # `homes` imports the candidate's mentions from ELSEWHERE on the tape, as
++                       # the lookup verb always did. Then the cosine asks the question worth
++                       # asking - do this value's usual places resemble this one - and it is a
++                       # different question per candidate.
++TAPE_SAMPLE = "uniform"  # how the tape's addresses are drawn - see _tape_frames.frame_region
++FRAME_FP = "address"   # what a place's fingerprint is made of: the characters of its address,
++                       # or the bag of fillers its hole has held. See new_pack for why the first
++                       # measured spelling rather than place, and blinded the walk and the pick
++                       # with one defect.
++REACH_LOOKAHEAD = False    # WHAT THE STEP IS WORTH IS WHAT LIES BEHIND IT.
++                       #
++                       # 299b: step_rate 0 even with silence gone. The reason is in the logit.
++                       # `expand` was scored as Phi of a SEPARATE world - every row the walk
++                       # returned, piled into one graph with no value asserted - while the
++                       # payoff of stepping is v2, the stage-two expectation. Two unrelated
++                       # quantities: Phi of a blob carries nothing about which candidate would
++                       # win after the step, so no gradient can teach the first from the second.
++                       # It was also by far the largest world in its own softmax (15.3 rows
++                       # against 8.3) and Phi pools mean+max - the bookkeeping tell again.
++                       #
++                       # With lookahead there is no blob and no extra world. The step's logit IS
++                       # max(l2): the best world the walk can build, scored by the same Phi that
++                       # scores the local ones. "Read on" then wins exactly when there is a
++                       # better world behind it, which is the comparison the route was supposed
++                       # to be. MAX, not logsumexp - logsumexp grows with the NUMBER of
++                       # candidates, which would put a count back into the decision.
++REACH_NO_REFUSE = False    # THE ARM THAT TAKES SILENCE AWAY.
++                       #
++                       # 299_hash was void as a payoff measurement and said so in one line:
++                       # reachable_rate 0.1015, so the right answer is "I do not know" on 90% of
++                       # questions, always-silent pays 0.9746, and the mind matched it exactly -
++                       # found_rate 0.0, step_rate 0.0015. That is a correct strategy against
++                       # that payoff, and it tells us nothing about whether the walk can find
++                       # anything. Two questions were tangled: can the mind SEARCH, and should
++                       # it BET. This separates them by removing the bet. No refusal in either
++                       # stage, no payoff - the score is a hit rate against the same rival on
++                       # the same questions, and the ceiling is the tape's own reachability.
++REACH_ROWS_PER_VALUE = 4   # rows kept per filler at a walked place: the budget is IMPORT_K, so
++                           # anything past a small multiple of it is carried and never read
+ 
+ 
+ def reach_index(p):
+@@ -873,7 +956,38 @@ def reach_index(p):
+     if fps is None or not items:
+         return None
+     M = torch.stack([fps[it["slots"][0]] for it in items])
+-    ix = {"items": items, "M": M, "of": {it["address"]: i for i, it in enumerate(items)}}
++    # WHAT EACH PLACE OFFERS, counted once per pack instead of once per question. The walk needs
++    # the distinct fillers of a place in tape order, not its every slot: scanning a 500-mention
++    # frame eight times per question was the other half of 299a's stall. Capped at REACH_CANDS
++    # fillers because no more than that are ever scored, and at REACH_ROWS_PER_VALUE rows each
++    # because the import budget reads only the first few.
++    # (filler, rows, count). The ROWS are capped - the import budget reads only the first few -
++    # but the COUNT is exact over the whole place, because the rival is counting and a rival
++    # given truncated statistics would hand the mind a win it did not earn.
++    fills = []
++    for it in items:
++        seen, order = {}, []
++        for sl in it["slots"]:
++            v = p["tape"].values[sl]
++            if v not in seen:
++                seen[v] = [[], 0]
++                order.append(v)
++            e = seen[v]
++            e[1] += 1
++            if len(e[0]) < REACH_ROWS_PER_VALUE:
++                e[0].append(sl)
++        fills.append([(v, seen[v][0], seen[v][1]) for v in order])
++    # WHERE EACH VALUE LIVES, summed once per pack: the place fingerprints of every slot the
++    # value stands in, and how many. Unnormalised, so this place can be taken back out exactly.
++    hs, hn = {}, Counter()
++    if REACH_HOME_COS:
++        for sl, ad in enumerate(p["straddr"]):
++            v = p["tape"].values[sl]
++            f = fps[sl]
++            hs[v] = f.clone() if v not in hs else hs[v] + f
++            hn[v] += 1
++    ix = {"items": items, "M": M, "fills": fills, "home_sum": hs, "home_n": hn,
++          "of": {it["address"]: i for i, it in enumerate(items)}}
+     p["_reach"] = ix
+     return ix
+ 
+@@ -886,6 +1000,11 @@ def reach_question(p, item, rng, hid):
+     hid %= len(own)
+     qs = own[hid]
+     rows = [s for s in own if s != qs]
++    # SAMPLED, NEVER TRUNCATED - a prefix of a fat frame is its first lines every time, and the
++    # 298 lesson is that a deterministic slice stops being a redraw. The hidden row is never in
++    # the sample: it is appended below as the query row.
++    if len(rows) > REACH_MAX_ROWS - 1:
++        rows = sorted(rng.sample(rows, REACH_MAX_ROWS - 1))
+     return {"verb": "reach", "reach": True, "S": item["S"], "address": item["address"],
+             "hid": hid, "slots": rows + [qs],
+             "vals": [p["tape"].values[s] for s in rows] + [object()],
+@@ -898,10 +1017,25 @@ def reach_places(p, q, k):
+     i = ix["of"].get(q["address"]) if ix else None
+     if i is None:
+         return []
+-    sims = (ix["M"] @ ix["M"][i]).clone()
++    # THE PLACE ASKING THE QUESTION MUST NOT CARRY THE ROW THAT IS HIDDEN. Under a filler-bag
++    # fingerprint the query place would otherwise contain the very value being asked for, and
++    # the walk would find places that share it - the answer leaking through the compass. Taking
++    # one mention back out is subtraction, not knowledge: the row is absent, so its contribution
++    # was never ours to have. Same discipline as ctx_fp(exclude=value).
++    qv = ix["M"][i]
++    if FRAME_FP == "fillers" and p.get("frame_sum") is not None:  # noqa: E501
++        ad = q["address"]
++        n_ad = p["frame_cnt"].get(ad, 0)
++        vf = p["val_fp"].get(q["truth_value"])
++        if n_ad > 1 and vf is not None:
++            qv = F.normalize(p["frame_sum"][ad] - vf, dim=-1)
++    q["_qv"] = qv            # the same corrected vector the home summary is measured against
++    sims = (ix["M"] @ qv).clone()
+     sims[i] = -2.0
+     order = sims.argsort(descending=True)[:k].tolist()
+-    return [(ix["items"][j], float(sims[j])) for j in order]
++    # (index, item, similarity): the index is what reads `fills`, so every reader of the walk -
++    # the mind, the rival and the reachability control - sees the SAME offer from a place
++    return [(j, ix["items"][j], float(sims[j])) for j in order]
+ 
+ 
+ def reach_reachable(p, q, k, rand_rng=None):
+@@ -916,14 +1050,13 @@ def reach_reachable(p, q, k, rand_rng=None):
+     if ix is None:
+         return False
+     if rand_rng is None:
+-        places = [it for it, _ in reach_places(p, q, k)]
++        js = [j for j, _it, _s in reach_places(p, q, k)]
+     else:
+-        pool = [it for it in ix["items"] if it["address"] != q["address"]]
+-        places = rand_rng.sample(pool, min(k, len(pool)))
++        pool = [j for j, it in enumerate(ix["items"]) if it["address"] != q["address"]]
++        js = rand_rng.sample(pool, min(k, len(pool)))
+     seen, out = set(), []
+-    for it in places:
+-        for sl in it["slots"]:
+-            v = p["tape"].values[sl]
++    for j in js:
++        for v, _rows, _c in ix["fills"][j]:
+             if v not in seen:
+                 seen.add(v)
+                 out.append(v)
+@@ -938,22 +1071,50 @@ def reach_candidates(p, q, k=None):
+     """
+     if "_reach_c" in q:
+         return q["_reach_c"]
++    ix = reach_index(p)
+     places = reach_places(p, q, REACH_K if k is None else k)
+     seen, cands, rows_of = set(), [], {}
+-    for it, _sim in places:
+-        for sl in it["slots"]:
+-            v = p["tape"].values[sl]
+-            rows_of.setdefault(v, []).append(sl)
++    for j, _it, _sim in places:
++        for v, rows, _c in ix["fills"][j]:
++            rows_of.setdefault(v, []).extend(rows)
+             if v not in seen:
+                 seen.add(v)
+                 cands.append(v)
+     cands = cands[:REACH_CANDS]
++    rows_of = {c: rows_of[c] for c in cands}   # rows of a value nobody scores are never read
+     out = {"cands": cands, "rows_of": rows_of, "places": places,
+            "own": sorted({p["tape"].values[s] for s in q["slots"][:q["query_row"]]})}
+     q["_reach_c"] = out
+     return out
+ 
+ 
++def reach_home_cos(p, q, value, qv):
++    """cos(where this value usually stands, this place) - with this place taken out of the
++    average for EVERY candidate, so the subtraction carries no news about which was hidden."""
++    ix = p.get("_reach")
++    # qv is set by reach_places, which every reach question passes through before a world is
++    # built. If it is not there the walk never ran, and there is nothing to compare against.
++    if not REACH_HOME_COS or ix is None or not ix["home_sum"] or qv is None:
++        return 0.0
++    hs = ix["home_sum"].get(value)
++    if hs is None:
++        return 0.0
++    here = ix["of"].get(q["address"])
++    if here is None:
++        return 0.0
++    at_place = sum(c for v, _r, c in ix["fills"][here] if v == value)
++    n = ix["home_n"][value] - at_place
++    if n <= 0:
++        return 0.0
++    vec = hs - at_place * ix["M"][here]
++    return float(F.normalize(vec, dim=-1) @ qv)
++
++
++def reach_rows_for(p, q, value, rows):
++    """The evidence a candidate brings: its walked rows, or its homes elsewhere on the tape."""
++    return outside_mentions(p, q, value) if REACH_IMPORT == "homes" else rows
++
++
+ def reach_world(p, q, bank, device, value, rows, budget):
+     """The question's rows, the query row filled in, and up to `budget` rows the walk found for
+     that value. One budget for every candidate, so no world is larger than another."""
+@@ -961,7 +1122,8 @@ def reach_world(p, q, bank, device, value, rows, budget):
+     vals = [p["tape"].values[s] for s in q["slots"][:q["query_row"]]]
+     vals += [value] + [p["tape"].values[s] for s in slots[len(q["slots"]):]]
+     w = {"verb": "lookup", "S": q["S"], "slots": slots, "vals": vals,
+-         "query_row": q["query_row"], "n_first": len(slots)}
++         "query_row": q["query_row"], "n_first": len(slots),
++         "home_cos": reach_home_cos(p, q, value, q.get("_qv"))}
+     return build_graph(p, w, bank, device, query_value=None, import_k=0)
+ 
+ 
+@@ -970,11 +1132,14 @@ def reach_logits(net, p, q, device, bank):
+     values the walk reached, or refuse. Both are worlds scored by the same Phi."""
+     rc = reach_candidates(p, q)
+     own, cands, rows_of = rc["own"], rc["cands"], rc["rows_of"]
+-    budget = min([IMPORT_K] + [len(rows_of[c]) for c in cands]) if cands else 0
++    ev = {c: reach_rows_for(p, q, c, rows_of[c]) for c in cands}
++    # ONE budget for every candidate, so no world is larger than another - unchanged, only the
++    # pool it is taken from moves
++    budget = min([IMPORT_K] + [len(ev[c]) for c in cands]) if cands else 0
+ 
+-    def phi_of(value, rows, b):
++    def world(value, rows, b):
+         q.pop("_base", None)
+-        return net.phi(*reach_world(p, q, bank, device, value, rows, b))
++        return reach_world(p, q, bank, device, value, rows, b)
+ 
+     # SILENCE MUST COST THE SAME NUMBER OF ROWS AS SPEAKING, in each stage separately. At stage
+     # one nothing is imported, so refusing is already the same size as any own-value world. At
+@@ -984,12 +1149,37 @@ def reach_logits(net, p, q, device, bank):
+     # over rows: that is a row-count marker competing directly with the answers, which is the
+     # tell 291 was undone by and 296 only escaped because its 50/50 split made it inert. Nothing
+     # here is 50/50, so it is equalised instead of argued away.
+-    walk_rows = [s for c in cands for s in rows_of[c]]
+-    l1 = [phi_of(v, [], 0) for v in own] + [phi_of(REFUSE_LABEL, [], 0)]
+-    l1.append(phi_of(REFUSE_LABEL, [s for c in cands for s in rows_of[c][:budget]], 10 ** 6))
+-    l2 = [phi_of(c, rows_of[c], budget) for c in cands] + \
+-         [phi_of(REFUSE_LABEL, walk_rows, budget)]
+-    return torch.stack(l1), torch.stack(l2), own, cands
++    # THE WORLDS OF A QUESTION ARE FIXED; ONLY THE WEIGHTS MOVE. The walk is cached, so the rows
++    # of every world are decided the first time and never again. On a question that is scored
++    # once - training - building them each time is the same work; on the PROBE, scored at every
++    # evaluation for the whole run, it is the same graphs rebuilt two dozen times, which is what
++    # `probe_graphs` already spares the lookup verbs. Cached only where it is asked for, because
++    # holding the tensors for every training question would be hundreds of megabytes of tape.
++    g = q.get("_reach_g")
++    if g is None:
++        walk_rows = [s for c in cands for s in ev[c]]
++        g1 = [world(v, [], 0) for v in own]
++        if not REACH_NO_REFUSE:
++            g1.append(world(REFUSE_LABEL, [], 0))
++        # the step is ALWAYS the last stage-one option: reach_loss reads p1[-1] as the step.
++        # Under lookahead it is not a world at all - it is max(l2), appended after scoring.
++        if not REACH_LOOKAHEAD:
++            g1.append(world(REFUSE_LABEL, [s for c in cands for s in ev[c][:budget]],
++                            10 ** 6))
++        g2 = [world(c, ev[c], budget) for c in cands]
++        # a walk that reached nothing still has to produce a softmax, so stage two keeps its
++        # refusal when there is no candidate to say - the one case where silence is not a bet
++        if not REACH_NO_REFUSE or not cands:
++            g2.append(world(REFUSE_LABEL, walk_rows, budget))
++        g = (g1, g2)
++        if q.get("_keep_g"):
++            q["_reach_g"] = g
++    g1, g2 = g
++    l1 = torch.stack([net.phi(*x) for x in g1])
++    l2 = torch.stack([net.phi(*x) for x in g2])
++    if REACH_LOOKAHEAD:
++        l1 = torch.cat([l1, l2.max().reshape(1)])
++    return l1, l2, own, cands
+ 
+ 
+ def reach_reward(q, names, answerable, device):
+@@ -1002,6 +1192,14 @@ def reach_reward(q, names, answerable, device):
+     return R
+ 
+ 
++def reach_names(own, cands):
++    """Stage-one and stage-two option names, in the order their worlds were built. One
++    definition, because the loss, the exam and the report must not disagree about what the
++    columns of a softmax mean."""
++    tail = [] if REACH_NO_REFUSE else [REFUSE_LABEL]
++    return own + tail, cands + ([REFUSE_LABEL] if (tail or not cands) else [])
++
++
+ def reach_answerable(p, q):
+     return q["truth_value"] in set(reach_candidates(p, q)["cands"])
+ 
+@@ -1009,8 +1207,9 @@ def reach_answerable(p, q):
+ def reach_loss(net, p, q, device, bank):
+     l1, l2, own, cands = reach_logits(net, p, q, device, bank)
+     ans = q["truth_value"] in set(cands)
+-    R1 = reach_reward(q, own + [REFUSE_LABEL], ans, device)
+-    R2 = reach_reward(q, cands + [REFUSE_LABEL], ans, device)
++    n1, n2 = reach_names(own, cands)
++    R1 = reach_reward(q, n1, ans, device)
++    R2 = reach_reward(q, n2, ans, device)
+     p1, p2 = torch.softmax(l1, 0), torch.softmax(l2, 0)
+     v2 = (p2 * R2).sum() - STEP_COST
+     return -((p1[:-1] * R1).sum() + p1[-1] * v2)
+@@ -1023,10 +1222,12 @@ def reach_rival(p, q):
+     places = rc["places"]
+     if not places:
+         return None, -1.0
+-    it, s0 = places[0]
+-    vals = [p["tape"].values[s] for s in it["slots"]]
+-    best = Counter(vals).most_common(1)[0][0]
+-    return best, (s0 - places[1][1]) if len(places) > 1 else 1.0
++    j0, _it, s0 = places[0]
++    # most frequent filler AT THAT PLACE, counted over the rows the walk actually offers - the
++    # same rows the mind is given, so the rival is not graded on evidence the mind never saw
++    fills = reach_index(p)["fills"][j0]
++    best = max(enumerate(fills), key=lambda e: (e[1][2], -e[0]))[1][0] if fills else None
++    return best, (s0 - places[1][2]) if len(places) > 1 else 1.0
+ 
+ 
+ def reach_questions_for(p, r):
+@@ -2362,20 +2563,25 @@ def graph_base(p, q, bank, device):
+     slots = list(q["slots"])
+     n = len(slots)
+     ck, ws = p.setdefault("_ctx", {}), p.setdefault("_words", {})
++    # UNDER FRAMES THE MENTION FINGERPRINT IS NEVER READ: `allc` below is the frame fingerprints,
++    # not these. Computing ctx_fp anyway was one encoder forward per slot, discarded - the whole
++    # of the first probe's 6640s. Only the words survive into `shared`, so only the words are cut.
++    frames = bool(p.get("frame_mode") and p.get("frame_fps") is not None)
+     for sl in set(slots):
+-        if sl not in ck:
++        if sl not in ws:
++            ws[sl] = set(context_words(p["texts"][sl], exclude=p["tape"].values[sl]))
++        if not frames and sl not in ck:
+             c = bank.ctx_fp(p["texts"][sl], exclude=p["tape"].values[sl])
+             ck[sl] = F.normalize(c, dim=-1) if c is not None else None
+-            ws[sl] = set(context_words(p["texts"][sl], exclude=p["tape"].values[sl]))
+     med = p.get("_median")
+     if med is None:
+         lens = sorted(len(v) for v in p["postings"].values())
+         med = lens[len(lens) // 2] if lens else 1
+         p["_median"] = med
+-    allc, allw = [ck[s] for s in slots], [ws[s] for s in slots]
+     # same as build_graph: under frames, cosine is frame-frame, not mention-context
+-    if p.get("frame_mode") and p.get("frame_fps") is not None:
+-        allc = [p["frame_fps"][s] if s < len(p["frame_fps"]) else None for s in slots]
++    allw = [ws[s] for s in slots]
++    allc = ([p["frame_fps"][s] if s < len(p["frame_fps"]) else None for s in slots] if frames
++            else [ck[s] for s in slots])
+     cos, shared = torch.zeros(n, n), torch.zeros(n, n)
+     if FAST_COS and n > 1 and any(c is not None for c in allc):
+         d0 = next(c for c in allc if c is not None)
+@@ -2507,6 +2713,9 @@ def graph_from_base(p, q, bank, device, query_value):
+            b["qmargin"]]
+           + ([math.log1p(nfill[slots[i]]) / math.log1p(nfill_max)
+               if slots[i] < len(nfill) else 0.0] if nfill is not None else [])
++          # WHERE THIS VALUE USUALLY STANDS, against this place. Only the answered row carries
++          # it: it is a property of what the world asserts, not of the evidence around it.
++          + ([float(q.get("home_cos", 0.0)) if i == qrow else 0.0] if REACH_HOME_COS else [])
+           for i in range(n)]
+     if b["isown"] is not None:
+         for i in range(n):
+@@ -2547,22 +2756,26 @@ def build_graph(p, q, bank, device, query_value=None, import_k=None):
+             vals.append(p["tape"].values[sl])
+     n = len(slots)
+     ck, ws = p.setdefault("_ctx", {}), p.setdefault("_words", {})
++    # UNDER FRAMES THE MENTION FINGERPRINT IS NEVER READ: `allc` below is the frame fingerprints,
++    # not these. Computing ctx_fp anyway was one encoder forward per slot, discarded - the whole
++    # of the first probe's 6640s. Only the words survive into `shared`, so only the words are cut.
++    frames = bool(p.get("frame_mode") and p.get("frame_fps") is not None)
+     for sl in set(slots):
+-        if sl not in ck:
++        if sl not in ws:
++            ws[sl] = set(context_words(p["texts"][sl], exclude=p["tape"].values[sl]))
++        if not frames and sl not in ck:
+             c = bank.ctx_fp(p["texts"][sl], exclude=p["tape"].values[sl])
+             ck[sl] = F.normalize(c, dim=-1) if c is not None else None
+-            ws[sl] = set(context_words(p["texts"][sl], exclude=p["tape"].values[sl]))
+     med = p.get("_median")
+     if med is None:
+         lens = sorted(len(v) for v in p["postings"].values())
+         med = lens[len(lens) // 2] if lens else 1
+         p["_median"] = med
+-    allc = [ck[s] for s in slots]
+-    allw = [ws[s] for s in slots]
+     # 298: cosine between FRAMES, not between mention contexts - interpolation in the mind.
+     # Writing already fixed each frame as its own address; here Phi sees which frames are near.
+-    if p.get("frame_mode") and p.get("frame_fps") is not None:
+-        allc = [p["frame_fps"][s] if s < len(p["frame_fps"]) else None for s in slots]
++    allw = [ws[s] for s in slots]
++    allc = ([p["frame_fps"][s] if s < len(p["frame_fps"]) else None for s in slots] if frames
++            else [ck[s] for s in slots])
+     same = torch.zeros(n, n)
+     cos = torch.zeros(n, n)
+     shared = torch.zeros(n, n)
+@@ -2702,6 +2915,10 @@ def build_graph(p, q, bank, device, query_value=None, import_k=None):
+          + ([math.log1p(p["frame_nfill"][slots[i]]) / math.log1p(p.get("frame_nfill_max", 1))
+              if slots[i] < len(p["frame_nfill"]) else 0.0]
+             if p.get("frame_mode") and p.get("frame_nfill") is not None else [])
++         # the same tail graph_from_base carries. Reach worlds never arrive here - they are k=0
++         # and go through the base - but a node vector one wide in one builder and not the other
++         # is a crash waiting for the first arm that does come this way.
++         + ([float(q.get("home_cos", 0.0)) if i == qrow else 0.0] if REACH_HOME_COS else [])
+          for i in range(n)], dtype=torch.float32, device=device)
+     return E, same.unsqueeze(-1).to(device), nf
+ 
+@@ -2829,11 +3046,17 @@ def main() -> int:
+         ROW_DROPOUT, VIEW_MODE, NEIGHBOURS, REFUSE, GRAPH_CACHE, OPEN, OBJECTIVE, \
+         IDENTITY, IDENT_VALUES, IDENT_TAU, IDENT_OVERLAP, IDENT_CANDS, IDENT_CORE, \
+         IDENT_IMPORT, ADDRESS_FROM, OPEN_CANDS, ANCHOR_MAX_ROWS, PATTERNS, PAT_W, MIXED, \
+-        TAPE, ROUTE, STEP_COST, FRAME_MAX, REACH, REACH_K, REACH_CANDS, REACH_MAX_Q
++        TAPE, ROUTE, STEP_COST, FRAME_MAX, REACH, REACH_K, REACH_CANDS, REACH_MAX_Q, \
++        REACH_MAX_ROWS, REACH_NO_REFUSE, REACH_LOOKAHEAD, FRAME_FP, REACH_IMPORT, \
++        REACH_HOME_COS, TAPE_SAMPLE
+     ap = argparse.ArgumentParser()
+     ap.add_argument("--smoke", action="store_true")
+     ap.add_argument("--train-steps", type=int, default=0)
+     ap.add_argument("--tape-period", type=int, default=50)
++    ap.add_argument("--cpu", action="store_true",
++                    help="run on the CPU even when a card is present. Under frames+reach the "
++                         "graphs are a handful of rows and Phi is 5.6k parameters, so the GPU "
++                         "spends its time on launch latency and its memory on the allocator")
+     ap.add_argument("--addresses", type=int, default=0)
+     ap.add_argument("--min-mentions", type=int, default=2)
+     ap.add_argument("--address-tau", type=float, default=0.90)
+@@ -3021,6 +3244,40 @@ def main() -> int:
+                          "arrive on their own, and the rival is the same walk without a mind.")
+     ap.add_argument("--reach-k", type=int, default=REACH_K)
+     ap.add_argument("--reach-cands", type=int, default=REACH_CANDS)
++    ap.add_argument("--reach-home-cos", action="store_true",
++                    help="give the answered row one number: the cosine between where this value "
++                         "usually stands on the tape and this place. A summary, not a sample - "
++                         "no row is chosen and no world grows, which is what 299g got wrong")
++    ap.add_argument("--reach-import", choices=("walk", "homes"), default=REACH_IMPORT,
++                    help="what a stage-two candidate brings with it: the rows at the walked "
++                         "places (`walk`, which makes candidates from one place identical in "
++                         "the cosine channel) or its own mentions elsewhere on the tape "
++                         "(`homes`, the lookup verb's import)")
++    ap.add_argument("--tape-sample", choices=("uniform", "region"), default=TAPE_SAMPLE,
++                    help="uniform draws 3000 addresses from the whole corpus, which dilutes "
++                         "every relation between places by the sampling ratio; region takes "
++                         "every frame of a contiguous stretch of lines instead, and the 300 "
++                         "audit measured what that changes")
++    ap.add_argument("--frame-fp", choices=("address", "fillers"), default=FRAME_FP,
++                    help="what a place's fingerprint is. `address` hashes the characters of "
++                         "`left|right`, which at width 1 is six characters and collides - the "
++                         "run measured cos mean 0.918. `fillers` hashes the bag of what stood "
++                         "in the hole, counted with repetition")
++    ap.add_argument("--reach-lookahead", action="store_true",
++                    help="score the step as max(stage-two logits) instead of as Phi of a "
++                         "separate pile-of-rows world. 299b had step_rate 0: the step's logit "
++                         "and the step's payoff were unrelated quantities, so nothing could "
++                         "teach the one from the other")
++    ap.add_argument("--reach-no-refuse", action="store_true",
++                    help="take silence away in both stages of the walk. 299_hash was void as a "
++                         "payoff measurement - the truth is reachable 10% of the time, so "
++                         "always-silent is the optimal play and the mind found it. This arm "
++                         "asks the other question on its own: can the walk find anything")
++    ap.add_argument("--reach-max-rows", type=int, default=REACH_MAX_ROWS,
++                    help="rows of the question's own place, the hidden one included. The frame "
++                         "tape has no ANCHOR_MAX_ROWS and a frame like `the|of` holds hundreds "
++                         "of mentions; graph building is quadratic in rows, so this is what "
++                         "keeps a fat frame from being a question nobody can finish")
+     ap.add_argument("--reach-max-q", type=int, default=REACH_MAX_Q,
+                     help="questions scored per pack. ~12 graphs each, so this is the run's "
+                          "length dial; 0 scores every one of them.")
+@@ -3063,7 +3320,11 @@ def main() -> int:
+     PATTERNS, PAT_W = args.patterns, args.pat_witnesses
+     MIXED = args.mixed
+     REACH, REACH_K, REACH_CANDS = args.reach, args.reach_k, args.reach_cands
+-    REACH_MAX_Q = args.reach_max_q
++    REACH_MAX_Q, REACH_MAX_ROWS = args.reach_max_q, args.reach_max_rows
++    REACH_NO_REFUSE, REACH_LOOKAHEAD = args.reach_no_refuse, args.reach_lookahead
++    FRAME_FP, REACH_IMPORT = args.frame_fp, args.reach_import
++    TAPE_SAMPLE = args.tape_sample
++    REACH_HOME_COS = args.reach_home_cos
+     if REACH and args.tape != "frames":
+         log("  --reach walks by frame fingerprint: it needs --tape frames")
+         return 1
+@@ -3187,7 +3448,11 @@ def main() -> int:
+     LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+     LOG_PATH.write_text("", encoding="utf-8")
+ 
+-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
++    # --cpu, and it is not a fallback. Under frames+reach the graphs are a handful of rows and
++    # Phi is 5.6k parameters: every `.to(device)` is a kernel launch costing more than the
++    # arithmetic it carries, thousands of them per step, which is why the card reads 3.8/4.0 GB
++    # of caching-allocator memory at 0% utilisation. Nothing here is large enough to want a GPU.
++    device = torch.device("cuda" if torch.cuda.is_available() and not args.cpu else "cpu")
+     rng = random.Random(SEED)
+     torch.manual_seed(SEED)
+     t0 = time.time()
+@@ -3342,7 +3607,7 @@ def main() -> int:
+         asrt = None
+         if TAPE == "frames":
+             asrt, _fa, _pool = tframes.frame_assertions(
+-                lines, FRAME_MAX, 2, n_addr_over or n_addr, r)
++                lines, FRAME_MAX, 2, n_addr_over or n_addr, r, TAPE_SAMPLE)
+             FRAME_POOL[0] = _pool
+         p = s280.pack_from_corpus(lines, bank=write_bank, tok=tok, pad_id=pad_id, device=device,
+                                   rng=r, n_addr=n_addr_over or n_addr,
+@@ -3365,9 +3630,47 @@ def main() -> int:
+             fill = defaultdict(set)
+             for sl, ad in enumerate(sa):
+                 fill[ad].add(p["tape"].values[sl])
+-            cache = {}
+-            for ad in fill:
+-                cache[ad] = F.normalize(bank.fp([ad])[0].float(), dim=-1)
++            # ONE call, not one per address. `bank.fp` takes a list; calling it 4596 times was
++            # 4596 forward passes of the arc encoder with a batch of one, which is where the
++            # first probe's 6640s went. Same numbers, one batch.
++            def _fps(strings):
++                out = {}
++                for b0 in range(0, len(strings), 512):
++                    ch = strings[b0:b0 + 512]
++                    M = bank.fp(ch).float()
++                    out.update({t: M[i] for i, t in enumerate(ch)})
++                return out
++
++            keys = list(fill)
++            if FRAME_FP == "fillers":
++                # WHAT A PLACE IS, RATHER THAN HOW ITS ADDRESS IS SPELLED.
++                #
++                # The address fingerprint was hash over character trigrams of the string
++                # `left|right`. At frame_max 3 most frames are width 1, so the address is six
++                # characters like `the|of`, thousands of them collide, and the run measured the
++                # consequence: cos mean 0.918, std 0.188. That single defect blinded BOTH halves
++                # of 299 - the walk went to similarly SPELLED frames rather than similar places
++                # (reachable 10%), and stage two compared imported rows through the same flat
++                # cosine, leaving count share as the only live discriminator, which is exactly
++                # the rival. One cause, two symptoms.
++                #
++                # A place is the bag of what stood in its hole. Counted with repetition, so it
++                # is exact; hashed, so the ink is still a pure function that has not read the
++                # corpus. The interpolation stays where it belongs - the reader's cosine.
++                vfp = _fps(sorted({p["tape"].values[sl] for sl in range(len(sa))}))
++                acc, cnt = {}, Counter()
++                for sl, ad in enumerate(sa):
++                    v = vfp[p["tape"].values[sl]]
++                    acc[ad] = v.clone() if ad not in acc else acc[ad] + v
++                    cnt[ad] += 1
++                # kept UNNORMALISED as well, so one mention can be taken back out exactly -
++                # see reach_places: the query place must not carry the row that is hidden
++                p["frame_sum"], p["frame_cnt"], p["val_fp"] = acc, cnt, vfp
++                cache = {ad: F.normalize(acc[ad], dim=-1) for ad in acc}
++            else:
++                cache = {ad: v for ad, v in
++                         zip(keys, [F.normalize(x, dim=-1) for x in
++                                    (_fps(keys)[k] for k in keys)])}
+             p["frame_fps"] = [cache[ad] for ad in sa]
+             # how many different values this place has taken. A count, so it is exact and may
+             # decide; 297 measured it as the quality signal that width is not - a frame with two
+@@ -3397,7 +3700,8 @@ def main() -> int:
+     # 290's own-row bit. A width that disagrees with the graph is a shape crash mid-run.
+     net = Deriver(device, d=args.dim,
+                   n_edge=3 + (len(EDGES_NB) if NEIGHBOURS else 0),
+-                  n_node=8 + (1 if TAPE == "frames" else 0) + (1 if NEIGHBOURS else 0),
++                  n_node=8 + (1 if TAPE == "frames" else 0) + (1 if NEIGHBOURS else 0)
++                  + (1 if REACH_HOME_COS else 0),
+                   grown=len(EDGES_NB) if NEIGHBOURS else 0)
+     opt = torch.optim.AdamW(net.parameters(), lr=args.lr, weight_decay=0.01)
+     n_params = int(sum(x.numel() for x in net.parameters()))
+@@ -3499,6 +3803,10 @@ def main() -> int:
+     # Memory is a few megabytes: n is a handful of rows, so each graph is a few hundred floats.
+     t_probe = time.time()
+     probe_graphs = []
++    for q in probe_qs if REACH else ():
++        # the reach path has no view machinery and no candidate list, so its graphs are cached
++        # on the question itself the first time reach_logits builds them - see `_keep_g`.
++        q["_keep_g"] = True
+     pv_rng = random.Random(SEED + 6060)   # deterministic views: the probe must be the same
+     for q in (() if REACH else probe_qs):  # measurement at every evaluation
+         qvs, qm = views_and_mask(q, pv_rng, device)
+@@ -3648,11 +3956,12 @@ def main() -> int:
+                 # scored here and skips the rest entirely.
+                 l1, l2, own, cands = reach_logits(net, p, q, device, bank)
+                 ansble = q["truth_value"] in set(cands)
+-                if int(l1.argmax()) == len(own) + 1:
+-                    stepped, names, lgr = 1, cands + [REFUSE_LABEL], l2
++                n1, n2 = reach_names(own, cands)
++                if int(l1.argmax()) == len(n1):        # the step is the last option, always
++                    stepped, names, lgr = 1, n2, l2
+                 else:
+-                    stepped, names, lgr = 0, own + [REFUSE_LABEL], l1[:-1]
+-                said = names[int(lgr.argmax())]
++                    stepped, names, lgr = 0, n1, l1[:-1]
++                said = names[int(lgr.argmax())] if len(names) else REFUSE_LABEL
+                 rv, rmg = reach_rival(p, q)
+                 # HOW BIG THE WORLDS WERE, so the step can be checked against the one thing it
+                 # must not be deciding on. Phi pools mean+max over rows: a mean over more rows
+@@ -3663,17 +3972,46 @@ def main() -> int:
+                 # away (1/n is already a node feature) but expressible is not learned, so it
+                 # gets measured rather than assumed.
+                 _rc = reach_candidates(p, q)
+-                _b = (min([IMPORT_K] + [len(_rc["rows_of"][c]) for c in cands])
+-                      if cands else 0)
++                _ev = {c: reach_rows_for(p, q, c, _rc["rows_of"][c]) for c in cands}
++                _b = min([IMPORT_K] + [len(_ev[c]) for c in cands]) if cands else 0
+                 _base = len(q["slots"])
+-                _nexp = _base + len({s for c in cands for s in _rc["rows_of"][c][:_b]}
+-                                    - set(q["slots"]))
++                _nexp = _base + len({s for c in cands for s in _ev[c][:_b]} - set(q["slots"]))
+                 reach_rows.append([int(ansble), int(said == REFUSE_LABEL),
+                                    int(said == q["truth_value"]), float(rmg),
+                                    int(rv == q["truth_value"]), stepped, len(cands),
+                                    _base + _b, _nexp,
+                                    int(reach_reachable(p, q, REACH_K * 4)),
+-                                   int(reach_reachable(p, q, REACH_K, wrng))])
++                                   int(reach_reachable(p, q, REACH_K, wrng)),
++                                   int(q["truth_value"] in set(own)),
++                                   # THE RIVAL FOR WHAT THE MIND IS ACTUALLY DOING. reach_rival
++                                   # answers from the nearest WALKED place and never looks at
++                                   # the question's own rows - but with step_rate 0 every hit
++                                   # the mind scores comes from exactly those rows, so the two
++                                   # were not comparable. Counting the own rows is the strong
++                                   # opponent here, and it is 286's majority rival unchanged.
++                                   int(lookup_rival(q) == q["truth_value"]),
++                                   # WHAT A COUNTING ROUTER WOULD SEE. Selectivity replicated
++                                   # where the walk-only hits did not - 40-64% of steps land on
++                                   # 5% of questions - so it has to be priced against counting
++                                   # before it is called a decision. The suspicion is concrete:
++                                   # a place whose visible rows carry one repeated value has a
++                                   # degenerate local softmax AND is more likely to hide a value
++                                   # that is not there, so |own| alone could produce the whole
++                                   # effect. These two columns are everything such a router
++                                   # could route on.
++                                   len(own),
++                                   max(Counter(p["tape"].values[s2]
++                                               for s2 in q["slots"][:q["query_row"]]).values()),
++                                   _rc["n_places"],
++                                   # THE SIZE OF A LOCAL WORLD, next to the candidate worlds
++                                   # already reported. Under lookahead the step's logit IS
++                                   # max(l2), and stage-two worlds carry `budget` rows the
++                                   # stage-one worlds do not, so the two sides of that argmax
++                                   # are systematically different sizes. The offset is nearly
++                                   # constant, so it moves HOW OFTEN the mind steps rather than
++                                   # WHICH questions it steps on - which is what the router
++                                   # measures - but that is an argument, and this is a number.
++                                   _base])
+                 continue
+             if v == "lookup":
+                 if VIEWS > 1:
+@@ -4176,11 +4514,96 @@ def main() -> int:
+                 "correct_silence": (sum(x[1] for x in no) / len(no)) if no else float("nan"),
+                 "false_silence": (sum(x[1] for x in yes) / len(yes)) if yes else float("nan"),
+                 "step_rate": sum(x[5] for x in rows) / n,
++                # WITHOUT SILENCE THESE ARE THE WHOLE SCORE. `own_hit_rate` is the share of
++                # questions whose answer was already at the place - a CONFIRM row, no walk
++                # needed - and `ceiling` is everything the two stages together could possibly
++                # say correctly. A hit rate has to be read against that, not against 1.0.
++                "own_hit_rate": sum(x[11] for x in rows) / n,
++                "own_rival_hit_rate": sum(x[12] for x in rows) / n,
++                # PAIRED ON THE CONFIRM SUBSET, for the same reason walk_only_paired exists:
++                # two rates over ~1605 questions are two bets, and only the discordant pairs
++                # carry the contrast. 299h moved here and not where the pre-registered claim
++                # was looking, so the counts have to be readable rather than inferred from
++                # rounded rates - I estimated z at 3-4 from the rates alone and could not do
++                # better than a range, which is exactly the situation this field ends.
++                "own_paired": (lambda ow: {
++                    "n": len(ow),
++                    "mind_only": sum(1 for x in ow if x[2] and not x[12]),
++                    "rival_only": sum(1 for x in ow if x[12] and not x[2]),
++                    "both": sum(1 for x in ow if x[2] and x[12]),
++                    "neither": sum(1 for x in ow if not x[2] and not x[12]),
++                    "mcnemar_z": ((lambda b, c: ((b - c) / math.sqrt(b + c)) if b + c
++                                   else float("nan"))(
++                        sum(1 for x in ow if x[2] and not x[12]),
++                        sum(1 for x in ow if x[12] and not x[2]))),
++                })([x for x in rows if x[11]]),
++                "own_rival_of_own": (sum(x[12] for x in rows if x[11])
++                                     / max(1, sum(x[11] for x in rows))),
++                "hit_of_own": (sum(x[2] for x in rows if x[11])
++                               / max(1, sum(x[11] for x in rows))),
++                "ceiling": sum(1 for x in rows if x[0] or x[11]) / n,
++                # WHERE AN INDEX ON THE PLACE CANNOT ANSWER AT ALL: the truth is not among the
++                # question's own rows, but the walk reaches it. On a single hidden filler with
++                # an exact record a lookup is OPTIMAL, so asking Phi to beat it is asking for a
++                # better index - not the point and not possible. This is the set where counting
++                # the own rows is structurally incapable, so a hit here is a hit no lookup on
++                # this place can make. It is the criterion, and `hit_of_walk_only` is the score.
++                "walk_only_rate": sum(1 for x in rows if x[0] and not x[11]) / n,
++                "hit_of_walk_only": (sum(x[2] for x in rows if x[0] and not x[11])
++                                     / max(1, sum(1 for x in rows if x[0] and not x[11]))),
++                "rival_of_walk_only": (sum(x[4] for x in rows if x[0] and not x[11])
++                                       / max(1, sum(1 for x in rows if x[0] and not x[11]))),
++                # PAIRED, on the one subset that decides. Two rates over the same questions are
++                # two bets, not a comparison: only the discordant pairs carry the contrast, and
++                # 299e read 11.5% against 5.8% on 104 questions, which is z 1.41 if the hits are
++                # disjoint - the right direction and not enough of it. This prints the counts
++                # instead of leaving them to be reconstructed from rounded rates.
++                "walk_only_paired": (lambda wo: {
++                    "n": len(wo),
++                    "mind_only": sum(1 for x in wo if x[2] and not x[4]),
++                    "rival_only": sum(1 for x in wo if x[4] and not x[2]),
++                    "both": sum(1 for x in wo if x[2] and x[4]),
++                    "neither": sum(1 for x in wo if not x[2] and not x[4]),
++                    "mcnemar_z": ((lambda b, c: ((b - c) / math.sqrt(b + c)) if b + c
++                                   else float("nan"))(
++                        sum(1 for x in wo if x[2] and not x[4]),
++                        sum(1 for x in wo if x[4] and not x[2]))),
++                    "stepped": sum(x[5] for x in wo),
++                })([x for x in rows if x[0] and not x[11]]),
++                # and the other half of the selectivity claim: of every step the mind took, how
++                # many landed where a step was the only way to answer at all
++                # how many DISTINCT places the candidates came from. With a cap of 8 candidates
++                # and this near 2, most candidates share a place - and under `walk` imports that
++                # makes them identical in the cosine channel, leaving counting to decide.
++                "cand_places": sum(x[15] for x in rows) / n,
++                "steps_on_walk_only": (sum(x[5] for x in rows if x[0] and not x[11])
++                                       / max(1, sum(x[5] for x in rows))),
++                # THE ROUTER, PRICED. Enrichment is P(walk-only | stepped) over P(walk-only): 1.0
++                # is a step that knows nothing. The counting router is given the SAME budget -
++                # it may step on exactly as many questions as the mind did - and spends it on
++                # the questions whose local evidence is thinnest, which is the only thing counts
++                # can say here. If the two enrichments match, the route is a count in a costume.
++                "router": (lambda rows, k: (lambda base: {
++                    "n_stepped": k,
++                    "mind_enrichment": ((sum(x[5] for x in rows if x[0] and not x[11])
++                                         / k / base) if k and base else float("nan")),
++                    "count_enrichment": ((sum(1 for x in sorted(
++                        rows, key=lambda y: (y[13], y[14]))[:k] if x[0] and not x[11])
++                        / k / base) if k and base else float("nan")),
++                    "n_own_when_stepped": (sum(x[13] for x in rows if x[5])
++                                           / max(1, sum(x[5] for x in rows))),
++                    "n_own_when_not": (sum(x[13] for x in rows if not x[5])
++                                       / max(1, sum(1 for x in rows if not x[5]))),
++                })(sum(1 for x in rows if x[0] and not x[11]) / len(rows)))(
++                    rows, sum(x[5] for x in rows)),
++                "hit_rate": sum(x[2] for x in rows) / n,
++                "rival_hit_rate": sum(x[4] for x in rows) / n,
+                 # THE DIAGNOSTIC, not a knob. If stepping tracks the size of the expanded world
+                 # rather than its content, the route is deciding on row count and the form has
+                 # to change - equalise the expand world or pool with the max alone, which is
+                 # invariant to n where the mean is not. Capacity is not the fix for this and
+                 # widening the mind to paper over it would be fitting.
++                "world_rows_own": sum(x[16] for x in rows) / n,
+                 "world_rows_candidate": sum(x[7] for x in rows) / n,
+                 "world_rows_expand": sum(x[8] for x in rows) / n,
+                 "world_rows_expand_when_stepped": (
+@@ -4197,6 +4620,9 @@ def main() -> int:
+                                   "underpowered": bool(math.sqrt(d) <= 1.645)}}
+ 
+         reach_block = {"rival_threshold": rthr, "places": REACH_K, "cands_cap": REACH_CANDS,
++                       "no_refuse": REACH_NO_REFUSE, "lookahead": REACH_LOOKAHEAD,
++                       "frame_fp": FRAME_FP, "import": REACH_IMPORT,
++                       "home_cos": REACH_HOME_COS,
+                        "held_out": rblock(ex["_reach"]),
+                        "train_control": rblock(ctrl.get("_reach") or [])}
+         log(f"  REACH {json.dumps(reach_block)}")
+@@ -4543,6 +4969,7 @@ def main() -> int:
+         "tape_cut": TAPE, "route": ROUTE, "step_cost": STEP_COST if ROUTE else None,
+         "frame_max": FRAME_MAX if TAPE == "frames" else None,
+         "frame_pool": FRAME_POOL[0] if TAPE == "frames" else None,
++        "tape_sample": TAPE_SAMPLE if TAPE == "frames" else None,
+         "identity": ({"tau": IDENT_TAU, "overlap": IDENT_OVERLAP, "cands": IDENT_CANDS,
+                       "core": IDENT_CORE, "values": IDENT_VALUES, "import": IDENT_IMPORT,
+                       "supply": dict(IDENT_SUPPLY)} if IDENTITY else None),
+diff --git a/_tape_frames.py b/_tape_frames.py
+index 326eb74..8e810af 100644
+--- a/_tape_frames.py
++++ b/_tape_frames.py
+@@ -26,15 +26,32 @@ import random
+ from collections import Counter, defaultdict
+ 
+ 
+-def frame_assertions(lines, frame_max: int = 12, min_fillers: int = 2,
+-                     max_addresses: int = 0, rng=None):
+-    """Assertions in 279's shape - address, value, ctx, source - cut by recurrence alone.
++_KEEP_MEMO: dict = {}
++
++
++def frame_keep(lines, frame_max: int = 12, min_fillers: int = 2):
++    """The counted frames of a corpus - everything in the write path that the draw cannot change.
+ 
+-    Two passes of counting and nothing else. The first counts every (left w, right w) window in
+-    the corpus; the second gives each token the widest window that the first saw twice. An
+-    address is kept when its hole took at least `min_fillers` DIFFERENT values, because a frame
+-    with one filler is a fixed phrase, not a place where something is written.
++    COUNTED ONCE PER CORPUS, NOT ONCE PER RESAMPLE. The tape is redrawn every 50 steps, 80 times
++    in a 4000-step run, and every redraw re-counted every window of the whole corpus to produce
++    the same `keep` and then sample it differently. Only the SAMPLE depends on the rng. Memoised
++    on the identity of the line list, and the list itself is held in the entry so the id cannot
++    be recycled onto a different corpus.
++
++    THE PRUNE IS EXACT, NOT A SHORTCUT. A window of width w+1 contains the width-w window with
++    the same hole, so its count can only be lower: a position whose width-w frame occurred once
++    cannot have a width-(w+1) frame that occurs twice. Widening only positions still alive turns
++    `frame_max` full passes over the corpus into one full pass plus a shrinking tail, and the
++    peak allocation from three Counters of million-key tuples - the several gigabytes of private
++    working set that grew across the run - never happens. Any key with a true count of 2 or more
++    keeps all of its positions alive, so counts on the restricted set equal the global ones for
++    every key that survives; keys counted low are exactly the ones being discarded.
+     """
++    key = id(lines)
++    hit = _KEEP_MEMO.get(key)
++    if hit is not None and hit[0] is lines and hit[1] == (frame_max, min_fillers):
++        return hit[2], hit[3], hit[4]
++
+     toks, owner = [], []
+     for li, line in enumerate(lines):
+         for t in line.split():
+@@ -42,30 +59,120 @@ def frame_assertions(lines, frame_max: int = 12, min_fillers: int = 2,
+             owner.append(li)
+     n = len(toks)
+     if n < 3:
+-        return [], [], 0
++        return [], toks, owner
+ 
+-    seen = Counter()
++    best_key, alive = {}, list(range(1, n - 1))
+     for w in range(1, frame_max + 1):
+-        for i in range(w, n - w):
+-            seen[(w, tuple(toks[i - w:i]), tuple(toks[i + 1:i + 1 + w]))] += 1
++        pos_of = defaultdict(list)
++        for i in alive:
++            if i - w < 0 or i + 1 + w > n:
++                continue
++            pos_of[(tuple(toks[i - w:i]), tuple(toks[i + 1:i + 1 + w]))].append(i)
++        nxt = []
++        for (left, right), ps in pos_of.items():
++            if len(ps) >= 2:
++                for i in ps:
++                    best_key[i] = (w, left, right)
++                nxt.extend(ps)
++        alive = nxt
++        if not alive:
++            break
+ 
+     by_addr = defaultdict(list)
+-    for i in range(1, n - 1):
+-        best = None
+-        for w in range(1, frame_max + 1):
+-            if i - w < 0 or i + 1 + w > n:
+-                break
+-            key = (w, tuple(toks[i - w:i]), tuple(toks[i + 1:i + 1 + w]))
+-            if seen[key] >= 2:
+-                best = key
+-            # a wider window can only be rarer, but the corpus decides where it stops, so the
+-            # loop runs on rather than breaking at the first miss
+-        if best is not None:
+-            by_addr[best].append(i)
+-
+-    keep = [(k, pos) for k, pos in by_addr.items()
++    for i, k in best_key.items():
++        by_addr[k].append(i)
++    keep = [(k, sorted(pos)) for k, pos in by_addr.items()
+             if len({toks[i] for i in pos}) >= min_fillers]
+-    keep.sort(key=lambda kv: (-kv[0][0], -len(kv[1]), kv[0][1]))     # a stable order to sample from
++    keep.sort(key=lambda kv: (-kv[0][0], -len(kv[1]), kv[0][1]))   # a stable order to sample from
++    # two corpora are live in a run - train and held - so the table holds two and never grows
++    while len(_KEEP_MEMO) >= 2:
++        _KEEP_MEMO.pop(next(iter(_KEEP_MEMO)))
++    _KEEP_MEMO[key] = (lines, (frame_max, min_fillers), keep, toks, owner)
++    return keep, toks, owner
++
++
++_LINE_MEMO: dict = {}
++
++
++def _by_line(keep, owner):
++    """line -> the (address, position) pairs written on it, built once per corpus.
++
++    Keyed on the identity of `keep`, which frame_keep memoises, so a run that redraws the tape
++    eighty times indexes the corpus once. Rebuilding it per draw cost 0.46s on a sixth of the
++    pool - the same shape of waste as recounting every window per resample.
++    """
++    k = id(keep)
++    hit = _LINE_MEMO.get(k)
++    if hit is not None and hit[0] is keep:
++        return hit[1]
++    bl = defaultdict(list)
++    for a, pos in keep:
++        for i in pos:
++            bl[owner[i]].append((a, i))
++    while len(_LINE_MEMO) >= 2:          # train and held are both live, as in _KEEP_MEMO
++        _LINE_MEMO.pop(next(iter(_LINE_MEMO)))
++    _LINE_MEMO[k] = (keep, bl)
++    return bl
++
++
++def frame_region(keep, toks, owner, n_lines, max_addresses, rng, min_fillers=2):
++    """The same number of addresses, taken from a CONTIGUOUS stretch of lines.
++
++    WHY THE DRAW IS THE DEFECT. Sampling addresses uniformly takes 3000 of 250195 qualifying
++    frames - 1.2% - so two frames of one sentence land on the tape together about once in a
++    hundred, and EVERY relation between places is diluted by that ratio before anything reads
++    them. The 300 audit measured the dilution rather than the corpus: `line` read 0.041 at 7.7%
++    of the pool and 0.0067 at 1.2%, falling with the fraction. On a region tape of the same size
++    it reads 0.237, and the questions only adjacency can answer go from 0.1% to 5.0%.
++
++    It also repairs the walk, which was the surprise. Neighbouring places are now neighbours in
++    the text rather than accidental look-alikes: the median rank of the truth in the walk's own
++    candidate list falls from 21 to 5, reachability at eight candidates rises from 0.162 to
++    0.271, and the eight nearest places offer 84 fillers instead of 1015.
++
++    The price is real and is not hidden: mentions per address 7.09 -> 3.75, own 0.450 -> 0.346,
++    share 0.596 -> 0.535. A place seen inside one window has been seen fewer times. Mentions
++    OUTSIDE the window are dropped, because a tape that is a region cannot quietly borrow
++    evidence from the rest of the corpus.
++    """
++    by_line = _by_line(keep, owner)
++    # MIN_FILLERS IS ABOUT DISTINCT VALUES, NOT ABOUT ROWS, and inside a window that is not the
++    # same test. The full-corpus keep guarantees two different fillers over ALL of an address's
++    # positions; restricted to one stretch of lines it can easily be one filler written twice,
++    # which is a fixed phrase and not a place where something is written - the rule this module
++    # opens with. Counting rows here would have quietly readmitted them.
++    # COUNTED AS THE WINDOW GROWS, not recounted at every line. Rebuilding the set of distinct
++    # fillers for every accumulated address once per line is O(window x addresses x mentions):
++    # measured at 15s on a sixth of the pool, which is hours across eighty resamples. The count
++    # only ever moves when a filler is seen at a place for the FIRST time, so it is maintained.
++    start = rng.randrange(max(1, n_lines))
++    acc, seen, qualified = defaultdict(list), defaultdict(set), 0
++    for d in range(n_lines):
++        for k, i in by_line.get((start + d) % n_lines, ()):
++            acc[k].append(i)
++            v = toks[i]
++            if v not in seen[k]:
++                seen[k].add(v)
++                if len(seen[k]) == min_fillers:
++                    qualified += 1
++        if qualified >= max_addresses:
++            break
++    out = [(k, sorted(v)) for k, v in acc.items() if len(seen[k]) >= min_fillers]
++    return out[:max_addresses] if max_addresses else out
++
++
++def frame_assertions(lines, frame_max: int = 12, min_fillers: int = 2,
++                     max_addresses: int = 0, rng=None, sample: str = "uniform"):
++    """Assertions in 279's shape - address, value, ctx, source - cut by recurrence alone.
++
++    Counting and nothing else: `frame_keep` gives each token the widest window the corpus wrote
++    twice, and an address survives only if its hole took at least `min_fillers` DIFFERENT values,
++    because a frame with one filler is a fixed phrase, not a place where something is written.
++    Everything here that is not counting is the draw.
++    """
++    keep, toks, owner = frame_keep(lines, frame_max, min_fillers)
++    if not keep:
++        return [], [], 0
+     # SAMPLED, NEVER TRUNCATED. Taking the top N was deterministic over the whole corpus, so
+     # every redraw returned the SAME tape - 298 printed resample_overlap 1.0, which retires the
+     # one property this project had held onto: a mind cannot memorise a tape it keeps losing.
+@@ -74,8 +181,11 @@ def frame_assertions(lines, frame_max: int = 12, min_fillers: int = 2,
+     # held). Uniform sampling fixes both, and the pool size is returned so the overlap that
+     # results is a number rather than a hope: it is about max_addresses / len(keep).
+     pool = len(keep)
+-    if max_addresses and pool > max_addresses:
+-        keep = (rng or random.Random(0)).sample(keep, max_addresses)
++    r = rng or random.Random(0)
++    if sample == "region":
++        keep = frame_region(keep, toks, owner, len(lines), max_addresses, r, min_fillers)
++    elif max_addresses and pool > max_addresses:
++        keep = r.sample(keep, max_addresses)
+ 
+     out, addrs = [], []
+     for (w, left, right), pos in sorted(keep, key=lambda kv: (kv[0][1], kv[0][2])):

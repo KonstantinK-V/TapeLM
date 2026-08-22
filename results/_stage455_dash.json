@@ -1,0 +1,143 @@
+{
+ "1337": {
+  "seed": 1337,
+  "void": false,
+  "gate": true,
+  "extra": {
+   "D1": 0.0,
+   "D2": 1.0,
+   "BOTH": 6.0,
+   "D4": 1.0,
+   "STOP": 0.0
+  },
+  "D1": {
+   "ep": 18,
+   "pin": 1.0,
+   "refuse": 0.0,
+   "mean_hops": 1.0,
+   "greedy_hops": 1.0
+  },
+  "D2": {
+   "ep": 18,
+   "pin": 1.0,
+   "refuse": 0.0,
+   "mean_hops": 2.0,
+   "greedy_hops": 3.0
+  },
+  "BOTH": {
+   "ep": 18,
+   "pin": 1.0,
+   "refuse": 0.0,
+   "mean_hops": 2.0,
+   "greedy_hops": 8.0
+  },
+  "D4": {
+   "ep": 18,
+   "pin": 1.0,
+   "refuse": 0.0,
+   "mean_hops": 4.0,
+   "greedy_hops": 5.0
+  },
+  "STOP": {
+   "ep": 18,
+   "pin": 0.0,
+   "refuse": 1.0,
+   "mean_hops": 1.0,
+   "greedy_hops": 1.0
+  }
+ },
+ "8642": {
+  "seed": 8642,
+  "void": false,
+  "gate": true,
+  "extra": {
+   "D1": 0.0,
+   "D2": 1.0,
+   "BOTH": 6.0,
+   "D4": 1.0,
+   "STOP": 0.0
+  },
+  "D1": {
+   "ep": 18,
+   "pin": 1.0,
+   "refuse": 0.0,
+   "mean_hops": 1.0,
+   "greedy_hops": 1.0
+  },
+  "D2": {
+   "ep": 18,
+   "pin": 1.0,
+   "refuse": 0.0,
+   "mean_hops": 2.0,
+   "greedy_hops": 3.0
+  },
+  "BOTH": {
+   "ep": 18,
+   "pin": 1.0,
+   "refuse": 0.0,
+   "mean_hops": 2.0,
+   "greedy_hops": 8.0
+  },
+  "D4": {
+   "ep": 18,
+   "pin": 1.0,
+   "refuse": 0.0,
+   "mean_hops": 4.0,
+   "greedy_hops": 5.0
+  },
+  "STOP": {
+   "ep": 18,
+   "pin": 0.0,
+   "refuse": 1.0,
+   "mean_hops": 1.0,
+   "greedy_hops": 1.0
+  }
+ },
+ "2890": {
+  "seed": 2890,
+  "void": false,
+  "gate": true,
+  "extra": {
+   "D1": 0.0,
+   "D2": 1.0,
+   "BOTH": 6.0,
+   "D4": 1.0,
+   "STOP": 0.0
+  },
+  "D1": {
+   "ep": 18,
+   "pin": 1.0,
+   "refuse": 0.0,
+   "mean_hops": 1.0,
+   "greedy_hops": 1.0
+  },
+  "D2": {
+   "ep": 18,
+   "pin": 1.0,
+   "refuse": 0.0,
+   "mean_hops": 2.0,
+   "greedy_hops": 3.0
+  },
+  "BOTH": {
+   "ep": 18,
+   "pin": 1.0,
+   "refuse": 0.0,
+   "mean_hops": 2.0,
+   "greedy_hops": 8.0
+  },
+  "D4": {
+   "ep": 18,
+   "pin": 1.0,
+   "refuse": 0.0,
+   "mean_hops": 4.0,
+   "greedy_hops": 5.0
+  },
+  "STOP": {
+   "ep": 18,
+   "pin": 0.0,
+   "refuse": 1.0,
+   "mean_hops": 1.0,
+   "greedy_hops": 1.0
+  }
+ }
+}

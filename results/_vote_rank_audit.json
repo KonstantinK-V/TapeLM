@@ -1,0 +1,28 @@
+{
+  "stage261f": {
+    "label": "261f",
+    "seed": 2610,
+    "n_eval": 338,
+    "n_slots": 4338,
+    "empty_sc_n": 0,
+    "empty_sc_frac": 0.0,
+    "rank_changed_n": 0,
+    "top1_old": 0.2455621301775148,
+    "top1_new": 0.2455621301775148,
+    "top1_delta": 0.0,
+    "headline_shifted": false
+  },
+  "stage264_votes": {
+    "label": "264_votes",
+    "seed": 2640,
+    "n_eval": 338,
+    "n_slots": 4338,
+    "empty_sc_n": 0,
+    "empty_sc_frac": 0.0,
+    "rank_changed_n": 0,
+    "top1_old": 0.2455621301775148,
+    "top1_new": 0.2455621301775148,
+    "top1_delta": 0.0,
+    "headline_shifted": false
+  }
+}

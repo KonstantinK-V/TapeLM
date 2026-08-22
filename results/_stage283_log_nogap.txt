@@ -1,0 +1,45 @@
+Stage283 scale start 2026-08-07T13:41:10.586934+00:00 device=cuda rungs=[(120000000, 2000)] mind_params=7564290
+  corpus 120.0M chars read (1s)
+  rung 120M:2000 -> 936 addr / 4730 slots | precision 0.663 | return true 0.959 other 0.006 (sep +0.953) | crowding 0.345 (anchors alone 0.018) foreign 0.052 | k covers 0.876 | ties 0.427 (610s)
+{
+  "overall": "SCALE_OK",
+  "gates": {
+    "G_precision_holds": true,
+    "G_return_path_separates": true,
+    "G_addresses_stay_distinct": true,
+    "G_k_covers_the_address": false,
+    "G_ties_exist_naturally": true,
+    "G_mind_does_not_grow": true
+  },
+  "slopes": {
+    "slots": [
+      4730
+    ],
+    "precision": [
+      0.6625178062678064
+    ],
+    "return_path_separation": [
+      0.9533582089552239
+    ],
+    "address_crowding": [
+      0.3450854700854701
+    ],
+    "foreign_member_rate": [
+      0.05161396505477364
+    ],
+    "distinct_anchors": [
+      876
+    ],
+    "anchor_only_crowding": [
+      0.0182648401826484
+    ],
+    "anchor_growth_exponent": NaN,
+    "k_covers_address": [
+      0.8760683760683761
+    ],
+    "tie_share": [
+      0.42735042735042733
+    ],
+    "slots_growth": 1.0
+  }
+}

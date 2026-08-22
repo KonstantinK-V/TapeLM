@@ -1,0 +1,96 @@
+=== night restart 2026-08-21T23:04:57 ===
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit485_hunt.py --seed 1337 --steps 5000 --bytes 40000000 --window 700 --frame-max 4 --hunt-budget 16 --narrow-k 8 --log-every 500
+485 NIGHT hunt  corpus=data\_tinystories_raw_scale.txt  steps=5000  narrow_k=8
+line pool 80000
+  step 500/5000  win 500  hunt 0.952 (u=38 n=438)  rand 0.034  oracle_u/n 0.0439/0.1967  wander 0.506  chain 0.268  pin 0.23  q_pre 37 mark {DEAD:-0.05, LIVE:0.13, SOFT:0.09}  59s
+  step 1000/5000  win 1000  hunt 0.974 (u=47 n=927)  rand 0.035  oracle_u/n 0.0441/0.1980  wander 0.527  chain 0.280  pin 0.23  q_pre 43 mark {DEAD:-0.05, LIVE:0.12, SOFT:0.09}  120s
+  step 1500/5000  win 1500  hunt 0.983 (u=57 n=1417)  rand 0.035  oracle_u/n 0.0441/0.1984  wander 0.529  chain 0.287  pin 0.23  q_pre 49 mark {DEAD:-0.05, LIVE:0.12, SOFT:0.09}  176s
+  step 2000/5000  win 2000  hunt 0.986 (u=68 n=1904)  rand 0.036  oracle_u/n 0.0442/0.1983  wander 0.533  chain 0.293  pin 0.24  q_pre 53 mark {DEAD:-0.05, LIVE:0.13, SOFT:0.09}  239s
+  step 2500/5000  win 2500  hunt 0.989 (u=90 n=2382)  rand 0.036  oracle_u/n 0.0444/0.1981  wander 0.534  chain 0.300  pin 0.24  q_pre 53 mark {DEAD:-0.05, LIVE:0.13, SOFT:0.09}  303s
+  step 3000/5000  win 3000  hunt 0.989 (u=107 n=2861)  rand 0.037  oracle_u/n 0.0446/0.1981  wander 0.535  chain 0.300  pin 0.24  q_pre 53 mark {DEAD:-0.05, LIVE:0.13, SOFT:0.09}  361s
+  step 3500/5000  win 3500  hunt 0.991 (u=118 n=3350)  rand 0.037  oracle_u/n 0.0449/0.1980  wander 0.533  chain 0.304  pin 0.24  q_pre 54 mark {DEAD:-0.05, LIVE:0.13, SOFT:0.09}  415s
+  step 4000/5000  win 4000  hunt 0.992 (u=129 n=3839)  rand 0.038  oracle_u/n 0.0449/0.1981  wander 0.537  chain 0.309  pin 0.24  q_pre 54 mark {DEAD:-0.05, LIVE:0.13, SOFT:0.09}  469s
+  step 4500/5000  win 4500  hunt 0.993 (u=140 n=4328)  rand 0.038  oracle_u/n 0.0450/0.1979  wander 0.534  chain 0.308  pin 0.24  q_pre 54 mark {DEAD:-0.05, LIVE:0.13, SOFT:0.09}  523s
+  step 5000/5000  win 5000  hunt 0.994 (u=156 n=4812)  rand 0.037  oracle_u/n 0.0452/0.1981  wander 0.529  chain 0.309  pin 0.24  q_pre 54 mark {DEAD:-0.05, LIVE:0.13, SOFT:0.09}  576s
+---- done ----
+hunt found/win 0.9936 unique 156.0 narrow 4812.0 vs rand 0.0373 lift 0.9563
+wander cont/chain/pin 0.5294 0.3088 0.2408 q_mark {'DEAD': -0.052673031026252363, 'LIVE': 0.1305332704105714, 'SOFT': 0.08912735012416105}
+wrote results\_stage485_hunt.json
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit485_hunt.py --seed 2024 --steps 5000 --bytes 40000000 --window 700 --frame-max 4 --hunt-budget 16 --narrow-k 8 --log-every 500
+485 NIGHT hunt  corpus=data\_tinystories_raw_scale.txt  steps=5000  narrow_k=8
+line pool 80000
+  step 500/5000  win 500  hunt 0.984 (u=70 n=422)  rand 0.035  oracle_u/n 0.0441/0.2001  wander 0.510  chain 0.280  pin 0.25  q_pre 35 mark {SOFT:0.09, DEAD:-0.06, LIVE:0.13}  62s
+  step 1000/5000  win 1000  hunt 0.989 (u=87 n=902)  rand 0.035  oracle_u/n 0.0440/0.1999  wander 0.547  chain 0.305  pin 0.25  q_pre 41 mark {SOFT:0.09, DEAD:-0.05, LIVE:0.13}  116s
+  step 1500/5000  win 1500  hunt 0.991 (u=106 n=1380)  rand 0.037  oracle_u/n 0.0443/0.1995  wander 0.539  chain 0.303  pin 0.24  q_pre 46 mark {SOFT:0.09, DEAD:-0.05, LIVE:0.13}  169s
+  step 2000/5000  win 2000  hunt 0.993 (u=123 n=1863)  rand 0.037  oracle_u/n 0.0444/0.1995  wander 0.541  chain 0.313  pin 0.26  q_pre 48 mark {SOFT:0.09, DEAD:-0.05, LIVE:0.14}  222s
+  step 2500/5000  win 2500  hunt 0.994 (u=150 n=2336)  rand 0.037  oracle_u/n 0.0447/0.1996  wander 0.540  chain 0.314  pin 0.25  q_pre 49 mark {SOFT:0.09, DEAD:-0.05, LIVE:0.14}  276s
+  step 3000/5000  win 3000  hunt 0.995 (u=167 n=2819)  rand 0.037  oracle_u/n 0.0449/0.1996  wander 0.526  chain 0.305  pin 0.25  q_pre 51 mark {SOFT:0.09, DEAD:-0.05, LIVE:0.14}  329s
+  step 3500/5000  win 3500  hunt 0.996 (u=183 n=3302)  rand 0.036  oracle_u/n 0.0450/0.1998  wander 0.532  chain 0.311  pin 0.25  q_pre 51 mark {SOFT:0.09, DEAD:-0.05, LIVE:0.14}  390s
+  step 4000/5000  win 4000  hunt 0.996 (u=203 n=3781)  rand 0.036  oracle_u/n 0.0449/0.1997  wander 0.530  chain 0.310  pin 0.24  q_pre 52 mark {SOFT:0.09, DEAD:-0.05, LIVE:0.14}  444s
+  step 4500/5000  win 4500  hunt 0.996 (u=222 n=4262)  rand 0.036  oracle_u/n 0.0449/0.1996  wander 0.530  chain 0.310  pin 0.24  q_pre 52 mark {SOFT:0.09, DEAD:-0.05, LIVE:0.14}  498s
+  step 5000/5000  win 5000  hunt 0.997 (u=246 n=4738)  rand 0.036  oracle_u/n 0.0450/0.1995  wander 0.526  chain 0.307  pin 0.24  q_pre 52 mark {SOFT:0.09, DEAD:-0.05, LIVE:0.14}  552s
+---- done ----
+hunt found/win 0.9968 unique 246.0 narrow 4738.0 vs rand 0.0362 lift 0.9607
+wander cont/chain/pin 0.5264 0.3074 0.24 q_mark {'SOFT': 0.0890644307149196, 'DEAD': -0.05422982885085503, 'LIVE': 0.13708593374940012}
+wrote results\_stage485_hunt.json
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit485_hunt.py --seed 7 --steps 5000 --bytes 40000000 --window 700 --frame-max 4 --hunt-budget 16 --narrow-k 8 --log-every 500
+485 NIGHT hunt  corpus=data\_tinystories_raw_scale.txt  steps=5000  narrow_k=8
+line pool 80000
+  step 500/5000  win 500  hunt 0.964 (u=76 n=406)  rand 0.036  oracle_u/n 0.0467/0.1998  wander 0.548  chain 0.338  pin 0.27  q_pre 41 mark {DEAD:-0.05, SOFT:0.09, LIVE:0.15}  58s
+  step 1000/5000  win 1000  hunt 0.977 (u=184 n=793)  rand 0.037  oracle_u/n 0.0465/0.1994  wander 0.519  chain 0.318  pin 0.25  q_pre 52 mark {DEAD:-0.06, SOFT:0.09, LIVE:0.14}  121s
+  step 1500/5000  win 1500  hunt 0.981 (u=280 n=1192)  rand 0.038  oracle_u/n 0.0463/0.1994  wander 0.517  chain 0.317  pin 0.24  q_pre 53 mark {DEAD:-0.06, SOFT:0.09, LIVE:0.14}  179s
+  step 2000/5000  win 2000  hunt 0.984 (u=426 n=1541)  rand 0.037  oracle_u/n 0.0465/0.1989  wander 0.522  chain 0.315  pin 0.24  q_pre 56 mark {DEAD:-0.06, SOFT:0.09, LIVE:0.14}  237s
+  step 2500/5000  win 2500  hunt 0.984 (u=541 n=1920)  rand 0.036  oracle_u/n 0.0464/0.1989  wander 0.527  chain 0.316  pin 0.24  q_pre 60 mark {DEAD:-0.06, SOFT:0.09, LIVE:0.14}  295s
+  step 3000/5000  win 3000  hunt 0.987 (u=671 n=2289)  rand 0.035  oracle_u/n 0.0465/0.1984  wander 0.531  chain 0.320  pin 0.24  q_pre 61 mark {DEAD:-0.06, SOFT:0.09, LIVE:0.14}  354s
+  step 3500/5000  win 3500  hunt 0.989 (u=802 n=2658)  rand 0.036  oracle_u/n 0.0466/0.1983  wander 0.531  chain 0.325  pin 0.24  q_pre 62 mark {DEAD:-0.06, SOFT:0.09, LIVE:0.14}  417s
+  step 4000/5000  win 4000  hunt 0.990 (u=924 n=3036)  rand 0.035  oracle_u/n 0.0466/0.1982  wander 0.528  chain 0.320  pin 0.24  q_pre 62 mark {DEAD:-0.06, SOFT:0.09, LIVE:0.14}  476s
+  step 4500/5000  win 4500  hunt 0.991 (u=1054 n=3406)  rand 0.036  oracle_u/n 0.0464/0.1981  wander 0.527  chain 0.319  pin 0.24  q_pre 62 mark {DEAD:-0.06, SOFT:0.09, LIVE:0.14}  535s
+  step 5000/5000  win 5000  hunt 0.991 (u=1189 n=3768)  rand 0.036  oracle_u/n 0.0464/0.1981  wander 0.524  chain 0.314  pin 0.23  q_pre 62 mark {DEAD:-0.06, SOFT:0.09, LIVE:0.14}  593s
+---- done ----
+hunt found/win 0.9914 unique 1189.0 narrow 3768.0 vs rand 0.0357 lift 0.9556
+wander cont/chain/pin 0.524 0.3138 0.2342 q_mark {'DEAD': -0.056006809338520605, 'SOFT': 0.08947969766215846, 'LIVE': 0.13947239863214456}
+wrote results\_stage485_hunt.json
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit486_unique_only.py --seed 1337 --steps 3000 --bytes 40000000 --window 700 --frame-max 4 --budget 16 --log-every 400
+486 unique-ONLY  corpus=data\_tinystories_raw_scale.txt  steps=3000
+line pool 80000
+  step 400/3000  hunt_u 0.163  rand_u 0.090  lift 0.072  hop 0.028  q_pre 62  60s
+  step 800/3000  hunt_u 0.171  rand_u 0.096  lift 0.075  hop 0.035  q_pre 76  127s
+  step 1200/3000  hunt_u 0.181  rand_u 0.097  lift 0.084  hop 0.034  q_pre 82  192s
+  step 1600/3000  hunt_u 0.201  rand_u 0.102  lift 0.098  hop 0.043  q_pre 86  258s
+  step 2000/3000  hunt_u 0.215  rand_u 0.103  lift 0.112  hop 0.051  q_pre 90  326s
+  step 2400/3000  hunt_u 0.217  rand_u 0.104  lift 0.113  hop 0.051  q_pre 95  400s
+  step 2800/3000  hunt_u 0.218  rand_u 0.102  lift 0.116  hop 0.048  q_pre 98  477s
+---- done ----
+hunt_u 0.2157  rand_u 0.0993  lift 0.1163  hopped 0.0480
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit486_unique_only.py --seed 2024 --steps 3000 --bytes 40000000 --window 700 --frame-max 4 --budget 16 --log-every 400
+486 unique-ONLY  corpus=data\_tinystories_raw_scale.txt  steps=3000
+line pool 80000
+  step 400/3000  hunt_u 0.160  rand_u 0.090  lift 0.070  hop 0.045  q_pre 62  61s
+  step 800/3000  hunt_u 0.165  rand_u 0.096  lift 0.069  hop 0.051  q_pre 74  124s
+  step 1200/3000  hunt_u 0.177  rand_u 0.099  lift 0.077  hop 0.047  q_pre 80  192s
+  step 1600/3000  hunt_u 0.176  rand_u 0.099  lift 0.076  hop 0.047  q_pre 88  262s
+  step 2000/3000  hunt_u 0.183  rand_u 0.103  lift 0.081  hop 0.049  q_pre 89  332s
+  step 2400/3000  hunt_u 0.185  rand_u 0.102  lift 0.084  hop 0.051  q_pre 93  405s
+  step 2800/3000  hunt_u 0.190  rand_u 0.100  lift 0.089  hop 0.052  q_pre 97  484s
+---- done ----
+hunt_u 0.1897  rand_u 0.1000  lift 0.0897  hopped 0.0520
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit486_unique_only.py --seed 7 --steps 3000 --bytes 40000000 --window 700 --frame-max 4 --budget 16 --log-every 400
+486 unique-ONLY  corpus=data\_tinystories_raw_scale.txt  steps=3000
+line pool 80000
+  step 400/3000  hunt_u 0.188  rand_u 0.138  lift 0.050  hop 0.058  q_pre 65  73s
+  step 800/3000  hunt_u 0.234  rand_u 0.135  lift 0.099  hop 0.068  q_pre 78  136s
+  step 1200/3000  hunt_u 0.210  rand_u 0.124  lift 0.086  hop 0.064  q_pre 87  204s
+  step 1600/3000  hunt_u 0.221  rand_u 0.121  lift 0.099  hop 0.069  q_pre 96  277s
+  step 2000/3000  hunt_u 0.221  rand_u 0.115  lift 0.105  hop 0.066  q_pre 102  347s
+  step 2400/3000  hunt_u 0.225  rand_u 0.110  lift 0.115  hop 0.068  q_pre 102  430s
+  step 2800/3000  hunt_u 0.230  rand_u 0.109  lift 0.121  hop 0.072  q_pre 105  510s
+---- done ----
+hunt_u 0.2303  rand_u 0.1077  lift 0.1227  hopped 0.0710
+
+=== night done 2026-08-22T00:00:19 ===

@@ -1,0 +1,15 @@
+{
+ "bytes": 30000000,
+ "sample": "region",
+ "window_lines": 400,
+ "recall": 1.0,
+ "places": 2914,
+ "questions": 4000,
+ "in_own": 0.235,
+ "walk_reach": 0.167,
+ "same_place_gain": 0.0,
+ "shared_gain": 0.03825,
+ "shared_incl_walk": 0.0595,
+ "any_gain": 0.289,
+ "shared_gain_of_unreached": 0.05327298050139276
+}

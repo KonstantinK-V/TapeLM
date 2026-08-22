@@ -1,0 +1,450 @@
+From 5993ed51aa6389f7b2c8d9a3ff3b36fff2b72460 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Sat, 8 Aug 2026 07:53:38 +0000
+Subject: [PATCH] 286: anon resolves the fork; the mind becomes relational -
+ identity unrepresentable
+
+The anon arm answered what it was built to answer. The inversion is gone -
+unknown AUC 0.302 at -2.3 sigma became 0.579 at +0.9 - so identity in the
+read text was the poison, exactly as staked. But the channel does not pay:
+parity with nohid at matched coverage (0.431 = 0.431), a LOSS on the lying
+tape (0.410 against votes 0.462 where nohid won 0.487), and a train control
+still memorised at AUC 0.997, because an anonymised sentence is still a
+unique string. One genuine positive, the first of its kind: a legitimate
+G_weighs_contested pass at 0.364 against random 0.268 against votes 0.121.
+Structure, once the names are gone, carries something. The pre-registered
+fork resolves to "drop the raw-reading channel".
+
+Three autopsies now say one sentence from three sides: everything trainable
+over an input that contains identity becomes a lookup table. Trunk frozen -
+collapse stays. Capacity cut 12.8x - fit unchanged to the digit. Names folded
+out - poison gone, payoff absent. And the only head that ever passed an exam
+here is nine relational statistics, which transfer precisely because they
+cannot name anyone. That is not a post-mortem, it is a design rule.
+
+--mind relational builds the mind to that rule. An equivariant network over
+the mention graph whose every input is an indicator or a within-example RANK:
+same-value; rank of context-fp cosine; rank of shared-rare-word overlap, rare
+meaning rarer than the tape's median (284's rank rule, no threshold); rank of
+external corroboration; the value's share of the evidence. No text, no
+fingerprint, no absolute coordinate of any kind reaches the weights, so the
+lookup channel is closed by construction rather than discouraged by
+regularisation. Sum/mean pools over mentions and over each candidate's
+coalition make it equivariant - the same ~5k weights read 3 mentions or 300,
+which is the "mind does not grow with the knowledge" invariant realised as
+architecture, and the scale story in the same breath. UNKNOWN stays a row;
+the answer stays the argmax; the examiners, tapes and gates do not move.
+
+What this can express that counters cannot: two mentions with near-identical
+contexts are ONE witness repeated, not two. --lie-dup K is the exam for
+exactly that - the forged mention repeated K times, votes scaling linearly in
+K by construction, G_survives_duplicated_lie reported alongside the verdict.
+
+Falsifiers, before any run: the train-control AUC must FALL from ~1.0 - ranks
+re-shuffle on a fresh tape, so if it stays memorised the relation graph
+itself leaks identity and the class has failed its own reason to exist;
+matched coverage must reach nohid's, since the nine features are derivable
+from the graph; and the win, if there is one, must show on the contested
+subset or the duplicated lie, the two places counting cannot go.
+
+The trunk is never read on this arm, so a full run costs minutes, not hours.
+
+Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01RYDM9MUk761CZjn7SmTaug
+---
+ HANDOFF.md            |  30 +++++++
+ _stage286_evidence.py | 202 +++++++++++++++++++++++++++++++++++++++---
+ 2 files changed, 220 insertions(+), 12 deletions(-)
+
+diff --git a/HANDOFF.md b/HANDOFF.md
+index e6ef4e9..0cbaf56 100644
+--- a/HANDOFF.md
++++ b/HANDOFF.md
+@@ -378,6 +378,36 @@ Also: `G_weighs_contested` passed on that run at 0.152 vs votes' 0.121 — two s
+ floor, ranked solemnly. The gate now also requires beating `random_accuracy_contested`
+ (expected accuracy of a uniform pick among the candidates), the null the comparison forgot.
+ 
++**Anon resolved the fork: the raw-reading channel is dropped.** Inversion gone (0.302/−2.3σ →
++0.579/+0.9σ) — identity was the poison. But no payoff: LOO parity with nohid (matched vs votes
++0.431 = 0.431), a *loss* on the lying tape (0.410 vs 0.462 where nohid won), train control
++still memorised at 0.997 (an anonymised sentence is still a unique string). One genuine
++positive: the first legitimate `G_weighs_contested` pass — contested **0.364 > random 0.268 >
++votes 0.121** — structure, once names are gone, carries something.
++
++**The wall, named.** Everything trainable over an input containing identity becomes a lookup
++table: trunk frozen → collapse stays; capacity ÷12.8 → fit unchanged; names removed → poison
++gone, payoff absent. The only head that ever passed is nine *relational* statistics — they
++transfer precisely because they cannot name anyone.
++
++**Stage 287 inside 286: `--mind relational`.** The design rule instead of the post-mortem: an
++equivariant network over the mention graph whose every input is an indicator or a
++within-example **rank** — same-value; rank of ctx-fp cosine; rank of shared-rare-word overlap
++(rare = rarer than the tape's median, 284's rule); rank of external corroboration; value's
++share of the evidence. No text, fingerprint, or absolute coordinate reaches the weights: the
++lookup channel is closed **by construction**. Equivariance is "the mind does not grow with the
++knowledge" as architecture — the same ~5k weights read 3 mentions or 300, which is also the
++scale story. It can express what counters cannot: two near-identical contexts are *one witness
++repeated* — `--lie-dup K` is the exam (votes scale linearly in K by construction;
++`G_survives_duplicated_lie`, informational). Pre-registered falsifiers: train-control AUC must
++**fall** from ~1.0, else the graph itself leaks identity and the class failed its reason to
++exist; matched coverage must reach nohid's (its features are derivable from the graph); any
++win must show on contested or the duplicated lie. Runs in minutes — the trunk is never read:
++
++```
++python _stage286_evidence.py --train-steps 6000 --min-mentions 2 --mind relational --lie-dup 3
++```
++
+ Nothing here breaches the invariant: `G_arc_enc_frozen` held in every arm and answers are still
+ values from the visible evidence. What reached the weights is a tape-specific *way of reading* —
+ which the invariant does not name, and which the held-out tape catches regardless.
+diff --git a/_stage286_evidence.py b/_stage286_evidence.py
+index 82f0d59..ec7b48a 100644
+--- a/_stage286_evidence.py
++++ b/_stage286_evidence.py
+@@ -241,6 +241,40 @@ RANK 8 KILLS THE CAPACITY STORY TOO: THE READING IS A LOOKUP KEY
+   the candidates is the null that comparison forgot; by_evidence_shape now carries
+   random_accuracy_contested and the gate requires beating it.
+ 
++------------------------------------------------------------------------------------------
++ANON RESOLVES THE PRE-REGISTERED FORK; THE WALL GETS A NAME; --mind relational IS THE ANSWER
++
++  --frozen-trunk --read-rank 8 --read-anon. The inversion is gone (unknown AUC 0.302 at
++  -2.3 sigma -> 0.579 at +0.9), which confirms identity was the poison. But the channel does
++  not pay: parity with nohid on leave-one-out (matched vs votes 0.431 = 0.431, nohid ties the
++  same number), a LOSS on the lying tape (0.410 vs votes 0.462 where nohid won 0.487), and
++  the train control still memorised at AUC 0.997 because an anonymised sentence is still a
++  unique string. One genuine positive: the first legitimate G_weighs_contested pass -
++  contested 0.364 against random 0.268 against votes 0.121 - a hint that STRUCTURE, once the
++  names are gone, carries something.
++
++  The fork declared before the run therefore resolves to: the raw-reading channel is dropped.
++  And the wall has a name now. Everything trainable over an input that contains identity
++  becomes a lookup table - trunk frozen: collapse stays; capacity cut 12.8x: fit unchanged;
++  names folded out: poison gone, payoff absent. The only head that ever passed an exam here
++  is nine relational statistics, and they transfer precisely because they cannot name anyone.
++
++  --mind relational takes that as the design rule instead of a post-mortem: an equivariant
++  network over the mention graph whose every input is an indicator or a within-example RANK
++  (same-value; rank of ctx-fp cosine; rank of shared-rare-word overlap, rare = rarer than the
++  tape's median; rank of external corroboration; value's share of the evidence). No text, no
++  fingerprint, no absolute coordinate reaches the weights - the lookup channel is closed by
++  construction, not by regularisation. Equivariance is the "mind does not grow with the
++  knowledge" invariant as architecture: the same ~5k weights read 3 mentions or 300. What it
++  can express that counters cannot: two mentions with near-identical contexts are ONE witness
++  repeated - and --lie-dup K is the exam for that, because votes scale linearly in the copies
++  by construction. Pre-registered falsifiers: the train-control AUC must FALL from ~1.0 (if it
++  does not, the graph itself leaks identity and the class failed its reason to exist); matched
++  coverage must reach nohid's (its features are derivable from the graph); the win, if any,
++  must show on contested or on the duplicated lie.
++
++  python _stage286_evidence.py --train-steps 6000 --min-mentions 2 --mind relational --lie-dup 3
++
+   python _stage286_evidence.py --smoke
+   python _stage286_evidence.py --train-steps 6000 --min-mentions 2
+   python _stage286_evidence.py --train-steps 6000 --min-mentions 2 --no-hidden
+@@ -313,7 +347,7 @@ def ext_support(pack, S: str, value: str, own: set[int]) -> int:
+                if c not in own and S in pack["texts_lc"][c] and v in pack["texts_lc"][c])
+ 
+ 
+-def example(pack, item, hidden: int | None, lie_from: int | None = None):
++def example(pack, item, hidden: int | None, lie_from: int | None = None, lie_dup: int = 1):
+     """One evidence set. hidden=None is exam mode: all mentions visible, predict the address.
+ 
+     The candidate list is what the EVIDENCE says plus UNKNOWN, so the model can only answer
+@@ -331,6 +365,7 @@ def example(pack, item, hidden: int | None, lie_from: int | None = None):
+         return None
+     ev_vals = [vals[c] for c in ev]
+     ev_texts = [texts[c] for c in ev]
++    ev_slots = list(ev)
+     if lie_from is not None:
+         # The lying tape forges ONE visible mention. With a single mention visible that is not a
+         # lie to catch, it is the whole record replaced, and the first smoke scored exactly that
+@@ -338,8 +373,12 @@ def example(pack, item, hidden: int | None, lie_from: int | None = None):
+         if len(ev) < 2:
+             return None
+         j = len(ev) - 1
+-        ev_vals = ev_vals[:j] + [vals[lie_from]]
+-        ev_texts = ev_texts[:j] + [texts[lie_from]]
++        # lie_dup > 1 repeats the SAME forged mention. Votes grow linearly in the copies -
++        # a counter cannot tell three repetitions from three witnesses by construction. A mind
++        # that models duplication (identical value, near-identical context) should not budge.
++        ev_vals = ev_vals[:j] + [vals[lie_from]] * lie_dup
++        ev_texts = ev_texts[:j] + [texts[lie_from]] * lie_dup
++        ev_slots = ev_slots[:j] + [lie_from] * lie_dup
+     cnt = Counter(ev_vals)
+     cands = [v for v, _ in cnt.most_common(8)]
+     target_val = vals[hidden] if hidden is not None else item["truth"]
+@@ -350,7 +389,7 @@ def example(pack, item, hidden: int | None, lie_from: int | None = None):
+     truncated = present and target_val not in cands
+     target = cands.index(target_val) if (present and not truncated) else len(cands)
+     own = set(item["slots"])
+-    n = len(ev)
++    n = len(ev_vals)
+     top2 = cnt.most_common(2)
+     lead = top2[0][1]
+     second = top2[1][1] if len(top2) > 1 else 0
+@@ -377,7 +416,7 @@ def example(pack, item, hidden: int | None, lie_from: int | None = None):
+     per = [[cue] + [t for t, v2 in zip(ev_texts, ev_vals) if v2 == v] for v in cands]
+     per.append([cue] + ev_texts)
+     return {"texts": ev_texts, "vals": ev_vals, "cands": cands, "rows": rows,
+-            "cand_texts": per, "target": target, "cnt": cnt, "ext": ext,
++            "cand_texts": per, "target": target, "cnt": cnt, "ext": ext, "ev_slots": ev_slots,
+             "present": bool(present), "truncated": bool(truncated)}
+ 
+ 
+@@ -430,6 +469,60 @@ def encode(model, char_table, tok, pad_id, device, texts):
+     return h[0, -1]
+ 
+ 
++class Relational(nn.Module):
++    """The mind as structure only: ranks and indicators over relations the plumbing computes.
++
++    Three autopsies said the same thing from three sides. The trunk froze and the collapse
++    stayed; the reading path shrank 12.8x and the train fit did not move a digit; the names
++    were folded out of the text and the poison left but the payoff did not arrive. Everything
++    trainable OVER AN INPUT THAT CONTAINS IDENTITY becomes a lookup table, because a text - or
++    a context fingerprint, or any absolute coordinate - is a unique key, and keying is cheaper
++    than weighing at every width. Meanwhile the one head that passed an exam is nine relational
++    statistics: counts and corroboration, which transfer between disjoint corpora precisely
++    because they cannot name anyone.
++
++    So identity is made UNREPRESENTABLE instead of discouraged. The input is a graph over the
++    visible mentions; every number on it is an indicator or a rank:
++
++        edge (i,j)   same value or not; the RANK of their context-fp cosine among this
++                     example's pairs; the RANK of their shared-rare-word overlap (rare = rarer
++                     than the tape's median, 284's rule - a rank, not a threshold)
++        node i       its value's share of the evidence; the RANK of its external corroboration
++
++    Order statistics carry structure and almost nothing else: a fresh tape re-ranks everything,
++    so a memorised rank pattern has no address to return to. The network is equivariant - sum
++    and mean pools over mentions and over each candidate's coalition - which is the invariant
++    "the mind does not grow with the knowledge" realised in the architecture: the same weights
++    read 3 mentions or 300. No threshold constants; the answer is still the argmax; UNKNOWN is
++    still a row, pooled from the whole graph with a flag.
++
++    What this can express that the counters cannot: two mentions with near-identical contexts
++    are ONE witness repeated, not two. Votes count them twice by construction; --lie-dup is the
++    exam for exactly that. And the falsifier is pre-registered: if the train-control AUC stays
++    at ~1.0 under this input, the relation graph itself leaks identity and this class failed
++    its own reason to exist.
++    """
++
++    def __init__(self, device, d: int = 32):
++        super().__init__()
++        self.edge = nn.Sequential(nn.Linear(3, d), nn.GELU()).to(device)
++        self.node = nn.Sequential(nn.Linear(2 + 2 * d, d), nn.GELU()).to(device)
++        self.cand = nn.Sequential(nn.Linear(2 * d + 1, d), nn.GELU(),
++                                  nn.Linear(d, 1)).to(device)
++        nn.init.zeros_(self.cand[-1].weight)
++        nn.init.zeros_(self.cand[-1].bias)
++
++    def forward(self, E, same, node_feats, masks):
++        e = self.edge(E)                                            # n,n,d
++        own = (e * same).sum(1) / same.sum(1).clamp(min=1.0)        # my witnesses
++        h = self.node(torch.cat([node_feats, own, e.mean(1)], -1))  # n,d
++        g = h.mean(0)
++        z, o = torch.zeros(1, device=g.device), torch.ones(1, device=g.device)
++        outs = [self.cand(torch.cat([h[m].mean(0), g, z])) for m in masks]
++        outs.append(self.cand(torch.cat([torch.zeros_like(g), g, o])))
++        return torch.cat(outs)
++
++
+ # --------------------------------------------------------------------------- the two old judges
+ 
+ def votes_judge(ex):
+@@ -548,6 +641,18 @@ def main() -> int:
+     ap.add_argument("--no-hidden", action="store_true",
+                     help="ablation: features only, no reading of the evidence text")
+     ap.add_argument("--frozen-trunk", action="store_true")
++    ap.add_argument("--mind", choices=("head", "relational"), default="head",
++                    help="head is 286's scorer over features (and optionally the reading). "
++                         "relational replaces it with an equivariant network over ranks and "
++                         "indicators of the mention graph - no text, no fingerprints, no "
++                         "absolute coordinate of any kind reaches the weights, so the lookup "
++                         "channel that killed every reading arm is closed by construction, "
++                         "not by regularisation. Trains in minutes: the trunk is never read.")
++    ap.add_argument("--lie-dup", type=int, default=1, metavar="K",
++                    help="lying tape with the forged mention repeated K times. Votes scale "
++                         "linearly in K by construction; a mind that models duplication "
++                         "should not. Reported as lying_tape_dup and gated as "
++                         "G_survives_duplicated_lie (informational, not in the verdict).")
+     ap.add_argument("--read-anon", action="store_true",
+                     help="replace the subject and every candidate value in the READ text with "
+                          "fixed common words. The r8 arm showed the reading is used as a lookup "
+@@ -572,6 +677,8 @@ def main() -> int:
+     tag += "_frozen" if args.frozen_trunk else ""
+     tag += f"_r{args.read_rank}" if args.read_rank else ""
+     tag += "_anon" if args.read_anon else ""
++    tag += "_rel" if args.mind == "relational" else ""
++    tag += f"_dup{args.lie_dup}" if args.lie_dup > 1 else ""
+     LOG_PATH = RES / f"_stage286_log{tag}.txt"
+     LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+     LOG_PATH.write_text("", encoding="utf-8")
+@@ -603,7 +710,7 @@ def main() -> int:
+     # NOT change - SelfModelXL carries no dropout, so a frozen trunk reads exactly what an
+     # unfrozen one reads at eval time. The two arms differ in whether the trunk learns and in
+     # nothing else, which is what makes them a discriminator.
+-    if args.frozen_trunk:
++    if args.frozen_trunk or args.mind == "relational":
+         model.eval()
+         for p in model.parameters():
+             p.requires_grad_(False)
+@@ -645,7 +752,8 @@ def main() -> int:
+         return 1
+ 
+     d_hidden = 0 if args.no_hidden else 2 * (model.head.in_features // 2)
+-    net = Evidence(d_hidden, device, read_rank=args.read_rank)
++    net = (Relational(device) if args.mind == "relational"
++           else Evidence(d_hidden, device, read_rank=args.read_rank))
+     live = [p for p in model.parameters() if p.requires_grad]
+     opt = torch.optim.AdamW([{"params": net.parameters(), "lr": args.lr_head}]
+                             + ([{"params": live, "lr": args.lr_upper}] if live else []),
+@@ -688,7 +796,62 @@ def main() -> int:
+             read_cache[key] = h
+         return h
+ 
++    def rel_inputs(p, ex):
++        """The graph, in ranks. Everything here comes from plumbing that already existed -
++        ctx fingerprints, the inverted index, the probe counts - and leaves as an order
++        statistic of THIS example, so a fresh tape re-ranks it all and nothing is worth
++        memorising. Caches live on the pack and die with the resample."""
++        slots, vals_e = ex["ev_slots"], ex["vals"]
++        n = len(slots)
++        ck = p.setdefault("_rel_ctx", {})
++        ws = p.setdefault("_rel_words", {})
++        for sl in set(slots):
++            if sl not in ck:
++                c = bank.ctx_fp(p["texts"][sl], exclude=p["tape"].values[sl])
++                ck[sl] = F.normalize(c, dim=-1) if c is not None else None
++                ws[sl] = set(context_words(p["texts"][sl], exclude=p["tape"].values[sl]))
++        med = p.get("_rel_median")
++        if med is None:
++            lens = sorted(len(v) for v in p["postings"].values())
++            med = lens[len(lens) // 2] if lens else 1
++            p["_rel_median"] = med
++        same = torch.zeros(n, n)
++        cos = torch.zeros(n, n)
++        shared = torch.zeros(n, n)
++        for i in range(n):
++            for j in range(i + 1, n):
++                si, sj = slots[i], slots[j]
++                same[i, j] = same[j, i] = float(vals_e[i] == vals_e[j])
++                if ck[si] is not None and ck[sj] is not None:
++                    cos[i, j] = cos[j, i] = float(ck[si] @ ck[sj])
++                rare = sum(1 for w in (ws[si] & ws[sj])
++                           if len(p["postings"].get(w, ())) < med)
++                shared[i, j] = shared[j, i] = rare / max(1, min(len(ws[si]), len(ws[sj])))
++
++        def rank_norm(M):
++            pairs_ = [(a, b) for a in range(n) for b in range(a + 1, n)]
++            if not pairs_:
++                return M
++            ordered = sorted(float(M[a, b]) for a, b in pairs_)
++            R = torch.zeros_like(M)
++            for a, b in pairs_:
++                r = ordered.index(float(M[a, b])) / max(1, len(ordered) - 1)
++                R[a, b] = R[b, a] = r
++            return R
++
++        E = torch.stack([same, rank_norm(cos), rank_norm(shared)], -1).to(device)
++        ext_per = [ex["ext"].get(v, 0) for v in vals_e]
++        levels = sorted(set(ext_per))
++        nf = torch.tensor([[ex["cnt"][vals_e[i]] / n,
++                            levels.index(ext_per[i]) / max(1, len(levels) - 1)]
++                           for i in range(n)], dtype=torch.float32, device=device)
++        masks = [torch.tensor([vals_e[i] == c for i in range(n)], device=device)
++                 for c in ex["cands"]]
++        return E, same.unsqueeze(-1).to(device), nf, masks
++
+     def forward(p, it, ex):
++        if args.mind == "relational":
++            return net(*rel_inputs(p, ex))
+         rows = torch.tensor(ex["rows"], dtype=torch.float32, device=device)
+         if args.no_hidden:
+             return net(torch.zeros(0, device=device), rows)
+@@ -704,7 +867,7 @@ def main() -> int:
+ 
+     # ---------------------------------------------------------------- train: the tape teaches
+     net.train()
+-    model.train(not args.frozen_trunk)
++    model.train(not args.frozen_trunk and args.mind != "relational")
+     curve, losses = [], []
+     # What the mind was actually shown. The first full run logged n_cands at eight steps and six
+     # of them were 1, against 3.56 on the held-out tape - the training distribution was the
+@@ -783,7 +946,11 @@ def main() -> int:
+     # if the reading arm fails while this shows the reading columns carrying most of the norm,
+     # the drowning hypothesis has room; if the feature columns dominate and the arm still
+     # fails, the damage came through the trunk's own drift, not through the head's weighting.
+-    with torch.no_grad():
++    if args.mind == "relational":
++        head_norms = {"mind": "relational",
++                      "params": int(sum(q.numel() for q in net.parameters()))}
++    else:
++      with torch.no_grad():
+         w0, d_read = net.f[0].weight, net.d_read
+         head_norms = {
+             "d_reading": d_read, "d_features": N_FEAT,
+@@ -801,7 +968,7 @@ def main() -> int:
+ 
+     # ---------------------------------------------------------------- score: three examiners
+     @torch.no_grad()
+-    def leave_one_out(p, lie: bool):
++    def leave_one_out(p, lie: bool, dup: int = 1):
+         r = random.Random(SEED + (1 if lie else 0))
+         n_slots = p["n_slots"]
+         ans, cor, rew = defaultdict(list), defaultdict(list), defaultdict(list)
+@@ -828,7 +995,8 @@ def main() -> int:
+                     lie_from = r.randrange(n_slots)
+                     if lie_from in set(it["slots"]):
+                         continue
+-                ex = example(p, it, hidden, lie_from=lie_from)
++                ex = example(p, it, hidden, lie_from=lie_from,
++                             lie_dup=(dup if lie else 1))
+                 if ex is None or not ex["cands"]:
+                     continue
+                 logits = forward(p, it, ex)
+@@ -1016,9 +1184,13 @@ def main() -> int:
+     held = new_pack(random.Random(SEED + 99), eval_lines)
+     loo = leave_one_out(held, lie=False)
+     lied = leave_one_out(held, lie=True)
++    lied_dup = (leave_one_out(held, lie=True, dup=args.lie_dup)
++                if args.lie_dup > 1 else None)
+     ex_out = exam(held)
+     log(f"  LOO {json.dumps(loo)}")
+     log(f"  LIE {json.dumps(lied)}")
++    if lied_dup is not None:
++        log(f"  LIE-DUP(x{args.lie_dup}) {json.dumps(lied_dup)}")
+     log(f"  EXAM {json.dumps(ex_out)}")
+ 
+     g_arc = arc0 == arc1
+@@ -1033,6 +1205,10 @@ def main() -> int:
+     lie_m = lied["matched_coverage"]["votes"]
+     g_lie = (None if lie_m["judge_vacuous"]
+              else bool(lie_m["model_accuracy_at_that_coverage"] >= lie_m["judge_accuracy"]))
++    dup_m = lied_dup["matched_coverage"]["votes"] if lied_dup else None
++    g_lie_dup = (None if dup_m is None or dup_m["judge_vacuous"]
++                 else bool(dup_m["model_accuracy_at_that_coverage"]
++                           >= dup_m["judge_accuracy"]))
+     honest_testable = loo["n_absent"] >= 5 and loo["n_present"] >= 5
+     # Above chance BY MORE THAN ITS OWN NOISE. The first arm to pass this gate did so at 0.560,
+     # which is 0.69 sigma on 14x56 - while the same measurement on the training tape stood at
+@@ -1080,12 +1256,14 @@ def main() -> int:
+             "G_abstains_unknowable": g_honest,
+             "G_survives_lie": g_lie,
+             "G_weighs_contested": g_weighs,
++            "G_survives_duplicated_lie": g_lie_dup,
+             "G_beats_silence": g_beats_silence,
+         },
+         "judges_compared": live_judges, "judges_compared_lie": lie_judges,
++        "mind": args.mind, "lie_dup": args.lie_dup,
+         "train_distribution": train_dist, "head_input_norms": head_norms,
+         "leave_one_out": loo, "leave_one_out_train_control": loo_train,
+-        "lying_tape": lied, "exam": ex_out, "curve": curve,
++        "lying_tape": lied, "lying_tape_dup": lied_dup, "exam": ex_out, "curve": curve,
+         "arc_enc_hash_before": arc0, "arc_enc_hash_after": arc1,
+         "fp_version": s271.fp_version(),
+         "reference_280_baseline": {"held_out_reward": 0.704, "acc_answered_all": 0.900},
+-- 
+2.43.0
+

@@ -1,0 +1,15 @@
+{
+ "bytes": 30000000,
+ "sample": "region",
+ "window_lines": 1600,
+ "places": 1500,
+ "questions": 3000,
+ "own": 0.2803333333333333,
+ "walk_k": 0.17333333333333334,
+ "walk_2k": 0.174,
+ "shared": 0.184,
+ "union_k_shared": 0.227,
+ "anywhere": 0.7096666666666667,
+ "present_unreached": 0.37133333333333335,
+ "reach_over_presence": 0.244246124941287
+}

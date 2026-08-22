@@ -1,0 +1,40 @@
+{
+ "1337": {
+  "seed": 1337,
+  "corpus": "data\\_tinystories_raw_scale.txt",
+  "curriculum": {
+   "train_narrow_hit": 0.7404,
+   "eval_unique": 0.6686666666666666,
+   "eval_rand": 0.1,
+   "lift": 0.5686666666666667
+  },
+  "scratch_unique": {
+   "train_hit": 0.2112,
+   "eval_unique": 0.25533333333333336,
+   "eval_rand": 0.11133333333333334,
+   "lift": 0.144
+  },
+  "curric_minus_scratch": 0.42466666666666664,
+  "elapsed_s": 1073.5,
+  "note": "narrow2 curriculum vs scratch unique; same eval RNG"
+ },
+ "7": {
+  "seed": 7,
+  "corpus": "data\\_tinystories_raw_scale.txt",
+  "curriculum": {
+   "train_narrow_hit": 0.7212,
+   "eval_unique": 0.604,
+   "eval_rand": 0.10866666666666666,
+   "lift": 0.49533333333333335
+  },
+  "scratch_unique": {
+   "train_hit": 0.1604,
+   "eval_unique": 0.21333333333333335,
+   "eval_rand": 0.10266666666666667,
+   "lift": 0.11066666666666666
+  },
+  "curric_minus_scratch": 0.3846666666666667,
+  "elapsed_s": 1122.7,
+  "note": "narrow2 curriculum vs scratch unique; same eval RNG"
+ }
+}

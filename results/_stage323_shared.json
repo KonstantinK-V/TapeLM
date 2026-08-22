@@ -1,0 +1,17 @@
+{
+ "bytes": 30000000,
+ "sample": "region",
+ "window_lines": 400,
+ "places": 2914,
+ "questions": 3000,
+ "own_hit": 0.23333333333333334,
+ "cos_reach": 0.175,
+ "share_reach": 0.16433333333333333,
+ "both": 0.12266666666666666,
+ "cos_only": 157,
+ "share_only": 125,
+ "paired_z": 1.9055722693613237,
+ "places_overlap_mean": 0.247125,
+ "rank_cos_mean": 0.5186666666666667,
+ "rank_share_mean": 0.513
+}

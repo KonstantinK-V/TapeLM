@@ -1,0 +1,28 @@
+Open-world chain 2026-08-22
+===========================
+
+1. SMOKE (local k, 400 lines) — all high d2=0
+   news    3/3  mid n~362-410  d2~4.3-4.7
+   stories 3/3  mid n~108-119  d2~5.6-7.0
+
+2. SMOKE (wiki home k, news 400) — all high d2=0
+   3/3  mid d2~5.0-7.0  allow~16-20 (wiki k on denser news slots)
+
+3. 526 OPENXFER (wiki k → foreign, 100..9600) — GO 6/6
+   news    3/3  GATE  peak d2@2400 ~22-25  d2@9600 ~2.2-2.7  high d2=0
+   stories 3/3  GATE  peak d2@2400 ~6-10   d2@9600 ~1.5-1.9  high d2=0
+
+   Note: after 4800 mid d2 *falls* while allow→500+. Gate uses 9600>100+1.
+   Read n and d2 together; 9600 is not monotonic depth — budget×n outruns then df wins.
+
+4. 525 CONFIRM counter (4800 lines) — VOID 6/6
+   news    PEAK+conf n=4-7  (still starved)
+   stories PEAK+conf n=0-1
+
+Files:
+  results/_contract_v1_smoke.json
+  results/_stage526_openxfer.json
+  results/_stage525_confirm.json
+
+Run:
+  python _run_openworld_chain.py

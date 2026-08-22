@@ -1,0 +1,10 @@
+﻿
+2026-08-21 05:40:40 420b COMPARE: batch 50/50 + letter-hash fillers. Separate JSON. Do not clobber 420.
+2026-08-21 05:40:40 ==== 420b batch seed 1337 ====
+2026-08-21 07:01:24 OK s1337
+2026-08-21 07:01:24 ==== 420b batch seed 8642 ====
+2026-08-21 08:09:02 OK s8642
+2026-08-21 08:09:02 ==== 420b batch seed 2890 ====
+2026-08-21 09:25:16 OK s2890
+2026-08-21 09:25:16 DONE 420b batch compare
+2026-08-21 09:25:16 DONE 420b

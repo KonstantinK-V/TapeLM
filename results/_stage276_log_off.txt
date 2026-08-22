@@ -1,0 +1,32 @@
+Stage276 search-in-loop start 2026-08-05T12:34:47.060509+00:00 device=cuda subject_filter=off idf=classic filler=4 bc=4000 rl=3000 k=7 mode=upper
+  bc 500/4000 loss=1.0231 [decidable] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'READ_3', 'ANSWER_0']
+  bc 1000/4000 loss=0.8212 [clean] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'READ_3', 'READ_4', 'READ_5', 'READ_6', 'ANSWER_4']
+  bc 1500/4000 loss=0.6941 [clean] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'READ_3', 'READ_4', 'READ_5', 'READ_6', 'ANSWER_4']
+  bc 2000/4000 loss=0.6378 [decidable] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'READ_3', 'READ_4', 'READ_5', 'READ_6', 'ANSWER_1']
+  bc 2500/4000 loss=0.7945 [tie] ['ASK_Q', 'READ_0', 'READ_1', 'ANSWER_0']
+  bc 3000/4000 loss=0.5522 [tie] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'READ_3', 'READ_4', 'READ_5', 'READ_6', 'STOP']
+  bc 3500/4000 loss=0.5523 [tie] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'READ_3', 'READ_4', 'READ_5', 'READ_6', 'STOP']
+  bc 4000/4000 loss=1.1451 [decidable] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'READ_3', 'ANSWER_1']
+  rl 375/3000 baseline=0.300 [clean] ['ASK_Q', 'ANSWER_0']
+  rl 750/3000 baseline=0.315 [tie] ['ASK_Q', 'ANSWER_3']
+  rl 1125/3000 baseline=0.515 [clean] ['ASK_Q', 'ANSWER_0']
+  rl 1500/3000 baseline=0.385 [decidable] ['ASK_Q', 'ANSWER_0']
+  rl 1875/3000 baseline=0.390 [decidable] ['ASK_Q', 'ANSWER_2']
+  rl 2250/3000 baseline=0.476 [clean] ['ASK_Q', 'ANSWER_0']
+  rl 2625/3000 baseline=0.456 [tie] ['ASK_Q', 'ANSWER_0']
+  rl 3000/3000 baseline=0.337 [decidable] ['ASK_Q', 'ANSWER_1']
+  NOVEL {"answer_is_slot": 1.0, "reward_total": 0.3500000000000001, "teacher_reward_total": 0.060000000000000005, "retrieval_precision": 0.4761904761904761, "witness_recall": 1.0, "clean": {"coverage": 1.0, "acc_answered": 1.0, "abstain": 0.0, "mean_reads": 0.0, "reward": 1.0, "precision": 0.14285714285714285, "recall": 1.0, "teacher_abstain": 0.0, "teacher_acc_all": 0.0}, "decidable": {"coverage": 1.0, "acc_answered": 0.5, "abstain": 0.0, "mean_reads": 0.0, "reward": 0.35, "precision": 0.7142857142857143, "recall": 1.0, "teacher_abstain": 0.0, "teacher_acc_all": 1.0}, "tie": {"coverage": 1.0, "acc_answered": 0.0, "abstain": 0.0, "mean_reads": 0.0, "reward": -0.3, "precision": 0.5714285714285714, "recall": 1.0, "teacher_abstain": 0.5, "teacher_acc_all": 0.0}, "coverage_all": 1.0, "acc_answered_all": 0.5}
+{
+  "overall": "RETRIEVAL_UNUSABLE",
+  "gates": {
+    "G_arc_enc_frozen": true,
+    "G_answer_is_slot": true,
+    "G_retrieval_usable": false,
+    "G_answers_when_decidable": true,
+    "G_teacher_abstains_on_tie": false,
+    "G_abstain_on_tie": false,
+    "G_acc_when_answering": false,
+    "G_beats_always_answer": true,
+    "G_novel_tape": true
+  }
+}

@@ -1,0 +1,53 @@
+{
+ "1337": {
+  "stay": 0.0,
+  "left": 0.02666666666666667,
+  "window": 0.016,
+  "joint": 0.021333333333333333,
+  "n": 1500,
+  "nonempty": 1.0,
+  "working_cells": 0,
+  "window_minus_stay": 0.016,
+  "window_minus_left": -0.010666666666666668,
+  "seed": 1337,
+  "corpus": "_wikitext103_train.txt",
+  "window_lines": 4000,
+  "min_line": 80,
+  "void": false,
+  "gate": false
+ },
+ "8642": {
+  "stay": 0.0,
+  "left": 0.03133333333333333,
+  "window": 0.016,
+  "joint": 0.01,
+  "n": 1500,
+  "nonempty": 1.0,
+  "working_cells": 0,
+  "window_minus_stay": 0.016,
+  "window_minus_left": -0.01533333333333333,
+  "seed": 8642,
+  "corpus": "_wikitext103_train.txt",
+  "window_lines": 4000,
+  "min_line": 80,
+  "void": false,
+  "gate": false
+ },
+ "2890": {
+  "stay": 0.0,
+  "left": 0.032,
+  "window": 0.015333333333333332,
+  "joint": 0.008666666666666666,
+  "n": 1500,
+  "nonempty": 1.0,
+  "working_cells": 0,
+  "window_minus_stay": 0.015333333333333332,
+  "window_minus_left": -0.01666666666666667,
+  "seed": 2890,
+  "corpus": "_wikitext103_train.txt",
+  "window_lines": 4000,
+  "min_line": 80,
+  "void": false,
+  "gate": false
+ }
+}

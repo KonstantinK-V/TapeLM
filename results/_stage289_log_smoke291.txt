@@ -1,0 +1,57 @@
+Stage289 derivation start 2026-08-11T22:44:16.464361+00:00 device=cuda holdout=corpus
+  lines: train 7324, eval 3139 (the probe reserves ANCHORS, not lines - see `reserved`)
+  word rule matches stage194: True  (rule=ascii, fp=hash, ink=mean)
+  hash ink deterministic and digest-faithful: True  {'anagram_cos': -0.0135, 'perm_fixed_points': 1}
+  tape: 203 addresses, 207 slots | questions {"lookup": 42, "count": 4, "compare": 2} | params 5697
+  ladder coverage: 0/42 lookup questions have all three rungs; the rest train on the task term alone
+  probe pack: 177 reserved addresses (3s to build)
+  probe tape: 50 lookup questions, never trained on; 218 graphs cached (1 view(s)/question) in 0s
+  probe eval: 0.16s x 1 = 0.0 min added to this run
+  step 1/1 train=1.6094 probe=1.4539
+  early stop: restored step 1 (probe 1.4539) of 1
+  REFUSE {"n": 25, "n_answerable": 6, "n_unanswerable": 19, "unanswerable_rate": 0.76, "mind": {"acc_answerable": 0.0, "refuse_recall": 1.0, "false_refusal": 1.0, "coverage": 0.0, "reward": 0.94}, "rival_counting": {"threshold_from_probe": null, "reward": 0.94}, "rival_retrieval": {"threshold_from_probe": 0.3181929588317871, "reward": 0.94}, "rival_own_row": {"reward": 0.94, "acc_answerable": 0.0, "refuse_recall": 1.0}, "blanket_refusal_reward": 0.94, "always_answer_ceiling": -0.52, "gates": {"G_refuse_beats_blanket": false, "G_refuse_beats_counting": false, "G_refuse_beats_retrieval": false, "G_refuse_beats_own_row_shortcut": false}}
+  HELD {"count": {"n": 1, "model_accuracy": 1.0, "rival_accuracy": 1.0, "random_floor": 0.2}, "lookup": {"n": 25, "model_accuracy": 0.76, "rival_accuracy": 0.08, "random_floor": 0.25533333333333336, "rival_cos_accuracy": 0.5, "rival_cos_answered": 6}, "lookup_paired_vs_rival": {"model_only_right": 0, "rival_only_right": 2, "discordant": 2, "mcnemar_z": -1.414213562373095}, "lookup_paired_vs_rival_cos": {"n": 6, "model_only_right": 0, "rival_only_right": 3, "discordant": 3, "mcnemar_z": -1.7320508075688774, "max_achievable_z": 1.7320508075688772, "underpowered": false}, "lookup_paired_vs_rival_cos_by_margin": {"median_margin": 0.14597880840301514, "low_margin": {"n": 4, "model_only_right": 0, "rival_only_right": 2, "discordant": 2, "mcnemar_z": -1.414213562373095, "max_achievable_z": 1.4142135623730951, "underpowered": true}, "high_margin": {"n": 2, "model_only_right": 0, "rival_only_right": 1, "discordant": 1, "mcnemar_z": -1.0, "max_achievable_z": 1.0, "underpowered": true}}, "ladder": {"n_questions": 0, "pairs": 0, "concordant": 0, "ties_excluded": 0, "import_budget_zero_rate": 0.0, "import_budget_mean": 0.0, "concordance": NaN, "z_vs_half": NaN, "mean_phi": {"true": NaN, "near": NaN, "middle": NaN, "far": NaN}}, "exact_mismatches": 0, "confusion": {"count|2->2": 1, "lookup|\u0000REFUSE->\u0000REFUSE": 19, "lookup|Burston->\u0000REFUSE": 2, "lookup|Herzegovina->\u0000REFUSE": 2, "lookup|Straight->\u0000REFUSE": 2}, "sparse": {"n": 25, "n_answerable": 6, "n_unanswerable": 19, "acc_answerable": 0.0, "refuse_recall": 1.0, "false_refusal": 1.0, "n_no_own_row": 25, "acc_no_own_row": 0.76}}
+  CONTROL {"count": {"n": 4, "model_accuracy": 1.0, "rival_accuracy": 1.0, "random_floor": 0.2}, "compare": {"n": 2, "model_accuracy": 1.0, "rival_accuracy": 1.0, "random_floor": 0.3333333333333333}, "lookup": {"n": 42, "model_accuracy": 0.8571428571428571, "rival_accuracy": 0.023809523809523808, "random_floor": 0.25436507936507935, "rival_cos_accuracy": 0.5, "rival_cos_answered": 6}, "lookup_paired_vs_rival": {"model_only_right": 0, "rival_only_right": 1, "discordant": 1, "mcnemar_z": -1.0}, "lookup_paired_vs_rival_cos": {"n": 6, "model_only_right": 0, "rival_only_right": 3, "discordant": 3, "mcnemar_z": -1.7320508075688774, "max_achievable_z": 1.7320508075688772, "underpowered": false}, "lookup_paired_vs_rival_cos_by_margin": {"median_margin": 0.04734319448471069, "low_margin": {"n": 4, "model_only_right": 0, "rival_only_right": 1, "discordant": 1, "mcnemar_z": -1.0, "max_achievable_z": 1.0, "underpowered": true}, "high_margin": {"n": 2, "model_only_right": 0, "rival_only_right": 2, "discordant": 2, "mcnemar_z": -1.414213562373095, "max_achievable_z": 1.4142135623730951, "underpowered": true}}, "ladder": {"n_questions": 0, "pairs": 0, "concordant": 0, "ties_excluded": 0, "import_budget_zero_rate": 0.0, "import_budget_mean": 0.0, "concordance": NaN, "z_vs_half": NaN, "mean_phi": {"true": NaN, "near": NaN, "middle": NaN, "far": NaN}}, "exact_mismatches": 0, "confusion": {"compare|equal->equal": 1, "compare|first->first": 1, "count|1->1": 1, "count|2->2": 3, "lookup|\u0000REFUSE->\u0000REFUSE": 36, "lookup|Australian->\u0000REFUSE": 2, "lookup|Canadian->\u0000REFUSE": 2, "lookup|Misuse->\u0000REFUSE": 2}, "sparse": {"n": 42, "n_answerable": 6, "n_unanswerable": 36, "acc_answerable": 0.0, "refuse_recall": 1.0, "false_refusal": 1.0, "n_no_own_row": 36, "acc_no_own_row": 0.9166666666666666}}
+{
+  "overall": "DERIVATION_PARTIAL",
+  "gates": {
+    "G_arc_enc_frozen": true,
+    "G_ink_verified": true,
+    "G_task_exists": true,
+    "G_exact_algebra_matches_tape": true,
+    "G_lookup_beats_floor": true,
+    "G_lookup_beats_counts_paired": false,
+    "G_lookup_beats_retrieval_paired": false,
+    "G_phi_orders_negatives": false
+  },
+  "lookup": {
+    "n": 25,
+    "model_accuracy": 0.76,
+    "rival_accuracy": 0.08,
+    "random_floor": 0.25533333333333336,
+    "rival_cos_accuracy": 0.5,
+    "rival_cos_answered": 6
+  },
+  "paired": {
+    "model_only_right": 0,
+    "rival_only_right": 2,
+    "discordant": 2,
+    "mcnemar_z": -1.414213562373095
+  },
+  "ladder": {
+    "n_questions": 0,
+    "pairs": 0,
+    "concordant": 0,
+    "ties_excluded": 0,
+    "import_budget_zero_rate": 0.0,
+    "import_budget_mean": 0.0,
+    "concordance": NaN,
+    "z_vs_half": NaN,
+    "mean_phi": {
+      "true": NaN,
+      "near": NaN,
+      "middle": NaN,
+      "far": NaN
+    }
+  }
+}

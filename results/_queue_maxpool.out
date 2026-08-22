@@ -1,0 +1,5 @@
+﻿
+2026-08-11 13:53:48 maxpool v29: mean+max in all three pools; same corpus as qrank_big; decide high-margin z vs -3.61
+2026-08-11 13:53:48 289 maxpool
+2026-08-11 14:21:45 EXIT_maxpool=0
+2026-08-11 14:21:45 QUEUE_DONE

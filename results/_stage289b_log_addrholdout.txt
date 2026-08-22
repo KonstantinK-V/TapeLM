@@ -1,0 +1,31 @@
+Stage289b mind tape start 2026-08-09T00:28:55.975358+00:00 device=cuda holdout=address tapes=8
+  tape 1/8: +387 patterns (memory 387)
+  tape 2/8: +384 patterns (memory 771)
+  tape 3/8: +381 patterns (memory 1152)
+  tape 4/8: +375 patterns (memory 1527)
+  tape 5/8: +381 patterns (memory 1908)
+  tape 6/8: +378 patterns (memory 2286)
+  tape 7/8: +374 patterns (memory 2660)
+  tape 8/8: +375 patterns (memory 3035)
+  memory 3035 patterns x 28 dims, labels {"none": 1012, "replace": 1012, "dup": 1011}
+  held out 372 patterns, labels {"none": 124, "replace": 124, "dup": 124}
+{
+  "overall": "MIND_TAPE_REAL",
+  "gates": {
+    "G_space_has_signal": true,
+    "G_space_is_smooth": true,
+    "G_interpolation_holds": true,
+    "G_grows_without_training": true
+  },
+  "signal": {
+    "knn_1_accuracy": 0.8010752688172043,
+    "majority_class_floor": 0.3333333333333333,
+    "counting_floor": 0.3333333333333333
+  },
+  "interpolation": {
+    "midpoint_same_label": 0.7325,
+    "midpoint_different_label_control": 0.405,
+    "n_same": 400,
+    "n_diff": 400
+  }
+}

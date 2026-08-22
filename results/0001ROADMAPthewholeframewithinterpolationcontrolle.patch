@@ -1,0 +1,249 @@
+From 11325c3d46b2c8b6c299b2bfcf65a0fadbe1ca88 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Sat, 8 Aug 2026 21:54:15 +0000
+Subject: [PATCH] ROADMAP: the whole frame, with interpolation controlled and
+ selection made mechanical
+
+The design has been assembled across a long conversation and needed one place
+to live that is not scrollback. Five parts, three of them already measured:
+ink (closed by 277 and 287), fact tape (279, scales 52x with the mind
+constant), the relational mind (4,417 weights, 288's seven gates), the mind
+tape (289b is deciding), and the conjecture loop (planned).
+
+What the document adds beyond restating the parts:
+
+Interpolation is made CONTROLLED by three rules, none of them a chosen
+constant. It is licensed by measured smoothness - 289b produces the curve of
+accuracy against neighbour distance, and blending is allowed only inside the
+radius where accuracy still beats the floor, re-read as the memory grows.
+It is gap-filling ONLY - a conjecture may be written where the fact tape is
+silent and nowhere else, so it can never overwrite evidence and "the mind can
+never be better than its tape" survives intact while "the mind may speak where
+the tape does not" becomes possible. And depth discipline stands: only depth 0
+is evidence, only text resets depth, so conjecture cannot compound.
+
+Evolution is stated as mechanism rather than metaphor, with all three
+ingredients mapped: variation is interpolated midpoints and new situations,
+heredity is a pattern being reused when a similar situation recurs, selection
+is incoming text confirming or refuting what a pattern produced. The crucial
+clause: refutation costs the MECHANISM, not just the slot. And the environment
+is real - the corpus stream is something the mind cannot edit, which is
+precisely the property whose absence killed the judge-consistency reward.
+
+The plan is 289b -> 289 (answers become derivations, G_answer_is_derivation
+strictly stronger than G_answer_is_slot) -> 290 (conjecture writing) -> 291
+(selection) -> 292 (generation as structure plus pointers), each with a cost
+and with the number that would kill it. Plus one cross-cutting fix: the
+abstain reward is a picked constant and G_beats_silence has therefore never
+meant anything; derived per example as the value of a uniform guess, 2/c - 1,
+it starts meaning "beats guessing".
+
+Section 6 names the four ways the concept fails, written before the runs
+rather than after. The first is the real bet: the verb curve. If coverage
+against installed verbs climbs linearly instead of saturating, the useful part
+of thinking is not finitely axiomatizable in this vocabulary and the project
+has rebuilt a network with facts in it. That plot starts at 289 and is cheap.
+
+Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01RYDM9MUk761CZjn7SmTaug
+---
+ HANDOFF.md |   8 +++
+ ROADMAP.md | 167 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 175 insertions(+)
+ create mode 100644 ROADMAP.md
+
+diff --git a/HANDOFF.md b/HANDOFF.md
+index 9b57c3d..23d4696 100644
+--- a/HANDOFF.md
++++ b/HANDOFF.md
+@@ -510,6 +510,14 @@ clean version needs two tapes — world and language — with the mind holding n
+ 
+ ---
+ 
++## 6b-bis. The whole frame and the plan: see `ROADMAP.md`
++
++Five parts — ink (closed), fact tape (done, scales), mind (done, 288's seven gates), mind tape
++(289b decides), conjecture loop (planned) — plus the stage plan 289 → 292 with a falsifier on
++each, the three controls that keep interpolation from being hallucination, and the four ways
++this concept could fail, written before the runs. This file keeps the measured state;
++`ROADMAP.md` keeps the frame.
++
+ ## 6c. The derived slot — design agreed, not yet built
+ 
+ GPT: point → decoder → text; the blend lives one forward pass and leaves no trace. Here:
+diff --git a/ROADMAP.md b/ROADMAP.md
+new file mode 100644
+index 0000000..e5c733a
+--- /dev/null
++++ b/ROADMAP.md
+@@ -0,0 +1,167 @@
++# TapeLM — the frame, and the plan to finish it
++
++Written after 286–289b. Everything in §1 is measured; everything in §2 onward is a plan with a
++falsifier attached. Nothing here is a hope without a number that could kill it.
++
++---
++
++## 0. The frame in one picture
++
++```
++   text ──WRITE(279)──▶ ┌──────────────┐
++                        │  FACT TAPE   │  slots: value, sources, support, depth=0
++                        └──────┬───────┘
++                               │ ranks, indicators — never identity
++                        ┌──────▼───────┐
++   question ───────────▶│    MIND      │  ~5k weights, equivariant, holds no fact
++                        │  verbs over  │  READ · DIAGNOSE · REPAIR · COUNT · COMPARE
++                        │    slots     │
++                        └──┬────────┬──┘
++                           │        │ situation as a fixed-length point
++                    answer │        ▼
++              (index or    │  ┌──────────────┐
++               derivation) │  │  MIND TAPE   │  patterns as points; neighbourhood
++                           │  └──────┬───────┘  and *interpolation* live here
++                           │         │ conjecture, only where the fact tape is SILENT
++                           │  ┌──────▼───────┐
++                           └──│ Tape.decide  │──▶ derived slot, depth = d+1, provenance
++                              └──────────────┘
++                                     ▲
++   new text ─────────────────────────┘  confirms → depth 0 · refutes → slot dies AND
++                                        the pattern that produced it loses support
++```
++
++Five parts. Three of them exist and are measured; two are the plan.
++
++| part | status |
++|---|---|
++| **Ink** — frozen `fp`, order-blind, proposes addresses only | done, and **closed** (277, 287) |
++| **Fact tape** — 279 write decision, two-channel addressing | done, scales 52× with the mind constant (283/284) |
++| **Mind** — relational net, ranks only, ~4.4k params | done; passes 288's seven gates |
++| **Mind tape** — patterns as points, structure-only key | **289b decides whether it exists** |
++| **Conjecture loop** — derived slots, selection by the world | plan (§3–§4) |
++
++---
++
++## 1. What is settled, with the numbers that settled it
++
++**The invariant has teeth now.** It is no longer a gate, it is a constraint on the input.
++Anything carrying identity — text, fingerprints, any absolute coordinate — became a lookup
++table: frozen trunk (collapse stayed), reading path ÷12.8 (fit unchanged to the digit), names
++stripped (poison gone, payoff absent), delta channel (lost the lie). Only ranks and indicators
++transfer. This is the single most useful thing the project learned.
++
++**The mind does not grow with knowledge** — as architecture, not coincidence. Equivariant pools:
++the same 4,417 weights read 3 mentions or 300.
++
++**The mind became an auditor, not a reader.** 288, held out: forgery detection 0.683 against
++counting's 0.387 and a random floor of 0.213; on the *duplicated* forgery 0.831 against 0.254,
++where counting is wrong by construction. Repair 0.433 against majority-of-the-rest's 0.049.
++Seven gates, all true. First end-to-end pass in the project.
++
++**Two dead ends, closed by proof rather than by taste.** Adjacency as a second ink layer:
++order content 1.3%, residual signal at chance with working nulls (287). Judge-consistency as a
++reward: it ranks two real arms *backwards* (288) — trained on it we would have shipped the
++broken one.
++
++**Still open and honest about it:** `G_beats_silence` has never passed; everything is measured
++on ~100-address tapes; repair restores what the corpus said, not what is true.
++
++---
++
++## 2. The one blocker
++
++The answer is a slot index, and `G_answer_is_slot` is what proves separation. Composite
++questions — compare, count, two hops — are not answerable by one slot *by definition*. So the
++interface must change, and the moment it does the proof evaporates unless something replaces it.
++
++**Replacement: the answer becomes a derivation.** A pair `(verb, slot set)` from a small closed
++vocabulary, *executable* against the tape. Then:
++
++- nothing is generated — it is a program over indices;
++- the proof gets **stronger**: `G_answer_is_derivation` — delete the slots, the derivation
++  fails to execute;
++- labels stay free: questions are built *from* the tape, so we know the answer by construction,
++  exactly as 288 builds corruptions;
++- the mind's job stays "which slots and how", never "what is true".
++
++288 is already the two-verb case: repair answers WHERE + WHAT. This is the same shape with a
++larger vocabulary.
++
++---
++
++## 3. Controlled interpolation
++
++Interpolation is what a discrete tape cannot do and what a transformer gets for free. The mind
++tape buys it — but free interpolation is just hallucination with extra steps. Three controls,
++none of them a chosen constant:
++
++1. **Licensed by measured smoothness.** 289b produces the curve of accuracy against neighbour
++   distance. Interpolate only where the nearest stored pattern lies inside the radius at which
++   accuracy is still above the floor. Beyond it: abstain, do not conjecture. The radius is
++   *read off the measurement*, per region, and is re-read as the mind tape grows.
++2. **Gap-filling only.** A conjecture may be written **only where the fact tape is silent** —
++   no slot at that address. If the tape speaks, the tape wins. This keeps "the mind can never
++   be better than its tape" intact while allowing "the mind may speak where the tape does not",
++   and it makes conjecture structurally unable to overwrite evidence.
++3. **Depth discipline.** Only `depth 0` counts as evidence; only text from the world resets
++   depth. A conjecture built on conjectures cannot become a premise.
++
++---
++
++## 4. The evolutionary loop, stated as mechanism
++
++Not a metaphor — the three ingredients are present and each maps to something already built.
++
++| ingredient | here |
++|---|---|
++| **variation** | interpolated midpoints in the mind tape; new situations appended |
++| **heredity** | a pattern is reused whenever a similar situation recurs |
++| **selection** | incoming text confirms or refutes the conjectures a pattern produced |
++
++**Refutation must cost the mechanism, not just the slot.** Delete the wrong derived slot *and*
++decrement the support of the pattern that produced it, or the same error is re-derived forever.
++That decrement is the selection pressure; without it there is churn and no evolution.
++
++And the environment is real: **the corpus stream is something the mind cannot edit.** That is
++what makes this selection rather than self-agreement — the failure that killed the
++judge-consistency reward.
++
++---
++
++## 5. The plan
++
++Cheapest first. Each stage names what would kill it.
++
++| # | stage | cost | dies if |
++|---|---|---|---|
++| **289b** | *running.* Is the pattern space smooth? Signal, smoothness, interpolation, growth — zero trained parameters | ~min | midpoints land nowhere → no mind tape, and §3–§4 are cancelled |
++| **289** | **Answers become derivations.** `COUNT`, `COMPARE` over an address set. Questions generated from the tape. `G_answer_is_derivation` replaces `G_answer_is_slot` | ~1 h | the mind cannot pick the slot set above the random floor → composite questions are out of reach and the project stays a reader |
++| **290** | **Conjecture writing.** Gap-filling only, licensed by 289b's radius, `Tape.decide` performs the write so restatements become `CONFIRM` | ~2 h | a tape with conjectures does **not** predict incoming text better than the same tape without them |
++| **291** | **Selection.** Pattern support rises on confirmation, falls on refutation; conjectures re-scored as the tape grows | ~2 h | fitness-weighted mind tape does not beat the unweighted one → variation without selection, i.e. churn |
++| **292** | **Generation.** Structure tokens the mind may emit freely; every content word is a pointer. Strip the tape → content dies, structure remains | ~1 d | fluency requires content words the tape cannot supply → the split is not clean and must be stated as such |
++
++**Cross-cutting fix, do it with 289:** the abstain reward is a picked constant and
++`G_beats_silence` has therefore never meant anything. Derive it per example: the expected value
++of a uniform guess, `2/c − 1` for `c` candidates. Then "beats silence" means "beats guessing",
++which is a claim worth making.
++
++---
++
++## 6. What would make this concept fail, stated in advance
++
++- **The verb curve does not saturate.** Coverage of real questions against the number of verbs
++  installed. If it climbs linearly, the useful part of thinking is not finitely axiomatizable
++  in this vocabulary, you will need ten thousand verbs, and at that point you have rebuilt a
++  network with facts inside. Measure this from 289 onward — it is *the* bet, and it is cheap
++  to plot.
++- **Conjectures do not survive the world.** If confirmation rate sits at the base rate of
++  guessing, interpolation adds noise with provenance and nothing else.
++- **The conjecture rate grows without bound.** Self-inflation, i.e. model collapse, and it is
++  directly observable rather than inferred.
++- **Structure cannot be separated from content in generation.** If 292 needs the tape to supply
++  the glue, then "mind separate from knowledge" is a claim about *facts* only, and that is a
++  smaller claim than the one the project has been making.
++
++Any one of these is publishable as a negative result. That is the point of writing them here
++before the runs.
+-- 
+2.43.0
+

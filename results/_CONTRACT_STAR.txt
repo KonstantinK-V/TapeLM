@@ -1,0 +1,6 @@
+TapeLM star contract (after 512 STOP, 513 STOP)
+PIN  ≠ STAR. Do not pipeline 436 into 511.
+STAR: all rec hops, 1/df budget, ring2 only if leftover allow.
+MEET: write working tape[m]=MEET; not Q[H], not unique.
+and: ~1 hop glue; must not flood.
+Unique hop is a special case (toy 440), not the definition of walk.

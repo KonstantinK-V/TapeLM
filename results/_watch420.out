@@ -1,0 +1,12 @@
+﻿
+23:02:25 watching train420 PID 33376
+23:31:26 PID 33376 gone
+23:31:26 still: 9124 "C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe" -u _train420_balce.py --seed 8642 --steps 3000 --cpu --save-mind out/_mind_420_balce_s8642.pt --out results/_stage420_balce.json
+23:31:26 json exists
+23:31:26 need seeds: 8642,2890
+23:31:26 ==== train420 seed 8642 ====
+23:40:36 exit -1 s8642
+23:40:36 ==== train420 seed 2890 ====
+00:42:15 exit 0 s2890
+00:42:15 ==== verdict ====
+00:42:15 WATCH DONE

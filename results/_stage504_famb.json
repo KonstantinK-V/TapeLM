@@ -1,0 +1,38 @@
+{
+ "1337": {
+  "seed": 1337,
+  "corpus": "wiki",
+  "n_lines": 400,
+  "n_famb": 623,
+  "resolve": 0.985553772070626,
+  "shuffle": 0.9662921348314607,
+  "hop_any": 0.14285714285714285,
+  "hop_rnd": 0.11235955056179775,
+  "void": false,
+  "gate": false
+ },
+ "8642": {
+  "seed": 8642,
+  "corpus": "wiki",
+  "n_lines": 400,
+  "n_famb": 608,
+  "resolve": 0.9819078947368421,
+  "shuffle": 0.962171052631579,
+  "hop_any": 0.13322368421052633,
+  "hop_rnd": 0.1118421052631579,
+  "void": false,
+  "gate": false
+ },
+ "2890": {
+  "seed": 2890,
+  "corpus": "wiki",
+  "n_lines": 400,
+  "n_famb": 690,
+  "resolve": 0.9884057971014493,
+  "shuffle": 0.9666666666666667,
+  "hop_any": 0.13478260869565217,
+  "hop_rnd": 0.13768115942028986,
+  "void": false,
+  "gate": false
+ }
+}

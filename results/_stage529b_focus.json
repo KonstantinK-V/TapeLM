@@ -1,0 +1,3843 @@
+{
+ "n": 87,
+ "soft_go": 17,
+ "rows": [
+  {
+   "name": "nov_W150_c0.0",
+   "seed": 1337,
+   "tag": "_tinystories_train",
+   "n_lines": 150,
+   "teacher": "nov",
+   "c_step": 0.0,
+   "epochs": 15,
+   "window": 150,
+   "mid_only": false,
+   "p25": 11,
+   "p75": 26,
+   "ceiling": 0.16111111111111112,
+   "learn_mid": {
+    "n": 18,
+    "hops": 0.9444444444444444,
+    "cover": 0.011111111111111112
+   },
+   "learn_high": {
+    "n": 8,
+    "hops": 1.0,
+    "cover": 0.0
+   },
+   "hop1": {
+    "n": 18,
+    "hops": 0.9444444444444444,
+    "cover": 0.011111111111111112
+   },
+   "allgo": {
+    "n": 18,
+    "hops": 8.777777777777779,
+    "cover": 0.17222222222222222
+   },
+   "Q": {
+    "high_go": 0.0,
+    "mid_go": 0.0079,
+    "mid_stop": 0.0457
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "nov_W150_c0.0",
+   "seed": 8642,
+   "tag": "_tinystories_train",
+   "n_lines": 150,
+   "teacher": "nov",
+   "c_step": 0.0,
+   "epochs": 15,
+   "window": 150,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 30,
+   "ceiling": 0.15625,
+   "learn_mid": {
+    "n": 16,
+    "hops": 1.0,
+    "cover": 0.057291666666666664
+   },
+   "learn_high": {
+    "n": 8,
+    "hops": 0.75,
+    "cover": 0.0625
+   },
+   "hop1": {
+    "n": 16,
+    "hops": 1.0,
+    "cover": 0.057291666666666664
+   },
+   "allgo": {
+    "n": 16,
+    "hops": 8.6875,
+    "cover": 0.21354166666666666
+   },
+   "Q": {
+    "high_go": 0.056,
+    "mid_go": 0.056,
+    "mid_stop": 0.0751
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "nov_W150_c0.0",
+   "seed": 2890,
+   "tag": "_tinystories_train",
+   "n_lines": 150,
+   "teacher": "nov",
+   "c_step": 0.0,
+   "epochs": 15,
+   "window": 150,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 27,
+   "ceiling": 0.19411764705882356,
+   "learn_mid": {
+    "n": 17,
+    "hops": 10.823529411764707,
+    "cover": 0.24705882352941178
+   },
+   "learn_high": {
+    "n": 7,
+    "hops": 0.5714285714285714,
+    "cover": 0.0
+   },
+   "hop1": {
+    "n": 17,
+    "hops": 1.0,
+    "cover": 0.06764705882352941
+   },
+   "allgo": {
+    "n": 17,
+    "hops": 10.823529411764707,
+    "cover": 0.26176470588235295
+   },
+   "Q": {
+    "mid_go": 0.473,
+    "mid_stop": 0.0997,
+    "high_go": 0.1514
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": true,
+   "cover_lift": 0.17941176470588238
+  },
+  {
+   "name": "nov_W150_c0.01",
+   "seed": 1337,
+   "tag": "_tinystories_train",
+   "n_lines": 150,
+   "teacher": "nov",
+   "c_step": 0.01,
+   "epochs": 15,
+   "window": 150,
+   "mid_only": false,
+   "p25": 11,
+   "p75": 26,
+   "ceiling": 0.1888888888888889,
+   "learn_mid": {
+    "n": 18,
+    "hops": 0.9444444444444444,
+    "cover": 0.011111111111111112
+   },
+   "learn_high": {
+    "n": 8,
+    "hops": 1.0,
+    "cover": 0.0
+   },
+   "hop1": {
+    "n": 18,
+    "hops": 0.9444444444444444,
+    "cover": 0.011111111111111112
+   },
+   "allgo": {
+    "n": 18,
+    "hops": 7.166666666666667,
+    "cover": 0.2
+   },
+   "Q": {
+    "high_go": 0.0071,
+    "mid_go": 0.0157,
+    "mid_stop": 0.0712
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "nov_W150_c0.01",
+   "seed": 8642,
+   "tag": "_tinystories_train",
+   "n_lines": 150,
+   "teacher": "nov",
+   "c_step": 0.01,
+   "epochs": 15,
+   "window": 150,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 30,
+   "ceiling": 0.20312499999999997,
+   "learn_mid": {
+    "n": 16,
+    "hops": 1.0,
+    "cover": 0.057291666666666664
+   },
+   "learn_high": {
+    "n": 8,
+    "hops": 0.75,
+    "cover": 0.0625
+   },
+   "hop1": {
+    "n": 16,
+    "hops": 1.0,
+    "cover": 0.057291666666666664
+   },
+   "allgo": {
+    "n": 16,
+    "hops": 7.875,
+    "cover": 0.26041666666666663
+   },
+   "Q": {
+    "high_go": 0.0208,
+    "mid_go": -0.0,
+    "mid_stop": 0.0792
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "nov_W150_c0.01",
+   "seed": 2890,
+   "tag": "_tinystories_train",
+   "n_lines": 150,
+   "teacher": "nov",
+   "c_step": 0.01,
+   "epochs": 15,
+   "window": 150,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 27,
+   "ceiling": 0.1647058823529412,
+   "learn_mid": {
+    "n": 17,
+    "hops": 1.0,
+    "cover": 0.06764705882352941
+   },
+   "learn_high": {
+    "n": 7,
+    "hops": 0.5714285714285714,
+    "cover": 0.0
+   },
+   "hop1": {
+    "n": 17,
+    "hops": 1.0,
+    "cover": 0.06764705882352941
+   },
+   "allgo": {
+    "n": 17,
+    "hops": 10.647058823529411,
+    "cover": 0.2323529411764706
+   },
+   "Q": {
+    "mid_go": 0.0308,
+    "mid_stop": 0.0893,
+    "high_go": 0.0269
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "cover_end_W150_c0.0",
+   "seed": 1337,
+   "tag": "_tinystories_train",
+   "n_lines": 150,
+   "teacher": "cover_end",
+   "c_step": 0.0,
+   "epochs": 15,
+   "window": 150,
+   "mid_only": false,
+   "p25": 11,
+   "p75": 26,
+   "ceiling": 0.1888888888888889,
+   "learn_mid": {
+    "n": 18,
+    "hops": 0.9444444444444444,
+    "cover": 0.011111111111111112
+   },
+   "learn_high": {
+    "n": 8,
+    "hops": 1.0,
+    "cover": 0.0
+   },
+   "hop1": {
+    "n": 18,
+    "hops": 0.9444444444444444,
+    "cover": 0.011111111111111112
+   },
+   "allgo": {
+    "n": 18,
+    "hops": 8.555555555555555,
+    "cover": 0.2
+   },
+   "Q": {
+    "high_go": 0.0357,
+    "mid_go": 0.0025,
+    "mid_stop": 0.0132
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "cover_end_W150_c0.0",
+   "seed": 8642,
+   "tag": "_tinystories_train",
+   "n_lines": 150,
+   "teacher": "cover_end",
+   "c_step": 0.0,
+   "epochs": 15,
+   "window": 150,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 30,
+   "ceiling": 0.15625,
+   "learn_mid": {
+    "n": 16,
+    "hops": 1.0,
+    "cover": 0.057291666666666664
+   },
+   "learn_high": {
+    "n": 8,
+    "hops": 0.75,
+    "cover": 0.0625
+   },
+   "hop1": {
+    "n": 16,
+    "hops": 1.0,
+    "cover": 0.057291666666666664
+   },
+   "allgo": {
+    "n": 16,
+    "hops": 8.9375,
+    "cover": 0.21354166666666666
+   },
+   "Q": {
+    "high_go": 0.0006,
+    "mid_go": 0.0044,
+    "mid_stop": 0.0168
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "cover_end_W150_c0.0",
+   "seed": 2890,
+   "tag": "_tinystories_train",
+   "n_lines": 150,
+   "teacher": "cover_end",
+   "c_step": 0.0,
+   "epochs": 15,
+   "window": 150,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 27,
+   "ceiling": 0.1647058823529412,
+   "learn_mid": {
+    "n": 17,
+    "hops": 11.470588235294118,
+    "cover": 0.21764705882352942
+   },
+   "learn_high": {
+    "n": 7,
+    "hops": 0.5714285714285714,
+    "cover": 0.0
+   },
+   "hop1": {
+    "n": 17,
+    "hops": 1.0,
+    "cover": 0.06764705882352941
+   },
+   "allgo": {
+    "n": 17,
+    "hops": 11.470588235294118,
+    "cover": 0.2323529411764706
+   },
+   "Q": {
+    "mid_go": 0.1083,
+    "mid_stop": 0.0622,
+    "high_go": 0.0
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": true,
+   "cover_lift": 0.15000000000000002
+  },
+  {
+   "name": "cover_end_W150_c0.01",
+   "seed": 1337,
+   "tag": "_tinystories_train",
+   "n_lines": 150,
+   "teacher": "cover_end",
+   "c_step": 0.01,
+   "epochs": 15,
+   "window": 150,
+   "mid_only": false,
+   "p25": 11,
+   "p75": 26,
+   "ceiling": 0.1888888888888889,
+   "learn_mid": {
+    "n": 18,
+    "hops": 8.88888888888889,
+    "cover": 0.14444444444444446
+   },
+   "learn_high": {
+    "n": 8,
+    "hops": 1.0,
+    "cover": 0.0
+   },
+   "hop1": {
+    "n": 18,
+    "hops": 0.9444444444444444,
+    "cover": 0.011111111111111112
+   },
+   "allgo": {
+    "n": 18,
+    "hops": 8.277777777777779,
+    "cover": 0.2
+   },
+   "Q": {
+    "high_go": 0.0822,
+    "mid_go": 0.0236,
+    "mid_stop": 0.0143
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.13333333333333336
+  },
+  {
+   "name": "cover_end_W150_c0.01",
+   "seed": 8642,
+   "tag": "_tinystories_train",
+   "n_lines": 150,
+   "teacher": "cover_end",
+   "c_step": 0.01,
+   "epochs": 15,
+   "window": 150,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 30,
+   "ceiling": 0.20312499999999997,
+   "learn_mid": {
+    "n": 16,
+    "hops": 1.0,
+    "cover": 0.057291666666666664
+   },
+   "learn_high": {
+    "n": 8,
+    "hops": 0.75,
+    "cover": 0.0625
+   },
+   "hop1": {
+    "n": 16,
+    "hops": 1.0,
+    "cover": 0.057291666666666664
+   },
+   "allgo": {
+    "n": 16,
+    "hops": 9.625,
+    "cover": 0.26041666666666663
+   },
+   "Q": {
+    "high_go": 0.0,
+    "mid_go": -0.0052,
+    "mid_stop": 0.0131
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "cover_end_W150_c0.01",
+   "seed": 2890,
+   "tag": "_tinystories_train",
+   "n_lines": 150,
+   "teacher": "cover_end",
+   "c_step": 0.01,
+   "epochs": 15,
+   "window": 150,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 27,
+   "ceiling": 0.19411764705882356,
+   "learn_mid": {
+    "n": 17,
+    "hops": 11.470588235294118,
+    "cover": 0.24705882352941178
+   },
+   "learn_high": {
+    "n": 7,
+    "hops": 0.5714285714285714,
+    "cover": 0.0
+   },
+   "hop1": {
+    "n": 17,
+    "hops": 1.0,
+    "cover": 0.06764705882352941
+   },
+   "allgo": {
+    "n": 17,
+    "hops": 11.470588235294118,
+    "cover": 0.26176470588235295
+   },
+   "Q": {
+    "mid_go": 0.2768,
+    "mid_stop": 0.2192,
+    "high_go": 0.2536
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": true,
+   "cover_lift": 0.17941176470588238
+  },
+  {
+   "name": "adv_W150_c0.0",
+   "seed": 1337,
+   "tag": "_tinystories_train",
+   "n_lines": 150,
+   "teacher": "adv",
+   "c_step": 0.0,
+   "epochs": 15,
+   "window": 150,
+   "mid_only": false,
+   "p25": 11,
+   "p75": 26,
+   "ceiling": 0.21666666666666665,
+   "learn_mid": {
+    "n": 18,
+    "hops": 0.9444444444444444,
+    "cover": 0.011111111111111112
+   },
+   "learn_high": {
+    "n": 8,
+    "hops": 1.0,
+    "cover": 0.0
+   },
+   "hop1": {
+    "n": 18,
+    "hops": 0.9444444444444444,
+    "cover": 0.011111111111111112
+   },
+   "allgo": {
+    "n": 18,
+    "hops": 7.5,
+    "cover": 0.22777777777777775
+   },
+   "Q": {
+    "high_go": 0.0158,
+    "mid_go": 0.034,
+    "mid_stop": 0.0385
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "adv_W150_c0.0",
+   "seed": 8642,
+   "tag": "_tinystories_train",
+   "n_lines": 150,
+   "teacher": "adv",
+   "c_step": 0.0,
+   "epochs": 15,
+   "window": 150,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 30,
+   "ceiling": 0.15625,
+   "learn_mid": {
+    "n": 16,
+    "hops": 10.6875,
+    "cover": 0.21354166666666666
+   },
+   "learn_high": {
+    "n": 8,
+    "hops": 0.75,
+    "cover": 0.0625
+   },
+   "hop1": {
+    "n": 16,
+    "hops": 1.0,
+    "cover": 0.057291666666666664
+   },
+   "allgo": {
+    "n": 16,
+    "hops": 9.5625,
+    "cover": 0.21354166666666666
+   },
+   "Q": {
+    "high_go": 0.2633,
+    "mid_go": 0.0269,
+    "mid_stop": 0.0003
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.15625
+  },
+  {
+   "name": "adv_W150_c0.0",
+   "seed": 2890,
+   "tag": "_tinystories_train",
+   "n_lines": 150,
+   "teacher": "adv",
+   "c_step": 0.0,
+   "epochs": 15,
+   "window": 150,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 27,
+   "ceiling": 0.1647058823529412,
+   "learn_mid": {
+    "n": 17,
+    "hops": 11.470588235294118,
+    "cover": 0.21764705882352942
+   },
+   "learn_high": {
+    "n": 7,
+    "hops": 0.5714285714285714,
+    "cover": 0.0
+   },
+   "hop1": {
+    "n": 17,
+    "hops": 1.0,
+    "cover": 0.06764705882352941
+   },
+   "allgo": {
+    "n": 17,
+    "hops": 11.470588235294118,
+    "cover": 0.2323529411764706
+   },
+   "Q": {
+    "mid_go": 0.0175,
+    "mid_stop": 0.0074,
+    "high_go": 0.0
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": true,
+   "cover_lift": 0.15000000000000002
+  },
+  {
+   "name": "adv_W150_c0.01",
+   "seed": 1337,
+   "tag": "_tinystories_train",
+   "n_lines": 150,
+   "teacher": "adv",
+   "c_step": 0.01,
+   "epochs": 15,
+   "window": 150,
+   "mid_only": false,
+   "p25": 11,
+   "p75": 26,
+   "ceiling": 0.16111111111111112,
+   "learn_mid": {
+    "n": 18,
+    "hops": 0.9444444444444444,
+    "cover": 0.011111111111111112
+   },
+   "learn_high": {
+    "n": 8,
+    "hops": 1.0,
+    "cover": 0.0
+   },
+   "hop1": {
+    "n": 18,
+    "hops": 0.9444444444444444,
+    "cover": 0.011111111111111112
+   },
+   "allgo": {
+    "n": 18,
+    "hops": 7.666666666666667,
+    "cover": 0.17222222222222222
+   },
+   "Q": {
+    "high_go": 0.0068,
+    "mid_go": 0.0076,
+    "mid_stop": 0.0286
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "adv_W150_c0.01",
+   "seed": 8642,
+   "tag": "_tinystories_train",
+   "n_lines": 150,
+   "teacher": "adv",
+   "c_step": 0.01,
+   "epochs": 15,
+   "window": 150,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 30,
+   "ceiling": 0.171875,
+   "learn_mid": {
+    "n": 16,
+    "hops": 1.0,
+    "cover": 0.057291666666666664
+   },
+   "learn_high": {
+    "n": 8,
+    "hops": 0.75,
+    "cover": 0.0625
+   },
+   "hop1": {
+    "n": 16,
+    "hops": 1.0,
+    "cover": 0.057291666666666664
+   },
+   "allgo": {
+    "n": 16,
+    "hops": 7.9375,
+    "cover": 0.22916666666666666
+   },
+   "Q": {
+    "high_go": 0.0269,
+    "mid_go": 0.0018,
+    "mid_stop": 0.0054
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "adv_W150_c0.01",
+   "seed": 2890,
+   "tag": "_tinystories_train",
+   "n_lines": 150,
+   "teacher": "adv",
+   "c_step": 0.01,
+   "epochs": 15,
+   "window": 150,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 27,
+   "ceiling": 0.19411764705882356,
+   "learn_mid": {
+    "n": 17,
+    "hops": 10.705882352941176,
+    "cover": 0.24705882352941178
+   },
+   "learn_high": {
+    "n": 7,
+    "hops": 0.5714285714285714,
+    "cover": 0.0
+   },
+   "hop1": {
+    "n": 17,
+    "hops": 1.0,
+    "cover": 0.06764705882352941
+   },
+   "allgo": {
+    "n": 17,
+    "hops": 10.705882352941176,
+    "cover": 0.26176470588235295
+   },
+   "Q": {
+    "mid_go": 0.1409,
+    "mid_stop": 0.0486,
+    "high_go": 0.2193
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": true,
+   "cover_lift": 0.17941176470588238
+  },
+  {
+   "name": "nov_W200_c0.0",
+   "seed": 1337,
+   "tag": "_tinystories_train",
+   "n_lines": 200,
+   "teacher": "nov",
+   "c_step": 0.0,
+   "epochs": 15,
+   "window": 200,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 33,
+   "ceiling": 0.13541666666666666,
+   "learn_mid": {
+    "n": 24,
+    "hops": 0.9166666666666666,
+    "cover": 0.0625
+   },
+   "learn_high": {
+    "n": 11,
+    "hops": 0.9090909090909091,
+    "cover": 0.0
+   },
+   "hop1": {
+    "n": 24,
+    "hops": 0.9166666666666666,
+    "cover": 0.0625
+   },
+   "allgo": {
+    "n": 24,
+    "hops": 10.25,
+    "cover": 0.19791666666666666
+   },
+   "Q": {
+    "mid_go": 0.0074,
+    "mid_stop": 0.0961,
+    "high_go": 0.0029
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "nov_W200_c0.0",
+   "seed": 8642,
+   "tag": "_tinystories_train",
+   "n_lines": 200,
+   "teacher": "nov",
+   "c_step": 0.0,
+   "epochs": 15,
+   "window": 200,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 37,
+   "ceiling": 0.15217391304347827,
+   "learn_mid": {
+    "n": 23,
+    "hops": 1.0,
+    "cover": 0.021739130434782608
+   },
+   "learn_high": {
+    "n": 10,
+    "hops": 1.0,
+    "cover": 0.0
+   },
+   "hop1": {
+    "n": 23,
+    "hops": 1.0,
+    "cover": 0.021739130434782608
+   },
+   "allgo": {
+    "n": 23,
+    "hops": 12.130434782608695,
+    "cover": 0.17391304347826086
+   },
+   "Q": {
+    "high_go": 0.018,
+    "mid_go": 0.0099,
+    "mid_stop": 0.0837
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "nov_W200_c0.0",
+   "seed": 2890,
+   "tag": "_tinystories_train",
+   "n_lines": 200,
+   "teacher": "nov",
+   "c_step": 0.0,
+   "epochs": 15,
+   "window": 200,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 34,
+   "ceiling": 0.06818181818181818,
+   "learn_mid": {
+    "n": 22,
+    "hops": 1.0,
+    "cover": 0.009090909090909092
+   },
+   "learn_high": {
+    "n": 11,
+    "hops": 0.9090909090909091,
+    "cover": 0.022727272727272728
+   },
+   "hop1": {
+    "n": 22,
+    "hops": 1.0,
+    "cover": 0.009090909090909092
+   },
+   "allgo": {
+    "n": 22,
+    "hops": 12.681818181818182,
+    "cover": 0.07727272727272727
+   },
+   "Q": {
+    "mid_go": 0.0074,
+    "mid_stop": 0.0697,
+    "high_go": 0.1392
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "nov_W200_c0.01",
+   "seed": 1337,
+   "tag": "_tinystories_train",
+   "n_lines": 200,
+   "teacher": "nov",
+   "c_step": 0.01,
+   "epochs": 15,
+   "window": 200,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 33,
+   "ceiling": 0.15625,
+   "learn_mid": {
+    "n": 24,
+    "hops": 11.375,
+    "cover": 0.21875
+   },
+   "learn_high": {
+    "n": 11,
+    "hops": 0.9090909090909091,
+    "cover": 0.0
+   },
+   "hop1": {
+    "n": 24,
+    "hops": 0.9166666666666666,
+    "cover": 0.0625
+   },
+   "allgo": {
+    "n": 24,
+    "hops": 11.208333333333334,
+    "cover": 0.21875
+   },
+   "Q": {
+    "mid_go": 0.1716,
+    "mid_stop": 0.0844,
+    "high_go": 0.0106
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": true,
+   "cover_lift": 0.15625
+  },
+  {
+   "name": "nov_W200_c0.01",
+   "seed": 8642,
+   "tag": "_tinystories_train",
+   "n_lines": 200,
+   "teacher": "nov",
+   "c_step": 0.01,
+   "epochs": 15,
+   "window": 200,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 37,
+   "ceiling": 0.17391304347826086,
+   "learn_mid": {
+    "n": 23,
+    "hops": 1.0,
+    "cover": 0.021739130434782608
+   },
+   "learn_high": {
+    "n": 10,
+    "hops": 1.0,
+    "cover": 0.0
+   },
+   "hop1": {
+    "n": 23,
+    "hops": 1.0,
+    "cover": 0.021739130434782608
+   },
+   "allgo": {
+    "n": 23,
+    "hops": 11.08695652173913,
+    "cover": 0.1956521739130435
+   },
+   "Q": {
+    "high_go": 0.0057,
+    "mid_go": 0.0137,
+    "mid_stop": 0.0886
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "nov_W200_c0.01",
+   "seed": 2890,
+   "tag": "_tinystories_train",
+   "n_lines": 200,
+   "teacher": "nov",
+   "c_step": 0.01,
+   "epochs": 15,
+   "window": 200,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 34,
+   "ceiling": 0.06818181818181818,
+   "learn_mid": {
+    "n": 22,
+    "hops": 1.0,
+    "cover": 0.009090909090909092
+   },
+   "learn_high": {
+    "n": 11,
+    "hops": 0.9090909090909091,
+    "cover": 0.022727272727272728
+   },
+   "hop1": {
+    "n": 22,
+    "hops": 1.0,
+    "cover": 0.009090909090909092
+   },
+   "allgo": {
+    "n": 22,
+    "hops": 12.772727272727273,
+    "cover": 0.07727272727272727
+   },
+   "Q": {
+    "mid_go": 0.0367,
+    "mid_stop": 0.0955,
+    "high_go": 0.0893
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "cover_end_W200_c0.0",
+   "seed": 1337,
+   "tag": "_tinystories_train",
+   "n_lines": 200,
+   "teacher": "cover_end",
+   "c_step": 0.0,
+   "epochs": 15,
+   "window": 200,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 33,
+   "ceiling": 0.15625,
+   "learn_mid": {
+    "n": 24,
+    "hops": 12.0,
+    "cover": 0.21875
+   },
+   "learn_high": {
+    "n": 11,
+    "hops": 0.9090909090909091,
+    "cover": 0.0
+   },
+   "hop1": {
+    "n": 24,
+    "hops": 0.9166666666666666,
+    "cover": 0.0625
+   },
+   "allgo": {
+    "n": 24,
+    "hops": 11.666666666666666,
+    "cover": 0.21875
+   },
+   "Q": {
+    "mid_go": 0.2115,
+    "mid_stop": 0.1117,
+    "high_go": 0.0055
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.15625
+  },
+  {
+   "name": "cover_end_W200_c0.0",
+   "seed": 8642,
+   "tag": "_tinystories_train",
+   "n_lines": 200,
+   "teacher": "cover_end",
+   "c_step": 0.0,
+   "epochs": 15,
+   "window": 200,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 37,
+   "ceiling": 0.15217391304347827,
+   "learn_mid": {
+    "n": 23,
+    "hops": 1.0,
+    "cover": 0.021739130434782608
+   },
+   "learn_high": {
+    "n": 10,
+    "hops": 1.0,
+    "cover": 0.0
+   },
+   "hop1": {
+    "n": 23,
+    "hops": 1.0,
+    "cover": 0.021739130434782608
+   },
+   "allgo": {
+    "n": 23,
+    "hops": 12.043478260869565,
+    "cover": 0.17391304347826086
+   },
+   "Q": {
+    "high_go": 0.0006,
+    "mid_go": 0.0003,
+    "mid_stop": 0.0027
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "cover_end_W200_c0.0",
+   "seed": 2890,
+   "tag": "_tinystories_train",
+   "n_lines": 200,
+   "teacher": "cover_end",
+   "c_step": 0.0,
+   "epochs": 15,
+   "window": 200,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 34,
+   "ceiling": 0.09090909090909091,
+   "learn_mid": {
+    "n": 22,
+    "hops": 1.0,
+    "cover": 0.009090909090909092
+   },
+   "learn_high": {
+    "n": 11,
+    "hops": 0.9090909090909091,
+    "cover": 0.022727272727272728
+   },
+   "hop1": {
+    "n": 22,
+    "hops": 1.0,
+    "cover": 0.009090909090909092
+   },
+   "allgo": {
+    "n": 22,
+    "hops": 12.818181818181818,
+    "cover": 0.1
+   },
+   "Q": {
+    "mid_go": 0.0296,
+    "mid_stop": 0.0406,
+    "high_go": 0.3051
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "cover_end_W200_c0.01",
+   "seed": 1337,
+   "tag": "_tinystories_train",
+   "n_lines": 200,
+   "teacher": "cover_end",
+   "c_step": 0.01,
+   "epochs": 15,
+   "window": 200,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 33,
+   "ceiling": 0.15625,
+   "learn_mid": {
+    "n": 24,
+    "hops": 12.041666666666666,
+    "cover": 0.21875
+   },
+   "learn_high": {
+    "n": 11,
+    "hops": 0.9090909090909091,
+    "cover": 0.0
+   },
+   "hop1": {
+    "n": 24,
+    "hops": 0.9166666666666666,
+    "cover": 0.0625
+   },
+   "allgo": {
+    "n": 24,
+    "hops": 11.833333333333334,
+    "cover": 0.21875
+   },
+   "Q": {
+    "mid_go": 0.3615,
+    "mid_stop": 0.1307,
+    "high_go": 0.0227
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": true,
+   "cover_lift": 0.15625
+  },
+  {
+   "name": "cover_end_W200_c0.01",
+   "seed": 8642,
+   "tag": "_tinystories_train",
+   "n_lines": 200,
+   "teacher": "cover_end",
+   "c_step": 0.01,
+   "epochs": 15,
+   "window": 200,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 37,
+   "ceiling": 0.15217391304347827,
+   "learn_mid": {
+    "n": 23,
+    "hops": 12.043478260869565,
+    "cover": 0.17391304347826086
+   },
+   "learn_high": {
+    "n": 10,
+    "hops": 1.0,
+    "cover": 0.0
+   },
+   "hop1": {
+    "n": 23,
+    "hops": 1.0,
+    "cover": 0.021739130434782608
+   },
+   "allgo": {
+    "n": 23,
+    "hops": 11.521739130434783,
+    "cover": 0.17391304347826086
+   },
+   "Q": {
+    "high_go": 0.0,
+    "mid_go": 0.2145,
+    "mid_stop": 0.0922
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.15217391304347827
+  },
+  {
+   "name": "cover_end_W200_c0.01",
+   "seed": 2890,
+   "tag": "_tinystories_train",
+   "n_lines": 200,
+   "teacher": "cover_end",
+   "c_step": 0.01,
+   "epochs": 15,
+   "window": 200,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 34,
+   "ceiling": 0.11363636363636365,
+   "learn_mid": {
+    "n": 22,
+    "hops": 11.454545454545455,
+    "cover": 0.12272727272727274
+   },
+   "learn_high": {
+    "n": 11,
+    "hops": 0.9090909090909091,
+    "cover": 0.022727272727272728
+   },
+   "hop1": {
+    "n": 22,
+    "hops": 1.0,
+    "cover": 0.009090909090909092
+   },
+   "allgo": {
+    "n": 22,
+    "hops": 11.363636363636363,
+    "cover": 0.12272727272727274
+   },
+   "Q": {
+    "mid_go": -0.0155,
+    "mid_stop": -0.0159,
+    "high_go": 0.0071
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": true,
+   "cover_lift": 0.11363636363636365
+  },
+  {
+   "name": "adv_W200_c0.0",
+   "seed": 1337,
+   "tag": "_tinystories_train",
+   "n_lines": 200,
+   "teacher": "adv",
+   "c_step": 0.0,
+   "epochs": 15,
+   "window": 200,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 33,
+   "ceiling": 0.1875,
+   "learn_mid": {
+    "n": 24,
+    "hops": 0.9166666666666666,
+    "cover": 0.0625
+   },
+   "learn_high": {
+    "n": 11,
+    "hops": 0.9090909090909091,
+    "cover": 0.0
+   },
+   "hop1": {
+    "n": 24,
+    "hops": 0.9166666666666666,
+    "cover": 0.0625
+   },
+   "allgo": {
+    "n": 24,
+    "hops": 12.0,
+    "cover": 0.25
+   },
+   "Q": {
+    "mid_go": 0.0045,
+    "mid_stop": 0.0095,
+    "high_go": 0.087
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "adv_W200_c0.0",
+   "seed": 8642,
+   "tag": "_tinystories_train",
+   "n_lines": 200,
+   "teacher": "adv",
+   "c_step": 0.0,
+   "epochs": 15,
+   "window": 200,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 37,
+   "ceiling": 0.15217391304347827,
+   "learn_mid": {
+    "n": 23,
+    "hops": 1.0,
+    "cover": 0.021739130434782608
+   },
+   "learn_high": {
+    "n": 10,
+    "hops": 1.0,
+    "cover": 0.0
+   },
+   "hop1": {
+    "n": 23,
+    "hops": 1.0,
+    "cover": 0.021739130434782608
+   },
+   "allgo": {
+    "n": 23,
+    "hops": 13.173913043478262,
+    "cover": 0.17391304347826086
+   },
+   "Q": {
+    "high_go": 0.0036,
+    "mid_go": 0.0003,
+    "mid_stop": 0.0007
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "adv_W200_c0.0",
+   "seed": 2890,
+   "tag": "_tinystories_train",
+   "n_lines": 200,
+   "teacher": "adv",
+   "c_step": 0.0,
+   "epochs": 15,
+   "window": 200,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 34,
+   "ceiling": 0.06818181818181818,
+   "learn_mid": {
+    "n": 22,
+    "hops": 12.818181818181818,
+    "cover": 0.1
+   },
+   "learn_high": {
+    "n": 11,
+    "hops": 0.9090909090909091,
+    "cover": 0.022727272727272728
+   },
+   "hop1": {
+    "n": 22,
+    "hops": 1.0,
+    "cover": 0.009090909090909092
+   },
+   "allgo": {
+    "n": 22,
+    "hops": 12.818181818181818,
+    "cover": 0.07727272727272727
+   },
+   "Q": {
+    "mid_go": 0.209,
+    "mid_stop": 0.0245,
+    "high_go": 0.0005
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": true,
+   "cover_lift": 0.09090909090909091
+  },
+  {
+   "name": "adv_W200_c0.01",
+   "seed": 1337,
+   "tag": "_tinystories_train",
+   "n_lines": 200,
+   "teacher": "adv",
+   "c_step": 0.01,
+   "epochs": 15,
+   "window": 200,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 33,
+   "ceiling": 0.15625,
+   "learn_mid": {
+    "n": 24,
+    "hops": 0.9166666666666666,
+    "cover": 0.0625
+   },
+   "learn_high": {
+    "n": 11,
+    "hops": 0.9090909090909091,
+    "cover": 0.0
+   },
+   "hop1": {
+    "n": 24,
+    "hops": 0.9166666666666666,
+    "cover": 0.0625
+   },
+   "allgo": {
+    "n": 24,
+    "hops": 12.083333333333334,
+    "cover": 0.21875
+   },
+   "Q": {
+    "mid_go": -0.0078,
+    "mid_stop": -0.0047,
+    "high_go": 0.0059
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "adv_W200_c0.01",
+   "seed": 8642,
+   "tag": "_tinystories_train",
+   "n_lines": 200,
+   "teacher": "adv",
+   "c_step": 0.01,
+   "epochs": 15,
+   "window": 200,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 37,
+   "ceiling": 0.15217391304347827,
+   "learn_mid": {
+    "n": 23,
+    "hops": 1.0,
+    "cover": 0.021739130434782608
+   },
+   "learn_high": {
+    "n": 10,
+    "hops": 1.0,
+    "cover": 0.0
+   },
+   "hop1": {
+    "n": 23,
+    "hops": 1.0,
+    "cover": 0.021739130434782608
+   },
+   "allgo": {
+    "n": 23,
+    "hops": 11.826086956521738,
+    "cover": 0.17391304347826086
+   },
+   "Q": {
+    "high_go": 0.0819,
+    "mid_go": -0.0305,
+    "mid_stop": 0.0242
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "adv_W200_c0.01",
+   "seed": 2890,
+   "tag": "_tinystories_train",
+   "n_lines": 200,
+   "teacher": "adv",
+   "c_step": 0.01,
+   "epochs": 15,
+   "window": 200,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 34,
+   "ceiling": 0.06818181818181818,
+   "learn_mid": {
+    "n": 22,
+    "hops": 1.0,
+    "cover": 0.009090909090909092
+   },
+   "learn_high": {
+    "n": 11,
+    "hops": 0.9090909090909091,
+    "cover": 0.022727272727272728
+   },
+   "hop1": {
+    "n": 22,
+    "hops": 1.0,
+    "cover": 0.009090909090909092
+   },
+   "allgo": {
+    "n": 22,
+    "hops": 12.227272727272727,
+    "cover": 0.07727272727272727
+   },
+   "Q": {
+    "mid_go": -0.0231,
+    "mid_stop": -0.0082,
+    "high_go": 0.0282
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "nov_W250_c0.0",
+   "seed": 1337,
+   "tag": "_tinystories_train",
+   "n_lines": 250,
+   "teacher": "nov",
+   "c_step": 0.0,
+   "epochs": 15,
+   "window": 250,
+   "mid_only": false,
+   "p25": 11,
+   "p75": 44,
+   "ceiling": 0.17758620689655172,
+   "learn_mid": {
+    "n": 29,
+    "hops": 0.9310344827586207,
+    "cover": 0.041379310344827586
+   },
+   "learn_high": {
+    "n": 14,
+    "hops": 0.8571428571428571,
+    "cover": 0.03571428571428571
+   },
+   "hop1": {
+    "n": 29,
+    "hops": 0.9310344827586207,
+    "cover": 0.041379310344827586
+   },
+   "allgo": {
+    "n": 29,
+    "hops": 9.758620689655173,
+    "cover": 0.2189655172413793
+   },
+   "Q": {
+    "high_go": 0.0359,
+    "mid_go": 0.0032,
+    "mid_stop": 0.0989
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "nov_W250_c0.0",
+   "seed": 8642,
+   "tag": "_tinystories_train",
+   "n_lines": 250,
+   "teacher": "nov",
+   "c_step": 0.0,
+   "epochs": 15,
+   "window": 250,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 41,
+   "ceiling": 0.08928571428571427,
+   "learn_mid": {
+    "n": 28,
+    "hops": 9.142857142857142,
+    "cover": 0.08928571428571429
+   },
+   "learn_high": {
+    "n": 13,
+    "hops": 0.8461538461538461,
+    "cover": 0.0
+   },
+   "hop1": {
+    "n": 28,
+    "hops": 0.9285714285714286,
+    "cover": 0.017857142857142856
+   },
+   "allgo": {
+    "n": 28,
+    "hops": 8.428571428571429,
+    "cover": 0.10714285714285714
+   },
+   "Q": {
+    "high_go": 0.0071,
+    "mid_go": 0.0686,
+    "mid_stop": 0.0573
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.07142857142857142
+  },
+  {
+   "name": "nov_W250_c0.0",
+   "seed": 2890,
+   "tag": "_tinystories_train",
+   "n_lines": 250,
+   "teacher": "nov",
+   "c_step": 0.0,
+   "epochs": 15,
+   "window": 250,
+   "mid_only": false,
+   "p25": 11,
+   "p75": 37,
+   "ceiling": 0.10740740740740741,
+   "learn_mid": {
+    "n": 27,
+    "hops": 1.0,
+    "cover": 0.025925925925925925
+   },
+   "learn_high": {
+    "n": 14,
+    "hops": 0.7857142857142857,
+    "cover": 0.011904761904761904
+   },
+   "hop1": {
+    "n": 27,
+    "hops": 1.0,
+    "cover": 0.025925925925925925
+   },
+   "allgo": {
+    "n": 27,
+    "hops": 8.62962962962963,
+    "cover": 0.13333333333333333
+   },
+   "Q": {
+    "mid_go": 0.0327,
+    "mid_stop": 0.0859,
+    "high_go": 0.1113
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "nov_W250_c0.01",
+   "seed": 1337,
+   "tag": "_tinystories_train",
+   "n_lines": 250,
+   "teacher": "nov",
+   "c_step": 0.01,
+   "epochs": 15,
+   "window": 250,
+   "mid_only": false,
+   "p25": 11,
+   "p75": 44,
+   "ceiling": 0.18620689655172412,
+   "learn_mid": {
+    "n": 29,
+    "hops": 9.793103448275861,
+    "cover": 0.21034482758620687
+   },
+   "learn_high": {
+    "n": 14,
+    "hops": 0.8571428571428571,
+    "cover": 0.03571428571428571
+   },
+   "hop1": {
+    "n": 29,
+    "hops": 0.9310344827586207,
+    "cover": 0.041379310344827586
+   },
+   "allgo": {
+    "n": 29,
+    "hops": 9.655172413793103,
+    "cover": 0.2275862068965517
+   },
+   "Q": {
+    "high_go": 0.0052,
+    "mid_go": 0.2848,
+    "mid_stop": 0.0863
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": true,
+   "cover_lift": 0.1689655172413793
+  },
+  {
+   "name": "nov_W250_c0.01",
+   "seed": 8642,
+   "tag": "_tinystories_train",
+   "n_lines": 250,
+   "teacher": "nov",
+   "c_step": 0.01,
+   "epochs": 15,
+   "window": 250,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 41,
+   "ceiling": 0.10714285714285715,
+   "learn_mid": {
+    "n": 28,
+    "hops": 0.9285714285714286,
+    "cover": 0.017857142857142856
+   },
+   "learn_high": {
+    "n": 13,
+    "hops": 0.8461538461538461,
+    "cover": 0.0
+   },
+   "hop1": {
+    "n": 28,
+    "hops": 0.9285714285714286,
+    "cover": 0.017857142857142856
+   },
+   "allgo": {
+    "n": 28,
+    "hops": 8.607142857142858,
+    "cover": 0.125
+   },
+   "Q": {
+    "high_go": 0.0057,
+    "mid_go": 0.0114,
+    "mid_stop": 0.0684
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "nov_W250_c0.01",
+   "seed": 2890,
+   "tag": "_tinystories_train",
+   "n_lines": 250,
+   "teacher": "nov",
+   "c_step": 0.01,
+   "epochs": 15,
+   "window": 250,
+   "mid_only": false,
+   "p25": 11,
+   "p75": 37,
+   "ceiling": 0.08888888888888889,
+   "learn_mid": {
+    "n": 27,
+    "hops": 1.0,
+    "cover": 0.025925925925925925
+   },
+   "learn_high": {
+    "n": 14,
+    "hops": 0.7857142857142857,
+    "cover": 0.011904761904761904
+   },
+   "hop1": {
+    "n": 27,
+    "hops": 1.0,
+    "cover": 0.025925925925925925
+   },
+   "allgo": {
+    "n": 27,
+    "hops": 10.0,
+    "cover": 0.11481481481481481
+   },
+   "Q": {
+    "mid_go": 0.0808,
+    "mid_stop": 0.0945,
+    "high_go": 0.0003
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "cover_end_W250_c0.0",
+   "seed": 1337,
+   "tag": "_tinystories_train",
+   "n_lines": 250,
+   "teacher": "cover_end",
+   "c_step": 0.0,
+   "epochs": 15,
+   "window": 250,
+   "mid_only": false,
+   "p25": 11,
+   "p75": 44,
+   "ceiling": 0.18620689655172412,
+   "learn_mid": {
+    "n": 29,
+    "hops": 0.9310344827586207,
+    "cover": 0.041379310344827586
+   },
+   "learn_high": {
+    "n": 14,
+    "hops": 0.8571428571428571,
+    "cover": 0.03571428571428571
+   },
+   "hop1": {
+    "n": 29,
+    "hops": 0.9310344827586207,
+    "cover": 0.041379310344827586
+   },
+   "allgo": {
+    "n": 29,
+    "hops": 9.413793103448276,
+    "cover": 0.2275862068965517
+   },
+   "Q": {
+    "high_go": 0.0347,
+    "mid_go": 0.009,
+    "mid_stop": 0.0495
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "cover_end_W250_c0.0",
+   "seed": 8642,
+   "tag": "_tinystories_train",
+   "n_lines": 250,
+   "teacher": "cover_end",
+   "c_step": 0.0,
+   "epochs": 15,
+   "window": 250,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 41,
+   "ceiling": 0.08928571428571427,
+   "learn_mid": {
+    "n": 28,
+    "hops": 0.9285714285714286,
+    "cover": 0.017857142857142856
+   },
+   "learn_high": {
+    "n": 13,
+    "hops": 0.8461538461538461,
+    "cover": 0.0
+   },
+   "hop1": {
+    "n": 28,
+    "hops": 0.9285714285714286,
+    "cover": 0.017857142857142856
+   },
+   "allgo": {
+    "n": 28,
+    "hops": 9.214285714285714,
+    "cover": 0.10714285714285714
+   },
+   "Q": {
+    "high_go": 0.165,
+    "mid_go": 0.033,
+    "mid_stop": 0.048
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "cover_end_W250_c0.0",
+   "seed": 2890,
+   "tag": "_tinystories_train",
+   "n_lines": 250,
+   "teacher": "cover_end",
+   "c_step": 0.0,
+   "epochs": 15,
+   "window": 250,
+   "mid_only": false,
+   "p25": 11,
+   "p75": 37,
+   "ceiling": 0.10740740740740741,
+   "learn_mid": {
+    "n": 27,
+    "hops": 11.518518518518519,
+    "cover": 0.13333333333333333
+   },
+   "learn_high": {
+    "n": 14,
+    "hops": 0.7857142857142857,
+    "cover": 0.011904761904761904
+   },
+   "hop1": {
+    "n": 27,
+    "hops": 1.0,
+    "cover": 0.025925925925925925
+   },
+   "allgo": {
+    "n": 27,
+    "hops": 10.148148148148149,
+    "cover": 0.13333333333333333
+   },
+   "Q": {
+    "mid_go": 0.1615,
+    "mid_stop": 0.1137,
+    "high_go": 0.1024
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.10740740740740741
+  },
+  {
+   "name": "cover_end_W250_c0.01",
+   "seed": 1337,
+   "tag": "_tinystories_train",
+   "n_lines": 250,
+   "teacher": "cover_end",
+   "c_step": 0.01,
+   "epochs": 15,
+   "window": 250,
+   "mid_only": false,
+   "p25": 11,
+   "p75": 44,
+   "ceiling": 0.1689655172413793,
+   "learn_mid": {
+    "n": 29,
+    "hops": 0.9310344827586207,
+    "cover": 0.041379310344827586
+   },
+   "learn_high": {
+    "n": 14,
+    "hops": 0.8571428571428571,
+    "cover": 0.03571428571428571
+   },
+   "hop1": {
+    "n": 29,
+    "hops": 0.9310344827586207,
+    "cover": 0.041379310344827586
+   },
+   "allgo": {
+    "n": 29,
+    "hops": 9.137931034482758,
+    "cover": 0.21034482758620687
+   },
+   "Q": {
+    "high_go": 0.0229,
+    "mid_go": 0.0018,
+    "mid_stop": 0.0114
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "cover_end_W250_c0.01",
+   "seed": 8642,
+   "tag": "_tinystories_train",
+   "n_lines": 250,
+   "teacher": "cover_end",
+   "c_step": 0.01,
+   "epochs": 15,
+   "window": 250,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 41,
+   "ceiling": 0.10714285714285715,
+   "learn_mid": {
+    "n": 28,
+    "hops": 8.75,
+    "cover": 0.13095238095238096
+   },
+   "learn_high": {
+    "n": 13,
+    "hops": 0.8461538461538461,
+    "cover": 0.0
+   },
+   "hop1": {
+    "n": 28,
+    "hops": 0.9285714285714286,
+    "cover": 0.017857142857142856
+   },
+   "allgo": {
+    "n": 28,
+    "hops": 8.464285714285714,
+    "cover": 0.125
+   },
+   "Q": {
+    "high_go": 0.0448,
+    "mid_go": 0.2927,
+    "mid_stop": 0.0861
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.11309523809523811
+  },
+  {
+   "name": "cover_end_W250_c0.01",
+   "seed": 2890,
+   "tag": "_tinystories_train",
+   "n_lines": 250,
+   "teacher": "cover_end",
+   "c_step": 0.01,
+   "epochs": 15,
+   "window": 250,
+   "mid_only": false,
+   "p25": 11,
+   "p75": 37,
+   "ceiling": 0.10740740740740741,
+   "learn_mid": {
+    "n": 27,
+    "hops": 1.0,
+    "cover": 0.025925925925925925
+   },
+   "learn_high": {
+    "n": 14,
+    "hops": 0.7857142857142857,
+    "cover": 0.011904761904761904
+   },
+   "hop1": {
+    "n": 27,
+    "hops": 1.0,
+    "cover": 0.025925925925925925
+   },
+   "allgo": {
+    "n": 27,
+    "hops": 10.925925925925926,
+    "cover": 0.13333333333333333
+   },
+   "Q": {
+    "mid_go": -0.0162,
+    "mid_stop": -0.0065,
+    "high_go": 0.0
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "adv_W250_c0.0",
+   "seed": 1337,
+   "tag": "_tinystories_train",
+   "n_lines": 250,
+   "teacher": "adv",
+   "c_step": 0.0,
+   "epochs": 15,
+   "window": 250,
+   "mid_only": false,
+   "p25": 11,
+   "p75": 44,
+   "ceiling": 0.18620689655172412,
+   "learn_mid": {
+    "n": 29,
+    "hops": 9.793103448275861,
+    "cover": 0.21034482758620687
+   },
+   "learn_high": {
+    "n": 14,
+    "hops": 0.8571428571428571,
+    "cover": 0.03571428571428571
+   },
+   "hop1": {
+    "n": 29,
+    "hops": 0.9310344827586207,
+    "cover": 0.041379310344827586
+   },
+   "allgo": {
+    "n": 29,
+    "hops": 9.758620689655173,
+    "cover": 0.2275862068965517
+   },
+   "Q": {
+    "high_go": 0.0,
+    "mid_go": 0.0045,
+    "mid_stop": 0.0001
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": true,
+   "cover_lift": 0.1689655172413793
+  },
+  {
+   "name": "adv_W250_c0.0",
+   "seed": 8642,
+   "tag": "_tinystories_train",
+   "n_lines": 250,
+   "teacher": "adv",
+   "c_step": 0.0,
+   "epochs": 15,
+   "window": 250,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 41,
+   "ceiling": 0.08928571428571427,
+   "learn_mid": {
+    "n": 28,
+    "hops": 0.9285714285714286,
+    "cover": 0.017857142857142856
+   },
+   "learn_high": {
+    "n": 13,
+    "hops": 0.8461538461538461,
+    "cover": 0.0
+   },
+   "hop1": {
+    "n": 28,
+    "hops": 0.9285714285714286,
+    "cover": 0.017857142857142856
+   },
+   "allgo": {
+    "n": 28,
+    "hops": 8.285714285714286,
+    "cover": 0.10714285714285714
+   },
+   "Q": {
+    "high_go": 0.0889,
+    "mid_go": 0.0518,
+    "mid_stop": 0.0599
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "adv_W250_c0.0",
+   "seed": 2890,
+   "tag": "_tinystories_train",
+   "n_lines": 250,
+   "teacher": "adv",
+   "c_step": 0.0,
+   "epochs": 15,
+   "window": 250,
+   "mid_only": false,
+   "p25": 11,
+   "p75": 37,
+   "ceiling": 0.08888888888888889,
+   "learn_mid": {
+    "n": 27,
+    "hops": 1.0,
+    "cover": 0.025925925925925925
+   },
+   "learn_high": {
+    "n": 14,
+    "hops": 0.7857142857142857,
+    "cover": 0.011904761904761904
+   },
+   "hop1": {
+    "n": 27,
+    "hops": 1.0,
+    "cover": 0.025925925925925925
+   },
+   "allgo": {
+    "n": 27,
+    "hops": 10.148148148148149,
+    "cover": 0.11481481481481481
+   },
+   "Q": {
+    "mid_go": 0.0009,
+    "mid_stop": 0.005,
+    "high_go": 0.1791
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "adv_W250_c0.01",
+   "seed": 1337,
+   "tag": "_tinystories_train",
+   "n_lines": 250,
+   "teacher": "adv",
+   "c_step": 0.01,
+   "epochs": 15,
+   "window": 250,
+   "mid_only": false,
+   "p25": 11,
+   "p75": 44,
+   "ceiling": 0.16034482758620688,
+   "learn_mid": {
+    "n": 29,
+    "hops": 0.9310344827586207,
+    "cover": 0.041379310344827586
+   },
+   "learn_high": {
+    "n": 14,
+    "hops": 0.8571428571428571,
+    "cover": 0.03571428571428571
+   },
+   "hop1": {
+    "n": 29,
+    "hops": 0.9310344827586207,
+    "cover": 0.041379310344827586
+   },
+   "allgo": {
+    "n": 29,
+    "hops": 9.482758620689655,
+    "cover": 0.20172413793103447
+   },
+   "Q": {
+    "high_go": 0.0712,
+    "mid_go": -0.1031,
+    "mid_stop": -0.0196
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "adv_W250_c0.01",
+   "seed": 8642,
+   "tag": "_tinystories_train",
+   "n_lines": 250,
+   "teacher": "adv",
+   "c_step": 0.01,
+   "epochs": 15,
+   "window": 250,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 41,
+   "ceiling": 0.08928571428571427,
+   "learn_mid": {
+    "n": 28,
+    "hops": 0.9285714285714286,
+    "cover": 0.017857142857142856
+   },
+   "learn_high": {
+    "n": 13,
+    "hops": 0.8461538461538461,
+    "cover": 0.0
+   },
+   "hop1": {
+    "n": 28,
+    "hops": 0.9285714285714286,
+    "cover": 0.017857142857142856
+   },
+   "allgo": {
+    "n": 28,
+    "hops": 8.607142857142858,
+    "cover": 0.10714285714285714
+   },
+   "Q": {
+    "high_go": 0.0081,
+    "mid_go": -0.0605,
+    "mid_stop": 0.066
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "adv_W250_c0.01",
+   "seed": 2890,
+   "tag": "_tinystories_train",
+   "n_lines": 250,
+   "teacher": "adv",
+   "c_step": 0.01,
+   "epochs": 15,
+   "window": 250,
+   "mid_only": false,
+   "p25": 11,
+   "p75": 37,
+   "ceiling": 0.10740740740740741,
+   "learn_mid": {
+    "n": 27,
+    "hops": 1.0,
+    "cover": 0.025925925925925925
+   },
+   "learn_high": {
+    "n": 14,
+    "hops": 0.7857142857142857,
+    "cover": 0.011904761904761904
+   },
+   "hop1": {
+    "n": 27,
+    "hops": 1.0,
+    "cover": 0.025925925925925925
+   },
+   "allgo": {
+    "n": 27,
+    "hops": 9.296296296296296,
+    "cover": 0.13333333333333333
+   },
+   "Q": {
+    "mid_go": -0.0526,
+    "mid_stop": 0.0305,
+    "high_go": 0.1283
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "nov_W300_c0.0",
+   "seed": 1337,
+   "tag": "_tinystories_train",
+   "n_lines": 300,
+   "teacher": "nov",
+   "c_step": 0.0,
+   "epochs": 15,
+   "window": 300,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 43,
+   "ceiling": 0.1118421052631579,
+   "learn_mid": {
+    "n": 38,
+    "hops": 0.9736842105263158,
+    "cover": 0.013157894736842105
+   },
+   "learn_high": {
+    "n": 18,
+    "hops": 0.6666666666666666,
+    "cover": 0.027777777777777776
+   },
+   "hop1": {
+    "n": 38,
+    "hops": 0.9736842105263158,
+    "cover": 0.013157894736842105
+   },
+   "allgo": {
+    "n": 38,
+    "hops": 9.973684210526315,
+    "cover": 0.125
+   },
+   "Q": {
+    "mid_go": 0.0388,
+    "mid_stop": 0.0894,
+    "high_go": 0.1418
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "nov_W300_c0.0",
+   "seed": 8642,
+   "tag": "_tinystories_train",
+   "n_lines": 300,
+   "teacher": "nov",
+   "c_step": 0.0,
+   "epochs": 15,
+   "window": 300,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 42,
+   "ceiling": 0.19444444444444442,
+   "learn_mid": {
+    "n": 36,
+    "hops": 9.63888888888889,
+    "cover": 0.2685185185185185
+   },
+   "learn_high": {
+    "n": 16,
+    "hops": 0.8125,
+    "cover": 0.07291666666666666
+   },
+   "hop1": {
+    "n": 36,
+    "hops": 1.0,
+    "cover": 0.06018518518518518
+   },
+   "allgo": {
+    "n": 36,
+    "hops": 9.277777777777779,
+    "cover": 0.2546296296296296
+   },
+   "Q": {
+    "mid_go": 0.3829,
+    "mid_stop": 0.0984,
+    "high_go": 0.0051
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.20833333333333331
+  },
+  {
+   "name": "nov_W300_c0.0",
+   "seed": 2890,
+   "tag": "_tinystories_train",
+   "n_lines": 300,
+   "teacher": "nov",
+   "c_step": 0.0,
+   "epochs": 15,
+   "window": 300,
+   "mid_only": false,
+   "p25": 11,
+   "p75": 37,
+   "ceiling": 0.14375,
+   "learn_mid": {
+    "n": 32,
+    "hops": 0.9375,
+    "cover": 0.046875
+   },
+   "learn_high": {
+    "n": 16,
+    "hops": 0.6875,
+    "cover": 0.0
+   },
+   "hop1": {
+    "n": 32,
+    "hops": 0.9375,
+    "cover": 0.046875
+   },
+   "allgo": {
+    "n": 32,
+    "hops": 8.71875,
+    "cover": 0.190625
+   },
+   "Q": {
+    "mid_go": 0.0038,
+    "mid_stop": 0.0981,
+    "high_go": 0.0076
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "nov_W300_c0.01",
+   "seed": 1337,
+   "tag": "_tinystories_train",
+   "n_lines": 300,
+   "teacher": "nov",
+   "c_step": 0.01,
+   "epochs": 15,
+   "window": 300,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 43,
+   "ceiling": 0.13157894736842107,
+   "learn_mid": {
+    "n": 38,
+    "hops": 0.9736842105263158,
+    "cover": 0.013157894736842105
+   },
+   "learn_high": {
+    "n": 18,
+    "hops": 0.6666666666666666,
+    "cover": 0.027777777777777776
+   },
+   "hop1": {
+    "n": 38,
+    "hops": 0.9736842105263158,
+    "cover": 0.013157894736842105
+   },
+   "allgo": {
+    "n": 38,
+    "hops": 9.5,
+    "cover": 0.14473684210526316
+   },
+   "Q": {
+    "mid_go": 0.0049,
+    "mid_stop": 0.0973,
+    "high_go": 0.1135
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "nov_W300_c0.01",
+   "seed": 8642,
+   "tag": "_tinystories_train",
+   "n_lines": 300,
+   "teacher": "nov",
+   "c_step": 0.01,
+   "epochs": 15,
+   "window": 300,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 42,
+   "ceiling": 0.19907407407407407,
+   "learn_mid": {
+    "n": 36,
+    "hops": 1.0,
+    "cover": 0.06018518518518518
+   },
+   "learn_high": {
+    "n": 16,
+    "hops": 0.8125,
+    "cover": 0.07291666666666666
+   },
+   "hop1": {
+    "n": 36,
+    "hops": 1.0,
+    "cover": 0.06018518518518518
+   },
+   "allgo": {
+    "n": 36,
+    "hops": 9.444444444444445,
+    "cover": 0.25925925925925924
+   },
+   "Q": {
+    "mid_go": -0.0005,
+    "mid_stop": 0.0511,
+    "high_go": 0.2281
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "nov_W300_c0.01",
+   "seed": 2890,
+   "tag": "_tinystories_train",
+   "n_lines": 300,
+   "teacher": "nov",
+   "c_step": 0.01,
+   "epochs": 15,
+   "window": 300,
+   "mid_only": false,
+   "p25": 11,
+   "p75": 37,
+   "ceiling": 0.14375,
+   "learn_mid": {
+    "n": 32,
+    "hops": 0.9375,
+    "cover": 0.046875
+   },
+   "learn_high": {
+    "n": 16,
+    "hops": 0.6875,
+    "cover": 0.0
+   },
+   "hop1": {
+    "n": 32,
+    "hops": 0.9375,
+    "cover": 0.046875
+   },
+   "allgo": {
+    "n": 32,
+    "hops": 10.0,
+    "cover": 0.190625
+   },
+   "Q": {
+    "mid_go": 0.0591,
+    "mid_stop": 0.093,
+    "high_go": 0.0106
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "cover_end_W300_c0.0",
+   "seed": 1337,
+   "tag": "_tinystories_train",
+   "n_lines": 300,
+   "teacher": "cover_end",
+   "c_step": 0.0,
+   "epochs": 15,
+   "window": 300,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 43,
+   "ceiling": 0.13157894736842107,
+   "learn_mid": {
+    "n": 38,
+    "hops": 0.9736842105263158,
+    "cover": 0.013157894736842105
+   },
+   "learn_high": {
+    "n": 18,
+    "hops": 0.6666666666666666,
+    "cover": 0.027777777777777776
+   },
+   "hop1": {
+    "n": 38,
+    "hops": 0.9736842105263158,
+    "cover": 0.013157894736842105
+   },
+   "allgo": {
+    "n": 38,
+    "hops": 10.473684210526315,
+    "cover": 0.14473684210526316
+   },
+   "Q": {
+    "mid_go": 0.0046,
+    "mid_stop": 0.0937,
+    "high_go": 0.183
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "cover_end_W300_c0.0",
+   "seed": 8642,
+   "tag": "_tinystories_train",
+   "n_lines": 300,
+   "teacher": "cover_end",
+   "c_step": 0.0,
+   "epochs": 15,
+   "window": 300,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 42,
+   "ceiling": 0.1574074074074074,
+   "learn_mid": {
+    "n": 36,
+    "hops": 10.277777777777779,
+    "cover": 0.24537037037037035
+   },
+   "learn_high": {
+    "n": 16,
+    "hops": 0.8125,
+    "cover": 0.07291666666666666
+   },
+   "hop1": {
+    "n": 36,
+    "hops": 1.0,
+    "cover": 0.06018518518518518
+   },
+   "allgo": {
+    "n": 36,
+    "hops": 10.166666666666666,
+    "cover": 0.2175925925925926
+   },
+   "Q": {
+    "mid_go": 0.2079,
+    "mid_stop": 0.0881,
+    "high_go": 0.0525
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": true,
+   "cover_lift": 0.18518518518518517
+  },
+  {
+   "name": "cover_end_W300_c0.0",
+   "seed": 2890,
+   "tag": "_tinystories_train",
+   "n_lines": 300,
+   "teacher": "cover_end",
+   "c_step": 0.0,
+   "epochs": 15,
+   "window": 300,
+   "mid_only": false,
+   "p25": 11,
+   "p75": 37,
+   "ceiling": 0.159375,
+   "learn_mid": {
+    "n": 32,
+    "hops": 10.21875,
+    "cover": 0.2375
+   },
+   "learn_high": {
+    "n": 16,
+    "hops": 0.6875,
+    "cover": 0.0
+   },
+   "hop1": {
+    "n": 32,
+    "hops": 0.9375,
+    "cover": 0.046875
+   },
+   "allgo": {
+    "n": 32,
+    "hops": 8.875,
+    "cover": 0.20625
+   },
+   "Q": {
+    "mid_go": 0.4052,
+    "mid_stop": 0.277,
+    "high_go": 0.0524
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.190625
+  },
+  {
+   "name": "cover_end_W300_c0.01",
+   "seed": 1337,
+   "tag": "_tinystories_train",
+   "n_lines": 300,
+   "teacher": "cover_end",
+   "c_step": 0.01,
+   "epochs": 15,
+   "window": 300,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 43,
+   "ceiling": 0.13157894736842107,
+   "learn_mid": {
+    "n": 38,
+    "hops": 10.131578947368421,
+    "cover": 0.16447368421052633
+   },
+   "learn_high": {
+    "n": 18,
+    "hops": 0.6666666666666666,
+    "cover": 0.027777777777777776
+   },
+   "hop1": {
+    "n": 38,
+    "hops": 0.9736842105263158,
+    "cover": 0.013157894736842105
+   },
+   "allgo": {
+    "n": 38,
+    "hops": 9.447368421052632,
+    "cover": 0.14473684210526316
+   },
+   "Q": {
+    "mid_go": 0.0015,
+    "mid_stop": -0.0002,
+    "high_go": 0.0753
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.15131578947368424
+  },
+  {
+   "name": "cover_end_W300_c0.01",
+   "seed": 8642,
+   "tag": "_tinystories_train",
+   "n_lines": 300,
+   "teacher": "cover_end",
+   "c_step": 0.01,
+   "epochs": 15,
+   "window": 300,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 42,
+   "ceiling": 0.17129629629629628,
+   "learn_mid": {
+    "n": 36,
+    "hops": 9.75,
+    "cover": 0.23148148148148145
+   },
+   "learn_high": {
+    "n": 16,
+    "hops": 0.8125,
+    "cover": 0.07291666666666666
+   },
+   "hop1": {
+    "n": 36,
+    "hops": 1.0,
+    "cover": 0.06018518518518518
+   },
+   "allgo": {
+    "n": 36,
+    "hops": 9.083333333333334,
+    "cover": 0.23148148148148145
+   },
+   "Q": {
+    "mid_go": 0.0732,
+    "mid_stop": 0.0717,
+    "high_go": 0.004
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.17129629629629628
+  },
+  {
+   "name": "cover_end_W300_c0.01",
+   "seed": 2890,
+   "tag": "_tinystories_train",
+   "n_lines": 300,
+   "teacher": "cover_end",
+   "c_step": 0.01,
+   "epochs": 15,
+   "window": 300,
+   "mid_only": false,
+   "p25": 11,
+   "p75": 37,
+   "ceiling": 0.14375,
+   "learn_mid": {
+    "n": 32,
+    "hops": 0.9375,
+    "cover": 0.046875
+   },
+   "learn_high": {
+    "n": 16,
+    "hops": 0.6875,
+    "cover": 0.0
+   },
+   "hop1": {
+    "n": 32,
+    "hops": 0.9375,
+    "cover": 0.046875
+   },
+   "allgo": {
+    "n": 32,
+    "hops": 9.125,
+    "cover": 0.190625
+   },
+   "Q": {
+    "mid_go": -0.0058,
+    "mid_stop": 0.0189,
+    "high_go": 0.0215
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "adv_W300_c0.0",
+   "seed": 1337,
+   "tag": "_tinystories_train",
+   "n_lines": 300,
+   "teacher": "adv",
+   "c_step": 0.0,
+   "epochs": 15,
+   "window": 300,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 43,
+   "ceiling": 0.13157894736842107,
+   "learn_mid": {
+    "n": 38,
+    "hops": 9.894736842105264,
+    "cover": 0.1513157894736842
+   },
+   "learn_high": {
+    "n": 18,
+    "hops": 0.6666666666666666,
+    "cover": 0.027777777777777776
+   },
+   "hop1": {
+    "n": 38,
+    "hops": 0.9736842105263158,
+    "cover": 0.013157894736842105
+   },
+   "allgo": {
+    "n": 38,
+    "hops": 9.736842105263158,
+    "cover": 0.14473684210526316
+   },
+   "Q": {
+    "mid_go": 0.0629,
+    "mid_stop": 0.0297,
+    "high_go": 0.0089
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": true,
+   "cover_lift": 0.1381578947368421
+  },
+  {
+   "name": "adv_W300_c0.0",
+   "seed": 8642,
+   "tag": "_tinystories_train",
+   "n_lines": 300,
+   "teacher": "adv",
+   "c_step": 0.0,
+   "epochs": 15,
+   "window": 300,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 42,
+   "ceiling": 0.21296296296296297,
+   "learn_mid": {
+    "n": 36,
+    "hops": 10.583333333333334,
+    "cover": 0.25925925925925924
+   },
+   "learn_high": {
+    "n": 16,
+    "hops": 0.8125,
+    "cover": 0.07291666666666666
+   },
+   "hop1": {
+    "n": 36,
+    "hops": 1.0,
+    "cover": 0.06018518518518518
+   },
+   "allgo": {
+    "n": 36,
+    "hops": 10.5,
+    "cover": 0.27314814814814814
+   },
+   "Q": {
+    "mid_go": 0.0215,
+    "mid_stop": 0.0001,
+    "high_go": 0.0271
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": true,
+   "cover_lift": 0.19907407407407407
+  },
+  {
+   "name": "adv_W300_c0.0",
+   "seed": 2890,
+   "tag": "_tinystories_train",
+   "n_lines": 300,
+   "teacher": "adv",
+   "c_step": 0.0,
+   "epochs": 15,
+   "window": 300,
+   "mid_only": false,
+   "p25": 11,
+   "p75": 37,
+   "ceiling": 0.159375,
+   "learn_mid": {
+    "n": 32,
+    "hops": 10.84375,
+    "cover": 0.2375
+   },
+   "learn_high": {
+    "n": 16,
+    "hops": 0.6875,
+    "cover": 0.0
+   },
+   "hop1": {
+    "n": 32,
+    "hops": 0.9375,
+    "cover": 0.046875
+   },
+   "allgo": {
+    "n": 32,
+    "hops": 9.5,
+    "cover": 0.20625
+   },
+   "Q": {
+    "mid_go": 0.0823,
+    "mid_stop": 0.0067,
+    "high_go": 0.328
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.190625
+  },
+  {
+   "name": "adv_W300_c0.01",
+   "seed": 1337,
+   "tag": "_tinystories_train",
+   "n_lines": 300,
+   "teacher": "adv",
+   "c_step": 0.01,
+   "epochs": 15,
+   "window": 300,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 43,
+   "ceiling": 0.11842105263157894,
+   "learn_mid": {
+    "n": 38,
+    "hops": 10.526315789473685,
+    "cover": 0.13815789473684212
+   },
+   "learn_high": {
+    "n": 18,
+    "hops": 0.6666666666666666,
+    "cover": 0.027777777777777776
+   },
+   "hop1": {
+    "n": 38,
+    "hops": 0.9736842105263158,
+    "cover": 0.013157894736842105
+   },
+   "allgo": {
+    "n": 38,
+    "hops": 9.868421052631579,
+    "cover": 0.13157894736842105
+   },
+   "Q": {
+    "mid_go": 0.1989,
+    "mid_stop": 0.0142,
+    "high_go": 0.0217
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.125
+  },
+  {
+   "name": "adv_W300_c0.01",
+   "seed": 8642,
+   "tag": "_tinystories_train",
+   "n_lines": 300,
+   "teacher": "adv",
+   "c_step": 0.01,
+   "epochs": 15,
+   "window": 300,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 42,
+   "ceiling": 0.19907407407407407,
+   "learn_mid": {
+    "n": 36,
+    "hops": 11.527777777777779,
+    "cover": 0.25925925925925924
+   },
+   "learn_high": {
+    "n": 16,
+    "hops": 0.8125,
+    "cover": 0.07291666666666666
+   },
+   "hop1": {
+    "n": 36,
+    "hops": 1.0,
+    "cover": 0.06018518518518518
+   },
+   "allgo": {
+    "n": 36,
+    "hops": 11.444444444444445,
+    "cover": 0.25925925925925924
+   },
+   "Q": {
+    "mid_go": 0.3694,
+    "mid_stop": 0.0855,
+    "high_go": 0.001
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": true,
+   "cover_lift": 0.19907407407407407
+  },
+  {
+   "name": "adv_W300_c0.01",
+   "seed": 2890,
+   "tag": "_tinystories_train",
+   "n_lines": 300,
+   "teacher": "adv",
+   "c_step": 0.01,
+   "epochs": 15,
+   "window": 300,
+   "mid_only": false,
+   "p25": 11,
+   "p75": 37,
+   "ceiling": 0.14375,
+   "learn_mid": {
+    "n": 32,
+    "hops": 0.9375,
+    "cover": 0.046875
+   },
+   "learn_high": {
+    "n": 16,
+    "hops": 0.6875,
+    "cover": 0.0
+   },
+   "hop1": {
+    "n": 32,
+    "hops": 0.9375,
+    "cover": 0.046875
+   },
+   "allgo": {
+    "n": 32,
+    "hops": 8.78125,
+    "cover": 0.190625
+   },
+   "Q": {
+    "mid_go": -0.0025,
+    "mid_stop": -0.0004,
+    "high_go": 0.0001
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "adv_long",
+   "seed": 1337,
+   "tag": "_tinystories_train",
+   "n_lines": 200,
+   "teacher": "adv",
+   "c_step": 0.0,
+   "epochs": 25,
+   "window": 200,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 33,
+   "ceiling": 0.16666666666666666,
+   "learn_mid": {
+    "n": 24,
+    "hops": 0.9166666666666666,
+    "cover": 0.0625
+   },
+   "learn_high": {
+    "n": 11,
+    "hops": 0.9090909090909091,
+    "cover": 0.0
+   },
+   "hop1": {
+    "n": 24,
+    "hops": 0.9166666666666666,
+    "cover": 0.0625
+   },
+   "allgo": {
+    "n": 24,
+    "hops": 10.5,
+    "cover": 0.22916666666666666
+   },
+   "Q": {
+    "mid_go": 0.0501,
+    "mid_stop": 0.1307,
+    "high_go": 0.1969
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "cover_long",
+   "seed": 1337,
+   "tag": "_tinystories_train",
+   "n_lines": 200,
+   "teacher": "cover_end",
+   "c_step": 0.0,
+   "epochs": 25,
+   "window": 200,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 33,
+   "ceiling": 0.15625,
+   "learn_mid": {
+    "n": 24,
+    "hops": 0.9166666666666666,
+    "cover": 0.0625
+   },
+   "learn_high": {
+    "n": 11,
+    "hops": 0.9090909090909091,
+    "cover": 0.0
+   },
+   "hop1": {
+    "n": 24,
+    "hops": 0.9166666666666666,
+    "cover": 0.0625
+   },
+   "allgo": {
+    "n": 24,
+    "hops": 12.041666666666666,
+    "cover": 0.21875
+   },
+   "Q": {
+    "mid_go": 0.0014,
+    "mid_stop": 0.0027,
+    "high_go": 0.007
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "adv_long",
+   "seed": 8642,
+   "tag": "_tinystories_train",
+   "n_lines": 200,
+   "teacher": "adv",
+   "c_step": 0.0,
+   "epochs": 25,
+   "window": 200,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 37,
+   "ceiling": 0.15217391304347827,
+   "learn_mid": {
+    "n": 23,
+    "hops": 13.565217391304348,
+    "cover": 0.17391304347826086
+   },
+   "learn_high": {
+    "n": 10,
+    "hops": 1.0,
+    "cover": 0.0
+   },
+   "hop1": {
+    "n": 23,
+    "hops": 1.0,
+    "cover": 0.021739130434782608
+   },
+   "allgo": {
+    "n": 23,
+    "hops": 13.173913043478262,
+    "cover": 0.17391304347826086
+   },
+   "Q": {
+    "high_go": 0.012,
+    "mid_go": 0.0057,
+    "mid_stop": 0.0018
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.15217391304347827
+  },
+  {
+   "name": "cover_long",
+   "seed": 8642,
+   "tag": "_tinystories_train",
+   "n_lines": 200,
+   "teacher": "cover_end",
+   "c_step": 0.0,
+   "epochs": 25,
+   "window": 200,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 37,
+   "ceiling": 0.15217391304347827,
+   "learn_mid": {
+    "n": 23,
+    "hops": 1.0,
+    "cover": 0.021739130434782608
+   },
+   "learn_high": {
+    "n": 10,
+    "hops": 1.0,
+    "cover": 0.0
+   },
+   "hop1": {
+    "n": 23,
+    "hops": 1.0,
+    "cover": 0.021739130434782608
+   },
+   "allgo": {
+    "n": 23,
+    "hops": 13.173913043478262,
+    "cover": 0.17391304347826086
+   },
+   "Q": {
+    "high_go": 0.1752,
+    "mid_go": 0.0052,
+    "mid_stop": 0.0135
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "adv_long",
+   "seed": 2890,
+   "tag": "_tinystories_train",
+   "n_lines": 200,
+   "teacher": "adv",
+   "c_step": 0.0,
+   "epochs": 25,
+   "window": 200,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 34,
+   "ceiling": 0.09090909090909091,
+   "learn_mid": {
+    "n": 22,
+    "hops": 1.0,
+    "cover": 0.009090909090909092
+   },
+   "learn_high": {
+    "n": 11,
+    "hops": 0.9090909090909091,
+    "cover": 0.022727272727272728
+   },
+   "hop1": {
+    "n": 22,
+    "hops": 1.0,
+    "cover": 0.009090909090909092
+   },
+   "allgo": {
+    "n": 22,
+    "hops": 12.681818181818182,
+    "cover": 0.1
+   },
+   "Q": {
+    "mid_go": 0.0001,
+    "mid_stop": 0.0006,
+    "high_go": 0.067
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "cover_long",
+   "seed": 2890,
+   "tag": "_tinystories_train",
+   "n_lines": 200,
+   "teacher": "cover_end",
+   "c_step": 0.0,
+   "epochs": 25,
+   "window": 200,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 34,
+   "ceiling": 0.06818181818181818,
+   "learn_mid": {
+    "n": 22,
+    "hops": 1.0,
+    "cover": 0.009090909090909092
+   },
+   "learn_high": {
+    "n": 11,
+    "hops": 0.9090909090909091,
+    "cover": 0.022727272727272728
+   },
+   "hop1": {
+    "n": 22,
+    "hops": 1.0,
+    "cover": 0.009090909090909092
+   },
+   "allgo": {
+    "n": 22,
+    "hops": 12.818181818181818,
+    "cover": 0.07727272727272727
+   },
+   "Q": {
+    "mid_go": 0.0002,
+    "mid_stop": 0.0028,
+    "high_go": 0.0075
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0
+  },
+  {
+   "name": "mini_nov",
+   "seed": 1337,
+   "tag": "external_tinystories_mini",
+   "n_lines": 400,
+   "teacher": "nov",
+   "c_step": 0.0,
+   "epochs": 20,
+   "window": 400,
+   "mid_only": false,
+   "p25": 11,
+   "p75": 29,
+   "ceiling": 0.36363636363636365,
+   "learn_mid": {
+    "n": 11,
+    "hops": 1.0,
+    "cover": 0.11363636363636363
+   },
+   "learn_high": {
+    "n": 6,
+    "hops": 0.8333333333333334,
+    "cover": 0.0
+   },
+   "hop1": {
+    "n": 11,
+    "hops": 1.0,
+    "cover": 0.11363636363636363
+   },
+   "allgo": {
+    "n": 11,
+    "hops": 14.181818181818182,
+    "cover": 0.4772727272727273
+   },
+   "Q": {
+    "high_go": 0.0018,
+    "mid_go": 0.038,
+    "mid_stop": 0.0922
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0,
+   "note": "mid_n_soft"
+  },
+  {
+   "name": "mini_nov",
+   "seed": 8642,
+   "tag": "external_tinystories_mini",
+   "n_lines": 400,
+   "teacher": "nov",
+   "c_step": 0.0,
+   "epochs": 20,
+   "window": 400,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 27,
+   "ceiling": 0.16666666666666666,
+   "learn_mid": {
+    "n": 12,
+    "hops": 0.9166666666666666,
+    "cover": 0.0
+   },
+   "learn_high": {
+    "n": 5,
+    "hops": 1.0,
+    "cover": 0.1
+   },
+   "hop1": {
+    "n": 12,
+    "hops": 0.9166666666666666,
+    "cover": 0.0
+   },
+   "allgo": {
+    "n": 12,
+    "hops": 9.416666666666666,
+    "cover": 0.16666666666666666
+   },
+   "Q": {
+    "high_go": 0.0003,
+    "mid_go": 0.008,
+    "mid_stop": 0.0855
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0,
+   "note": "mid_n_soft"
+  },
+  {
+   "name": "mini_nov",
+   "seed": 2890,
+   "tag": "external_tinystories_mini",
+   "n_lines": 400,
+   "teacher": "nov",
+   "c_step": 0.0,
+   "epochs": 20,
+   "window": 400,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 22,
+   "ceiling": 0.14583333333333331,
+   "learn_mid": {
+    "n": 12,
+    "hops": 0.9166666666666666,
+    "cover": 0.020833333333333332
+   },
+   "learn_high": {
+    "n": 6,
+    "hops": 0.6666666666666666,
+    "cover": 0.041666666666666664
+   },
+   "hop1": {
+    "n": 12,
+    "hops": 0.9166666666666666,
+    "cover": 0.020833333333333332
+   },
+   "allgo": {
+    "n": 12,
+    "hops": 8.583333333333334,
+    "cover": 0.16666666666666666
+   },
+   "Q": {
+    "high_go": 0.0843,
+    "mid_go": 0.0507,
+    "mid_stop": 0.09
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0,
+   "note": "mid_n_soft"
+  },
+  {
+   "name": "mini_adv",
+   "seed": 1337,
+   "tag": "external_tinystories_mini",
+   "n_lines": 400,
+   "teacher": "adv",
+   "c_step": 0.0,
+   "epochs": 20,
+   "window": 400,
+   "mid_only": false,
+   "p25": 11,
+   "p75": 29,
+   "ceiling": 0.3181818181818182,
+   "learn_mid": {
+    "n": 11,
+    "hops": 1.0,
+    "cover": 0.11363636363636363
+   },
+   "learn_high": {
+    "n": 6,
+    "hops": 0.8333333333333334,
+    "cover": 0.0
+   },
+   "hop1": {
+    "n": 11,
+    "hops": 1.0,
+    "cover": 0.11363636363636363
+   },
+   "allgo": {
+    "n": 11,
+    "hops": 13.0,
+    "cover": 0.4318181818181818
+   },
+   "Q": {
+    "high_go": 0.0024,
+    "mid_go": 0.0,
+    "mid_stop": 0.0005
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0,
+   "note": "mid_n_soft"
+  },
+  {
+   "name": "mini_adv",
+   "seed": 8642,
+   "tag": "external_tinystories_mini",
+   "n_lines": 400,
+   "teacher": "adv",
+   "c_step": 0.0,
+   "epochs": 20,
+   "window": 400,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 27,
+   "ceiling": 0.16666666666666666,
+   "learn_mid": {
+    "n": 12,
+    "hops": 0.9166666666666666,
+    "cover": 0.0
+   },
+   "learn_high": {
+    "n": 5,
+    "hops": 1.0,
+    "cover": 0.1
+   },
+   "hop1": {
+    "n": 12,
+    "hops": 0.9166666666666666,
+    "cover": 0.0
+   },
+   "allgo": {
+    "n": 12,
+    "hops": 10.916666666666666,
+    "cover": 0.16666666666666666
+   },
+   "Q": {
+    "high_go": 0.0251,
+    "mid_go": 0.0071,
+    "mid_stop": 0.0379
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0,
+   "note": "mid_n_soft"
+  },
+  {
+   "name": "mini_adv",
+   "seed": 2890,
+   "tag": "external_tinystories_mini",
+   "n_lines": 400,
+   "teacher": "adv",
+   "c_step": 0.0,
+   "epochs": 20,
+   "window": 400,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 22,
+   "ceiling": 0.14583333333333331,
+   "learn_mid": {
+    "n": 12,
+    "hops": 0.9166666666666666,
+    "cover": 0.020833333333333332
+   },
+   "learn_high": {
+    "n": 6,
+    "hops": 0.6666666666666666,
+    "cover": 0.041666666666666664
+   },
+   "hop1": {
+    "n": 12,
+    "hops": 0.9166666666666666,
+    "cover": 0.020833333333333332
+   },
+   "allgo": {
+    "n": 12,
+    "hops": 9.416666666666666,
+    "cover": 0.16666666666666666
+   },
+   "Q": {
+    "high_go": 0.0015,
+    "mid_go": 0.0001,
+    "mid_stop": 0.0005
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0,
+   "note": "mid_n_soft"
+  },
+  {
+   "name": "mini_cover_end",
+   "seed": 1337,
+   "tag": "external_tinystories_mini",
+   "n_lines": 400,
+   "teacher": "cover_end",
+   "c_step": 0.0,
+   "epochs": 20,
+   "window": 400,
+   "mid_only": false,
+   "p25": 11,
+   "p75": 29,
+   "ceiling": 0.36363636363636365,
+   "learn_mid": {
+    "n": 11,
+    "hops": 14.181818181818182,
+    "cover": 0.5
+   },
+   "learn_high": {
+    "n": 6,
+    "hops": 0.8333333333333334,
+    "cover": 0.0
+   },
+   "hop1": {
+    "n": 11,
+    "hops": 1.0,
+    "cover": 0.11363636363636363
+   },
+   "allgo": {
+    "n": 11,
+    "hops": 14.181818181818182,
+    "cover": 0.4772727272727273
+   },
+   "Q": {
+    "high_go": 0.0,
+    "mid_go": 0.1854,
+    "mid_stop": 0.1288
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": true,
+   "cover_lift": 0.38636363636363635,
+   "note": "mid_n_soft"
+  },
+  {
+   "name": "mini_cover_end",
+   "seed": 8642,
+   "tag": "external_tinystories_mini",
+   "n_lines": 400,
+   "teacher": "cover_end",
+   "c_step": 0.0,
+   "epochs": 20,
+   "window": 400,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 27,
+   "ceiling": 0.16666666666666666,
+   "learn_mid": {
+    "n": 12,
+    "hops": 10.916666666666666,
+    "cover": 0.20833333333333334
+   },
+   "learn_high": {
+    "n": 5,
+    "hops": 1.0,
+    "cover": 0.1
+   },
+   "hop1": {
+    "n": 12,
+    "hops": 0.9166666666666666,
+    "cover": 0.0
+   },
+   "allgo": {
+    "n": 12,
+    "hops": 10.916666666666666,
+    "cover": 0.16666666666666666
+   },
+   "Q": {
+    "high_go": 0.0758,
+    "mid_go": 0.2181,
+    "mid_stop": 0.1403
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": true,
+   "cover_lift": 0.20833333333333334,
+   "note": "mid_n_soft"
+  },
+  {
+   "name": "mini_cover_end",
+   "seed": 2890,
+   "tag": "external_tinystories_mini",
+   "n_lines": 400,
+   "teacher": "cover_end",
+   "c_step": 0.0,
+   "epochs": 20,
+   "window": 400,
+   "mid_only": false,
+   "p25": 10,
+   "p75": 22,
+   "ceiling": 0.14583333333333331,
+   "learn_mid": {
+    "n": 12,
+    "hops": 0.9166666666666666,
+    "cover": 0.020833333333333332
+   },
+   "learn_high": {
+    "n": 6,
+    "hops": 0.6666666666666666,
+    "cover": 0.041666666666666664
+   },
+   "hop1": {
+    "n": 12,
+    "hops": 0.9166666666666666,
+    "cover": 0.020833333333333332
+   },
+   "allgo": {
+    "n": 12,
+    "hops": 8.916666666666666,
+    "cover": 0.16666666666666666
+   },
+   "Q": {
+    "high_go": 0.0084,
+    "mid_go": 0.1084,
+    "mid_stop": 0.1234
+   },
+   "void": false,
+   "thin_ceil": false,
+   "gate": false,
+   "soft_gate": false,
+   "cover_lift": 0.0,
+   "note": "mid_n_soft"
+  }
+ ]
+}

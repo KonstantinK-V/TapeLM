@@ -1,0 +1,123 @@
+﻿
+C:\Users\Kostya\sote-letter-assembly\out\_stage289_decision_379ch_s1337.json  [held_out]  263s  fp=fillers lookahead=True import=walk no_refuse=True seed=1337  min_fillers=1  CONNECT  COPY d=4  CHANNEL
+  tape   resample_overlap 0.068   rare_nnz 0.01975   params 5729
+  cos    mean 0.865 std 0.309  (dominated by same-address pairs - not a channel test)
+  void   reachable 0.6464  reachable_random 0.0299  reachable_wide 0.2055  own_hit 0.2808  ceiling 0.7515  walk_only 0.4707  step 0.7921
+  size   cand_places 4.08  own 5.02  candidate 6.02  expand 13.02  expand_when_stepped 13.52  expand_when_not 11.11  step_vs_size_r 0.25
+  claim  hit_of_walk_only 0.8731  rival_of_walk_only 0.0025  hit_rate 0.6022  own_rival_hit_rate 0.2354  rival_hit_rate 0.1577  hit_of_own 0.6809  own_rival_of_own 0.8383  steps_on_walk_only 0.5611
+  CONFIRM    mind 0 / rival 37 of 235   z -6.08
+  ROUTER     stepped 663  mind 1.19x  counting 1.09x  |own| stepped 4.24 vs 1.69
+  ROUTER share  0.89x   top_share stepped 1.000 vs 0.989
+  PICK       stepped 372 of walk-only   mind 344 (0.9247) / rival 1 (0.0027)   paired 343/0   z +18.52   arrive 0.9442
+  PICK vs COUNT   count-rival 1 (0.0027)   paired 343/0   z +18.52
+  DEPTH      deep 0.4301   hit_of_deep 0.9472   hit_of_depth1 0.1122
+  RANK answerable base 0.6464   AUC mind 0.7955 (score 0.7496)  |own| 0.4102  share 0.4972   p@541 mind 0.7523 vs 0.6765
+  RANK ceiling    base 0.7515   AUC mind 0.7055 (score 0.6718)  |own| 0.3245  share 0.4976   p@629 mind 0.7742 vs 0.7647
+  RANK right      base 0.6022   AUC mind 0.7612 (score 0.7410)  |own| 0.3457  share 0.5045   p@504 mind 0.7063 vs 0.6627
+  MARGIN     right 36.540 vs wrong 2.559   |   stayed 0.929 (n 174) vs stepped 28.818 (n 663)
+             within-stage: stayed 0.000/3.593   stepped 49.110/2.397   (right/wrong)
+  GATE       n 837  ungated hit 0.6022  payoff +0.2043   ALWAYS-SILENT PAYS +0.8384
+    top   5% k=42    mind 1.0000 (42 right, gain +0.0125)   |own| 0.2857 (12)   share 0.4048 (17)   rand 0.5714 (24)   z vs |own| +4.08  vs share +3.31   [kept 0c/42w, right 0c/42w]
+    top  10% k=84    mind 1.0000 (84 right, gain +0.0251)   |own| 0.2976 (25)   share 0.5357 (45)   rand 0.6071 (51)   z vs |own| +5.65  vs share +3.64   [kept 0c/84w, right 0c/84w]
+    top  25% k=209   mind 1.0000 (209 right, gain +0.0624)   |own| 0.3445 (72)   share 0.7273 (152)   rand 0.6411 (134)   z vs |own| +9.01  vs share +3.12   [kept 0c/209w, right 0c/209w]
+    top  50% k=418   mind 0.8349 (349 right, gain -0.0544)   |own| 0.4952 (207)   share 0.6627 (277)   rand 0.6196 (259)   z vs |own| +10.70  vs share +3.76   [kept 28c/346w, right 22c/327w]
+  GATE-WO    n 394  ungated hit 0.8731  payoff +0.7462   ALWAYS-SILENT PAYS +0.7500
+    top   5% k=20    mind 1.0000 (20 right, gain +0.0127)   |own| 1.0000 (20)   share 0.8500 (17)   rand 0.8500 (17)   z vs |own| +0.00  vs share +0.54
+    top  10% k=39    mind 1.0000 (39 right, gain +0.0247)   |own| 0.8462 (33)   share 0.7436 (29)   rand 0.7949 (31)   z vs |own| +0.71  vs share +1.36
+    top  25% k=98    mind 1.0000 (98 right, gain +0.0622)   |own| 0.8673 (85)   share 0.8367 (82)   rand 0.8469 (83)   z vs |own| +0.96  vs share +1.38
+    top  50% k=197   mind 1.0000 (197 right, gain +0.1250)   |own| 0.9137 (180)   share 0.8832 (174)   rand 0.8629 (170)   z vs |own| +1.00  vs share +1.69
+  WALK-ONLY  mind 343 / rival 0 of 394   z +18.52
+
+C:\Users\Kostya\sote-letter-assembly\out\_stage289_decision_379ch_s2890.json  [held_out]  245s  fp=fillers lookahead=True import=walk no_refuse=True seed=2890  min_fillers=1  CONNECT  COPY d=4  CHANNEL
+  tape   resample_overlap 0.081   rare_nnz 0.01914   params 5729
+  cos    mean 0.863 std 0.316  (dominated by same-address pairs - not a channel test)
+  void   reachable 0.6627  reachable_random 0.0289  reachable_wide 0.2690  own_hit 0.3451  ceiling 0.7493  walk_only 0.4042  step 0.7743
+  size   cand_places 4.10  own 4.21  candidate 5.21  expand 12.21  expand_when_stepped 12.76  expand_when_not 10.34  step_vs_size_r 0.31
+  claim  hit_of_walk_only 0.9188  rival_of_walk_only 0.0000  hit_rate 0.6207  own_rival_hit_rate 0.3189  rival_hit_rate 0.2493  hit_of_own 0.7224  own_rival_of_own 0.9240  steps_on_walk_only 0.5153
+  CONFIRM    mind 0 / rival 53 of 263   z -7.28
+  ROUTER     stepped 590  mind 1.27x  counting 0.89x  |own| stepped 3.62 vs 1.13
+  ROUTER share  0.79x   top_share stepped 1.000 vs 1.000
+  PICK       stepped 304 of walk-only   mind 283 (0.9309) / rival 0 (0.0000)   paired 283/0   z +16.82   arrive 0.9870
+  PICK vs COUNT   count-rival 2 (0.0066)   paired 281/0   z +16.76
+  DEPTH      deep 0.4633   hit_of_deep 0.7960   hit_of_depth1 0.1224
+  RANK answerable base 0.6627   AUC mind 0.7472 (score 0.5990)  |own| 0.4062  share 0.5000   p@505 mind 0.7703 vs 0.6614
+  RANK ceiling    base 0.7493   AUC mind 0.7300 (score 0.5492)  |own| 0.3449  share 0.5000   p@571 mind 0.8599 vs 0.7758
+  RANK right      base 0.6207   AUC mind 0.7610 (score 0.5940)  |own| 0.3894  share 0.5000   p@473 mind 0.7230 vs 0.6469
+  MARGIN     right 36.895 vs wrong 1.722   |   stayed 1.152 (n 172) vs stepped 30.086 (n 590)
+             within-stage: stayed 0.601/11.115   stepped 55.978/1.420   (right/wrong)
+  GATE       n 762  ungated hit 0.6207  payoff +0.2415   ALWAYS-SILENT PAYS +0.8343
+    top   5% k=38    mind 1.0000 (38 right, gain +0.0125)   |own| 0.2895 (11)   share 0.4211 (16)   rand 0.6053 (23)   z vs |own| +3.86  vs share +2.99   [kept 0c/38w, right 0c/38w]
+    top  10% k=76    mind 1.0000 (76 right, gain +0.0249)   |own| 0.2763 (21)   share 0.5132 (39)   rand 0.6711 (51)   z vs |own| +5.58  vs share +3.51   [kept 0c/76w, right 0c/76w]
+    top  25% k=190   mind 1.0000 (190 right, gain +0.0623)   |own| 0.5000 (95)   share 0.7000 (133)   rand 0.6368 (121)   z vs |own| +5.81  vs share +3.22   [kept 0c/190w, right 0c/190w]
+    top  50% k=381   mind 0.8110 (309 right, gain -0.0856)   |own| 0.5407 (206)   share 0.6378 (243)   rand 0.6325 (241)   z vs |own| +8.55  vs share +3.36   [kept 55c/284w, right 30c/279w]
+  GATE-WO    n 308  ungated hit 0.9188  payoff +0.8377   ALWAYS-SILENT PAYS +0.7500
+    top   5% k=15    mind 1.0000 (15 right, gain +0.0122)   |own| 0.8000 (12)   share 0.8000 (12)   rand 0.9333 (14)   z vs |own| +0.58  vs share +0.58
+    top  10% k=31    mind 1.0000 (31 right, gain +0.0252)   |own| 0.8387 (26)   share 0.8387 (26)   rand 0.9355 (29)   z vs |own| +0.66  vs share +0.67
+    top  25% k=77    mind 1.0000 (77 right, gain +0.0625)   |own| 0.8831 (68)   share 0.8442 (65)   rand 0.9091 (70)   z vs |own| +0.75  vs share +1.13
+    top  50% k=154   mind 1.0000 (154 right, gain +0.1250)   |own| 0.9156 (141)   share 0.9026 (139)   rand 0.9221 (142)   z vs |own| +0.81  vs share +1.28
+  WALK-ONLY  mind 283 / rival 0 of 308   z +16.82
+
+C:\Users\Kostya\sote-letter-assembly\out\_stage289_decision_379ch_s4711.json  [held_out]  249s  fp=fillers lookahead=True import=walk no_refuse=True seed=4711  min_fillers=1  CONNECT  COPY d=4  CHANNEL
+  tape   resample_overlap 0.083   rare_nnz 0.01545   params 5729
+  cos    mean 0.865 std 0.312  (dominated by same-address pairs - not a channel test)
+  void   reachable 0.7275  reachable_random 0.0332  reachable_wide 0.2749  own_hit 0.3318  ceiling 0.8128  walk_only 0.4810  step 0.8116
+  size   cand_places 4.23  own 4.80  candidate 5.80  expand 12.80  expand_when_stepped 13.14  expand_when_not 11.32  step_vs_size_r 0.20
+  claim  hit_of_walk_only 0.8842  rival_of_walk_only 0.0000  hit_rate 0.6481  own_rival_hit_rate 0.2867  rival_hit_rate 0.2382  hit_of_own 0.6714  own_rival_of_own 0.8643  steps_on_walk_only 0.5620
+  CONFIRM    mind 0 / rival 54 of 280   z -7.35
+  ROUTER     stepped 685  mind 1.17x  counting 0.91x  |own| stepped 3.71 vs 1.46
+  ROUTER share  0.90x   top_share stepped 0.999 vs 1.000
+  PICK       stepped 385 of walk-only   mind 359 (0.9325) / rival 0 (0.0000)   paired 359/0   z +18.95   arrive 0.9483
+  PICK vs COUNT   count-rival 2 (0.0052)   paired 359/2   z +18.79
+  DEPTH      deep 0.5083   hit_of_deep 0.8298   hit_of_depth1 0.2383
+  RANK answerable base 0.7275   AUC mind 0.7970 (score 0.6375)  |own| 0.4722  share 0.5022   p@614 mind 0.8143 vs 0.7427
+  RANK ceiling    base 0.8128   AUC mind 0.7796 (score 0.5995)  |own| 0.4253  share 0.5032   p@686 mind 0.9082 vs 0.8382
+  RANK right      base 0.6481   AUC mind 0.8107 (score 0.6460)  |own| 0.4595  share 0.5017   p@547 mind 0.7642 vs 0.6563
+  MARGIN     right 36.701 vs wrong 3.476   |   stayed 4.330 (n 159) vs stepped 29.809 (n 685)
+             within-stage: stayed 0.871/19.834   stepped 47.871/1.705   (right/wrong)
+  GATE       n 844  ungated hit 0.6481  payoff +0.2962   ALWAYS-SILENT PAYS +0.8181
+    top   5% k=42    mind 1.0000 (42 right, gain +0.0124)   |own| 0.4524 (19)   share 0.4048 (17)   rand 0.5714 (24)   z vs |own| +2.94  vs share +3.25   [kept 0c/42w, right 0c/42w]
+    top  10% k=84    mind 1.0000 (84 right, gain +0.0249)   |own| 0.5952 (50)   share 0.5357 (45)   rand 0.6071 (51)   z vs |own| +2.94  vs share +3.61   [kept 0c/84w, right 0c/84w]
+    top  25% k=211   mind 0.9858 (208 right, gain +0.0551)   |own| 0.6493 (137)   share 0.7109 (150)   rand 0.6209 (131)   z vs |own| +4.05  vs share +3.15   [kept 0c/210w, right 0c/208w]
+    top  50% k=422   mind 0.9360 (395 right, gain +0.0572)   |own| 0.6066 (256)   share 0.6351 (268)   rand 0.6137 (259)   z vs |own| +9.48  vs share +6.30   [kept 67c/350w, right 59c/336w]
+  GATE-WO    n 406  ungated hit 0.8842  payoff +0.7685   ALWAYS-SILENT PAYS +0.7500
+    top   5% k=20    mind 1.0000 (20 right, gain +0.0123)   |own| 1.0000 (20)   share 0.8500 (17)   rand 0.8000 (16)   z vs |own| +0.00  vs share +0.49
+    top  10% k=41    mind 1.0000 (41 right, gain +0.0252)   |own| 0.9756 (40)   share 0.8293 (34)   rand 0.8780 (36)   z vs |own| +0.11  vs share +0.83
+    top  25% k=102   mind 1.0000 (102 right, gain +0.0628)   |own| 0.9902 (101)   share 0.7843 (80)   rand 0.9118 (93)   z vs |own| +0.07  vs share +1.76
+    top  50% k=203   mind 0.9901 (201 right, gain +0.1151)   |own| 0.8966 (182)   share 0.8473 (172)   rand 0.8719 (177)   z vs |own| +1.06  vs share +1.93
+  WALK-ONLY  mind 359 / rival 0 of 406   z +18.95
+
+C:\Users\Kostya\sote-letter-assembly\out\_stage289_decision_379ch_s8642.json  [held_out]  242s  fp=fillers lookahead=True import=walk no_refuse=True seed=8642  min_fillers=1  CONNECT  COPY d=4  CHANNEL
+  tape   resample_overlap 0.069   rare_nnz 0.02088   params 5729
+  cos    mean 0.865 std 0.313  (dominated by same-address pairs - not a channel test)
+  void   reachable 0.6445  reachable_random 0.0273  reachable_wide 0.2405  own_hit 0.2927  ceiling 0.7334  walk_only 0.4408  step 0.6623
+  size   cand_places 4.10  own 4.30  candidate 5.30  expand 12.30  expand_when_stepped 13.09  expand_when_not 10.75  step_vs_size_r 0.32
+  claim  hit_of_walk_only 0.6828  rival_of_walk_only 0.0027  hit_rate 0.4929  own_rival_hit_rate 0.2607  rival_hit_rate 0.1848  hit_of_own 0.6559  own_rival_of_own 0.8907  steps_on_walk_only 0.4866
+  CONFIRM    mind 0 / rival 58 of 247   z -7.62
+  ROUTER     stepped 559  mind 1.10x  counting 0.85x  |own| stepped 3.83 vs 1.35
+  ROUTER share  0.86x   top_share stepped 0.978 vs 0.997
+  PICK       stepped 272 of walk-only   mind 254 (0.9338) / rival 1 (0.0037)   paired 253/0   z +15.91   arrive 0.7312
+  PICK vs COUNT   count-rival 2 (0.0074)   paired 252/0   z +15.87
+  DEPTH      deep 0.3780   hit_of_deep 0.7931   hit_of_depth1 0.1250
+  RANK answerable base 0.6445   AUC mind 0.7068 (score 0.5952)  |own| 0.4801  share 0.5176   p@544 mind 0.7279 vs 0.6710
+  RANK ceiling    base 0.7334   AUC mind 0.6850 (score 0.5720)  |own| 0.4489  share 0.5306   p@619 mind 0.8449 vs 0.7868
+  RANK right      base 0.4929   AUC mind 0.7920 (score 0.6936)  |own| 0.5123  share 0.5147   p@416 mind 0.6875 vs 0.5433
+  MARGIN     right 16.559 vs wrong 0.872   |   stayed 0.904 (n 285) vs stepped 12.530 (n 559)
+             within-stage: stayed 0.341/1.397   stepped 24.181/0.583   (right/wrong)
+  GATE       n 844  ungated hit 0.4929  payoff -0.0142   ALWAYS-SILENT PAYS +0.8389
+    top   5% k=42    mind 1.0000 (42 right, gain +0.0124)   |own| 0.5238 (22)   share 0.2381 (10)   rand 0.5000 (21)   z vs |own| +2.50  vs share +4.53   [kept 0c/42w, right 0c/42w]
+    top  10% k=84    mind 1.0000 (84 right, gain +0.0249)   |own| 0.5000 (42)   share 0.5119 (43)   rand 0.5357 (45)   z vs |own| +3.74  vs share +3.67   [kept 0c/84w, right 0c/84w]
+    top  25% k=211   mind 1.0000 (211 right, gain +0.0625)   |own| 0.4929 (104)   share 0.6730 (142)   rand 0.5071 (107)   z vs |own| +7.66  vs share +3.73   [kept 0c/211w, right 0c/211w]
+    top  50% k=422   mind 0.6777 (286 right, gain -0.2284)   |own| 0.5427 (229)   share 0.5355 (226)   rand 0.4858 (205)   z vs |own| +4.77  vs share +3.36   [kept 72c/274w, right 34c/252w]
+  GATE-WO    n 372  ungated hit 0.6828  payoff +0.3656   ALWAYS-SILENT PAYS +0.7500
+    top   5% k=19    mind 1.0000 (19 right, gain +0.0128)   |own| 1.0000 (19)   share 0.2632 (5)   rand 0.5789 (11)   z vs |own| +0.00  vs share +2.86
+    top  10% k=37    mind 1.0000 (37 right, gain +0.0249)   |own| 1.0000 (37)   share 0.4865 (18)   rand 0.6486 (24)   z vs |own| +0.00  vs share +2.61
+    top  25% k=93    mind 1.0000 (93 right, gain +0.0625)   |own| 0.8925 (83)   share 0.5699 (53)   rand 0.7204 (67)   z vs |own| +0.75  vs share +3.92
+    top  50% k=186   mind 1.0000 (186 right, gain +0.1250)   |own| 0.8602 (160)   share 0.6237 (116)   rand 0.7151 (133)   z vs |own| +2.06  vs share +5.50
+  WALK-ONLY  mind 253 / rival 0 of 372   z +15.91
+
+POOLED held_out over 4 runs: mind 1238 / rival 0 of 1480   z +35.19
+POOLED CONFIRM held_out over 4 runs: mind 0 / rival 202 of 1025   z -14.21
+POOLED GATE-WO held_out top   5%: k 74   mind 74 (1.0000)   share 51 (0.6892)   random 58 (0.7838)
+POOLED GATE-WO held_out top  10%: k 148   mind 148 (1.0000)   share 107 (0.7230)   random 120 (0.8108)
+POOLED GATE-WO held_out top  25%: k 370   mind 370 (1.0000)   share 280 (0.7568)   random 313 (0.8459)
+POOLED GATE-WO held_out top  50%: k 740   mind 738 (0.9973)   share 601 (0.8122)   random 622 (0.8405)

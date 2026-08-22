@@ -1,0 +1,411 @@
+From 903d8d03b2fea38dfc91d7781f8ade6df118101f Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Wed, 12 Aug 2026 08:44:39 +0000
+Subject: [PATCH 2/2] 294: 292's question with the addressing heuristic removed
+ and the ladder unbuilt
+
+The two arms cross without inventing a verb. 292 is the only measurable thing in
+the line - pooled held 201 v 141 over six seeds, z +3.24 - and it already has the
+property 293 was built for: the value it is graded on is excluded from the ink and
+the word sets, so the label cannot be seen. What 293 contributed was two
+disciplines 292 fails: a place defined by strings the encoder never touches, and
+negatives not readable off their construction.
+
+--address-from anchor makes an address one exact anchor string. No cosine, no tau,
+no word-overlap conjunction, and no relation half - the 293 audit found that half
+is a function word on this tape (canada|and, december|the), which is also why
+rare_nonzero_rate is 0.0. Nothing is approximated where the evidence is decided.
+
+--open-cands uniform draws the three wrong answers instead of building them by
+relatedness, and records each one's distance for the report only. 292's mean_phi
+read its own construction back as an inverted landscape on every seed; this is the
+arm that separates a property of the corpus from a property of the rungs.
+
+One run answers both open questions: whether the +3.24 win survives without the
+heuristic, and whether the inversion survives without the ladder. _check294_open
+proves the five construction properties offline.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01RYDM9MUk761CZjn7SmTaug
+---
+ _check294_open.py       | 133 ++++++++++++++++++++++++++++++++
+ _stage289_derivation.py | 167 +++++++++++++++++++++++++++++++++++++++-
+ 2 files changed, 298 insertions(+), 2 deletions(-)
+ create mode 100644 _check294_open.py
+
+diff --git a/_check294_open.py b/_check294_open.py
+new file mode 100644
+index 0000000..e6eca9d
+--- /dev/null
++++ b/_check294_open.py
+@@ -0,0 +1,133 @@
++"""Prove 294 before spending an hour on it. Seconds, no corpus and no model.
++
++294 is 292's question with 293's two disciplines applied and the addressing heuristic removed:
++an address is one exact anchor string, and the three wrong answers are drawn rather than built.
++Five things have to hold, and each is a way a plausible number could mean nothing:
++
++  1 AN ADDRESS IS AN EXACT STRING. Every row of an anchor address was written under that anchor
++    and no other, so nothing about which rows count as evidence went through a cosine, a tau or
++    a word overlap. That is the whole point: the invariant forbids an approximation at the place
++    where something is decided, and this is that place.
++  2 THE TARGET IS FOREIGN. The hidden value is on none of the evidence rows, so retrieval inside
++    the address cannot reach it - 292's property, kept, because it is what makes the comparison
++    against the mind worth running.
++  3 EVERY WORLD CARRIES THE SAME ROWS. Equal imports through the shared budget and an identical
++    evidence set, or Phi can read a row count as the answer, which is the bookkeeping tell that
++    made 289's ladder unreadable.
++  4 NO CANDIDATE IS BUILT FROM ITS DISTANCE. Distractors are any value the address does not
++    carry; `bucket_of` records where each one happens to live and is used only in the report.
++    292's rungs were built BY relatedness and `mean_phi` read that construction back as an
++    inverted landscape on six seeds out of six - this is the arm that tells the two apart.
++  5 THE ROW CAP IS A BUDGET, NOT A DECISION. An anchor carries dozens of mentions and the graph
++    is quadratic; the cap keeps the nearest in tape order, in tape order, identically in all
++    four worlds.
++
++    python _check294_open.py
++"""
++from __future__ import annotations
++
++import random
++from collections import Counter
++
++import torch
++
++import _stage289_derivation as s289
++from _check293_identity import FakeBank, fake_pack
++
++
++def pack294():
++    """293's toy tape plus a second anchor, so the values hidden at `kostya` have a mention
++    somewhere else and the shared import budget is not zero."""
++    p = fake_pack()
++    extra = ["dynamo signed spartak players before the tournament",
++             "dynamo travelled to moscow for the away leg",
++             "dynamo recruited gorky graduates that summer"]
++    vals = ["Spartak", "Moscow", "Gorky"]
++    straddr = ["dynamo|signed", "dynamo|travelled to", "dynamo|recruited"]
++    base = len(p["texts"])
++    p["texts"] += extra
++    p["texts_lc"] = [t.lower() for t in p["texts"]]
++    p["tape"].values += vals
++    p["straddr"] += straddr
++    p["items"].append({"S": "dynamo", "address": "fp9:dynamo|signed",
++                       "slots": [base, base + 1, base + 2], "kind": "clean"})
++    for i, t in enumerate(extra):
++        for w in t.split():
++            p["postings"].setdefault(w, []).append(base + i)
++    n = len(p["texts"])
++    p["n_slots"] = n
++    g = torch.Generator().manual_seed(294)
++    p["ctx_keys"] = torch.nn.functional.normalize(torch.randn(n, 16, generator=g), dim=-1)
++    p["anc_keys"] = torch.nn.functional.normalize(torch.randn(n, 16, generator=g), dim=-1)
++    p["slot_keys_slot"] = list(range(n))
++    p.pop("_ident", None)
++    return p
++
++
++def main() -> int:
++    ok = True
++    dev = torch.device("cpu")
++    s289.IDENTITY, s289.NEIGHBOURS = False, 0
++    s289.OPEN, s289.IMPORT_K = True, 2
++    s289.ADDRESS_FROM, s289.OPEN_CANDS, s289.OPEN_N_CANDS = "anchor", "uniform", 4
++    s289.ANCHOR_MAX_ROWS = 3
++    s289.EDGES_ON = set(s289.EDGES)
++
++    p, bank = pack294(), FakeBank()
++
++    items = s289.anchor_items(p)
++    by_anc = {it["S"]: it for it in items}
++    v = (sorted(by_anc) == ["dynamo", "kostya"]
++         and all(s289.str_parts(p["straddr"][s])[0] == it["S"]
++                 for it in items for s in it["slots"]))
++    ok &= bool(v)
++    print(f"1 anchor addresses {[(it['S'], it['slots']) for it in items]}")
++    print(f"  every row written under that exact anchor, no grouping rule involved: {bool(v)}")
++
++    qs = [q for q in s289.open_questions_for(p, random.Random(0)) if q.get("uniform")]
++    print(f"  open questions built: {len(qs)}")
++    ok &= len(qs) > 0
++    if not qs:
++        print("\nOPEN294 FAILED (no questions on the toy tape)")
++        return 1
++    q = qs[0]
++    truth = q["cands"][q["label"]]
++    ev = [p["tape"].values[s] for s in q["slots"][:q["query_row"]]]
++    v = truth not in ev and all(c not in ev for c in q["cands"] if c == truth)
++    ok &= bool(v)
++    print(f"2 truth {truth!r} vs evidence {ev} - foreign to every row: {bool(v)}")
++
++    k = s289.shared_import_budget(p, q, list(q["cands"]))
++    ns = {len(s289.build_graph(p, q, bank, dev, query_value=c, import_k=k)[2])
++          for c in q["cands"]}
++    v = k >= 1 and len(ns) == 1
++    ok &= bool(v)
++    print(f"3 shared budget {k}, world sizes {ns} - one size for four worlds: {bool(v)}")
++
++    v = (set(q["bucket_of"]) == {c for c in q["cands"] if c != truth}
++         and all(b in ("same_anchor", "elsewhere") for b in q["bucket_of"].values())
++         and truth not in q["bucket_of"])
++    ok &= bool(v)
++    print(f"4 buckets {q['bucket_of']} recorded for the distractors only, truth excluded: "
++          f"{bool(v)}")
++    pos = Counter()
++    for seed in range(300):
++        qq = s289.lookup_open_uniform(p, by_anc["kostya"], random.Random(seed), 0,
++                                      list(p["tape"].values))
++        if qq is not None:
++            pos[qq["label"]] += 1
++    print(f"  label position over {sum(pos.values())} draws: {dict(sorted(pos.items()))}")
++
++    v = (q["query_row"] == len(q["slots"]) - 1
++         and q["query_row"] <= s289.ANCHOR_MAX_ROWS
++         and q["slots"][:q["query_row"]] == sorted(q["slots"][:q["query_row"]]))
++    ok &= bool(v)
++    print(f"5 rows {q['slots']} capped at {s289.ANCHOR_MAX_ROWS}, in tape order, query row "
++          f"last: {bool(v)}")
++
++    print("\nOPEN294 OK" if ok else "\nOPEN294 FAILED")
++    return 0 if ok else 1
++
++
++if __name__ == "__main__":
++    raise SystemExit(main())
+diff --git a/_stage289_derivation.py b/_stage289_derivation.py
+index d48cfd3..4f07e2b 100644
+--- a/_stage289_derivation.py
++++ b/_stage289_derivation.py
+@@ -483,6 +483,105 @@ def lookup_open_question(p, item, rng, hid, by_anchor, all_values):
+     return q
+ 
+ 
++# ------------------------------------- 294: 292's question with the addressing rule taken out
++#
++# WHAT THE TWO ARMS EACH HAD, AND WHY THEY CROSS WITHOUT INVENTING ANYTHING.
++#
++# 292 is the only measurable thing in the line: pooled held 201 v 141 over six seeds, z +3.24
++# against retrieval over the whole tape. And it already satisfies 293's hard property - the
++# value it is graded on is excluded from the ink and from the word sets, so the label cannot be
++# seen. What 293 contributed was not a better verb; it was two disciplines: a place defined by
++# STRINGS the encoder never touches, and negatives that are not readable off their construction.
++# 292 fails both. Its evidence rows are whatever fp_addresses grouped under a tau, and its three
++# rungs are built BY relatedness, which is exactly why `mean_phi` reads true ≈ far > middle >
++# near on every seed - an inverted landscape is what a mind learns when the label is a function
++# of the candidate's distance.
++#
++# So the cross is 292's question with 293's two disciplines applied, and it removes the
++# heuristic rather than replacing it with another:
++#
++#   --address-from anchor   an address is ONE EXACT STRING - the anchor the corpus wrote. No
++#                           cosine, no tau, no word-overlap conjunction, and no relation half,
++#                           which the 293 audit showed is a function word (`canada|and`,
++#                           `december|the`) on this tape. Nothing is approximated at the point
++#                           where the evidence is decided, which is what the invariant demands.
++#   --open-cands uniform    the three wrong answers are DRAWN, not built: any value the address
++#                           does not carry. Distance is then measured after the fact instead of
++#                           being the construction, so if the inversion survives it is a fact
++#                           about the corpus, and if it vanishes it was the ladder all along.
++#
++# Two open questions get one run: does the +3.24 win survive when the evidence is not built by
++# the heuristic (if yes, tau was never load-bearing and can go), and is the inverted landscape a
++# property of the tape or of the rungs.
++
++ADDRESS_FROM = "fp"
++OPEN_CANDS = "ladder"
++OPEN_N_CANDS = 4
++ANCHOR_MAX_ROWS = 8
++
++
++def anchor_items(p):
++    """Addresses made of one exact string. The grouping rule is not loosened here, it is absent:
++    two mentions share an address when the corpus wrote the same anchor, and never otherwise."""
++    ix = ident_index(p)
++    if ix is None:
++        return []
++    return [{"S": anc, "address": f"anc:{anc}", "slots": list(slots), "kind": "clean"}
++            for anc, slots in sorted(ix["by_anc"].items()) if len(slots) >= 2]
++
++
++def lookup_open_uniform(p, item, rng, hid, all_values):
++    """292's question, with the wrong answers drawn instead of constructed.
++
++    Everything that made 292 legitimate is kept: the hidden value occurs exactly once at the
++    address so it is foreign to every evidence row, and shared_import_budget gives all four
++    worlds the same number of imported rows. What goes is the ladder - the three distractors are
++    any values the address does not carry, so nothing about a candidate's relation to this
++    address says whether it is the answer. The distance is recorded per candidate and read off
++    the same logits afterwards, which is the only way to ask whether the inversion is real.
++    """
++    own = list(item["slots"])
++    if len(own) < 2:
++        return None
++    hid = hid % len(own)
++    hidden = own[hid]
++    truth = p["tape"].values[hidden]
++    rows = [s for s in own if s != hidden]
++    if any(p["tape"].values[s] == truth for s in rows):
++        return None                       # still on a row: not a foreign target
++    if len(rows) > ANCHOR_MAX_ROWS:
++        # a budget, not a decision: an anchor like `canada` carries dozens of mentions and the
++        # graph is O(n^2). Nearest in tape order, deterministic, and identical in all four
++        # worlds, so it cannot carry the label.
++        rows = sorted(sorted(rows, key=lambda s: (abs(s - hidden), s))[:ANCHOR_MAX_ROWS])
++    here = {p["tape"].values[s] for s in own}
++    cands = [truth]
++    for _ in range(64 * OPEN_N_CANDS):
++        if len(cands) == OPEN_N_CANDS:
++            break
++        v = all_values[rng.randrange(len(all_values))]
++        if v not in here and v not in cands:
++            cands.append(v)
++    if len(cands) != OPEN_N_CANDS:
++        return None
++    cands = sorted(cands)
++    anc = item["S"]
++    ix = ident_index(p)
++    at_anchor = {p["tape"].values[s] for s in ix["by_anc"].get(anc, ())} if ix else set()
++    q = {"verb": "lookup", "open": True, "uniform": True,
++         "slots": rows + [hidden],
++         "vals": [p["tape"].values[s] for s in rows] + [object()],
++         "cands": cands, "label": cands.index(truth),
++         # measured, never built: where each drawn candidate happens to live
++         "bucket_of": {c: ("same_anchor" if c in at_anchor else "elsewhere")
++                       for c in cands if c != truth},
++         "S": anc, "address": item["address"], "hid": hid,
++         "query_row": len(rows)}
++    if shared_import_budget(p, q, list(q["cands"])) < 1:
++        return None
++    return q
++
++
+ def open_rival_cos(p, q, bank, device):
+     """The rival 292 actually has to beat: retrieval over the WHOLE TAPE, not over the address.
+ 
+@@ -1544,6 +1643,26 @@ def sparse_questions_for(p, r):
+ 
+ def open_questions_for(p, r):
+     """292's set. count and compare stay: they are exact algebra and they are the sanity bolt."""
++    if ADDRESS_FROM == "anchor" or OPEN_CANDS == "uniform":
++        # 294. count and compare stay on the FP items: they are the sanity bolt on the tape as
++        # it is actually written, and moving them would quietly change what the bolt checks.
++        src = anchor_items(p) if ADDRESS_FROM == "anchor" else \
++            [it for it in p["items"] if len(it["slots"]) >= 2]
++        allv = list(p["tape"].values)
++        out = []
++        for it in src:
++            for hid in range(len(it["slots"])):
++                if (q := lookup_open_uniform(p, it, r, hid, allv)) is not None:
++                    out.append(q)
++        for it in p["items"]:
++            if len(it["slots"]) >= 2 and (q := count_question(p, it)) is not None:
++                out.append(q)
++        shuffled = [it for it in p["items"] if len(it["slots"]) >= 2]
++        r.shuffle(shuffled)
++        for a, b in zip(shuffled[::2], shuffled[1::2]):
++            if (q := compare_question(p, a, b)) is not None:
++                out.append(q)
++        return out
+     items = [it for it in p["items"] if len(it["slots"]) >= 2]
+     by_anchor = defaultdict(list)
+     for it in items:
+@@ -2107,7 +2226,8 @@ def predict_with_confidence(net, p, q, device, bank):
+ def main() -> int:
+     global SEED, LOG_PATH, LADDER_ON, EDGES_ON, IMPORT_K, INK, FP, WORDS, FAST_COS, VIEWS, \
+         ROW_DROPOUT, VIEW_MODE, NEIGHBOURS, REFUSE, GRAPH_CACHE, OPEN, OBJECTIVE, \
+-        IDENTITY, IDENT_VALUES, IDENT_TAU, IDENT_OVERLAP, IDENT_CANDS, IDENT_CORE, IDENT_IMPORT
++        IDENTITY, IDENT_VALUES, IDENT_TAU, IDENT_OVERLAP, IDENT_CANDS, IDENT_CORE, \
++        IDENT_IMPORT, ADDRESS_FROM, OPEN_CANDS, ANCHOR_MAX_ROWS
+     ap = argparse.ArgumentParser()
+     ap.add_argument("--smoke", action="store_true")
+     ap.add_argument("--train-steps", type=int, default=0)
+@@ -2244,6 +2364,18 @@ def main() -> int:
+     ap.add_argument("--no-ladder", action="store_true",
+                     help="ablation: train Phi on the task term alone, the control the ladder "
+                          "is measured against")
++    ap.add_argument("--address-from", choices=("fp", "anchor"), default=ADDRESS_FROM,
++                    help="294: what an address IS. fp keeps 279's grouping (cosine tau AND word "
++                         "overlap, plus a relation half the 293 audit found to be a function "
++                         "word); anchor makes it one exact string the corpus wrote, so nothing "
++                         "is approximated where the evidence is decided.")
++    ap.add_argument("--open-cands", choices=("ladder", "uniform"), default=OPEN_CANDS,
++                    help="294: ladder builds the three wrong answers BY relatedness, which is "
++                         "what an inverted mean_phi reads back; uniform draws any value the "
++                         "address does not carry and measures the distance afterwards.")
++    ap.add_argument("--anchor-max-rows", type=int, default=ANCHOR_MAX_ROWS,
++                    help="cost budget for anchor addresses: the graph is O(n^2) and `canada` "
++                         "carries dozens of mentions. Nearest in tape order, same in all worlds.")
+     ap.add_argument("--identity", action="store_true",
+                     help="293: the verb becomes 'do these mentions name the same place'. The "
+                          "label is the corpus's own pre-grouping string, so the mind is put "
+@@ -2276,6 +2408,17 @@ def main() -> int:
+     VIEWS, ROW_DROPOUT, VIEW_MODE = args.views, args.row_dropout, args.view_mode
+     NEIGHBOURS, REFUSE, OPEN = args.neighbours, args.refuse, args.open
+     OBJECTIVE = args.objective
++    ADDRESS_FROM, OPEN_CANDS = args.address_from, args.open_cands
++    ANCHOR_MAX_ROWS = args.anchor_max_rows
++    if ADDRESS_FROM == "anchor" and not args.open:
++        log("  --address-from anchor is 294, which is the open verb: add --open")
++        return 1
++    if ADDRESS_FROM == "anchor" and OPEN_CANDS != "uniform":
++        # the ladder is built through fp addresses - attach_ladder and neighbourhood both index
++        # by them - so a ladder over anchor addresses would silently fall back to no rungs
++        log("  --address-from anchor needs --open-cands uniform: the ladder is built through "
++            "fp addresses and cannot be attached to one that has none")
++        return 1
+     IDENTITY = args.identity or args.identity_audit
+     IDENT_VALUES, IDENT_CANDS, IDENT_CORE = (args.ident_values, args.ident_cands,
+                                              args.ident_core)
+@@ -2752,6 +2895,7 @@ def main() -> int:
+         sparse_rows = []                   # 290/291: answerable, right, refused, rivals, margins
+         open_rows = []                     # 292: mind right, corpus-retrieval right, answered
+         ident_rows = []                    # 293: mind right, each rival right, accepted, agreed
++        ub = {k: [0.0, 0] for k in ("true", "same_anchor", "elsewhere")}   # 294's landscape
+         vrng = random.Random(SEED + 7788)  # fresh per examine call: deterministic views
+         rung_sum = {k: 0.0 for k in ("true",) + LADDER}
+         rung_n, concord, pairs, ties = 0, 0, 0, 0
+@@ -2832,7 +2976,20 @@ def main() -> int:
+                     st[v]["rival_cos"] += int(rcos == truth)
+                     if fair:
+                         cos_items.append((int(pred == truth), int(rcos == truth), rmargin))
+-                if q.get("open"):
++                if q.get("uniform"):
++                    # 294's landscape: the candidates were drawn without regard to distance, so
++                    # this is where the distance ENTERS - after the answer, off the same logits.
++                    # If the 292 inversion survives here it is a property of the corpus; if it
++                    # does not, it was the ladder's construction being read back.
++                    ub["true"][0] += float(lg[q["label"]])
++                    ub["true"][1] += 1
++                    for c_, b_ in q["bucket_of"].items():
++                        ub[b_][0] += float(lg[q["cands"].index(c_)])
++                        ub[b_][1] += 1
++                    orc = open_rival_cos(p, q, bank, device)
++                    open_rows.append([int(pred == truth), int(orc == truth),
++                                      int(orc is not None)])
++                elif q.get("open"):
+                     # the landscape, read off the SAME logits that produced the answer rather
+                     # than a second pass. Three ordered pairs, each 50/50 under a Phi carrying
+                     # no distance information, so the null is exactly 0.5 and needs no choosing.
+@@ -2964,6 +3121,10 @@ def main() -> int:
+                 # cannot reach a value that is on none of them, so its accuracy here is zero by
+                 # construction and it is excluded from the paired gates above.
+                 "within_address_rivals_undefined": True,
++                # 294 only: distance measured after the draw, not built into it
++                "landscape_observed": ({k: (v[0] / v[1] if v[1] else float("nan"))
++                                        for k, v in ub.items()} if ub["true"][1] else None),
++                "landscape_counts": {k: v[1] for k, v in ub.items()},
+                 # paired in-run: same questions, same imported rows, one rule each
+                 "paired_vs_corpus_retrieval": {
+                     "model_only_right": a_, "rival_only_right": b_, "discordant": d_,
+@@ -3409,6 +3570,8 @@ def main() -> int:
+         "views": VIEWS,
+         "reconciliation": recon,
+         "neighbours": NEIGHBOURS, "open_verb": OPEN,
++        "address_from": ADDRESS_FROM, "open_cands": OPEN_CANDS,
++        "anchor_max_rows": ANCHOR_MAX_ROWS if ADDRESS_FROM == "anchor" else None,
+         "identity_verb": IDENTITY,
+         "identity": ({"tau": IDENT_TAU, "overlap": IDENT_OVERLAP, "cands": IDENT_CANDS,
+                       "core": IDENT_CORE, "values": IDENT_VALUES, "import": IDENT_IMPORT,
+-- 
+2.43.0
+

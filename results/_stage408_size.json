@@ -1,0 +1,53 @@
+{
+ "1337": {
+  "seed": 1337,
+  "places": 1462,
+  "budget": 64,
+  "random": 0.03236608097753042,
+  "oracle_value": 0.5828125,
+  "oracle_size": 0.017785281378079543,
+  "oracle_nfill": 0.014313059155857321,
+  "oracle_degree": 0.08613528481012658,
+  "value_gain": 0.5504464190224695,
+  "size_gain": -0.01458079959945088,
+  "nfill_gain": -0.0180530218216731,
+  "degree_gain": 0.05376920383259616,
+  "capture": 0.5650272186219204,
+  "const_value": 0.0,
+  "size_takes": false
+ },
+ "8642": {
+  "seed": 8642,
+  "places": 1462,
+  "budget": 64,
+  "random": 0.02997745335802882,
+  "oracle_value": 0.6026909722222226,
+  "oracle_size": 0.03232349181413738,
+  "oracle_nfill": 0.02912504095943652,
+  "oracle_degree": 0.020833333333333332,
+  "value_gain": 0.5727135188641937,
+  "size_gain": 0.002346038456108559,
+  "nfill_gain": -0.0008524123985922984,
+  "degree_gain": -0.009144120024695487,
+  "capture": 0.5703674804080852,
+  "const_value": 0.0,
+  "size_takes": false
+ },
+ "2890": {
+  "seed": 2890,
+  "places": 1446,
+  "budget": 64,
+  "random": 0.03805721447156359,
+  "oracle_value": 0.6822916666666669,
+  "oracle_size": 0.025889415657365755,
+  "oracle_nfill": 0.029795665657365755,
+  "oracle_degree": 0.03289930555555556,
+  "value_gain": 0.6442344521951032,
+  "size_gain": -0.012167798814197838,
+  "nfill_gain": -0.008261548814197838,
+  "degree_gain": -0.005157908916008036,
+  "capture": 0.656402251009301,
+  "const_value": 0.0,
+  "size_takes": false
+ }
+}

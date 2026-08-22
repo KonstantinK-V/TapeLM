@@ -1,0 +1,53 @@
+{
+ "1337": {
+  "stay": 0.0,
+  "left": 0.043333333333333335,
+  "window": 0.02,
+  "joint": 0.015333333333333332,
+  "n": 1500,
+  "nonempty": 1.0,
+  "working_cells": 0,
+  "window_minus_stay": 0.02,
+  "window_minus_left": -0.023333333333333334,
+  "seed": 1337,
+  "corpus": "_tinystories_train.txt",
+  "window_lines": 4000,
+  "min_line": 20,
+  "void": false,
+  "gate": false
+ },
+ "8642": {
+  "stay": 0.0,
+  "left": 0.04466666666666667,
+  "window": 0.010666666666666666,
+  "joint": 0.013333333333333334,
+  "n": 1500,
+  "nonempty": 1.0,
+  "working_cells": 0,
+  "window_minus_stay": 0.010666666666666666,
+  "window_minus_left": -0.034,
+  "seed": 8642,
+  "corpus": "_tinystories_train.txt",
+  "window_lines": 4000,
+  "min_line": 20,
+  "void": false,
+  "gate": false
+ },
+ "2890": {
+  "stay": 0.0,
+  "left": 0.05466666666666667,
+  "window": 0.013333333333333334,
+  "joint": 0.016666666666666666,
+  "n": 1500,
+  "nonempty": 1.0,
+  "working_cells": 0,
+  "window_minus_stay": 0.013333333333333334,
+  "window_minus_left": -0.04133333333333333,
+  "seed": 2890,
+  "corpus": "_tinystories_train.txt",
+  "window_lines": 4000,
+  "min_line": 20,
+  "void": false,
+  "gate": false
+ }
+}

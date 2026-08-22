@@ -1,0 +1,16 @@
+{
+ "lines": 3200,
+ "questions": 2000,
+ "topm": 8,
+ "wide_places": 31386,
+ "multi_places": 32843,
+ "reach_wide": 0.1885,
+ "reach_multi": 0.1845,
+ "reach_null": 0.152,
+ "multi_only": 0.019,
+ "lost": 0.023,
+ "offer_wide": 3015.2815,
+ "offer_multi": 3396.5255,
+ "gain": -0.0040000000000000036,
+ "gain_over_null": 0.0325
+}

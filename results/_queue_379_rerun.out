@@ -1,0 +1,14 @@
+﻿
+2026-08-18 13:12:46 379 channel RERUN on 380 deep-root. Same offer as 377copy: standing + --copy --copy-d 4 --reach-channel. Tag 379r keeps 379ch JSON as the buggy-root record.
+2026-08-18 13:12:46 GATE (declared, vs 377copy): hit >= 377copy on 4/4; reach not below 377copy; PICK pooled not below 1258/1572. If hit does not move, provenance is unused and interleave can be frozen.
+2026-08-18 13:12:46 ==== 379r_s1337 ====
+2026-08-18 13:17:11 OK 379r_s1337
+2026-08-18 13:17:11 ==== 379r_s8642 ====
+2026-08-18 13:20:59 OK 379r_s8642
+2026-08-18 13:20:59 ==== 379r_s2890 ====
+2026-08-18 13:24:43 OK 379r_s2890
+2026-08-18 13:24:43 ==== 379r_s4711 ====
+2026-08-18 13:28:51 OK 379r_s4711
+2026-08-18 13:28:51 ==== _read299 379r ====
+2026-08-18 13:28:51 ==== _read299 377copy control ====
+2026-08-18 13:28:51 DONE 379r

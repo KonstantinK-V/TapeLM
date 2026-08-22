@@ -62,11 +62,46 @@ OUT = Path("results/_stage358_ingest.json")
 
 def reach_line(corpus, qline, frame_max, min_fillers, topm):
     """corpus is a list of lines whose LAST line is the question line. Every token of that last
-    line is a question; the denominator is all of them, askable or not."""
+    line is a question; the denominator is all of them, askable or not.
+
+    THE SECOND CHANNEL, ADDED AFTER 358'S POST-MORTEM AND NOT INSTEAD OF THE FIRST. 8-RESULT-6
+    named TWO reasons the write path deletes what ingestion creates, and `--min-fillers 1` lifts
+    only the first:
+
+      1. min_fillers >= 2 deletes CONSTANT frames, which is exactly what self-reference makes.
+      2. EVEN KEPT, THE EXAM CANNOT ASK ABOUT ONE. The lens is the place's other fillers and the
+         offer excludes the lens value (`w != v`), so a constant place's truth is excluded from
+         its own offer BY CONSTRUCTION - verified there on a frame holding only XARWIN.
+
+    So running this file at min_fillers 1 with the old columns alone would admit the places
+    ingestion creates and then score every one of them a miss, and the gate would read "there is
+    nowhere to step" when the truth is "the exam still cannot ask". That is 33-VOID's mistake run
+    backwards, and it is the reason for the recall column.
+
+      subst   the old number, computed by the OLD LINES, bit for bit: the lens is the place's
+              other fillers, the offer excludes them, `hit` is unchanged and comparable to
+              every number 358 has on record.
+      recall  the truth among the place's OTHER POSITIONS, this position excluded - 359's
+              channel. For a constant place this is the whole content of the place; for a mixed
+              one it is true only where the value repeats.
+      oracle  either. What ingestion made answerable AT ALL, by whichever channel.
+
+    RECALL IS NOT FREE AND IS NOT TRIVIALLY ONE. Under `base` a place needs its repetitions in
+    the OLD world; under `null` the same mass of foreign text gets the same opportunity. Only
+    under `ingest` can the document's own earlier lines be what the place is made of. The null
+    is what separates "recall is real" from "recall is trivial", and it is 358's own null.
+
+    CONST/MIXED, for the two terminals. A position is `const` when the place, with this position
+    taken out, holds ONE distinct value - the hub of a paradigm. Reported as the split of what
+    ingestion ADDED (reached under ingest, not under base), because a design with two terminals
+    and two rewards needs to know whether both of them carry any mass.
+    """
     keep, toks, owner = tframes.frame_keep(corpus, frame_max, min_fillers)
     n_tok = len(corpus[-1].split())
     if not keep:
-        return n_tok, 0, 0
+        # NO TAPE IS NOT A SMALLER DENOMINATOR. Every token of the question line still counts,
+        # the same absolute denominator every other arm is read on.
+        return Counter({"tok": n_tok}), {}
     places = [list(ps) for _a, ps in keep]
     place_of = {}
     for pid, ps in enumerate(places):
@@ -78,6 +113,10 @@ def reach_line(corpus, qline, frame_max, min_fillers, topm):
             where[toks[s]].append(s)
     last = len(corpus) - 1
     mine = [s for s in place_of if owner[s] == last]
+    # WHERE THE QUESTION LINE STARTS IN THE TOKEN STREAM, so a hit can be reported per POSITION
+    # IN THE LINE and the three arms can be compared position by position. Without it "ingest
+    # reached this and base did not" is not a statement about anything.
+    base_i = sum(len(l.split()) for l in corpus[:-1])
     cache = {}
 
     def co(v):
@@ -91,7 +130,8 @@ def reach_line(corpus, qline, frame_max, min_fillers, topm):
             cache[v] = c
         return c
 
-    askable = reached = 0
+    c, per = Counter(), {}
+    c["tok"] = n_tok
     for s in mine:
         pid = place_of[s]
         truth = toks[s]
@@ -99,10 +139,28 @@ def reach_line(corpus, qline, frame_max, min_fillers, topm):
         own[truth] -= 1
         if own[truth] <= 0:
             del own[truth]
+        # RECALL AND THE PARADIGM SHAPE, read off the same `own` the substitution lens is built
+        # from - this position already taken out of it, which is what makes recall a channel and
+        # not a look at the answer.
+        others = Counter(toks[x] for x in places[pid])
+        others[truth] -= 1
+        if others[truth] <= 0:
+            del others[truth]
+        rec = int(truth in {toks[x] for x in places[pid] if x != s})
+        const = int(len(others) == 0 or (len(others) == 1 and rec))
+        c["rec_ask"] += 1
+        c["rec"] += rec
+        c["const"] += const
         lens = list(own)[:6]
         if not lens:
+            # NOT ASKABLE BY SUBSTITUTION - unchanged, and this is exactly the hole 8-RESULT-6
+            # named: a place whose only filler is the truth cannot be asked about by the offer.
+            # It is still recorded above, so the recall column can see what the old one cannot.
+            per[s - base_i] = (0, rec, const)
+            c["orc"] += rec
             continue
-        askable += 1
+        askable_here = 1
+        c["ask"] += askable_here
         ban = Counter(toks[x] for x in places[pid])
         off = Counter()
         for v in lens:
@@ -110,9 +168,11 @@ def reach_line(corpus, qline, frame_max, min_fillers, topm):
                 cnt -= ban.get(w, 0)
                 if cnt > 0 and w != v:
                     off[w] += cnt
-        if truth in {w for w, _n in off.most_common(topm)}:
-            reached += 1
-    return n_tok, askable, reached
+        hit = int(truth in {w for w, _n in off.most_common(topm)})
+        c["hit"] += hit
+        c["orc"] += int(hit or rec)
+        per[s - base_i] = (hit, rec, const)
+    return c, per
 
 
 def main() -> int:
@@ -156,18 +216,34 @@ def main() -> int:
                 break
         for k in range(1, args.doc_lines):
             t3 = min(2, 3 * k // args.doc_lines)
+            got = {}
             for arm, prefix in (("base", []), ("ingest", doc[:k]), ("null", other[:k])):
                 corpus = old + prefix + [doc[k]]
-                n_tok, ask, hit = reach_line(corpus, doc[k], args.frame_max,
-                                             args.min_fillers, args.topm)
+                cc, per = reach_line(corpus, doc[k], args.frame_max,
+                                     args.min_fillers, args.topm)
+                got[arm] = per
                 for c in (tot[arm], thirds[arm][t3]):
-                    c["tok"] += n_tok
-                    c["ask"] += ask
-                    c["hit"] += hit
+                    for key in ("tok", "ask", "hit", "rec_ask", "rec", "const", "orc"):
+                        c[key] += cc[key]
+            # WHAT INGESTION ADDED, SPLIT BY THE SHAPE OF THE PLACE. Positions the ingest arm
+            # answers and the base arm does not, at a constant place against a mixed one. A
+            # design with two terminals needs to know that both carry mass; this decides nothing
+            # by itself and is reported next to the gate, not inside it.
+            for pos, (hit, rec, const) in got["ingest"].items():
+                b = got["base"].get(pos, (0, 0, 0))
+                if (hit or rec) and not (b[0] or b[1]):
+                    for c in (tot["ingest"], thirds["ingest"][t3]):
+                        c["new_const" if const else "new_mixed"] += 1
 
     def row(c):
+        # ONE ABSOLUTE DENOMINATOR FOR EVERY ARM AND EVERY CHANNEL - every token of the question
+        # line, askable or not (the 342a lesson). A channel that could not ask is a zero here,
+        # never a smaller denominator.
         t = max(1, c["tok"])
-        return {"positions": c["tok"], "askable": c["ask"] / t, "reach": c["hit"] / t}
+        return {"positions": c["tok"], "askable": c["ask"] / t, "reach": c["hit"] / t,
+                "recall": c["rec"] / t, "oracle": c["orc"] / t,
+                "on_place": c["rec_ask"] / t, "const": c["const"] / t,
+                "new_const": c["new_const"], "new_mixed": c["new_mixed"]}
 
     rep = {"window_lines": args.window_lines, "doc_lines": args.doc_lines, "docs": args.docs,
            "topm": args.topm}
@@ -179,6 +255,14 @@ def main() -> int:
     late = rep["ingest_thirds"][2]["reach"] - rep["null_thirds"][2]["reach"]
     early = rep["ingest_thirds"][0]["reach"] - rep["null_thirds"][0]["reach"]
     rep["late_minus_early"] = late - early
+    # THE SAME GATE, ON THE CHANNEL THAT CAN SEE WHAT INGESTION MAKES. Read beside the old one,
+    # never instead of it: if `subst` fails and `oracle` passes, 8-RESULT-6's second cause is
+    # measured rather than argued - the mechanism is there and the OFFER cannot ask about it.
+    rep["gain_over_null_oracle"] = rep["ingest"]["oracle"] - rep["null"]["oracle"]
+    o_late = rep["ingest_thirds"][2]["oracle"] - rep["null_thirds"][2]["oracle"]
+    o_early = rep["ingest_thirds"][0]["oracle"] - rep["null_thirds"][0]["oracle"]
+    rep["late_minus_early_oracle"] = o_late - o_early
+    rep["min_fillers"] = args.min_fillers
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(rep, indent=1), encoding="utf-8")
 
@@ -189,20 +273,50 @@ def main() -> int:
         th = rep[a + "_thirds"]
         print(f"{a.upper():7s}  reach {r['reach']:.4f}   askable {r['askable']:.4f}   "
               f"by thirds " + "  ".join(f"{x['reach']:.4f}" for x in th))
+        print(f"         recall {r['recall']:.4f}  oracle {r['oracle']:.4f}  "
+              f"on a place {r['on_place']:.4f}  constant {r['const']:.4f}   "
+              f"by thirds " + "  ".join(f"{x['oracle']:.4f}" for x in th))
     print(f"GAIN     over base {rep['gain']:+.4f}   over null {rep['gain_over_null']:+.4f}   "
           f"late-early {rep['late_minus_early']:+.4f}")
-    if rep["gain_over_null"] > 0.05 and late > early:
-        print("\nINGESTION IS REAL. A document's own earlier lines make its later holes "
-              "reachable beyond the same mass of foreign text, and the gain grows down the "
-              "document. This is the loop: not remembering answers - READING NEW TEXT INTO THE "
-              "WORLD, where the reward for line k is that line k+1 becomes askable. Every "
-              "closed single-shot result stands; the mind's next job is to choose what to "
-              "ingest and when to trust it, and that is a decision, which is Phi's half.")
+    print(f"ORACLE   over null {rep['gain_over_null_oracle']:+.4f}   "
+          f"late-early {rep['late_minus_early_oracle']:+.4f}")
+    print(f"ADDED    by ingestion, at a constant place {rep['ingest']['new_const']}  "
+          f"at a mixed place {rep['ingest']['new_mixed']}")
+    # THE GATE, ON EACH CHANNEL SEPARATELY. It is 358's own - gain over null > 0.05 with the
+    # late third above the early - and it is now asked twice, because the two columns can
+    # disagree and that disagreement is the finding. Reading only the substitution column at
+    # min_fillers 1 would print "buys nothing" on a run where the document's own past made half
+    # its later holes answerable by recall, which is 8-RESULT-6's second cause printing the
+    # opposite of itself.
+    sub_pass = rep["gain_over_null"] > 0.05 and late > early
+    orc_pass = rep["gain_over_null_oracle"] > 0.05 and o_late > o_early
+    rep["gate_subst"], rep["gate_oracle"] = bool(sub_pass), bool(orc_pass)
+    if sub_pass:
+        print("\nINGESTION IS REAL, AND THE OFFER CAN ASK ABOUT IT. A document's own earlier "
+              "lines make its later holes reachable beyond the same mass of foreign text, and "
+              "the gain grows down the document. This is the loop: not remembering answers - "
+              "READING NEW TEXT INTO THE WORLD, where the reward for line k is that line k+1 "
+              "becomes askable. Every closed single-shot result stands; the mind's next job is "
+              "to choose what to ingest and when to trust it, and that is a decision.")
+    elif orc_pass:
+        print("\nINGESTION IS REAL AND THE OFFER CANNOT ASK ABOUT IT. The oracle column passes "
+              "the same gate the substitution column fails, which is 8-RESULT-6's SECOND cause "
+              "measured rather than argued: a constant place's truth is excluded from its own "
+              "offer by construction, so what a document's own past creates is exactly what the "
+              "exam is built not to ask. The lever is the QUESTION, not the reward - and no "
+              "number here says anything about hopping on wiki-cloze.")
     else:
-        print("\nINGESTION BUYS NOTHING HERE: a document's own past is worth no more than an "
-              "equal mass of noise. Wikitext's self-reference either does not survive the "
-              "frame filter or is already covered by the old world. The i.i.d. exam was not "
-              "hiding a loop, and the substrate verdict is final at this scale.")
+        print("\nINGESTION BUYS NOTHING HERE, ON EITHER CHANNEL: a document's own past is worth "
+              "no more than an equal mass of foreign text, by substitution and by recall alike. "
+              "Self-reference either does not survive the frame filter or is already covered by "
+              "the old world, and there is nowhere to step. Do not touch the reward.")
+    if rep["ingest"]["new_const"] and rep["ingest"]["new_mixed"]:
+        print(f"  Both terminals carry mass: {rep['ingest']['new_const']} constant and "
+              f"{rep['ingest']['new_mixed']} mixed positions were added by ingestion.")
+    else:
+        print("  ONE TERMINAL ONLY: the split of what ingestion added is "
+              f"{rep['ingest']['new_const']} constant / {rep['ingest']['new_mixed']} mixed, so a "
+              f"design with two holes and two rewards has one of them empty.")
     print(f"\nwritten to {OUT}")
     return 0
 

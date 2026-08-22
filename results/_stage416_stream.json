@@ -1,0 +1,68 @@
+{
+ "1337": {
+  "ge2": {
+   "n": 718,
+   "mind_hit": 0.08217270194986072,
+   "rival_hit": 0.054317548746518104,
+   "refuse": 0.08495821727019498
+  },
+  "one": {
+   "n": 82,
+   "mind_hit": 0.04878048780487805,
+   "rival_hit": 0.04878048780487805,
+   "refuse": 0.04878048780487805
+  },
+  "gate_mind_beats_rival": true,
+  "gate_refuse_one_gt_ge2": false,
+  "mean_cands": 14.23,
+  "seed": 1337,
+  "steps": 3000,
+  "n_train": 34332,
+  "n_exam": 800,
+  "params": 4225
+ },
+ "8642": {
+  "ge2": {
+   "n": 716,
+   "mind_hit": 0.09497206703910614,
+   "rival_hit": 0.051675977653631286,
+   "refuse": 0.06983240223463687
+  },
+  "one": {
+   "n": 84,
+   "mind_hit": 0.011904761904761904,
+   "rival_hit": 0.011904761904761904,
+   "refuse": 0.011904761904761904
+  },
+  "gate_mind_beats_rival": true,
+  "gate_refuse_one_gt_ge2": false,
+  "mean_cands": 14.06,
+  "seed": 8642,
+  "steps": 3000,
+  "n_train": 31543,
+  "n_exam": 800,
+  "params": 4225
+ },
+ "2890": {
+  "ge2": {
+   "n": 722,
+   "mind_hit": 0.10110803324099724,
+   "rival_hit": 0.03462603878116344,
+   "refuse": 0.0817174515235457
+  },
+  "one": {
+   "n": 78,
+   "mind_hit": 0.01282051282051282,
+   "rival_hit": 0.0,
+   "refuse": 0.01282051282051282
+  },
+  "gate_mind_beats_rival": true,
+  "gate_refuse_one_gt_ge2": false,
+  "mean_cands": 13.865,
+  "seed": 2890,
+  "steps": 3000,
+  "n_train": 33948,
+  "n_exam": 800,
+  "params": 4225
+ }
+}

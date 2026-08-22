@@ -1,0 +1,30 @@
+﻿
+2026-08-14 21:37:19 320 transplant: wiki save-mind x4, then news + tinystories load-mind (1 mind : 1 seed)
+2026-08-14 21:37:19 ==== 320wiki_s1337 save-mind minds/320_wiki_s1337.pt ====
+2026-08-14 21:44:07 OK 320wiki_s1337
+2026-08-14 21:44:07 ==== 320wiki_s8642 save-mind minds/320_wiki_s8642.pt ====
+2026-08-14 21:50:50 OK 320wiki_s8642
+2026-08-14 21:50:50 ==== 320wiki_s2890 save-mind minds/320_wiki_s2890.pt ====
+2026-08-14 21:57:23 OK 320wiki_s2890
+2026-08-14 21:57:23 ==== 320wiki_s4711 save-mind minds/320_wiki_s4711.pt ====
+2026-08-14 22:03:11 OK 320wiki_s4711
+2026-08-14 22:03:11 ==== 320news_s1337 load-mind minds/320_wiki_s1337.pt wiki=data\_stage254_news.txt ====
+2026-08-14 22:05:20 OK 320news_s1337
+2026-08-14 22:05:20 ==== 320news_s8642 load-mind minds/320_wiki_s8642.pt wiki=data\_stage254_news.txt ====
+2026-08-14 22:07:27 OK 320news_s8642
+2026-08-14 22:07:27 ==== 320news_s2890 load-mind minds/320_wiki_s2890.pt wiki=data\_stage254_news.txt ====
+2026-08-14 22:09:46 OK 320news_s2890
+2026-08-14 22:09:46 ==== 320news_s4711 load-mind minds/320_wiki_s4711.pt wiki=data\_stage254_news.txt ====
+2026-08-14 22:11:53 OK 320news_s4711
+2026-08-14 22:11:53 ==== 320tiny_s1337 load-mind minds/320_wiki_s1337.pt wiki=data\_tinystories_raw_scale.txt ====
+2026-08-14 22:13:51 OK 320tiny_s1337
+2026-08-14 22:13:51 ==== 320tiny_s8642 load-mind minds/320_wiki_s8642.pt wiki=data\_tinystories_raw_scale.txt ====
+2026-08-14 22:15:54 OK 320tiny_s8642
+2026-08-14 22:15:54 ==== 320tiny_s2890 load-mind minds/320_wiki_s2890.pt wiki=data\_tinystories_raw_scale.txt ====
+2026-08-14 22:17:53 OK 320tiny_s2890
+2026-08-14 22:17:53 ==== 320tiny_s4711 load-mind minds/320_wiki_s4711.pt wiki=data\_tinystories_raw_scale.txt ====
+2026-08-14 22:19:56 OK 320tiny_s4711
+2026-08-14 22:19:56 ==== _read299 wiki ====
+2026-08-14 22:19:56 ==== _read299 news ====
+2026-08-14 22:19:56 ==== _read299 tiny ====
+2026-08-14 22:19:56 DONE

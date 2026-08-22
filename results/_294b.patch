@@ -1,0 +1,70 @@
+diff --git a/HANDOFF.md b/HANDOFF.md
+index 18f4fff..b556bc1 100644
+--- a/HANDOFF.md
++++ b/HANDOFF.md
+@@ -292,7 +292,32 @@ channel (postings below the median), so it can be reused with no new constant an
+ list. Measure after the change: `same_words`, the ident audit's `n_questions`, and
+ `same_anchor_diff_relation`.
+ 
+-**Live thread: the relation rule, then 293. 292 is settled positive and may be quoted.**
++**294 (anchor addresses + drawn distractors, s1337) came back null, and it is MY design error,
++not a verdict.** held 0.397 v retrieval 0.387, paired **z +0.31** (49 v 46 of 315); train −1.14.
++Two things went wrong and only one of them is about the mind:
++
++1. **The landscape test never ran.** `landscape_counts.same_anchor = 0` — under an anchor
++   address the address IS every mention of the anchor, so a value at the same anchor is a value
++   at the address and the draw skips it. The near bucket is empty **by construction**, so
++   `true 9.15 > elsewhere 8.95` is a restatement of accuracy and says nothing about the
++   inversion. The inversion has to be tested on **fp** addresses, which are narrower than an
++   anchor and leave `near` reachable.
++2. **Two factors moved at once**, so the null is unattributable. Anchor evidence (an address
++   like `november` lumps eight unrelated facts, and questions doubled 161 → 315) and drawn
++   distractors (retrieval rose 0.348 → 0.387 while Φ fell 0.416 → 0.397) both changed. The
++   rival gaining more than the mind lost is itself a reading worth testing: 292's rungs were
++   *related* values, which are hard for cosine, so **the +3.24 may be the narrow claim that Φ
++   beats 1-NN on related decoys** — narrow, but honest and still worth having.
++
++**The missing cell is one run:** `--address-from fp --open-cands uniform`. It shares its tape
++and evidence with the six 292 seeds and differs only in where the distractors come from, so it
++isolates factor 2 and — being on fp addresses — actually populates the near bucket and asks the
++inversion question. With the two runs already in hand that completes a 2×2.
++
++(`graph_rows.mean = 0.0` on every open run is not a bug and not worth chasing: the counter lives
++in `graph_base`, and with `--import-k 2` no world takes the cached-base path.)
++
++**Live thread: fp + uniform, then the relation rule. 292 is settled positive and may be quoted.**
+ Do not run the audits or the 290 branch again.
+ 
+ **Next, in order:** 290 = ROADMAP §19 (graph spans several addresses + `lookup_sparse`, where
+diff --git a/_stage289_derivation.py b/_stage289_derivation.py
+index 4f07e2b..664d72a 100644
+--- a/_stage289_derivation.py
++++ b/_stage289_derivation.py
+@@ -572,7 +572,9 @@ def lookup_open_uniform(p, item, rng, hid, all_values):
+          "slots": rows + [hidden],
+          "vals": [p["tape"].values[s] for s in rows] + [object()],
+          "cands": cands, "label": cands.index(truth),
+-         # measured, never built: where each drawn candidate happens to live
++         # measured, never built: where each drawn candidate happens to live. Reachable only
++         # under fp addresses - see landscape_near_possible - because an anchor address already
++         # contains every mention of its anchor and the draw skips whatever the address carries.
+          "bucket_of": {c: ("same_anchor" if c in at_anchor else "elsewhere")
+                        for c in cands if c != truth},
+          "S": anc, "address": item["address"], "hid": hid,
+@@ -3125,6 +3127,13 @@ def main() -> int:
+                 "landscape_observed": ({k: (v[0] / v[1] if v[1] else float("nan"))
+                                         for k, v in ub.items()} if ub["true"][1] else None),
+                 "landscape_counts": {k: v[1] for k, v in ub.items()},
++                # AND WHEN THE CONTRAST CANNOT EXIST, SAY SO RATHER THAN PRINTING NaN.
++                # Under --address-from anchor the address IS every mention of the anchor, so a
++                # value at the same anchor is a value at the address and the draw excludes it:
++                # `same_anchor` is empty by construction, not by scarcity. The inversion has to
++                # be tested on fp addresses, which are narrower than an anchor and leave the
++                # near bucket reachable.
++                "landscape_near_possible": ADDRESS_FROM != "anchor",
+                 # paired in-run: same questions, same imported rows, one rule each
+                 "paired_vs_corpus_retrieval": {
+                     "model_only_right": a_, "rival_only_right": b_, "discordant": d_,
+-- 
+2.43.0
+

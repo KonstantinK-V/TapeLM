@@ -1,0 +1,128 @@
+{
+ "bytes": 30000000,
+ "seed": 1337,
+ "addresses": {
+  "375": {
+   "own": 0.23333333333333334,
+   "walk_k": 0.175,
+   "walk_2k": 0.17633333333333334,
+   "shared": 0.16433333333333333,
+   "union_k_shared": 0.21666666666666667,
+   "anywhere": 0.8066666666666666,
+   "present_unreached": 0.495,
+   "reach_over_presence": 0.21694214876033058,
+   "places": 2914,
+   "questions": 3000
+  },
+  "750": {
+   "own": 0.23333333333333334,
+   "walk_k": 0.175,
+   "walk_2k": 0.17633333333333334,
+   "shared": 0.16433333333333333,
+   "union_k_shared": 0.21666666666666667,
+   "anywhere": 0.8066666666666666,
+   "present_unreached": 0.495,
+   "reach_over_presence": 0.21694214876033058,
+   "places": 2914,
+   "questions": 3000
+  },
+  "1500": {
+   "own": 0.23333333333333334,
+   "walk_k": 0.175,
+   "walk_2k": 0.17633333333333334,
+   "shared": 0.16433333333333333,
+   "union_k_shared": 0.21666666666666667,
+   "anywhere": 0.8066666666666666,
+   "present_unreached": 0.495,
+   "reach_over_presence": 0.21694214876033058,
+   "places": 2914,
+   "questions": 3000
+  },
+  "3000": {
+   "own": 0.23333333333333334,
+   "walk_k": 0.175,
+   "walk_2k": 0.17633333333333334,
+   "shared": 0.16433333333333333,
+   "union_k_shared": 0.21666666666666667,
+   "anywhere": 0.8066666666666666,
+   "present_unreached": 0.495,
+   "reach_over_presence": 0.21694214876033058,
+   "places": 2914,
+   "questions": 3000
+  },
+  "6000": {
+   "own": 0.23333333333333334,
+   "walk_k": 0.175,
+   "walk_2k": 0.17633333333333334,
+   "shared": 0.16433333333333333,
+   "union_k_shared": 0.21666666666666667,
+   "anywhere": 0.8066666666666666,
+   "present_unreached": 0.495,
+   "reach_over_presence": 0.21694214876033058,
+   "places": 2914,
+   "questions": 3000
+  }
+ },
+ "window_lines": {
+  "100": {
+   "own": 0.18010642652476463,
+   "walk_k": 0.15554645927138763,
+   "walk_2k": 0.15677445763405648,
+   "shared": 0.15759312320916904,
+   "union_k_shared": 0.20180106426524766,
+   "anywhere": 0.6397871469504708,
+   "present_unreached": 0.3692181743757675,
+   "reach_over_presence": 0.24312220089571338,
+   "places": 663,
+   "questions": 2443
+  },
+  "200": {
+   "own": 0.201,
+   "walk_k": 0.15633333333333332,
+   "walk_2k": 0.15766666666666668,
+   "shared": 0.16733333333333333,
+   "union_k_shared": 0.21,
+   "anywhere": 0.732,
+   "present_unreached": 0.43966666666666665,
+   "reach_over_presence": 0.21357012750455373,
+   "places": 1245,
+   "questions": 3000
+  },
+  "400": {
+   "own": 0.23333333333333334,
+   "walk_k": 0.175,
+   "walk_2k": 0.17633333333333334,
+   "shared": 0.16433333333333333,
+   "union_k_shared": 0.21666666666666667,
+   "anywhere": 0.8066666666666666,
+   "present_unreached": 0.495,
+   "reach_over_presence": 0.21694214876033058,
+   "places": 2914,
+   "questions": 3000
+  },
+  "800": {
+   "own": 0.276,
+   "walk_k": 0.18933333333333333,
+   "walk_2k": 0.19333333333333333,
+   "shared": 0.15733333333333333,
+   "union_k_shared": 0.231,
+   "anywhere": 0.8716666666666667,
+   "present_unreached": 0.5206666666666667,
+   "reach_over_presence": 0.21720841300191204,
+   "places": 5881,
+   "questions": 3000
+  },
+  "1600": {
+   "own": 0.30933333333333335,
+   "walk_k": 0.21133333333333335,
+   "walk_2k": 0.21433333333333332,
+   "shared": 0.17066666666666666,
+   "union_k_shared": 0.24933333333333332,
+   "anywhere": 0.9063333333333333,
+   "present_unreached": 0.5233333333333333,
+   "reach_over_presence": 0.23317396101507906,
+   "places": 13825,
+   "questions": 3000
+  }
+ }
+}

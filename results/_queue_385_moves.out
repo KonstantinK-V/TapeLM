@@ -1,0 +1,14 @@
+﻿
+2026-08-18 16:27:50 385 --moves: Phi emits a move (step/share/lines), tape executes that one lane at unchanged cap. Connect and copy ON so share and lines have lanes. Tag 385moves.
+2026-08-18 16:27:50 GATE vs standing interleave (365r3) at equal cap: hit >= interleave on >=3/4 seeds AND move split not degenerate (one move on nearly every question = constant with extra steps, FAIL regardless of hit).
+2026-08-18 16:27:50 ==== 385moves_s1337 ====
+2026-08-18 16:32:23 OK 385moves_s1337
+2026-08-18 16:32:23 ==== 385moves_s8642 ====
+2026-08-18 16:36:17 OK 385moves_s8642
+2026-08-18 16:36:17 ==== 385moves_s2890 ====
+2026-08-18 16:40:28 OK 385moves_s2890
+2026-08-18 16:40:28 ==== 385moves_s4711 ====
+2026-08-18 16:44:53 OK 385moves_s4711
+2026-08-18 16:44:53 ==== _read299 385moves (out/ only) ====
+2026-08-18 16:44:53 ==== _read299 365r3 baseline (not mixed with 385) ====
+2026-08-18 16:44:54 DONE 385moves

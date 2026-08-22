@@ -1,0 +1,5 @@
+Stage289 derivation start 2026-08-12T08:26:36.553547+00:00 device=cuda holdout=corpus
+  lines: train 127626, eval 54697 (the probe reserves ANCHORS, not lines - see `reserved`)
+  word rule matches stage194: True  (rule=ascii, fp=hash, ink=mean)
+  hash ink deterministic and digest-faithful: True  {'anagram_cos': -0.0135, 'perm_fixed_points': 1}
+  IDENT_AUDIT {"n_questions": 0, "floor": 0.25, "mean_core_rows": 0.0, "supply": {"singleton_place": 870, "same_words": 1449}, "rival_cos1nn": 0.0, "rival_rare": 0.0, "rival_heuristic": 0.0, "heuristic_answered": 0.0, "heuristic_mean_accepted": 0.0, "value_identifies_truth": 0.0, "word_overlap_leak": 0.0, "tau": 0.4712, "overlap": 2, "n_addresses": 856, "n_slots": 2544}

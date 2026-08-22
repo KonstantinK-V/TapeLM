@@ -951,6 +951,17 @@ COPY_BACKFILL = False  # 378: copy takes only the slots the walk left empty - se
 REACH_CHANNEL = False  # 379: the mind SEES which channel offered a candidate - see reach_channel
 MOVES_ON = False       # 385: THE MIND EMITS A MOVE, not a name - see reach_move_pick
 MOVES = ("step", "share", "lines")
+# 391: THE MOVE GETS A GRADIENT. Weight, 0.0 = off. See move_term for why 385 and 386 measured
+# a policy that had never been taught anything, and what this term's teacher is.
+MOVE_TEACH = 0.0
+_MOVE_LIVE = Counter()   # how often the ballot could teach at all - the void check, counted
+# 34.4: WHICH QUESTIONS TEACH THE ROUTE. "all" is every earlier run, bit for bit; "walk_only"
+# gives the stay/go decision a gradient ONLY where staying is arithmetically wrong. See reach_loss.
+ROUTE_ON = "all"
+_ROUTE_LIVE = Counter()
+# WHO TEACHES THE PICK. "stage" is every run to date, bit for bit. See pick_term.
+PICK_TEACHER = "stage"
+_PICK_LIVE = Counter()
 MOVE_ALL = ("step", "share", "lines")   # 386: every move that exists; MOVES is the BALLOT
 MIN_FILLERS = 2        # 360: HOW MANY DIFFERENT VALUES A HOLE MUST HAVE TAKEN TO BE A PLACE.
                        # Hard-coded to 2 from the first frame commit and never once varied. A
@@ -2073,7 +2084,7 @@ def reach_move_pick(net, p, q, device, bank):
     different population.
     """
     if not MOVES_ON:
-        return None, None, []
+        return None, None, [], []
     props = []
     for m in MOVES:
         rc = reach_candidates(p, q, which=m)
@@ -2082,30 +2093,49 @@ def reach_move_pick(net, p, q, device, bank):
             continue
         rows = rc["rows_of"].get(cs[0], [])
         if rows:
-            props.append((m, cs[0], rows[:1]))
+            # 391: WHETHER THIS LANE REACHES THE TRUTH, counted while the lane is already
+            # enumerated - no world is scored for it and no head sees it. It is the teacher of
+            # move_term and it must never touch the choice below, which stays the argmax of Phi.
+            props.append((m, cs[0], rows[:1], q["truth_value"] in set(cs)))
     if not props:
+        # UNCHANGED FROM 385, including on re-entry: the lanes are enumerated from the same
+        # cached walk every pass, so a question with no move on its ballot has none on any pass
+        # and this assignment is the same one twice.
         q["_move"] = MOVES[0]
-        return MOVES[0], None, []
+        return MOVES[0], None, [], []
     gs = []
-    for _m, v, rw in props:
+    for _m, v, rw, _a in props:
         q.pop("_base", None)
         q["_stage2"] = True
         gs.append(reach_world(p, q, bank, device, v, rw, 1))
     l0 = torch.stack([net.phi(*x) for x in gs])
-    k = int(l0.argmax())
-    q["_move"] = props[k][0]
+    # THE CHOICE IS MADE ONCE PER QUESTION. With --move-teach the ballot is rebuilt on every
+    # pass so its tensors belong to the CURRENT graph (a batch draws with replacement, and a
+    # tensor stashed on a question would otherwise be backward'd through twice), but re-choosing
+    # would let a question's offer - cached from the first pass - disagree with its move.
+    # ON RE-ENTRY THE CHOSEN LANE'S PROPOSAL MATCHES `_move`, so reach_candidates writes the
+    # offer cache from it. That is the same build the offer already holds - same branch, same
+    # cap - and no OTHER lane can write it, which is what 385's property 3 asks for.
+    if "_move" not in q:
+        q["_move"] = props[int(l0.argmax())][0]
     q.pop("_base", None)
-    return props[k][0], l0, [m for m, _v, _r in props]
+    return q["_move"], l0, [m for m, _v, _r, _a in props], [a for _m, _v, _r, a in props]
 
 
 def reach_logits(net, p, q, device, bank):
     """Stage 1: say one of the values already here, refuse, or walk. Stage 2: say one of the
     values the walk reached, or refuse. Both are worlds scored by the same Phi."""
-    if MOVES_ON and "_move" not in q:
+    if MOVES_ON and ("_move" not in q or MOVE_TEACH):
         # the move is chosen FIRST, and reach_candidates raises if anything asks for an offer
         # before it exists - an ordering mistake here would quietly rebuild the merged offer
-        _mv, _l0, _mnames = reach_move_pick(net, p, q, device, bank)
+        #
+        # 391: with the term on, the ballot is rebuilt on EVERY pass. Its logits are what the
+        # term differentiates, so they have to belong to this pass's graph; the CHOICE is not
+        # remade, because the offer is cached from the first pass and a move that drifted away
+        # from its own offer would be a silent inconsistency rather than a wrong number.
+        _mv, _l0, _mnames, _mans = reach_move_pick(net, p, q, device, bank)
         q["_move_l0"] = (_mv, _mnames)
+        q["_move_ballot"] = None if _l0 is None else (_l0, _mans)
     rc = reach_candidates(p, q)
     own, cands, rows_of = rc["own"], rc["cands"], rc["rows_of"]
     ev = {c: reach_rows_for(p, q, c, rows_of[c]) for c in cands}
@@ -2624,6 +2654,133 @@ def calib_term(scores, labels, device):
     return (torch.log_softmax(s, 0) * (y / npos)).sum()
 
 
+def move_term(q, device):
+    """391: THE MOVE GETS A GRADIENT. It never had one.
+
+    WHAT WAS ACTUALLY BROKEN, and it is one line. `reach_move_pick` builds one probe world per
+    move and takes the argmax of Phi over them; `reach_logits` then kept the CHOSEN NAME and
+    threw the logits away - `q["_move_l0"] = (_mv, _mnames)`. Nothing downstream ever touched
+    them, so no gradient has ever reached the move decision. 385 and 386 were therefore not
+    measurements of "can the mind choose where to look": they measured an argmax of a scorer
+    trained to rank FINAL NAMES, applied to a decision nobody had taught. 386's own diagnosis -
+    "on three seeds of four the hit of `share` was BELOW the hit of `step`, so the mind picks
+    the second move on the questions where that move is worse" - is exactly what an untaught
+    policy looks like, and its conclusion ("the probe is one row, and one row is evidently not
+    enough") was one of two explanations with no way to tell them apart.
+
+    THE TEACHER, AND IT IS THE TAPE'S. Whether a lane REACHES THE TRUTH - the truth among the
+    candidates that lane offers. That is `answerable` per move: a property of the tape and the
+    walk, never of the mind's current correctness, which is the same discipline calib_term
+    declared and the reason `right` stays untouched. It is counted while the ballot is already
+    enumerating each lane, so it costs no world, no head and no parameter.
+
+    WHY AN EXPECTATION AND NOT ONE SAMPLE. Enumerating a lane is counting; only SCORING it is
+    expensive. So every arm of this ballot has an exact reward and the term is
+    `(softmax(l0) * R).sum()` - the same shape as every other term in this file. A one-sample
+    policy gradient would have needed a baseline, and a baseline chosen by hand is precisely the
+    class of mistake this project has made three times (317, 383, 387 each found a rule that was
+    really a scale).
+
+    WHAT IT IS NOT: the value behind a move. That would be the lane's stage-two expectation, and
+    having it for the moves NOT taken means scoring every lane in full - lookahead, which 385
+    rejected as today's argmax wearing a different name. Reaching is the EXACT UPPER BOUND of
+    that value: a name that is not offered cannot be said. So this term teaches where the answer
+    is, and the pick still has to say it - which is why the guard below is on the pick.
+
+    THE SCALE IS THE ONE ALREADY IN USE. `shift_reward`, so the zero means what it means
+    everywhere else. 311a is why that sentence exists: a discount on a signed scale paid the
+    mind to leave, and the sign flip arrived through a multiplication.
+
+    A BALLOT THAT CANNOT TEACH CONTRIBUTES NOTHING, AND IS COUNTED. With fewer than two live
+    moves, or with every lane reaching the same, `(p * R).sum()` is constant in l0 and its
+    gradient is exactly zero. Skipping it changes no gradient, and the count it leaves behind is
+    the void check of this step: if the lanes almost always agree, the term has nothing to say
+    and the arm is void BEFORE its numbers are read. 389's gate 4 is why that is read first.
+
+    SECOND TERM, SO IT IS PRICED LIKE ONE: 321, 341 and 352 each measured a second objective at
+    about 4x the route. Declared weight, default off, never pooled with its control.
+
+    THIS IS A FIX AND NOT A STEP - _STATE_353.md section 33-VOID. 387, re-run after the section 27
+    leak fix, puts a PERFECT chooser of the lane at oracle - merged = +0.017, and that is the
+    ceiling of `reachable_rate`, which is what this term teaches. A gradient does not create
+    reach. The gate that was declared for it carried no magnitude and could have PASSED ON NOISE
+    against a ceiling of 0.017; it is withdrawn, and those seeds are not to be run.
+
+    The wiring stays because any future chooser needs it - without it the choice is again an
+    argmax of a scorer trained for something else. It takes no step number, it is off by default,
+    and 34.3's law says what it must clear first: choosing one source has now lost to keeping the
+    merge at three different levels (347 the offer, 387 the lane, 393 the place).
+
+    AND ONE RISK, WHICH IS NOT PRICED ANYWHERE ABOVE: with the term on, one Phi is taught on
+    ONE-ROW PROBES and on FULL WORLDS. Not a second objective - a second JOB for one function, and
+    a row-count marker is what undid 291 and 296.
+    """
+    if not MOVE_TEACH:
+        return None
+    ent = q.get("_move_ballot")
+    if ent is None:
+        return None
+    l0, ans = ent
+    _MOVE_LIVE["ballot"] += len(ans)
+    _MOVE_LIVE["n"] += 1
+    if len(ans) < 2 or len(set(ans)) < 2:
+        return None
+    _MOVE_LIVE["live"] += 1
+    R = shift_reward(torch.tensor([1.0 if a else -1.0 for a in ans],
+                                  device=device, dtype=l0.dtype))
+    return MOVE_TEACH * (torch.softmax(l0, 0) * R).sum()
+
+
+def pick_term(lo, l2, R1, R2, n1, n2, q, device):
+    """WHO TEACHES THE PICK - the one thing `--objective` never reached.
+
+    `loss_for` reads OBJECTIVE only on the LOOKUP path; a reach question goes to `reach_loss`
+    before that line, so the reach verb has never had a cross-entropy option at all. Every reach
+    number in this project was trained by the payoff term - ONE SCALAR PER QUESTION - while the
+    objective GPT is trained on gives a dense gradient over EVERY candidate at once. That is not
+    a philosophical difference, it is an information rate: `-sum p(c) R(c)` carries what one
+    settled world was worth; `-log p(truth)` moves the truth up and every rival down in
+    proportion to what it took. The two have never been raced on the same worlds.
+
+    THE THREE SETTINGS, and only the middle two are compared:
+
+      stage    today, bit for bit: the payoff expectation IS the branch value and the router is
+               priced through it. Default, so no earlier run moves.
+      reward   the SAME payoff, factorised: the branch value the ROUTER sees is detached and the
+               pick gets its own term. THIS IS THE CONTROL, NOT THE STANDING ARM - the standing
+               arm's numbers do not transfer to it.
+      ce       identical to `reward` in every respect except the pick's teacher, which becomes
+               cross-entropy against the truth, or against REFUSE where the offer does not hold
+               it. That refusal target is what keeps the two arms on the SAME POPULATION: without
+               it CE would train only on the questions whose offer holds the truth while the
+               payoff trains on all of them, and the comparison would be of coverage rather than
+               of teachers.
+
+    Returned to be MAXIMISED, like every other term here.
+    """
+    if PICK_TEACHER == "stage":
+        return None
+    _PICK_LIVE["n"] += 1
+    if PICK_TEACHER == "reward":
+        t = (torch.softmax(l2, 0) * R2[:len(l2)]).sum()
+        if lo is not None and len(lo):
+            t = t + (torch.softmax(lo, 0) * R1[:len(lo)]).sum()
+        return t
+    t = torch.zeros((), device=device)
+    for lg, names in ((l2, n2), (lo, n1)):
+        if lg is None or not len(lg):
+            continue
+        tv = q["truth_value"]
+        head = names[:len(lg)]
+        idx = head.index(tv) if tv in head else (
+            head.index(REFUSE_LABEL) if REFUSE_LABEL in head else -1)
+        if idx < 0:
+            continue
+        _PICK_LIVE["target"] += 1
+        t = t + torch.log_softmax(lg, 0)[idx]
+    return t
+
+
 def reach_loss(net, p, q, device, bank):
     l1, l2, own, cands, l3, lcands = reach_logits(net, p, q, device, bank)
     ans = q["truth_value"] in set(cands)
@@ -2650,11 +2807,14 @@ def reach_loss(net, p, q, device, bank):
     n1, n2 = reach_names(own, cands)
     R1 = reach_reward(q, n1, ans, device)
     R2 = reach_reward(q, n2, ans, device)
-    p1 = torch.softmax(l1, 0)
-    p2 = torch.softmax(l2, 0)
     # ONE PRICE, TWO FORMS. gamma multiplies the whole stage-two expectation - the answer,
     # the miss AND the refusal behind the step are all discounted by the same read - where
     # STEP_COST subtracted a constant from it. gamma < 1 forces STEP_COST to 0 at the flags.
+    #
+    # BEFORE THE PICK TERM. Under `--reach-depth 2` the deep max is already on `l2`, and the
+    # matching continuation value has to sit on `R2` before `pick_term` reads either. Calling the
+    # term first left reward at len(names) against logits at len(names)+1 and crashed the control
+    # arm; CE survived only because it never multiplies by R2. Same length for both teachers.
     if REACH_DEPTH > 1:
         ld, dcands, _dp = q.get("_deep", (None, [], []))
         if ld is not None:
@@ -2665,13 +2825,51 @@ def reach_loss(net, p, q, device, bank):
             R3 = reach_reward(q, dcands, q["truth_value"] in set(dcands), device)
             v3 = REACH_GAMMA * (torch.softmax(ld, 0) * R3).sum()
             R2 = torch.cat([R2, v3.reshape(1)])
-    v2 = REACH_GAMMA * (p2 * R2).sum() - STEP_COST
+    # 412: IN BOTH COMPARED ARMS THE ROUTER'S VALUE IS DETACHED, so the pick's teacher is the
+    # ONLY difference between them. Under `stage` nothing is detached and the file is unchanged.
+    _pk = pick_term(q.get("_own_l"), l2, R1, R2, n1, n2, q, device)
+    p1 = torch.softmax(l1, 0)
+    if ROUTE_ON == "walk_only":
+        # 34.4: THE ROUTE LEARNS ONLY WHERE STAYING IS ARITHMETICALLY WRONG.
+        #
+        # walk_only is `answerable and not truth_in_own` - the truth is NOT among the values
+        # already standing at this hole and IS among the ones the walk reached. Everywhere else
+        # the stay/go answer is either "stay" (the truth is at home) or undefined (it is
+        # nowhere), and 393 measured that on the FULL population an oracle step is already worse
+        # than staying. So the route has been taught mostly on questions whose right answer is
+        # "do not go". The mask is the tape's property and the walk's - never the mind's
+        # correctness, which would be a moving target.
+        #
+        # ONLY THE ROUTER IS CUT. Detaching `p1` freezes the stay/go comparison on the other
+        # questions; `v_stay` and `v2` carry their own softmaxes, so BOTH PICKS KEEP THEIR
+        # GRADIENT EVERYWHERE and the arm differs from its control in one decision only. This is
+        # not "train on a smaller population" - 34.5 rejected that, because the answerable slice
+        # sharpens the catalogue - it is "give one decision its gradient where that decision has
+        # a right answer".
+        #
+        # Counted BEFORE the branch, so the denominator is every question and `route_on_live`
+        # reports what share of the training signal the router actually got. That share is void
+        # check V2, as a number rather than an expectation.
+        _ROUTE_LIVE["n"] += 1
+        if ans and q["truth_value"] not in set(own):
+            _ROUTE_LIVE["live"] += 1
+        else:
+            p1 = p1.detach()
+    p2 = torch.softmax(l2, 0)
+    v2 = REACH_GAMMA * ((p2.detach() if _pk is not None else p2) * R2).sum() - STEP_COST
+    # 391: ADDED, NOT MULTIPLIED IN. Folding the move's probability into v2 would reprice the
+    # ROUTER - stepping would look worse by exactly p(move) - and one lever must not silently
+    # move a second decision. This is a term beside the return, reaching only l0.
+    mv = move_term(q, device)
     if TWO_WAY:
         # BOTH BRANCHES ARE EXPECTATIONS, which is the whole point: widening the offer thins
         # p2, but it no longer competes against undiluted individual worlds.
         lo = q["_own_l"]
-        v_stay = (torch.softmax(lo, 0) * R1).sum()
-        return -(p1[0] * v_stay + p1[1] * v2)
+        so = torch.softmax(lo, 0)
+        v_stay = ((so.detach() if _pk is not None else so) * R1).sum()
+        out = p1[0] * v_stay + p1[1] * v2
+        out = out if mv is None else out + mv
+        return -(out if _pk is None else out + _pk)
     nk = 2 if REACH_LINE else 1                    # how many of the tail options are steps
     out = (p1[:-nk] * R1).sum() + p1[-nk] * v2
     if BISECT:
@@ -2701,7 +2899,8 @@ def reach_loss(net, p, q, device, bank):
             out = out + p1[-1] * (REACH_GAMMA * (p3 * R3).sum() - STEP_COST)
         else:
             out = out + p1[-1] * (REACH_GAMMA * -1.0)   # no siblings: arrived nowhere, paid
-    return -out
+    out = out if mv is None else out + mv
+    return -(out if _pk is None else out + _pk)
 
 
 # --------------------------------------------------------------- 345 (step 1): the constraint
@@ -5596,7 +5795,7 @@ def main() -> int:
         REACH_DEPTH, REACH_COMPASS, SHUFFLE_TAPE, COHERENCE, DEEP_ROOT, TWO_WAY, \
         RETAIN, RETAIN_BY, RETAIN_CTX, OTHER_NET, SPEAK_BATCH, SPEAK_WEIGHT, \
         CALIB_BATCH, CALIB_WEIGHT, \
-        CONSTRAIN, CONS_LENSES, CONS_RESOLVE, TWO_WAY_BY, MIN_FILLERS, CONNECT, CONNECT_MAX, OWN_IMPORT, OWN_IN_OFFER, COPY, COPY_D, COPY_BACKFILL, REACH_CHANNEL, MOVES_ON, MOVES
+        CONSTRAIN, CONS_LENSES, CONS_RESOLVE, TWO_WAY_BY, MIN_FILLERS, CONNECT, CONNECT_MAX, OWN_IMPORT, OWN_IN_OFFER, COPY, COPY_D, COPY_BACKFILL, REACH_CHANNEL, MOVES_ON, MOVES, MOVE_TEACH, ROUTE_ON, PICK_TEACHER
     ap = argparse.ArgumentParser()
     ap.add_argument("--smoke", action="store_true")
     ap.add_argument("--train-steps", type=int, default=0)
@@ -5641,6 +5840,32 @@ def main() -> int:
                          "executes that one at the unchanged cap, instead of the four channels "
                          "being merged by a fixed rule with Phi choosing a name. The choice is "
                          "made on one probe row per move, BEFORE any candidate world is scored")
+    ap.add_argument("--pick-teacher", choices=("stage", "reward", "ce"), default=PICK_TEACHER,
+                    help="412: WHO TEACHES THE PICK on the reach verb. `--objective` is read only "
+                         "on the lookup path, so the reach pick has never had a cross-entropy "
+                         "option: every reach number was trained by one scalar per question. "
+                         "`stage` is today, bit for bit. `reward` and `ce` are the paired arms - "
+                         "identical but for the teacher, both with the router's value detached, "
+                         "and CE targets REFUSE where the offer does not hold the truth so the "
+                         "two train on the same population")
+    ap.add_argument("--route-on", choices=("all", "walk_only"), default=ROUTE_ON,
+                    help="34.4: which questions teach the STAY/GO decision. `all` is every "
+                         "earlier run bit for bit. `walk_only` gives the router a gradient only "
+                         "where staying is arithmetically wrong - the truth not among the "
+                         "values already here, and among the ones the walk reached - by "
+                         "detaching the route's probability elsewhere. Both PICKS keep their "
+                         "gradient on every question: this cuts one decision, not the "
+                         "population. Requires --two-way; read _read394_walkonly.py's void "
+                         "checks off existing dumps BEFORE running it")
+    ap.add_argument("--move-teach", type=float, default=MOVE_TEACH,
+                    help="391: PAY THE MOVE. The move ballot's logits have never received a "
+                         "gradient - reach_logits kept the chosen name and discarded them - so "
+                         "385 and 386 measured an argmax of a scorer trained to rank final "
+                         "names, on a decision nobody had taught. This adds one term: the "
+                         "ballot's softmax against whether each lane REACHES THE TRUTH, which "
+                         "is the tape's property and is counted while the lane is already "
+                         "enumerated. Weight, declared, never swept; 0 keeps every earlier run "
+                         "bit for bit. Requires --moves")
     ap.add_argument("--reach-channel", action="store_true",
                     help="379: give the mind THREE INDICATORS saying which channel offered each "
                          "candidate - connect, home, copy, with the walk as the all-zero "
@@ -6123,6 +6348,9 @@ def main() -> int:
     SHUFFLE_TAPE, COHERENCE = args.shuffle_tape, args.coherence
     DEEP_ROOT, TWO_WAY = args.deep_root, args.two_way
     RETAIN, RETAIN_BY = args.retain, args.retain_by
+    MOVE_TEACH = args.move_teach
+    ROUTE_ON = args.route_on
+    PICK_TEACHER = args.pick_teacher
     SPEAK_BATCH, SPEAK_WEIGHT = args.speak_batch, args.speak_weight
     CALIB_BATCH, CALIB_WEIGHT = args.calib_batch, args.calib_weight
     CONSTRAIN, CONS_LENSES = args.constrain, args.cons_lenses
@@ -6149,6 +6377,19 @@ def main() -> int:
         # per-question - the arm would be its own control wearing a flag.
         log("  --calib-batch needs at least 2 questions and the reach verb (not pair): with one "
             "question there is no second scale to tie it to, and the offset stays free")
+        return 1
+    if ROUTE_ON != "all" and not args.two_way:
+        # WITHOUT --two-way THE ROUTE IS NOT A SEPARATE OBJECT. Stage one's logits ARE the own
+        # worlds there, so detaching them would freeze the home pick as well and the arm would
+        # differ from its control in two decisions instead of one. Refused rather than run.
+        log("  --route-on needs --two-way: without it stage one's logits are the own worlds "
+            "themselves, and cutting the route would cut the home pick with it")
+        return 1
+    if MOVE_TEACH and not MOVES_ON:
+        # THE TERM HAS NOTHING TO TEACH WITHOUT A BALLOT. Refused rather than run: an arm asked
+        # for the move's gradient and given none would report the control's numbers under the
+        # arm's name, which is the one failure that looks like a result.
+        log("  --move-teach needs --moves: without a ballot there are no move logits to teach")
         return 1
     if args.rival_mind and args.reach_depth > 1:
         # THE DEEPER WALK IS ROOTED AT THE MIND'S OWN BEST SHALLOW CANDIDATE (see reach_deep),
@@ -6735,8 +6976,12 @@ def main() -> int:
                 "two_way_by": TWO_WAY_BY,
                 # 341 IS IN THE SIGNATURE, unlike --retain. Retention is a property of the tape;
                 # this changes what the mind was trained to do, so a transplant across it would
-                # be a silent change of arm - exactly what the signature exists to refuse.
+                # be a silent change of arm - exactly what the signature exists to refuse. 391
+                # is here for the same reason: it teaches the ballot, so a mind trained with it
+                # is not the same mind.
                 "speak_batch": SPEAK_BATCH, "speak_weight": SPEAK_WEIGHT,
+                "move_teach": MOVE_TEACH, "route_on": ROUTE_ON,
+                "pick_teacher": PICK_TEACHER,
                 # 389 removes the per-question offset, so a calibrated mind and an uncalibrated
                 # one no longer measure their scores on the same ruler: transplanting one into
                 # the other's run would compare two gauges and call it a mind
@@ -6941,6 +7186,10 @@ def main() -> int:
         mixed_rows = []                    # 296: answerable, silent, right, rival margin+hit
         ub = {k: [0.0, 0] for k in ("true", "same_anchor", "elsewhere")}   # 294's landscape
         reach_rows = []                    # 299: reachable, silent, right, rival margin+hit
+        # 415: RAW LITERAL FREQUENCY, not reachable/walk_only. Parallel to reach_rows so RIX
+        # never shifts. Rival for the gate is own-frame majority (own_rival_right / lookup_rival).
+        rawlit_rows = []                   # (freq, mind_right, count_hit, silent)
+        _tape_freq = Counter(p["tape"].values) if REACH and hasattr(p.get("tape"), "values") else None
         pair_rows = []                     # 309: the two-hole world, against both counting ways
         cons_rows = []                     # 345: the constraint - which row, and what the tape
                                            # said through it, against three counting rules
@@ -7087,8 +7336,14 @@ def main() -> int:
                 _bi_v, _bi_pairs = (reach_bisect(net, p, q, device, bank, cands, _ev, _b)[:2]
                                     if BISECT and cands else (None, []))
                 _nexp = _base + len({s for c in cands for s in _ev[c][:_b]} - set(q["slots"]))
-                reach_rows.append([int(ansble), int(said == REFUSE_LABEL),
-                                   int(said == q["truth_value"]), float(rmg),
+                _mind_ok = int(said == q["truth_value"])
+                _count_ok = int(lookup_rival(q) == q["truth_value"])
+                _silent = int(said == REFUSE_LABEL)
+                if _tape_freq is not None:
+                    rawlit_rows.append((_tape_freq[q["truth_value"]], _mind_ok, _count_ok,
+                                        _silent))
+                reach_rows.append([int(ansble), _silent,
+                                   _mind_ok, float(rmg),
                                    int(rv == q["truth_value"]), stepped, len(cands),
                                    _base + _b, _nexp,
                                    int(reach_reachable(p, q, REACH_K * 4)),
@@ -7100,7 +7355,8 @@ def main() -> int:
                                    # the mind scores comes from exactly those rows, so the two
                                    # were not comparable. Counting the own rows is the strong
                                    # opponent here, and it is 286's majority rival unchanged.
-                                   int(lookup_rival(q) == q["truth_value"]),
+                                   # 415 uses this same column as the frame-majority rival.
+                                   _count_ok,
                                    # WHAT A COUNTING ROUTER WOULD SEE. Selectivity replicated
                                    # where the walk-only hits did not - 40-64% of steps land on
                                    # 5% of questions - so it has to be priced against counting
@@ -7370,6 +7626,7 @@ def main() -> int:
         out["_sparse"] = sparse_rows
         out["_mixed"] = mixed_rows
         out["_reach"] = reach_rows
+        out["_rawlit"] = rawlit_rows
         out["_pair"] = pair_rows
         out["_cons"] = cons_rows
         if open_rows:
@@ -8004,6 +8261,24 @@ def main() -> int:
                                       if x[RIX["move_id"]] == i)
                                   / max(1, sum(1 for x in rows if x[RIX["move_id"]] == i)))
                               for i, m in enumerate(MOVES)} if MOVES_ON else {}),
+                # 391: THE VOID CHECK OF THE MOVE TERM, and it is read before its numbers. A
+                # ballot whose lanes all reach the same thing has zero gradient by construction,
+                # so if `move_teach_live` is near zero the term never taught anything and the
+                # arm is its own control. Counted over TRAINING questions, not over these rows.
+                "move_teach_live": (_MOVE_LIVE["live"] / max(1, _MOVE_LIVE["n"])
+                                    if MOVE_TEACH else 0.0),
+                "move_teach_ballot": (_MOVE_LIVE["ballot"] / max(1, _MOVE_LIVE["n"])
+                                      if MOVE_TEACH else 0.0),
+                "move_teach_seen": _MOVE_LIVE["n"] if MOVE_TEACH else 0,
+                # 34.4: WHAT SHARE OF THE TRAINING SIGNAL THE ROUTER ACTUALLY GOT - void check
+                # V2 as a number. A few percent means the arm is a slower control and its null
+                # says nothing about routing.
+                "route_on": ROUTE_ON, "pick_teacher": PICK_TEACHER,
+                "pick_live": _PICK_LIVE["n"],
+                "pick_target": _PICK_LIVE["target"] / max(1, _PICK_LIVE["n"]),
+                "route_on_live": (_ROUTE_LIVE["live"] / max(1, _ROUTE_LIVE["n"])
+                                  if ROUTE_ON != "all" else 1.0),
+                "route_on_seen": _ROUTE_LIVE["n"] if ROUTE_ON != "all" else 0,
                 "mean_candidates": sum(x[RIX["n_cands"]] for x in rows) / n,
                 # DOES THE WALK POINT ANYWHERE. `wide` separates "the tape does not say it" from
                 # "our K was too small"; `random` is the one that can end the verb - if a cosine
@@ -8282,6 +8557,8 @@ def main() -> int:
                        "confirm": REACH_CONFIRM, "conf_window": CONF_WINDOW,
                        "home_cos_stage": HOME_COS_STAGE,
                        "speak_batch": SPEAK_BATCH, "speak_weight": SPEAK_WEIGHT,
+                       "move_teach": MOVE_TEACH, "route_on": ROUTE_ON,
+                       "pick_teacher": PICK_TEACHER,
                        "calib_batch": CALIB_BATCH, "calib_weight": CALIB_WEIGHT,
                        "two_way_by": TWO_WAY_BY,
                        "gamma": REACH_GAMMA, "equal_tails": EQUAL_TAILS,
@@ -8290,6 +8567,41 @@ def main() -> int:
                        "compass": REACH_COMPASS,
                        "held_out": rblock(ex["_reach"]),
                        "train_control": rblock(ctrl.get("_reach") or [])}
+        # 415: construction check by RAW tape frequency of the hidden literal. Declared in
+        # _STATE_353 §51 before any number. Rival = frame majority (own_rival / lookup_rival).
+        # Not in the GATE-WO verdict.
+        def _rawlit_arm(rr):
+            if not rr:
+                return None
+
+            def bucket(pred):
+                sub = [x for x in rr if pred(x[0])]
+                if not sub:
+                    return {"n": 0, "mind_hit": float("nan"), "count_hit": float("nan"),
+                            "refuse": float("nan")}
+                n = len(sub)
+                return {"n": n,
+                        "mind_hit": sum(x[1] for x in sub) / n,
+                        "count_hit": sum(x[2] for x in sub) / n,
+                        "refuse": sum(x[3] for x in sub) / n}
+
+            ge2, one = bucket(lambda f: f >= 2), bucket(lambda f: f == 1)
+            return {
+                "ge2": ge2, "one": one,
+                "gate_mind_beats_count": bool(
+                    ge2["n"] and ge2["mind_hit"] == ge2["mind_hit"]
+                    and ge2["count_hit"] == ge2["count_hit"]
+                    and ge2["mind_hit"] > ge2["count_hit"]),
+                "gate_refuse_one_gt_ge2": bool(
+                    one["n"] and ge2["n"]
+                    and one["refuse"] == one["refuse"] and ge2["refuse"] == ge2["refuse"]
+                    and one["refuse"] > ge2["refuse"]),
+            }
+
+        reach_block["rawlit"] = {
+            "held_out": _rawlit_arm(ex.get("_rawlit") or []),
+            "note": "eligible by Counter(tape.values); rival=frame majority; no GATE-WO",
+        }
         # THE ARM IS VOID BEFORE IT IS READ, and it has now cost two runs twice. When silence
         # is allowed and the tape's reachability is low, always-silent is the OPTIMAL strategy
         # and a mind that finds it has told us nothing about searching - 299_hash said exactly

@@ -1,0 +1,15 @@
+﻿
+2026-08-18 18:20:13 386 --moves --move-set step,share: ballot without lines/copy. Tag 386ss. CONNECT on so share has a lane. copy OFF.
+2026-08-18 18:20:13 GATE vs standing interleave (365r3) at equal cap: hit >= interleave on >=3/4 AND split not degenerate.
+2026-08-18 18:20:13 SECOND READ: if without lines the mind almost always takes step, 385's life was the absence of a bad option, not the ability to choose - then share goes too and search is one-move. move_hit: share rare and hit below step => move does not pay.
+2026-08-18 18:20:13 ==== 386ss_s1337 ====
+2026-08-18 18:24:15 OK 386ss_s1337
+2026-08-18 18:24:15 ==== 386ss_s8642 ====
+2026-08-18 18:28:00 OK 386ss_s8642
+2026-08-18 18:28:00 ==== 386ss_s2890 ====
+2026-08-18 18:31:35 OK 386ss_s2890
+2026-08-18 18:31:35 ==== 386ss_s4711 ====
+2026-08-18 18:35:25 OK 386ss_s4711
+2026-08-18 18:35:25 ==== _read299 386ss (out/ only) ====
+2026-08-18 18:35:25 ==== _read299 365r3 baseline (not mixed with 386) ====
+2026-08-18 18:35:25 DONE 386ss

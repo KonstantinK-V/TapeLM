@@ -1,0 +1,281 @@
+From 3bd0feee2a9e7101c222eb1608b98af913a11135 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Sat, 8 Aug 2026 06:32:37 +0000
+Subject: [PATCH] 286: frozen trunk clears the trunk - the reading channel is
+ 65 params per example
+
+--frozen-trunk, hidden, same tapes as the nohid pass that scored EVIDENCE_OK.
+Result EVIDENCE_NO, worse than the unfrozen arm on every held-out number, with
+the trunk not learning a single parameter. Hypothesis (a) - the trunk
+memorising subject->value at lr_upper - is dead: nothing in the trunk moved and
+the collapse happened anyway. What is left is (b), and the two leave-one-out
+passes say it without interpretation:
+
+                    train control (last training tape)   held out
+  unknown AUC          0.986  (+7.44 sigma)               0.416  (-0.97 sigma)
+  accuracy @ coverage  0.897 @ 0.690                      0.377 @ 0.757
+  selective curve      1.00 / 1.00 / 1.00 at 10-50%       flat 0.43 / 0.44 / 0.49
+  vs votes matched     0.897 vs 0.690                     0.414 vs 0.431
+
+Fitting the training tape at AUC 0.986 and landing a hair below chance on a
+disjoint one, with a confidence curve that has gone completely flat, is not a
+misreading. It is memorisation, and the arithmetic was available before the run:
+the reading path carries 512x128 = 65,536 weights against roughly a thousand
+distinct training examples - 84 leave-one-out pairs per tape, twelve tapes at
+tape_period 500 - which is 65 parameters per example. The features-only head
+has 1,152 weights, 1.14 per example, and it is the arm that passed.
+head_input_norms had already measured the same imbalance from the other side:
+the reading columns carry 3.1x the total norm of the nine features.
+
+That is a statement about capacity, not about reading. The question "does
+reading carry signal" has never been asked at a size this data can pay for, so
+two changes make asking it cheap:
+
+  --read-rank R projects the reading down before the head, so the channel can
+  be given 8 or 16 dimensions instead of 512. head_input_norms now reports the
+  effective width, the reading path's parameter count and the estimated number
+  of distinct training examples, so the ratio is in the JSON rather than in
+  someone's arithmetic.
+
+  A frozen trunk returns the same vector for the same text forever, and the
+  same tape is reused for tape_period steps, so the encodes are now cached and
+  cleared on resample. Exact, not approximate - and it is most of the frozen
+  arm's hour, which is what made a capacity sweep unaffordable.
+
+Next, cheapest first: --frozen-trunk --read-rank 8, then 16. A narrow reading
+that beats nohid means reading carries signal; one that merely ties means it
+carries none at this tape size, and the stage's verdict is that judgment lives
+in the counters.
+
+Worth stating plainly because it would be easy to over-read: nothing here
+breached the separation invariant. G_arc_enc_frozen held in every arm and the
+answer is still a value taken from the visible evidence, so no fact reached the
+weights in the sense the invariant forbids. What reached them is a tape-specific
+way of READING, which the invariant does not name - and which the held-out tape
+caught anyway.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01RYDM9MUk761CZjn7SmTaug
+---
+ HANDOFF.md            | 36 +++++++++++++---
+ _stage286_evidence.py | 96 ++++++++++++++++++++++++++++++++++++++-----
+ 2 files changed, 117 insertions(+), 15 deletions(-)
+
+diff --git a/HANDOFF.md b/HANDOFF.md
+index 1743d10..38523ea 100644
+--- a/HANDOFF.md
++++ b/HANDOFF.md
+@@ -336,11 +336,37 @@ on the lying tape it answers 15% of items and is **never wrong**. First non-vacu
+   copying cannot answer. Passing everything except it is now its own verdict,
+   `EVIDENCE_OK_UNANIMOUS_ONLY` — selective copying is real and learned, but it is not weighing.
+ 
+-Queue in flight: frozen-trunk (the (a)/(b) discriminator), then regular hidden only if frozen
+-restores `G_learns_evidence` and `G_survives_lie`. Both were launched under the code *before*
+-`auc_z`, `by_evidence_shape` and `G_weighs_contested` existed — their JSONs carry enough
+-(`unknown_auc`, `n_absent`, `n_present`) to recompute σ by hand, but the contested split is not
+-recoverable and needs a rerun of whichever arm ends up mattering.
++**Frozen-trunk resolved (a) vs (b): the trunk is innocent, the capacity is not.** `EVIDENCE_NO`,
++worse than the unfrozen arm on every held-out number, with the trunk not learning a single
++parameter. The two leave-one-out passes:
++
++| frozen, hidden | train control | held out |
++|---|---|---|
++| `unknown_auc` | 0.986 (**+7.44σ**) | 0.416 (−0.97σ) |
++| accuracy @ coverage | 0.897 @ 0.690 | 0.377 @ 0.757 |
++| selective curve | 1.00 / 1.00 / 1.00 | flat 0.43 / 0.44 / 0.49 |
++| vs votes at its coverage | 0.897 vs 0.690 | 0.414 vs 0.431 |
++
++Fitting the training tape at AUC 0.986 and landing below chance on a disjoint one, with a flat
++confidence curve, is memorisation. The arithmetic was available in advance: **65,536 weights on
++the reading path against ~1,000 distinct training examples** (84 LOO pairs × 12 tapes) = 65
++params/example, against **1.14** for the features-only head — which is the arm that passed.
++`head_input_norms` agrees from the other side: reading carries 3.1× the features' total norm.
++
++This does not say reading is useless — it says the question was never asked at a capacity the
++data can pay for. `--read-rank R` now projects the reading to R dims before the head, and a
++frozen trunk's encodes are cached (same text → same vector, forever), which was most of that
++arm's hour. Next, cheapest first: `--frozen-trunk --read-rank 8` and `--read-rank 16`. If a
++narrow reading beats nohid, reading carries signal; if it merely ties, it carries none at this
++tape size and the stage's verdict is that judgment lives in the counters.
++
++Nothing here breaches the invariant: `G_arc_enc_frozen` held in every arm and answers are still
++values from the visible evidence. What reached the weights is a tape-specific *way of reading* —
++which the invariant does not name, and which the held-out tape catches regardless.
++
++Arm 3 (regular hidden) was correctly skipped by the queue: frozen restored neither gate.
++All arms so far ran before `auc_z`, `by_evidence_shape` and `G_weighs_contested` existed; σ is
++recoverable from the reported AUCs and counts, the contested split is not.
+ 
+ ---
+ 
+diff --git a/_stage286_evidence.py b/_stage286_evidence.py
+index 5ffd4dd..dce9db9 100644
+--- a/_stage286_evidence.py
++++ b/_stage286_evidence.py
+@@ -181,6 +181,40 @@ THE FIRST PASS - EVIDENCE_OK ON NOHID - AND WHAT IT IS ACTUALLY A PASS OF
+   copying cannot answer. Passing everything but that gate is its own verdict now:
+   EVIDENCE_OK_UNANIMOUS_ONLY.
+ 
++------------------------------------------------------------------------------------------
++THE FROZEN ARM ANSWERS IT: THE TRUNK IS INNOCENT, THE CAPACITY IS NOT
++
++  --frozen-trunk, hidden, same tapes as the nohid pass. EVIDENCE_NO, and worse than the
++  unfrozen arm on every held-out number. So hypothesis (a) is dead: the trunk did not learn a
++  single parameter here and the collapse happened anyway. (b) is what is left, and the two
++  leave-one-out passes say it in one line:
++
++                       train control (last training tape)   held out
++    unknown AUC             0.986   (+7.44 sigma)            0.416  (-0.97 sigma)
++    accuracy @ coverage     0.897 @ 0.690                    0.377 @ 0.757
++    selective curve         1.00 / 1.00 / 1.00 at 10-50%     flat 0.43 / 0.44 / 0.49
++    vs votes matched        0.897 vs 0.690                   0.414 vs 0.431
++
++  A head that fits its training tape at AUC 0.986 and lands a hair below chance on a disjoint
++  one, with a completely flat confidence curve, is not misreading anything - it memorised.
++  The arithmetic was there to be done beforehand: the reading path carries 512x128 = 65,536
++  weights against roughly a thousand distinct training examples (84 leave-one-out pairs per
++  tape, twelve tapes at tape_period 500), which is 65 parameters per example. The
++  features-only head has 1,152 weights, or 1.14 per example, and it is the arm that passed.
++  head_input_norms measured the same thing from the other side: the reading columns carry 3.1x
++  the total norm of the nine features.
++
++  This does NOT say reading is useless; it says the question was never asked at a capacity the
++  data can pay for. Two changes make asking it cheap. --read-rank R projects the reading down
++  before the head, so the channel can be given 8 or 16 dimensions instead of 512. And a frozen
++  trunk returns the same vector for the same text forever, so the encodes are now cached - the
++  frozen arm was recomputing thousands of identical trunk calls, which is most of its hour.
++
++  Note what this leaves standing. G_arc_enc_frozen was true in every arm and the answer is
++  still a value taken from the visible evidence, so no fact reached the weights in the sense
++  the invariant forbids. What reached them is a tape-specific way of reading - which the
++  invariant does not name, and which the held-out tape catches anyway.
++
+   python _stage286_evidence.py --smoke
+   python _stage286_evidence.py --train-steps 6000 --min-mentions 2
+   python _stage286_evidence.py --train-steps 6000 --min-mentions 2 --no-hidden
+@@ -331,15 +365,27 @@ class Evidence(nn.Module):
+     weights compare readings and not only numbers. That is the whole claim of this stage.
+     """
+ 
+-    def __init__(self, d_hidden: int, device):
++    def __init__(self, d_hidden: int, device, read_rank: int = 0):
+         super().__init__()
+-        self.f = nn.Sequential(nn.Linear(d_hidden + N_FEAT, 128), nn.GELU(),
++        # The reading channel arrives 512 dimensions wide against nine features, and the frozen
++        # run measured what that costs: 512x128 = 65,536 weights on the reading path against
++        # roughly a thousand distinct training examples - 65 parameters per example, where the
++        # features-only head has 1.14. It fit the training tape to AUC 0.986 and transferred
++        # nothing. read_rank projects the reading down first, so "does reading carry signal"
++        # can be asked at a capacity the data can actually pay for. 0 keeps the wide channel.
++        self.proj = (nn.Linear(d_hidden, read_rank, bias=False).to(device)
++                     if (d_hidden and read_rank) else None)
++        d_read = read_rank if self.proj is not None else d_hidden
++        self.d_read = d_read
++        self.f = nn.Sequential(nn.Linear(d_read + N_FEAT, 128), nn.GELU(),
+                                nn.Linear(128, 1)).to(device)
+         nn.init.zeros_(self.f[-1].weight)
+         nn.init.zeros_(self.f[-1].bias)
+ 
+     def forward(self, H, rows):
+         """H is one reading PER ROW, not one reading for the example."""
++        if H.numel() and self.proj is not None:
++            H = self.proj(H)
+         return self.f(torch.cat([H, rows], dim=-1)).squeeze(-1) if H.numel() \
+             else self.f(rows).squeeze(-1)
+ 
+@@ -475,6 +521,11 @@ def main() -> int:
+     ap.add_argument("--no-hidden", action="store_true",
+                     help="ablation: features only, no reading of the evidence text")
+     ap.add_argument("--frozen-trunk", action="store_true")
++    ap.add_argument("--read-rank", type=int, default=0, metavar="R",
++                    help="project the reading to R dimensions before the head. 0 is the wide "
++                         "512-dim channel that the frozen arm showed memorising the training "
++                         "tape (AUC 0.986 there, 0.416 held out) with the trunk not learning "
++                         "at all - so the capacity, not the trunk, is what has to be tested.")
+     ap.add_argument("--run-tag", type=str, default="")
+     args = ap.parse_args()
+ 
+@@ -485,6 +536,7 @@ def main() -> int:
+     # writes stage286_decision.json over the unfrozen hidden run - and those two files ARE the
+     # (a)/(b) discriminator, so the comparison would destroy one of its own halves.
+     tag += "_frozen" if args.frozen_trunk else ""
++    tag += f"_r{args.read_rank}" if args.read_rank else ""
+     LOG_PATH = RES / f"_stage286_log{tag}.txt"
+     LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+     LOG_PATH.write_text("", encoding="utf-8")
+@@ -558,19 +610,38 @@ def main() -> int:
+         return 1
+ 
+     d_hidden = 0 if args.no_hidden else 2 * (model.head.in_features // 2)
+-    net = Evidence(d_hidden, device)
++    net = Evidence(d_hidden, device, read_rank=args.read_rank)
+     live = [p for p in model.parameters() if p.requires_grad]
+     opt = torch.optim.AdamW([{"params": net.parameters(), "lr": args.lr_head}]
+                             + ([{"params": live, "lr": args.lr_upper}] if live else []),
+                             weight_decay=0.01)
+ 
++    # A frozen trunk returns the same vector for the same text every time, and the same tape
++    # is reused for tape_period steps, so the encodes were being recomputed by the thousand.
++    # Caching them is exact, not an approximation - and it is what makes a capacity sweep over
++    # the reading channel affordable, since each frozen arm otherwise costs an hour.
++    read_cache: dict[str, torch.Tensor] = {}
++
++    def read_of(texts):
++        if not args.frozen_trunk:
++            return encode(model, char_table, tok, pad_id, device, texts)
++        key = "\u241f".join(texts)
++        h = read_cache.get(key)
++        if h is None:
++            h = encode(model, char_table, tok, pad_id, device, texts)
++            if h is None:
++                return None
++            h = h.detach()
++            read_cache[key] = h
++        return h
++
+     def forward(p, it, ex):
+         rows = torch.tensor(ex["rows"], dtype=torch.float32, device=device)
+         if args.no_hidden:
+             return net(torch.zeros(0, device=device), rows)
+         hs = []
+         for texts in ex["cand_texts"]:
+-            h = encode(model, char_table, tok, pad_id, device, texts)
++            h = read_of(texts)
+             if h is None:
+                 return None
+             hs.append(h.float())
+@@ -607,6 +678,7 @@ def main() -> int:
+         if (step - 1) % tape_period == 0 and step > 1:
+             pack = new_pack(rng, train_lines)
+             pairs = loo_pairs(pack)
++            read_cache.clear()          # new tape, new texts; bounds the cache to one tape
+         if not pairs:
+             log("  no multi-mention addresses on this tape")
+             return 1
+@@ -656,13 +728,17 @@ def main() -> int:
+     # the drowning hypothesis has room; if the feature columns dominate and the arm still
+     # fails, the damage came through the trunk's own drift, not through the head's weighting.
+     with torch.no_grad():
+-        w0 = net.f[0].weight
++        w0, d_read = net.f[0].weight, net.d_read
+         head_norms = {
+-            "reading": float(w0[:, :d_hidden].norm()) if d_hidden else 0.0,
+-            "features": float(w0[:, d_hidden:].norm()),
+-            "reading_per_dim": (float(w0[:, :d_hidden].norm()) / math.sqrt(d_hidden)
+-                                if d_hidden else 0.0),
+-            "features_per_dim": float(w0[:, d_hidden:].norm()) / math.sqrt(N_FEAT),
++            "d_reading": d_read, "d_features": N_FEAT,
++            "reading": float(w0[:, :d_read].norm()) if d_read else 0.0,
++            "features": float(w0[:, d_read:].norm()),
++            "reading_per_dim": (float(w0[:, :d_read].norm()) / math.sqrt(d_read)
++                                if d_read else 0.0),
++            "features_per_dim": float(w0[:, d_read:].norm()) / math.sqrt(N_FEAT),
++            # what the run is fitting, against what it has to fit it with
++            "reading_path_params": d_read * 128,
++            "distinct_train_examples_est": len(pairs) * max(1, n_steps // tape_period),
+         }
+     log(f"  HEAD NORMS {json.dumps(head_norms)}")
+ 
+-- 
+2.43.0
+

@@ -1,0 +1,74 @@
+{
+ "1337": {
+  "seed": 1337,
+  "corpus": "data\\_tinystories_raw_scale.txt",
+  "real": {
+   "shuffled": false,
+   "hunt": 0.1968,
+   "rand": 0.0996,
+   "lift": 0.0972,
+   "n_windows": 2500,
+   "n_pre": 102,
+   "elapsed_s": 366.2
+  },
+  "shuffled": {
+   "shuffled": true,
+   "hunt": 0.0008,
+   "rand": 0.0008,
+   "lift": 0.0,
+   "n_windows": 2500,
+   "n_pre": 76,
+   "elapsed_s": 390.7
+  },
+  "lift_drop": 0.0972,
+  "note": "if shuffled lift ~= real lift \u2192 fake; drop>0 \u2192 tape structure"
+ },
+ "7": {
+  "seed": 7,
+  "corpus": "data\\_tinystories_raw_scale.txt",
+  "real": {
+   "shuffled": false,
+   "hunt": 0.1736,
+   "rand": 0.1088,
+   "lift": 0.0648,
+   "n_windows": 2500,
+   "n_pre": 105,
+   "elapsed_s": 363.6
+  },
+  "shuffled": {
+   "shuffled": true,
+   "hunt": 0.0008,
+   "rand": 0.0008,
+   "lift": 0.0,
+   "n_windows": 2500,
+   "n_pre": 79,
+   "elapsed_s": 387.4
+  },
+  "lift_drop": 0.0648,
+  "note": "if shuffled lift ~= real lift \u2192 fake; drop>0 \u2192 tape structure"
+ },
+ "2024": {
+  "seed": 2024,
+  "corpus": "data\\_tinystories_raw_scale.txt",
+  "real": {
+   "shuffled": false,
+   "hunt": 0.2384,
+   "rand": 0.0976,
+   "lift": 0.1408,
+   "n_windows": 2500,
+   "n_pre": 99,
+   "elapsed_s": 360.5
+  },
+  "shuffled": {
+   "shuffled": true,
+   "hunt": 0.0016,
+   "rand": 0.0016,
+   "lift": 0.0,
+   "n_windows": 2500,
+   "n_pre": 81,
+   "elapsed_s": 387.2
+  },
+  "lift_drop": 0.1408,
+  "note": "if shuffled lift ~= real lift \u2192 fake; drop>0 \u2192 tape structure"
+ }
+}

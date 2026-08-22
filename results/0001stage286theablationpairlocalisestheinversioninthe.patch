@@ -1,0 +1,206 @@
+From fa4c4793343a0cb5714d46167448d1e038fd00ad Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Sat, 8 Aug 2026 05:03:20 +0000
+Subject: [PATCH] 286: the ablation pair localises the inversion in the
+ reading, not the mix
+
+The nohid arm had run two hours BEFORE the hidden arm on the same
+second-generation code - the judge numbers are byte-identical between the two
+JSONs, so the tapes and examples were identical too. That upgrades the pair
+from two runs to a controlled ablation, and it falsifies the prediction the
+previous commit staked: the composition flip lives in the count features, so
+it had to show in the features-only arm. It did not show.
+
+  same code, same tapes        nohid                   hidden
+  LOO accuracy @ coverage      0.641 @ 0.557           0.325 @ 0.571
+  selective curve              1.00 -> 0.43 falling    0.29 -> 0.44 rising
+  unknown_auc                  0.412 (1 sigma, noise)  0.259 (2.8 sigma, inverted)
+  matched vs votes / return    tie 0.431 / 1.000 (n=9) loses both
+  lying tape at votes' cov     0.487 vs 0.462          loses
+  verdict                      EVIDENCE_PARTIAL        EVIDENCE_NO
+
+So the sampler mismatch is real but survivable - nine numbers trained on the
+wrong mix still rank correctly on the right one, and nohid passes
+G_learns_evidence and G_survives_lie, the first non-vacuous pass of either.
+What is not survivable is the reading: on identical tapes it halved accuracy
+at equal coverage and inverted the confidence ordering. The features-only
+ablation beats the arm carrying the stage's whole claim.
+
+Two hypotheses fit "confidently wrong held-out, only when reading":
+  a) the trunk fine-tunes at lr_upper over 6000 steps on resamples of the
+     same 25k lines and memorises subject->value; held-out subjects then
+     misfire with confidence. Facts moving into weights - the exact leak the
+     separation invariant forbids, showing up as its own predicted signature.
+  b) the reading channel (~512 dims against 9) drowns the features and the
+     head overfits reading noise. Generic overfit, no memorisation needed.
+
+--frozen-trunk separates them: reading stays, trunk learning stops, so (a)
+predicts frozen-hidden recovers to nohid and (b) predicts it stays broken.
+Added head_input_norms to the decision JSON - the head's first-layer norm
+split per input dimension between reading and features - which bounds how
+much room (b) has before that run is spent.
+
+Run order that spends the least: nohid on the new code first (~12 min; if
+the sampler fix lifts the AUC past 0.5 the ablation arm passes EVIDENCE_OK
+outright), then hidden --frozen-trunk (~2.4 h, the discriminator), then
+unfrozen hidden only if frozen recovers. And if nohid passes fully while
+every hidden arm fails, that is the stage's finding rather than a bug: at
+this scale judgment lives in the counters, and "the weights compare
+readings" is unsupported. HANDOFF.md section 6 says so in those words.
+
+Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01RYDM9MUk761CZjn7SmTaug
+---
+ HANDOFF.md            | 39 ++++++++++++++++++++------
+ _stage286_evidence.py | 64 ++++++++++++++++++++++++++++++++++++++++++-
+ 2 files changed, 94 insertions(+), 9 deletions(-)
+
+diff --git a/HANDOFF.md b/HANDOFF.md
+index e2f09db..190a956 100644
+--- a/HANDOFF.md
++++ b/HANDOFF.md
+@@ -288,14 +288,37 @@ runs read as a 2×2:
+ | held-out AUC > 0.5 | fixed | — |
+ | held-out AUC ≤ 0.5 | shift between corpus halves | target not a function of the features |
+ 
+-and separately: **nohid clean while hidden stays inverted on the same tape ⇒ the inversion
+-lives in the reading** — the trunk memorising subject→value across resamples of the same 25k
+-lines, the one leak the invariant forbids. Run order: `--no-hidden` first (it is ~10× cheaper
+-and tests the composition story without the trunk), then the hidden arm.
+-
+-Bookkeeping: the second uploaded JSON (`stage286_decision_hid.json`) was a byte-identical copy
+-of the first (same microsecond timestamp, same `wall_s`), both `no_hidden: false` — so **no
+-`--no-hidden` run under the new examiners exists yet**.
++**The ablation pair resolved it — and the composition prediction failed.** The nohid arm had
++run two hours *before* the hidden arm on the same second-generation code; judge numbers are
++byte-identical between the two JSONs, so tapes and examples were too. A controlled pair:
++
++| same code, same tapes | nohid (features only) | hidden (+ reading) |
++|---|---|---|
++| verdict | **EVIDENCE_PARTIAL** | EVIDENCE_NO |
++| LOO accuracy @ coverage | **0.641 @ 0.557** | 0.325 @ 0.571 |
++| selective curve | 1.00 → 0.43 **falling** | 0.29 → 0.44 rising |
++| `unknown_auc` | 0.412 (1.0σ — noise) | 0.259 (2.8σ — inverted) |
++| vs votes / return at their coverage | 0.431 vs 0.431 · **1.000 vs 0.889** (n=9) | loses both |
++| lying tape at votes' coverage | **0.487 vs 0.462** | loses |
++| exam gap to oracle | 0.108 | 0.345 |
++
++The prediction that the composition flip *must* show in the features-only arm was wrong: nine
++numbers trained on the wrong mix still rank correctly on the right one (`G_learns_evidence`
++and `G_survives_lie` both true — the first non-vacuous pass of either). The inversion is a
++property of **reading**, on identical tapes. Two hypotheses fit "confidently wrong held-out,
++only when reading": **(a)** the trunk fine-tunes at `lr_upper` over 6000 steps on resamples of
++the same 25k lines and memorises subject→value — facts moving into weights, the leak the
++invariant forbids; **(b)** the reading channel (~512 dims vs 9) drowns the features and the
++head overfits reading noise. `--frozen-trunk` separates them: reading stays, trunk learning
++stops — (a) predicts recovery to nohid, (b) predicts no change. `head_input_norms` in the JSON
++now reports the head's per-dim norm split between the channels.
++
++Next runs, cheapest first: **nohid on the new code** (pair-uniform sampler + train control,
++~12 min — if the AUC crosses 0.5 the ablation arm passes `EVIDENCE_OK` outright), then
++**hidden `--frozen-trunk`** (~2.4 h, the (a)/(b) discriminator), then unfrozen hidden only if
++frozen recovers. If nohid passes fully while every hidden arm fails, that *is* the stage's
++finding: at this scale judgment lives in the counters, and the claim "the weights compare
++readings" is unsupported — worth stating plainly rather than tuning until it flips.
+ 
+ ---
+ 
+diff --git a/_stage286_evidence.py b/_stage286_evidence.py
+index 7c9e6dd..2881826 100644
+--- a/_stage286_evidence.py
++++ b/_stage286_evidence.py
+@@ -113,6 +113,43 @@ WHAT THE FIRST HIDDEN RUN UNDER THE NEW EXAMINERS MEASURED (2026-08-08, wall 860
+   features; nohid clean while hidden stays inverted is the trunk memorising subject->value
+   across resamples, the one leak the invariant forbids.
+ 
++------------------------------------------------------------------------------------------
++THE ABLATION PAIR, SAME CODE, SAME TAPES - AND A PREDICTION THAT FAILED
++
++  The nohid arm had in fact run two hours BEFORE the hidden arm on the same second-generation
++  code (judge numbers byte-identical between the two JSONs, so the tapes and examples were
++  too). That makes the pair a controlled ablation, and it falsifies half of the paragraph
++  above. The prediction was that the composition flip, living entirely in the count features,
++  had to show in the features-only arm as well. It did not:
++
++                          nohid (features only)      hidden (features + reading)
++    LOO accuracy/coverage      0.641 @ 0.557              0.325 @ 0.571
++    selective curve         1.00 -> 0.43 FALLING       0.29 -> 0.44 RISING
++    unknown_auc             0.412  (1.0 sigma, noise)  0.259  (2.8 sigma, inverted)
++    matched vs votes        0.431 vs 0.431 (tie)       0.379 vs 0.431
++    matched vs return       1.000 vs 0.889 (n=9)       0.222 vs 0.889
++    lying tape              CLEAN: 0.487 vs 0.462      fails
++    exam gap to oracle      0.108                      0.345
++    verdict                 EVIDENCE_PARTIAL           EVIDENCE_NO
++
++  So the composition mismatch is real but survivable: nine numbers trained on the wrong mix
++  still rank correctly on the right one. What is NOT survivable is the reading: on identical
++  tapes it halved accuracy at equal coverage and inverted the confidence ordering. The
++  features-only ablation BEATS the arm carrying the stage's whole claim. Failing gates:
++  honesty at chance (the sampler fix above is aimed exactly there), and reward under 0.75 -
++  which 280's baseline (0.704) never cleared either.
++
++  Two hypotheses fit "confidently wrong on held-out, only when reading":
++    a) the trunk fine-tunes at lr_upper over 6000 steps on resamples of the same 25k lines
++       and memorises subject->value; held-out subjects then misfire with confidence - facts
++       moving into weights, the exact leak the separation invariant forbids;
++    b) the reading channel (d_hidden dims against 9 feature dims) drowns the features and the
++       head overfits reading noise - generic overfit, no memorisation needed.
++  --frozen-trunk separates them: it keeps the reading but stops the trunk from learning, so
++  (a) predicts frozen-hidden recovers to nohid while (b) predicts it stays broken. The
++  head_input_norms block in the decision JSON reports how much of the head's first layer
++  serves each channel, which says how much room (b) even has.
++
+   python _stage286_evidence.py --smoke
+   python _stage286_evidence.py --train-steps 6000 --min-mentions 2
+   python _stage286_evidence.py --train-steps 6000 --min-mentions 2 --no-hidden
+@@ -552,6 +589,22 @@ def main() -> int:
+     model.eval()
+     arc1 = s271.arc_enc_hash(model)
+ 
++    # How the head's first layer splits between the reading and the nine features, per input
++    # dimension so 512 columns do not out-count 9 by construction. A diagnostic, never a gate:
++    # if the reading arm fails while this shows the reading columns carrying most of the norm,
++    # the drowning hypothesis has room; if the feature columns dominate and the arm still
++    # fails, the damage came through the trunk's own drift, not through the head's weighting.
++    with torch.no_grad():
++        w0 = net.f[0].weight
++        head_norms = {
++            "reading": float(w0[:, :d_hidden].norm()) if d_hidden else 0.0,
++            "features": float(w0[:, d_hidden:].norm()),
++            "reading_per_dim": (float(w0[:, :d_hidden].norm()) / math.sqrt(d_hidden)
++                                if d_hidden else 0.0),
++            "features_per_dim": float(w0[:, d_hidden:].norm()) / math.sqrt(N_FEAT),
++        }
++    log(f"  HEAD NORMS {json.dumps(head_norms)}")
++
+     # ---------------------------------------------------------------- score: three examiners
+     @torch.no_grad()
+     def leave_one_out(p, lie: bool):
+@@ -762,7 +815,7 @@ def main() -> int:
+             "G_beats_silence": g_beats_silence,
+         },
+         "judges_compared": live_judges, "judges_compared_lie": lie_judges,
+-        "train_distribution": train_dist,
++        "train_distribution": train_dist, "head_input_norms": head_norms,
+         "leave_one_out": loo, "leave_one_out_train_control": loo_train,
+         "lying_tape": lied, "exam": ex_out, "curve": curve,
+         "arc_enc_hash_before": arc0, "arc_enc_hash_after": arc1,
+@@ -773,6 +826,15 @@ def main() -> int:
+             "return_reward": 0.754, "unknown_when_absent": 0.000,
+             "unknown_when_present": 0.218, "exam_reward": 0.777, "exam_votes_reward": 0.932,
+             "note": "scored by the examiners this file replaces; not comparable term by term"},
++        "reference_286_ablation_pair_gen2": {
++            "code": "second-generation examiners, item-uniform sampler, no train control",
++            "nohid": {"overall": "EVIDENCE_PARTIAL", "loo_accuracy": 0.641,
++                      "loo_coverage": 0.557, "unknown_auc": 0.412, "selective_10pct": 1.0},
++            "hidden": {"overall": "EVIDENCE_NO", "loo_accuracy": 0.325,
++                       "loo_coverage": 0.571, "unknown_auc": 0.259, "selective_10pct": 0.286},
++            "note": "same tapes - judge numbers byte-identical between the runs. Reading "
++                    "halved accuracy at equal coverage and inverted the confidence ordering; "
++                    "the features-only ablation beat the arm carrying the stage's claim."},
+         "note": (
+             "The direction of teaching is inverted: nobody demonstrates, the tape is the label. "
+             "Hide one mention of an address, show the rest, require the hidden value - so there "
+-- 
+2.43.0
+

@@ -1,0 +1,16 @@
+{
+ "bytes": 30000000,
+ "frame_max": 3,
+ "sample": "region",
+ "min_fillers": 2,
+ "window_lines": 400,
+ "slots": 12162,
+ "questions": 1590,
+ "pairs_per_line": 4,
+ "both_offered": 0.05471698113207547,
+ "marginal_right": 0.1724137931034483,
+ "joint_seen": 0.11494252873563218,
+ "comp_only": 0.04150943396226415,
+ "comp_only_of_offered": 0.7586206896551724,
+ "pair_price_mean": 169.5496855345912
+}

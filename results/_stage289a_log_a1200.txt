@@ -1,0 +1,31 @@
+Stage289a presupposition start 2026-08-09T10:04:51.124127+00:00 device=cuda holdout=corpus
+  tape: 104 addresses, 248 slots | questions {"ok": 104, "wrong_relation": 18, "false_premise": 104, "contested": 33} | params 5572
+  step 750/6000 loss=0.5845
+  step 1500/6000 loss=0.4414
+  step 2250/6000 loss=0.6147
+  step 3000/6000 loss=0.4199
+  step 3750/6000 loss=0.6511
+  step 4500/6000 loss=0.5631
+  step 5250/6000 loss=0.4878
+  step 6000/6000 loss=0.8051
+  CONTROL {"n": 253, "model_accuracy": 0.8221343873517787, "rival_accuracy": 0.6837944664031621, "majority_floor": 0.41106719367588934, "per_verdict": {"ok": {"n": 104, "model_recall": 0.625, "rival_recall": 0.6826923076923077}, "wrong_relation": {"n": 16, "model_recall": 0.625, "rival_recall": 0.0}, "contested": {"n": 33, "model_recall": 1.0, "rival_recall": 1.0}, "false_premise": {"n": 100, "model_recall": 1.0, "rival_recall": 0.69}}, "blind_pair": {"n": 120, "model_accuracy": 0.625, "rival_accuracy": 0.8666666666666667, "majority_floor": 0.8666666666666667}, "confusion": {"contested->contested": 33, "false_premise->false_premise": 100, "ok->ok": 65, "ok->wrong_relation": 39, "wrong_relation->ok": 6, "wrong_relation->wrong_relation": 10}}
+  HELD {"n": 90, "model_accuracy": 0.8111111111111111, "rival_accuracy": 0.6666666666666666, "majority_floor": 0.4222222222222222, "per_verdict": {"ok": {"n": 38, "model_recall": 0.6578947368421053, "rival_recall": 0.6842105263157895}, "wrong_relation": {"n": 6, "model_recall": 0.3333333333333333, "rival_recall": 0.0}, "contested": {"n": 12, "model_recall": 1.0, "rival_recall": 1.0}, "false_premise": {"n": 34, "model_recall": 1.0, "rival_recall": 0.6470588235294118}}, "blind_pair": {"n": 44, "model_accuracy": 0.6136363636363636, "rival_accuracy": 0.8636363636363636, "majority_floor": 0.8636363636363636}, "confusion": {"contested->contested": 12, "false_premise->false_premise": 34, "ok->ok": 25, "ok->wrong_relation": 13, "wrong_relation->ok": 4, "wrong_relation->wrong_relation": 2}}
+{
+  "overall": "PRESUPPOSITION_PARTIAL",
+  "gates": {
+    "G_arc_enc_frozen": true,
+    "G_task_exists": true,
+    "G_beats_counting_rival": true,
+    "G_beats_majority_floor": true,
+    "G_catches_wrong_relation": true,
+    "G_does_not_cry_wolf": false,
+    "G_separates_blind_pair": false
+  },
+  "model": 0.8111111111111111,
+  "rival": 0.6666666666666666,
+  "wrong_relation": {
+    "n": 6,
+    "model_recall": 0.3333333333333333,
+    "rival_recall": 0.0
+  }
+}

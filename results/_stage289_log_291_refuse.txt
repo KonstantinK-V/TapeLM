@@ -1,0 +1,6 @@
+Stage289 derivation start 2026-08-11T22:54:41.657558+00:00 device=cuda holdout=corpus
+  lines: train 127626, eval 54697 (the probe reserves ANCHORS, not lines - see `reserved`)
+  word rule matches stage194: True  (rule=ascii, fp=hash, ink=mean)
+  hash ink deterministic and digest-faithful: True  {'anagram_cos': -0.0135, 'perm_fixed_points': 1}
+  tape: 1217 addresses, 1355 slots | questions {"lookup": 324, "count": 69, "compare": 34} | params 5697
+  ladder coverage: 0/324 lookup questions have all three rungs; the rest train on the task term alone

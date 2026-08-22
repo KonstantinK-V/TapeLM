@@ -1,0 +1,72 @@
+{
+ "1337": {
+  "seed": 1337,
+  "corpus": "data\\_tinystories_raw_scale.txt",
+  "by_budget": {
+   "4": {
+    "hunt": 0.0575,
+    "rand": 0.026,
+    "lift": 0.0315,
+    "n_windows": 2000,
+    "elapsed_s": 184.3
+   },
+   "8": {
+    "hunt": 0.1135,
+    "rand": 0.055,
+    "lift": 0.0585,
+    "n_windows": 2000,
+    "elapsed_s": 212.7
+   },
+   "16": {
+    "hunt": 0.141,
+    "rand": 0.0995,
+    "lift": 0.0415,
+    "n_windows": 2000,
+    "elapsed_s": 295.0
+   },
+   "32": {
+    "hunt": 0.329,
+    "rand": 0.1915,
+    "lift": 0.1375,
+    "n_windows": 2000,
+    "elapsed_s": 402.1
+   }
+  },
+  "note": "lift vs budget size"
+ },
+ "7": {
+  "seed": 7,
+  "corpus": "data\\_tinystories_raw_scale.txt",
+  "by_budget": {
+   "4": {
+    "hunt": 0.0295,
+    "rand": 0.022,
+    "lift": 0.0075,
+    "n_windows": 2000,
+    "elapsed_s": 180.2
+   },
+   "8": {
+    "hunt": 0.144,
+    "rand": 0.0535,
+    "lift": 0.0905,
+    "n_windows": 2000,
+    "elapsed_s": 220.7
+   },
+   "16": {
+    "hunt": 0.1735,
+    "rand": 0.1085,
+    "lift": 0.065,
+    "n_windows": 2000,
+    "elapsed_s": 292.7
+   },
+   "32": {
+    "hunt": 0.359,
+    "rand": 0.195,
+    "lift": 0.164,
+    "n_windows": 2000,
+    "elapsed_s": 390.2
+   }
+  },
+  "note": "lift vs budget size"
+ }
+}

@@ -1,0 +1,47 @@
+﻿
+2026-08-16 10:57:04 336 native-news vs wiki-rival; 337 free on those runs; then 338 retain x4 rules on news with wiki mind
+2026-08-16 10:57:04 ==== BLOCK 336: native news + --rival-mind wiki320 (also yields 337 RANK) ====
+2026-08-16 10:57:04 ==== 336news_s1337 rival=minds/320_wiki_s1337.pt ====
+2026-08-16 11:03:48 OK 336news_s1337
+2026-08-16 11:03:48 ==== 336news_s8642 rival=minds/320_wiki_s8642.pt ====
+2026-08-16 11:10:21 OK 336news_s8642
+2026-08-16 11:10:21 ==== 336news_s2890 rival=minds/320_wiki_s2890.pt ====
+2026-08-16 11:16:44 OK 336news_s2890
+2026-08-16 11:16:44 ==== 336news_s4711 rival=minds/320_wiki_s4711.pt ====
+2026-08-16 11:23:07 OK 336news_s4711
+2026-08-16 11:23:07 ==== _read299 336/337 ====
+2026-08-16 11:23:08 ==== BLOCK 338: --retain 750 on news, rules random/own/share/mind ====
+2026-08-16 11:23:08 ==== 338random_s1337 retain=750 by=random ====
+2026-08-16 11:25:12 OK 338random_s1337
+2026-08-16 11:25:12 ==== 338random_s8642 retain=750 by=random ====
+2026-08-16 11:27:20 OK 338random_s8642
+2026-08-16 11:27:20 ==== 338random_s2890 retain=750 by=random ====
+2026-08-16 11:29:28 OK 338random_s2890
+2026-08-16 11:29:28 ==== 338random_s4711 retain=750 by=random ====
+2026-08-16 11:31:34 OK 338random_s4711
+2026-08-16 11:31:34 ==== 338own_s1337 retain=750 by=own ====
+2026-08-16 11:33:41 OK 338own_s1337
+2026-08-16 11:33:41 ==== 338own_s8642 retain=750 by=own ====
+2026-08-16 11:35:44 OK 338own_s8642
+2026-08-16 11:35:45 ==== 338own_s2890 retain=750 by=own ====
+2026-08-16 11:37:44 OK 338own_s2890
+2026-08-16 11:37:44 ==== 338own_s4711 retain=750 by=own ====
+2026-08-16 11:39:48 OK 338own_s4711
+2026-08-16 11:39:48 ==== 338share_s1337 retain=750 by=share ====
+2026-08-16 11:42:01 OK 338share_s1337
+2026-08-16 11:42:01 ==== 338share_s8642 retain=750 by=share ====
+2026-08-16 11:44:06 OK 338share_s8642
+2026-08-16 11:44:06 ==== 338share_s2890 retain=750 by=share ====
+2026-08-16 11:46:08 OK 338share_s2890
+2026-08-16 11:46:08 ==== 338share_s4711 retain=750 by=share ====
+2026-08-16 11:48:13 OK 338share_s4711
+2026-08-16 11:48:13 ==== 338mind_s1337 retain=750 by=mind ====
+2026-08-16 11:51:07 OK 338mind_s1337
+2026-08-16 11:51:07 ==== 338mind_s8642 retain=750 by=mind ====
+2026-08-16 11:54:03 OK 338mind_s8642
+2026-08-16 11:54:03 ==== 338mind_s2890 retain=750 by=mind ====
+2026-08-16 11:56:53 OK 338mind_s2890
+2026-08-16 11:56:53 ==== 338mind_s4711 retain=750 by=mind ====
+2026-08-16 11:59:47 OK 338mind_s4711
+2026-08-16 11:59:47 ==== _read338 retention ====
+2026-08-16 11:59:47 DONE 336+337+338

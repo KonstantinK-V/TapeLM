@@ -1,0 +1,11 @@
+﻿
+2026-08-20 17:29:01 415 EXTERNAL as-is: frozen 412ref_ce minds on NEWS tape. No retrain. No new levers.
+2026-08-20 17:29:01 Corpus: data/_stage254_news.txt. Same rawlit readout (ge2 / one). Seeds 1337 8642 2890.
+2026-08-20 17:29:01 ==== EXTERNAL 415ext_news_s1337  load out/_mind_constr_412ref_ce_s1337.pt ====
+2026-08-20 17:30:26 OK 415ext_news_s1337
+2026-08-20 17:30:26 ==== EXTERNAL 415ext_news_s8642  load out/_mind_constr_412ref_ce_s8642.pt ====
+2026-08-20 17:31:57 OK 415ext_news_s8642
+2026-08-20 17:31:57 ==== EXTERNAL 415ext_news_s2890  load out/_mind_constr_412ref_ce_s2890.pt ====
+2026-08-20 17:33:22 OK 415ext_news_s2890
+2026-08-20 17:33:22 ==== external verdict ====
+2026-08-20 17:33:22 DONE 415 external news

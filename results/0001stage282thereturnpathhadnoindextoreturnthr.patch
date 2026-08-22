@@ -1,0 +1,156 @@
+From b1e48fe897abc2f041edd88c726afb11db8b2d84 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Fri, 7 Aug 2026 02:18:04 +0000
+Subject: [PATCH] stage 282: the return path had no index to return through
+
+The probe asked the tape about a value and looked for the subject in what
+came back. It never came back: the main posting list is built with the
+slot's own value excluded, so the words of a value can never retrieve the
+slot that holds it. probe_hit_rate was 0.000 by construction, and the
+teacher treated a miss as a veto, so it fell silent on every family -
+clean included - and BC copied that silence into the policy: coverage
+0.016 on the train tape, 0.035 held out, on an exam where 280 answered
+54%.
+
+Three changes. The probe gets its own index that does not hide values,
+and only the probe reads it, so a question still cannot retrieve its own
+answer. A probe miss weakens a claim instead of vetoing it: with a lead
+of two or more the teacher answers anyway, which also fills the miss
+bucket that G_probe_filters_wrong_answers needs in order to compare.
+And two gates could not see the collapse - a teacher abstaining on
+everything scores the abstain reward on everything, which cleared
+G_teacher_usable, and a policy matching it by being equally silent
+cleared G_reaches_teacher. Both now ask about answering, not only
+about reward.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01PGuqHAMhjCxVAADm3R4wxK
+---
+ _stage280_raw_exam.py | 17 +++++++++++++++--
+ _stage282_mind.py     | 31 ++++++++++++++++++++++++-------
+ 2 files changed, 39 insertions(+), 9 deletions(-)
+
+diff --git a/_stage280_raw_exam.py b/_stage280_raw_exam.py
+index 49c5b07..4fe55c8 100644
+--- a/_stage280_raw_exam.py
++++ b/_stage280_raw_exam.py
+@@ -118,14 +118,24 @@ def pack_from_corpus(lines, *, bank, tok, pad_id, device, rng, n_addr, min_menti
+         texts.append(a["ctx"])
+ 
+     postings: dict[str, list[int]] = defaultdict(list)
++    # A second index that does NOT hide the value words. The main index excludes them so a
++    # question cannot retrieve its own answer; but that exclusion also makes the RETURN path
++    # impossible - asking the tape about a value can never reach the slot that holds it. The
++    # probe needs its own index, and only the probe may read it.
++    postings_probe: dict[str, list[int]] = defaultdict(list)
+     for cid, t in enumerate(texts):
+         for w in context_words(t, exclude=vals[cid]):
+             postings[w].append(cid)
++        for w in context_words(t):
++            postings_probe[w].append(cid)
+     n_slots = len(vals)
+     if idf_mode == "classic":
+         idf = {w: math.log(max(2.0, n_slots / max(1, len(postings[w])))) for w in postings}
++        idf_probe = {w: math.log(max(2.0, n_slots / max(1, len(postings_probe[w]))))
++                     for w in postings_probe}
+     else:
+         idf = {w: 1.0 / math.log(2.0 + len(postings[w])) for w in postings}
++        idf_probe = {w: 1.0 / math.log(2.0 + len(postings_probe[w])) for w in postings_probe}
+ 
+     items = []
+     for addr in addrs:
+@@ -181,6 +191,7 @@ def pack_from_corpus(lines, *, bank, tok, pad_id, device, rng, n_addr, min_menti
+     return {
+         "tape": TapeView(torch.stack(keys, 0).to(device), vals, tok, pad_id),
+         "texts": texts, "items": items, "postings": postings, "idf": idf,
++        "postings_probe": postings_probe, "idf_probe": idf_probe,
+         "addr_keys": (F.normalize(torch.stack(akey).float(), dim=-1).to(device)
+                       if akey else None),
+         "addr_slots": aslots, "bank": bank,
+@@ -192,7 +203,7 @@ def pack_from_corpus(lines, *, bank, tok, pad_id, device, rng, n_addr, min_menti
+ # --------------------------------------------------------- retrieval: words, then the ink's hop
+ 
+ def retrieve(pack, words, k, hop: str, item=None, subject_filter=False, hop_min=0.0,
+-             k_gap: float = 0.0):
++             k_gap: float = 0.0, index: str = "main"):
+     """Votes decide. The address proposes, and only where the votes had little to say.
+ 
+     The first trigger was "no candidates", which never fired: votes always return k slots, they
+@@ -200,7 +211,9 @@ def retrieve(pack, words, k, hop: str, item=None, subject_filter=False, hop_min=
+     the hop fires on a low top score or a short list, and its slots are APPENDED behind the
+     votes rather than replacing them. The exact channel keeps the front of the ranking.
+     """
+-    cands, sc = s271.vote(words, pack["postings"], pack["idf"], k)
++    post = pack["postings"] if index == "main" else pack.get("postings_probe", pack["postings"])
++    idfs = pack["idf"] if index == "main" else pack.get("idf_probe", pack["idf"])
++    cands, sc = s271.vote(words, post, idfs, k)
+     top = max((sc.get(c, 0.0) for c in cands), default=0.0)
+     used_hop = False
+     if hop == "fp" and pack["addr_keys"] is not None and words and (
+diff --git a/_stage282_mind.py b/_stage282_mind.py
+index 3accc33..b392e13 100644
+--- a/_stage282_mind.py
++++ b/_stage282_mind.py
+@@ -272,11 +272,17 @@ def teacher(pack, st, acts, item, max_steps, max_reads):
+     if idx is None:
+         return acts.STOP_UNKNOWN
+     # the return path: ask the tape about the value before answering with it
+-    if st["ret_ok"].get(cands[idx], -1.0) < 0 and st["probes"] < st["max_probes"] \
+-            and (st["n_reads"] + 2) <= max_steps:
++    ret = st["ret_ok"].get(cands[idx], -1.0)
++    if ret < 0 and st["probes"] < st["max_probes"] and (st["n_reads"] + 2) <= max_steps:
+         return acts.ASK_VALUE + idx
+-    if st["ret_ok"].get(cands[idx], -1.0) == 0.0:
+-        return acts.STOP_UNKNOWN                     # nothing leads back: not corroborated
++    if ret == 0.0 and lead - second < 2:
++        # Nothing leads back. That WEAKENS the claim, it does not replace the count - a probe
++        # that vetoes is a probe that decides alone, and the first run showed what that costs:
++        # the teacher fell silent on every family, clean included. So a miss only matters where
++        # the count was thin; a lead of two or more still answers and the gate can now compare
++        # accuracy across hit and miss, which a veto made impossible by leaving the miss bucket
++        # empty.
++        return acts.STOP_UNKNOWN
+     return acts.ANSWER + idx
+ 
+ 
+@@ -340,7 +346,8 @@ def rollout(policy, model, char_table, tok, pack, item, pad_id, device, acts, *,
+             slot = st["cands"][i]
+             keep_c, keep_s = st["cands"], st["sc"]
+             val_words = context_words(pack["tape"].values[slot]) or [pack["tape"].values[slot]]
+-            back, _, _ = s280.retrieve(pack, val_words, k, hop, None, False, hop_min, k_gap)
++            back, _, _ = s280.retrieve(pack, val_words, k, hop, None, False, hop_min, k_gap,
++                                       index="probe")
+             st["ret_ok"][slot] = float(any(item["S"] in pack["texts"][c] for c in back))
+             st["cands"], st["sc"] = keep_c, keep_s
+             st["probes"] += 1
+@@ -647,6 +654,9 @@ def main() -> int:
+                       "teacher_acc_all": m(tper[f]["correct"])}
+         out["coverage_all"] = an / max(1, len(p["items"]))
+         out["acc_answered_all"] = ac / max(1, an)
++        out["teacher_coverage_all"] = sum(
++            len(tper[f]["abstain"]) - sum(tper[f]["abstain"]) for f in FAMILIES
++        ) / max(1, len(p["items"]))
+         return out
+ 
+     train_eval = evaluate(pack)
+@@ -658,8 +668,15 @@ def main() -> int:
+     g_arc = arc0 == arc1
+     g_slot = novel["answer_is_slot"] >= 0.99
+     g_families = all(novel[f]["n"] >= 4 for f in FAMILIES)
+-    g_teacher = ceiling >= 0.5 * args.abstain_reward
+-    g_reaches = novel["reward_total"] >= ceiling - 0.10
++    # A teacher that abstains on everything scores the abstain reward on everything, and the
++    # reward threshold alone called that "usable" while it answered nothing. The ceiling is
++    # only a ceiling if something reaches it by answering, so the gate now also asks whether
++    # the teacher ever answers where the address is settled. Same for the policy: matching a
++    # silent teacher by being silent is not reaching it.
++    g_teacher = (ceiling >= 0.5 * args.abstain_reward
++                 and (1.0 - novel["clean"]["teacher_abstain"]) >= 0.50)
++    g_reaches = (novel["reward_total"] >= ceiling - 0.10
++                 and novel["coverage_all"] >= 0.5 * novel["teacher_coverage_all"])
+     g_typed = (novel["conflict_when_tie"] >= 0.60
+                and (math.isnan(novel["unknown_when_silent"])
+                     or novel["unknown_when_silent"] >= 0.50))
+-- 
+2.43.0
+

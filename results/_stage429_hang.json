@@ -1,0 +1,59 @@
+{
+ "1337": {
+  "seed": 1337,
+  "n_offered": 45,
+  "n_comp_only": 28,
+  "ceil": {
+   "hang428": 0.0011550678107054894,
+   "jaccard": 0.006579276720507157,
+   "cosine": 0.0077875144436575176
+  },
+  "best_algebra": 0.0077875144436575176,
+  "k": 8,
+  "working_cells": 0,
+  "feat": "hang428,jaccard,cosine,log_eA,log_eB,log_cross",
+  "void": false,
+  "go_algebra": false,
+  "gate": false,
+  "exam_comp": 10,
+  "mind_gt_maj": 0.5,
+  "d_score": -0.6286538720130921
+ },
+ "8642": {
+  "seed": 8642,
+  "n_offered": 56,
+  "n_comp_only": 38,
+  "ceil": {
+   "hang428": 0.0007437164107214372,
+   "jaccard": 0.054930271606138684,
+   "cosine": 0.06078206786590098
+  },
+  "best_algebra": 0.06078206786590098,
+  "k": 8,
+  "working_cells": 0,
+  "feat": "hang428,jaccard,cosine,log_eA,log_eB,log_cross",
+  "void": false,
+  "go_algebra": true,
+  "gate": false
+ },
+ "2890": {
+  "seed": 2890,
+  "n_offered": 53,
+  "n_comp_only": 41,
+  "ceil": {
+   "hang428": 0.0005780182926853168,
+   "jaccard": -0.021283438053940073,
+   "cosine": -0.016694745983355075
+  },
+  "best_algebra": 0.0005780182926853168,
+  "k": 8,
+  "working_cells": 0,
+  "feat": "hang428,jaccard,cosine,log_eA,log_eB,log_cross",
+  "void": false,
+  "go_algebra": false,
+  "gate": false,
+  "exam_comp": 14,
+  "mind_gt_maj": 0.35714285714285715,
+  "d_score": -0.17606012203863688
+ }
+}

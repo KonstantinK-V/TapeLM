@@ -1,0 +1,4 @@
+﻿
+2026-08-15 00:45:18 322 RERUN after 325 arrival: depth option on arrival only (not reason to leave); read step first
+2026-08-15 00:45:18 ==== 322_s1337 --reach-depth 2 (325 bookkeeping) ====
+2026-08-15 00:50:50 FAIL 322_s1337 exit -1

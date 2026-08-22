@@ -1,0 +1,19 @@
+1 N(a) = ['fp1:kostya|played for', 'fp2:register|born in']
+  deterministic, excludes itself, non-empty: True
+  anchor route hit: True   relation route hit: True
+4 sparse question: rows [1, 2, 3, 0] query_row 3 own [1]  conventions kept: True
+  candidates ['Kaluga', 'Spartak', '\x00REFUSE']  answerable False  label 2
+C:\Users\Kostya\sote-letter-assembly\_stage289_derivation.py:1311: UserWarning: index_reduce() is in beta and the API may change at any time. (Triggered internally at C:\actions-runner\_work\pytorch\pytorch\pytorch\aten\src\ATen\native\TensorAdvancedIndexing.cpp:1218.)
+  mean_r = torch.zeros(len(uniq)).index_reduce_(0, inv, r, "mean", include_self=False)
+2 view_of          drops the cached base: True
+2 region_views_of  drops the cached base: True
+3 cached graph == freshly built graph, every candidate (torch.equal): True
+5 refusal world == unknown-query-row world: True   query row has no value share and no same-value edge: True
+  Phi scores it like any candidate: +0.0000
+6 widening 3 -> 5 edge channels is function-identical: True  (+0.000000 vs +0.000000)
+
+-- 292 --
+7 open questions built on the toy tape: 0
+  (toy tape supplied none - the real check is `open.n` in the run report)
+
+SPARSE OK

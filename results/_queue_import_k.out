@@ -1,0 +1,7 @@
+﻿
+2026-08-10 17:18:39 import-k ablation: exact2 (k=0 control) then import2 (k=2); 289 only, --no-ladder
+2026-08-10 17:18:39 289 exact2 --import-k 0
+2026-08-10 19:10:04 EXIT_exact2=0
+2026-08-10 19:10:04 289 import2 --import-k 2
+2026-08-10 21:30:09 EXIT_import2=0
+2026-08-10 21:30:09 QUEUE_DONE

@@ -1,0 +1,30 @@
+﻿
+2026-08-14 22:39:40 321: bisect x4 wiki, then finetune news x4 + tiny x4 (separate arm, not pooled with 320)
+2026-08-14 22:39:40 ==== 321bis_s1337 --bisect ====
+2026-08-14 22:47:06 OK 321bis_s1337
+2026-08-14 22:47:06 ==== 321bis_s8642 --bisect ====
+2026-08-14 22:54:53 OK 321bis_s8642
+2026-08-14 22:54:53 ==== 321bis_s2890 --bisect ====
+2026-08-14 23:02:46 OK 321bis_s2890
+2026-08-14 23:02:46 ==== 321bis_s4711 --bisect ====
+2026-08-14 23:10:20 OK 321bis_s4711
+2026-08-14 23:10:20 ==== 321ft_news_s1337 --finetune load minds/320_wiki_s1337.pt wiki=data\_stage254_news.txt ====
+2026-08-14 23:16:39 OK 321ft_news_s1337
+2026-08-14 23:16:39 ==== 321ft_news_s8642 --finetune load minds/320_wiki_s8642.pt wiki=data\_stage254_news.txt ====
+2026-08-14 23:22:45 OK 321ft_news_s8642
+2026-08-14 23:22:45 ==== 321ft_news_s2890 --finetune load minds/320_wiki_s2890.pt wiki=data\_stage254_news.txt ====
+2026-08-14 23:28:45 OK 321ft_news_s2890
+2026-08-14 23:28:45 ==== 321ft_news_s4711 --finetune load minds/320_wiki_s4711.pt wiki=data\_stage254_news.txt ====
+2026-08-14 23:34:53 OK 321ft_news_s4711
+2026-08-14 23:34:53 ==== 321ft_tiny_s1337 --finetune load minds/320_wiki_s1337.pt wiki=data\_tinystories_raw_scale.txt ====
+2026-08-14 23:40:38 OK 321ft_tiny_s1337
+2026-08-14 23:40:38 ==== 321ft_tiny_s8642 --finetune load minds/320_wiki_s8642.pt wiki=data\_tinystories_raw_scale.txt ====
+2026-08-14 23:46:15 OK 321ft_tiny_s8642
+2026-08-14 23:46:15 ==== 321ft_tiny_s2890 --finetune load minds/320_wiki_s2890.pt wiki=data\_tinystories_raw_scale.txt ====
+2026-08-14 23:51:43 OK 321ft_tiny_s2890
+2026-08-14 23:51:43 ==== 321ft_tiny_s4711 --finetune load minds/320_wiki_s4711.pt wiki=data\_tinystories_raw_scale.txt ====
+2026-08-14 23:57:50 OK 321ft_tiny_s4711
+2026-08-14 23:57:50 ==== _read299 bisect ====
+2026-08-14 23:57:50 ==== _read299 ft news (own arm) ====
+2026-08-14 23:57:50 ==== _read299 ft tiny (own arm) ====
+2026-08-14 23:57:50 DONE

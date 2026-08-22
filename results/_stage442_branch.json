@@ -1,0 +1,53 @@
+{
+ "1337": {
+  "seed": 1337,
+  "void": false,
+  "gate": true,
+  "n": 20,
+  "n_p": 3,
+  "n_q": 4,
+  "n_places": 5,
+  "h1_apples": 1.0,
+  "h2_sweet": 1.0,
+  "hop2_rate": 1.0,
+  "hop3_rate": 0.0,
+  "refuse_h3": 1.0,
+  "two_cands": 1.0,
+  "picked_fresh_or_dry": 0.0,
+  "refuse_q": 1.0
+ },
+ "8642": {
+  "seed": 8642,
+  "void": false,
+  "gate": true,
+  "n": 20,
+  "n_p": 3,
+  "n_q": 4,
+  "n_places": 5,
+  "h1_apples": 1.0,
+  "h2_sweet": 1.0,
+  "hop2_rate": 1.0,
+  "hop3_rate": 0.0,
+  "refuse_h3": 1.0,
+  "two_cands": 1.0,
+  "picked_fresh_or_dry": 0.0,
+  "refuse_q": 1.0
+ },
+ "2890": {
+  "seed": 2890,
+  "void": false,
+  "gate": true,
+  "n": 20,
+  "n_p": 3,
+  "n_q": 4,
+  "n_places": 5,
+  "h1_apples": 1.0,
+  "h2_sweet": 1.0,
+  "hop2_rate": 1.0,
+  "hop3_rate": 0.0,
+  "refuse_h3": 1.0,
+  "two_cands": 1.0,
+  "picked_fresh_or_dry": 0.0,
+  "refuse_q": 1.0
+ }
+}

@@ -1,0 +1,44 @@
+{
+ "1337": {
+  "seed": 1337,
+  "corpus": "C:\\Users\\Kostya\\AppData\\Local\\Programs\\Python\\Python311\\Lib",
+  "files": 167,
+  "bodies": 2923,
+  "skipped_no_keys": 1170,
+  "random": 0.7776257269928156,
+  "return": 0.7776257269928156,
+  "unblocks": 0.7776257269928156,
+  "unblocks_minus_random": 0.0,
+  "unblocks_minus_return": 0.0,
+  "void": false,
+  "gate": false
+ },
+ "8642": {
+  "seed": 8642,
+  "corpus": "C:\\Users\\Kostya\\AppData\\Local\\Programs\\Python\\Python311\\Lib",
+  "files": 167,
+  "bodies": 2923,
+  "skipped_no_keys": 1170,
+  "random": 0.7776257269928156,
+  "return": 0.7776257269928156,
+  "unblocks": 0.7776257269928156,
+  "unblocks_minus_random": 0.0,
+  "unblocks_minus_return": 0.0,
+  "void": false,
+  "gate": false
+ },
+ "2890": {
+  "seed": 2890,
+  "corpus": "C:\\Users\\Kostya\\AppData\\Local\\Programs\\Python\\Python311\\Lib",
+  "files": 167,
+  "bodies": 2923,
+  "skipped_no_keys": 1170,
+  "random": 0.7776257269928156,
+  "return": 0.7776257269928156,
+  "unblocks": 0.7776257269928156,
+  "unblocks_minus_random": 0.0,
+  "unblocks_minus_return": 0.0,
+  "void": false,
+  "gate": false
+ }
+}

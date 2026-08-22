@@ -1,0 +1,12 @@
+﻿2026-08-12T17:49:28.5913039+03:00 298a: frames write (exact, no tau); cos+k to Phi; mixed open reward
+2026-08-12T18:06:59.5359384+03:00 EXIT_298a=1
+2026-08-12T19:05:21.6257444+03:00 298a: frames write (exact, no tau); cos+k to Phi; mixed open reward
+2026-08-12T19:19:30.5309391+03:00 EXIT_298a=1
+2026-08-12T19:20:56.8440694+03:00 298a: frames write (exact, no tau); cos+k to Phi; mixed open reward
+2026-08-12T20:34:52.2230430+03:00 STOPPED_by_user (hung after step 750, GPU idle)
+2026-08-12T20:52:55.9509508+03:00 298a: frames tape + priced route + mixed (whole construction)
+2026-08-12T21:00:18.7199814+03:00 STOPPED_for_fix_route_frame_max3
+2026-08-12T21:01:16.6582822+03:00 298a: frames+route cheaper (frame-max 3, no wasted cand_logits)
+2026-08-12T21:11:47.1758699+03:00 STOPPED_for_frames_live
+2026-08-12T21:12:44.6031733+03:00 298a: frames LIVE (fps+nfill) + route, frame-max 3
+2026-08-12T21:36:04.6050676+03:00 EXIT_298a=0

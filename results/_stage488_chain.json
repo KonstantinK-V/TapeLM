@@ -1,0 +1,95 @@
+{
+ "1337": {
+  "seed": 1337,
+  "corpus": "data\\_tinystories_raw_scale.txt",
+  "steps": 3000,
+  "n_windows": 3000,
+  "elapsed_s": 559.9,
+  "partial": false,
+  "find_h": 0.13866666666666666,
+  "find_r": 0.09866666666666667,
+  "soft_h": 0.036333333333333336,
+  "soft_r": 0.025333333333333333,
+  "chain_h": 0.011,
+  "chain_r": 0.003,
+  "lift_find": 0.04,
+  "lift_soft": 0.011,
+  "lift_chain": 0.008,
+  "q_mark": {
+   "DEAD": -0.0705,
+   "LIVE": 0.1576
+  },
+  "n_pre_keys": 111,
+  "note": "unique->soft land->2nd hop; night freestyle"
+ },
+ "2024": {
+  "seed": 2024,
+  "corpus": "data\\_tinystories_raw_scale.txt",
+  "steps": 3000,
+  "n_windows": 3000,
+  "elapsed_s": 521.9,
+  "partial": false,
+  "find_h": 0.19033333333333333,
+  "find_r": 0.09966666666666667,
+  "soft_h": 0.055,
+  "soft_r": 0.023,
+  "chain_h": 0.011,
+  "chain_r": 0.004333333333333333,
+  "lift_find": 0.09066666666666667,
+  "lift_soft": 0.032,
+  "lift_chain": 0.006666666666666667,
+  "q_mark": {
+   "DEAD": -0.0634,
+   "LIVE": 0.121
+  },
+  "n_pre_keys": 103,
+  "note": "unique->soft land->2nd hop; night freestyle"
+ },
+ "7": {
+  "seed": 7,
+  "corpus": "data\\_tinystories_raw_scale.txt",
+  "steps": 3000,
+  "n_windows": 3000,
+  "elapsed_s": 467.1,
+  "partial": false,
+  "find_h": 0.23066666666666666,
+  "find_r": 0.099,
+  "soft_h": 0.06866666666666667,
+  "soft_r": 0.025333333333333333,
+  "chain_h": 0.014,
+  "chain_r": 0.005,
+  "lift_find": 0.13166666666666665,
+  "lift_soft": 0.043333333333333335,
+  "lift_chain": 0.009,
+  "q_mark": {
+   "DEAD": -0.0628,
+   "LIVE": 0.1245
+  },
+  "n_pre_keys": 104,
+  "note": "unique->soft land->2nd hop; night freestyle"
+ },
+ "42": {
+  "seed": 42,
+  "corpus": "data\\_tinystories_raw_scale.txt",
+  "steps": 3000,
+  "n_windows": 3000,
+  "elapsed_s": 425.6,
+  "partial": false,
+  "find_h": 0.24066666666666667,
+  "find_r": 0.1,
+  "soft_h": 0.06933333333333333,
+  "soft_r": 0.019666666666666666,
+  "chain_h": 0.018333333333333333,
+  "chain_r": 0.0026666666666666666,
+  "lift_find": 0.14066666666666666,
+  "lift_soft": 0.049666666666666665,
+  "lift_chain": 0.015666666666666666,
+  "q_mark": {
+   "LIVE": 0.1442,
+   "DEAD": -0.0661,
+   "SOFT": 0.5
+  },
+  "n_pre_keys": 104,
+  "note": "unique->soft land->2nd hop; night freestyle"
+ }
+}

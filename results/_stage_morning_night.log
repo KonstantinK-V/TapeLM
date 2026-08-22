@@ -1,0 +1,292 @@
+=== morning pack 2026-08-22T02:30:27 ===
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit491_shuffle.py --seed 2024 --steps 2500 --log-every 500
+491 shuffle control  corpus=data\_tinystories_raw_scale.txt  steps=2500
+  REAL 500/2500  hunt 0.196  rand 0.094  lift 0.102  q 75  71s
+  REAL 1000/2500  hunt 0.217  rand 0.110  lift 0.107  q 88  139s
+  REAL 1500/2500  hunt 0.224  rand 0.105  lift 0.119  q 92  207s
+  REAL 2000/2500  hunt 0.225  rand 0.100  lift 0.124  q 98  281s
+  REAL 2500/2500  hunt 0.238  rand 0.098  lift 0.141  q 99  360s
+  SHUF 500/2500  hunt 0.004  rand 0.002  lift 0.002  q 54  66s
+  SHUF 1000/2500  hunt 0.002  rand 0.002  lift 0.000  q 63  137s
+  SHUF 1500/2500  hunt 0.001  rand 0.001  lift 0.000  q 74  213s
+  SHUF 2000/2500  hunt 0.002  rand 0.002  lift 0.000  q 78  301s
+  SHUF 2500/2500  hunt 0.002  rand 0.002  lift 0.000  q 81  387s
+---- done ----
+REAL lift 0.1408  SHUF lift 0.0000  drop 0.1408
+wrote results\_stage491_shuffle.json
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit494_rarity.py --seed 1337 --steps 2500 --log-every 500
+494 rarity  corpus=data\_tinystories_raw_scale.txt
+  BASE 500/2500  hunt 0.240 rand 0.098 lift 0.142 q 72  60s
+  BASE 1000/2500  hunt 0.197 rand 0.106 lift 0.091 q 83  126s
+  BASE 1500/2500  hunt 0.199 rand 0.105 lift 0.094 q 91  202s
+  BASE 2000/2500  hunt 0.203 rand 0.104 lift 0.099 q 100  276s
+  BASE 2500/2500  hunt 0.197 rand 0.100 lift 0.097 q 102  354s
+  RARITY 500/2500  hunt 0.858 rand 0.116 lift 0.742 q 161  50s
+  RARITY 1000/2500  hunt 0.881 rand 0.111 lift 0.770 q 183  106s
+  RARITY 1500/2500  hunt 0.900 rand 0.109 lift 0.791 q 194  158s
+  RARITY 2000/2500  hunt 0.914 rand 0.107 lift 0.806 q 200  214s
+  RARITY 2500/2500  hunt 0.924 rand 0.106 lift 0.818 q 202  266s
+BASE lift 0.0972  RARITY 0.8184  delta 0.7212
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit494_rarity.py --seed 2024 --steps 2500 --log-every 500
+494 rarity  corpus=data\_tinystories_raw_scale.txt
+  BASE 500/2500  hunt 0.196 rand 0.094 lift 0.102 q 75  61s
+  BASE 1000/2500  hunt 0.217 rand 0.110 lift 0.107 q 88  129s
+  BASE 1500/2500  hunt 0.224 rand 0.105 lift 0.119 q 92  200s
+  BASE 2000/2500  hunt 0.225 rand 0.100 lift 0.124 q 98  273s
+  BASE 2500/2500  hunt 0.238 rand 0.098 lift 0.141 q 99  347s
+  RARITY 500/2500  hunt 0.882 rand 0.082 lift 0.800 q 151  49s
+  RARITY 1000/2500  hunt 0.909 rand 0.090 lift 0.819 q 174  104s
+  RARITY 1500/2500  hunt 0.925 rand 0.090 lift 0.835 q 186  154s
+  RARITY 2000/2500  hunt 0.935 rand 0.097 lift 0.839 q 189  205s
+  RARITY 2500/2500  hunt 0.944 rand 0.098 lift 0.847 q 191  256s
+BASE lift 0.1408  RARITY 0.8468  delta 0.7060
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit494_rarity.py --seed 7 --steps 2500 --log-every 500
+494 rarity  corpus=data\_tinystories_raw_scale.txt
+  BASE 500/2500  hunt 0.150 rand 0.110 lift 0.040 q 72  62s
+  BASE 1000/2500  hunt 0.137 rand 0.106 lift 0.031 q 86  134s
+  BASE 1500/2500  hunt 0.145 rand 0.109 lift 0.036 q 96  206s
+  BASE 2000/2500  hunt 0.151 rand 0.111 lift 0.041 q 102  282s
+  BASE 2500/2500  hunt 0.174 rand 0.109 lift 0.065 q 105  357s
+  RARITY 500/2500  hunt 0.884 rand 0.094 lift 0.790 q 150  50s
+  RARITY 1000/2500  hunt 0.908 rand 0.113 lift 0.795 q 168  106s
+  RARITY 1500/2500  hunt 0.921 rand 0.109 lift 0.812 q 172  156s
+  RARITY 2000/2500  hunt 0.935 rand 0.109 lift 0.827 q 178  207s
+  RARITY 2500/2500  hunt 0.944 rand 0.110 lift 0.834 q 182  260s
+BASE lift 0.0648  RARITY 0.8336  delta 0.7688
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit495_curriculum.py --seed 1337 --train-steps 2500 --eval-steps 1500 --log-every 500
+495 curriculum  corpus=data\_tinystories_raw_scale.txt
+  curric train 500 narrow_hit 0.516 q 60
+  curric train 1000 narrow_hit 0.625 q 69
+  curric train 1500 narrow_hit 0.684 q 70
+  curric train 2000 narrow_hit 0.719 q 72
+  curric train 2500 narrow_hit 0.740 q 73
+---- done ----
+curric lift 0.5687  scratch lift 0.1440  delta 0.4247
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit495_curriculum.py --seed 7 --train-steps 2500 --eval-steps 1500 --log-every 500
+495 curriculum  corpus=data\_tinystories_raw_scale.txt
+  curric train 500 narrow_hit 0.516 q 63
+  curric train 1000 narrow_hit 0.615 q 68
+  curric train 1500 narrow_hit 0.662 q 71
+  curric train 2000 narrow_hit 0.702 q 74
+  curric train 2500 narrow_hit 0.721 q 74
+---- done ----
+curric lift 0.4953  scratch lift 0.1107  delta 0.3847
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit496_const.py --seed 1337 --steps 2500 --log-every 500
+496 const ablation  corpus=data\_tinystories_raw_scale.txt
+  frac0.6 500/2500 hunt 0.240 rand 0.098 lift 0.142  65s
+  frac0.6 1000/2500 hunt 0.197 rand 0.106 lift 0.091  133s
+  frac0.6 1500/2500 hunt 0.199 rand 0.105 lift 0.094  203s
+  frac0.6 2000/2500 hunt 0.203 rand 0.104 lift 0.099  278s
+  frac0.6 2500/2500 hunt 0.197 rand 0.100 lift 0.097  365s
+  frac0.999 500/2500 hunt 0.000 rand 0.000 lift 0.000  65s
+  frac0.999 1000/2500 hunt 0.000 rand 0.000 lift 0.000  135s
+  frac0.999 1500/2500 hunt 0.000 rand 0.000 lift 0.000  211s
+  frac0.999 2000/2500 hunt 0.000 rand 0.000 lift 0.000  297s
+  frac0.999 2500/2500 hunt 0.000 rand 0.000 lift 0.000  383s
+soft lift 0.0972  const lift 0.0000
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit496_const.py --seed 2024 --steps 2500 --log-every 500
+496 const ablation  corpus=data\_tinystories_raw_scale.txt
+  frac0.6 500/2500 hunt 0.196 rand 0.094 lift 0.102  63s
+  frac0.6 1000/2500 hunt 0.217 rand 0.110 lift 0.107  128s
+  frac0.6 1500/2500 hunt 0.224 rand 0.105 lift 0.119  203s
+  frac0.6 2000/2500 hunt 0.225 rand 0.100 lift 0.124  277s
+  frac0.6 2500/2500 hunt 0.238 rand 0.098 lift 0.141  353s
+  frac0.999 500/2500 hunt 0.000 rand 0.000 lift 0.000  65s
+  frac0.999 1000/2500 hunt 0.000 rand 0.000 lift 0.000  142s
+  frac0.999 1500/2500 hunt 0.000 rand 0.000 lift 0.000  219s
+  frac0.999 2000/2500 hunt 0.000 rand 0.000 lift 0.000  301s
+  frac0.999 2500/2500 hunt 0.000 rand 0.000 lift 0.000  388s
+soft lift 0.1408  const lift 0.0000
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit496_const.py --seed 7 --steps 2500 --log-every 500
+496 const ablation  corpus=data\_tinystories_raw_scale.txt
+  frac0.6 500/2500 hunt 0.150 rand 0.110 lift 0.040  71s
+  frac0.6 1000/2500 hunt 0.137 rand 0.106 lift 0.031  139s
+  frac0.6 1500/2500 hunt 0.145 rand 0.109 lift 0.036  211s
+  frac0.6 2000/2500 hunt 0.151 rand 0.111 lift 0.041  287s
+  frac0.6 2500/2500 hunt 0.174 rand 0.109 lift 0.065  373s
+  frac0.999 500/2500 hunt 0.000 rand 0.000 lift 0.000  66s
+  frac0.999 1000/2500 hunt 0.000 rand 0.000 lift 0.000  136s
+  frac0.999 1500/2500 hunt 0.000 rand 0.000 lift 0.000  212s
+  frac0.999 2000/2500 hunt 0.000 rand 0.000 lift 0.000  300s
+  frac0.999 2500/2500 hunt 0.000 rand 0.000 lift 0.000  386s
+soft lift 0.0648  const lift 0.0000
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit497_refuse.py --seed 1337 --steps 3000 --log-every 500
+497 refuse  corpus=data\_tinystories_raw_scale.txt
+  step 500/3000  go 0.212  go_acc 0.009  ref_ok 0.993  uniq_base 0.007  q 100  34s
+  step 1000/3000  go 0.190  go_acc 0.008  ref_ok 0.994  uniq_base 0.007  q 119  68s
+  step 1500/3000  go 0.169  go_acc 0.008  ref_ok 0.993  uniq_base 0.007  q 131  102s
+  step 2000/3000  go 0.151  go_acc 0.009  ref_ok 0.993  uniq_base 0.007  q 147  136s
+  step 2500/3000  go 0.131  go_acc 0.008  ref_ok 0.993  uniq_base 0.007  q 153  176s
+  step 3000/3000  go 0.114  go_acc 0.008  ref_ok 0.993  uniq_base 0.007  q 153  211s
+---- done ----
+go_acc 0.0081 uniq_base 0.0072 lift 0.0009 refuse_ok 0.9929
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit497_refuse.py --seed 2024 --steps 3000 --log-every 500
+497 refuse  corpus=data\_tinystories_raw_scale.txt
+  step 500/3000  go 0.204  go_acc 0.002  ref_ok 0.996  uniq_base 0.004  q 104  34s
+  step 1000/3000  go 0.188  go_acc 0.008  ref_ok 0.994  uniq_base 0.006  q 136  68s
+  step 1500/3000  go 0.172  go_acc 0.007  ref_ok 0.994  uniq_base 0.006  q 151  102s
+  step 2000/3000  go 0.155  go_acc 0.008  ref_ok 0.995  uniq_base 0.006  q 158  135s
+  step 2500/3000  go 0.136  go_acc 0.007  ref_ok 0.995  uniq_base 0.006  q 165  169s
+  step 3000/3000  go 0.117  go_acc 0.007  ref_ok 0.994  uniq_base 0.006  q 171  202s
+---- done ----
+go_acc 0.0071 uniq_base 0.0057 lift 0.0014 refuse_ok 0.9945
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit497_refuse.py --seed 7 --steps 3000 --log-every 500
+497 refuse  corpus=data\_tinystories_raw_scale.txt
+  step 500/3000  go 0.211  go_acc 0.011  ref_ok 0.991  uniq_base 0.009  q 102  36s
+  step 1000/3000  go 0.192  go_acc 0.007  ref_ok 0.992  uniq_base 0.008  q 117  74s
+  step 1500/3000  go 0.172  go_acc 0.007  ref_ok 0.992  uniq_base 0.008  q 130  108s
+  step 2000/3000  go 0.153  go_acc 0.006  ref_ok 0.992  uniq_base 0.008  q 135  142s
+  step 2500/3000  go 0.133  go_acc 0.006  ref_ok 0.992  uniq_base 0.008  q 142  175s
+  step 3000/3000  go 0.116  go_acc 0.006  ref_ok 0.992  uniq_base 0.007  q 149  209s
+---- done ----
+go_acc 0.0061 uniq_base 0.0075 lift -0.0013 refuse_ok 0.9924
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit498_budget.py --seed 1337 --steps 2000 --log-every 500
+498 budget sweep  corpus=data\_tinystories_raw_scale.txt
+  B=4 500/2000 hunt 0.044 rand 0.018 lift 0.026
+  B=4 1000/2000 hunt 0.047 rand 0.025 lift 0.022
+  B=4 1500/2000 hunt 0.053 rand 0.027 lift 0.026
+  B=4 2000/2000 hunt 0.058 rand 0.026 lift 0.032
+B=4 lift 0.0315
+  B=8 500/2000 hunt 0.084 rand 0.050 lift 0.034
+  B=8 1000/2000 hunt 0.078 rand 0.050 lift 0.028
+  B=8 1500/2000 hunt 0.096 rand 0.052 lift 0.044
+  B=8 2000/2000 hunt 0.114 rand 0.055 lift 0.059
+B=8 lift 0.0585
+  B=16 500/2000 hunt 0.136 rand 0.076 lift 0.060
+  B=16 1000/2000 hunt 0.143 rand 0.098 lift 0.045
+  B=16 1500/2000 hunt 0.145 rand 0.099 lift 0.046
+  B=16 2000/2000 hunt 0.141 rand 0.100 lift 0.042
+B=16 lift 0.0415
+  B=32 500/2000 hunt 0.276 rand 0.198 lift 0.078
+  B=32 1000/2000 hunt 0.296 rand 0.187 lift 0.109
+  B=32 1500/2000 hunt 0.324 rand 0.185 lift 0.139
+  B=32 2000/2000 hunt 0.329 rand 0.192 lift 0.138
+B=32 lift 0.1375
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit498_budget.py --seed 7 --steps 2000 --log-every 500
+498 budget sweep  corpus=data\_tinystories_raw_scale.txt
+  B=4 500/2000 hunt 0.030 rand 0.022 lift 0.008
+  B=4 1000/2000 hunt 0.025 rand 0.022 lift 0.003
+  B=4 1500/2000 hunt 0.026 rand 0.023 lift 0.003
+  B=4 2000/2000 hunt 0.029 rand 0.022 lift 0.007
+B=4 lift 0.0075
+  B=8 500/2000 hunt 0.090 rand 0.060 lift 0.030
+  B=8 1000/2000 hunt 0.118 rand 0.057 lift 0.061
+  B=8 1500/2000 hunt 0.141 rand 0.049 lift 0.093
+  B=8 2000/2000 hunt 0.144 rand 0.053 lift 0.090
+B=8 lift 0.0905
+  B=16 500/2000 hunt 0.110 rand 0.094 lift 0.016
+  B=16 1000/2000 hunt 0.143 rand 0.112 lift 0.031
+  B=16 1500/2000 hunt 0.162 rand 0.109 lift 0.053
+  B=16 2000/2000 hunt 0.173 rand 0.108 lift 0.065
+B=16 lift 0.0650
+  B=32 500/2000 hunt 0.368 rand 0.182 lift 0.186
+  B=32 1000/2000 hunt 0.357 rand 0.190 lift 0.167
+  B=32 1500/2000 hunt 0.367 rand 0.191 lift 0.176
+  B=32 2000/2000 hunt 0.359 rand 0.195 lift 0.164
+B=32 lift 0.1640
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit493_wiki.py --seed 7 --steps 2500 --log-every 500
+493 wiki-hunt  corpus=data\_wikitext103_train.txt  lines=56840  steps=2500
+  step 500/2500  hunt 0.276  rand 0.106  lift 0.170  hop 0.072  q 59  280s
+  step 1000/2500  hunt 0.368  rand 0.086  lift 0.282  hop 0.127  q 63  559s
+  step 1500/2500  hunt 0.479  rand 0.091  lift 0.388  hop 0.165  q 64  837s
+  step 2000/2500  hunt 0.541  rand 0.086  lift 0.455  hop 0.183  q 67  1123s
+  step 2500/2500  hunt 0.593  rand 0.090  lift 0.503  hop 0.212  q 68  1413s
+---- done ----
+hunt 0.5928 rand 0.0896 lift 0.5032
+wrote results\_stage493_wiki.json
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit489_transfer.py --train-seed 2024 --eval-seed 7 --train-steps 2500 --eval-steps 1500
+489 transfer train=2024 eval=7 pool=80000
+  train 500  hit 0.124  q 80  65s
+  train 1000  hit 0.117  q 91  134s
+  train 1500  hit 0.113  q 98  213s
+  train 2000  hit 0.126  q 102  290s
+  train 2500  hit 0.158  q 104  366s
+  eval 500  q 0.258  rand 0.078  lift 0.180
+  eval 1000  q 0.263  rand 0.095  lift 0.168
+  eval 1500  q 0.259  rand 0.097  lift 0.161
+---- done ----
+eval q 0.2587 rand 0.0973 lift 0.1613
+wrote results\_stage489_transfer.json
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit486_unique_only.py --seed 42 --steps 4000 --log-every 500
+486 unique-ONLY  corpus=data\_tinystories_raw_scale.txt  steps=4000
+line pool 80000
+  step 500/4000  hunt_u 0.156  rand_u 0.098  lift 0.058  hop 0.052  q_pre 69  62s
+  step 1000/4000  hunt_u 0.195  rand_u 0.111  lift 0.084  hop 0.066  q_pre 84  126s
+  step 1500/4000  hunt_u 0.194  rand_u 0.108  lift 0.086  hop 0.068  q_pre 90  197s
+  step 2000/4000  hunt_u 0.200  rand_u 0.105  lift 0.095  hop 0.071  q_pre 93  268s
+  step 2500/4000  hunt_u 0.208  rand_u 0.101  lift 0.108  hop 0.073  q_pre 96  339s
+  step 3000/4000  hunt_u 0.222  rand_u 0.100  lift 0.122  hop 0.080  q_pre 98  410s
+  step 3500/4000  hunt_u 0.234  rand_u 0.099  lift 0.135  hop 0.087  q_pre 102  492s
+  step 4000/4000  hunt_u 0.247  rand_u 0.100  lift 0.147  hop 0.092  q_pre 104  565s
+---- done ----
+hunt_u 0.2467  rand_u 0.0998  lift 0.1470  hopped 0.0920
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit486_unique_only.py --seed 99 --steps 4000 --log-every 500
+486 unique-ONLY  corpus=data\_tinystories_raw_scale.txt  steps=4000
+line pool 80000
+  step 500/4000  hunt_u 0.104  rand_u 0.082  lift 0.022  hop 0.026  q_pre 66  63s
+  step 1000/4000  hunt_u 0.166  rand_u 0.081  lift 0.085  hop 0.044  q_pre 84  126s
+  step 1500/4000  hunt_u 0.292  rand_u 0.095  lift 0.197  hop 0.085  q_pre 87  191s
+  step 2000/4000  hunt_u 0.306  rand_u 0.093  lift 0.212  hop 0.093  q_pre 91  256s
+  step 2500/4000  hunt_u 0.314  rand_u 0.099  lift 0.214  hop 0.098  q_pre 95  323s
+  step 3000/4000  hunt_u 0.324  rand_u 0.101  lift 0.223  hop 0.104  q_pre 97  391s
+  step 3500/4000  hunt_u 0.329  rand_u 0.107  lift 0.222  hop 0.108  q_pre 104  463s
+  step 4000/4000  hunt_u 0.332  rand_u 0.107  lift 0.225  hop 0.108  q_pre 104  540s
+---- done ----
+hunt_u 0.3322  rand_u 0.1072  lift 0.2250  hopped 0.1077
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit486_unique_only.py --seed 1337 --steps 2000 --window 1200 --bytes 60000000 --log-every 400 --out results/_stage486_unique_wide.json
+486 unique-ONLY  corpus=data\_tinystories_raw_scale.txt  steps=2000
+line pool 80000
+  step 400/2000  hunt_u 0.172  rand_u 0.070  lift 0.102  hop 0.048  q_pre 69  104s
+  step 800/2000  hunt_u 0.198  rand_u 0.074  lift 0.124  hop 0.066  q_pre 81  213s
+  step 1200/2000  hunt_u 0.224  rand_u 0.073  lift 0.151  hop 0.062  q_pre 86  341s
+  step 1600/2000  hunt_u 0.242  rand_u 0.072  lift 0.169  hop 0.064  q_pre 92  459s
+  step 2000/2000  hunt_u 0.255  rand_u 0.071  lift 0.184  hop 0.070  q_pre 98  590s
+---- done ----
+hunt_u 0.2550  rand_u 0.0710  lift 0.1840  hopped 0.0700
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit487_arrive.py --seed 42 --steps 3000 --log-every 400
+487 arrive  corpus=data\_tinystories_raw_scale.txt  steps=3000
+line pool 80000
+  step 400/3000  find 0.117/0.102  soft 0.035/0.020  hard 0.035/0.020  lift_find 0.015  lift_soft 0.015  q 77  51s
+  step 800/3000  find 0.149/0.104  soft 0.055/0.022  hard 0.055/0.022  lift_find 0.045  lift_soft 0.033  q 88  103s
+  step 1200/3000  find 0.179/0.104  soft 0.064/0.023  hard 0.064/0.023  lift_find 0.075  lift_soft 0.041  q 94  156s
+  step 1600/3000  find 0.205/0.099  soft 0.072/0.024  hard 0.072/0.024  lift_find 0.106  lift_soft 0.049  q 100  210s
+  step 2000/3000  find 0.234/0.097  soft 0.085/0.024  hard 0.085/0.024  lift_find 0.138  lift_soft 0.060  q 103  271s
+  step 2400/3000  find 0.248/0.097  soft 0.085/0.024  hard 0.085/0.024  lift_find 0.151  lift_soft 0.062  q 105  329s
+  step 2800/3000  find 0.265/0.096  soft 0.092/0.024  hard 0.092/0.024  lift_find 0.169  lift_soft 0.069  q 108  386s
+---- done ----
+find 0.2720/0.1007  soft 0.0967/0.0260  hard 0.0967/0.0260  lift_soft 0.0707
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit488_chain.py --seed 42 --steps 3000 --log-every 400
+488 chain  corpus=data\_tinystories_raw_scale.txt  steps=3000
+line pool 80000
+  step 400/3000  find 0.193/0.092  soft 0.062/0.020  chain 0.018/0.003  lift_chain 0.015  mark {'LIVE': 0.16, 'DEAD': -0.06}  49s
+  step 800/3000  find 0.188/0.105  soft 0.054/0.021  chain 0.014/0.001  lift_chain 0.013  mark {'LIVE': 0.14, 'DEAD': -0.07}  101s
+  step 1200/3000  find 0.198/0.105  soft 0.059/0.021  chain 0.015/0.001  lift_chain 0.014  mark {'LIVE': 0.14, 'DEAD': -0.06}  162s
+  step 1600/3000  find 0.226/0.104  soft 0.062/0.021  chain 0.017/0.001  lift_chain 0.016  mark {'LIVE': 0.15, 'DEAD': -0.07}  215s
+  step 2000/3000  find 0.234/0.101  soft 0.065/0.021  chain 0.017/0.002  lift_chain 0.015  mark {'LIVE': 0.14, 'DEAD': -0.07}  271s
+  step 2400/3000  find 0.240/0.098  soft 0.069/0.019  chain 0.020/0.002  lift_chain 0.018  mark {'LIVE': 0.15, 'DEAD': -0.07}  330s
+  step 2800/3000  find 0.244/0.100  soft 0.071/0.020  chain 0.020/0.003  lift_chain 0.017  mark {'LIVE': 0.15, 'DEAD': -0.07, 'SOFT': 0.5}  391s
+---- done ----
+lift_find 0.1407  lift_soft 0.0497  lift_chain 0.0157  q_mark {'LIVE': 0.1441747572815525, 'DEAD': -0.06611445783132601, 'SOFT': 0.5}
+
+=== morning pack done 2026-08-22T06:30:23 ===

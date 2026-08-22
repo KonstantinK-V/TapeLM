@@ -1,0 +1,75 @@
+Stage283 scale start 2026-08-07T14:04:21.042051+00:00 device=cuda rungs=[(4000000, 400), (30000000, 400), (120000000, 2000)] mind_params=7564290
+  corpus 120.0M chars read (1s)
+  rung 4M:400 -> 38 addr / 91 slots | precision 0.796 | return true 1.000 other 0.040 (sep +0.960) | crowding 0.000 (members 0.053 two 0.000 anchors alone 0.000) foreign 0.000 | k covers 0.974 | ties 0.342 (1s)
+  rung 30M:400 -> 251 addr / 792 slots | precision 0.740 | return true 0.986 other 0.000 (sep +0.986) | crowding 0.195 (members 0.299 two 0.008 anchors alone 0.000) foreign 0.019 | k covers 0.932 | ties 0.446 (29s)
+  rung 120M:2000 -> 936 addr / 4730 slots | precision 0.664 | return true 0.959 other 0.006 (sep +0.953) | crowding 0.345 (members 0.511 two 0.061 anchors alone 0.018) foreign 0.052 | k covers 0.876 | ties 0.427 (589s)
+{
+  "overall": "SCALE_OK",
+  "gates": {
+    "G_precision_holds": true,
+    "G_return_path_separates": true,
+    "G_addresses_stay_distinct": true,
+    "G_k_covers_the_address": false,
+    "G_ties_exist_naturally": true,
+    "G_mind_does_not_grow": true
+  },
+  "slopes": {
+    "slots": [
+      91,
+      792,
+      4730
+    ],
+    "precision": [
+      0.7956140350877193,
+      0.739669891861127,
+      0.6637820512820513
+    ],
+    "return_path_separation": [
+      0.96,
+      0.9856115107913669,
+      0.9533582089552239
+    ],
+    "address_crowding": [
+      0.0,
+      0.1952191235059761,
+      0.3450854700854701
+    ],
+    "member_crowding": [
+      0.05263157894736842,
+      0.29880478087649404,
+      0.5106837606837606
+    ],
+    "two_channel_crowding": [
+      0.0,
+      0.00796812749003984,
+      0.060897435897435896
+    ],
+    "foreign_member_rate": [
+      0.0,
+      0.018627078985644724,
+      0.05161396505477364
+    ],
+    "distinct_anchors": [
+      38,
+      243,
+      876
+    ],
+    "anchor_only_crowding": [
+      0.0,
+      0.0,
+      0.0182648401826484
+    ],
+    "anchor_growth_exponent": 0.9225515543812931,
+    "k_covers_address": [
+      0.9736842105263158,
+      0.9322709163346613,
+      0.8760683760683761
+    ],
+    "tie_share": [
+      0.34210526315789475,
+      0.44621513944223107,
+      0.42735042735042733
+    ],
+    "slots_growth": 51.97802197802198
+  }
+}

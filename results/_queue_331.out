@@ -1,0 +1,14 @@
+﻿
+2026-08-15 01:15:27 331: wait for night DONE, then --reach-cands 32 x4 (fork: widen offer vs constraint interface)
+2026-08-15 01:15:27 waiting for night queue (results\_queue_night_326.out) ...
+2026-08-15 03:22:28 night DONE - starting 331wide
+2026-08-15 03:22:28 ==== 331wide_s1337 --reach-cands 32 ====
+2026-08-15 03:32:16 OK 331wide_s1337
+2026-08-15 03:32:16 ==== 331wide_s8642 --reach-cands 32 ====
+2026-08-15 03:42:15 OK 331wide_s8642
+2026-08-15 03:42:15 ==== 331wide_s2890 --reach-cands 32 ====
+2026-08-15 03:51:59 OK 331wide_s2890
+2026-08-15 03:51:59 ==== 331wide_s4711 --reach-cands 32 ====
+2026-08-15 04:01:50 OK 331wide_s4711
+2026-08-15 04:01:50 ==== _read299 331 (reachable / PICK / PICK vs COUNT) ====
+2026-08-15 04:01:50 DONE 331

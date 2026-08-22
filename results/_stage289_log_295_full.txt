@@ -1,0 +1,9 @@
+Stage289 derivation start 2026-08-12T10:35:43.830017+00:00 device=cuda holdout=corpus
+  lines: train 127626, eval 54697 (the probe reserves ANCHORS, not lines - see `reserved`)
+  word rule matches stage194: True  (rule=ascii, fp=hash, ink=mean)
+  hash ink deterministic and digest-faithful: True  {'anagram_cos': -0.0135, 'perm_fixed_points': 1}
+  tape: 2961 addresses, 11787 slots | questions {"count": 2705, "lookup": 3036, "compare": 1352} | params 5601
+  ladder coverage: 1522/3036 lookup questions have all three rungs; the rest train on the task term alone
+  295 patterns: witnesses 2
+  rules: train 722 eval 1521 | base survive: train 0.325 eval 0.310
+  295 {"stage": "295", "witnesses": 2, "rules_train": 722, "rules_eval": 1521, "rival_threshold": 677.5, "base_survive": 0.3096646942800789, "phi_accuracy": 0.6903353057199211, "rival_accuracy": 0.6896778435239974, "paired": {"model_only_right": 1, "rival_only_right": 0, "discordant": 1, "mcnemar_z": 1.0, "max_achievable_z": 1.0}, "seed": 1337, "timestamp": "2026-08-12T10:36:58.671674+00:00"}

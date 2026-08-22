@@ -1,0 +1,12 @@
+﻿
+2026-08-20 15:02:29 412 reward-only re-run after R2-before-pick_term fix. ce dumps kept.
+2026-08-20 15:02:29 ==== 412rw_s1337  pick-teacher=reward ====
+2026-08-20 15:06:33 OK 412rw_s1337
+2026-08-20 15:06:33 ==== 412rw_s8642  pick-teacher=reward ====
+2026-08-20 15:10:11 OK 412rw_s8642
+2026-08-20 15:10:11 ==== 412rw_s2890  pick-teacher=reward ====
+2026-08-20 15:13:52 OK 412rw_s2890
+2026-08-20 15:13:52 ==== 412rw_s4711  pick-teacher=reward ====
+2026-08-20 15:17:36 OK 412rw_s4711
+2026-08-20 15:17:36 ==== _read299 412rw ====
+2026-08-20 15:17:36 DONE 412 reward-only re-run

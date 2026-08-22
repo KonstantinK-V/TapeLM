@@ -1,0 +1,36 @@
+Stage280 raw exam start 2026-08-06T08:45:28.236396+00:00 device=cuda hop=fp no_hidden=False bc=4000 rl=3000 k=7 mode=upper
+  corpus split: 7324 train lines / 3139 held-out lines
+  tape: 48 addresses, 194 slots, write {"WRITE": 48, "CONFIRM": 59, "DISPUTE": 87} | items {"clean": 12, "tie": 20, "decidable": 16} (4s)
+  bc 500/4000 loss=0.8323 [tie] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'READ_3', 'READ_4', 'READ_5', 'ANSWER_0']
+  bc 1000/4000 loss=0.5810 [clean] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'READ_3', 'READ_4', 'ANSWER_1']
+  bc 1500/4000 loss=0.5866 [clean] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'READ_3', 'READ_4', 'READ_5', 'READ_6', 'ANSWER_1']
+  bc 2000/4000 loss=0.9474 [decidable] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'READ_3', 'READ_4', 'READ_5', 'READ_6', 'ANSWER_0']
+  bc 2500/4000 loss=0.4827 [tie] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'READ_3', 'READ_4', 'ANSWER_0']
+  bc 3000/4000 loss=0.5843 [clean] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'READ_3', 'READ_4', 'READ_5', 'READ_6', 'ANSWER_1']
+  bc 3500/4000 loss=0.5431 [tie] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'READ_3', 'READ_4', 'READ_5', 'READ_6', 'ANSWER_5']
+  bc 4000/4000 loss=0.8057 [clean] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'READ_3', 'READ_4', 'READ_5', 'ANSWER_2']
+  rl 375/3000 v_mse=0.769 [tie] ['ASK_Q', 'READ_0', 'READ_4', 'READ_5', 'READ_1', 'READ_3', 'READ_2', 'ANSWER_2']
+  rl 750/3000 v_mse=0.256 [decidable] ['ASK_Q', 'READ_2', 'READ_0', 'READ_3', 'READ_1', 'ANSWER_2']
+  rl 1125/3000 v_mse=0.199 [clean] ['ASK_Q', 'READ_4', 'READ_2', 'READ_0', 'READ_1', 'READ_3', 'READ_5', 'ANSWER_3']
+  rl 1500/3000 v_mse=0.271 [tie] ['ASK_Q', 'READ_0', 'READ_2', 'READ_3', 'READ_1', 'ANSWER_3']
+  rl 1875/3000 v_mse=0.166 [decidable] ['ASK_Q', 'READ_3', 'READ_0', 'READ_2', 'READ_1', 'READ_4', 'READ_5', 'ANSWER_2']
+  rl 2250/3000 v_mse=0.135 [decidable] ['ASK_Q', 'READ_0', 'READ_3', 'READ_6', 'READ_4', 'READ_2', 'READ_5', 'READ_1', 'ANSWER_5']
+  rl 2625/3000 v_mse=0.208 [tie] ['ASK_Q', 'READ_0', 'READ_1', 'READ_3', 'READ_5', 'READ_2', 'READ_6', 'READ_4', 'ANSWER_2']
+  rl 3000/3000 v_mse=0.280 [clean] ['ASK_Q', 'READ_0', 'READ_3', 'READ_1', 'READ_5', 'READ_4', 'READ_2', 'READ_6', 'ANSWER_5']
+  held-out tape: 15 addresses, 79 slots, items {"tie": 2, "decidable": 7, "clean": 6}
+  HELD-OUT {"answer_is_slot": 1.0, "reward_total": 0.36666666666666653, "teacher_reward_total": 0.36666666666666653, "retrieval_precision": 0.8976190476190476, "witness_recall": 0.9555555555555555, "words_silent_rate": 0.06666666666666667, "hops_per_episode": 0.06666666666666667, "mean_candidates": 5.0, "n_items": 15, "clean": {"n": 6, "coverage": 1.0, "acc_answered": 1.0, "abstain": 0.0, "mean_reads": 5.166666666666667, "reward": 0.8966666666666666, "precision": 0.9523809523809524, "recall": 1.0, "teacher_abstain": 0.0, "teacher_acc_all": 1.0}, "decidable": {"n": 7, "coverage": 1.0, "acc_answered": 0.7142857142857143, "abstain": 0.0, "mean_reads": 4.857142857142857, "reward": 0.33142857142857135, "precision": 0.8826530612244898, "recall": 0.9047619047619048, "teacher_abstain": 0.0, "teacher_acc_all": 0.7142857142857143}, "tie": {"n": 2, "coverage": 1.0, "acc_answered": 0.0, "abstain": 0.0, "mean_reads": 5.0, "reward": -1.1, "precision": 0.7857142857142857, "recall": 1.0, "teacher_abstain": 0.0, "teacher_acc_all": 0.0}, "coverage_all": 1.0, "acc_answered_all": 0.7333333333333333}
+{
+  "overall": "RAW_EXAM_INVALID",
+  "gates": {
+    "G_arc_enc_frozen": true,
+    "G_answer_is_slot": true,
+    "G_all_families_present": false,
+    "G_teacher_usable": false,
+    "G_reaches_teacher": true,
+    "G_answers_when_decidable": true,
+    "G_abstain_on_tie": false,
+    "G_acc_when_answering": true,
+    "G_generalises_to_held_out": true,
+    "G_hop_covers_silence": true
+  }
+}

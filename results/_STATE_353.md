@@ -80,7 +80,19 @@ composition as a single joint world (310, factorises by identity) · the line ch
 ~2.9 comparisons) · the stepping stone (333) · dilution/two-way at depth 1 (334) · mind-chosen
 retention (338) · the speaking price as a second term (341, 352) · the constraint interface:
 raw count (345 L1), share (345 L2), two lenses intersected (346, closed unbuilt by audit) ·
-thicker places (347) · a second tape relation (349, 350).
+thicker places (347) · a second tape relation (349, 350) · **shape as tie-break evidence on the scope exam (399: a coin on 3 seeds, below the
+SIZE confound every time - section 39)** · **deficit against the remainder (400: +0.02..+0.04
+against a 0.05 bar, below SIZE on 2/3, and its one big bit was detecting the cut - section 40)** · **ingestion as a source of reach (358
+re-run at min_fillers 1: subst +0.0049, oracle +0.0367, both under the declared 0.05 - section
+37.1)** · `--calib-batch`, the gauge (389,
+voided on its own control, section 31) · **the address as a handle (390: void check passed at
+new_share ~0.87, primary failed at half_only 0.041 against 0.05)** · **the move as a trained
+choice (391: a fix, no step number - 387's re-run puts a perfect lane chooser at +0.017, section
+33-VOID)** · **choosing one place (393: 0.09 against the merge's 0.12)**.
+
+All three of the last are one law, and it is stated in 34.3: EVERY COMMITMENT TO A NARROWER SOURCE
+COSTS MORE THAN THE CHOICE BUYS - measured at the offer (347), the lane (387) and the place (393).
+A chooser lever on this exam is closed BEFORE it is built, however it is trained.
 
 ## 6. THE BIG ONE — 352: DEPTH WAS CLOSED WRONGLY
 
@@ -2657,67 +2669,986 @@ leaked number may support any of this.
     python _audit390_address.py --seed 4711
     python _audit390_address.py --seed 1337 --window-lines 1600 --places 16   (the scale leg)
 
-## 33. 391: REQUIREMENT 4, SAME QUESTIONS, TAPE 1x/2x/4x/8x. CLOSED ON THE OFFER
+## 33. 391: THE MOVE GETS A GRADIENT. BUILT, PRE-REGISTERED, NOTHING RUN
 
-369 scaled `--addresses`. This cut the tape. One seed (1337). Frozen standing offer (walk+connect
-@8), not Phi: 365r3 left no weights. Questions drawn on the 1x prefix and replayed by
-(line, word). Mapping intact (`broken` 0).
+Kostya, after 32: "нужно пересмотреть хождение и награды, все остальное косметика." This is the
+reward half, and it turned out to be a defect rather than a design question.
 
-    scale   lines   places    n     std8    half8   half_any
-      1x     400    5340    3000   0.1197  0.0767    0.4547
-      2x     800   10773    2863   0.1271  0.0702    0.5162
-      4x    1600   24004    2660   0.1256  0.0669    0.5801
-      8x    3200   50458    2448   0.1172  0.0707    0.6450
+### 33.1 The line
 
-GATE (monotonicity of std8): FAIL. 2x ticks up, 4x and 8x fall through the 1x line.
-`n` falls because a thicker place absorbs the hidden token as `own` - those questions leave the
-reach population. `half_any` IS monotone (0.45 -> 0.65): the tape holds more, the eight do not
-take it. 347 again, now on requirement 4.
+`reach_move_pick` scores one probe world per move and takes the argmax of Phi. `reach_logits`
+then did this:
 
-Requirement 4 is closed by this measurement on the offer Phi ranks. A frozen-Phi eval would
-need a saved net; it cannot overturn an eight that does not grow.
+    q["_move_l0"] = (_mv, _mnames)
 
-## 34. 387/388 DEBT CLEARED. BUILD NOTHING ON THEM
+The logits were thrown away. **No gradient has ever reached the move decision.** So 385 and 386
+did not measure "can the mind choose where to look" - they measured an ARGMAX OF A SCORER TRAINED
+TO RANK FINAL NAMES, applied to a choice nobody had taught. 386's diagnosis ("the probe is one
+row, and one row is evidently not enough") was one of two explanations, and the project had no way
+to tell them apart, because the other one was never in the code.
 
-Re-run with `qprof` (section 27 leak fixed), seed 1337, same window as 390. Numbers match the
-noleak files already on disk. Recorded so 29.4 is no longer open. Not a lever.
+### 33.2 The term
 
-  387  only_share 0.095  oracle-merged +0.017  cut@128 +0.156  mean-rerank -0.117
-  388  region reach 0.012 vs decoy 0.0007  hop2-only 0.183  hop2@8 0.117 (does not beat hop1@8)
+`--move-teach W` (weight declared 1.0, never swept; 0 = off; refused without `--moves`).
 
-## 35. 392: TWO PLACES. VOID HOLDS, NULL DOES NOT. BIND IS CLOSED
+  * THE TEACHER IS THE TAPE'S: whether each lane REACHES THE TRUTH - `answerable` per move. A
+    property of the tape and the walk, never the mind's own correctness. Same discipline
+    calib_term declared; `hit` stays untouched and is therefore readable as transfer.
+  * IT COSTS NOTHING TO COMPUTE. The ballot already enumerates each lane; enumerating is
+    counting, only SCORING is expensive. No world, no head, no parameter.
+  * AN EXPECTATION, NOT ONE SAMPLE: every arm has an exact reward, so the term is
+    `(softmax(l0) * R).sum()` - the shape of every other term in this file. A one-sample policy
+    gradient would have needed a baseline, and a hand-chosen baseline is the exact class of
+    mistake 317, 383 and 387 each turned out to be.
+  * IT IS AN UPPER BOUND, NOT THE VALUE. The value behind a move is that lane's stage-two
+    expectation, which needs every lane scored - lookahead, which 385 rejected as today's argmax
+    under another name. Reaching bounds it exactly: a name that is not offered cannot be said. The
+    term teaches WHERE the answer is; the pick still has to say it.
+  * ADDED, NOT FOLDED IN. Multiplying v2 by the move's probability would reprice the ROUTER by
+    exactly p(move), and one lever must not move a second decision.
+  * `shift_reward`'s scale, because 311a.
+  * A BALLOT THAT CANNOT TEACH CONTRIBUTES NOTHING AND IS COUNTED - fewer than two live moves, or
+    every lane reaching the same, is a constant in l0 and its gradient is exactly zero.
 
-B2 as a count: A,B from one document-window, gold = unique-filler place in addr-N(A) ∩ addr-N(B).
-Rivals walk A / walk B / concat@8. Four seeds. Checker: designed tape holds, mutations caught.
+`_check391_moveteach.py`: twelve properties on the source, every one a wrong number, and ALL
+TWELVE mutation-verified in the file - each re-introduces its own failure textually and requires
+the check to fire. 385's and 386's property 2 was edited, not worked around: the property ("the
+move is chosen before any offer is built") is unchanged, its literal moved because the condition
+gained `or MOVE_TEACH`, and the index test that actually enforces the ordering is untouched.
 
-VOID (gold in walk(A)@8 > 0.5): 0.022-0.036. Not cloze. Read the gate.
+### 33.3 THE VOID CHECK, READ FIRST
 
-    seed    hit A    hit B   concat    both    vs max(A,B)   null both
-    1337    0.025    0.037    0.046   0.405      +0.368        0.408
-    8642    0.036    0.037    0.047   0.439      +0.403        0.438
-    2890    0.022    0.017    0.027   0.408      +0.386        0.429
-    4711    0.024    0.030    0.026   0.550      +0.520        0.563
+`move_teach_live` - the share of training questions whose ballot had two live moves that did NOT
+reach the same. If that is near zero the term never taught anything and the arm is its own
+control. 387's leak-fixed suspect says this is a live risk: step and share draw from the same
+neighbourhood and differ only in how they rank it.
 
-`both` beats max(A,B)+0.05 on 4/4. The null is the same number. The intersection is a property
-of the address graph, not of two facts in one document. Bind-two-facts on this tape is closed
-the way 354 closed memory. Understanding is not this bind. 393, if any, is a walker, not
-"gets smarter".
+### 33.4 THE GATE, DECLARED BEFORE THE RUN
 
-## 36. 393: THE WALKER. VOID — ORACLE STEP LOSES TO STAYING
+Arm `--min-fillers 1 --reach-depth 2 --two-way --connect --moves --move-teach 1.0`, control the
+identical arm at `--move-teach 0`, four seeds (1337, 8642, 2890, 4711).
 
-One step to a hop-1 place, then that place's walk@8. Not a hop-2 dump into eight (347).
-Four seeds, qprof, same-line drop. Checker holds on a designed hop-2 tape.
+  1. PRIMARY. `reachable_rate` - what the term teaches directly - beats the control on 3 of 4.
+  2. TRANSFER. `hit` does not fall pooled, AND `move_hit` of the taken lane beats the control's on
+     3 of 4. The term never saw `hit`.
+  3. NO COLLAPSE. `move_share` keeps at least two moves above 0.05 on 3 of 4. A term that only
+     reinforces whatever was already picked is a constant with extra steps.
+  4. GUARD. PICK rival not degraded pooled; GATE-WO 1.0000 at 5/10/25%.
+  5. PRICE. It is a second term, and 321/341/352 each put one at ~4x the route. The route is
+     reported and never pooled with the control's.
 
-    seed    hop1   committed   oracle   dump2    rand   oracle-hop1
-    1337   0.120      0.045    0.089    0.129   0.006      -0.031
-    8642   0.130      0.050    0.106    0.131   0.004      -0.024
-    2890   0.129      0.054    0.099    0.130   0.007      -0.030
-    4711   0.123      0.048    0.091    0.135   0.008      -0.032
+### 33.5 HOW A FAILURE IS TO BE READ - declared now, so it cannot be chosen later
 
-VOID (oracle-hop1 < 0.02): fires on 4/4, and the gap is negative. Leaving the question
-place loses more than a perfect choice among eight bridges returns. dump2 ties hop1
-(388). committed is worse still (~0.05). walk_only ~0.04 — a few holes a step can
-reach, not a route.
+  * PASSES → the move decision was simply untrained, 385/386 are void as measurements of choosing,
+    and the next lever is the BALLOT'S CONTENT: places instead of three lanes.
+  * FAILS with `move_teach_live` healthy → the probe (one row, the lane's first candidate) does not
+    carry which lane pays. 386's second explanation is then CONFIRMED and separated from the first,
+    and the next lever is the probe, not another term.
+  * FAILS with `move_teach_live` near zero → the three lanes are one lane with three orderings
+    (387's suspect), the ballot is the wrong output space, and the direction is 32's address.
 
-The walker is closed on this tape. Not a ranking-of-bridges lever: even oracle loses.
+Nothing measured. The runs are on Kostya's machine.
+
+    python _check391_moveteach.py
+    python _stage289_derivation.py --reach --min-fillers 1 --reach-depth 2 --two-way --connect \
+        --moves --move-teach 1.0 --seed 1337 --run-tag 391teach     (and 8642, 2890, 4711)
+    python _stage289_derivation.py --reach --min-fillers 1 --reach-depth 2 --two-way --connect \
+        --moves --seed 1337 --run-tag 391ctl                        (the paired control)
+
+## 33-VOID. 391 IS A FIX, NOT A STEP. THE CEILING WAS IN HAND AND I DID NOT READ IT
+
+Kostya, reading 33: "R1 как рычаг на --moves закрыт потолком, не 'не учили'." He is right, and the
+number that closes it is one I already had.
+
+### 33-V.1 The ceiling
+
+387, re-run after the section 27 `qprof` fix: **oracle - merged = +0.017**. That is a PERFECT
+chooser of the lane. 391's primary was `reachable_rate` - exactly the quantity that ceiling bounds
+- so no amount of training the chooser can buy more than 0.017 of it. A gradient does not create
+reach.
+
+And my gate, "beats the control on 3 of 4 seeds", carried no magnitude. Against a ceiling of
+0.017 it is a coin, and the failure mode is not that it would fail: IT COULD HAVE PASSED ON NOISE
+AND BEEN REPORTED AS A WIN. That is the fourth time in this project that an argument looked like
+arithmetic - 387's rerank, 377/369's gates, 389's premise, now 391's gate.
+
+THE VOID CHECK WAS THE WRONG ONE. `move_teach_live` asks "can this term teach at all". What
+decides a step is "is there anything to gain", and it had already been measured. Read the CEILING
+before the mechanism. 389's gate 4 worked because it was on the quantity the step was for; 391's
+was on the machinery.
+
+### 33-V.2 Three corrections to the diagnosis, all his
+
+  * **"The mind never chooses where to look" is FALSE.** `TWO_WAY` is `-(p1[0]*v_stay +
+    p1[1]*v2)`: stay/go is a trained choice of where to look, one bit wide, and 352/353 repaired
+    it and it is live. What has no gradient is the CHANNEL; what does not exist at all is a
+    PLACE. Three different objects, and I ran them together.
+  * **Arrival is already paid, indirectly.** `v2 = gamma * E[R2]` prices the step by what is
+    behind it. A SEPARATE price on arrival is R4 - an option, not a hole in R1.
+  * **Refusal is already priced** (+1 / +0.75). Empty-place and wrong-name are indistinguishable
+    only once something is SAID, and B3 needs a place object before "here is nothing" can mean
+    anything: today it can only mean "the truth is not among the eight".
+
+### 33-V.3 What the term actually is, for the record
+
+Neither of the two forms Kostya named. It does not score every lane (that is lookahead, which 385
+rejected), and it is not one-sample credit to the executed lane (that would need a baseline).
+Every arm is ENUMERATED - 385 already pays for that, the ballot needs each lane's first candidate
+- each carries an exact COUNTED label (`truth_value in set(cs)`, no world scored), and the term is
+one softmax over all of them. That is why there is no baseline to choose. It does not rescue the
+step; it belongs in the record correctly.
+
+### 33-V.4 The risk that is real, and it is his
+
+The same Phi would be taught on ONE-ROW PROBES and on FULL WORLDS. Not a second objective, a
+second JOB for one function - and a row-count marker is what undid 291 and 296. One more reason
+the flag stays off.
+
+### 33-V.5 Status
+
+  * THE WIRING STAYS: `l0` in the policy term, the counted teacher, `shift_reward`'s scale, the
+    two return points, and `_check391_moveteach.py` with its twelve mutation-verified properties.
+    Any future chooser needs it, or it is again an untrained policy.
+  * IT IS A BUG FIX AND TAKES NO STEP NUMBER. That is this project's own rule.
+  * **THE GATE IN 33.4 IS WITHDRAWN. Do not run those four seeds.** The flag is off by default and
+    its docstring now names this section.
+
+## 34. THE LAW OF COMMITMENT, AND 390 CLOSED ON ITS OWN GATE
+
+PROVENANCE. Every number in this section was measured on Kostya's machine and read to me; the
+dumps are there and not in the container. Nothing here was measured by me.
+
+### 34.1 390 ran, and it failed the gate I declared
+
+    new_share ~0.87        the VOID CHECK PASSED
+    half_only  0.041       against the declared 0.05 - the PRIMARY FAILED
+
+This is the strongest shape a negative result can have. The void check passing means the address
+DOES name places the filler walk cannot see - 87% of address neighbours are invisible to every
+channel the mind has, exactly as the structural argument predicted. The gate failing on the
+primary means the truth is not in them often enough. So "we never looked there" is no longer
+available as an explanation: the direction exists, it was measured, and it is empty. 390 is
+CLOSED, and it goes in section 5's list.
+
+### 34.2 393, and the third measurement
+
+Oracle over ONE hop-1 place, then read@8: **0.09 against hop1's 0.12**, commit ~0.05. Choosing one
+place LOSES to the merged eight. That is 385 at the level of nodes: places are complementary, and
+committing to one throws the others away.
+
+### 34.3 The law
+
+    347   a WIDER OFFER costs more than it brings          measured four times
+    387   choosing the LANE                                ceiling +0.017
+    393   choosing the PLACE                               -0.03 against the merge
+
+**EVERY COMMITMENT TO A NARROWER SOURCE COSTS MORE THAN THE CHOICE BUYS.** Three independent
+measurements at three different levels. It predicts the failure of any "let the mind pick one
+source" lever on this exam BEFORE it is built, however that lever is trained - which covers 391 as
+a step, the place ballot, and the address handle. A chooser can only ever redistribute an offer
+that a merge already keeps whole.
+
+### 34.4 What that leaves
+
+The one population where the merge cannot be the answer: **walk_only** (~0.036) - the truth not in
+stay, present after one step, where staying is arithmetically wrong. Kostya's gate: on that
+population `hit(step) > hit(stay) + 0.05`, and on the full population hop1 must not fall by more
+than 0.03, with the FULL population as the paired control - without it, held `hit` collapses on a
+tape that is 87% unanswerable, because refusal was never seen in training.
+
+If the oracle step is still below stay THERE, hopping on the cloze exam is closed for good - and
+that is a result, not a failure to train.
+
+### 34.5 Two things that are NOT next, and why
+
+  * **R2 as I wrote it (train only on answerable) - dropped.** The answerable slice is precisely
+    "the eight with the truth inside", so training on it sharpens the CATALOGUE, which is the
+    thing this project spent 28 walking away from. The 87% is a property of the tape, not a defect
+    of the option.
+  * **R3 (splitting the -1) without a place object - dropped for now.** A cut on terminal NAMES
+    does not give B3. "This PLACE is empty, leave" needs the place in the softmax first;
+    otherwise it is refusal again, and refusal has been killed three times by the base rate.
+
+## 35. 34.4 BUILT: THE ROUTE LEARNS WHERE STAYING IS WRONG. VOID CHECKS FIRST, OFF DUMPS
+
+33-VOID cost a step because a ceiling that was already measured went unread. So this lever starts
+with the reading, and the reading needs NO RUN: every quantity that can void it is already in the
+dumps.
+
+### 35.1 What is built
+
+  * `_read394_walkonly.py` - THE VOID CHECK, over existing `stage289_decision*.json`. It pulls
+    `walk_only_arrive`, `walk_only_pick` (n / mind / rival / count_rival), `step_rate`,
+    `deep_only_rate` and pools them AS COUNTS - the population recovered exactly as
+    `pick.n / arrive`, never a mean of four rates. A reported nan reads as missing, never as a
+    zero that pools.
+  * `--route-on walk_only` in the stage. On questions that are NOT walk_only the route's
+    probability `p1` is DETACHED; `v_stay` and `v2` carry their own softmaxes, so BOTH PICKS KEEP
+    THEIR GRADIENT ON EVERY QUESTION. It cuts one decision, not the population - which is exactly
+    what 34.5 rejected the other version for. Requires `--two-way`, refused without it: there
+    stage one's logits ARE the own worlds, and cutting the route would cut the home pick too.
+    The mask is the tape's (`answerable and not truth_in_own`), never the mind's correctness.
+  * `_check394_route.py` - eleven properties, every one a wrong number, all eleven
+    mutation-verified. The stage half is read off the source; the READER half is RUN, on dumps
+    the checker writes, with the pooled arithmetic asserted exactly.
+
+### 35.2 THE FOUR VOID CHECKS, DECLARED BEFORE ANY DUMP IS OPENED
+
+Any one of them closes the lever without a training run.
+
+  V1  `walk_only_arrive >= 0.95` -> VOID. The router ALREADY steps where staying is wrong, so
+      there is nothing to teach it. What is lost on that population is lost in the PICK.
+  V2  walk_only share of the exam `< 0.02` -> VOID. The masked gradient would be under 2% of the
+      training signal; the arm is a slower control and a null on it says nothing about routing.
+      (34.4 cites ~0.036, so this is expected to pass - expecting is not measuring.)
+  V3  `deep_only_rate <= 0.05` -> W1 IS VOID, which is Kostya's own condition for depth as a
+      decision.
+  V4  `count_rival_rate >= mind` on walk_only -> the pick there is a counting problem and the
+      route lever is aimed at the wrong half.
+
+### 35.3 THE GATE, IF NOTHING VOIDS IT - Kostya's, unchanged
+
+Arm `... --two-way --connect --route-on walk_only`, control the identical arm at `--route-on all`,
+four seeds.
+
+  1. On the walk_only population, `hit(step) > hit(stay) + 0.05`.
+  2. On the FULL population - the paired control, NOT optional - hop1 must not fall by more than
+     0.03. Without it, held `hit` collapses on a tape that is 87% unanswerable.
+  3. `route_on_live` is reported: if the router got its gradient on a few percent of questions,
+     that is V2 arriving late and the arm reads as a slower control.
+
+### 35.4 HOW THE OUTCOME IS TO BE READ - declared now
+
+  * PASSES -> the route was being taught mostly on questions whose right answer is "do not go",
+    and the fix is the population of the teacher, not the reward.
+  * FAILS, or an oracle step is still below stay on walk_only -> **hopping on the cloze exam is
+    closed for good.** Not "untrained", not "under-parameterised": closed. That is a result, and
+    it sends the project to the exam itself, which section 29 already said measures none of the
+    four requirements.
+
+Nothing measured here. The reader runs on dumps that already exist; the arm runs on Kostya's
+machine.
+
+    python _check394_route.py
+    python _read394_walkonly.py results/stage289_decision*.json --held     <- FIRST
+    python _stage289_derivation.py --reach --min-fillers 1 --reach-depth 2 --two-way --connect \
+        --route-on walk_only --seed 1337 --run-tag 394route      (and 8642, 2890, 4711)
+
+## 36. 358 RE-OPENED AT min_fillers 1, WITH THE COLUMN THAT CAN SEE WHAT INGESTION MAKES
+
+Kostya: "Сначала потолок, не награда. 358 / --min-fillers 1, torch-free, старый гейт. Если
+ingest-null < 0.05 - шагать некуда, R не трогать." Agreed on every part of the order. The ceiling
+comes first, the audit already exists, and it already takes the flag. One defect had to be fixed
+before the number could be read.
+
+### 36.1 The defect: `--min-fillers 1` lifts ONE of 8-RESULT-6's two causes
+
+That section named two reasons the write path deletes what ingestion creates:
+
+  1. `min_fillers >= 2` deletes CONSTANT frames - exactly what self-reference makes.
+  2. EVEN KEPT, THE EXAM CANNOT ASK ABOUT ONE: the lens is the place's other fillers and the
+     offer excludes the lens value (`w != v`), so a constant place's truth is outside its own
+     offer BY CONSTRUCTION.
+
+The flag lifts (1). It does nothing to (2). So the re-run, read on the old column alone, would
+admit every place ingestion creates and score all of them misses, and `ingest - null < 0.05`
+would be read as "there is nowhere to step" when the truth is "the exam still cannot ask". That is
+33-VOID's mistake run backwards - a gate on a quantity that cannot move - and it would have closed
+the one direction that is still open.
+
+MEASURED, NOT ARGUED, on the designed case in `_check396_ingest.py` (an article that introduces
+its subject and repeats it):
+
+    min_fillers 2   the place does not exist          on a place 2    oracle 0
+    min_fillers 1   ask 10   hit 0   recall 8   constant 8   oracle 8
+
+Ten positions on a place, the substitution column reaching ZERO of them, recall reaching eight.
+
+### 36.2 What was added to `_audit358_ingest.py`
+
+  * `recall` - 359's channel: the truth among the place's OTHER POSITIONS, this one excluded.
+    Not free and not trivially one: under `base` the repetitions must be in the OLD world, and
+    under `null` an equal mass of foreign text gets the same opportunity. 358's own null is what
+    separates "recall is real" from "recall is trivial".
+  * `oracle` - either channel. What ingestion made answerable at all.
+  * `new_const` / `new_mixed` - the split of what ingestion ADDED (reached under ingest, not
+    under base), by whether the place is a paradigm or mixed. This is the void check for the
+    two-terminal design: if the addition is all of one kind, a design with two holes and two
+    rewards has one of them empty. It decides nothing by itself and is printed beside the gate.
+  * THE OLD COLUMNS ARE BIT FOR BIT. `hit` still skips a place with no lens, still bans the
+    place's own values, still excludes the lens value - a checker property with its own
+    mutation - so every 358 number on record stays comparable.
+  * One absolute denominator for every arm and every channel: every token of the question line,
+    askable or not. A channel that cannot ask is a zero, never a smaller denominator (342a).
+
+`_check396_ingest.py`: seven properties, every one a number on a designed corpus, all five
+available failures re-introduced and caught.
+
+### 36.3 THE GATE - Kostya's, unchanged, and now asked TWICE
+
+`ingest - null > 0.05` with the late third above the early, on the substitution column AND on the
+oracle column. The verdict prints one of three readings, and the middle one is new:
+
+  * BOTH pass -> ingestion is real and the offer can ask about it.
+  * ORACLE passes, SUBST fails -> INGESTION IS REAL AND THE OFFER CANNOT ASK ABOUT IT. That is
+    8-RESULT-6's second cause as a measurement, and the lever is then the QUESTION, not the
+    reward.
+  * NEITHER -> there is nowhere to step. Do not touch R. Kostya's instruction, executed.
+
+### 36.4 What is not claimed, and what comes after
+
+Nothing about wikitext. The audit was exercised here on a synthetic corpus and on the designed
+case, to prove the plumbing; no number printed in this container may be cited.
+
+On 34.3's law and whether it transfers: 393 closed committing to one PLACE on the cloze exam,
+where leaving cost hop-1@8 and the merge kept everything. Ingestion is not that object - the
+article's own past and a foreign article's eight are not complementary sources of one answer -
+so the law does not transfer automatically. What would show it is `new_const` / `new_mixed`:
+mass that the merge never had.
+
+The reward design - two terminals, `stay/recall` on the constant hole and one step on the leaf -
+is NOT built, by Kostya's own order. It is what comes after a live 358, on the late third of an
+article, and never on wiki-cloze.
+
+    python _check396_ingest.py
+    python _audit358_ingest.py --min-fillers 1                       <- the re-run
+    python _audit358_ingest.py --min-fillers 1 --docs 20 --doc-lines 16    # quick pass
+    python _audit358_ingest.py                                       # 358's own setting, for the
+                                                                     # comparison on record
+
+## 37. 394 AND 358 CAME BACK. ONE IS CLOSED; THE OTHER'S DECLARED READING IS SUSPENDED ON ONE NUMBER
+
+Both measured on Kostya's machine, four seeds, dumps at
+`results/stage289_decision_394route_s{1337,8642,2890,4711}.json`.
+
+### 37.1 358 at min_fillers 1: CLOSED, and R is not touched
+
+    subst   ingest - null  +0.0049          oracle  ingest - null  +0.0367
+    ADDED   new_const 2863   new_mixed 1580
+
+The recall column moved the gain 7.5x - it saw most of what the substitution offer structurally
+cannot - and it is still under the declared 0.05 on both channels. The gate was declared before
+the run and it fails. Both terminals carry mass, so the two-terminal reward is not empty; it is
+simply not reachable through a gain that is not there. **Kostya's instruction executed: there is
+nowhere to step, R IS NOT TOUCHED.** 358 goes to section 5.
+
+### 37.2 394: the mask worked, and what it taught the router was the REWARD
+
+    route_on_live       ~3.2%          the router got its gradient on 3% of questions
+    walk_only_arrive    0.08-0.13      against the control's 0.79-0.91
+    hit_of_walk_only    0.07-0.13      against the control's 0.73-0.84
+    hit_of_depth1       +0.45..+0.75 over the control
+
+§35.3(1) FAILS. §35.4 declared, before the run, that a failure closes hopping on the cloze exam
+for good. That declaration stands on the record, and this section does not withdraw it. It
+suspends it on ONE pre-specified number, for one reason: the arm may not have tested what the gate
+says it tested.
+
+**THE ARITHMETIC, from `reach_reward` and nothing else.** A named truth pays 1.0, a wrong name
+-1.0, and REFUSING AN ANSWERABLE HOLE PAYS 0.75. So naming beats refusing only when the pick is
+right with probability p:
+
+    p * 1 + (1 - p) * (-1) > 0.75      <=>      p > 0.875
+
+and the threshold is invariant under `shift_reward` (the shifted scale gives 1.0 / 0.0 / 0.875,
+the same inequality). **The control measures the pick on walk_only at 0.73-0.84 - below 7/8 on all
+four seeds.** On that population, under this reward, the arithmetic optimum is to refuse.
+
+A router trained ONLY on walk_only therefore learns exactly that, and `walk_only_arrive` falling
+0.85 -> 0.10 is the lesson correctly learned. If that is what happened, 394 measured the REWARD's
+arithmetic on the one population where the route matters, not the walk - and it is base-rate
+saturation's FOURTH appearance (299_hash, 311, 339), in a new place: not §30.2's per-question
+offset, but a fixed 0.75 paid for silence on a hole that is answerable.
+
+**THE CHECK, PRE-SPECIFIED, ONE ONLY, ON DUMPS ALREADY IN HAND.** `false_silence` - the share of
+ANSWERABLE questions the arm refused, already reported by the stage, and walk_only is a subset of
+answerable. If 394's is far above 365r3's, the reading above holds. If it is not, this section is
+wrong, §35.4 stands as declared, and hopping on cloze is closed. `_read394_walkonly.py` now prints
+it. ONE check, because a confound found after a failed gate is the shape of an after-the-fact
+rescue, and this project does not get a second one.
+
+### 37.3 A GATE OF MINE WAS COMPOSITION-DEPENDENT. FOURTH TIME IN THE PROJECT
+
+§35.3(2) put the guard on `hit_of_depth1`, which is `mind_right` over the rows where
+`depth_reached == 1` - A RATE WHOSE DENOMINATOR IS THE QUESTIONS THE ARM STEPPED ON. The arm
+stopped stepping, so the denominator collapsed and the rate rose by selection: the +0.45..+0.75 is
+not a gain, and the guard could not have caught a real regression. This is the fault section 6
+already records for 377 and 369 - a gate specified on a composition-dependent quantity - and I made
+it a third and fourth time (§33.4's magnitude-free gate, this).
+
+THE RULE THAT FOLLOWS, and it costs nothing to obey: **a guard is read on an absolute quantity -
+hits per question over the whole population - never on a rate whose denominator the arm itself
+moves.** `_read394_walkonly.py` now prints `hit` and `payoff_mind` beside `hit_of_depth1`, with
+the reason written next to them.
+
+    python _read394_walkonly.py results/stage289_decision_394route_s*.json --held
+    python _read394_walkonly.py results/stage289_decision*365r3*.json --held    # the control
+
+## 38. 398: THE CEILING OF REPAIRING A DEVICE. MEASURED, AND THE FIRST NUMBER I PRODUCED MYSELF
+
+Kostya's cut, and it is the right one: "восстановить буквы" is cloze with more holes; "восстановить
+устройство" is an operation whose check is not `== hidden`. And the object has to break HARD - a
+shuffled article stays plausible, a shuffled file parses or it does not.
+
+PROVENANCE, WHICH IS NEW. Every number below was measured IN THE CONTAINER, not on Kostya's
+machine, and that is legitimate for the first time in this project: the corpus is source code that
+exists identically on both machines, the audit is torch-free, and there is no draw from wikitext to
+disagree about. Far null = python3.11's stdlib; near null = a sibling file of this project. Both
+are named, because they answer differently.
+
+### 38.1 The exam whose ceiling this is
+
+    BREAK    cut k body lines out of different functions of one file into a pool
+    REPAIR   for each pooled line, NAME THE FUNCTION it belongs to
+    OUTPUT   the file's own scopes - tens, not a vocabulary: 347 is not touched
+    REWARD   FREE NAMES - names the line uses that its assigned scope does not bind. Never
+             `== the original line`; many arrangements are correct, which is the opposite of a
+             catalogue.
+
+The relation is DEFINITION -> USE: directed, asymmetric, between two different places, bound by
+name identity. 350's wall is that this project's tape records only alternation - a paradigm table,
+a lexicon, which ranks alternatives and cannot produce content. Definition -> use is not in a
+lexicon by construction, which is the whole reason for changing the object rather than the loss.
+
+### 38.2 The numbers, three seeds, and the raw control
+
+    live ambiguous   0.229  0.246  0.229        <- THE VOID CHECK, and the decision population
+    acc              0.614  0.604  0.625        floor 0.080, so acc - floor ~ +0.53
+    acc (ties ok)    0.963  0.966  0.970
+    free names       true 0.31 | random own 0.89 | foreign 0.99   (share of the line's own names)
+    vs far null      true beats a matched stranger 0.834 | beaten 0.166
+    vs NEAR null     true beats a matched stranger 0.682 | BEATEN 0.319
+
+RAW against NORMALISED, declared beforehand as the control: accuracy barely moves (0.609 vs
+0.614) but `beaten` is worse raw (0.178 vs 0.166). The division earns its place against the null,
+not on the headline - which is what 317, 383 and 387 each found the hard way.
+
+**THE BINDING NUMBER IS THE NEAR NULL'S 0.319.** A sibling file of the same project binds the same
+idiom - `p`, `q`, `net`, `device`, `rows` - so it wins a third of the time. Against an unrelated
+codebase the relation is much more specific. Quote the harder one.
+
+GATE, as declared before the run: (a) live ambiguous 0.23 > 0.05, NOT VOID; (b) acc - floor +0.53
+> 0.05 and vs_foreign 0.68 >= acc - 0.05, PASSES on the near null too; (c) free_true 0.31 below
+both random own and foreign by far more than 0.05, PASSES.
+
+### 38.3 What the 23% actually is, and it constrains the next step
+
+96% of the time the counting rival puts the true scope AT THE TOP; the work left is breaking ties,
+and that is 23% of the mass. A tie at zero is not a decision - 11% of lines have nothing scoring at
+all - and it is split out and excluded, which is why the void check is read on the live share.
+
+So the decision population is **exactly the lines where NAME OVERLAP ALONE CANNOT DECIDE**, by
+construction. That is not a defect of the exam; it is what a decision population is. But it fixes
+the constraint on any mechanism built here: **it must bring evidence that is not the name-overlap
+count** - the line's shape, its neighbours in the pool, its order - or it is the counting rival
+with parameters. That is declared now, before anything is built, and it is the trap 359 walked
+into from the other side ("recall is count-trivial").
+
+### 38.4 The checker caught a real bug, which is what it is for
+
+`_check398_scope.py`: eight properties on a designed source string, every one a number, all eight
+mutation-verified. Property 3 failed on the first run and it was the AUDIT that was wrong: a nested
+def's NAME was being bound inside the nested scope itself, where nothing can use it, because
+`owner` puts a def line inside its own span. Fixed by binding the name in the innermost function
+that contains the def line AND is not that def. The fix moved acc 0.583 -> 0.614.
+
+### 38.5 What is NOT claimed
+
+  * THE PARSE ORACLE IS NOT MEASURED HERE, deliberately. Re-inserting a line needs an indentation
+    decision, which is part of the REPAIR and not of its ceiling. It is free (`ast.parse`) and hard,
+    and it belongs to the mechanism.
+  * NONE OF THE 350 STEPS TRANSFER. Different object, different corpus. The separation result -
+    Phi holds no facts - has to be re-earned here with its own four controls, not assumed.
+  * The corpus is this project's own source: long functions, heavy comments, one idiom. That is a
+    style, and the near null's 0.319 is partly it.
+  * No mask-15%, no whole document in the offer, no second loss. None of the three things Kostya
+    ruled out is in this.
+
+    python _check398_scope.py
+    python _audit398_scope.py                                   # far null: the stdlib
+    python _audit398_scope.py --null-from .                     # near null: a sibling file
+    python _audit398_scope.py --raw                             # the declared control reading
+
+## 39. 399: SHAPE IS A COIN ON THE 23%. THE ONLY CARRIER IS SCOPE SIZE
+
+Kostya's law for this step, and it was declared before a line was written: the population is ONLY
+`amb_live`; the full accuracy is the PAIRED CONTROL, not the target; the evidence may NOT be
+`|names ∩ bound| / idf`, or Phi is a coin on a tie by construction; and ONE feature is named before
+the build. The named one was SHAPE.
+
+### 39.1 What was declared, and it is name-free by construction
+
+    score_shape(scope) = sum over the AST NODE TYPES on the line of
+                         [the type occurs in that scope's body] / (how many scopes have it)
+
+the same form as 398's name count with `type(node).__name__` in place of identifiers, so the two
+are comparable and neither is given a shape the other lacks. The undivided version is the declared
+control reading.
+
+`_check399_shape.py`'s first property is the one that matters: two designed sources, identical in
+structure and DISJOINT IN EVERY IDENTIFIER, must give the same type sets and the same scores. The
+feature is blind to identity because renaming cannot move it - checked, not argued, and the
+mutation that leaks `node.id` into it fires that check.
+
+THREE RIVALS, ALL DECLARED BEFORE THE RUN, all priced by EXPECTED accuracy under uniform
+tie-breaking (`1/|argmax|`, exact, seed-free): the coin, the UNDIVIDED name overlap (the guard
+against names in disguise), and SIZE - the confound, because a bigger scope holds more node types
+for the same reason it holds more of everything.
+
+### 39.2 The numbers - three seeds and the raw control
+
+    VOID CHECK   true_in_tie 0.973          the population is answerable
+    population   640 lines, 4.17 tied scopes each, 4.65 node types per line
+
+    shape - random     -0.002   +0.010   -0.015     (raw control -0.005)
+    shape - rawname    -0.002   +0.010   -0.015
+    size  - random     +0.051   +0.081   +0.033
+    control delta      -0.0005  +0.0025  -0.0038
+
+**SHAPE IS A COIN.** It straddles zero on three seeds and on the raw control, and it is BELOW SIZE
+by 0.05-0.07 every time. The gate declared in the file - beat all three rivals by 0.05 - fails on
+the first clause. **Phi is not built here on this feature.** Declared in advance, executed without
+argument.
+
+**AND THE ONLY THING THAT CARRIES IS SIZE**: +0.03 to +0.08 over the coin on 3/3. That is not
+evidence about the line - it is a prior over how big a scope is, which is knowledge and not a mind,
+exactly as the name count was. So 398's ceiling stands, and it stands as "a counter of scopes,
+plus a size prior".
+
+The paired control is neutral (-0.004 to +0.003): the catalogue was not paid for the 23%, because
+nothing was bought with it.
+
+### 39.3 What must NOT happen next
+
+Fishing for a second shape feature now that the first failed is gate-shopping, and it is the
+failure mode this project spent 40 steps learning to name. The other feature Kostya offered -
+JOINTNESS, two pooled lines belonging to one def, without identity - was NOT run and is therefore
+NOT closed. If it is taken, it is its own step: declared first, the same three rivals, the same
+population, and THIS SECTION cited beside it, so that "shape was a coin" travels with it.
+
+### 39.4 A correction to 398's gate, from Kostya
+
+`vs_foreign >= acc - 0.05` compared an accuracy with a share of pairwise wins - two different
+quantities, so the clause meant nothing even though the verdict did not depend on it. Gate (b) is
+now `acc - floor > 0.05` alone, and the foreign nulls are reported as their own line with the NEAR
+one (a sibling of this project, beaten 0.32) as the binding number. Section 38 is unchanged
+otherwise.
+
+    python _check399_shape.py
+    python _audit399_shape.py
+    python _audit399_shape.py --raw
+
+## 40. 400: DEFICIT FAILS TOO, AND ITS ONE BIT WAS DETECTING OUR OWN CUT
+
+The second and last object drawn from 399's failure, and Kostya's phrase, declared before the run:
+shape asked "is the line LIKE the remainder", this asks "does the line CLOSE what the remainder
+lacks". Population `amb_live` only; the size-twin inside the score so the prior that carried 39 is
+subtracted; the direction declared and not to be flipped.
+
+    deficit(S) = the line's node TYPES absent from S's remaining body
+    twin(S)    = the scope with the nearest remaining line count, S excluded, ties by index
+    score(S)   = deficit(S) - deficit(twin(S))
+
+### 40.1 The numbers, three seeds
+
+    deficit - coin     +0.021   +0.021   +0.044        the bar is 0.05
+    deficit - rawname  +0.021   +0.021   +0.044
+    deficit - size     -0.030   -0.060   +0.011        below SIZE on 2 of 3
+    twin_gap            23.6 lines (mean, heavy-tailed: this corpus holds one 1000-line scope
+                        and many 5-line ones, so the nearest match for the giants is far)
+
+**THE GATE FAILS ON ITS FIRST CLAUSE, on all three seeds.** The declared direction is not reversed
+on seeing the number. And the shape of the failure is 39's: whatever the score has, SIZE has more.
+
+### 40.2 The one bit was an artifact, and the check that says so was added before the write-up
+
+A `Return` line offered to a scope whose remainder holds no `Return` read **0.738 against a coin's
+0.394, +0.344 on 3/3** - the largest number this object has produced. It is worth nothing, and the
+measurement that proves it is in the file:
+
+    rivals whose FULL body has no Return      0.016   0.026   0.028
+    the TRUE scope's full body has none       0.000   0.000   0.000
+
+The true scope always has a Return in its full body. "No Return in the remainder" is therefore
+true of it ONLY BECAUSE WE REMOVED ITS RETURN, and false of 97-98% of the rivals. THE BIT DETECTS
+THE CUT, NOT THE LINE.
+
+AND THE SAME FAULT WOULD SHRINK ANY SPARSE PRESENCE BIT. This audit removes ONE line at a time, so
+exactly one scope acquires a hole. Under the pool setting the exam is actually about - k lines cut
+from k scopes at once - the bit narrows only to "one of the k scopes missing a Return", and its
+power falls roughly like 1/k. Nothing here says it survives that, and nothing here was run that
+way.
+
+`_check400_deficit.py` holds the artifact check as property 6 with its own mutation: reading the
+REMAINDER instead of the FULL body would make the check the same quantity as the bit, and it could
+never fire. Six properties, all mutation-verified, plus the equivariance property inherited from
+399 and re-asserted here.
+
+### 40.3 Where this leaves the object
+
+Two features were declared and measured on the 23% where names tie, and both are coins:
+
+    399  similarity to the remainder     a coin, below SIZE on 3/3
+    400  deficit against the remainder   +0.02..+0.04, below the bar, below SIZE on 2/3
+
+So on this corpus the scope exam holds A COUNTER OF SCOPES PLUS A PRIOR ON SCOPE SIZE, and nothing
+else that has been named. That is knowledge, and by this project's own thesis knowledge sitting in
+the tape is correct - but it is not a mind, and there is no evidence here for one to learn.
+
+WHAT IS NOT CLOSED: the PAIR - two pooled lines belonging to one def, without identity - was never
+run. It is a separate step with its own phrase, its own three rivals and this section cited beside
+it. What must NOT happen is a third form: two declared features failed, and a third invented after
+the fact is gate-shopping, which is the one habit this project spent forty steps learning to name.
+
+    python _check400_deficit.py
+    python _audit400_deficit.py --seed 1337     (and 8642, 2890)
+
+## 41. 402: THE TRACE AS WORKING STATE. THE CEILING IS A CLOSED PATH
+
+Kostya: search is proven and should be the SUBSTRATE, not the thing being trained; what is missing
+is a context of understanding - the consequence of a chain.
+
+THE ARGUMENT, IN ONE LINE. GPT's understanding is not in its weights - it is in the CONTEXT: the
+partial result becomes the next input, and that state lives outside the parameters. This project
+has no such state at all (30.6). The state that can be carried here without breaking the
+separation contract is THE PATH, never the values: addresses are structure, values are facts.
+351 made the same argument for "where it stands" - policy state, not a fact.
+
+### 41.1 What is measured, and what it deliberately is not
+
+  * NOT a wider offer (347, four times) - the offer stays eight.
+  * NOT a second read that adds candidates (388's hop2@8 did not beat hop1@8).
+  * NOT 387's rerank, which reordered the SAME evidence. This brings evidence the offer never
+    had: where the walk goes FROM each candidate.
+
+    close(c)   the walk from the place c was OFFERED FROM reaches the question's place
+    truth / decoy / random   the same question of the true candidate, a frequency-matched twin
+                             taken from the same offer, and a random place
+
+  VOID CHECK  `close_rate`. Near 1 or near 0 and the relation carries nothing to rank on.
+  GATE        truth - decoy > 0.05 AND truth - random > 0.05, on 3 of 3 seeds. The decoy is the
+              one that matters: it says the truth closes because it is the truth.
+
+### 41.2 Two bugs of mine, both caught before any number was reported
+
+  1. **THE SECTION 27 LEAK, IN THE RETURN DIRECTION.** The question's place still holds the hidden
+     token, so a plain walk back finds it THROUGH the answer we hid there. On the designed tape
+     the path closed on a place whose only link was the hidden token. One mention is now
+     subtracted from the target's overlap AND from its norm - the same subtraction `reach_places`
+     already makes on the query side.
+  2. **380'S ROOT.** The first draft rooted each candidate at "the first place holding this
+     value". That is exactly the bug 380 found in `reach_deep`, which cost three seeds of
+     hit_of_deep there. A walked candidate now keeps the place it was OFFERED from.
+
+The first draft printed `close_rate 0.0089`; with the root fixed it is 0.66 on the synthetic tape.
+Nothing else changed. That is how much a root rule is worth, and it is why the checker exists.
+
+`_check402_trace.py`: seven properties on the designed tape of `_check390`, where the truth stands
+at the question's place and at exactly one other, and those two share NOTHING ELSE - so a path that
+closes there is closing through the answer, by construction. Five mutations, all caught.
+
+### 41.3 Not measured
+
+The synthetic corpus here is plumbing: 8 subjects and 8 verbs, everything closes. NO NUMBER IN
+THIS SECTION IS ABOUT WIKITEXT. The run is Kostya's.
+
+    python _check402_trace.py
+    python _audit402_trace.py --seed 1337      (and 8642, 2890)
+
+## 42. 403: THE WORKING STATE ON ORDER INSIDE A DEF. ONE BIT IS A COIN, AND THE HEADROOM WAS BIAS
+
+Kostya's redirect, and it retires 402 before it is run: on cloze a trace is a commitment to a
+narrow source, which 393 and 34.3's law already closed. The live instrument is ORDER INSIDE ONE
+DEF - the one place 398's counter of scopes is silent, because every candidate belongs to the same
+scope by construction.
+
+    arena   one def's body, shuffled into a pool        step   which line to place next
+    trace   the last placed line's CTX (Store or Load, never an identifier)
+    world   an inversion is a LOAD placed before the STORE of the same name in the same body
+
+That is CoT with pointers instead of letters, and the state is a narrowing rather than a fact.
+
+### 42.1 The numbers
+
+Teacher forcing (the prefix is the TRUE first t lines, so nothing depends on a draw); the two
+parameters of the last-ctx rule are counted on half the files and read on the other half.
+
+    VOID CHECK   no Store/Load pair in 0.056-0.065 of bodies - the instrument is LIVE
+    no prefix    0.574  0.569        picking blind, in closed form
+    prefix-1     0.599  0.592
+    GAIN         +0.025 +0.024       the bar is 0.05
+
+**THE GATE FAILS.** One bit of the prefix is a coin, and by the rule declared with it: do not
+lengthen the prefix, do not put a trace into 289.
+
+### 42.2 The rescue that was there and was not real
+
+A per-state CLASS choice looked worth **+0.107** over no prefix - which reads as "the counted rule
+picks the wrong class, the signal is there". It is not. THE MAXIMUM OF TWO NOISY RATES IS BIASED
+UPWARD, and the same maximum over a RANDOM split of the pool into two groups OF THE SAME SIZES
+gets +0.070 by itself. Real headroom **+0.037**, and +0.023 on the unparsed corpus - under the bar
+as well. There is barely anything to pick, so "the rule chose badly" was not available either.
+
+That null cost four lines and removed two thirds of the headline. It is the same shape as 400's
+Return bit, one step earlier: the tempting number was an artefact of the procedure, not a property
+of the object.
+
+### 42.3 The equivariance control, done properly the second time
+
+The first renamer worked on TEXT: it rewrote strings and comments and broke files, so the two arms
+were measured on different corpora and the numbers moved for that reason. Redone on the TREE -
+both arms unparsed from the AST so the formatting is identical and only the identifiers differ:
+
+    unparsed             1763 bodies, 17824 states, gain +0.0208, real headroom +0.0229
+    unparsed + renamed   1763 bodies, 17824 states, gain +0.0208, real headroom +0.0229
+
+Identical to the last digit. The state reads no content, by measurement rather than by argument.
+
+### 42.4 What this closes and what it does not
+
+CLOSED: the last ctx as a working state on this object. NOT RUN, and therefore not closed: the
+other two components Kostya named - inversions so far, and how much Store/Load is left in the pool
+- and the pair-to-def form (`kept` = how many scopes stay compatible with BOTH lines). Each is its
+own step with its own phrase, and this section travels beside it: on this object one bit of state
+was a coin and its apparent headroom was selection bias.
+
+    python _check403_order.py
+    python _audit403_order.py
+    python _audit403_order.py --normalise            # the arm the rename control is read against
+    python _audit403_order.py --normalise --rename   # must be identical
+
+## 43. 404: THE FIRST YES. A FITTED FAMILY CARRIES, HELD OUT BY FILE, AND IT TRANSPLANTS
+
+Two changes at once, both Kostya's, and both about METHOD rather than about another count.
+
+**FIT A FAMILY, NOT A COUNT.** 398-403 each declared ONE feature, measured it alone, got a coin
+and closed a direction. A single dimension being a coin is what to expect even when the joint
+carries, and this project had never measured a joint - because its discipline forbids fitting, and
+a discipline that forbids fitting can only ever REJECT. The honesty is kept by a HELD-OUT SPLIT BY
+FILE: fitting is allowed because it is scored on files the fit never saw.
+
+**A VOCABULARY MAY LEAK, BUT ONLY LANGUAGE.** Kostya: a mind knowing the word "physics" is not a
+mind holding a fact. A word recurring ACROSS MANY TAPES is language; a word living in one tape is
+that tape's content - and that is a COUNT (in how many separate files does this identifier occur),
+so the contract becomes measurable instead of declared.
+
+### 43.1 The arena and the population
+
+403's arena - order inside one def, teacher forcing - and the population where the tape's own rule
+is SILENT: states with TWO OR MORE safe candidates, so def-use permits several and only the order
+decides. **VOID CHECK: 0.855 of states have a decision in them.**
+
+### 43.2 The numbers, held out by file
+
+    floor                     0.2530     1/|safe|, exact
+    A  (name-free family)     0.3845     +0.1315
+    A + B (vocabulary)        0.4084     +0.0239 over A
+    best SINGLE feature       0.3220     the family beats it by +0.0625
+    TRANSPLANT (stdlib)  floor 0.2302  A 0.3360 (+0.1058)  A+B +0.0010 over A
+    RENAMING             A 0.4167 -> 0.4167 (identical)   A+B 0.4540 -> 0.3998 (moves)
+
+**PRIMARY PASSES: +0.1315, against a 0.05 bar.** It is the first positive result in this stretch of
+the project.
+
+**IT IS A JOINT, NOT THE ELEVENTH COUNT.** The best single feature of the family reaches 0.3220 -
+the family beats it by +0.0625. That ablation is the one that decides the whole argument for
+fitting, and it is read on the SAME held-out states.
+
+**IT TRANSPLANTS: +0.1058 on a foreign corpus** against +0.1315 at home, a gap of 0.026 under the
+declared 0.03. So what was fitted is STRUCTURE, not this corpus's content - the separation contract
+measured rather than asserted. And A is identical to the digit under renaming, while A+B moves,
+which is how we know the two channels are really two.
+
+**THE VOCABULARY BOUGHT NOTHING: +0.024 at home, +0.001 transplanted.** Under the bar, and the
+little it had did not survive a foreign corpus - the signature of content rather than language.
+The hypothesis was worth testing and the answer is no on this object, by measurement.
+
+### 43.3 Two faults of mine, caught before the write-up
+
+  * THE VOID CHECK WAS AN ARTEFACT. Read off two capped collections, both hit the cap and it
+    printed 1.0000 - a property of the cap, not of the arena, and it is the number to be read
+    FIRST. Counted uncapped it is 0.855.
+  * WITHOUT THE ABLATION the headline would have been "a family carries" when one feature might
+    have carried it alone. That check is now property 6 of the checker, with its own mutation.
+
+`_check404_family.py`: seven properties, all mutation-verified.
+
+### 43.4 What this does and does not say
+
+It does NOT say the project has a mind. It says: on an arena where counting is silent, a joint of
+name-free structural counts, fitted and held out, carries +0.13 and transfers to a foreign corpus.
+That is the first evidence that something above a counter exists here - and it was invisible to
+every single-feature step because each of them was, correctly, a coin.
+
+The next questions it opens, none of them run: does the gain grow with capacity; does it survive
+when the tape is broken rather than teacher-forced; and is `unblocks` doing all the work (the
+ablation says no single feature is, but the family's weights have not been read).
+
+    python _check404_family.py
+    python _audit404_family.py
+    python _audit404_family.py --transplant /usr/lib/python3.11
+
+## 44. 405: ON ITS OWN OUTPUT THE FAMILY STOPS BEING A JOINT
+
+Same arm A, no vocabulary, pool SHUFFLED, prefix the model's own instead of the truth's. Training
+teacher forced as in 404; only the reading changed. Three seeds.
+
+    gain over floor          +0.047   +0.085   +0.083     bar 0.05, so 2 of 3
+    transplant (stdlib)      +0.055   +0.077   +0.084     within 0.03 of home on 3/3
+    best FITTED-SINGLE       0.3331   0.3488   0.3493
+    family over it           -0.011   -0.022   -0.008     NEGATIVE on 3/3
+    renaming                 identical to the digit
+
+**THE GATE FAILS ON BOTH CLAUSES THAT MATTER.** The gain clears 0.05 on only two seeds, and the
+ablation reverses: with the prefix its own, ONE FEATURE FITTED ALONE - #13, the `Return` presence
+bit - does as well or better than the whole family, on every seed. 404's +0.13 was a joint under
+TEACHER FORCING and is not one under rollout.
+
+What survives: the transplant (structure, not content) and the equivariance. What does not: the
+claim that fitting a family buys something a single count cannot. On this arena, once the state is
+the model's own, it does not.
+
+The honest reading of 404 beside this: teacher forcing hands the model a state that is always
+correct, and the joint was partly reading that. Capacity is not to be swept here - 43.4's condition
+was "only if the breakage is live", and under a live prefix there is no joint to give capacity to.
+
+`hash(w) % dim` in 404's channel B was salted per process and is now `zlib.crc32`; B stays closed
+either way.
+
+    python _audit405_rollout.py --seed 1337    (and 8642, 2890)
+
+## 45. 406: THE THREE POLICIES ARE IDENTICAL. THE NUMBER IS A PROPERTY OF THE BODY
+
+Full permutation, success = every prefix legal, no y = the original. Three rivals, no Phi.
+
+    HOME     1401 bodies   random 0.5967   return 0.5967   unblocks 0.5967
+    FOREIGN  1021 bodies   random 0.7512   return 0.7512   unblocks 0.7512
+
+Identical to four digits, on both corpora and all three seeds. THE GATE FAILS: the rivals do not
+differ at all, so the world is not distinguishable by any of them and Phi has nothing to choose.
+
+THE REASON WAS WRITTEN BEFORE THE RUN and it holds: `have` only grows, so a line that is safe stays
+safe and no legal pick can strand another. Completion is therefore exactly the share of bodies
+with no def-use CYCLE - a property of the tape, not of the policy. The remaining 40% at home are
+bodies where a name is loaded and stored on the same line with no earlier store (`x = x + 1`,
+accumulators), which deadlock at step one under this rule.
+
+So this arena has no decision in it at all: not a thin one, none. What it does say is that the
+legality rule is too strict for real code, and that any repair exam here needs an operation that
+can enter such a body - which is a different arena, not a different policy.
+
+    python _audit406_repair.py --seed 1337    (and 8642, 2890)
+
+## 46. 407: THE CEILING OF 351'S DOOR TWO - DOES IT MATTER WHERE THE MIND STANDS
+
+351 named three doors; the first was built (358) and failed, and the other two were never returned
+to. Nothing ever closed door two - "the walk is the life" - it was dropped, which is section 28's
+shape again. This is its ceiling, and it is one number.
+
+    value(place)  the share of that place's holes whose truth the walk from it already reaches
+    oracle        speak at the B best places      random   speak at B random ones
+    spread        top decile minus median
+
+  VOID  spread ~ 0 - nowhere is better than anywhere, and a trajectory policy would be learning
+        over an indifferent world.
+  GATE  oracle - random > 0.05 per utterance, three seeds.
+
+Leak discipline is 390's: the asking hole is out of its own place's profile, same-line places are
+dropped. The synthetic run here is plumbing only (8 subjects, 8 verbs - everything is reachable);
+NO NUMBER IN THIS SECTION IS ABOUT WIKITEXT. The run is Kostya's.
+
+### 46.1 Our w400 run (Windows, three seeds)
+
+    seed   spread   oracle   random   gain    gate
+    1337   +0.324   0.583    0.032    +0.550  pass
+    8642   +0.300   0.603    0.030    +0.573  pass
+    2890   +0.382   0.682    0.038    +0.644  pass
+
+Median value 0.0 — most places reach nothing; top decile ~0.30–0.38. **Not void.** Gate passes
+decisively on all three seeds.
+
+    python _audit407_where.py --seed 1337    (and 8642, 2890)
+
+### 46.2 406 writeback (designed tape) - NOT the repair-policies 406 of section 45
+
+Different question: does the mind's pick become a **marked cell on a working tape** that hop 2
+reads? `_audit406_writeback.py` / `_check406_writeback.py` - designed corpus only, stage not
+touched.
+
+    TODAY (reach_world today)     hop2_sees_write = 0   throwaway query-row fill
+    WRITE-BACK (proposed)         hop2_sees_write = 1   corpus untouched, marked working cell
+
+Checker: 4/4 mutations. Flag in `reach_loss` only after this passes - memory of a **cell on its
+own tape**, not memory of a fact (354).
+
+## 47. 408: SIZE RIVAL FOR 407. VALUE BEATS HUB SIZE
+
+Same places and `value` as 407. Rivals rank top-B by **size**, **nfill**, **degree** instead of
+by value. The read is **capture** = VALUE gain − SIZE gain, not another +0.55 headline.
+
+### 47.1 Gate and numbers — w400, three seeds
+
+    seed   VALUE gain   SIZE gain   capture   const_value   size_takes
+    1337     +0.550      -0.015      +0.565      0.000         no
+    8642     +0.573      +0.002      +0.570      0.000         no
+    2890     +0.644      -0.012      +0.656      0.000         no
+
+**SIZE DOES NOT TAKE THE CEILING.** Top-B by |slots| is **below** random on two seeds; capture
+is +0.57…+0.66 every time. Speaking at the biggest hubs is **not** what oracle-value is doing.
+351 door two is **not** reducible to a hub prior (398-style size on places).
+
+NFILL and DEGREE are reported beside the gate, not gated. DEGREE on s1337 is +0.054 — near bar,
+not decisive.
+
+**Implication:** there is headroom to learn **where to stand** beyond structural size — but 407
+still measures reach-from-place, not a trained loop. Next is not Φ until write-back and rivals are
+settled.
+
+    python _check407_where.py
+    python _check408_size.py
+    python _audit408_size.py --seed 1337    (and 8642, 2890)
+
+## 50. 412: WHO TEACHES THE PICK. THE REACH VERB NEVER HAD CROSS-ENTROPY
+
+Found in the source, not argued: `loss_for` reads `OBJECTIVE` only on the LOOKUP path - a reach
+question is handed to `reach_loss` two lines earlier. **So every reach number in this project was
+trained by the payoff term, one scalar per question, and cross-entropy was never available on that
+verb at all.**
+
+That is an information rate, not a philosophy. `-sum p(c) R(c)` carries what ONE settled world was
+worth; `-log p(truth)` moves the truth up and every rival down in proportion to what each took.
+The objective GPT is trained on is the second kind. The two have never been raced on the same
+worlds, the same tape and the same offer.
+
+    --pick-teacher stage    today, bit for bit. Default; no earlier run moves.
+    --pick-teacher reward   the SAME payoff, factorised: the router's branch value is DETACHED and
+                            the pick gets its own term. THE CONTROL - not the standing arm, whose
+                            numbers do not transfer to it.
+    --pick-teacher ce       identical but for the teacher: cross-entropy against the truth, or
+                            against REFUSE where the offer does not hold it.
+
+THE REFUSAL TARGET IS WHAT MAKES THE RACE FAIR. Without it CE would train only on the questions
+whose offer holds the truth - about an eighth of them - while the payoff trains on all, and the
+comparison would be of coverage rather than of teachers. `pick_target` reports the share that got
+one.
+
+  VOID CHECK, READ FIRST: `pick_target`. Below ~1.0 the two arms are not on the same population
+  and nothing below is about teachers.
+  GATE: `ce` beats `reward` on `hit` on 3 of 4 seeds, with the guard unchanged - PICK rival not
+  degraded pooled, GATE-WO 1.0000 at 5/10/25%. Both arms are the FACTORISED construction; neither
+  is compared against a `stage` run.
+
+391's checker property 6 was edited, not worked around: the return was split into two lines so the
+pick term can be added beside the move term; the property (the move term on BOTH paths) and its
+mutation are unchanged in meaning.
+
+`_check412_pick.py`: seven properties, six mutation-verified - including that the router is
+detached in both compared arms and in neither under `stage`, and that the names are cut to the
+logits so an index cannot silently teach another world.
+
+    python _check412_pick.py
+    python _stage289_derivation.py --reach --min-fillers 1 --reach-depth 2 --two-way --connect \
+        --pick-teacher ce     --seed 1337 --run-tag 412ce    (and 8642, 2890, 4711)
+    python _stage289_derivation.py --reach --min-fillers 1 --reach-depth 2 --two-way --connect \
+        --pick-teacher reward --seed 1337 --run-tag 412rw    (the paired control)
 

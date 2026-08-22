@@ -1,0 +1,83 @@
+From 29e51dcf7da0b42682c64782a7bf7e9e2604c053 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Sat, 8 Aug 2026 16:12:36 +0000
+Subject: [PATCH] 288: two mentions are enough to break - the smoke failure was
+ a real restriction
+
+The smoke fell on the corruption-site guard, and the guard was right about the
+count while the restriction behind it was wrong. Requiring three mentions per
+address discards most of the tape: the address-holdout run reported nine items
+above two mentions on a 104-address tape, and the smoke tape is smaller still.
+
+Two mentions is enough, and the case it unlocks is the one in short supply.
+Replacing one of {A, B} gives {A, X} with the original B gone from the visible
+evidence - a perfectly formed UNRECOVERABLE example, which is exactly what
+G_honest_unrecoverable needs a supply of and what three-mention addresses
+produce least often. Three-mention addresses go on providing the recoverable
+ones, so the mix improves in both directions rather than merely growing.
+
+The guard now prints what it saw - site count, item count, the histogram of
+mentions per address - instead of a bare refusal, and the smoke tape asks for
+300 addresses rather than 60 so it exercises the path it is meant to smoke.
+
+The full run already in flight is unaffected in correctness; it simply trains
+and scores on the three-mention subset, so its denominators will be small and
+its dup counts smaller. Worth rerunning on this once it lands.
+
+Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01RYDM9MUk761CZjn7SmTaug
+---
+ _stage288_repair.py | 17 +++++++++++++----
+ 1 file changed, 13 insertions(+), 4 deletions(-)
+
+diff --git a/_stage288_repair.py b/_stage288_repair.py
+index 356e39c..3c726e5 100644
+--- a/_stage288_repair.py
++++ b/_stage288_repair.py
+@@ -229,7 +229,7 @@ def main() -> int:
+     t0 = time.time()
+     n_steps = args.train_steps or (600 if args.smoke else 6000)
+     tape_period = args.tape_period or (50 if args.smoke else 50)   # 286 measured starvation
+-    n_addr = args.addresses or (60 if args.smoke else 400)
++    n_addr = args.addresses or (300 if args.smoke else 400)
+ 
+     log(f"Stage288 repair start {datetime.now(timezone.utc).isoformat()} device={device} "
+         f"steps={n_steps} holdout={args.holdout}")
+@@ -336,14 +336,23 @@ def main() -> int:
+     n_params = int(sum(q.numel() for q in net.parameters()))
+ 
+     def usable(p):
+-        return [(it, s) for it in p["items"] if len(it["slots"]) >= 3 for s in it["slots"]]
++        # Two mentions is enough, and the smoke falling is what made that obvious. Requiring
++        # three threw away most of the tape - the address holdout showed only 9 items above
++        # two mentions on a 104-address tape - for no reason: replacing one of {A,B} gives
++        # {A,X} with the original B gone from the evidence, which is a perfectly good
++        # UNRECOVERABLE example, and those are exactly what G_honest_unrecoverable needs a
++        # supply of. Three-mention addresses still provide the recoverable ones.
++        return [(it, s) for it in p["items"] if len(it["slots"]) >= 2 for s in it["slots"]]
+ 
+     pack = new_pack(rng, train_lines, 0)
+     pairs = usable(pack)
+     log(f"  tape: {pack['n_addresses']} addresses, {pack['n_slots']} slots, "
+         f"{len(pairs)} corruption sites, params={n_params}")
+     if len(pairs) < 4 * s286.MIN_ANSWERED:
+-        log("  too few corruption sites")
++        sizes = Counter(len(it["slots"]) for it in pack["items"])
++        log(f"  too few corruption sites: {len(pairs)} < {4 * s286.MIN_ANSWERED}. "
++            f"items {len(pack['items'])}, mentions-per-address {json.dumps(dict(sizes))}. "
++            f"Raise --addresses or lower --min-mentions.")
+         return 1
+ 
+     # ---------------------------------------------------------------- train: we break, it fixes
+@@ -404,7 +413,7 @@ def main() -> int:
+         restored_model, restored_votes = [], []
+         rand_floor_det, rand_floor_rep = [], []
+         for it in p["items"]:
+-            if len(it["slots"]) < 3:
++            if len(it["slots"]) < 2:
+                 continue
+             for sl in it["slots"]:
+                 for op in OPS:
+-- 
+2.43.0
+

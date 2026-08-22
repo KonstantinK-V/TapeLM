@@ -1,0 +1,21 @@
+{
+ "lines": 8000,
+ "places": 3127,
+ "vocab": 5648,
+ "ngram": 4,
+ "max_parts": 3,
+ "topm": 8,
+ "min_fillers": 1,
+ "seen": 2134,
+ "unreachable": 1500,
+ "cover": 0.0,
+ "cover_null": 0.0,
+ "assemble": 0.0,
+ "assemble_null": 0.0,
+ "piece_share_truth": 0.06502482690397557,
+ "piece_share_null": 0.01588936533023219,
+ "job": 10.158666666666667,
+ "cover_gain": 0.0,
+ "assemble_gain": 0.0,
+ "share_gain": 0.04913546157374338
+}

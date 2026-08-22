@@ -1,0 +1,44 @@
+{
+ "today": {
+  "write_back": false,
+  "truth": {
+   "corpus_untouched": true,
+   "working_cells": 0,
+   "marked_working": 0,
+   "hop2_sees_marked": 0,
+   "hop2_corpus_homes": 2,
+   "tmp_fill": true
+  },
+  "wrong": {
+   "corpus_untouched": true,
+   "working_cells": 0,
+   "marked_working": 0,
+   "hop2_sees_marked": 0,
+   "hop2_corpus_homes": 1,
+   "tmp_fill": true
+  },
+  "hop2_sees_write": 0,
+  "wrong_walks_elsewhere": true
+ },
+ "write_back": {
+  "write_back": true,
+  "truth": {
+   "corpus_untouched": true,
+   "working_cells": 1,
+   "marked_working": 1,
+   "hop2_sees_marked": 1,
+   "hop2_corpus_homes": 2,
+   "tmp_fill": false
+  },
+  "wrong": {
+   "corpus_untouched": true,
+   "working_cells": 1,
+   "marked_working": 1,
+   "hop2_sees_marked": 1,
+   "hop2_corpus_homes": 1,
+   "tmp_fill": false
+  },
+  "hop2_sees_write": 1,
+  "wrong_walks_elsewhere": true
+ }
+}

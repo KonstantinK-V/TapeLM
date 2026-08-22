@@ -1,0 +1,13 @@
+﻿
+2026-08-17 23:39:44 372b relation-as-evidence: standing arm + --connect --reach-import relation, 4 seeds; ctrl=365conn (import=walk). READ reach FIRST (must not move), then hit/reach
+2026-08-17 23:39:44 ==== 372rel_s1337 ====
+2026-08-17 23:43:45 OK 372rel_s1337
+2026-08-17 23:43:45 ==== 372rel_s8642 ====
+2026-08-17 23:47:29 OK 372rel_s8642
+2026-08-17 23:47:29 ==== 372rel_s2890 ====
+2026-08-17 23:51:16 OK 372rel_s2890
+2026-08-17 23:51:16 ==== 372rel_s4711 ====
+2026-08-17 23:55:11 OK 372rel_s4711
+2026-08-17 23:55:11 ==== _read299 372rel ====
+2026-08-17 23:55:11 ==== _read299 365conn control ====
+2026-08-17 23:55:11 DONE 372rel

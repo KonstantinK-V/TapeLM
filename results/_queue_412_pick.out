@@ -1,0 +1,22 @@
+﻿
+2026-08-20 14:37:07 412 pick-teacher race: ce vs reward (factorised). Default stage NOT run.
+2026-08-20 14:37:07 VOID first: pick_target. GATE: ce hit > reward hit on 3/4 seeds; PICK rival + GATE-WO guard.
+2026-08-20 14:37:07 ==== 412ce_s1337  pick-teacher=ce ====
+2026-08-20 14:41:41 OK 412ce_s1337
+2026-08-20 14:41:41 ==== 412ce_s8642  pick-teacher=ce ====
+2026-08-20 14:45:45 OK 412ce_s8642
+2026-08-20 14:45:45 ==== 412ce_s2890  pick-teacher=ce ====
+2026-08-20 14:49:46 OK 412ce_s2890
+2026-08-20 14:49:46 ==== 412ce_s4711  pick-teacher=ce ====
+2026-08-20 14:53:52 OK 412ce_s4711
+2026-08-20 14:53:52 ==== 412rw_s1337  pick-teacher=reward ====
+2026-08-20 14:54:33 ARM EXIT 1 412rw_s1337 continuing
+2026-08-20 14:54:33 ==== 412rw_s8642  pick-teacher=reward ====
+2026-08-20 14:54:53 ARM EXIT 1 412rw_s8642 continuing
+2026-08-20 14:54:53 ==== 412rw_s2890  pick-teacher=reward ====
+2026-08-20 14:55:12 ARM EXIT 1 412rw_s2890 continuing
+2026-08-20 14:55:12 ==== 412rw_s4711  pick-teacher=reward ====
+2026-08-20 14:55:32 ARM EXIT 1 412rw_s4711 continuing
+2026-08-20 14:55:32 ==== _read299 412ce ====
+2026-08-20 14:55:32 ==== _read299 412rw ====
+2026-08-20 14:55:32 DONE 412 pick-teacher race

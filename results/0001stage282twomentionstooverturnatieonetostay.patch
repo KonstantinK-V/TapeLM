@@ -1,0 +1,97 @@
+From 1f7a22c29d51a62c592f22a399a09ffd2ee4ae2a Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Fri, 7 Aug 2026 05:41:32 +0000
+Subject: [PATCH] stage 282: two mentions to overturn a tie, one to stay in the
+ running
+
+The run reached MIND_OK on every gate, and the weakest part of it is now
+the teacher. On the held-out tape it abstained on 0.55 of the ties,
+resolving nine of twenty on a single return path - and a resolved tie is
+wrong by the family's own definition, since a tied address has no settled
+value. That is most of why the ceiling sat at 0.445 while the policy
+scored 0.594: the policy learned to ignore its teacher exactly where the
+teacher was wrong.
+
+One co-occurrence of a subject and a value in 30MB of text is ordinary,
+so the return path is counted now rather than seen. One return keeps a
+value in the running, which is what answering a lead already asks for;
+two independent mentions are required to take an address away from a
+value the tape supports equally often. Verified on 9 shapes.
+
+probe_hit_rate stays a rate now that the underlying quantity is a count.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01PGuqHAMhjCxVAADm3R4wxK
+---
+ _stage282_mind.py | 33 +++++++++++++++++++++++----------
+ 1 file changed, 23 insertions(+), 10 deletions(-)
+
+diff --git a/_stage282_mind.py b/_stage282_mind.py
+index 816f549..74437fe 100644
+--- a/_stage282_mind.py
++++ b/_stage282_mind.py
+@@ -212,7 +212,7 @@ def build_state(policy, model, char_table, tok, pack, st, pad_id, device, acts,
+         den = max(1, len(st["opened"]))
+         cf = torch.tensor(
+             [[scores[i] / mx, said.get(vals[i], 0) / den, float(cands[i] in st["seen"]),
+-              st["ret_ok"].get(cands[i], -1.0)] for i in range(len(cands))],
++              min(st["ret_ok"].get(cands[i], -1.0), 2.0)] for i in range(len(cands))],
+             device=device, dtype=feats.dtype)
+     wf = None
+     n_w = max(nq, min(len(st["addable"]), acts.w))
+@@ -280,11 +280,18 @@ def teacher(pack, st, acts, item, max_steps, max_reads):
+             if j is not None and st["ret_ok"].get(cands[j], -1.0) < 0 \
+                     and st["probes"] < st["max_probes"] and (st["n_reads"] + 2) <= max_steps:
+                 return acts.ASK_VALUE + j
+-        backs = [(val, slot_of(val)) for val in (ranked[0][0], ranked[1][0])]
+-        backs = [(val, j) for val, j in backs
+-                 if j is not None and st["ret_ok"].get(cands[j], -1.0) > 0]
+-        if len(backs) == 1:
+-            return acts.ANSWER + backs[0][1]         # the tie was pollution, not disagreement
++        # Overturning a tie needs more than clearing one. A single return can be coincidence -
++        # the last run resolved 45% of the held-out ties on one, and every such resolution is
++        # wrong by the family's own definition, which is most of why the ceiling sat at 0.445
++        # while the policy scored 0.594 by ignoring the teacher here. Two independent mentions
++        # to overturn, one to remain in the running: only a value the tape says twice may take
++        # the address away from a value it says once.
++        counts = [(val, slot_of(val)) for val in (ranked[0][0], ranked[1][0])]
++        counts = [(j, st["ret_ok"].get(cands[j], -1.0)) for _, j in counts if j is not None]
++        strong = [j for j, n in counts if n >= 2]
++        weak = [j for j, n in counts if n > 0]
++        if len(strong) == 1 and len(weak) == 1:
++            return acts.ANSWER + strong[0]           # the tie was pollution, not disagreement
+         return acts.STOP_CONFLICT                    # equal support: the tape never settled
+ 
+     idx = slot_of(ranked[0][0])
+@@ -375,10 +382,16 @@ def rollout(policy, model, char_table, tok, pack, item, pad_id, device, acts, *,
+             # "september" is not a path from a value to september, it is the anchor being a
+             # common word. Requiring the pair is what keeps the test from getting easier as
+             # the anchor gets more frequent.
++            # Counted, not just seen: on 30MB of text one accidental co-occurrence of a subject
++            # and a value is ordinary, so a single return is evidence a value exists somewhere
++            # near the subject, not evidence the tape settled on it. The count lets a reader ask
++            # for as much corroboration as the decision costs - one return to answer a lead, two
++            # to overturn a tie.
+             val_lc = pack["tape"].values[slot].lower()
+-            st["ret_ok"][slot] = float(any(
+-                c != slot and item["S"] in pack["texts_lc"][c] and val_lc in pack["texts_lc"][c]
+-                for c in back))
++            st["ret_ok"][slot] = float(sum(
++                1 for c in back
++                if c != slot and item["S"] in pack["texts_lc"][c] and val_lc in pack["texts_lc"][c]
++            ))
+             st["cands"], st["sc"] = keep_c, keep_s
+             st["probes"] += 1
+         elif acts.DROP <= a < acts.DROP + acts.w:
+@@ -648,7 +661,7 @@ def main() -> int:
+             if o["stop_kind"] == "conflict":
+                 agg["conflict_when_tie"].append(int(f == "tie"))
+             if not math.isnan(o["ret_ok"]):
+-                agg["probe_hit"].append(o["ret_ok"])
++                agg["probe_hit"].append(float(o["ret_ok"] > 0))   # a rate, now that it counts
+                 if not o["abstained"]:
+                     agg["acc_when_probe_hit" if o["ret_ok"] > 0
+                         else "acc_when_probe_miss"].append(o["correct"])
+-- 
+2.43.0
+

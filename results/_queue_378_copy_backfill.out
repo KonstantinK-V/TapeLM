@@ -1,0 +1,14 @@
+﻿
+2026-08-18 11:02:33 378 copy-backfill lane: standing arm + --copy --copy-backfill --copy-d 4, 4 seeds; ctrl=365conn.
+2026-08-18 11:02:33 GATE (declared): reach >= 377copy on 4/4; hit >= 365conn on 4/4; cand_places not below 365conn.
+2026-08-18 11:02:33 ==== 378copybf_s1337 ====
+2026-08-18 11:07:16 OK 378copybf_s1337
+2026-08-18 11:07:16 ==== 378copybf_s8642 ====
+2026-08-18 11:11:24 OK 378copybf_s8642
+2026-08-18 11:11:24 ==== 378copybf_s2890 ====
+2026-08-18 11:15:14 OK 378copybf_s2890
+2026-08-18 11:15:14 ==== 378copybf_s4711 ====
+2026-08-18 11:19:01 OK 378copybf_s4711
+2026-08-18 11:19:01 ==== _read299 378copybf ====
+2026-08-18 11:19:02 ==== _read299 365conn control ====
+2026-08-18 11:19:02 DONE 378copybf

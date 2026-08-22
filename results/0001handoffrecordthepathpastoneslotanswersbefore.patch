@@ -1,0 +1,103 @@
+From aa7ff2595d165e2b62e883326873161bf90a1b2d Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Sat, 8 Aug 2026 20:43:31 +0000
+Subject: [PATCH] handoff: record the path past one-slot answers before it is
+ lost to context
+
+A design thread reasoned through in conversation and nowhere in the repo.
+Written down as design, marked unmeasured, so the next session inherits the
+argument rather than re-deriving it.
+
+The blocker for the stated goal is the answer interface, not the mind: answers
+are slot indices and G_answer_is_slot is the separation proof, so composite
+questions kill the proof the moment they are attempted. 289 answers with a
+derivation - a verb from a small closed set plus a slot set - built from the
+tape so labels stay free, and EXECUTED rather than generated, which makes
+G_answer_is_derivation strictly stronger than what it replaces. 288 is already
+the two-verb case.
+
+Thought is defined as a write with provenance: an intermediate result either
+lives in activations, unauditable, or becomes a derived slot marked with the
+premises and the verb. The second keeps the invariant, extends 279 with
+DERIVE, and makes conclusions revocable by the leak test that already exists.
+
+One correction to something stated too absolutely earlier in the same thread.
+No new VERB will emerge from data - capability is installed. But new CONTENT
+can, because a discrete space has search where a continuous one has
+interpolation; that is exactly why GPT exceeds its dataset and a tape cannot,
+and it is the same property as auditability.
+
+And the trap in generate-and-filter, named before anyone builds it: a filter
+that accepts what agrees with the tape computes the tape's deductive closure
+and saturates. Selection has to come from outside the population, and the free
+outside is incoming text - a derived slot as a prediction with provenance,
+confirmed or refuted later, with the verb that produced it gaining or losing
+support. With the collapse guard that follows from provenance: derivation
+depth, only depth-0 slots admissible as evidence, and only confirmation by
+text resets depth. A thought becomes knowledge by passing through the world,
+never through itself.
+
+Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01RYDM9MUk761CZjn7SmTaug
+---
+ HANDOFF.md | 44 ++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 44 insertions(+)
+
+diff --git a/HANDOFF.md b/HANDOFF.md
+index 8aaf777..9b88103 100644
+--- a/HANDOFF.md
++++ b/HANDOFF.md
+@@ -466,6 +466,50 @@ recoverable from the reported AUCs and counts, the contested split is not.
+ 
+ ---
+ 
++## 6b. The path past one-slot answers (design, not yet built)
++
++Recorded because it was reasoned through and would otherwise be lost. Nothing here is measured.
++
++**The blocker is the answer interface, not the mind.** Answers are slot indices, and
++`G_answer_is_slot` is what proves separation. Composite questions — compare, count, two-hop —
++are not answerable by one slot, so the moment the interface changes the proof dies. §7 has said
++this from the start and it has never been attacked.
++
++**289 — the answer becomes a derivation.** A pair `(verb, slot set)` over a small closed verb
++set (COUNT, COMPARE, MAX; JOIN later). Questions are *built from the tape*, so labels stay free
++exactly as 288's corruption made them free. The answer is **executed**, not generated, so
++`G_answer_is_derivation` replaces `G_answer_is_slot` and is strictly stronger: delete the
++slots, the derivation fails. 288 is already the two-verb case — repair answers WHERE + WHAT.
++
++**Thought = a write with provenance.** An intermediate result that is not on the tape must live
++somewhere: in activations (transient, unauditable) or written back as a *derived slot* marked
++"from slots {i,j} by verb v". The second keeps the invariant, extends 279's
++WRITE/CONFIRM/DISPUTE with DERIVE, makes conclusions revocable (delete a premise, the
++conclusion dies — the existing leak test), and lets 288's repair apply to conclusions.
++
++**No emergence, by design — with one correction.** New *verbs* never appear from data;
++capability is installed. But new *content* can, because a discrete space has search where a
++continuous one has interpolation. GPT gets more than its dataset from smoothness; a tape cannot,
++and that is the same coin as auditability.
++
++**Generate-and-filter converges unless selection is external.** Accepting what agrees with the
++tape yields only its deductive closure — bounded, and it saturates. The environment that exists
++for free is *incoming text*: a derived slot is a **prediction with provenance**, later confirmed
++or refuted by new corpus, and the verb that produced it gains or loses support. That is the only
++mechanism sketched so far by which a capability could improve without being built.
++
++**Collapse guard, required.** Training on own output destroys models. Provenance already
++carries the fix: a derived slot holds a **derivation depth**; only depth-0 slots count as
++evidence for further derivation; confirmation *by text* resets depth to 0. A thought becomes
++knowledge only by passing through the world, never through itself.
++
++**Generation, if it ever comes**, is the same interface at sequence length: the mind emits
++structural tokens plus slot indices, content words are never sampled. Strip the tape and content
++dies while structure remains. Strictly: idiom and collocation are facts about language, so the
++clean version needs two tapes — world and language — with the mind holding neither.
++
++---
++
+ ## 7. What is deliberately *not* solved
+ 
+ - **Understanding is unmeasurable by construction.** Every question is "which slot holds it", so
+-- 
+2.43.0
+

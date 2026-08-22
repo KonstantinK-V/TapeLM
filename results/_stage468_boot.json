@@ -1,0 +1,173 @@
+{
+ "1337": {
+  "seed": 1337,
+  "void": false,
+  "gate": true,
+  "n_opts": 3,
+  "t0": {
+   "ep": 40,
+   "pin": 0.0,
+   "refuse": 1.0,
+   "mean_hops": 0.0,
+   "p_live": 0.0,
+   "p_h2_g_h1": 0.0,
+   "n_h1": 0,
+   "n_cond": 0
+  },
+  "t1": {
+   "ep": 40,
+   "pin": 1.0,
+   "refuse": 0.0,
+   "mean_hops": 2.0,
+   "p_live": 1.0,
+   "p_h2_g_h1": 1.0,
+   "n_h1": 40,
+   "n_cond": 40
+  },
+  "frozen": {
+   "ep": 40,
+   "pin": 0.0,
+   "refuse": 1.0,
+   "mean_hops": 0.0,
+   "p_live": 0.0,
+   "p_h2_g_h1": 0.0,
+   "n_h1": 0,
+   "n_cond": 0
+  },
+  "shuffle": {
+   "ep": 40,
+   "pin": 1.0,
+   "refuse": 0.0,
+   "mean_hops": 4.0,
+   "p_live": 0.0,
+   "p_h2_g_h1": 0.0,
+   "n_h1": 40,
+   "n_cond": 0
+  },
+  "held": {
+   "ep": 40,
+   "pin": 0.0,
+   "refuse": 1.0,
+   "mean_hops": 0.0,
+   "p_live": 0.0,
+   "p_h2_g_h1": 0.0,
+   "n_h1": 0,
+   "n_cond": 0
+  },
+  "n_keys": 4
+ },
+ "8642": {
+  "seed": 8642,
+  "void": false,
+  "gate": false,
+  "n_opts": 3,
+  "t0": {
+   "ep": 40,
+   "pin": 0.0,
+   "refuse": 1.0,
+   "mean_hops": 0.0,
+   "p_live": 0.0,
+   "p_h2_g_h1": 0.0,
+   "n_h1": 0,
+   "n_cond": 0
+  },
+  "t1": {
+   "ep": 40,
+   "pin": 1.0,
+   "refuse": 0.0,
+   "mean_hops": 3.0,
+   "p_live": 0.0,
+   "p_h2_g_h1": 0.0,
+   "n_h1": 40,
+   "n_cond": 0
+  },
+  "frozen": {
+   "ep": 40,
+   "pin": 0.0,
+   "refuse": 1.0,
+   "mean_hops": 0.0,
+   "p_live": 0.0,
+   "p_h2_g_h1": 0.0,
+   "n_h1": 0,
+   "n_cond": 0
+  },
+  "shuffle": {
+   "ep": 40,
+   "pin": 1.0,
+   "refuse": 0.0,
+   "mean_hops": 4.0,
+   "p_live": 0.0,
+   "p_h2_g_h1": 0.0,
+   "n_h1": 40,
+   "n_cond": 0
+  },
+  "held": {
+   "ep": 40,
+   "pin": 0.0,
+   "refuse": 1.0,
+   "mean_hops": 0.0,
+   "p_live": 0.0,
+   "p_h2_g_h1": 0.0,
+   "n_h1": 0,
+   "n_cond": 0
+  },
+  "n_keys": 4
+ },
+ "2890": {
+  "seed": 2890,
+  "void": false,
+  "gate": false,
+  "n_opts": 3,
+  "t0": {
+   "ep": 40,
+   "pin": 0.0,
+   "refuse": 1.0,
+   "mean_hops": 0.0,
+   "p_live": 0.0,
+   "p_h2_g_h1": 0.0,
+   "n_h1": 0,
+   "n_cond": 0
+  },
+  "t1": {
+   "ep": 40,
+   "pin": 1.0,
+   "refuse": 0.0,
+   "mean_hops": 4.0,
+   "p_live": 1.0,
+   "p_h2_g_h1": 0.0,
+   "n_h1": 40,
+   "n_cond": 40
+  },
+  "frozen": {
+   "ep": 40,
+   "pin": 0.0,
+   "refuse": 1.0,
+   "mean_hops": 0.0,
+   "p_live": 0.0,
+   "p_h2_g_h1": 0.0,
+   "n_h1": 0,
+   "n_cond": 0
+  },
+  "shuffle": {
+   "ep": 40,
+   "pin": 1.0,
+   "refuse": 0.0,
+   "mean_hops": 3.0,
+   "p_live": 0.0,
+   "p_h2_g_h1": 0.0,
+   "n_h1": 40,
+   "n_cond": 0
+  },
+  "held": {
+   "ep": 40,
+   "pin": 0.0,
+   "refuse": 1.0,
+   "mean_hops": 0.0,
+   "p_live": 0.0,
+   "p_h2_g_h1": 0.0,
+   "n_h1": 0,
+   "n_cond": 0
+  },
+  "n_keys": 4
+ }
+}

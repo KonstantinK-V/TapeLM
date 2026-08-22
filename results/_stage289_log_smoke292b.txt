@@ -1,0 +1,49 @@
+Stage289 derivation start 2026-08-11T22:55:34.494630+00:00 device=cuda holdout=corpus
+  lines: train 7324, eval 3139 (the probe reserves ANCHORS, not lines - see `reserved`)
+  word rule matches stage194: True  (rule=ascii, fp=hash, ink=mean)
+  hash ink deterministic and digest-faithful: True  {'anagram_cos': -0.0135, 'perm_fixed_points': 1}
+  tape: 122 addresses, 299 slots | questions {"count": 110, "lookup": 5, "compare": 55} | params 5601
+  ladder coverage: 0/5 lookup questions have all three rungs; the rest train on the task term alone
+  probe pack: 15 reserved addresses (1s to build)
+  probe tape: 5 lookup questions, never trained on; 20 graphs cached (1 view(s)/question) in 0s
+  probe eval: 0.04s x 1 = 0.0 min added to this run
+  step 1/1 train=1.3863 probe=1.3863
+  early stop: restored step 1 (probe 1.3863) of 1
+  HELD {"count": {"n": 34, "model_accuracy": 1.0, "rival_accuracy": 1.0, "random_floor": 0.2000000000000001}, "compare": {"n": 17, "model_accuracy": 1.0, "rival_accuracy": 1.0, "random_floor": 0.33333333333333326}, "lookup_paired_vs_rival": {"model_only_right": 0, "rival_only_right": 0, "discordant": 0, "mcnemar_z": NaN}, "lookup_paired_vs_rival_cos": {"n": 0, "model_only_right": 0, "rival_only_right": 0, "discordant": 0, "mcnemar_z": NaN, "max_achievable_z": 0.0, "underpowered": true}, "lookup_paired_vs_rival_cos_by_margin": {"median_margin": NaN, "low_margin": {"n": 0, "model_only_right": 0, "rival_only_right": 0, "discordant": 0, "mcnemar_z": NaN, "max_achievable_z": 0.0, "underpowered": true}, "high_margin": {"n": 0, "model_only_right": 0, "rival_only_right": 0, "discordant": 0, "mcnemar_z": NaN, "max_achievable_z": 0.0, "underpowered": true}}, "ladder": {"n_questions": 0, "pairs": 0, "concordant": 0, "ties_excluded": 0, "import_budget_zero_rate": 0.0, "import_budget_mean": 0.0, "concordance": NaN, "z_vs_half": NaN, "mean_phi": {"true": NaN, "near": NaN, "middle": NaN, "far": NaN}}, "exact_mismatches": 0, "confusion": {"compare|equal->equal": 13, "compare|first->first": 1, "compare|second->second": 3, "count|1->1": 24, "count|2->2": 8, "count|3->3": 2}}
+  CONTROL {"count": {"n": 110, "model_accuracy": 1.0, "rival_accuracy": 1.0, "random_floor": 0.19999999999999957}, "compare": {"n": 55, "model_accuracy": 1.0, "rival_accuracy": 1.0, "random_floor": 0.33333333333333337}, "lookup": {"n": 5, "model_accuracy": 0.2, "rival_accuracy": 0.0, "random_floor": 0.25, "rival_cos_accuracy": NaN, "rival_cos_answered": 0}, "lookup_paired_vs_rival": {"model_only_right": 0, "rival_only_right": 0, "discordant": 0, "mcnemar_z": NaN}, "lookup_paired_vs_rival_cos": {"n": 0, "model_only_right": 0, "rival_only_right": 0, "discordant": 0, "mcnemar_z": NaN, "max_achievable_z": 0.0, "underpowered": true}, "lookup_paired_vs_rival_cos_by_margin": {"median_margin": NaN, "low_margin": {"n": 0, "model_only_right": 0, "rival_only_right": 0, "discordant": 0, "mcnemar_z": NaN, "max_achievable_z": 0.0, "underpowered": true}, "high_margin": {"n": 0, "model_only_right": 0, "rival_only_right": 0, "discordant": 0, "mcnemar_z": NaN, "max_achievable_z": 0.0, "underpowered": true}}, "ladder": {"n_questions": 5, "pairs": 14, "concordant": 7, "ties_excluded": 1, "import_budget_zero_rate": 0.0, "import_budget_mean": 0.0, "concordance": 0.5, "z_vs_half": 0.0, "mean_phi": {"true": -9.436538675799966e-07, "near": 2.7946927002631127e-05, "middle": -1.5361272380687298e-05, "far": -1.0183281847275794e-05}}, "exact_mismatches": 0, "confusion": {"compare|equal->equal": 24, "compare|first->first": 18, "compare|second->second": 13, "count|1->1": 67, "count|2->2": 35, "count|3->3": 8, "lookup|England->Cambridge": 1, "lookup|England->England": 1, "lookup|Irish->Welshman": 1, "lookup|United->Mahabharata": 1, "lookup|United->Summer": 1}, "open": {"n": 5, "random_floor": 0.25, "accuracy": 0.2, "corpus_retrieval_accuracy": 0.2, "corpus_retrieval_answered": 5, "within_address_rivals_undefined": true, "paired_vs_corpus_retrieval": {"model_only_right": 1, "rival_only_right": 1, "discordant": 2, "mcnemar_z": 0.0, "max_achievable_z": 1.4142135623730951, "underpowered": true}}}
+{
+  "overall": "NO_TASK",
+  "gates": {
+    "G_arc_enc_frozen": true,
+    "G_ink_verified": true,
+    "G_task_exists": false,
+    "G_exact_algebra_matches_tape": true,
+    "G_lookup_beats_floor": false,
+    "G_lookup_beats_counts_paired": false,
+    "G_lookup_beats_retrieval_paired": false,
+    "G_phi_orders_negatives": false
+  },
+  "lookup": {},
+  "paired": {
+    "model_only_right": 0,
+    "rival_only_right": 0,
+    "discordant": 0,
+    "mcnemar_z": NaN
+  },
+  "ladder": {
+    "n_questions": 0,
+    "pairs": 0,
+    "concordant": 0,
+    "ties_excluded": 0,
+    "import_budget_zero_rate": 0.0,
+    "import_budget_mean": 0.0,
+    "concordance": NaN,
+    "z_vs_half": NaN,
+    "mean_phi": {
+      "true": NaN,
+      "near": NaN,
+      "middle": NaN,
+      "far": NaN
+    }
+  }
+}

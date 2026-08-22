@@ -1,0 +1,197 @@
+From d421eca1f2ec5c428d416cb425a0f5f34544e384 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Sat, 8 Aug 2026 11:15:11 +0000
+Subject: [PATCH] 286: the composition residual - dead at word level, alive at
+ context level
+
+Half of the proposal is refuted by the encoder's own definition and half is
+sharper than it was pitched, so both halves are recorded rather than only the
+surviving one.
+
+fp(w) = norm(LN(FF(mean_c emb(c)))). The pool happens BEFORE the feed-forward.
+So for a word, f(whole) = LN(FF(mean_c e_c)) is a function of the character
+MULTISET, and mean_c f(c) = mean_c LN(FF(e_c)) is a function of the same
+multiset. Their difference is therefore a function of the multiset alone:
+"listen" and "silent" produce bit-identical D. The hoped-for behaviour - same
+letters in another order make D diverge - is not merely absent, it is
+impossible in this architecture. Word-level D is closed for the same reason
+277 closed the ink as a search channel, and it is closed by proof rather than
+by measurement.
+
+At context level it survives, and for a reason worth stating. ctx_fp(T) =
+norm(mean_w fp(w)). Chunking by single words is degenerate - fp is already
+unit norm, so mean_w norm(fp_w) is the mean itself, D comes out parallel to it
+and cos(Di,Dj) reproduces the plain ctx cosine exactly. Two spans split at the
+value are not degenerate: each span carries its own normalisation, so D
+depends on how the words are GROUPED and not only on which words they are.
+That is order sensitivity at chunk granularity, obtained without positions.
+
+And D subtracts the bulk mean, which is the part 283 identified as the
+crowder: context flattens keys to 0.345 against 0.061 for two channels because
+every English sentence has much the same character statistics. D is the
+high-pass part of the context channel - what is left after the thing that
+makes all sentences look alike is removed.
+
+--ctx-channel delta REPLACES the plain cosine edge with cos(Di,Dj) and adds
+|D| as a node rank; both keeps the cosine too. Replacement is the arm the
+evidence points at: ink-slices was the same idea as an ADDITION and it cost
+the dup win, 0.773 down to 0.333, because 4,417 parameters over a thousand
+examples cannot afford a sixth channel. "both" is included so that prediction
+can be falsified rather than assumed.
+
+The legacy residual_audit does not transfer and should not be read as support.
+It measured a trained WordComposer with a position table, where proj_cos ran
+0.28 to 0.48 and a real residual existed; arc_enc has no positions at all. And
+even there the morphology deltas clustered weakly - ing at 0.403, plural s at
+0.075, cross-tag ing/ly at 0.173 - so the axis was thin in the architecture
+built for it.
+
+Ranks only throughout, as proposed: |D| enters as a within-example rank and
+cos(Di,Dj) as an edge rank, so the mind may ignore either and a fresh tape
+re-ranks both. Widths verified for all six flag combinations.
+
+Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01RYDM9MUk761CZjn7SmTaug
+---
+ _stage286_evidence.py | 62 ++++++++++++++++++++++++++++++++++++++-----
+ 1 file changed, 55 insertions(+), 7 deletions(-)
+
+diff --git a/_stage286_evidence.py b/_stage286_evidence.py
+index 3a7e470..2e44e5b 100644
+--- a/_stage286_evidence.py
++++ b/_stage286_evidence.py
+@@ -543,10 +543,10 @@ class Relational(nn.Module):
+     its own reason to exist.
+     """
+ 
+-    def __init__(self, device, d: int = 32, n_edge: int = 3):
++    def __init__(self, device, d: int = 32, n_edge: int = 3, n_node: int = 2):
+         super().__init__()
+         self.edge = nn.Sequential(nn.Linear(n_edge, d), nn.GELU()).to(device)
+-        self.node = nn.Sequential(nn.Linear(2 + 2 * d, d), nn.GELU()).to(device)
++        self.node = nn.Sequential(nn.Linear(n_node + 2 * d, d), nn.GELU()).to(device)
+         self.cand = nn.Sequential(nn.Linear(2 * d + 1, d), nn.GELU(),
+                                   nn.Linear(d, 1)).to(device)
+         nn.init.zeros_(self.cand[-1].weight)
+@@ -688,6 +688,20 @@ def main() -> int:
+                          "absolute coordinate of any kind reaches the weights, so the lookup "
+                          "channel that killed every reading arm is closed by construction, "
+                          "not by regularisation. Trains in minutes: the trunk is never read.")
++    ap.add_argument("--ctx-channel", choices=("cos", "delta", "both"), default="cos",
++                    help="what the context edge carries. cos is the plain ctx-fp cosine. "
++                         "delta REPLACES it with the composition residual: D = ctx_fp(whole) - "
++                         "norm(ctx_fp(before value) + ctx_fp(after value)), compared between "
++                         "mentions by cosine rank, plus |D| as a node rank. Word-level D is "
++                         "provably useless here - fp pools characters BEFORE the FF, so both "
++                         "f(whole) and mean f(parts) are functions of the character multiset "
++                         "and anagrams give bit-identical D. At CONTEXT level the per-chunk "
++                         "normalisation breaks that linearity, so D depends on the grouping, "
++                         "and it subtracts the bulk mean - which 283 named as the crowder "
++                         "(0.345 against 0.061). D is the high-pass part of the context "
++                         "channel. 'both' keeps cos as well and is the arm expected to lose: "
++                         "ink-slices already showed an EXTRA fp channel costing the dup win "
++                         "0.773 -> 0.333 on 4,417 parameters and a thousand examples.")
+     ap.add_argument("--ink-slices", action="store_true",
+                     help="two more edge channels: the RANK of the context-fp cosine taken "
+                          "before the value and after it, separately. fp is order-blind inside "
+@@ -729,6 +743,7 @@ def main() -> int:
+     tag += "_rel" if args.mind == "relational" else ""
+     tag += f"_dup{args.lie_dup}" if args.lie_dup > 1 else ""
+     tag += "_slices" if args.ink_slices else ""
++    tag += f"_{args.ctx_channel}" if args.ctx_channel != "cos" else ""
+     LOG_PATH = RES / f"_stage286_log{tag}.txt"
+     LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+     LOG_PATH.write_text("", encoding="utf-8")
+@@ -802,7 +817,9 @@ def main() -> int:
+         return 1
+ 
+     d_hidden = 0 if args.no_hidden else 2 * (model.head.in_features // 2)
+-    net = (Relational(device, n_edge=3 + 2 * int(args.ink_slices))
++    net = (Relational(device,
++                      n_edge=3 + 2 * int(args.ink_slices) + int(args.ctx_channel == "both"),
++                      n_node=2 + int(args.ctx_channel != "cos"))
+            if args.mind == "relational"
+            else Evidence(d_hidden, device, read_rank=args.read_rank))
+     live = [p for p in model.parameters() if p.requires_grad]
+@@ -905,6 +922,19 @@ def main() -> int:
+                 for store, part in ((lk, left), (rk, right)):
+                     cc = bank.ctx_fp(part, exclude=v) if part.strip() else None
+                     store[sl] = F.normalize(cc, dim=-1) if cc is not None else None
++                # the composition residual, in the only place it is not degenerate. Single-word
++                # chunks would give D parallel to the mean itself (fp is already unit norm), so
++                # cos(Di,Dj) would reproduce the plain ctx cosine exactly; two spans split at
++                # the value have a normalisation inside each, and that is what makes D depend
++                # on how the words are grouped rather than only on which words they are.
++                dk = p.setdefault("_rel_delta", {})
++                dn = p.setdefault("_rel_dnorm", {})
++                if ck[sl] is not None and lk[sl] is not None and rk[sl] is not None:
++                    d = ck[sl] - F.normalize(lk[sl] + rk[sl], dim=-1)
++                    dn[sl] = float(d.norm())
++                    dk[sl] = F.normalize(d, dim=-1)
++                else:
++                    dk[sl], dn[sl] = None, 0.0
+         med = p.get("_rel_median")
+         if med is None:
+             lens = sorted(len(v) for v in p["postings"].values())
+@@ -914,6 +944,7 @@ def main() -> int:
+         cos = torch.zeros(n, n)
+         shared = torch.zeros(n, n)
+         cosL, cosR = torch.zeros(n, n), torch.zeros(n, n)
++        cosD = torch.zeros(n, n)
+         for i in range(n):
+             for j in range(i + 1, n):
+                 si, sj = slots[i], slots[j]
+@@ -927,6 +958,10 @@ def main() -> int:
+                     for M, store in ((cosL, lk), (cosR, rk)):
+                         if store[si] is not None and store[sj] is not None:
+                             M[i, j] = M[j, i] = float(store[si] @ store[sj])
++                if args.ctx_channel != "cos":
++                    dk = p.setdefault("_rel_delta", {})
++                    if dk.get(si) is not None and dk.get(sj) is not None:
++                        cosD[i, j] = cosD[j, i] = float(dk[si] @ dk[sj])
+ 
+         iu = torch.triu_indices(n, n, offset=1)
+ 
+@@ -957,15 +992,27 @@ def main() -> int:
+             R[iu[1], iu[0]] = r
+             return R
+ 
+-        chans = [same, rank_norm(cos), rank_norm(shared)]
++        # delta REPLACES the plain cosine; both keeps it. Replacing is the arm the evidence
++        # points at - an extra fp channel is what ink-slices was, and it cost the dup win.
++        chans = [same, rank_norm(cosD if args.ctx_channel == "delta" else cos),
++                 rank_norm(shared)]
++        if args.ctx_channel == "both":
++            chans.append(rank_norm(cosD))
+         if args.ink_slices:
+             chans += [rank_norm(cosL), rank_norm(cosR)]
+         E = torch.stack(chans, -1).to(device)
+         ext_per = [ex["ext"].get(v, 0) for v in vals_e]
+         levels = sorted(set(ext_per))
+-        nf = torch.tensor([[ex["cnt"][vals_e[i]] / n,
+-                            levels.index(ext_per[i]) / max(1, len(levels) - 1)]
+-                           for i in range(n)], dtype=torch.float32, device=device)
++        rows_n = [[ex["cnt"][vals_e[i]] / n,
++                   levels.index(ext_per[i]) / max(1, len(levels) - 1)] for i in range(n)]
++        if args.ctx_channel != "cos":
++            # |D| as a node RANK: how much this one mention behaves as a bound span rather
++            # than as two independent halves. A rank, so a fresh tape re-ranks it.
++            dn = [p.setdefault("_rel_dnorm", {}).get(sl, 0.0) for sl in slots]
++            lv = sorted(set(dn))
++            for i in range(n):
++                rows_n[i].append(lv.index(dn[i]) / max(1, len(lv) - 1))
++        nf = torch.tensor(rows_n, dtype=torch.float32, device=device)
+         masks = [torch.tensor([vals_e[i] == c for i in range(n)], device=device)
+                  for c in ex["cands"]]
+         return E, same.unsqueeze(-1).to(device), nf, masks
+@@ -1419,6 +1466,7 @@ def main() -> int:
+         },
+         "judges_compared": live_judges, "judges_compared_lie": lie_judges,
+         "mind": args.mind, "lie_dup": args.lie_dup, "ink_slices": args.ink_slices,
++        "ctx_channel": args.ctx_channel,
+         "train_distribution": train_dist, "head_input_norms": head_norms,
+         "leave_one_out": loo, "leave_one_out_train_control": loo_train,
+         "lying_tape": lied, "lying_tape_dup": lied_dup, "exam": ex_out, "curve": curve,
+-- 
+2.43.0
+

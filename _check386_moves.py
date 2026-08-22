@@ -117,7 +117,11 @@ def main() -> int:
 
     # the move must be chosen before the offer, in reach_logits, and nowhere else
     rl = body("reach_logits")
-    if 'if MOVES_ON and "_move" not in q:' not in rl:
+    # 391 rebuilt the ballot on every pass when --move-teach is on, so the condition gained
+    # `or MOVE_TEACH`. THE PROPERTY IS UNCHANGED - the move is still chosen before any offer is
+    # built, which is what the index test below enforces - and only its literal moved.
+    if not re.search(r'if MOVES_ON and \("_move" not in q or MOVE_TEACH\):|'
+                     r'if MOVES_ON and "_move" not in q:', rl):
         fails.append("2. reach_logits does not choose the move first")
     elif rl.index('reach_move_pick') > rl.index("rc = reach_candidates(p, q)"):
         fails.append("2. the move is chosen AFTER the offer is built")

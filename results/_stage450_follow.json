@@ -1,0 +1,47 @@
+{
+ "1337": {
+  "seed": 1337,
+  "void": false,
+  "gate": true,
+  "n_p": 3,
+  "n_q": 4,
+  "hop3": 1.0,
+  "four": 1.0,
+  "greedy_crisp": 0.0,
+  "greedy_refuse": 1.0,
+  "follow_crisp": 1.0,
+  "follow_ripe": 0.0,
+  "picked_unlock": 1.0,
+  "q": 1.0
+ },
+ "8642": {
+  "seed": 8642,
+  "void": false,
+  "gate": true,
+  "n_p": 3,
+  "n_q": 4,
+  "hop3": 1.0,
+  "four": 1.0,
+  "greedy_crisp": 0.0,
+  "greedy_refuse": 1.0,
+  "follow_crisp": 1.0,
+  "follow_ripe": 0.0,
+  "picked_unlock": 1.0,
+  "q": 1.0
+ },
+ "2890": {
+  "seed": 2890,
+  "void": false,
+  "gate": true,
+  "n_p": 3,
+  "n_q": 4,
+  "hop3": 1.0,
+  "four": 1.0,
+  "greedy_crisp": 0.0,
+  "greedy_refuse": 1.0,
+  "follow_crisp": 1.0,
+  "follow_ripe": 0.0,
+  "picked_unlock": 1.0,
+  "q": 1.0
+ }
+}

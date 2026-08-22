@@ -1,0 +1,4 @@
+Stage289 derivation start 2026-08-10T15:24:38.433098+00:00 device=cuda holdout=corpus
+  tape: 18 addresses, 45 slots | questions {"count": 18, "lookup": 2, "compare": 9} | params 3489
+  ladder coverage: 0/2 lookup questions have all three rungs; the rest train on the task term alone
+  too few lookup questions: raise --train-lines

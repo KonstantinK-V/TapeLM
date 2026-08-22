@@ -1,0 +1,166 @@
+Stage289a presupposition start 2026-08-09T19:59:55.245262+00:00 device=cuda holdout=corpus
+  first pack: 7.8s (cold - the memo pays back from the second)
+  tape: 676 addresses, 2000 slots | questions {"ok": 676, "false_premise": 669, "wrong_relation": 470, "contested": 255} | params 5572
+  saturation probe: 200 blind-pair questions, floor 0.7750
+  resample 2 at step 51: 3.3s
+  resample 3 at step 101: 3.1s
+  resample 4 at step 151: 2.9s
+  resample 5 at step 201: 2.8s
+  resample 6 at step 251: 2.6s
+  resample 7 at step 301: 2.7s
+  resample 8 at step 351: 2.9s
+  resample 9 at step 401: 2.6s
+  resample 10 at step 451: 3.0s
+  [tape 10] step 451 blind_pair=0.2250 floor=0.7750
+  resample 11 at step 501: 3.1s
+  resample 12 at step 551: 2.7s
+  resample 13 at step 601: 2.4s
+  resample 14 at step 651: 3.1s
+  resample 15 at step 701: 2.7s
+  step 750/6000 loss=0.4524
+  resample 16 at step 751: 2.8s
+  resample 17 at step 801: 2.8s
+  resample 18 at step 851: 2.7s
+  resample 19 at step 901: 2.7s
+  resample 20 at step 951: 2.9s
+  [tape 20] step 951 blind_pair=0.5700 floor=0.7750
+  resample 21 at step 1001: 2.7s
+  resample 22 at step 1051: 2.6s
+  resample 23 at step 1101: 3.0s
+  resample 24 at step 1151: 2.6s
+  resample 25 at step 1201: 2.9s
+  resample 26 at step 1251: 2.7s
+  resample 27 at step 1301: 3.0s
+  resample 28 at step 1351: 2.5s
+  resample 29 at step 1401: 2.8s
+  resample 30 at step 1451: 2.6s
+  [tape 30] step 1451 blind_pair=0.5350 floor=0.7750
+  step 1500/6000 loss=0.8291
+  resample 31 at step 1501: 2.7s
+  resample 32 at step 1551: 3.0s
+  resample 33 at step 1601: 2.8s
+  resample 34 at step 1651: 3.0s
+  resample 35 at step 1701: 2.9s
+  resample 36 at step 1751: 3.3s
+  resample 37 at step 1801: 3.1s
+  resample 38 at step 1851: 2.5s
+  resample 39 at step 1901: 3.1s
+  resample 40 at step 1951: 2.5s
+  [tape 40] step 1951 blind_pair=0.5650 floor=0.7750
+  resample 41 at step 2001: 2.9s
+  resample 42 at step 2051: 2.6s
+  resample 43 at step 2101: 2.6s
+  resample 44 at step 2151: 2.9s
+  resample 45 at step 2201: 2.9s
+  step 2250/6000 loss=0.6782
+  resample 46 at step 2251: 2.6s
+  resample 47 at step 2301: 3.1s
+  resample 48 at step 2351: 3.0s
+  resample 49 at step 2401: 2.8s
+  resample 50 at step 2451: 3.0s
+  [tape 50] step 2451 blind_pair=0.5500 floor=0.7750
+  resample 51 at step 2501: 2.7s
+  resample 52 at step 2551: 2.7s
+  resample 53 at step 2601: 2.7s
+  resample 54 at step 2651: 2.9s
+  resample 55 at step 2701: 3.0s
+  resample 56 at step 2751: 3.0s
+  resample 57 at step 2801: 3.2s
+  resample 58 at step 2851: 3.2s
+  resample 59 at step 2901: 3.0s
+  resample 60 at step 2951: 2.7s
+  [tape 60] step 2951 blind_pair=0.5650 floor=0.7750
+  step 3000/6000 loss=0.6171
+  resample 61 at step 3001: 3.0s
+  resample 62 at step 3051: 2.6s
+  resample 63 at step 3101: 3.0s
+  resample 64 at step 3151: 2.8s
+  resample 65 at step 3201: 3.1s
+  resample 66 at step 3251: 2.7s
+  resample 67 at step 3301: 2.6s
+  resample 68 at step 3351: 3.0s
+  resample 69 at step 3401: 2.5s
+  resample 70 at step 3451: 3.0s
+  [tape 70] step 3451 blind_pair=0.5600 floor=0.7750
+  resample 71 at step 3501: 2.7s
+  resample 72 at step 3551: 2.6s
+  resample 73 at step 3601: 2.8s
+  resample 74 at step 3651: 2.5s
+  resample 75 at step 3701: 2.9s
+  step 3750/6000 loss=0.5288
+  resample 76 at step 3751: 2.6s
+  resample 77 at step 3801: 2.9s
+  resample 78 at step 3851: 2.6s
+  resample 79 at step 3901: 2.8s
+  resample 80 at step 3951: 2.7s
+  [tape 80] step 3951 blind_pair=0.5600 floor=0.7750
+  resample 81 at step 4001: 3.0s
+  resample 82 at step 4051: 2.6s
+  resample 83 at step 4101: 2.5s
+  resample 84 at step 4151: 2.8s
+  resample 85 at step 4201: 2.6s
+  resample 86 at step 4251: 2.8s
+  resample 87 at step 4301: 2.6s
+  resample 88 at step 4351: 3.0s
+  resample 89 at step 4401: 2.5s
+  resample 90 at step 4451: 3.0s
+  [tape 90] step 4451 blind_pair=0.5350 floor=0.7750
+  step 4500/6000 loss=0.5830
+  resample 91 at step 4501: 2.7s
+  resample 92 at step 4551: 2.6s
+  resample 93 at step 4601: 2.8s
+  resample 94 at step 4651: 3.0s
+  resample 95 at step 4701: 2.6s
+  resample 96 at step 4751: 2.9s
+  resample 97 at step 4801: 2.6s
+  resample 98 at step 4851: 2.9s
+  resample 99 at step 4901: 2.7s
+  resample 100 at step 4951: 2.6s
+  [tape 100] step 4951 blind_pair=0.5350 floor=0.7750
+  resample 101 at step 5001: 2.8s
+  resample 102 at step 5051: 2.5s
+  resample 103 at step 5101: 2.8s
+  resample 104 at step 5151: 2.8s
+  resample 105 at step 5201: 2.7s
+  step 5250/6000 loss=0.6369
+  resample 106 at step 5251: 2.9s
+  resample 107 at step 5301: 2.6s
+  resample 108 at step 5351: 2.6s
+  resample 109 at step 5401: 2.8s
+  resample 110 at step 5451: 2.8s
+  [tape 110] step 5451 blind_pair=0.5600 floor=0.7750
+  resample 111 at step 5501: 2.8s
+  resample 112 at step 5551: 2.8s
+  resample 113 at step 5601: 2.6s
+  resample 114 at step 5651: 2.6s
+  resample 115 at step 5701: 2.7s
+  resample 116 at step 5751: 2.4s
+  resample 117 at step 5801: 3.0s
+  resample 118 at step 5851: 2.6s
+  resample 119 at step 5901: 2.6s
+  resample 120 at step 5951: 2.7s
+  [tape 120] step 5951 blind_pair=0.5350 floor=0.7750
+  step 6000/6000 loss=0.5334
+  train prior {"ok": 662, "wrong_relation": 351, "contested": 238, "false_premise": 657}
+  CONTROL {"n": 1911, "model_accuracy": 0.8048142333856619, "rival_accuracy": 0.5677655677655677, "majority_floor": 0.3464154892726321, "per_verdict": {"ok": {"n": 662, "model_recall": 0.5498489425981873, "rival_recall": 0.6404833836858006}, "wrong_relation": {"n": 351, "model_recall": 0.7863247863247863, "rival_recall": 0.0}, "contested": {"n": 238, "model_recall": 1.0, "rival_recall": 1.0}, "false_premise": {"n": 660, "model_recall": 1.0, "rival_recall": 0.6409090909090909}}, "blind_pair": {"n": 1013, "model_accuracy": 0.631786771964462, "prior_corrected_accuracy": 0.6367226061204343, "auc": 0.6894221086063986, "auc_z": 9.933101316625494, "n_wrong_relation": 351, "n_ok": 662, "rival_accuracy": 0.6535044422507403, "majority_floor": 0.6535044422507403}, "confusion": {"contested->contested": 238, "false_premise->false_premise": 660, "ok->ok": 364, "ok->wrong_relation": 298, "wrong_relation->ok": 75, "wrong_relation->wrong_relation": 276}}
+  HELD {"n": 702, "model_accuracy": 0.7863247863247863, "rival_accuracy": 0.5883190883190883, "majority_floor": 0.36894586894586895, "per_verdict": {"ok": {"n": 259, "model_recall": 0.5135135135135135, "rival_recall": 0.5945945945945946}, "wrong_relation": {"n": 80, "model_recall": 0.7, "rival_recall": 0.0}, "contested": {"n": 105, "model_recall": 1.0, "rival_recall": 1.0}, "false_premise": {"n": 258, "model_recall": 1.0, "rival_recall": 0.5968992248062015}}, "blind_pair": {"n": 339, "model_accuracy": 0.5575221238938053, "prior_corrected_accuracy": 0.56047197640118, "auc": 0.6101833976833977, "auc_z": 2.9796290545549673, "n_wrong_relation": 80, "n_ok": 259, "rival_accuracy": 0.7640117994100295, "majority_floor": 0.7640117994100295}, "confusion": {"contested->contested": 105, "false_premise->false_premise": 258, "ok->ok": 133, "ok->wrong_relation": 126, "wrong_relation->ok": 24, "wrong_relation->wrong_relation": 56}}
+{
+  "overall": "PRESUPPOSITION_PARTIAL",
+  "gates": {
+    "G_arc_enc_frozen": true,
+    "G_task_exists": true,
+    "G_beats_counting_rival": true,
+    "G_beats_majority_floor": true,
+    "G_catches_wrong_relation": true,
+    "G_does_not_cry_wolf": false,
+    "G_separates_blind_pair": true,
+    "G_blind_pair_usable_at_argmax": false
+  },
+  "model": 0.7863247863247863,
+  "rival": 0.5883190883190883,
+  "wrong_relation": {
+    "n": 80,
+    "model_recall": 0.7,
+    "rival_recall": 0.0
+  }
+}

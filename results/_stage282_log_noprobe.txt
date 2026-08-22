@@ -1,0 +1,33 @@
+Stage282 mind start 2026-08-07T09:30:29.569597+00:00 device=cuda actions=37 k=7 w=6 probes=0 bc=4000 rl=3000
+  tape: 186 addresses, 531 slots | items {"clean": 84, "decidable": 19, "tie": 83} (18s)
+  bc 500/4000 loss=0.3467 [clean] ['ASK_Q', 'READ_0', 'READ_1', 'ANSWER_0']
+  bc 1000/4000 loss=0.3588 [tie] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'STOP_CONFLICT']
+  bc 1500/4000 loss=0.3466 [clean] ['ASK_Q', 'READ_0', 'READ_1', 'ANSWER_0']
+  bc 2000/4000 loss=0.1498 [decidable] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'STOP_CONFLICT']
+  bc 2500/4000 loss=0.1451 [tie] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'STOP_CONFLICT']
+  bc 3000/4000 loss=0.1733 [tie] ['ASK_Q', 'READ_0', 'READ_1', 'STOP_CONFLICT']
+  bc 3500/4000 loss=0.4264 [clean] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'ANSWER_0']
+  bc 4000/4000 loss=0.5781 [clean] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'ANSWER_0']
+  rl 375/3000 v_mse=0.482 [decidable] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'ANSWER_2']
+  rl 750/3000 v_mse=0.430 [clean] ['ASK_Q', 'READ_0', 'READ_1', 'ANSWER_1']
+  rl 1125/3000 v_mse=0.301 [clean] ['ASK_Q', 'READ_1', 'READ_0', 'ANSWER_1']
+  rl 1500/3000 v_mse=0.334 [clean] ['ASK_Q', 'READ_0', 'READ_1', 'ANSWER_0']
+  rl 1875/3000 v_mse=0.299 [decidable] ['ASK_Q', 'READ_2', 'READ_1', 'READ_0', 'STOP_CONFLICT']
+  rl 2250/3000 v_mse=0.413 [tie] ['ASK_Q', 'READ_0', 'READ_1', 'STOP_CONFLICT']
+  rl 2625/3000 v_mse=0.468 [decidable] ['ASK_Q', 'READ_2', 'READ_0', 'READ_1', 'STOP_CONFLICT']
+  rl 3000/3000 v_mse=0.334 [tie] ['ASK_Q', 'READ_0', 'READ_3', 'READ_1', 'READ_2', 'STOP_CONFLICT']
+  HELD-OUT {"answer_is_slot": 1.0, "stall_rate": 0.0, "words_silent_rate": 0.0, "hops_per_episode": 0.07017543859649122, "unknown_when_silent": NaN, "conflict_when_tie": 0.7368421052631579, "probe_hit_rate": NaN, "acc_when_probe_hit": NaN, "acc_when_probe_miss": NaN, "reward_total": 0.5636842105263157, "teacher_reward_total": 0.5943859649122806, "retrieval_precision": 0.8213032581453634, "witness_recall": 0.9713059823471722, "n_items": 57, "clean": {"n": 29, "coverage": 0.8620689655172413, "acc_answered": 0.96, "abstain": 0.13793103448275862, "stop_conflict": 0.13793103448275862, "stop_unknown": 0.0, "mean_reads": 3.586206896551724, "mean_edits": 0.0, "mean_probes": 0.0, "reward": 0.8248275862068964, "teacher_abstain": 0.13793103448275862, "teacher_acc_all": 0.8275862068965517}, "decidable": {"n": 8, "coverage": 0.875, "acc_answered": 0.8571428571428571, "abstain": 0.125, "stop_conflict": 0.125, "stop_unknown": 0.0, "mean_reads": 4.375, "mean_edits": 0.0, "mean_probes": 0.0, "reward": 0.6312499999999999, "teacher_abstain": 0.125, "teacher_acc_all": 0.75}, "tie": {"n": 20, "coverage": 0.30000000000000004, "acc_answered": 0.0, "abstain": 0.7, "stop_conflict": 0.7, "stop_unknown": 0.0, "mean_reads": 3.35, "mean_edits": 0.0, "mean_probes": 0.0, "reward": 0.15799999999999995, "teacher_abstain": 0.75, "teacher_acc_all": 0.0}, "coverage_all": 0.6666666666666666, "acc_answered_all": 0.7894736842105263, "teacher_coverage_all": 0.6491228070175439}
+{
+  "overall": "MIND_OK",
+  "gates": {
+    "G_arc_enc_frozen": true,
+    "G_answer_is_slot": true,
+    "G_all_families_present": true,
+    "G_teacher_usable": true,
+    "G_reaches_teacher": true,
+    "G_silence_is_typed": true,
+    "G_conflict_on_tie": true,
+    "G_probe_filters_wrong_answers": true,
+    "G_acc_when_answering": true
+  }
+}

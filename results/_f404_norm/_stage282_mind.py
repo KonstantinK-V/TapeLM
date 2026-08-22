@@ -1,0 +1,571 @@
+"""
+Stage 282 — One mind: typed silence, an editable query, and verification by the return path.
+
+278 gave the controller a value baseline, a BC anchor that survives RL, an exhaustive teacher and
+a margin counted in votes; 279 gave the tape a write decision; 280 put the two on raw text and
+281 fixed what an assertion is. What is left is the policy itself, and three things it cannot
+currently express - each of them lexical, each judged by the corpus rather than by a label.
+
+  A. SILENCE IS TYPED.
+     One STOP served two situations that have opposite continuations: the witnesses contradict
+     each other, and nothing was found at all. STOP_CONFLICT and STOP_UNKNOWN cost nothing - the
+     features that separate them are already in the state - and abstention stops being a scalar
+     and becomes a diagnosis, which is separately checkable: UNKNOWN must land where the votes
+     were silent, CONFLICT where support was equal. If the two are used interchangeably that
+     shows up as a failed gate rather than as a good-looking abstention rate.
+
+  B. THE QUERY IS EDITABLE.
+     ASK_Q always reissued the same cue, so a bad retrieve list left the mind a choice between
+     reading rubbish and giving up. 261 established that the query must be WORDS, and a set of
+     words can be edited: DROP_i removes one, ADD_i takes one from the passage just read.
+     Retrieval stops being a fixed function applied to the policy and becomes part of it.
+
+     A and B compose. A typed silence is a reason: UNKNOWN means reformulate, CONFLICT means
+     stop. Without the type there is no way to tell "ask differently" from "there is no answer".
+
+  C. VERIFICATION BY THE RETURN PATH.
+     Counting witnesses is the only check the mind had. There is a stronger one and it is also
+     lexical: take the value just read and ask the tape about IT. Sleaford -> Lincolnshire, then
+     ask Lincolnshire and see whether the tape leads back to Sleaford. A plausible-but-wrong
+     value usually has no return path; a right one usually does. ASK_VALUE_i is a PROBE - it
+     restores the candidate list afterwards, so it checks without navigating away, and the
+     ANSWER indices stay meaningful.
+
+Nothing here is trained to address anything: no query vector (261 measured that it loses), no
+embedding of the question, no reading of item['truth'] or item['kind'] anywhere including the
+teacher. The tape comes from 280 unchanged, so a difference against 280 is a difference from
+these three actions.
+
+  python _stage282_mind.py --smoke
+  python _stage282_mind.py --bc-episodes 4000 --rl-episodes 3000 --min-mentions 2
+"""
+from __future__ import annotations
+import argparse
+import json
+import math
+import random
+import time
+from collections import Counter, defaultdict
+from datetime import datetime, timezone
+from pathlib import Path
+import numpy as np
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+from tokenizers import Tokenizer
+import _stage177_curve_bpe as s177
+import _stage185_tape_read as s185
+import _stage213_arc_enc_freeze_finetune as s213
+import _stage271_controller as s271
+import _stage280_raw_exam as s280
+from _stage191_night import PAD, SelfModelXL, load_data
+from _stage194_fp_fact_memory import FpBank
+from _inprint_glue import hidden_and_logits
+from _tape_index import context_words
+RES = Path('results')
+CKPT_P1 = Path('checkpoints/stage191_p1_curve.pt')
+CKPT_JOINT = Path('checkpoints/stage253_joint_l02.pt')
+WIKI = Path('data/_wikitext103_train.txt')
+SEED = 282
+FAMILIES = s280.FAMILIES
+LOG_PATH = RES / '_stage282_log.txt'
+N_FEAT = 10
+
+def log(m: str) -> None:
+    line = m if m.endswith('\n') else m + '\n'
+    try:
+        print(line, end='', flush=True)
+    except UnicodeEncodeError:
+        print(line.encode('ascii', 'replace').decode('ascii'), end='', flush=True)
+    LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+    with LOG_PATH.open('a', encoding='utf-8') as f:
+        f.write(line)
+
+class Acts:
+    """Nine families, all lexical. Nothing here indexes an embedding."""
+
+    def __init__(self, k: int, w: int):
+        self.k, self.w = (k, w)
+        self.ASK_Q = 0
+        self.ASK_READ = 1
+        self.READ = 2
+        self.ANSWER = self.READ + k
+        self.ASK_VALUE = self.ANSWER + k
+        self.DROP = self.ASK_VALUE + k
+        self.ADD = self.DROP + w
+        self.STOP_CONFLICT = self.ADD + w
+        self.STOP_UNKNOWN = self.STOP_CONFLICT + 1
+        self.n = self.STOP_UNKNOWN + 1
+
+    def name(self, a: int) -> str:
+        for lo, tag in ((self.READ, 'READ'), (self.ANSWER, 'ANSWER'), (self.ASK_VALUE, 'ASK_VALUE'), (self.DROP, 'DROP'), (self.ADD, 'ADD')):
+            span = self.w if tag in ('DROP', 'ADD') else self.k
+            if lo <= a < lo + span:
+                return f'{tag}_{a - lo}'
+        return {self.ASK_Q: 'ASK_Q', self.ASK_READ: 'ASK_READ', self.STOP_CONFLICT: 'STOP_CONFLICT', self.STOP_UNKNOWN: 'STOP_UNKNOWN'}.get(a, f'?{a}')
+
+class Policy(nn.Module):
+    """Global head for the query and the two silences; per-candidate head for the rest.
+
+    Candidate positions get no global logit - 274 measured what happens otherwise: the positional
+    head learns that ANSWER_0 is right often enough and drowns the per-candidate signal.
+    """
+
+    def __init__(self, d_hidden: int, acts: Acts, device):
+        super().__init__()
+        self.acts, self.n_actions = (acts, acts.n)
+        d = d_hidden + N_FEAT
+        self.f = nn.Sequential(nn.Linear(d, 128), nn.GELU(), nn.Linear(128, acts.n)).to(device)
+        self.cand = nn.Sequential(nn.Linear(d + 4, 64), nn.GELU(), nn.Linear(64, 3)).to(device)
+        self.word = nn.Sequential(nn.Linear(d + 2, 32), nn.GELU(), nn.Linear(32, 2)).to(device)
+        self.v = nn.Sequential(nn.Linear(d, 128), nn.GELU(), nn.Linear(128, 1)).to(device)
+        for m in (self.f, self.cand, self.word, self.v):
+            nn.init.zeros_(m[-1].weight)
+            nn.init.zeros_(m[-1].bias)
+        self.collect = None
+
+    def forward(self, h, feats, mask, cand_feats=None, word_feats=None):
+        x = torch.cat([h, feats], dim=-1)
+        if self.collect is not None:
+            self.collect.append(self.v(x).squeeze(-1))
+        g = self.f(x)
+        a = self.acts
+        logits = torch.zeros_like(g)
+        for i in (a.ASK_Q, a.ASK_READ, a.STOP_CONFLICT, a.STOP_UNKNOWN):
+            logits = logits.index_copy(0, torch.tensor([i], device=g.device), g[i].reshape(1))
+        if cand_feats is not None and cand_feats.numel():
+            n = cand_feats.size(0)
+            sc = self.cand(torch.cat([x.unsqueeze(0).expand(n, -1), cand_feats], dim=-1))
+            for j, off in enumerate((a.READ, a.ANSWER, a.ASK_VALUE)):
+                idx = torch.arange(off, off + n, device=g.device)
+                logits = logits.index_add(0, idx, sc[:, j])
+        if word_feats is not None and word_feats.numel():
+            n = word_feats.size(0)
+            sw = self.word(torch.cat([x.unsqueeze(0).expand(n, -1), word_feats], dim=-1))
+            for j, off in enumerate((a.DROP, a.ADD)):
+                idx = torch.arange(off, off + n, device=g.device)
+                logits = logits.index_add(0, idx, sw[:, j])
+        return logits.masked_fill(~mask, -1000000000.0)
+
+def build_state(policy, model, char_table, tok, pack, st, pad_id, device, acts, max_steps):
+    ids = [i for i in tok.encode(st['transcript']).ids if i != pad_id][-s271.MAX_ARCS:] if hasattr(s271, 'MAX_ARCS') else [i for i in tok.encode(st['transcript']).ids if i != pad_id][-256:]
+    if not ids:
+        return None
+    h, _ = hidden_and_logits(model, char_table, torch.tensor([ids], dtype=torch.long, device=device), pad_id)
+    h = h[0, -1]
+    if NO_HIDDEN:
+        h = h[:0]
+    cands, sc = (st['cands'], st['sc'])
+    scores = [sc.get(c, 0.0) for c in cands]
+    top = max(scores) if scores else 0.0
+    second = sorted(scores, reverse=True)[1] if len(scores) > 1 else 0.0
+    cnt = Counter(st['opened'])
+    ranked = cnt.most_common(2)
+    lead = ranked[0][1] if ranked else 0
+    sec_sup = ranked[1][1] if len(ranked) > 1 else 0
+    feats = torch.tensor([top, top - second, len(cands) / max(1, acts.k), st['n_reads'] / max_steps, float(bool(st['last_words'])), lead / max(1, len(st['opened']) or 1), float(min(lead - sec_sup, 3)), len(st['qwords']) / max(1, acts.w), st['n_edits'] / max(1, acts.w), float(top <= 0.0)], device=device, dtype=h.dtype if h.numel() else torch.float32)
+    mask = torch.zeros(acts.n, dtype=torch.bool, device=device)
+    mask[acts.ASK_Q] = True
+    mask[acts.ASK_READ] = bool(st['last_words'])
+    mask[acts.STOP_CONFLICT] = True
+    mask[acts.STOP_UNKNOWN] = True
+    for i, c in enumerate(cands[:acts.k]):
+        mask[acts.READ + i] = c not in st['seen']
+        mask[acts.ANSWER + i] = True
+        mask[acts.ASK_VALUE + i] = st['probes'] < st['max_probes']
+    nq = min(len(st['qwords']), acts.w)
+    for i in range(nq):
+        mask[acts.DROP + i] = len(st['qwords']) > 1 and st['n_edits'] < acts.w
+    for i in range(min(len(st['addable']), acts.w)):
+        mask[acts.ADD + i] = st['n_edits'] < acts.w
+    cf = None
+    if cands:
+        vals = [pack['tape'].values[c] for c in cands]
+        said = Counter(st['opened'])
+        mx = max(scores) if scores and max(scores) > 0 else 1.0
+        den = max(1, len(st['opened']))
+        cf = torch.tensor([[scores[i] / mx, said.get(vals[i], 0) / den, float(cands[i] in st['seen']), min(st['ret_ok'].get(cands[i], -1.0), 2.0)] for i in range(len(cands))], device=device, dtype=feats.dtype)
+    wf = None
+    n_w = max(nq, min(len(st['addable']), acts.w))
+    if n_w:
+        rows = []
+        for i in range(n_w):
+            in_q = st['qwords'][i] if i < nq else None
+            cand_w = st['addable'][i] if i < len(st['addable']) else None
+            rows.append([pack['idf'].get(in_q, 0.0) if in_q else 0.0, pack['idf'].get(cand_w, 0.0) if cand_w else 0.0])
+        wf = torch.tensor(rows, device=device, dtype=feats.dtype)
+    return (policy(h, feats, mask, cf, wf), mask)
+NO_HIDDEN = False
+
+def teacher(pack, st, acts, item, max_steps, max_reads):
+    """Executable, label-free, and it demonstrates every new action.
+
+    An action the teacher never takes is an action BC never shows the policy, so each of the
+    three additions has a rule here that any reader could run by hand.
+    """
+    cands = st['cands']
+    if not cands:
+        if not st['asked']:
+            return acts.ASK_Q
+        if len(st['qwords']) > 1 and st['n_edits'] < acts.w:
+            lo = min(range(min(len(st['qwords']), acts.w)), key=lambda i: pack['idf'].get(st['qwords'][i], 0.0))
+            return acts.DROP + lo
+        if st['addable'] and st['n_edits'] < acts.w:
+            hi = max(range(min(len(st['addable']), acts.w)), key=lambda i: pack['idf'].get(st['addable'][i], 0.0))
+            return acts.ADD + hi
+        return acts.STOP_UNKNOWN
+    unread = [i for i, c in enumerate(cands[:acts.k]) if c not in st['seen']]
+    if unread and st['n_reads'] < max_reads and (st['n_reads'] + 3 <= max_steps):
+        return acts.READ + unread[0]
+    cnt = Counter(st['opened'])
+    ranked = cnt.most_common(2)
+    lead = ranked[0][1] if ranked else 0
+    second = ranked[1][1] if len(ranked) > 1 else 0
+    if lead == 0:
+        return acts.STOP_UNKNOWN
+
+    def slot_of(val):
+        return next((i for i, c in enumerate(cands[:acts.k]) if pack['tape'].values[c] == val), None)
+    if lead == second and (not st.get('tie_probe')):
+        return acts.STOP_CONFLICT
+    if lead == second:
+        for val in (ranked[0][0], ranked[1][0]):
+            j = slot_of(val)
+            if j is not None and st['ret_ok'].get(cands[j], -1.0) < 0 and (st['probes'] < st['max_probes']) and (st['n_reads'] + 2 <= max_steps):
+                return acts.ASK_VALUE + j
+        counts = [(val, slot_of(val)) for val in (ranked[0][0], ranked[1][0])]
+        counts = [(j, st['ret_ok'].get(cands[j], -1.0)) for _, j in counts if j is not None]
+        strong = [j for j, n in counts if n >= 2]
+        weak = [j for j, n in counts if n > 0]
+        if len(strong) == 1 and len(weak) == 1:
+            return acts.ANSWER + strong[0]
+        return acts.STOP_CONFLICT
+    idx = slot_of(ranked[0][0])
+    if idx is None:
+        return acts.STOP_UNKNOWN
+    ret = st['ret_ok'].get(cands[idx], -1.0)
+    if ret < 0 and st['probes'] < st['max_probes'] and (st['n_reads'] + 2 <= max_steps):
+        return acts.ASK_VALUE + idx
+    if ret == 0.0 and lead - second < 2:
+        return acts.STOP_UNKNOWN
+    return acts.ANSWER + idx
+
+def rollout(policy, model, char_table, tok, pack, item, pad_id, device, acts, *, max_steps, max_reads, read_cost, wrong_cost, abstain_reward, hop, hop_min, k_gap, subject_filter, max_probes=2, tie_probe=False, bc=False, greedy=True, teacher_only=False, bc_anchor=0.0):
+    k = acts.k
+    st = {'transcript': s271.CUE.format(S=item.get('query') or item['S']), 'qwords': context_words(s271.CUE.format(S=item.get('query') or item['S']))[:acts.w], 'cands': [], 'sc': {}, 'seen': set(), 'opened': [], 'last_words': [], 'addable': [], 'n_reads': 0, 'n_edits': 0, 'probes': 0, 'max_probes': max_probes, 'asked': False, 'ret_ok': {}, 'tie_probe': tie_probe}
+    losses, logps, ents, trace = ([], [], [], [])
+    answered, stop_kind, stalled = (None, None, True)
+    prec, rec, hops = (float('nan'), float('nan'), 0)
+    own = set(item['slots'])
+
+    def do_ask(words):
+        c, sc, used = s280.retrieve(pack, words, k, hop, item, subject_filter, hop_min, k_gap)
+        st['cands'], st['sc'], st['asked'] = (c, sc, True)
+        return used
+    for _ in range(max_steps):
+        if teacher_only:
+            a = teacher(pack, st, acts, item, max_steps, max_reads)
+        else:
+            out = build_state(policy, model, char_table, tok, pack, st, pad_id, device, acts, max_steps)
+            if out is None:
+                break
+            logits, _ = out
+            if bc:
+                a = teacher(pack, st, acts, item, max_steps, max_reads)
+                if not torch.isfinite(logits[a]) or logits[a] < -100000000.0:
+                    break
+                losses.append(F.cross_entropy(logits.unsqueeze(0), torch.tensor([a], device=device)))
+            else:
+                dist = torch.distributions.Categorical(logits=logits)
+                a = int(logits.argmax()) if greedy else int(dist.sample())
+                logps.append(dist.log_prob(torch.tensor(a, device=device)))
+                ents.append(dist.entropy())
+                if bc_anchor > 0.0:
+                    at = teacher(pack, st, acts, item, max_steps, max_reads)
+                    if torch.isfinite(logits[at]) and logits[at] > -100000000.0:
+                        losses.append(F.cross_entropy(logits.unsqueeze(0), torch.tensor([at], device=device)))
+        trace.append(acts.name(a))
+        if a == acts.ASK_Q:
+            hops += int(do_ask(st['qwords']))
+        elif a == acts.ASK_READ:
+            hops += int(do_ask(st['last_words'] or st['qwords']))
+        elif acts.ASK_VALUE <= a < acts.ASK_VALUE + k:
+            i = a - acts.ASK_VALUE
+            if i >= len(st['cands']):
+                break
+            slot = st['cands'][i]
+            keep_c, keep_s = (st['cands'], st['sc'])
+            val_words = context_words(pack['tape'].values[slot]) or [pack['tape'].values[slot]]
+            back, _, _ = s280.retrieve(pack, val_words, k, hop, None, False, hop_min, k_gap, index='probe')
+            val_lc = pack['tape'].values[slot].lower()
+            st['ret_ok'][slot] = float(sum((1 for c in back if c != slot and item['S'] in pack['texts_lc'][c] and (val_lc in pack['texts_lc'][c]))))
+            st['cands'], st['sc'] = (keep_c, keep_s)
+            st['probes'] += 1
+        elif acts.DROP <= a < acts.DROP + acts.w:
+            i = a - acts.DROP
+            if i >= len(st['qwords']) or len(st['qwords']) <= 1:
+                break
+            st['qwords'] = st['qwords'][:i] + st['qwords'][i + 1:]
+            st['n_edits'] += 1
+        elif acts.ADD <= a < acts.ADD + acts.w:
+            i = a - acts.ADD
+            if i >= len(st['addable']):
+                break
+            w = st['addable'][i]
+            if w not in st['qwords']:
+                st['qwords'] = (st['qwords'] + [w])[:acts.w]
+            st['n_edits'] += 1
+        elif a in (acts.STOP_CONFLICT, acts.STOP_UNKNOWN):
+            stop_kind = 'conflict' if a == acts.STOP_CONFLICT else 'unknown'
+            stalled = False
+            break
+        elif acts.READ <= a < acts.READ + k:
+            i = a - acts.READ
+            if i >= len(st['cands']):
+                break
+            slot = st['cands'][i]
+            st['transcript'] = (st['transcript'] + ' | ' + pack['texts'][slot])[-2000:]
+            st['last_words'] = context_words(pack['texts'][slot], exclude=pack['tape'].values[slot])
+            st['addable'] = [w for w in st['last_words'] if w not in st['qwords']][:acts.w]
+            st['seen'].add(slot)
+            st['opened'].append(pack['tape'].values[slot])
+            st['n_reads'] += 1
+        else:
+            i = a - acts.ANSWER
+            if i >= len(st['cands']):
+                break
+            answered = pack['tape'].values[st['cands'][i]]
+            stalled = False
+            break
+        if st['cands'] and math.isnan(prec):
+            hit = sum((1 for c in st['cands'] if c in own))
+            prec = hit / len(st['cands'])
+            rec = hit / max(1, len(own))
+    abstained = answered is None
+    if abstained:
+        correct = 0
+        reward = 0.0 if stalled else abstain_reward
+    else:
+        correct = int(item['truth'] is not None and answered == item['truth'])
+        reward = 1.0 if correct else -wrong_cost
+    reward -= read_cost * st['n_reads']
+    return {'loss': torch.stack(losses).mean() if losses else torch.zeros((), device=device), 'logps': logps, 'entropy': ents, 'reward': reward, 'correct': correct, 'abstained': abstained, 'stop_kind': stop_kind, 'stalled': bool(stalled and abstained), 'n_reads': st['n_reads'], 'n_edits': st['n_edits'], 'probes': st['probes'], 'ret_ok': max(st['ret_ok'].values()) if st['ret_ok'] else float('nan'), 'trace': trace, 'kind': item['kind'], 'hops': hops, 'answer_is_slot': answered is None or answered in set(pack['tape'].values), 'retrieval_precision': prec, 'witness_recall': rec, 'words_silent': bool(st['sc']) is False or max(st['sc'].values(), default=0.0) <= 0.0}
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--smoke', action='store_true')
+    ap.add_argument('--bc-episodes', type=int, default=0)
+    ap.add_argument('--rl-episodes', type=int, default=0)
+    ap.add_argument('--tape-period', type=int, default=0)
+    ap.add_argument('--addresses', type=int, default=0)
+    ap.add_argument('--min-mentions', type=int, default=2)
+    ap.add_argument('--min-per-family', type=int, default=8)
+    ap.add_argument('--address-tau', type=float, default=0.9)
+    ap.add_argument('--address-overlap', type=int, default=2)
+    ap.add_argument('--soft-match', type=float, default=0.0)
+    ap.add_argument('--topk', type=int, default=7)
+    ap.add_argument('--query-words', type=int, default=6, help='editable query slots')
+    ap.add_argument('--max-probes', type=int, default=2)
+    ap.add_argument('--max-steps', type=int, default=14)
+    ap.add_argument('--max-reads', type=int, default=7)
+    ap.add_argument('--hop', choices=('none', 'fp'), default='fp')
+    ap.add_argument('--hop-min', type=float, default=1.0)
+    ap.add_argument('--k-gap', type=float, default=0.35)
+    ap.add_argument('--read-cost', type=float, default=0.02)
+    ap.add_argument('--wrong-cost', type=float, default=1.0)
+    ap.add_argument('--abstain-reward', type=float, default=0.75)
+    ap.add_argument('--entropy-bonus', type=float, default=0.01)
+    ap.add_argument('--lr-policy', type=float, default=0.001)
+    ap.add_argument('--lr-value', type=float, default=0.003)
+    ap.add_argument('--lr-upper', type=float, default=3e-05)
+    ap.add_argument('--value-coef', type=float, default=0.5)
+    ap.add_argument('--bc-anchor', type=float, default=0.5)
+    ap.add_argument('--no-hidden', action='store_true')
+    ap.add_argument('--no-edit', action='store_true', help='ablation: drop B')
+    ap.add_argument('--no-probe', action='store_true', help='ablation: drop C')
+    ap.add_argument('--tie-probe', action='store_true', help='ablation: let the return path overturn a tie (two witnesses)')
+    ap.add_argument('--subject-filter', choices=('off', 'on'), default='on')
+    ap.add_argument('--addr-key', choices=('two', 'set', 'mean'), default='two')
+    ap.add_argument('--frozen-trunk', action='store_true')
+    ap.add_argument('--run-tag', type=str, default='')
+    args = ap.parse_args()
+    global NO_HIDDEN, LOG_PATH
+    NO_HIDDEN = args.no_hidden
+    tag = args.run_tag and f'_{args.run_tag}' or ''
+    tag += '_nohid' if args.no_hidden else ''
+    tag += '_noedit' if args.no_edit else ''
+    tag += '_noprobe' if args.no_probe else ''
+    tag += '_tieprobe' if args.tie_probe else ''
+    LOG_PATH = RES / f'_stage282_log{tag}.txt'
+    LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+    LOG_PATH.write_text('', encoding='utf-8')
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    rng = random.Random(SEED)
+    torch.manual_seed(SEED)
+    t0 = time.time()
+    n_bc = args.bc_episodes or (400 if args.smoke else 4000)
+    n_rl = max(0, args.rl_episodes)
+    tape_period = args.tape_period or (50 if args.smoke else 200)
+    n_addr = args.addresses or (60 if args.smoke else 400)
+    k = args.topk
+    w = 0 if args.no_edit else args.query_words
+    acts = Acts(k, w)
+    mode = 'none' if args.frozen_trunk else 'upper'
+    log(f'Stage282 mind start {datetime.now(timezone.utc).isoformat()} device={device} actions={acts.n} k={k} w={w} probes={(0 if args.no_probe else args.max_probes)} bc={n_bc} rl={n_rl}')
+    _, _, stoi, n_char = load_data()
+    tok = Tokenizer.from_file(str(s177.TOK_PATH))
+    V = tok.get_vocab_size()
+    pad_id = tok.token_to_id(PAD) or 0
+    char_table = s185.build_char_table(tok, stoi, pad_id, V).to(device)
+    trunk = CKPT_JOINT if CKPT_JOINT.exists() else CKPT_P1
+    model = SelfModelXL(n_char, V).to(device)
+    model.load_state_dict(torch.load(trunk, map_location=device, weights_only=False)['model'])
+    s213.set_train_mode(model, mode)
+    arc0 = s271.arc_enc_hash(model)
+    can = SelfModelXL(n_char, V).to(device)
+    can.load_state_dict(torch.load(CKPT_P1, map_location=device, weights_only=False)['model'])
+    can.eval()
+    for p in can.parameters():
+        p.requires_grad_(False)
+    bank = FpBank(can, stoi, device)
+    with WIKI.open('r', encoding='utf-8', errors='ignore') as f:
+        wtext = f.read(4000000 if args.smoke else 30000000)
+    all_lines = [l.strip() for l in wtext.split('\n') if 80 <= len(l.strip()) <= 400]
+    cut = int(0.7 * len(all_lines))
+    train_lines = all_lines[:cut][:3000 if args.smoke else 25000]
+    eval_lines = all_lines[cut:][:1500 if args.smoke else 12000]
+
+    def new_pack(r, lines):
+        return s280.pack_from_corpus(lines, bank=bank, tok=tok, pad_id=pad_id, device=device, rng=r, n_addr=n_addr, min_mentions=args.min_mentions, tau=args.address_tau, overlap=args.address_overlap, soft_match=args.soft_match, min_per_family=args.min_per_family, addr_key=args.addr_key)
+    pack = new_pack(rng, train_lines)
+    fam = Counter((i['kind'] for i in pack['items']))
+    log(f"  tape: {pack['n_addresses']} addresses, {pack['n_slots']} slots | items {json.dumps(dict(fam))} ({time.time() - t0:.0f}s)")
+    if len(pack['items']) < 8:
+        log('  too few items')
+        return 1
+    d_hidden = 0 if args.no_hidden else 2 * (model.head.in_features // 2)
+    policy = Policy(d_hidden, acts, device)
+    live = [p for p in model.parameters() if p.requires_grad]
+    opt = torch.optim.AdamW([{'params': [p for n_, p in policy.named_parameters() if not n_.startswith('v.')], 'lr': args.lr_policy}, {'params': list(policy.v.parameters()), 'lr': args.lr_value}] + ([{'params': live, 'lr': args.lr_upper}] if live else []), weight_decay=0.01)
+    common = dict(max_steps=args.max_steps, max_reads=args.max_reads, read_cost=args.read_cost, wrong_cost=args.wrong_cost, abstain_reward=args.abstain_reward, hop=args.hop, hop_min=args.hop_min, k_gap=args.k_gap, subject_filter=args.subject_filter == 'on', max_probes=0 if args.no_probe else args.max_probes, tie_probe=args.tie_probe)
+    curve, v_err = ([], [])
+    policy.train()
+    model.train(mode != 'none')
+    for ep in range(1, n_bc + 1):
+        if (ep - 1) % tape_period == 0 and ep > 1:
+            pack = new_pack(rng, train_lines)
+        item = pack['items'][rng.randrange(len(pack['items']))]
+        out = rollout(policy, model, char_table, tok, pack, item, pad_id, device, acts, bc=True, **common)
+        opt.zero_grad(set_to_none=True)
+        out['loss'].backward()
+        torch.nn.utils.clip_grad_norm_(list(policy.parameters()) + live, 1.0)
+        opt.step()
+        if ep % max(1, n_bc // 8) == 0:
+            curve.append({'phase': 'bc', 'episode': ep, 'loss': float(out['loss']), 'kind': out['kind'], 'trace': out['trace']})
+            log(f"  bc {ep}/{n_bc} loss={float(out['loss']):.4f} [{out['kind']}] {out['trace']}")
+    for ep in range(1, n_rl + 1):
+        if (ep - 1) % tape_period == 0 and ep > 1:
+            pack = new_pack(rng, train_lines)
+        item = pack['items'][rng.randrange(len(pack['items']))]
+        policy.collect = []
+        out = rollout(policy, model, char_table, tok, pack, item, pad_id, device, acts, greedy=False, bc_anchor=args.bc_anchor, **common)
+        vals, policy.collect = (policy.collect, None)
+        if not out['logps']:
+            continue
+        R = out['reward']
+        vs = torch.stack(vals[:len(out['logps'])])
+        v_loss = F.mse_loss(vs, torch.full_like(vs, R))
+        v_err.append(float(v_loss))
+        ent = torch.stack(out['entropy']).sum() if out['entropy'] else torch.zeros((), device=device)
+        loss = -((R - vs).detach() * torch.stack(out['logps'])).sum() + args.value_coef * v_loss - args.entropy_bonus * ent
+        if args.bc_anchor > 0.0 and out['loss'].requires_grad:
+            loss = loss + args.bc_anchor * out['loss']
+        opt.zero_grad(set_to_none=True)
+        loss.backward()
+        torch.nn.utils.clip_grad_norm_(list(policy.parameters()) + live, 1.0)
+        opt.step()
+        if ep % max(1, n_rl // 8) == 0:
+            curve.append({'phase': 'rl', 'episode': ep, 'v_mse': float(np.mean(v_err[-200:])), 'kind': out['kind'], 'trace': out['trace']})
+            log(f"  rl {ep}/{n_rl} v_mse={np.mean(v_err[-200:]):.3f} [{out['kind']}] {out['trace']}")
+    policy.eval()
+    model.eval()
+    arc1 = s271.arc_enc_hash(model)
+
+    @torch.no_grad()
+    def evaluate(p):
+        per = {f: defaultdict(list) for f in FAMILIES}
+        tper = {f: defaultdict(list) for f in FAMILIES}
+        agg = defaultdict(list)
+        traces = []
+        for it in p['items']:
+            o = rollout(policy, model, char_table, tok, p, it, pad_id, device, acts, **common)
+            t = rollout(policy, model, char_table, tok, p, it, pad_id, device, acts, teacher_only=True, **common)
+            f = it['kind']
+            for key in ('correct', 'n_reads', 'reward', 'n_edits', 'probes'):
+                per[f][key].append(o[key])
+            per[f]['abstain'].append(int(o['abstained']))
+            if not math.isnan(o['retrieval_precision']):
+                per[f]['prec'].append(o['retrieval_precision'])
+                per[f]['rec'].append(o['witness_recall'])
+            per[f]['conflict'].append(int(o['stop_kind'] == 'conflict'))
+            per[f]['unknown'].append(int(o['stop_kind'] == 'unknown'))
+            tper[f]['correct'].append(t['correct'])
+            tper[f]['abstain'].append(int(t['abstained']))
+            tper[f]['reward'].append(t['reward'])
+            agg['slot'].append(int(o['answer_is_slot']))
+            agg['stall'].append(int(o['stalled']))
+            agg['silent'].append(int(o['words_silent']))
+            agg['hops'].append(o['hops'])
+            if o['stop_kind'] == 'unknown':
+                agg['unknown_when_silent'].append(int(o['words_silent']))
+            if o['stop_kind'] == 'conflict':
+                agg['conflict_when_tie'].append(int(f == 'tie'))
+            if not math.isnan(o['ret_ok']):
+                agg['probe_hit'].append(float(o['ret_ok'] > 0))
+                if not o['abstained']:
+                    agg['acc_when_probe_hit' if o['ret_ok'] > 0 else 'acc_when_probe_miss'].append(o['correct'])
+            if len(traces) < 24:
+                traces.append({'kind': f, 'S': it['S'], 'trace': o['trace'], 'correct': o['correct'], 'stop': o['stop_kind'], 'edits': o['n_edits'], 'probes': o['probes']})
+        m = lambda xs: float(np.mean(xs)) if xs else float('nan')
+        out = {'answer_is_slot': m(agg['slot']), 'stall_rate': m(agg['stall']), 'words_silent_rate': m(agg['silent']), 'hops_per_episode': m(agg['hops']), 'unknown_when_silent': m(agg['unknown_when_silent']), 'conflict_when_tie': m(agg['conflict_when_tie']), 'probe_hit_rate': m(agg['probe_hit']), 'acc_when_probe_hit': m(agg['acc_when_probe_hit']), 'acc_when_probe_miss': m(agg['acc_when_probe_miss']), 'reward_total': m([r for f in FAMILIES for r in per[f]['reward']]), 'teacher_reward_total': m([r for f in FAMILIES for r in tper[f]['reward']]), 'retrieval_precision': m([x for f in FAMILIES for x in per[f]['prec']]), 'witness_recall': m([x for f in FAMILIES for x in per[f]['rec']]), 'n_items': len(p['items']), 'traces': traces}
+        ac, an = (0, 0)
+        for f in FAMILIES:
+            n_ans = sum((1 for a in per[f]['abstain'] if not a))
+            ac += sum(per[f]['correct'])
+            an += n_ans
+            out[f] = {'n': len(per[f]['abstain']), 'coverage': 1.0 - m(per[f]['abstain']), 'acc_answered': sum(per[f]['correct']) / n_ans if n_ans else float('nan'), 'abstain': m(per[f]['abstain']), 'stop_conflict': m(per[f]['conflict']), 'stop_unknown': m(per[f]['unknown']), 'mean_reads': m(per[f]['reads']) if per[f]['reads'] else m(per[f]['n_reads']), 'mean_edits': m(per[f]['n_edits']), 'mean_probes': m(per[f]['probes']), 'reward': m(per[f]['reward']), 'teacher_abstain': m(tper[f]['abstain']), 'teacher_acc_all': m(tper[f]['correct'])}
+        out['coverage_all'] = an / max(1, len(p['items']))
+        out['acc_answered_all'] = ac / max(1, an)
+        out['teacher_coverage_all'] = sum((len(tper[f]['abstain']) - sum(tper[f]['abstain']) for f in FAMILIES)) / max(1, len(p['items']))
+        return out
+    train_eval = evaluate(pack)
+    held = new_pack(random.Random(SEED + 99), eval_lines)
+    novel = evaluate(held)
+    log(f"  HELD-OUT {json.dumps({kk: vv for kk, vv in novel.items() if kk != 'traces'})}")
+    ceiling = novel['teacher_reward_total']
+    g_arc = arc0 == arc1
+    g_slot = novel['answer_is_slot'] >= 0.99
+    g_families = all((novel[f]['n'] >= 4 for f in FAMILIES))
+    g_teacher = ceiling >= 0.5 * args.abstain_reward and 1.0 - novel['clean']['teacher_abstain'] >= 0.5
+    g_reaches = novel['reward_total'] >= ceiling - 0.1 and novel['coverage_all'] >= 0.5 * novel['teacher_coverage_all']
+    g_typed = novel['conflict_when_tie'] >= 0.6 and (math.isnan(novel['unknown_when_silent']) or novel['unknown_when_silent'] >= 0.5)
+    g_conflict_on_tie = novel['tie']['stop_conflict'] >= 0.5
+    g_probe = args.no_probe or math.isnan(novel['acc_when_probe_miss']) or novel['acc_when_probe_hit'] > novel['acc_when_probe_miss']
+    g_acc = novel['acc_answered_all'] >= 0.6
+    if not (g_arc and g_slot and g_families):
+        overall = 'MIND_INVALID'
+    elif not g_teacher:
+        overall = 'TEACHER_UNUSABLE'
+    elif g_reaches and g_typed and g_conflict_on_tie and g_acc:
+        overall = 'MIND_OK'
+    elif g_typed or g_conflict_on_tie:
+        overall = 'MIND_PARTIAL'
+    else:
+        overall = 'MIND_NO'
+    out = {'stage': 282, 'overall': overall, 'actions': acts.n, 'topk': k, 'query_words': w, 'max_probes': common['max_probes'], 'no_hidden': args.no_hidden, 'no_edit': args.no_edit, 'no_probe': args.no_probe, 'tie_probe': args.tie_probe, 'run_tag': args.run_tag, 'smoke': args.smoke, 'seed': SEED, 'bc_episodes': n_bc, 'rl_episodes': n_rl, 'min_mentions': args.min_mentions, 'min_per_family': args.min_per_family, 'reward': {'correct': 1.0, 'wrong': -args.wrong_cost, 'abstain': args.abstain_reward, 'stall': 0.0, 'read': -args.read_cost}, 'teacher_ceiling_reward': ceiling, 'gates': {'G_arc_enc_frozen': g_arc, 'G_answer_is_slot': g_slot, 'G_all_families_present': g_families, 'G_teacher_usable': g_teacher, 'G_reaches_teacher': g_reaches, 'G_silence_is_typed': g_typed, 'G_conflict_on_tie': g_conflict_on_tie, 'G_probe_filters_wrong_answers': g_probe, 'G_acc_when_answering': g_acc}, 'train_tape': {kk: vv for kk, vv in train_eval.items() if kk != 'traces'}, 'held_out': novel, 'curve': curve, 'arc_enc_hash_before': arc0, 'arc_enc_hash_after': arc1, 'fp_version': s271.fp_version(), 'reference_280': {'teacher_ceiling': 0.36666666666666653, 'policy_q8': 0.4666666666666666}, 'note': 'One mind over the 280 tape, with three things the policy could not express. Silence is typed - STOP_CONFLICT where support is equal, STOP_UNKNOWN where nothing was found - so abstention is a diagnosis and G_silence_is_typed checks the diagnosis against the situation rather than counting refusals. The query is an editable set of words, since 261 established the query must be words, so DROP_i and ADD_i make retrieval part of the policy instead of a fixed function applied to it; a typed silence is what tells the two apart, UNKNOWN meaning reformulate and CONFLICT meaning stop. And ASK_VALUE_i verifies by the return path: ask the tape about the value before answering with it, as a probe that restores the candidate list, so a plausible-but-wrong value with no way back is caught by something other than a vote count. The teacher demonstrates all three and reads no label. --no-edit and --no-probe are the ablations.', 'timestamp': datetime.now(timezone.utc).isoformat(), 'wall_s': time.time() - t0}
+    RES.mkdir(parents=True, exist_ok=True)
+    (RES / f'stage282_decision{tag}.json').write_text(json.dumps(out, indent=2), encoding='utf-8')
+    log(json.dumps({'overall': overall, 'gates': out['gates']}, indent=2))
+    return 0
+if __name__ == '__main__':
+    raise SystemExit(main())

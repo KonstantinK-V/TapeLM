@@ -1,0 +1,57 @@
+Stage289 derivation start 2026-08-11T20:44:04.480506+00:00 device=cuda holdout=corpus
+  lines: train 7324, eval 3139 (the probe reserves ANCHORS, not lines - see `reserved`)
+  word rule matches stage194: True  (rule=ascii, fp=hash, ink=mean)
+  hash ink deterministic and digest-faithful: True  {'anagram_cos': -0.0135, 'perm_fixed_points': 1}
+  tau calibrated: 0.3162 -> density 2.9638 (target 2.9701, 138 addresses, 14 probes, 4s)
+  tape: 138 addresses, 409 slots | questions {"count": 123, "lookup": 49, "compare": 61} | params 5601
+  ladder coverage: 0/49 lookup questions have all three rungs; the rest train on the task term alone
+  probe pack: 17 reserved addresses (0s to build)
+  probe tape: 22 lookup questions, never trained on; 151 graphs cached (1 view(s)/question) in 1s
+  probe eval: 0.11s x 1 = 0.0 min added to this run
+  step 1/1 train=0.6931 probe=1.6136
+  early stop: restored step 1 (probe 1.6136) of 1
+  HELD {"count": {"n": 47, "model_accuracy": 1.0, "rival_accuracy": 1.0, "random_floor": 0.19999999999999998}, "compare": {"n": 23, "model_accuracy": 1.0, "rival_accuracy": 1.0, "random_floor": 0.3333333333333332}, "lookup": {"n": 39, "model_accuracy": 0.10256410256410256, "rival_accuracy": 0.2564102564102564, "random_floor": 0.4316239316239315, "rival_cos_accuracy": 0.7948717948717948, "rival_cos_answered": 39}, "lookup_paired_vs_rival": {"model_only_right": 1, "rival_only_right": 7, "discordant": 8, "mcnemar_z": -2.1213203435596424}, "lookup_paired_vs_rival_cos": {"n": 39, "model_only_right": 1, "rival_only_right": 28, "discordant": 29, "mcnemar_z": -5.0137741307804005, "max_achievable_z": 5.385164807134504, "underpowered": false}, "lookup_paired_vs_rival_cos_by_margin": {"median_margin": 0.13223928213119507, "low_margin": {"n": 20, "model_only_right": 1, "rival_only_right": 14, "discordant": 15, "mcnemar_z": -3.3565855667130946, "max_achievable_z": 3.872983346207417, "underpowered": false}, "high_margin": {"n": 19, "model_only_right": 0, "rival_only_right": 14, "discordant": 14, "mcnemar_z": -3.7416573867739413, "max_achievable_z": 3.7416573867739413, "underpowered": false}}, "ladder": {"n_questions": 0, "pairs": 0, "concordant": 0, "ties_excluded": 0, "import_budget_zero_rate": 0.0, "import_budget_mean": 0.0, "concordance": NaN, "z_vs_half": NaN, "mean_phi": {"true": NaN, "near": NaN, "middle": NaN, "far": NaN}}, "exact_mismatches": 0, "confusion": {"compare|equal->equal": 8, "compare|first->first": 6, "compare|second->second": 9, "count|1->1": 22, "count|2->2": 20, "count|3->3": 5, "lookup|Advocate->Paris": 2, "lookup|Cambridge->Goldie": 2, "lookup|Chairman->Withdrew": 2, "lookup|District->District": 1, "lookup|District->University": 1, "lookup|Flood->Churchill": 2, "lookup|Goldie->Cambridge": 2, "lookup|Marshall->Social": 2, "lookup|Ministry->Malaysian": 2, "lookup|National->Philippines": 4, "lookup|Outstanding->Primetime": 2, "lookup|Paris->Advocate": 2, "lookup|Philippines->National": 4, "lookup|Primetime->Screen": 4, "lookup|Screen->Primetime": 2, "lookup|United->United": 3, "lookup|University->District": 2}}
+  CONTROL {"count": {"n": 123, "model_accuracy": 1.0, "rival_accuracy": 1.0, "random_floor": 0.19999999999999954}, "compare": {"n": 61, "model_accuracy": 1.0, "rival_accuracy": 1.0, "random_floor": 0.33333333333333326}, "lookup": {"n": 49, "model_accuracy": 0.14285714285714285, "rival_accuracy": 0.42857142857142855, "random_floor": 0.25816326530612244, "rival_cos_accuracy": 0.8163265306122449, "rival_cos_answered": 49}, "lookup_paired_vs_rival": {"model_only_right": 0, "rival_only_right": 14, "discordant": 14, "mcnemar_z": -3.7416573867739413}, "lookup_paired_vs_rival_cos": {"n": 49, "model_only_right": 1, "rival_only_right": 34, "discordant": 35, "mcnemar_z": -5.578018081208209, "max_achievable_z": 5.916079783099616, "underpowered": false}, "lookup_paired_vs_rival_cos_by_margin": {"median_margin": 0.21839553117752075, "low_margin": {"n": 25, "model_only_right": 1, "rival_only_right": 13, "discordant": 14, "mcnemar_z": -3.2071349029490928, "max_achievable_z": 3.7416573867739413, "underpowered": false}, "high_margin": {"n": 24, "model_only_right": 0, "rival_only_right": 21, "discordant": 21, "mcnemar_z": -4.58257569495584, "max_achievable_z": 4.58257569495584, "underpowered": false}}, "ladder": {"n_questions": 0, "pairs": 0, "concordant": 0, "ties_excluded": 0, "import_budget_zero_rate": 0.0, "import_budget_mean": 0.0, "concordance": NaN, "z_vs_half": NaN, "mean_phi": {"true": NaN, "near": NaN, "middle": NaN, "far": NaN}}, "exact_mismatches": 0, "confusion": {"compare|equal->equal": 19, "compare|first->first": 22, "compare|second->second": 20, "count|1->1": 62, "count|2->2": 35, "count|3->3": 13, "count|4->4": 6, "count|5+->5+": 7, "lookup|Academy->Outstanding": 2, "lookup|Anand->Levon": 2, "lookup|Australian->Ottomans": 2, "lookup|Austrian->Tamara": 2, "lookup|Become->Become": 3, "lookup|Canadian->Academy": 2, "lookup|Europe->Academy": 2, "lookup|George->Palestine": 2, "lookup|Georgian->House": 2, "lookup|House->Georgian": 4, "lookup|Oceanography->History": 2, "lookup|Ottomans->Australian": 2, "lookup|Outstanding->Academy": 2, "lookup|Palestine->Dwight": 1, "lookup|Palestine->George": 1, "lookup|Pflueger->Pflueger": 3, "lookup|Titus->Flavia": 2, "lookup|United->Supreme": 1, "lookup|United->Ukraine": 1, "lookup|Utterson->Utterson": 1, "lookup|Utterson->World": 4, "lookup|Veronica->Academy": 3, "lookup|Veronica->Musical": 1, "lookup|World->Utterson": 2}}
+{
+  "overall": "DERIVATION_NO",
+  "gates": {
+    "G_arc_enc_frozen": true,
+    "G_ink_verified": true,
+    "G_task_exists": true,
+    "G_exact_algebra_matches_tape": true,
+    "G_lookup_beats_floor": false,
+    "G_lookup_beats_counts_paired": false,
+    "G_lookup_beats_retrieval_paired": false,
+    "G_phi_orders_negatives": false
+  },
+  "lookup": {
+    "n": 39,
+    "model_accuracy": 0.10256410256410256,
+    "rival_accuracy": 0.2564102564102564,
+    "random_floor": 0.4316239316239315,
+    "rival_cos_accuracy": 0.7948717948717948,
+    "rival_cos_answered": 39
+  },
+  "paired": {
+    "model_only_right": 1,
+    "rival_only_right": 7,
+    "discordant": 8,
+    "mcnemar_z": -2.1213203435596424
+  },
+  "ladder": {
+    "n_questions": 0,
+    "pairs": 0,
+    "concordant": 0,
+    "ties_excluded": 0,
+    "import_budget_zero_rate": 0.0,
+    "import_budget_mean": 0.0,
+    "concordance": NaN,
+    "z_vs_half": NaN,
+    "mean_phi": {
+      "true": NaN,
+      "near": NaN,
+      "middle": NaN,
+      "far": NaN
+    }
+  }
+}

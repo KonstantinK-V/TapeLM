@@ -1,0 +1,26 @@
+Stage286 evidence start 2026-08-08T01:03:42.170066+00:00 device=cuda steps=6000 no_hidden=True
+  tape: 104 addresses, 250 slots | items {"clean": 65, "decidable": 6, "tie": 33} | usable for leave-one-out (>2 mentions): 22
+  step 750/6000 loss=0.9325 [decidable] cands=2 mean_cands=1.95
+  step 1500/6000 loss=0.8281 [clean] cands=1 mean_cands=1.97
+  step 2250/6000 loss=0.9140 [decidable] cands=1 mean_cands=1.97
+  step 3000/6000 loss=0.8550 [clean] cands=1 mean_cands=1.98
+  step 3750/6000 loss=0.8124 [clean] cands=1 mean_cands=1.96
+  step 4500/6000 loss=0.6248 [clean] cands=1 mean_cands=1.96
+  step 5250/6000 loss=0.8198 [clean] cands=1 mean_cands=1.95
+  step 6000/6000 loss=0.6210 [decidable] cands=2 mean_cands=1.95
+  TRAIN DIST {"n": 6000, "mean_candidates": 1.9506666666666668, "target_unknown_rate": 0.3476666666666667, "single_candidate_rate": 0.4683333333333333, "truncated_skipped": 0, "min_candidates_skipped": 0}
+  LOO {"n": 70, "mean_candidates": 3.557142857142857, "target_unknown_rate": 0.2, "truncated_rate": 0.014285714285714285, "silence_reward": 0.75, "break_even_accuracy": 0.875, "model": {"n": 70, "coverage": 0.5571428571428572, "accuracy": 0.6410256410256411, "reward": 0.48928571428571427, "n_answered": 39, "vacuous": false}, "votes": {"n": 70, "coverage": 0.8285714285714286, "accuracy": 0.43103448275862066, "reward": 0.014285714285714285, "n_answered": 58, "vacuous": false}, "return": {"n": 70, "coverage": 0.12857142857142856, "accuracy": 0.8888888888888888, "reward": 0.7535714285714286, "n_answered": 9, "vacuous": false}, "unknown_auc": 0.4119897959183674, "p_unknown_when_absent": 0.22861507707940681, "p_unknown_when_present": 0.2935866216929363, "unknown_when_absent": 0.7142857142857143, "unknown_when_present": 0.375, "n_absent": 14, "n_present": 56, "model_reward": 0.48928571428571427, "votes_reward": 0.014285714285714285, "return_reward": 0.7535714285714286, "model_acc_answered": 0.6410256410256411, "model_abstain": 0.44285714285714284, "matched_coverage": {"votes": {"judge_coverage": 0.8285714285714286, "judge_accuracy": 0.43103448275862066, "model_accuracy_at_that_coverage": 0.43103448275862066, "judge_vacuous": false}, "return": {"judge_coverage": 0.12857142857142856, "judge_accuracy": 0.8888888888888888, "model_accuracy_at_that_coverage": 1.0, "judge_vacuous": false}}, "selective_curve": {"0.10": 1.0, "0.25": 0.7777777777777778, "0.50": 0.7142857142857143, "0.75": 0.4807692307692308, "1.00": 0.42857142857142855}}
+  LIE {"n": 61, "mean_candidates": 3.8688524590163933, "target_unknown_rate": 0.36065573770491804, "truncated_rate": 0.01639344262295082, "silence_reward": 0.75, "break_even_accuracy": 0.875, "model": {"n": 61, "coverage": 0.4918032786885246, "accuracy": 0.6333333333333333, "reward": 0.5122950819672131, "n_answered": 30, "vacuous": false}, "votes": {"n": 61, "coverage": 0.639344262295082, "accuracy": 0.46153846153846156, "reward": 0.22131147540983606, "n_answered": 39, "vacuous": false}, "return": {"n": 61, "coverage": 0.21311475409836064, "accuracy": 0.6153846153846154, "reward": 0.639344262295082, "n_answered": 13, "vacuous": false}, "unknown_auc": 0.6130536130536131, "p_unknown_when_absent": 0.4323593384840272, "p_unknown_when_present": 0.3253896033916718, "unknown_when_absent": 0.6363636363636364, "unknown_when_present": 0.4358974358974359, "n_absent": 22, "n_present": 39, "model_reward": 0.5122950819672131, "votes_reward": 0.22131147540983606, "return_reward": 0.639344262295082, "model_acc_answered": 0.6333333333333333, "model_abstain": 0.5081967213114754, "matched_coverage": {"votes": {"judge_coverage": 0.639344262295082, "judge_accuracy": 0.46153846153846156, "model_accuracy_at_that_coverage": 0.48717948717948717, "judge_vacuous": false}, "return": {"judge_coverage": 0.21311475409836064, "judge_accuracy": 0.6153846153846154, "model_accuracy_at_that_coverage": 0.6923076923076923, "judge_vacuous": false}}, "selective_curve": {"0.10": 0.8333333333333334, "0.25": 0.6666666666666666, "0.50": 0.6333333333333333, "0.75": 0.41304347826086957, "1.00": 0.4426229508196721}}
+  EXAM {"n": 37, "reward": 0.8243243243243243, "votes_reward": 0.9324324324324325, "return_reward": 0.7635135135135135, "oracle_reward": 0.9324324324324325, "gap_to_oracle": 0.10810810810810811, "votes_is_the_label": true, "clean": {"n": 21, "abstain": 0.0, "acc_answered": 1.0, "reward": 1.0}, "decidable": {"n": 6, "abstain": 0.3333333333333333, "acc_answered": 1.0, "reward": 0.9166666666666666}, "tie": {"n": 10, "abstain": 0.8, "acc_answered": 0.0, "reward": 0.4}}
+{
+  "overall": "EVIDENCE_PARTIAL",
+  "gates": {
+    "G_arc_enc_frozen": true,
+    "G_task_exists": true,
+    "G_judges_non_vacuous": true,
+    "G_learns_evidence": true,
+    "G_abstains_unknowable": false,
+    "G_survives_lie": true,
+    "G_beats_silence": false
+  }
+}

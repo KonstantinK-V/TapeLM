@@ -1,0 +1,47 @@
+{
+ "1337": {
+  "seed": 1337,
+  "void": false,
+  "gate": true,
+  "n_train": 20,
+  "n_test_ep": 30,
+  "n_sig": 2,
+  "learned": 1.0,
+  "greedy": 0.0,
+  "random": 0.6,
+  "signatures": {
+   "3,3": 0.0,
+   "0,4": 1.0
+  }
+ },
+ "8642": {
+  "seed": 8642,
+  "void": false,
+  "gate": true,
+  "n_train": 20,
+  "n_test_ep": 30,
+  "n_sig": 2,
+  "learned": 1.0,
+  "greedy": 0.0,
+  "random": 0.6,
+  "signatures": {
+   "3,3": 0.0,
+   "0,4": 1.0
+  }
+ },
+ "2890": {
+  "seed": 2890,
+  "void": false,
+  "gate": true,
+  "n_train": 20,
+  "n_test_ep": 30,
+  "n_sig": 2,
+  "learned": 1.0,
+  "greedy": 0.0,
+  "random": 0.3333333333333333,
+  "signatures": {
+   "3,3": 0.0,
+   "0,4": 1.0
+  }
+ }
+}

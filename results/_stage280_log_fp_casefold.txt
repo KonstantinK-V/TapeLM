@@ -1,0 +1,36 @@
+Stage280 raw exam start 2026-08-07T05:47:57.049068+00:00 device=cuda hop=fp no_hidden=False bc=4000 rl=3000 k=7 mode=upper
+  corpus split: 7324 train lines / 3139 held-out lines
+  tape: 186 addresses, 530 slots, write {"WRITE": 186, "DISPUTE": 192, "CONFIRM": 152} | items {"clean": 87, "decidable": 18, "tie": 81} (14s)
+  bc 500/4000 loss=0.2990 [tie] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'STOP']
+  bc 1000/4000 loss=0.3554 [clean] ['ASK_Q', 'READ_0', 'READ_1', 'ANSWER_0']
+  bc 1500/4000 loss=0.6136 [decidable] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'ANSWER_1']
+  bc 2000/4000 loss=0.1733 [tie] ['ASK_Q', 'READ_0', 'READ_1', 'STOP']
+  bc 2500/4000 loss=0.3584 [tie] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'STOP']
+  bc 3000/4000 loss=0.2993 [tie] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'READ_3', 'STOP']
+  bc 3500/4000 loss=0.1733 [tie] ['ASK_Q', 'READ_0', 'READ_1', 'STOP']
+  bc 4000/4000 loss=0.1733 [tie] ['ASK_Q', 'READ_0', 'READ_1', 'STOP']
+  rl 375/3000 v_mse=0.470 [tie] ['ASK_Q', 'READ_1', 'READ_2', 'READ_0', 'STOP']
+  rl 750/3000 v_mse=0.339 [clean] ['ASK_Q', 'READ_1', 'READ_0', 'ANSWER_1']
+  rl 1125/3000 v_mse=0.276 [clean] ['ASK_Q', 'READ_1', 'READ_0', 'ANSWER_1']
+  rl 1500/3000 v_mse=0.245 [decidable] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'READ_3', 'ANSWER_0']
+  rl 1875/3000 v_mse=0.251 [tie] ['ASK_Q', 'READ_1', 'READ_2', 'READ_0', 'STOP']
+  rl 2250/3000 v_mse=0.145 [tie] ['ASK_Q', 'READ_2', 'READ_0', 'READ_1', 'STOP']
+  rl 2625/3000 v_mse=0.225 [clean] ['ASK_Q', 'READ_0', 'READ_2', 'READ_1', 'ANSWER_1']
+  rl 3000/3000 v_mse=0.157 [tie] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'STOP']
+  held-out tape: 57 addresses, 177 slots, items {"clean": 29, "decidable": 8, "tie": 20}
+  HELD-OUT {"answer_is_slot": 1.0, "reward_total": 0.7043859649122806, "teacher_reward_total": 0.6254385964912279, "retrieval_precision": 0.8225563909774435, "witness_recall": 0.9505148741418764, "words_silent_rate": 0.07017543859649122, "hops_per_episode": 0.07017543859649122, "mean_candidates": 3.5964912280701755, "stall_rate": 0.0, "n_items": 57, "clean": {"n": 29, "coverage": 0.7586206896551724, "acc_answered": 1.0, "abstain": 0.2413793103448276, "mean_reads": 3.586206896551724, "reward": 0.8679310344827585, "precision": 0.8110016420361247, "recall": 0.9655172413793104, "teacher_abstain": 0.1724137931034483, "teacher_acc_all": 0.8275862068965517}, "decidable": {"n": 8, "coverage": 0.625, "acc_answered": 1.0, "abstain": 0.375, "mean_reads": 4.5, "reward": 0.8162499999999999, "precision": 0.95, "recall": 0.8974184782608696, "teacher_abstain": 0.125, "teacher_acc_all": 0.75}, "tie": {"n": 20, "coverage": 0.15000000000000002, "acc_answered": 0.0, "abstain": 0.85, "mean_reads": 3.25, "reward": 0.4225, "precision": 0.7883333333333333, "recall": 0.95, "teacher_abstain": 0.75, "teacher_acc_all": 0.0}, "coverage_all": 0.5263157894736842, "acc_answered_all": 0.9}
+{
+  "overall": "RAW_EXAM_OK",
+  "gates": {
+    "G_arc_enc_frozen": true,
+    "G_answer_is_slot": true,
+    "G_all_families_present": true,
+    "G_teacher_usable": true,
+    "G_reaches_teacher": true,
+    "G_answers_when_decidable": true,
+    "G_abstain_on_tie": true,
+    "G_acc_when_answering": true,
+    "G_generalises_to_held_out": true,
+    "G_hop_covers_silence": true
+  }
+}

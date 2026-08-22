@@ -1,0 +1,215 @@
+{
+ "1337": {
+  "seed": 1337,
+  "A": {
+   "n_const": 3,
+   "n_mixed": 4,
+   "n_df1": 1,
+   "const_hit": 1.0,
+   "refuse_mixed": 1.0,
+   "hop2_sees_pin": 1.0,
+   "void": false,
+   "gate": true
+  },
+  "B": {
+   "by_len": {
+    "100": {
+     "const_live": 0.08872458410351201,
+     "mixed_of_df2": 0.8470425138632163,
+     "n_const": 192,
+     "n_mixed": 1833,
+     "const_hit": 1.0,
+     "refuse_mixed": 1.0,
+     "hop2_sees_pin": 1.0,
+     "void": false,
+     "gate": true
+    },
+    "400": {
+     "const_live": 0.11763565891472869,
+     "mixed_of_df2": 0.8643410852713178,
+     "n_const": 607,
+     "n_mixed": 4460,
+     "const_hit": 1.0,
+     "refuse_mixed": 1.0,
+     "hop2_sees_pin": 1.0,
+     "void": false,
+     "gate": true
+    },
+    "1600": {
+     "const_live": 0.16243742447781806,
+     "mixed_of_df2": 0.8259968928016572,
+     "n_const": 941,
+     "n_mixed": 4785,
+     "const_hit": 1.0,
+     "refuse_mixed": 1.0,
+     "hop2_sees_pin": 1.0,
+     "void": false,
+     "gate": true
+    },
+    "4000": {
+     "const_live": 0.20507206714103265,
+     "mixed_of_df2": 0.7837985769020251,
+     "n_const": 1124,
+     "n_mixed": 4296,
+     "const_hit": 1.0,
+     "refuse_mixed": 1.0,
+     "hop2_sees_pin": 1.0,
+     "void": false,
+     "gate": true
+    }
+   },
+   "contract_holds": true,
+   "const_live_span": [
+    0.08872458410351201,
+    0.20507206714103265
+   ],
+   "mixed_span": [
+    0.7837985769020251,
+    0.8643410852713178
+   ]
+  },
+  "both_hold": true
+ },
+ "8642": {
+  "seed": 8642,
+  "A": {
+   "n_const": 3,
+   "n_mixed": 4,
+   "n_df1": 1,
+   "const_hit": 1.0,
+   "refuse_mixed": 1.0,
+   "hop2_sees_pin": 1.0,
+   "void": false,
+   "gate": true
+  },
+  "B": {
+   "by_len": {
+    "100": {
+     "const_live": 0.13435374149659865,
+     "mixed_of_df2": 0.8171768707482994,
+     "n_const": 158,
+     "n_mixed": 961,
+     "const_hit": 1.0,
+     "refuse_mixed": 1.0,
+     "hop2_sees_pin": 1.0,
+     "void": false,
+     "gate": true
+    },
+    "400": {
+     "const_live": 0.12232297896970866,
+     "mixed_of_df2": 0.8616631294617018,
+     "n_const": 634,
+     "n_mixed": 4466,
+     "const_hit": 1.0,
+     "refuse_mixed": 1.0,
+     "hop2_sees_pin": 1.0,
+     "void": false,
+     "gate": true
+    },
+    "1600": {
+     "const_live": 0.13567343719187536,
+     "mixed_of_df2": 0.8481561822125814,
+     "n_const": 688,
+     "n_mixed": 4301,
+     "const_hit": 1.0,
+     "refuse_mixed": 1.0,
+     "hop2_sees_pin": 1.0,
+     "void": false,
+     "gate": true
+    },
+    "4000": {
+     "const_live": 0.1960853464997355,
+     "mixed_of_df2": 0.7979192382295891,
+     "n_const": 1112,
+     "n_mixed": 4525,
+     "const_hit": 1.0,
+     "refuse_mixed": 1.0,
+     "hop2_sees_pin": 1.0,
+     "void": false,
+     "gate": true
+    }
+   },
+   "contract_holds": true,
+   "const_live_span": [
+    0.12232297896970866,
+    0.1960853464997355
+   ],
+   "mixed_span": [
+    0.7979192382295891,
+    0.8616631294617018
+   ]
+  },
+  "both_hold": true
+ },
+ "2890": {
+  "seed": 2890,
+  "A": {
+   "n_const": 3,
+   "n_mixed": 4,
+   "n_df1": 1,
+   "const_hit": 1.0,
+   "refuse_mixed": 1.0,
+   "hop2_sees_pin": 1.0,
+   "void": false,
+   "gate": true
+  },
+  "B": {
+   "by_len": {
+    "100": {
+     "const_live": 0.10980392156862745,
+     "mixed_of_df2": 0.856644880174292,
+     "n_const": 252,
+     "n_mixed": 1966,
+     "const_hit": 1.0,
+     "refuse_mixed": 1.0,
+     "hop2_sees_pin": 1.0,
+     "void": false,
+     "gate": true
+    },
+    "400": {
+     "const_live": 0.1333907056798623,
+     "mixed_of_df2": 0.842512908777969,
+     "n_const": 620,
+     "n_mixed": 3916,
+     "const_hit": 1.0,
+     "refuse_mixed": 1.0,
+     "hop2_sees_pin": 1.0,
+     "void": false,
+     "gate": true
+    },
+    "1600": {
+     "const_live": 0.14585595367354326,
+     "mixed_of_df2": 0.8389431777053927,
+     "n_const": 806,
+     "n_mixed": 4636,
+     "const_hit": 1.0,
+     "refuse_mixed": 1.0,
+     "hop2_sees_pin": 1.0,
+     "void": false,
+     "gate": true
+    },
+    "4000": {
+     "const_live": 0.17152600170502985,
+     "mixed_of_df2": 0.8211423699914748,
+     "n_const": 1006,
+     "n_mixed": 4816,
+     "const_hit": 1.0,
+     "refuse_mixed": 1.0,
+     "hop2_sees_pin": 1.0,
+     "void": false,
+     "gate": true
+    }
+   },
+   "contract_holds": true,
+   "const_live_span": [
+    0.10980392156862745,
+    0.17152600170502985
+   ],
+   "mixed_span": [
+    0.8211423699914748,
+    0.856644880174292
+   ]
+  },
+  "both_hold": true
+ }
+}

@@ -1,0 +1,22 @@
+{
+ "bytes": 30000000,
+ "window_lines": 400,
+ "gap": 2,
+ "places": 1500,
+ "questions": 3000,
+ "n_patterns": 46541,
+ "paradigm": {
+  "present_topm": 0.139,
+  "argmax_right": 0.036,
+  "offer": 99.491
+ },
+ "triple": {
+  "present_topm": 0.06366666666666666,
+  "argmax_right": 0.006,
+  "offer": 285.219,
+  "support_2plus": 0.4290667872757425,
+  "empty": 0.03766666666666667
+ },
+ "tri_only": 0.033666666666666664,
+ "par_only": 0.109
+}

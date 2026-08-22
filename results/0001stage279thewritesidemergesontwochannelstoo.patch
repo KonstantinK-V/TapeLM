@@ -1,0 +1,101 @@
+From 7afbe4439dba835901fde3ac7e258b5a48eb7ea2 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Fri, 7 Aug 2026 14:16:11 +0000
+Subject: [PATCH] stage 279: the write side merges on two channels too
+
+283 measured the geometry on 936 addresses. The summed key puts 0.345 of
+them within tau of another address, the two channels scored by their
+minimum put 0.061 there, and bare anchors 0.018. So the context was never
+protecting the address - it was flattening it, because every English
+sentence carries much the same character statistics and adding a context
+fingerprint pulls every key toward one mean. That was the opposite of
+what I predicted before the run.
+
+Reading was already switched, and it changed nothing measurable:
+precision, witness recall and foreign_member_rate came back byte-identical
+because the fp hop fires on 0.07 to 0.18 of episodes. The merge is where
+proximity turns into damage - two mentions filed under one address - and
+it still summed. Now two mentions have to agree on who and on what was
+said separately, which is the conjunction the word overlap already
+enforced, applied to the channel that proposes rather than only to the
+one that disposes.
+
+--addr-key mean restores the summed merge; it is the arm every earlier
+tape was built with.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01PGuqHAMhjCxVAADm3R4wxK
+---
+ _stage279_write_decision.py | 19 ++++++++++++++++---
+ _stage280_raw_exam.py       |  3 ++-
+ 2 files changed, 18 insertions(+), 4 deletions(-)
+
+diff --git a/_stage279_write_decision.py b/_stage279_write_decision.py
+index 2b890c3..eba78d3 100644
+--- a/_stage279_write_decision.py
++++ b/_stage279_write_decision.py
+@@ -255,7 +255,8 @@ def corpus_assertions(lines, rng, max_addr: int, min_mentions: int, mode: str, n
+     return out, addrs
+ 
+ 
+-def fp_addresses(assertions, bank, tau: float, min_overlap: int, min_mentions: int):
++def fp_addresses(assertions, bank, tau: float, min_overlap: int, min_mentions: int,
++                 addr_key: str = "two"):
+     """Address by the coordinate the ink writes, verified by the words the contexts share.
+ 
+     A string address demands the same anchor and the same relation words in the same forms, so a
+@@ -269,15 +270,26 @@ def fp_addresses(assertions, bank, tau: float, min_overlap: int, min_mentions: i
+     share at least min_overlap content words. Approximate where it proposes, exact where it
+     decides.
+     """
+-    keys, words = [], []
++    keys, akeys, ckeys, words = [], [], [], []
+     for a in assertions:
+         anchor = a["address"].split("|")[0]
+         c = bank.ctx_fp(a["ctx"], exclude=a["value"])
+         k = bank.fp([anchor])[0]
+         keys.append(F.normalize((k + c) if c is not None else k, dim=-1))
++        akeys.append(F.normalize(k, dim=-1))
++        ckeys.append(F.normalize(c, dim=-1) if c is not None else F.normalize(k, dim=-1))
+         words.append({w.lower() for w in REL_RE.findall(a["ctx"]) if w.lower() not in VALUE_STOP}
+                      - {a["value"].lower()})
+     K = F.normalize(torch.stack(keys).float(), dim=-1)
++    # Summing identity into situation is what crowds this space. 283 measured it on 936
++    # addresses: the summed key puts 0.345 of them within tau of another, the two channels
++    # scored by their minimum put 0.061 there, and bare anchors 0.018 - so the context was not
++    # protecting the address, it was flattening it, because every English sentence has much the
++    # same character statistics. Two mentions now have to agree on WHO and on WHAT WAS SAID
++    # separately, which is the same conjunction the word overlap already enforces, applied to
++    # the channel that proposes rather than only to the one that disposes.
++    A = F.normalize(torch.stack(akeys).float(), dim=-1)
++    C = F.normalize(torch.stack(ckeys).float(), dim=-1)
+ 
+     # single-link over ALL members, not against one representative. Keying on the first member
+     # made the grouping depend on corpus order and split one anchor four ways - fp13, fp14, fp16
+@@ -288,7 +300,8 @@ def fp_addresses(assertions, bank, tau: float, min_overlap: int, min_mentions: i
+         best, best_s = -1, tau
+         for g, mem in enumerate(members):
+             idx = torch.tensor(mem, device=K.device)
+-            sims = (K[idx] @ K[i]).tolist()
++            sims = (torch.minimum(A[idx] @ A[i], C[idx] @ C[i]) if addr_key == "two"
++                    else K[idx] @ K[i]).tolist()
+             for j, sim in enumerate(sims):
+                 if sim >= best_s and len(words[i] & words[mem[j]]) >= min_overlap:
+                     best, best_s = g, sim
+diff --git a/_stage280_raw_exam.py b/_stage280_raw_exam.py
+index 3bd6d9a..1b35a39 100644
+--- a/_stage280_raw_exam.py
++++ b/_stage280_raw_exam.py
+@@ -102,7 +102,8 @@ def pack_from_corpus(lines, *, bank, tok, pad_id, device, rng, n_addr, min_menti
+     if keep_frames is not None:
+         asserts = [a for a in asserts
+                    if (a["address"].split("|", 1) + [""])[1] in keep_frames]
+-    asserts, addrs = s279.fp_addresses(asserts, bank, tau, overlap, min_mentions)
++    asserts, addrs = s279.fp_addresses(asserts, bank, tau, overlap, min_mentions,
++                                       addr_key=addr_key)
+     tape_w = s279.Tape(bank, soft_match)
+     for a in asserts:
+         tape_w.decide(a["address"], a["value"], a["source"])
+-- 
+2.43.0
+

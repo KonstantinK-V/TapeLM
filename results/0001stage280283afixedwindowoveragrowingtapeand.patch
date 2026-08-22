@@ -1,0 +1,160 @@
+From 1e6c184852a943af9e1c79e6499187c9b7cf4e11 Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Fri, 7 Aug 2026 13:12:53 +0000
+Subject: [PATCH] stage 280/283: a fixed window over a growing tape, and the
+ harm crowding actually does
+
+283 ran the ladder: 91 -> 792 -> 4730 slots, a 52x growth with the mind
+byte-identical at every rung. Precision sagged 0.796 -> 0.740 -> 0.664 and
+cleared its floor. The return path did not: separation fell 0.96 -> 0.885
+-> 0.610.
+
+It failed from the side I did not predict. The rate on values taken from
+elsewhere in the tape stayed at zero throughout - accidental
+co-occurrence never became a problem - while the rate on the value the
+corpus settled on fell to 0.616, even though mentions per address ROSE
+from 2.4 to 5.1. The corroborating mention was not missing; the top-7
+window lost it to slots that share the value's words. So the check is
+exact now: a slot holding the whole value holds the value's rarest word,
+so its posting list contains every such slot and no ranking is involved.
+Reproduced both ways on a hand-built tape where 200 decoys sit ahead of
+the address's own mentions.
+
+The same fixed k reaches the exam itself - witness_recall 0.977 -> 0.747
+with 5.05 slots per address against a mean candidate list of 4.0 - so
+283 now reports k_covers_address, and a reader can see the teacher
+counting votes it was never shown.
+
+And crowding gets a second reading. Nearest-other cosine at tau or above
+reached 0.345 of addresses, but proximity between keys is a warning, not
+damage: fp_addresses also demands shared words, so keys may crowd without
+merging. The damage is a slot filed under an address its own text never
+names, which needs no labels to count, so foreign_member_rate is the gate
+now and crowding stays beside it as the leading indicator.
+
+Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01PGuqHAMhjCxVAADm3R4wxK
+---
+ _stage280_raw_exam.py | 18 +++++++++++++++---
+ _stage283_scale.py    | 23 ++++++++++++++++++++---
+ 2 files changed, 35 insertions(+), 6 deletions(-)
+
+diff --git a/_stage280_raw_exam.py b/_stage280_raw_exam.py
+index e56a331..8c81b0b 100644
+--- a/_stage280_raw_exam.py
++++ b/_stage280_raw_exam.py
+@@ -382,14 +382,26 @@ def return_path(pack, item, answered) -> float:
+     if answered is None or "postings_probe" not in pack:
+         return float("nan")
+     words = context_words(answered) or [answered]
+-    back, _ = s271.vote(words, pack["postings_probe"], pack["idf_probe"], 7)
++    # Exact, not ranked. This used to take the top 7 of a vote, and 283 measured what a fixed
++    # window does to a growing tape: the rate on true values fell 1.000 -> 0.885 -> 0.616 across
++    # a 52x growth in slots while the rate on values taken from elsewhere stayed at zero. The
++    # corroborating mention was not missing, it was pushed out of the window by slots that share
++    # the value's words. A slot that contains the whole value contains the value's rarest word,
++    # so scanning that word's posting list finds every one of them and no ranking is involved.
++    posts = pack["postings_probe"]
++    scan = min((posts.get(w, ()) for w in words), key=len, default=())
+     val_lc = answered.lower()
+     # Two distinct mentions, because one is the slot the answer was read from and a text cannot
+     # corroborate itself. The probe index is the one that does not hide a slot's own value -
+     # without it the words of a value can never reach the slot holding it and every return is a
+     # miss by construction, which is how this measurement failed the first three times.
+-    return float(sum(1 for c in back if item["S"] in pack["texts_lc"][c]
+-                     and val_lc in pack["texts_lc"][c]) >= 2)
++    seen = 0
++    for c in scan:
++        if item["S"] in pack["texts_lc"][c] and val_lc in pack["texts_lc"][c]:
++            seen += 1
++            if seen >= 2:
++                return 1.0
++    return 0.0
+ 
+ 
+ def main() -> int:
+diff --git a/_stage283_scale.py b/_stage283_scale.py
+index 546d552..76f550f 100644
+--- a/_stage283_scale.py
++++ b/_stage283_scale.py
+@@ -117,7 +117,15 @@ def measure(pack, rng, k, hop, hop_min, k_gap, subject_filter, tau) -> dict:
+ 
+     prec, rec, ncand, silent = [], [], [], []
+     ret_true, ret_other = [], []
++    foreign, k_covers = [], []
+     for it in items:
++        # Crowding is proximity between keys; the harm is a merge that actually happened. A slot
++        # filed under an address whose anchor its own text never mentions is that harm, exactly,
++        # and it needs no labels to see. Keys may crowd harmlessly - fp_addresses also demands
++        # shared words - so the two numbers have to be read together.
++        foreign.append(sum(1 for c in it["slots"]
++                           if it["S"] not in pack["texts_lc"][c]) / max(1, len(it["slots"])))
++        k_covers.append(int(len(it["slots"]) <= k))
+         words = context_words(s271.CUE.format(S=it.get("query") or it["S"]))
+         cands, sc, _ = s280.retrieve(pack, words, k, hop, it, subject_filter, hop_min, k_gap)
+         own = set(it["slots"])
+@@ -150,6 +158,7 @@ def measure(pack, rng, k, hop, hop_min, k_gap, subject_filter, tau) -> dict:
+         "retrieval_precision": m(prec), "witness_recall": m(rec),
+         "precision_q": q(prec, 5, 50, 95),
+         "mean_candidates": m(ncand), "words_silent_rate": m(silent),
++        "foreign_member_rate": m(foreign), "k_covers_address": m(k_covers),
+         "return_path_true": m(ret_true), "return_path_other": m(ret_other),
+         "return_path_separation": m(ret_true) - m(ret_other),
+         "nearest_other_q": q(near, 50, 95, 99),
+@@ -176,6 +185,7 @@ def main() -> int:
+     ap.add_argument("--min-precision", type=float, default=0.60)
+     ap.add_argument("--min-separation", type=float, default=0.30)
+     ap.add_argument("--max-crowding", type=float, default=0.20)
++    ap.add_argument("--max-foreign", type=float, default=0.10)
+     ap.add_argument("--run-tag", type=str, default="")
+     args = ap.parse_args()
+ 
+@@ -239,7 +249,8 @@ def main() -> int:
+             f" | precision {r['retrieval_precision']:.3f}"
+             f" | return true {r['return_path_true']:.3f} other {r['return_path_other']:.3f}"
+             f" (sep {r['return_path_separation']:+.3f})"
+-            f" | crowding {r['address_crowding']:.3f}"
++            f" | crowding {r['address_crowding']:.3f} foreign {r['foreign_member_rate']:.3f}"
++            f" | k covers {r['k_covers_address']:.3f}"
+             f" | ties {r['families_natural']['tie']:.3f} ({build_s:.0f}s)")
+ 
+     if not out_rungs:
+@@ -249,7 +260,9 @@ def main() -> int:
+     first = out_rungs[0]
+     g_precision = last["retrieval_precision"] >= args.min_precision
+     g_separation = last["return_path_separation"] >= args.min_separation
+-    g_crowding = last["address_crowding"] <= args.max_crowding
++    # Two readings of the same worry. Keys crowding is the warning; a slot filed under an
++    # address its own text never names is the damage, and only the second one is a gate.
++    g_crowding = last["foreign_member_rate"] <= args.max_foreign
+     g_ties = last["families_natural"]["tie"] > 0.0
+     # Not "did it stay the same" but "did it stay usable": a metric may sag with N and still
+     # clear its floor, and a metric that sags steeply while clearing it is the interesting case.
+@@ -267,12 +280,14 @@ def main() -> int:
+                       "k_gap": args.k_gap, "subject_filter": args.subject_filter},
+         "thresholds": {"min_precision": args.min_precision,
+                        "min_separation": args.min_separation,
+-                       "max_crowding": args.max_crowding},
++                       "max_crowding": args.max_crowding,
++                       "max_foreign": args.max_foreign},
+         "mind_params": mind_params,
+         "gates": {
+             "G_precision_holds": g_precision,
+             "G_return_path_separates": g_separation,
+             "G_addresses_stay_distinct": g_crowding,
++            "G_k_covers_the_address": last["k_covers_address"] >= 0.90,
+             "G_ties_exist_naturally": g_ties,
+             "G_mind_does_not_grow": g_mind_constant,
+         },
+@@ -281,6 +296,8 @@ def main() -> int:
+             "precision": [r["retrieval_precision"] for r in out_rungs],
+             "return_path_separation": [r["return_path_separation"] for r in out_rungs],
+             "address_crowding": [r["address_crowding"] for r in out_rungs],
++            "foreign_member_rate": [r["foreign_member_rate"] for r in out_rungs],
++            "k_covers_address": [r["k_covers_address"] for r in out_rungs],
+             "tie_share": [r["families_natural"]["tie"] for r in out_rungs],
+             "slots_growth": last["n_slots"] / max(1, first["n_slots"]),
+         },
+-- 
+2.43.0
+

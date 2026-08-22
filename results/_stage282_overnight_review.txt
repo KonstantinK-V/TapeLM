@@ -1,0 +1,31 @@
+smoke_exit=0
+decision=C:\Users\Kostya\sote-letter-assembly\results\stage282_decision.json
+hard_fail=False reason=
+overall=MIND_INVALID
+gates={"G_arc_enc_frozen": true, "G_answer_is_slot": true, "G_all_families_present": false, "G_teacher_usable": true, "G_reaches_teacher": true, "G_silence_is_typed": false, "G_conflict_on_tie": true, "G_probe_filters_wrong_answers": true, "G_acc_when_answering": false}
+---- smoke tail ----
+Stage282 mind start 2026-08-06T21:22:42.024939+00:00 device=cuda actions=37 k=7 w=6 probes=2 bc=400 rl=0
+  tape: 28 addresses, 71 slots | items {"clean": 18, "decidable": 1, "tie": 9} (2s)
+  bc 50/400 loss=0.9510 [tie] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'READ_3', 'READ_4', 'READ_5', 'READ_6', 'STOP_CONFLICT']
+  bc 100/400 loss=1.6140 [tie] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'READ_3', 'READ_4', 'READ_5', 'ASK_VALUE_4', 'STOP_UNKNOWN']
+  bc 150/400 loss=0.9085 [clean] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'READ_3', 'READ_4', 'READ_5', 'STOP_CONFLICT']
+  bc 200/400 loss=0.8793 [clean] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'READ_3', 'STOP_CONFLICT']
+  bc 250/400 loss=0.3672 [clean] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'READ_3', 'STOP_CONFLICT']
+  bc 300/400 loss=0.7228 [clean] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'ASK_VALUE_0', 'STOP_UNKNOWN']
+  bc 350/400 loss=0.5812 [tie] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'READ_3', 'READ_4', 'READ_5', 'STOP_CONFLICT']
+  bc 400/400 loss=0.5178 [clean] ['ASK_Q', 'READ_0', 'READ_1', 'READ_2', 'READ_3', 'READ_4', 'READ_5', 'STOP_CONFLICT']
+  HELD-OUT {"answer_is_slot": 1.0, "stall_rate": 0.0, "words_silent_rate": 0.0, "hops_per_episode": 0.0, "unknown_when_silent": 0.0, "conflict_when_tie": 0.125, "probe_hit_rate": NaN, "acc_when_probe_hit": NaN, "acc_when_probe_miss": NaN, "reward_total": 0.688, "teacher_reward_total": 0.688, "retrieval_precision": 0.7416666666666666, "witness_recall": 1.0, "n_items": 10, "clean": {"n": 9, "coverage": 0.0, "acc_answered": NaN, "abstain": 1.0, "stop_conflict": 0.7777777777777778, "stop_unknown": 0.2222222222222222, "mean_reads": 3.2222222222222223, "mean_edits": 0.0, "mean_probes": 0.0, "reward": 0.6855555555555556, "teacher_abstain": 1.0, "teacher_acc_all": 0.0}, "decidable": {"n": 0, "coverage": NaN, "acc_answered": NaN, "abstain": NaN, "stop_conflict": NaN, "stop_unknown": NaN, "mean_reads": NaN, "mean_edits": NaN, "mean_probes": NaN, "reward": NaN, "teacher_abstain": NaN, "teacher_acc_all": NaN}, "tie": {"n": 1, "coverage": 0.0, "acc_answered": NaN, "abstain": 1.0, "stop_conflict": 1.0, "stop_unknown": 0.0, "mean_reads": 2.0, "mean_edits": 0.0, "mean_probes": 0.0, "reward": 0.71, "teacher_abstain": 1.0, "teacher_acc_all": 0.0}, "coverage_all": 0.0, "acc_answered_all": 0.0}
+{
+  "overall": "MIND_INVALID",
+  "gates": {
+    "G_arc_enc_frozen": true,
+    "G_answer_is_slot": true,
+    "G_all_families_present": false,
+    "G_teacher_usable": true,
+    "G_reaches_teacher": true,
+    "G_silence_is_typed": false,
+    "G_conflict_on_tie": true,
+    "G_probe_filters_wrong_answers": true,
+    "G_acc_when_answering": false
+  }
+}

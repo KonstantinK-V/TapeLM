@@ -1,0 +1,62 @@
+{
+ "1337": {
+  "seed": 1337,
+  "corpus": "data\\_tinystories_raw_scale.txt",
+  "max_hops": 8,
+  "n_windows": 3000,
+  "len_h": 2.5523333333333333,
+  "len_r": 2.320333333333333,
+  "uniq_h": 0.078,
+  "uniq_r": 0.019,
+  "lift_len": 0.232,
+  "lift_uniq": 0.059,
+  "n_pre": 58,
+  "elapsed_s": 315.5,
+  "note": "max loose: any-slot pin, 8 hops, unique only bonus"
+ },
+ "2024": {
+  "seed": 2024,
+  "corpus": "data\\_tinystories_raw_scale.txt",
+  "max_hops": 8,
+  "n_windows": 3000,
+  "len_h": 2.7133333333333334,
+  "len_r": 2.3333333333333335,
+  "uniq_h": 0.09166666666666666,
+  "uniq_r": 0.021666666666666667,
+  "lift_len": 0.38,
+  "lift_uniq": 0.07,
+  "n_pre": 62,
+  "elapsed_s": 299.3,
+  "note": "max loose: any-slot pin, 8 hops, unique only bonus"
+ },
+ "7": {
+  "seed": 7,
+  "corpus": "data\\_tinystories_raw_scale.txt",
+  "max_hops": 12,
+  "n_windows": 3000,
+  "len_h": 3.224,
+  "len_r": 2.4033333333333333,
+  "uniq_h": 0.133,
+  "uniq_r": 0.017,
+  "lift_len": 0.8206666666666667,
+  "lift_uniq": 0.116,
+  "n_pre": 63,
+  "elapsed_s": 286.1,
+  "note": "max loose: any-slot pin, 8 hops, unique only bonus"
+ },
+ "42": {
+  "seed": 42,
+  "corpus": "data\\_tinystories_raw_scale.txt",
+  "max_hops": 12,
+  "n_windows": 4000,
+  "len_h": 3.805,
+  "len_r": 2.9565,
+  "uniq_h": 0.10425,
+  "uniq_r": 0.01975,
+  "lift_len": 0.8485,
+  "lift_uniq": 0.0845,
+  "n_pre": 73,
+  "elapsed_s": 645.6,
+  "note": "max loose: any-slot pin, 8 hops, unique only bonus"
+ }
+}

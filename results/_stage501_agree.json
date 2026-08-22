@@ -1,0 +1,71 @@
+{
+ "1337": {
+  "seed": 1337,
+  "corpus": "wiki",
+  "n_lines": 400,
+  "n_slots": 14337,
+  "void": false,
+  "gate": true,
+  "soft": {
+   "n": 337,
+   "uniq": 32,
+   "rate": 0.09495548961424333
+  },
+  "pin436": {
+   "n": 741,
+   "uniq": 65,
+   "rate": 0.08771929824561403
+  },
+  "strict": {
+   "n": 0,
+   "uniq": 0,
+   "rate": 0.0
+  }
+ },
+ "8642": {
+  "seed": 8642,
+  "corpus": "wiki",
+  "n_lines": 400,
+  "n_slots": 12961,
+  "void": false,
+  "gate": true,
+  "soft": {
+   "n": 328,
+   "uniq": 25,
+   "rate": 0.07621951219512195
+  },
+  "pin436": {
+   "n": 749,
+   "uniq": 43,
+   "rate": 0.05740987983978638
+  },
+  "strict": {
+   "n": 0,
+   "uniq": 0,
+   "rate": 0.0
+  }
+ },
+ "2890": {
+  "seed": 2890,
+  "corpus": "wiki",
+  "n_lines": 400,
+  "n_slots": 16821,
+  "void": false,
+  "gate": true,
+  "soft": {
+   "n": 423,
+   "uniq": 25,
+   "rate": 0.0591016548463357
+  },
+  "pin436": {
+   "n": 806,
+   "uniq": 51,
+   "rate": 0.06327543424317618
+  },
+  "strict": {
+   "n": 0,
+   "uniq": 0,
+   "rate": 0.0
+  }
+ }
+}

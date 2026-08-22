@@ -1,0 +1,53 @@
+{
+ "1337": {
+  "seed": 1337,
+  "void": false,
+  "gate": true,
+  "n": 16,
+  "n_p": 3,
+  "n_q": 4,
+  "n_places": 4,
+  "h1_apples": 1.0,
+  "h2_sweet": 1.0,
+  "h3_fresh": 1.0,
+  "refuse_q": 1.0,
+  "hop2_rate": 1.0,
+  "hop3_rate": 1.0,
+  "hop_changes_12": 1.0,
+  "hop_changes_23": 1.0
+ },
+ "8642": {
+  "seed": 8642,
+  "void": false,
+  "gate": true,
+  "n": 16,
+  "n_p": 3,
+  "n_q": 4,
+  "n_places": 4,
+  "h1_apples": 1.0,
+  "h2_sweet": 1.0,
+  "h3_fresh": 1.0,
+  "refuse_q": 1.0,
+  "hop2_rate": 1.0,
+  "hop3_rate": 1.0,
+  "hop_changes_12": 1.0,
+  "hop_changes_23": 1.0
+ },
+ "2890": {
+  "seed": 2890,
+  "void": false,
+  "gate": true,
+  "n": 16,
+  "n_p": 3,
+  "n_q": 4,
+  "n_places": 4,
+  "h1_apples": 1.0,
+  "h2_sweet": 1.0,
+  "h3_fresh": 1.0,
+  "refuse_q": 1.0,
+  "hop2_rate": 1.0,
+  "hop3_rate": 1.0,
+  "hop_changes_12": 1.0,
+  "hop_changes_23": 1.0
+ }
+}

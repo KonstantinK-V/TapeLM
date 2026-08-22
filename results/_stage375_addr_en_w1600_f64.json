@@ -1,0 +1,28 @@
+{
+ "corpus": "data\\_wikitext103_train.txt",
+ "lines": 1600,
+ "func": 64,
+ "endings": 64,
+ "topm": 8,
+ "exact": {
+  "places": 24004,
+  "coverage": 0.486427441676552,
+  "fillers": 4.09990001666389,
+  "seen": 4000,
+  "unreach": 0.475,
+  "reach": 0.525,
+  "hit1": 0.2036036036036036
+ },
+ "shaped": {
+  "places": 24912,
+  "coverage": 0.9904310003954132,
+  "fillers": 8.043673731535003,
+  "seen": 4000,
+  "unreach": 0.5215,
+  "reach": 0.4785,
+  "hit1": 0.22285714285714286
+ },
+ "unreach_rel": -0.09789473684210524,
+ "hit_delta": 0.01925353925353926,
+ "cov_delta": 0.5040035587188612
+}

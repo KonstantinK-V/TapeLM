@@ -1,0 +1,2 @@
+﻿===== 290/291 queue 2026-08-12T01:03:22.2372739+03:00 =====
+2026-08-12T01:03:22.2662792+03:00 289/290_sparse --train-steps 6000 --addresses 1200 --wiki-bytes 600000000 --train-lines 200000 --eval-lines 100000 --import-k 0 --no-ladder --probe-period 100 --fp hash --write-fp hash --tau-mode density --neighbours 3 --run-tag 290_sparse

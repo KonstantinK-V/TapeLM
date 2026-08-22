@@ -1,0 +1,75 @@
+Stage283 scale start 2026-08-07T14:19:34.799738+00:00 device=cuda rungs=[(4000000, 400), (30000000, 400), (120000000, 2000)] mind_params=7564290
+  corpus 120.0M chars read (1s)
+  rung 4M:400 -> 25 addr / 59 slots | precision 0.740 | return true 1.000 other 0.000 (sep +1.000) | crowding 0.080 (members 0.080 two 0.080 anchors alone 0.000) foreign 0.000 | k covers 1.000 | ties 0.200 (1s)
+  rung 30M:400 -> 152 addr / 409 slots | precision 0.764 | return true 1.000 other 0.000 (sep +1.000) | crowding 0.322 (members 0.355 two 0.079 anchors alone 0.000) foreign 0.007 | k covers 0.980 | ties 0.362 (72s)
+  rung 120M:2000 -> 877 addr / 2765 slots | precision 0.620 | return true 0.996 other 0.007 (sep +0.989) | crowding 0.602 (members 0.655 two 0.209 anchors alone 0.048) foreign 0.009 | k covers 0.949 | ties 0.349 (2023s)
+{
+  "overall": "SCALE_OK",
+  "gates": {
+    "G_precision_holds": true,
+    "G_return_path_separates": true,
+    "G_addresses_stay_distinct": true,
+    "G_k_covers_the_address": true,
+    "G_ties_exist_naturally": true,
+    "G_mind_does_not_grow": true
+  },
+  "slopes": {
+    "slots": [
+      59,
+      409,
+      2765
+    ],
+    "precision": [
+      0.74,
+      0.7635025062656642,
+      0.6201471466579791
+    ],
+    "return_path_separation": [
+      1.0,
+      1.0,
+      0.989492119089317
+    ],
+    "address_crowding": [
+      0.08,
+      0.3223684210526316,
+      0.6020524515393386
+    ],
+    "member_crowding": [
+      0.08,
+      0.35526315789473684,
+      0.6545039908779932
+    ],
+    "two_channel_crowding": [
+      0.08,
+      0.07894736842105263,
+      0.20866590649942987
+    ],
+    "foreign_member_rate": [
+      0.0,
+      0.006578947368421052,
+      0.00860178354884333
+    ],
+    "distinct_anchors": [
+      24,
+      134,
+      694
+    ],
+    "anchor_only_crowding": [
+      0.0,
+      0.0,
+      0.04755043227665706
+    ],
+    "anchor_growth_exponent": 0.9891863813309998,
+    "k_covers_address": [
+      1.0,
+      0.9802631578947368,
+      0.9486887115165337
+    ],
+    "tie_share": [
+      0.2,
+      0.3618421052631579,
+      0.34891676168757124
+    ],
+    "slots_growth": 46.86440677966102
+  }
+}

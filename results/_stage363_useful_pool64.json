@@ -1,0 +1,17 @@
+{
+ "lines": 400,
+ "places": 5340,
+ "vocab": 4644,
+ "seen": 3001,
+ "unreachable_questions": 1500,
+ "scored": 1357,
+ "no_neighbourhood": 143,
+ "pool": 64,
+ "cap": 500,
+ "min_fillers": 1,
+ "auc_useful": 0.6206187822402358,
+ "auc_freq": 0.7051342575534266,
+ "auc_null": 0.5237771739130435,
+ "over_freq": -0.08451547531319081,
+ "over_null": 0.09684160832719235
+}

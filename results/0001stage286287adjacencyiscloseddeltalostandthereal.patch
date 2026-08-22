@@ -1,0 +1,173 @@
+From 7a9e5c5e2c5b057a0b4f101ac42bceb48537fb3b Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Sat, 8 Aug 2026 12:06:36 +0000
+Subject: [PATCH] 286/287: adjacency is closed, delta lost, and the real gap is
+ the corpus split
+
+287 rerun, controls now working: permutation null 0.4987 and 0.4997 at
+|z| < 0.05, redundant-channel null 0.4993. The estimator can say no, so its
+no means something. SECOND_LAYER_REDUNDANT on both spans - U|L reads 0.494
+(z -0.22) at span 2 and 0.467 (z -1.17) at span 3, and order_content is
+0.0129 and 0.0134. Destroying word order entirely moves the candidate upper
+ink by just over one percent, and none of that percent is unique. Adjacency
+is closed as a route to a second layer, cleanly and with a working examiner.
+
+--ctx-channel delta, same tapes as the plain relational arm. My prediction
+was that the replacement arm was the one the evidence pointed at. It lost.
+
+  matched @votes   plain 0.431 vs 0.431 tie   delta 0.414 vs 0.431 LOSS
+  lie @votes       plain 0.487 vs 0.462 win   delta 0.359 vs 0.462 LOSS
+  dup x3 accuracy  plain 0.773                delta 0.531
+  verdict          EVIDENCE_PARTIAL           EVIDENCE_NO
+
+So the composition residual is not merely redundant, substituting it for the
+plain cosine costs the lie win and a third of the duplication advantage. That
+is three arms now - ink-slices, delta, and 287's spans - saying the same
+thing from three constructions: at this tape size nothing further derived
+from fp pays, and the plain relational mind is the best arm there is.
+
+Which makes the open gates worth reading again, because they are no longer
+about channels. The same delta arm on the same weights:
+
+  unknown margin AUC   0.865 (z +5.59) on the training tape  ->  0.495 held out
+  contested accuracy   0.889 on nine answered                ->  0.125 on eight
+
+The mind learns honesty and contested weighing. It learns them well. They do
+not cross the corpus split. Two explanations fit and nothing distinguishes
+them: the 70/30 line split builds differently shaped addresses on the two
+sides, or the mind does not generalise at all.
+
+--holdout address separates them. It splits the ADDRESSES of one corpus by a
+stable hash of the anchor rather than splitting the lines, so both sides are
+built from the same text by the same process and the only thing new at
+evaluation is the subject. Keyed on the anchor and not the address name,
+because the fp group number in front of it is assigned by corpus order and
+changes on every resample - a name is not stable across tapes, a subject is.
+Verified: every relation of one subject lands on one side, and the split
+comes out 0.503 over four thousand synthetic anchors.
+
+Transfer under address holdout but not under corpus holdout blames the tape,
+and the next move is on the write side where this project already says
+improvement comes from. Failure under both blames the mind, and no further
+input channel will fix it. Either way the question stops being open.
+
+The cheap probe that costs no code at all should run first: --tape-period 50
+gives 120 distinct training tapes instead of 12 at the same step count, and
+the relational arm takes minutes. If the gap closes there it was never
+distribution shift, only starvation.
+
+Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01RYDM9MUk761CZjn7SmTaug
+---
+ _stage286_evidence.py | 46 +++++++++++++++++++++++++++++++++++++++----
+ 1 file changed, 42 insertions(+), 4 deletions(-)
+
+diff --git a/_stage286_evidence.py b/_stage286_evidence.py
+index 2e44e5b..b22ed16 100644
+--- a/_stage286_evidence.py
++++ b/_stage286_evidence.py
+@@ -318,6 +318,7 @@ from __future__ import annotations
+ 
+ import argparse
+ import json
++import hashlib
+ import math
+ import random
+ import re
+@@ -688,6 +689,18 @@ def main() -> int:
+                          "absolute coordinate of any kind reaches the weights, so the lookup "
+                          "channel that killed every reading arm is closed by construction, "
+                          "not by regularisation. Trains in minutes: the trunk is never read.")
++    ap.add_argument("--holdout", choices=("corpus", "address"), default="corpus",
++                    help="what the held-out tape holds out. corpus splits the LINES 70/30, so "
++                         "the eval tape is built from different text - and every arm so far "
++                         "learns honesty and contested weighing on the training tape (margin "
++                         "AUC 0.865, contested 0.889) and reads chance across that split. "
++                         "That leaves two explanations and no way to tell them apart: the two "
++                         "corpus halves build differently shaped addresses, or the mind simply "
++                         "does not generalise. address splits the ADDRESSES of ONE corpus by a "
++                         "stable hash of the anchor, so the tape geometry is identical on both "
++                         "sides and only novelty of the subject remains. Transfer under "
++                         "address holdout but not under corpus holdout blames the tape; "
++                         "failure under both blames the mind.")
+     ap.add_argument("--ctx-channel", choices=("cos", "delta", "both"), default="cos",
+                     help="what the context edge carries. cos is the plain ctx-fp cosine. "
+                          "delta REPLACES it with the composition residual: D = ctx_fp(whole) - "
+@@ -744,6 +757,7 @@ def main() -> int:
+     tag += f"_dup{args.lie_dup}" if args.lie_dup > 1 else ""
+     tag += "_slices" if args.ink_slices else ""
+     tag += f"_{args.ctx_channel}" if args.ctx_channel != "cos" else ""
++    tag += "_addrholdout" if args.holdout == "address" else ""
+     LOG_PATH = RES / f"_stage286_log{tag}.txt"
+     LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
+     LOG_PATH.write_text("", encoding="utf-8")
+@@ -795,6 +809,30 @@ def main() -> int:
+     cut = int(0.7 * len(all_lines))
+     train_lines = all_lines[:cut][: (3000 if args.smoke else 25000)]
+     eval_lines = all_lines[cut:][: (1500 if args.smoke else 12000)]
++    if args.holdout == "address":
++        # One corpus, one tape geometry, and the split moved onto the SUBJECTS. Both sides then
++        # see addresses built by the same process out of the same text, so anything that fails
++        # here fails on novelty of the subject alone and not on the two halves of wikitext
++        # writing differently.
++        eval_lines = train_lines
++
++    def anchor_side(address: str) -> int:
++        """Which side of an address holdout a subject falls on.
++
++        Keyed on the anchor, because the fp group number in front of it is assigned by corpus
++        order and changes on every resample - an address NAME is not stable across tapes, a
++        subject is. A stable hash, so the split is identical in every resample and in the eval
++        pack without any state being carried between them.
++        """
++        anchor = address.split(":", 1)[-1].split("|")[0]
++        return int(hashlib.sha1(anchor.encode("utf-8")).hexdigest(), 16) & 1
++
++    def split_items(p, side):
++        if args.holdout == "corpus":
++            return p
++        p = dict(p)
++        p["items"] = [it for it in p["items"] if anchor_side(it["address"]) == side]
++        return p
+ 
+     def new_pack(r, lines):
+         return s280.pack_from_corpus(lines, bank=bank, tok=tok, pad_id=pad_id, device=device,
+@@ -804,7 +842,7 @@ def main() -> int:
+                                      min_per_family=args.min_per_family,
+                                      addr_key=args.addr_key)
+ 
+-    pack = new_pack(rng, train_lines)
++    pack = split_items(new_pack(rng, train_lines), 0)
+     if len(pack["items"]) < 8:
+         log("  too few items")
+         return 1
+@@ -1062,7 +1100,7 @@ def main() -> int:
+     pairs = loo_pairs(pack)
+     for step in range(1, n_steps + 1):
+         if (step - 1) % tape_period == 0 and step > 1:
+-            pack = new_pack(rng, train_lines)
++            pack = split_items(new_pack(rng, train_lines), 0)
+             pairs = loo_pairs(pack)
+             read_cache.clear()          # new tape, new texts; bounds the cache to one tape
+             anon_rx.clear()
+@@ -1381,7 +1419,7 @@ def main() -> int:
+     loo_train = leave_one_out(pack, lie=False)
+     log(f"  LOO-TRAIN(control) {json.dumps(loo_train)}")
+ 
+-    held = new_pack(random.Random(SEED + 99), eval_lines)
++    held = split_items(new_pack(random.Random(SEED + 99), eval_lines), 1)
+     loo = leave_one_out(held, lie=False)
+     lied = leave_one_out(held, lie=True)
+     lied_dup = (leave_one_out(held, lie=True, dup=args.lie_dup)
+@@ -1466,7 +1504,7 @@ def main() -> int:
+         },
+         "judges_compared": live_judges, "judges_compared_lie": lie_judges,
+         "mind": args.mind, "lie_dup": args.lie_dup, "ink_slices": args.ink_slices,
+-        "ctx_channel": args.ctx_channel,
++        "ctx_channel": args.ctx_channel, "holdout": args.holdout,
+         "train_distribution": train_dist, "head_input_norms": head_norms,
+         "leave_one_out": loo, "leave_one_out_train_control": loo_train,
+         "lying_tape": lied, "lying_tape_dup": lied_dup, "exam": ex_out, "curve": curve,
+-- 
+2.43.0
+

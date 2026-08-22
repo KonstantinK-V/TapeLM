@@ -1,0 +1,19 @@
+{
+ "places": 1500,
+ "sessions": 600,
+ "pairs": 2978,
+ "topm": 8,
+ "session": 6,
+ "session_lines": 40,
+ "bins": 3,
+ "base": 0.16521155137676294,
+ "lift": -0.01680723088099903,
+ "p_after_hit": 0.1512770137524558,
+ "n_after_hit": 509,
+ "p_after_miss": 0.16808424463345484,
+ "n_after_miss": 2469,
+ "lift_null": 0.0006103313726631976,
+ "within": -0.011076129057019587,
+ "within_null": -0.0002203283308923469,
+ "within_cov": 2978
+}

@@ -1,0 +1,41 @@
+{
+ "lines": 400,
+ "places": 5340,
+ "questions": 1500,
+ "topm": 8,
+ "places_k": 8,
+ "min_fillers": 1,
+ "per_relation": {
+  "own": 0.406,
+  "share_1": 0.048,
+  "share_2": 0.025333333333333333,
+  "share_3": 0.012,
+  "share_w": 0.020666666666666667,
+  "rare_w": 0.048666666666666664,
+  "common_w": 0.048,
+  "mention_w": 0.050666666666666665,
+  "cos_k": 0.04,
+  "two_hop": 0.04733333333333333,
+  "same_line": 0.012666666666666666,
+  "len_match": 0.008
+ },
+ "best": "own",
+ "best_reach": 0.406,
+ "oracle": 0.49866666666666665,
+ "oracle_null": 0.4653333333333333,
+ "sole_winner_rate": 0.434,
+ "sole_by": {
+  "own": 0.406,
+  "rare_w": 0.0006666666666666666,
+  "cos_k": 0.004,
+  "two_hop": 0.015333333333333332,
+  "same_line": 0.0033333333333333335,
+  "len_match": 0.004666666666666667
+ },
+ "over_best": 0.09266666666666662,
+ "over_null_family": 0.033333333333333326,
+ "own_fails": 0.594,
+ "oracle_when_own_fails": 0.15600448933782268,
+ "null_when_own_fails": 0.09988776655443322,
+ "over_null_when_own_fails": 0.05611672278338946
+}

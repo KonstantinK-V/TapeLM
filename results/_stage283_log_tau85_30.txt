@@ -1,0 +1,51 @@
+Stage283 scale start 2026-08-07T15:44:34.591466+00:00 device=cuda rungs=[(30000000, 400)] mind_params=7564290
+  corpus 30.0M chars read (1s)
+  rung 30M:400 -> 218 addr / 639 slots | precision 0.746 | return true 1.000 other 0.000 (sep +1.000) | crowding 0.743 (members 0.839 two 0.138 anchors alone 0.044) foreign 0.015 | k covers 0.968 | ties 0.431 (53s)
+{
+  "overall": "SCALE_OK",
+  "gates": {
+    "G_precision_holds": true,
+    "G_return_path_separates": true,
+    "G_addresses_stay_distinct": true,
+    "G_k_covers_the_address": true,
+    "G_ties_exist_naturally": true,
+    "G_mind_does_not_grow": true
+  },
+  "slopes": {
+    "slots": [
+      639
+    ],
+    "precision": [
+      0.7464067278287461
+    ],
+    "return_path_separation": [
+      1.0
+    ],
+    "address_crowding": [
+      0.7431192660550459
+    ],
+    "member_crowding": [
+      0.8394495412844036
+    ],
+    "two_channel_crowding": [
+      0.13761467889908258
+    ],
+    "foreign_member_rate": [
+      0.014984709480122324
+    ],
+    "distinct_anchors": [
+      204
+    ],
+    "anchor_only_crowding": [
+      0.04411764705882353
+    ],
+    "anchor_growth_exponent": NaN,
+    "k_covers_address": [
+      0.9678899082568807
+    ],
+    "tie_share": [
+      0.43119266055045874
+    ],
+    "slots_growth": 1.0
+  }
+}
