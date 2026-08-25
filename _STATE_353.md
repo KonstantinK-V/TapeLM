@@ -5389,3 +5389,255 @@ it is not licensed as GO. Do not lower `.90` after observing the result and do
 not start `score(place)`/Φ from 633. A larger predeclared replication may
 resolve the boundary; until then deployed behavior remains `618 -> REFUSE`.
 
+## 132. 634 PLACE-GAP — D/H/P on the 633 offer, 3/3 GO
+
+Same offer/read as corrected 633 (`extract_633` / `unbundle` / first-K hop1).
+633 STOP on KEEP_623 remains on record. 634 drops the foreign 623-word exam
+from the gate and keeps only the predeclared place bars:
+
+    VOID  n_live < 40
+    D     DIRECT ≥ .05
+    H     exclusive HOPONLY ≥ .05
+    P     UNION − peak ≥ .05
+
+623 / kept / only_623 / only_union print only. Checker catches gate leakage
+of `kept`/`s623` (AST gate body), held-filtering of leftover, and set-order
+nondeterminism. Seed 1337 reprint matches d/h/u.
+
+    seed   live  DIRECT  HOPONLY  UNION  peak  U-peak  kept  only_623  only_u
+    1337    627    .131     .134   .265  .026   +.239  .897    .030     .000
+    8642    609    .141     .149   .291  .033   +.258  .898    .033     .000
+    2890    577    .151     .144   .295  .026   +.269  .899    .033     .000
+
+**3/3 GO.** Channels live; peak compression still kills (~.03 vs ~.27);
+`only_union=0` (place offer never invents hits 623 misses). Next licensed
+step: `score(place)` on this W with unique-max/REFUSE and count/majority
+rivals — not peak-COMMIT, not door-word shortlist.
+
+## 133. 635 PLACE-SCORE — first Φ on 634 W, 3/3 STOP
+
+Same unbundle/read as 634. Train/eval = first 70% / rest of lines.
+Φ scores each candidate place (DIRECT/HOPONLY flag, count_key share,
+row density, PMI of that place's extract to the query window, PMI-rank).
+Held is not a feature. Softmax is over places + REFUSE, not vocab.
+Teacher: index of first extract == held_ask, else REFUSE. Empty W stays
+in the denominator as a miss.
+
+Draft bugs fixed before the run:
+* `majority` is a filler string and `count_key` is a tuple — casting either
+  to float crashes; features now unpack `count_key`;
+* Windows console cannot print `Φ` / `Δ` under cp1251.
+
+    seed   eval  pos_tr  phi    init   rand   peak   Δrand   Δinit
+    1337    607    171   .002   .033   .040   .030   −.038   −.031
+    8642    582    163   .002   .027   .029   .021   −.027   −.026
+    2890    600    176   .002   .002   .018   .020   −.017    .000
+
+**3/3 STOP.** Training did not move above init or random. Diagnosis: held
+is in W on only ~28% of train trials, so CE+REFUSE mass learns always-REFUSE
+(`phi≈.002`). This is not “places missing” (634 GO); it is that this
+teacher/loss does not rank the surviving offer above a coin. Do not enlarge
+the net on this W until the label mix or loss stops paying for silence.
+
+## 134. 636 POS-RANK — drop REFUSE from the loss, 3/3 STOP
+
+Same W/feats/split as fixed 635; import `feat_place` (no broken
+`majority`/`count_key` casts). Train only `held ∈ W` with teacher index
+inside the scored PAD prefix. Softmax over places only — no REFUSE class.
+Eval still all `n_live` (empty W = miss). Gate unchanged:
+`phi−rand > .05` and `phi−init > .05`.
+
+    seed   eval  pos_tr  phi    init   rand   peak   Δrand   Δinit
+    1337    607    170   .077   .033   .040   .030   +.038   +.044
+    8642    582    161   .064   .027   .029   .021   +.034   +.036
+    2890    600    175   .073   .052   .018   .020   +.055   +.022
+
+**3/3 STOP.** Pos-only CE lifts phi off the 635 refuse floor (~.002→~.07)
+and beats random on one seed, but never clears both bars. Verdict: 635’s
+loss was partly the disease; **this place-feature representation still
+does not rank**. Close scoring this W — do not enlarge the net and do not
+read 634 GO as “ready for Φ”.
+
+## 135. 637 MULTI-POSITIVE RANK — corrected teacher, 3/3 STOP
+
+Best single repair without enlarging the network:
+
+* same exact-place W and held-blind features as 634–636;
+* every place whose extract equals held is positive (mean 1.23–1.29 positive
+  places per positive trial), instead of first-positive CE;
+* listwise loss puts probability mass on **any** correct exact place;
+* train-only feature normalization; trained/init models start identically;
+* no REFUSE and no vocabulary output;
+* unique-max or miss at evaluation.
+
+The biting rival is strongest of random, identical init, fixed PMI, fixed
+count-key, and the majority filler at Φ's selected exact place.
+
+    seed   eval  phi   init  rand  PMI   count  majority  strongest  delta
+    1337    607  .109  .064  .046  .068   .030    .030      PMI      +.041
+    8642    582  .100  .064  .036  .062   .022    .036      init     +.036
+    2890    600  .088  .043  .030  .063   .028    .027      PMI      +.025
+
+Oracle in the scored PAD remains `.270–.273`; peak is `.020–.030`.
+**3/3 STOP.** Correcting false-negative sibling places raises Φ from
+~`.07` to `.09–.11`, but even the original `Phi−init > .05` bar fails
+all three seeds (`+.044 / +.036 / +.045`). Do not tune the threshold or
+grow this MLP. The closed object is the eight-number place summary
+(role/count/PMI), not the exact-place W proven live by 634. A next attempt
+must learn evidence from the place's tape rows/context, rather than add
+another hand summary or return to door words.
+
+## 136. 638 ROW-CONTEXT MIND — weights learn; strict PMI gate 3/3 STOP
+
+First representation with an explicit path to a larger mind:
+
+* output remains an exact candidate place from the 634 W;
+* each HOPONLY candidate retains exact `QUERY / candidate / VIA` pointers;
+* no token IDs or vocabulary logits;
+* a shared DeepSets encoder reads variable relation atoms:
+  output/address/filler-rows ↔ QUERY and output/address ↔ VIA/CURRENT;
+* atom values are equality and current-tape co/df/lift, so facts remain on
+  each rotating window tape;
+* multi-positive teacher, shuffled-label null, unique-max/tie-miss;
+* 70/30 disjoint lines and 120 train/eval windows.
+
+The predeclared strongest rival includes fixed PMI, count, init, null,
+random, and same-place majority:
+
+    seed  eval  phi   init  null  rand  PMI   maj   oracle  d_init  d_strong
+    1337   910  .116  .014  .023  .034  .085  .025   .265   +.102    +.032
+    8642   882  .107  .041  .008  .029  .067  .033   .264   +.066    +.040
+    2890   911  .110  .037  .026  .037  .086  .041   .277   +.072    +.024
+
+**Learning is live 3/3:** moved weights generalize to unseen lines and beat
+init/random/null/majority by large margins. **Strict audit remains 3/3 STOP**
+because `phi−PMI` does not reach `.05`. This distinction matters: unlike
+635–637, the construction can now learn; it has not yet learned enough
+context to retire the frozen tape geometry.
+
+VIA ablation is not yet positive (`context_lift +.011 / +.002 / −.025`).
+The interface has room for context, but the present one-hop data does not
+teach reliable VIA use. Doubling training windows to 240 on seed 1337 did
+not help (`phi .104`, `phi−PMI +.020`, no-VIA .124), so data quantity is
+not the missing lever. Do not add token embeddings merely to force GO:
+that would let corpus facts migrate into weights.
+
+## 137. 639 PMI-ISOLATED RESIDUAL — corrected 3/3 STOP
+
+The first 639 draft was invalid: although PMI was a frozen skip, residual
+still received atom kind 0, `lift(extract, QUERY)` — the same signal in
+per-query form. Its `.118` result cannot be read as rows/VIA beyond PMI.
+
+Corrected before accepting the experiment:
+
+* kind-0 atoms are removed from `atom_mask` and zeroed before train-only
+  normalization; their values survive only in frozen `pmi_scores`;
+* checker now kills both a broken kind-0 predicate and a missing train call;
+* `init`, fixed `PMI`, `residual-only`, and commit counts print separately.
+
+Rows/path channels remain (`2/3/4/6`; address/current context is not the
+extract-PMI skip). Corrected three seeds:
+
+    seed  phi  residual  init  PMI  null  rand  majority  oracle  delta
+    1337  .091   .085    .085 .085  .026  .034    .023     .265   +.007
+    8642  .090   .087    .067 .067  .027  .029    .026     .264   +.023
+    2890  .099   .097    .086 .086  .026  .037    .027     .277   +.013
+
+**3/3 STOP.** Once extract↔QUERY PMI is honestly removed, residual adds only
+`.007–.023` — never clears `.05`. The earlier draft ~`.03` was partly recycled
+PMI. 638 still proves weights can learn a mixed row/query representation, but
+it does **not** prove learned VIA/row context beyond PMI. Next evidence must
+teach a context contrast (paired histories / longer W), not tune this scorer.
+
+## 138. 640 SHARE-VIA SWAP CEILING — 3/3 STOP; GNN not licensed
+
+Torch-free ceiling on the 638 leftover offer (DIRECT ∪ HOP1). SWAP permutes
+only `via_pi` among HOP1; extract / QUERY / `pi` stay put. PMI must match on
+the pair (`pmi_changed > 2%` → VOID). Tape constraint:
+
+    SHARE-VIA  unique place with keys(place) ∩ keys(VIA)
+    ROW-Q      diagnostic only (fillers − extract ∩ QUERY)
+    refuse     on tie or zero
+
+GATE: `SHARE TRUE − SWAP > .05`. Not a 628 rerun (different W, no kernel).
+
+Draft fix: Windows console cannot print Unicode minus in the STOP line.
+Checker also requires sorted pins, `n_fr-2` hide, and that SWAP never
+retargets `tok`/`pi`.
+
+    seed  pairs  share T/S     d_share  row T/S  PMI  room  pmi_moved
+    1337   844   .013/.012     +.001    .011/.011 .105 +.149   .000
+    8642   836   .019/.006     +.013    .011/.011 .110 +.176   .000
+    2890   867   .020/.021     -.001    .006/.006 .101 +.165   .000
+
+**3/3 STOP.** Construction is honest (PMI frozen, room over PMI live), but
+SHARE-VIA is not a context constraint on this W — TRUE≈SWAP≈noise. Do not
+build a GNN / Φ that writes SHARE-VIA here. The wall remains “what contrast
+beyond PMI exists on 638 places,” not the residual scorer.
+
+## 139. 641 PMI-FAIL SLICE — 3/3 GO reachability; hand rules blind
+
+Torch-free. Same leftover offer as 638/640. Slice = PMI unique-max misses
+held (refuse or wrong commit). Gate is only residual place room:
+
+    VOID  n_slice < 80
+    GATE  oracle_slice − random > .05
+
+count / ROW-Q / SHARE-VIA print vs random; not in the gate.
+
+    seed  live  pmi_hit  slice  ora   rand  room   best_hand
+    1337   972    126     846  .177  .022  +.155  share −.007
+    8642   929    115     814  .176  .023  +.152  count −.009
+    2890   911    107     804  .187  .032  +.154  count −.019
+
+Refuse and wrong both keep held reachable (ora≃.25–.29 refuse, .14–.17 wrong).
+
+**3/3 GO.** oracle−PMI was not a PMI-tie mirage: after PMI fails, held is
+still among exact places far above random. **No hand rule beats random** on
+the slice (all negative). Next licensed step: invent a new held-blind
+constraint/move for this PMI-fail W — not SHARE-VIA, not extract ranking,
+not GNN until a torch-free rule clears random here.
+
+## 140. 641 SILENT — PMI-refuse only; 618-peak 3/3 STOP
+
+Correction of the mixed 641 slice. Gate exam is only:
+
+    silent = unique_max(PMI) is None
+    wrong  = unique ≠ held   (print only; recovering that is 639)
+    rule   = 618-peak on leftover extracts (not SHARE-VIA)
+
+VOID: `n_silent < 80` or `oracle−rand ≤ .05`. GATE: `peak − rand > .05`.
+
+    seed  silent  ora   rand  peak  d_peak  room   wrong_d_peak
+    1337    184  .261  .033  .038  +.005   +.228     +.005
+    8642    207  .285  .029  .034  +.005   +.256     −.003
+    2890    184  .255  .043  .022  −.022   +.212     +.003
+
+**3/3 STOP.** Held is still in W while PMI refuses (`room ≈ .21–.26`), but
+618-peak does not clear random. The printed “.15” over PMI is not a usable
+silent exam for Φ: do not train a peak/refuse writer here. Wrong-slice stays
+diagnostic; do not fold it back into the gate.
+
+## 141. KEEP LEVERS (do not discard on Tiny gate fails)
+
+Canonical list: `_KEEP_LEVERS.md`. Standing rule §0 applies.
+
+What failed a Tiny gate but still carries signal for long corpus / 7B+:
+
+| lever | keep because |
+|--|--|
+| 614 CTX GO | other-extra hop1 on same frame = context ceiling |
+| 641 silent room ≈ +.22 | places remain after PMI refuse; picker absent |
+| 540 cumulative | budget/allow, not first-rank reshuffle |
+| 534 extra≈.12 / 536rnd | mark moves offer; replace word key, do not delete teacher |
+| 538 key_seen=1 | role key travels across windows |
+| 524 2/3 peaked | soft pin inside one hop |
+| 525 confirm | thin on 400 (n_conf 2–5); re-count at n≥15 |
+| 517 / 628 W | window / VIA slot live; exams were weak |
+| 630 SEARCH/COMMIT/REFUSE | action alphabet; learner only if priced room >.05 on long |
+| 440–450, 478, 481 | composition + online — not cloze |
+| 486 / 499 / 542 | raw hunt / free-swim / place curriculum |
+
+Also keep **634 W** and **638 encoder** (weights move; place alphabet). Do not
+resurrect SHARE-VIA, feat_place-8, peak-COMMIT learner, or 639 residual-with-kind0.
+
