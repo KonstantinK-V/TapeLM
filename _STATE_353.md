@@ -4856,3 +4856,536 @@ No new lever, no Q. Wiki if present, else TinyStories fallback.
 **Result 3/3 GO RAW (wiki):** const_live ≈0.12–0.14; hit/refuse/hop2 = 1; unique_next=0.
 TinyStories 1337 also GATE (const_live 0.14). Machine does not lie on raw. Rest.
 
+## 110. PLACE-WALK v1 FROZEN (553–557)
+
+Working law (not a chooser, not XOR, not Φ):
+
+    question → STAND (JACC mention of v) → READ frame
+             → one mid neighbor → PIN → hop2
+             → two+ → REFUSE
+
+Measured: 553/554 place≠length; 555b place READ > star prefix equal-n; 556 hop2 place>rec[0];
+557 pin unique / refuse many. Closed: 550–552 env-rec; 558 XOR VOID; 560/561 Q-chooser STOP.
+
+    python _place_walk.py --corpus data/_tinystories_train.txt
+    python _place_walk.py --ask "…" --hide TOKEN --corpus data/_tinystories_train.txt
+
+**562 OPEN (not closed):** W[v]=addr agree 1/3 — word key (sweet pie/berry). 481 still live.
+
+## 111. 563 PIN → W[stood] wire (406 on PLACE)
+
+    unique → W[stood]=addr → hop2 from mark;  many → REFUSE, no write
+
+Not agree≥0.80. Gate = from_w on PIN + refuse silent. Hit not gated.
+**CLOSED GO WIRE 3/3.** Meat later: place/env key, LIVE/DEAD.
+
+    python _check563_pinw.py
+    python _audit563_pinw.py --seed 1337 --corpus data/_tinystories_train.txt
+
+## 112. 564 PIN hop3
+
+Same PIN; second unique mid from hop2 frame → W[stood2]=addr3 → hop3.
+VOID if n_hop3<40 (stories: VOID ≠ STOP). Hit not gated. No Φ.
+**CLOSED GO HOP3 3/3.**
+
+    python _check564_hop3.py
+    python _audit564_hop3.py --seed 1337 --corpus data/_tinystories_train.txt
+
+## 113. 565 W[env] vs W[v] — REAL GO
+
+Write key = frozenset(env_m), not word v. 562 control only (do not rewrite).
+agree_e 0.95–1.00 vs agree_v 0.72–0.80 (3/3). Reuse rarer = stricter key, correct.
+**CLOSED GO ENV.** `_place_walk.py` holds W[env] on the window: same place → hop2 from mark, no second neighbor search.
+
+Skeleton now:
+
+    STAND → PIN|REFUSE → hop2/3 with W[stood] → same place again with W[env]
+
+Learn not baked (557 still picks by rule).
+
+    python _check565_envkey.py
+    python _audit565_envkey.py --seed 1337 --corpus data/_tinystories_train.txt
+
+## 114. 566 LIVE/DEAD on W[env] — OPEN 1/3
+
+hit → LIVE (reuse agree≈1); miss → DEAD (follow does not walk that addr).
+**1/3 GATE, 2/3 VOID** (`n_dead_follow` 6–8 < 10 on stories). LIVE holds. VOID ≠ STOP.
+481 not closed. Runner: LIVE reuse walks mark; DEAD reuse skips. **Do not chase DEAD with more windows.**
+
+    python _check566_livedead.py
+    python _audit566_livedead.py --seed 1337 --corpus data/_tinystories_train.txt
+
+## 115. 567 try2 (exactly two cand)
+
+0/1/3+ as 557. Only n==2: first miss → try second. VOID n_two<20.
+GATE second tried on miss + hit_two>0.05. saved reported, not sole gate.
+**GO TRY2 3/3.** Order teacher stays 567 rank until a real learner beats coin+null.
+
+    python _check567_try2.py
+    python _audit567_try2.py --seed 1337 --corpus data/_tinystories_train.txt
+
+## 116. 568 order-Q — STOP
+
+Learn who-first of 2 via Q[(band,n,ov>0)]. Null = shuffled key.
+1/3 VOID (nte<20); 2/3 STOP: Q≈rank≈null (Q−U +0.03, Q−N 0). **567 rank stays.**
+
+    python _check568_order.py
+    python _audit568_order.py --seed 1337 --corpus data/_tinystories_train.txt
+
+## 117. 569 retry-stand — STOP as law (3/3)
+
+Another mention of same v after unique-DEAD. No invented word. 557 unique only.
+Gate failed on corpus completeness. Runner: unique-DEAD → refuse; no mandatory retry.
+
+    python _check569_restnd.py
+    python _audit569_restnd.py --seed 1337 --corpus data/_tinystories_train.txt
+
+## 118. 570 v1 smoke on foreign corpus
+
+Same runner (`one_query` from `_place_walk`). GATE = pin>0 and refuse>0 (smoke, not mind).
+Print n_cand 1/2/3+ for cross-corpus compare with stories.
+
+    python _check570_news.py
+    python _audit570_news.py --seed 1337 --corpus data/_stage254_news.txt
+
+## 119. 571 hop2/hop3 XOR census
+
+No learner and no new law. For exactly two neighbors, execute both branches
+off-policy and count 00/XOR/11. For delayed arena, require both hop2 hits and
+two reachable unique hop3 continuations.
+
+Three seeds:
+
+    stories hop2 XOR 15/80, 16/73, 16/87  (~18–22%)
+    news    hop2 XOR 16/145, 14/108, 13/79 (~11–17%)
+
+Natural **hop2-XOR exists**. Rank-on-overlap is inconsistent (stories
+0.47/0.88/0.50; news 0.63/0.50/0.54), so pooled independent tapes are a
+plausible learning arena.
+
+Delayed hop3-XOR is nearly absent:
+
+    stories 1/32, 0/25, 1/19
+    news    0/57, 1/46, 1/24
+
+Therefore do not build the learner around natural hop3-XOR. Next candidate is
+pooled multi-tape hop2-XOR with document/tape split, coin/null/rank rivals.
+
+    python _check571_xorcensus.py
+    python _audit571_xorcensus.py --seed 1337 --corpus data/_tinystories_train.txt
+
+## 120. 572 natural hop2-XOR one-shot learner — STOP
+
+Runtime 567 frozen. Exam permits one A/B shot. Shared scorer is pairwise-trained
+on train-XOR from disjoint windows; gated features are pre-hop counts/df/env
+only (no token, held, or destination READ). Rivals: coin, shuffled-label null,
+overlap rank, frequency-majority. VOID if test-XOR<40.
+
+Stories (160 disjoint windows) had test XOR 77/82/65:
+
+    seed 1337  PRE .558  margins +.143/+ .143/+ .130/+ .104  GATE
+    seed 8642  PRE .537  null +.037 rank +.049 maj +.012      STOP
+    seed 2890  PRE .538  null +.031 rank  .000 maj -.031      STOP
+
+**STOP 2/3.** Pre-hop learner stays near 0.54 and does not robustly beat
+null/rank/majority. The first seed's GO came from weak controls on that split.
+
+Diagnostic destination-frame lookahead scores 0.80–0.87, but it reads both
+hop2 frames before the one-shot choice and is therefore not a valid policy GO.
+
+News has only 70 disjoint windows and test XOR 21–28: VOID all seeds.
+Do not integrate 572 into `_place_walk.py`; 567 try2 remains law.
+
+    python _check572_xorlearn.py
+    python _audit572_xorlearn.py --seed 1337 --corpus data/_tinystories_train.txt
+
+## 121. 573 real-stream approximation — STOP 3/3
+
+572 gates were noisy and its split was not a real held-out corpus tail. 573:
+
+- splits corpus first (70% train / untouched 30% held-out);
+- uses disjoint 400-line tapes (180 train / 100 test);
+- trains online across rotating tapes;
+- policy receives only the chosen A/B reward (`+1` hit, `-0.08` miss);
+- gated scorer sees only pre-hop counts/df/env;
+- null gets shuffled outcome pairs;
+- gate is one strongest-rival test: delta>0.02 and paired bootstrap CI low>0.
+
+Deterministic sorting before seeded shuffle removes Python hash-order noise.
+Held-out XOR mass is healthy: 114/129/133.
+
+    1337 learned .518  strongest null .518      delta  .000  STOP
+    8642 learned .465  strongest null/maj .527 delta -.062  STOP
+    2890 learned .474  strongest majority .526 delta -.053  STOP
+
+Thus the earlier 572 1/3 GO was split/control noise, not an overly difficult
+gate. Under a real train-stream / fixed-tail exam, pre-hop structure does not
+predict which natural hop2-XOR branch is alive. Runtime 567 stays unchanged.
+
+    python _check573_streamlearn.py
+    python _audit573_streamlearn.py --seed 1337 --corpus data/_tinystories_train.txt
+
+## 122. 542 / PLACE-WALK / PMI re-audit (2026-08-25)
+
+Three foundational leaks were found and removed:
+
+1. 556–573 formed hop candidates with `c != held`. This used the hidden answer
+   to turn multi-neighbour frames into unique ones. Correct law is READ first:
+   if the selected frame already contains held, stop as READ; only READ misses
+   enter the hop slice. STAR naming held is counted as a direct success, not
+   dropped.
+2. 579/589 and dependent residual audits removed the query frame from `co` but
+   not `df`. Query rows are now removed/restored from both joint and marginal
+   counts.
+3. `frame_keep` flattened lines and allowed a frame to borrow left/right glue
+   from adjacent records while `ctx/line` stayed local. Frames are now strictly
+   line-bounded. `_check_tape_frames.py` reintroduces and catches this failure.
+
+Production alignment also changed `_audit390_address.py` from
+`min_fillers=1` to 2. Final 390 rerun has standard walk@8 .111–.129 and
+address-half@8 .064–.086: the old claim that the address lane beats the walk
+does not survive on the production tape.
+
+Consequences after three-seed rerun:
+
+- **556 PLACE hop2: 1/3 GO; 557 PIN: 3/3 STOP.** The old frozen PLACE-WALK
+  superiority was a teacher-subtraction artifact. Do not claim unique PLACE
+  neighbour beats STAR.
+- 558 remains VOID; 559 has an arena on only 2/3 seeds; 560/561 remain
+  STOP/VOID.
+- 563 still proves only the mechanical wire (`W[stood]` is read, refuse does
+  not write), not route quality. 564–569 are now mostly VOID; they are not a
+  semantic walk law.
+- Corrected natural hop2 XOR still exists; 572 is 1/3 GO, 2/3 STOP, and the
+  strict online 573 stream learner is **3/3 STOP**. The offline full-label 573 arm is
+  3/3 GO, so information exists but chosen-reward learning has not acquired it.
+  Hop3-to-the-same-held was retired: a hit at hop2 answers the record and must
+  stop.
+
+542 was repaired separately: corpus split before tapes, disjoint held-out tail,
+A's exact credit trace for the shuffled-reward null, matched touches, and a
+max-majority place rival. On final line-bounded tape it is **3/3 GO**:
+
+    1337  A-B +.361  A-C +.636  A-MAJ +.153  GO
+    8642  A-B +.084  A-C +.644  A-MAJ +.231  GO
+    2890  A-B +.411  A-C +.563  A-MAJ +.135  GO
+
+Therefore count-Q curriculum for **generic place hunt** is robust. It is still
+not the query-conditioned answer policy.
+
+The frozen unique+PMI algebra survives the stronger query holdout:
+
+- 579: **3/3 GO**, PMI ≈ .54, beats JACC by .08–.09 and majority by .23–.25.
+- 583 depth reach is **2/3 GO**.
+- 589 depth-3 PMI is **2/3 GO**; seed 2890 has PMI-rnd only +.011. Depth 3 is
+  not a robust law.
+- 590 hop1/hop2 transfer is **3/3 GO** on news.
+- 593–605 core conclusions survive: bag is report-only; crowd exact-composition
+  routes STOP; 600 fan is now COPY 3/3; 605 Q still equals first.
+
+606/607 were rebuilt around real `(w,left,right)` addresses and a concrete
+query row (visible row filler, another literal hidden). Collision is measured
+inside each rotating tape, not across tapes. Pooled BAG-MAJ is report-only;
+the biting rival is the majority filler of the selected place.
+
+    606 REACH .791–.842 vs strongest place route .259–.291: 3/3 OPEN
+    607 learned .210–.259 vs first/count .241–.310: 3/3 STOP
+
+So the surviving construction is: exact line-bounded frame tape; robust 542
+curriculum for generic place hunt; **unique+PMI+refuse** at hop1/hop2 with
+foreign transfer; and an open real-place reachability ceiling. The old
+PLACE-WALK/PIN semantic superiority is closed, depth3 is 2/3, and no learned
+query-conditioned place policy has passed.
+
+## 123. SEARCH v1 FROZEN (606–611) — not a learner, not 436 pin
+
+Do **not** train Φ on 606–611. The frozen walk is already the ceiling of this
+exam. A pupil would only copy SEARCH.
+
+**Law (SEARCH v1):**
+
+    mention-order addresses → unique+PMI extract each → stop on first hit →
+    cap ≈ |P| (practically k=8)
+
+Ceiling = **union of k tickets**, not pin. Rival for reachability is one-shot
+first/count/MAJ-P (606); for budget, F-curve and priced stop (609/611).
+
+**Closed on this ladder:**
+- 557 PLACE-WALK unique-mid > STAR (teacher leak; stays closed)
+- 607 place chooser vs first/count (STOP; do not retrain on SEARCH labels)
+- 611 priced interior k* ∈ {2,3,4,6} (STOP EDGE: k*=8 at every c incl. 0.08)
+- Do not move the 0.05 bar to force an interior k*
+
+**Ladder results:**
+- 606 REACH .79–.84 OPEN (room exists)
+- 608 C@3 beats one-shot 3/3 GO SEARCH (k READs harvest)
+- 609 STILL/CLOSE 3/3 (F@8−F@3 pays; gap to REACH ~0.05)
+- 610 news xfer 3/3 CLOSE+STILL (no fit on stories)
+- 611 EDGE 3/3 always-go under honest cost (hit at t pays t → ~3.7 READs at cap 8)
+
+**Honest hole ~16%:** REACH miss is **extract** (no address yields held under
+unique+PMI), not “wrong address order” and not “need more than 8 READs”.
+
+**Read discipline:** 608 UNION is a lottery (any of k extracts == held). Until
+612 (AGREE / unique mode → pin, else refuse) is run, do **not** say “the mind
+walks”. 436 pin ≠ UNION. Next exam is agree-vs-refuse, not a new hop and not Φ.
+
+**612 AGREE (k=3):** GATE `hit_const − maj_const > 0.05` → **3/3 GO** on CONST
+(.065–.163). Pooled AGREE ~.09–.11 vs bag MAJ ~.37–.40; lottery UNION−AGREE
+~+.42. Most mass is TIE (~60%) where UNION still ~.55 while pin refuses. So:
+CONST pin beats bag on the thin agree slice; the 608 win was the mix lottery.
+Do not read 608 as “mind walks”. SEARCH v1 stays frozen; 612 does not reopen Φ.
+
+## 124. PIN v1 FROZEN (612–618) — truth pin then hop; not any extract
+
+Same contract as 436→440, now on stories. Hop is licensed only by a true pin.
+
+**Law (PIN v1):**
+
+    unique-agree OR peaked vote of Petya unique extras → PIN → hop1
+    else REFUSE
+
+Do **not** soften to any SEARCH extract (616 STOP). Do **not** train Φ for
+TRUST yet — the hand rule already beats random. Do not chase hop2 as the next
+lever (615 depth is oracle-pin only; noisy/peak path stays hop1).
+
+**Ladder:**
+- 612 AGREE: CONST extract beats bag on thin slice; UNION is lottery DIAG
+- 613 BRANCH bags after SEARCH miss ≈ random mid — STOP (not a door law)
+- 614 CTX oracle apples → tree ~.19 vs RAND ~.03 — **3/3 GO** (ceiling)
+- 615 DEPTH hop2 of oracle beats random chain — **3/3 GO**; hop3 DIAG weak
+- 616 NOISY first extract ≈ RAND — **3/3 STOP**; match-slice recovers 614
+- 617 CONSTPIN unique-agree → hop1 beats RAND — **3/3 GO**; refuse ~.89, cover ~.015
+- 618 PEAKPIN peaked vote — **3/3 GO**; pin_rate ~.45, refuse ~.54, not WIDE;
+  d1 +.05…+.07, cover ~.04 (~4× CONST). Match still ~.16–.18 (not oracle apples rate)
+- 619 PEAKHOP2 extra2 − extra2_rand — **3/3 STOP**; hop2 of peaked pin ≈ random chain.
+  Freeze **hop1-only** on PIN v1. Oracle 615 hop2 stays ceiling, not the hand route.
+- 620 NEWSPIN same peak+hop1 on news — **3/3 GO XFER**; pin_rate ~.40, d1 +.05…+.07,
+  not WIDE. PIN v1 freezes across corpora. No new truth signal; Φ still off.
+
+**Closed:** any-extract writeback; bag-as-door (613); Φ-TRUST while hand pin works.
+**Open ceiling:** oracle 614 ~19% residual — PIN v1 closed part without a teacher;
+the rest needs a better truth signal, not a longer walk from a lie.
+
+## 125. 624 HONEST EXACT-ADDRESS POLICY — 3/3 STOP; 614–623 need re-audit
+
+Building the first chosen-reward place policy exposed two foundational defects
+in the 614–623 exploratory ladder:
+
+1. `held_ask` was passed in `forbid` to `peak_pin` / `leftover_doors`. The hidden
+   answer therefore changed the pin/REFUSE candidate set — the same class of
+   teacher subtraction that invalidated old 557.
+2. `held_ctx` and `held_ask` are two different fillers (two records) of one
+   exact address, but the ladder removed `keys ∪ {ctx,ask}` from `co/df` as one
+   joint row. This invented a ctx–ask pair, removed key marginals only once,
+   and used `n_fr−1` instead of `n_fr−2`.
+
+624 does not rewrite the historical stages. It creates a clean exam:
+
+    exact support address action → tape resolves unique door
+      → READ if door is answer
+      → otherwise one frozen hop
+    or REFUSE
+
+- candidates/features do not receive held;
+- ctx and ask records are removed separately from `co` and `df`;
+- corpus is split before disjoint train/test tapes;
+- model sees name-free count/address/reciprocal features;
+- gradient receives only the chosen address's tape reward (`+1`, `−.05`) or
+  zero for REFUSE;
+- action is exact `addr`, never a vocabulary class;
+- rivals include random, first, vote, reciprocal, count, shuffled-reward null,
+  and same-place/fixed-route majority fillers.
+
+Held-out results:
+
+    seed   learned  strongest   delta    reach   policy(read/net)   verdict
+    1337    .075    count .127  −.052     .368     .000 / .000      STOP
+    8642    .182    null  .182   .000     .395    1.000 / .132      STOP
+    2890    .108    count .129  −.021     .371    1.000 / .058      STOP
+
+The honest ceiling remains large (`reach .368–.395`, room `.213–.241`), so the
+exam is not VOID. The chosen-reward policy does not capture it: one seed learns
+REFUSE-all, one equals the shuffled null, and two lose to count. Therefore no
+claim of learned place mind passes.
+
+**Supersession:** §124's 617–623 GO/frozen claims were historical until rerun
+without held-filtering and with two-record holdout. Honest recalculation
+(after 625/626, same hide) of **614 / 618 / 620 / 621 / 623** all remain **3/3 GO**:
+
+    614 CTX     CTX−RAND +.157…+.174
+    618 PEAKPIN d1 +.074…+.104  pin_rate .43–.46  not WIDE
+    620 NEWSPIN d1 +.099…+.143  pin_rate .38–.39  GO XFER
+    621 REFCEIL ORA−RAND +.198…+.235
+    623 SEARCH2 SEARCH−RAND +.198…+.228  opened ~4.1  costly
+
+PIN v1 hand law (peak → hop1 / refuse) **survives** the honest exam and news
+xfer. 622 TRUST and 624 learned place-policy remain STOP: ceiling alive,
+hand rank and chosen-reward learner do not capture it.
+
+## 126. 625 DECOMP → 626 FULLFB STOP — not bandit; features empty
+
+625 (honest hide): DIRECT and HOPONLY both live vs count/rand (ora room
++.12…+.15). Context ceiling exists; next was full-feedback rank, not a new net.
+
+626: Q on (maj, votes, recip) trained on **every** hop1 label; DIRECT out of
+loss; pick vs count/rand. **3/3 STOP** (Δ +.010…+.034, gate needs >.05). Even
+with all labels, votes/recip/count miss hop1. 624 hole was **not** bandit —
+need a **new tape signal**, not a bigger network.
+
+## 127. 627 PEAK-CHAIN STOP — second pin ≈ random next mid
+
+Chain = 618 repeated: peak unique extra of **all cards of current pin** →
+new pin; tie → refuse. Not leftover. Held only diagnostic. Gate:
+P(peak2|peak1) − P(peak2|rand extra of Petya cards) > .05.
+
+**3/3 STOP** (Δ +.011 / −.007 / +.023). h1 ~.47–.50, mean|W| ~1.85–1.88,
+h2|h1 ~.53–.57 ≈ h2|rand. Route-of-places does not beat random next mid on
+raw stories. Compose diag ~.005–.009 (not gated).
+
+## 128. 628 SAME-CURRENT CONTEXT-SWAP — interface live; 2 STOP + 1 VOID
+
+627 tested continuation existence, not context. 628 fixes `QUERY + CURRENT` and
+swaps only W: exact VIA addresses from another history which reached the same
+CURRENT. Address geometry is read-time only; high-df is capped at allow=1;
+tie/no evidence → REFUSE. Held only scores the selected exact address.
+
+    seed   pairs  addr changed  TRUE   SWAP  strongest  ORA   delta
+    1337      42      .619      .095   .048    .071     .190  +.024
+    8642      54      .648      .056   .000    .074     .204  −.019
+    2890      48      .729      .062   .021    .104     .146  −.042
+
+Deterministic rerun (`sorted(mid_set)` before seeded shuffle): same-CURRENT
+pairs exist and W changes the selected address often. Oracle room is live on
+1337/8642 (.119/.130); 2890 is VOID (.042). TRUE never clears +.05. The **W
+interface is operational**, while this exact-address PMI/kernel geometry
+carries no reliable context reward.
+
+## 129. CONTEXT CONTRACT v1 + 629 FULL-FEEDBACK TRAINER
+
+Frozen in `_CONTEXT_CONTRACT_V1.txt` and `_context_contract_v1.py`:
+
+    state   QUERY exact addr + CURRENT + VIA exact-address multiset
+    action  REFUSE / QUERY / VIA_SUM / VIA_MAX / QUERY_VIA / QUERY_AND_VIA
+    tape    applies constraint to ALL legal CURRENT cards; unique addr or REFUSE
+    teacher +1 correct record / −.05 wrong READ / 0 REFUSE, all-action feedback
+
+No word/address/candidate ID enters the model. Candidate width may grow without
+growing the action alphabet. Train/test tapes are built after the corpus split;
+same-CURRENT VIA swap, fixed constraints, count, same-place frequency, random,
+and shuffled-feedback model are rivals.
+
+TinyStories deterministic smoke:
+
+    seed   train/test  learned  swap   strongest          delta  action ORA
+    1337     87/60       .150   .150   VIA_SUM .183       −.033     .250  STOP
+    8642     80/59       .085   .068   QUERY .136         −.051     .136  VOID
+    2890    108/48       .042   .062   RAND .104          −.062     .104  VOID
+
+The **training contract is runnable and checkpoints contain only policy +
+normalization + fixed action names**. TinyStories does not validate the policy:
+one live exam loses to a fixed constraint; two have no action-oracle room.
+Keep v1 for cross-corpus testing, but do not call its present weights a context
+mind and do not enlarge the net on this corpus.
+
+## 130. 630 INTEGRATED EXECUTOR — corrections accepted; kill switch 3/3
+
+Frozen in `_INTEGRATED_CONTRACT_V1.txt` / `_integrated_contract_v1.py`.
+
+Correction to the proposed v2 was necessary:
+
+* 618 peak is **not** a learned action; it remains the frozen baseline;
+* training sees only the 618 no-pin REFUSE branch;
+* mind actions are exactly `SEARCH_ONE / COMMIT_RESOLVED / REFUSE`;
+* SEARCH opens the next held-blind scan-order door and pays .05;
+* COMMIT is a pre-teacher 618-style peak over accumulated exact hop1
+  observations; tie/no peak makes COMMIT unavailable;
+* held appears only in full-feedback operation Q and evaluation.
+
+The kill switch requires held-out priced return and bootstrap low95 to beat
+always-REFUSE (zero). TinyStories:
+
+    seed   branch test  618 cover  policy hit  searches  priced  oracle net
+    1337       628        .196        .000       .15     −.008     +.031
+    8642       635        .199        .000       .00      .000     +.034
+    2890       619        .197        .000       .00      .000     +.029
+
+All three are VOID for the learned branch (`oracle net <= .05`) and fail the
+always-REFUSE gate. `first_peak` gets ~.031–.035 hits but costs ~−.129 priced;
+`search_all` costs ~−.244. Therefore checkpoints carry
+`enabled=False, kill_switch=True`, and deployed behavior is exactly:
+
+    frozen 618 -> REFUSE
+
+There is notable direct-door mass inside the REFUSE branch (~111–135 held
+doors on test), but 630 deliberately does not count it: selecting/naming a
+door is outside the accepted COMMIT contract. The executor is ready for
+cross-corpus runs without weakening the current baseline.
+
+Cross-corpus kill switch (same contract, seeds 1337/8642/2890):
+
+    corpus      618 cover   refuse share   oracle net   ENABLED
+    stories     .196–.199   .46–.47        +.029–.034   no 3/3
+    news        .169–.190   .52–.53        +.010–.022   no 3/3
+    wiki        .211–.234   .48–.50        +.017–.024   no 3/3
+
+Not a TinyStories artifact. Under held-blind peak-COMMIT and priced SEARCH,
+always-REFUSE is the strongest action on all three corpora. Deployed system
+stays `618 → REFUSE`.
+
+## 131. 633 GAP-CONSERVATION — exact-place offer, borderline 3/3 STOP
+
+633 tests the missing pre-gradient question on the 618 REFUSE branch:
+
+    each leftover door support address, resolved once
+      + each exact first-K hop1 address from that resolved door
+      -> UNION oracle / DIRECT / exclusive HOPONLY
+
+The paired control reruns 623 direct-or-hop1 reach on the **same trials**.
+The 630-style peak over exactly the same hop1 observations is the compression
+control. There is no learner, constraint alphabet, or priced gate.
+
+The supplied draft needed five honesty/interface corrections before running:
+
+1. paired 623 filtered `held_ask` out of its door offer;
+2. 630 `open_record` took the first K *valid observations*, while 623 took the
+   first K cards (invalid cards may not buy replacements);
+3. each `rec["door"]` was offered as a separate action even when several words
+   came from one support address — a word shortlist, not a place alphabet;
+4. an empty exact-place offer was removed from the paired denominator instead
+   of counted as a UNION miss;
+5. old `pmi_rank(set(cands))` broke seeded reproducibility on score ties.
+
+633 therefore deduplicates the support addresses, applies one frozen read per
+exact address, and uses the same local deterministic held-blind read for
+DIRECT, hop1, residual exclusion, and paired 623. Equal PMI follows physical
+tape-row order, never token/hash order. Repeating one seed in fresh Python
+processes now gives byte-identical metrics.
+
+The predeclared bars remain `UNION >= max(.17, .90 * paired623)`,
+`DIRECT >= .05`, and `UNION - peak >= .05`. An exclusive `HOPONLY >= .05`
+bar is also required: otherwise a DIRECT-only reconstruction of 632 could
+declare movement conserved.
+
+    seed   live  DIRECT  HOPONLY  UNION   paired623  kept   peak   U-peak
+    1337    627    .131     .134    .265      .295    .897   .026    +.239
+    8642    609    .141     .149    .291      .323    .898   .033    +.258
+    2890    577    .151     .144    .295      .328    .899   .026    +.269
+
+All absolute, DIRECT, HOPONLY, and peak-control bars pass strongly. The
+relative conservation bar fails on raw counts in every seed:
+
+    1337  UNION 166 / paired623 185; need 167
+    8642  UNION 177 / paired623 197; need 178
+    2890  UNION 170 / paired623 189; need 171
+
+Pooled, the exact-place offer keeps `513/571 = .8984` of paired 623 — exactly
+one additional hit would be needed to clear `.90`. Rounded output hides this,
+so the audit prints `kept` and `short_hits`.
+
+Verdict is **borderline 3/3 STOP by the predeclared gate**. The unbundled offer
+retains a large real gap and destroys peak compression as an explanation, but
+it is not licensed as GO. Do not lower `.90` after observing the result and do
+not start `score(place)`/Φ from 633. A larger predeclared replication may
+resolve the boundary; until then deployed behavior remains `618 -> REFUSE`.
+

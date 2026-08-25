@@ -1,0 +1,414 @@
+=== 551 super night 2026-08-24T01:48:27 ===
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _check550_bundle.py
+FAIL MUTATION 1. (no split, all rest): not caught
+1 failures
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _check551_rerank.py
+all properties hold, and all 3 re-introduced failures were caught
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit550_bundle.py --seed 1337 --corpus data/_tinystories_train.txt
+550 bundle-by-env  corpus=data\_tinystories_train.txt  given
+trials 764  k 0.046296296296296294  mid_avg 110  void_n 38
+split 0.996  mates/rest 5.3/20.9  peaked_cl 0.607
+CL 0.1335  GL 0.1846  ONE 0.0366  UNI 0.0537
+CL-GL -0.0510  p_extra 0.146  (go if >0.5)
+oracle stophalf 0.0200  allgo 0.0134  d +0.0067
+VOID False   GATE False
+
+BUNDLE DOES NOT BEAT MIXED STAR. Env cluster != different apples.
+wrote results\_stage550_bundle.json
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit551_rerank.py --seed 1337 --corpus data/_tinystories_train.txt
+551 rerank-by-env  corpus=data\_tinystories_train.txt  given
+trials 765  k 0.046296296296296294
+split 0.996  mates/rest 5.3/20.9  set_diff 0.114  peaked 0.546
+RN 0.2039  GL 0.1856  FL 0.1333  ONE 0.0392  GL0 0.0261
+RN-GL +0.0183  ONE-GL0 +0.0131  p_extra 0.051
+distinctive n 745  RN-GL | dist +0.0188
+VOID False   GATE False
+
+RERANK DOES NOT BEAT 511 ORDER. Env weight != better prefix.
+wrote results\_stage551_rerank.json
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit551_sweep.py --seed 1337 --corpus data/_tinystories_train.txt --modes gl,filter,rn_mg,rn_m,rn_stable,rn_anchor,rn_allenv,rn_jacc,rn_union,rn_cond,rn_idf,rn_boost,rn_peaked,rn_allgo,rn_distgo
+551 sweep  corpus=data\_tinystories_train.txt  given  modes=15
+raw rows 2116  k 0.046296296296296294
+  gl           hit=0.1933  d=+0.0000  p_ex=0.052  stop
+  filter       hit=0.1314  d=-0.0619  p_ex=0.157  stop
+  rn_mg        hit=0.2065  d=+0.0132  p_ex=0.054  stop
+  rn_m         hit=0.2065  d=+0.0132  p_ex=0.061  stop
+  rn_stable    hit=0.2065  d=+0.0132  p_ex=0.051  stop
+  rn_anchor    hit=0.2065  d=+0.0132  p_ex=0.054  stop
+  rn_allenv    hit=0.2065  d=+0.0132  p_ex=0.054  stop
+  rn_jacc      hit=0.2065  d=+0.0132  p_ex=0.061  stop
+  rn_union     hit=0.2065  d=+0.0132  p_ex=0.053  stop
+  rn_cond      hit=0.2065  d=+0.0132  p_ex=0.046  stop
+  rn_idf       hit=0.2065  d=+0.0132  p_ex=0.054  stop
+  rn_boost     hit=0.2065  d=+0.0132  p_ex=0.048  stop
+  rn_peaked    hit=0.1961  d=+0.0028  p_ex=0.052  stop
+  rn_allgo     hit=0.2065  d=+0.0132  p_ex=0.054  stop
+  rn_distgo    hit=0.2065  d=+0.0132  p_ex=0.046  stop
+best rn_mg d=+0.0132  gates_pass=0/15
+wrote results\_stage551_sweep.json
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit550_bundle.py --seed 8642 --corpus data/_tinystories_train.txt
+550 bundle-by-env  corpus=data\_tinystories_train.txt  given
+trials 826  k 0.04816955684007707  mid_avg 112  void_n 39
+split 1.000  mates/rest 5.0/20.3  peaked_cl 0.610
+CL 0.1816  GL 0.2361  ONE 0.0557  UNI 0.0738
+CL-GL -0.0545  p_extra 0.194  (go if >0.5)
+oracle stophalf 0.0272  allgo 0.0182  d +0.0091
+VOID False   GATE False
+
+BUNDLE DOES NOT BEAT MIXED STAR. Env cluster != different apples.
+wrote results\_stage550_bundle.json
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit551_rerank.py --seed 8642 --corpus data/_tinystories_train.txt
+551 rerank-by-env  corpus=data\_tinystories_train.txt  given
+trials 831  k 0.04816955684007707
+split 1.000  mates/rest 4.9/20.3  set_diff 0.149  peaked 0.538
+RN 0.2587  GL 0.2347  FL 0.1805  ONE 0.0554  GL0 0.0313
+RN-GL +0.0241  ONE-GL0 +0.0241  p_extra 0.059
+distinctive n 805  RN-GL | dist +0.0248
+VOID False   GATE False
+
+RERANK DOES NOT BEAT 511 ORDER. Env weight != better prefix.
+wrote results\_stage551_rerank.json
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit551_sweep.py --seed 8642 --corpus data/_tinystories_train.txt --modes gl,filter,rn_mg,rn_m,rn_stable,rn_anchor,rn_allenv,rn_jacc,rn_union,rn_cond,rn_idf,rn_boost,rn_peaked,rn_allgo,rn_distgo
+551 sweep  corpus=data\_tinystories_train.txt  given  modes=15
+raw rows 2298  k 0.04816955684007707
+  gl           hit=0.2341  d=+0.0000  p_ex=0.059  stop
+  filter       hit=0.1754  d=-0.0587  p_ex=0.196  stop
+  rn_mg        hit=0.2576  d=+0.0235  p_ex=0.058  stop
+  rn_m         hit=0.2572  d=+0.0231  p_ex=0.065  stop
+  rn_stable    hit=0.2576  d=+0.0235  p_ex=0.056  stop
+  rn_anchor    hit=0.2576  d=+0.0235  p_ex=0.058  stop
+  rn_allenv    hit=0.2576  d=+0.0235  p_ex=0.058  stop
+  rn_jacc      hit=0.2572  d=+0.0231  p_ex=0.065  stop
+  rn_union     hit=0.2589  d=+0.0248  p_ex=0.060  stop
+  rn_cond      hit=0.2576  d=+0.0235  p_ex=0.051  stop
+  rn_idf       hit=0.2572  d=+0.0231  p_ex=0.063  stop
+  rn_boost     hit=0.2563  d=+0.0222  p_ex=0.053  stop
+  rn_peaked    hit=0.2363  d=+0.0022  p_ex=0.059  stop
+  rn_allgo     hit=0.2576  d=+0.0235  p_ex=0.058  stop
+  rn_distgo    hit=0.2576  d=+0.0235  p_ex=0.051  stop
+best rn_union d=+0.0248  gates_pass=0/15
+wrote results\_stage551_sweep.json
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit550_bundle.py --seed 2890 --corpus data/_tinystories_train.txt
+550 bundle-by-env  corpus=data\_tinystories_train.txt  given
+trials 841  k 0.049236829148202856  mid_avg 113  void_n 39
+split 1.000  mates/rest 5.9/21.0  peaked_cl 0.564
+CL 0.1998  GL 0.2568  ONE 0.0428  UNI 0.0927
+CL-GL -0.0571  p_extra 0.199  (go if >0.5)
+oracle stophalf 0.0300  allgo 0.0200  d +0.0100
+VOID False   GATE False
+
+BUNDLE DOES NOT BEAT MIXED STAR. Env cluster != different apples.
+wrote results\_stage550_bundle.json
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit551_rerank.py --seed 2890 --corpus data/_tinystories_train.txt
+551 rerank-by-env  corpus=data\_tinystories_train.txt  given
+trials 844  k 0.049236829148202856
+split 1.000  mates/rest 5.9/21.0  set_diff 0.136  peaked 0.476
+RN 0.2725  GL 0.2559  FL 0.1991  ONE 0.0486  GL0 0.0355
+RN-GL +0.0166  ONE-GL0 +0.0130  p_extra 0.065
+distinctive n 814  RN-GL | dist +0.0172
+VOID False   GATE False
+
+RERANK DOES NOT BEAT 511 ORDER. Env weight != better prefix.
+wrote results\_stage551_rerank.json
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit551_sweep.py --seed 2890 --corpus data/_tinystories_train.txt --modes gl,filter,rn_mg,rn_m,rn_stable,rn_anchor,rn_allenv,rn_jacc,rn_union,rn_cond,rn_idf,rn_boost,rn_peaked,rn_allgo,rn_distgo
+551 sweep  corpus=data\_tinystories_train.txt  given  modes=15
+raw rows 2348  k 0.049236829148202856
+  gl           hit=0.2619  d=+0.0000  p_ex=0.066  stop
+  filter       hit=0.1976  d=-0.0643  p_ex=0.207  stop
+  rn_mg        hit=0.2794  d=+0.0175  p_ex=0.066  stop
+  rn_m         hit=0.2756  d=+0.0136  p_ex=0.075  stop
+  rn_stable    hit=0.2747  d=+0.0128  p_ex=0.062  stop
+  rn_anchor    hit=0.2794  d=+0.0175  p_ex=0.066  stop
+  rn_allenv    hit=0.2794  d=+0.0175  p_ex=0.066  stop
+  rn_jacc      hit=0.2756  d=+0.0136  p_ex=0.075  stop
+  rn_union     hit=0.2794  d=+0.0175  p_ex=0.067  stop
+  rn_cond      hit=0.2794  d=+0.0175  p_ex=0.059  stop
+  rn_idf       hit=0.2794  d=+0.0175  p_ex=0.068  stop
+  rn_boost     hit=0.2794  d=+0.0175  p_ex=0.060  stop
+  rn_peaked    hit=0.2658  d=+0.0038  p_ex=0.066  stop
+  rn_allgo     hit=0.2794  d=+0.0175  p_ex=0.066  stop
+  rn_distgo    hit=0.2794  d=+0.0175  p_ex=0.059  stop
+best rn_mg d=+0.0175  gates_pass=0/15
+wrote results\_stage551_sweep.json
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit550_bundle.py --seed 42 --corpus data/_tinystories_train.txt
+550 bundle-by-env  corpus=data\_tinystories_train.txt  given
+trials 792  k 0.04666355576294914  mid_avg 110  void_n 38
+split 0.979  mates/rest 5.5/21.0  peaked_cl 0.633
+CL 0.1578  GL 0.2109  ONE 0.0379  UNI 0.0669
+CL-GL -0.0530  p_extra 0.182  (go if >0.5)
+oracle stophalf 0.0237  allgo 0.0158  d +0.0079
+VOID False   GATE False
+
+BUNDLE DOES NOT BEAT MIXED STAR. Env cluster != different apples.
+wrote results\_stage550_bundle.json
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit551_rerank.py --seed 42 --corpus data/_tinystories_train.txt
+551 rerank-by-env  corpus=data\_tinystories_train.txt  given
+trials 793  k 0.04666355576294914
+split 0.979  mates/rest 5.5/21.0  set_diff 0.148  peaked 0.574
+RN 0.2295  GL 0.2119  FL 0.1576  ONE 0.0618  GL0 0.0252
+RN-GL +0.0177  ONE-GL0 +0.0366  p_extra 0.053
+distinctive n 773  RN-GL | dist +0.0181
+VOID False   GATE False
+
+RERANK DOES NOT BEAT 511 ORDER. Env weight != better prefix.
+wrote results\_stage551_rerank.json
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit551_sweep.py --seed 42 --corpus data/_tinystories_train.txt --modes gl,filter,rn_mg,rn_m,rn_stable,rn_anchor,rn_allenv,rn_jacc,rn_union,rn_cond,rn_idf,rn_boost,rn_peaked,rn_allgo,rn_distgo
+551 sweep  corpus=data\_tinystories_train.txt  given  modes=15
+raw rows 2195  k 0.04666355576294914
+  gl           hit=0.2059  d=+0.0000  p_ex=0.057  stop
+  filter       hit=0.1499  d=-0.0560  p_ex=0.184  stop
+  rn_mg        hit=0.2241  d=+0.0182  p_ex=0.053  stop
+  rn_m         hit=0.2255  d=+0.0196  p_ex=0.067  stop
+  rn_stable    hit=0.2255  d=+0.0196  p_ex=0.056  stop
+  rn_anchor    hit=0.2241  d=+0.0182  p_ex=0.053  stop
+  rn_allenv    hit=0.2241  d=+0.0182  p_ex=0.053  stop
+  rn_jacc      hit=0.2255  d=+0.0196  p_ex=0.067  stop
+  rn_union     hit=0.2241  d=+0.0182  p_ex=0.053  stop
+  rn_cond      hit=0.2241  d=+0.0182  p_ex=0.048  stop
+  rn_idf       hit=0.2241  d=+0.0182  p_ex=0.064  stop
+  rn_boost     hit=0.2228  d=+0.0169  p_ex=0.050  stop
+  rn_peaked    hit=0.2091  d=+0.0032  p_ex=0.059  stop
+  rn_allgo     hit=0.2241  d=+0.0182  p_ex=0.053  stop
+  rn_distgo    hit=0.2241  d=+0.0182  p_ex=0.048  stop
+best rn_m d=+0.0196  gates_pass=0/15
+wrote results\_stage551_sweep.json
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit550_bundle.py --seed 7 --corpus data/_tinystories_train.txt
+550 bundle-by-env  corpus=data\_tinystories_train.txt  given
+trials 781  k 0.042444821731748725  mid_avg 111  void_n 38
+split 0.972  mates/rest 5.5/20.6  peaked_cl 0.629
+CL 0.1665  GL 0.2215  ONE 0.0538  UNI 0.0730
+CL-GL -0.0551  p_extra 0.191  (go if >0.5)
+oracle stophalf 0.0250  allgo 0.0166  d +0.0083
+VOID False   GATE False
+
+BUNDLE DOES NOT BEAT MIXED STAR. Env cluster != different apples.
+wrote results\_stage550_bundle.json
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit551_rerank.py --seed 7 --corpus data/_tinystories_train.txt
+551 rerank-by-env  corpus=data\_tinystories_train.txt  given
+trials 784  k 0.042444821731748725
+split 0.972  mates/rest 5.5/20.6  set_diff 0.139  peaked 0.570
+RN 0.2436  GL 0.2207  FL 0.1658  ONE 0.0638  GL0 0.0395
+RN-GL +0.0230  ONE-GL0 +0.0242  p_extra 0.058
+distinctive n 753  RN-GL | dist +0.0239
+VOID False   GATE False
+
+RERANK DOES NOT BEAT 511 ORDER. Env weight != better prefix.
+wrote results\_stage551_rerank.json
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit551_sweep.py --seed 7 --corpus data/_tinystories_train.txt --modes gl,filter,rn_mg,rn_m,rn_stable,rn_anchor,rn_allenv,rn_jacc,rn_union,rn_cond,rn_idf,rn_boost,rn_peaked,rn_allgo,rn_distgo
+551 sweep  corpus=data\_tinystories_train.txt  given  modes=15
+raw rows 2171  k 0.042444821731748725
+  gl           hit=0.2248  d=+0.0000  p_ex=0.061  stop
+  filter       hit=0.1667  d=-0.0580  p_ex=0.199  stop
+  rn_mg        hit=0.2469  d=+0.0221  p_ex=0.059  stop
+  rn_m         hit=0.2441  d=+0.0193  p_ex=0.072  stop
+  rn_stable    hit=0.2441  d=+0.0193  p_ex=0.058  stop
+  rn_anchor    hit=0.2469  d=+0.0221  p_ex=0.059  stop
+  rn_allenv    hit=0.2469  d=+0.0221  p_ex=0.059  stop
+  rn_jacc      hit=0.2441  d=+0.0193  p_ex=0.072  stop
+  rn_union     hit=0.2474  d=+0.0226  p_ex=0.059  stop
+  rn_cond      hit=0.2469  d=+0.0221  p_ex=0.049  stop
+  rn_idf       hit=0.2469  d=+0.0221  p_ex=0.066  stop
+  rn_boost     hit=0.2432  d=+0.0184  p_ex=0.053  stop
+  rn_peaked    hit=0.2335  d=+0.0088  p_ex=0.065  stop
+  rn_allgo     hit=0.2469  d=+0.0221  p_ex=0.059  stop
+  rn_distgo    hit=0.2469  d=+0.0221  p_ex=0.049  stop
+best rn_union d=+0.0226  gates_pass=0/15
+wrote results\_stage551_sweep.json
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit551_sweep.py --seed 1337 --corpus data/_tinystories_train.txt --modes gl,filter,rn_mg,rn_m,rn_stable,rn_anchor,rn_allenv,rn_jacc,rn_union,rn_cond,rn_idf,rn_boost,rn_peaked,rn_allgo,rn_distgo --window-lines 800 --n-win 16 --lines 40000 --out results/_stage551_sweep_wide.json
+551 sweep  corpus=data\_tinystories_train.txt  given  modes=15
+raw rows 3711  k 0.02028809089064719
+  gl           hit=0.1423  d=+0.0000  p_ex=0.047  stop
+  filter       hit=0.1110  d=-0.0313  p_ex=0.187  stop
+  rn_mg        hit=0.1439  d=+0.0016  p_ex=0.044  stop
+  rn_m         hit=0.1439  d=+0.0016  p_ex=0.050  stop
+  rn_stable    hit=0.1439  d=+0.0016  p_ex=0.041  stop
+  rn_anchor    hit=0.1439  d=+0.0016  p_ex=0.044  stop
+  rn_allenv    hit=0.1439  d=+0.0016  p_ex=0.044  stop
+  rn_jacc      hit=0.1439  d=+0.0016  p_ex=0.050  stop
+  rn_union     hit=0.1447  d=+0.0024  p_ex=0.044  stop
+  rn_cond      hit=0.1439  d=+0.0016  p_ex=0.039  stop
+  rn_idf       hit=0.1439  d=+0.0016  p_ex=0.045  stop
+  rn_boost     hit=0.1439  d=+0.0016  p_ex=0.040  stop
+  rn_peaked    hit=0.1431  d=+0.0008  p_ex=0.049  stop
+  rn_allgo     hit=0.1439  d=+0.0016  p_ex=0.044  stop
+  rn_distgo    hit=0.1439  d=+0.0016  p_ex=0.039  stop
+best rn_union d=+0.0024  gates_pass=0/15
+wrote results\_stage551_sweep_wide.json
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit551_rerank.py --seed 1337 --corpus data/_tinystories_train.txt --window-lines 800 --n-win 16 --lines 40000 --out results/_stage551_rerank_wide.json
+551 rerank-by-env  corpus=data\_tinystories_train.txt  given
+trials 1347  k 0.02028809089064719
+split 0.997  mates/rest 4.6/22.3  set_diff 0.068  peaked 0.728
+RN 0.1418  GL 0.1403  FL 0.1106  ONE 0.0334  GL0 0.0245
+RN-GL +0.0015  ONE-GL0 +0.0089  p_extra 0.044
+distinctive n 1314  RN-GL | dist +0.0015
+VOID False   GATE False
+
+RERANK DOES NOT BEAT 511 ORDER. Env weight != better prefix.
+wrote results\_stage551_rerank_wide.json
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit551_sweep.py --seed 8642 --corpus data/_tinystories_train.txt --modes gl,filter,rn_mg,rn_m,rn_stable,rn_anchor,rn_allenv,rn_jacc,rn_union,rn_cond,rn_idf,rn_boost,rn_peaked,rn_allgo,rn_distgo --window-lines 800 --n-win 16 --lines 40000 --out results/_stage551_sweep_wide.json
+551 sweep  corpus=data\_tinystories_train.txt  given  modes=15
+raw rows 3747  k 0.019788265558523796
+  gl           hit=0.1166  d=+0.0000  p_ex=0.037  stop
+  filter       hit=0.0950  d=-0.0216  p_ex=0.158  stop
+  rn_mg        hit=0.1281  d=+0.0115  p_ex=0.037  stop
+  rn_m         hit=0.1284  d=+0.0117  p_ex=0.045  stop
+  rn_stable    hit=0.1284  d=+0.0117  p_ex=0.036  stop
+  rn_anchor    hit=0.1281  d=+0.0115  p_ex=0.037  stop
+  rn_allenv    hit=0.1281  d=+0.0115  p_ex=0.037  stop
+  rn_jacc      hit=0.1284  d=+0.0117  p_ex=0.045  stop
+  rn_union     hit=0.1289  d=+0.0123  p_ex=0.038  stop
+  rn_cond      hit=0.1281  d=+0.0115  p_ex=0.031  stop
+  rn_idf       hit=0.1281  d=+0.0115  p_ex=0.039  stop
+  rn_boost     hit=0.1281  d=+0.0115  p_ex=0.036  stop
+  rn_peaked    hit=0.1222  d=+0.0056  p_ex=0.040  stop
+  rn_allgo     hit=0.1281  d=+0.0115  p_ex=0.037  stop
+  rn_distgo    hit=0.1281  d=+0.0115  p_ex=0.031  stop
+best rn_union d=+0.0123  gates_pass=0/15
+wrote results\_stage551_sweep_wide.json
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit551_rerank.py --seed 8642 --corpus data/_tinystories_train.txt --window-lines 800 --n-win 16 --lines 40000 --out results/_stage551_rerank_wide.json
+551 rerank-by-env  corpus=data\_tinystories_train.txt  given
+trials 1354  k 0.019788265558523796
+split 0.999  mates/rest 4.5/23.2  set_diff 0.112  peaked 0.736
+RN 0.1256  GL 0.1145  FL 0.0938  ONE 0.0310  GL0 0.0214
+RN-GL +0.0111  ONE-GL0 +0.0096  p_extra 0.037
+distinctive n 1325  RN-GL | dist +0.0113
+VOID False   GATE False
+
+RERANK DOES NOT BEAT 511 ORDER. Env weight != better prefix.
+wrote results\_stage551_rerank_wide.json
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit549_depth.py --seed 1337 --corpus data/_tinystories_train.txt
+549 same-star depth  corpus=data\_tinystories_train.txt  given
+train wins 12  pos 202  neg 878  k 0.046296296296296294
+test rows 528  with r2 460
+A_hop1   hit 0.0701  hops 1.00
+B_wave   hit 0.3087  hops 3.64
+C_null   hit 0.3087  hops 3.64
+D_peak   hit 0.0814  hops 1.08
+ALLGO    hit 0.3087  hops 3.64
+B-A +0.2386  B-D +0.2273  B-C +0.0000  B-ALLGO +0.0000
+VOID False   GATE False
+
+RANK IS JITTER. ALLGO/budget may be the whole signal.
+wrote results\_stage549_depth.json
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit549_depth.py --seed 8642 --corpus data/_tinystories_train.txt
+549 same-star depth  corpus=data\_tinystories_train.txt  given
+train wins 12  pos 247  neg 870  k 0.04816955684007707
+test rows 530  with r2 466
+A_hop1   hit 0.0679  hops 1.00
+B_wave   hit 0.0679  hops 1.00
+C_null   hit 0.0679  hops 1.00
+D_peak   hit 0.0679  hops 1.02
+ALLGO    hit 0.2755  hops 3.67
+B-A +0.0000  B-D +0.0000  B-C +0.0000  B-ALLGO -0.2075
+VOID False   GATE False
+
+DEPTH DOES NOT PAY. rec[1:] does not add held beyond rec[0].
+wrote results\_stage549_depth.json
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit549_depth.py --seed 2890 --corpus data/_tinystories_train.txt
+549 same-star depth  corpus=data\_tinystories_train.txt  given
+train wins 12  pos 245  neg 865  k 0.049236829148202856
+test rows 539  with r2 463
+A_hop1   hit 0.0779  hops 1.00
+B_wave   hit 0.0779  hops 1.00
+C_null   hit 0.0779  hops 1.00
+D_peak   hit 0.0779  hops 1.05
+ALLGO    hit 0.2449  hops 3.66
+B-A +0.0000  B-D +0.0000  B-C +0.0000  B-ALLGO -0.1670
+VOID False   GATE False
+
+DEPTH DOES NOT PAY. rec[1:] does not add held beyond rec[0].
+wrote results\_stage549_depth.json
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit536_rnd.py --seed 1337 --corpus data/_tinystories_train.txt
+corpus given  windows 32  marks 307  test 719
+TEACHER mean_d1 +0.0220  RND mean_d1 +0.0153  ratio 0.69
+RND newnode  n  176  win 27 lose 12 neut 137  sum_d1 +15.0  mean +0.0852
+RND reorder  n  117  win 15 lose 2 neut 100  sum_d1 +13.0  mean +0.1111
+RND silent   n  426  win 0 lose 0 neut 426  sum_d1 +0.0  mean +0.0000
+VOID False
+
+MIXED: partial teacher signal. Read baskets before 538.
+wrote results\_stage536_rnd.json
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit536_rnd.py --seed 2890 --corpus data/_tinystories_train.txt
+corpus given  windows 32  marks 328  test 707
+TEACHER mean_d1 +0.0087  RND mean_d1 +0.0008  ratio 0.09
+RND newnode  n  190  win 13 lose 12 neut 165  sum_d1 +1.0  mean +0.0053
+RND reorder  n  122  win 15 lose 8 neut 99  sum_d1 +7.0  mean +0.0574
+RND silent   n  395  win 0 lose 0 neut 395  sum_d1 +0.0  mean +0.0000
+VOID False
+
+RND ≪ TEACHER: teacher is real, not shuffle noise.
+wrote results\_stage536_rnd.json
+
+$ C:\Users\Kostya\AppData\Local\Programs\Python\Python311\python.exe -u _audit551_sweep.py --seed 1337 --corpus data/external_tinystories_mini.txt --modes gl,filter,rn_mg,rn_m,rn_stable,rn_anchor,rn_allenv,rn_jacc,rn_union,rn_cond,rn_idf,rn_boost,rn_peaked,rn_allgo,rn_distgo --bytes 20000000 --out results/_stage551_sweep_mini.json
+551 sweep  corpus=data\external_tinystories_mini.txt  given  modes=15
+raw rows 578  k 0.26143790849673204
+  gl           hit=0.3356  d=+0.0000  p_ex=0.075  stop
+  filter       hit=0.1644  d=-0.1713  p_ex=0.278  stop
+  rn_mg        hit=0.3581  d=+0.0225  p_ex=0.073  stop
+  rn_m         hit=0.3581  d=+0.0225  p_ex=0.083  stop
+  rn_stable    hit=0.3581  d=+0.0225  p_ex=0.079  stop
+  rn_anchor    hit=0.3581  d=+0.0225  p_ex=0.073  stop
+  rn_allenv    hit=0.3581  d=+0.0225  p_ex=0.073  stop
+  rn_jacc      hit=0.3581  d=+0.0225  p_ex=0.083  stop
+  rn_union     hit=0.3581  d=+0.0225  p_ex=0.073  stop
+  rn_cond      hit=0.3581  d=+0.0225  p_ex=0.067  stop
+  rn_idf       hit=0.3581  d=+0.0225  p_ex=0.079  stop
+  rn_boost     hit=0.3581  d=+0.0225  p_ex=0.067  stop
+  rn_peaked    hit=0.3408  d=+0.0052  p_ex=0.078  stop
+  rn_allgo     hit=0.3581  d=+0.0225  p_ex=0.073  stop
+  rn_distgo    hit=0.3581  d=+0.0225  p_ex=0.067  stop
+best rn_mg d=+0.0225  gates_pass=0/15
+wrote results\_stage551_sweep_mini.json
+
+=== done 0.9m ===
+
+--- _stage551_sweep.json ---
+  seed 1337: best=rn_mg d=+0.0132 gates=0
+  seed 8642: best=rn_union d=+0.0248 gates=0
+  seed 2890: best=rn_mg d=+0.0175 gates=0
+  seed 42: best=rn_m d=+0.0196 gates=0
+  seed 7: best=rn_union d=+0.0226 gates=0
+
+--- _stage551_sweep_wide.json ---
+  seed 1337: best=rn_union d=+0.0024 gates=0
+  seed 8642: best=rn_union d=+0.0123 gates=0
+
+--- _stage550_bundle.json ---
+  seed 1337: gate=False d_gl=-0.05104712041884815
+  seed 8642: gate=False d_gl=-0.05447941888619853
+  seed 2890: gate=False d_gl=-0.05707491082045185
+  seed 42: gate=False d_gl=-0.05303030303030304
+  seed 7: gate=False d_gl=-0.055057618437900135
+
+--- _stage551_rerank.json ---
+  seed 1337: gate=False d_gl=0.018300653594771232
+  seed 8642: gate=False d_gl=0.024067388688327307
+  seed 2890: gate=False d_gl=0.016587677725118488
+  seed 42: gate=False d_gl=0.017654476670870112
+  seed 7: gate=False d_gl=0.022959183673469385

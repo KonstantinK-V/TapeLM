@@ -1,0 +1,56 @@
+{
+ "1337": {
+  "seed": 1337,
+  "corpus": "given",
+  "n_uniq": 24,
+  "hit1": 0.75,
+  "n_dead1": 6,
+  "retry": 0.6666666666666666,
+  "same": 1.0,
+  "saved": 0.0,
+  "skip": {
+   "nouniq": 5028,
+   "uniq": 24,
+   "noretry": 2
+  },
+  "elapsed_s": 0.3,
+  "void": true,
+  "gate": false
+ },
+ "8642": {
+  "seed": 8642,
+  "corpus": "given",
+  "n_uniq": 17,
+  "hit1": 0.7058823529411765,
+  "n_dead1": 5,
+  "retry": 0.6,
+  "same": 1.0,
+  "saved": 0.0,
+  "skip": {
+   "nouniq": 5353,
+   "uniq": 17,
+   "noretry": 2
+  },
+  "elapsed_s": 0.4,
+  "void": true,
+  "gate": false
+ },
+ "2890": {
+  "seed": 2890,
+  "corpus": "given",
+  "n_uniq": 18,
+  "hit1": 0.6666666666666666,
+  "n_dead1": 6,
+  "retry": 0.5,
+  "same": 0.6666666666666666,
+  "saved": 0.16666666666666666,
+  "skip": {
+   "nouniq": 5232,
+   "uniq": 18,
+   "noretry": 3
+  },
+  "elapsed_s": 0.4,
+  "void": true,
+  "gate": false
+ }
+}

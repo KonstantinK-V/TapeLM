@@ -1,0 +1,50 @@
+{
+ "1337__tinystories_train": {
+  "seed": 1337,
+  "corpus": "given",
+  "path": "data\\_tinystories_train.txt",
+  "n_win": 80,
+  "elapsed_s": 5.2,
+  "void": false,
+  "n": 1798,
+  "n_res": 267,
+  "rankmiss": 0.50187265917603,
+  "crowd": 0.49812734082397003,
+  "fan1": 0.0,
+  "fan2": 0.4681647940074906,
+  "fan3": 0.4943820224719101,
+  "fan_all": 0.50187265917603
+ },
+ "8642__tinystories_train": {
+  "seed": 8642,
+  "corpus": "given",
+  "path": "data\\_tinystories_train.txt",
+  "n_win": 80,
+  "elapsed_s": 5.6,
+  "void": false,
+  "n": 1825,
+  "n_res": 284,
+  "rankmiss": 0.41901408450704225,
+  "crowd": 0.5809859154929577,
+  "fan1": 0.0,
+  "fan2": 0.36971830985915494,
+  "fan3": 0.4154929577464789,
+  "fan_all": 0.41901408450704225
+ },
+ "2890__tinystories_train": {
+  "seed": 2890,
+  "corpus": "given",
+  "path": "data\\_tinystories_train.txt",
+  "n_win": 80,
+  "elapsed_s": 5.1,
+  "void": false,
+  "n": 1735,
+  "n_res": 236,
+  "rankmiss": 0.4110169491525424,
+  "crowd": 0.5889830508474576,
+  "fan1": 0.0,
+  "fan2": 0.3644067796610169,
+  "fan3": 0.4067796610169492,
+  "fan_all": 0.4110169491525424
+ }
+}

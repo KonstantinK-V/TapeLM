@@ -1,0 +1,87 @@
+SOTE CONTEXT CONTRACT v1 — exact working addresses, constraint output
+====================================================================
+
+PURPOSE
+-------
+Context is not path length.  At fixed QUERY and CURRENT, changing W must change
+the selected exact address and improve tape-record reward:
+
+    I(answer ; W | QUERY, CURRENT) > 0
+
+STATE
+-----
+T is the factual tape.  W is a small working tape of exact place pointers:
+
+    QUERY    exact query address
+    CURRENT  current pin/place
+    VIA      exact addresses which licensed the move to CURRENT
+
+W stores no answer literal and no averaged semantic vector.  Repeated exact
+pointers increment count.  Addresses are never merged at write time.
+
+ACTION ALPHABET
+---------------
+The mind never names a word and never ranks a fixed shortlist of values.
+It chooses one of these fixed, name-free search constraints:
+
+    REFUSE       stop
+    QUERY        cards(CURRENT) compatible with QUERY
+    VIA_SUM      cards(CURRENT) supported by all VIA pointers
+    VIA_MAX      cards(CURRENT) supported by one strongest VIA pointer
+    QUERY_VIA    628 resolver: VIA_SUM × (1 + QUERY)
+    QUERY_AND_VIA strict conjunction QUERY × VIA_SUM
+
+The tape evaluates the chosen constraint over ALL legal cards of CURRENT.
+It returns one exact address only when the best score is unique; tie or no
+positive evidence returns REFUSE.  The chosen address resolves its tape
+literal.  Candidate count may grow with the tape; the action alphabet does not.
+
+GEOMETRY
+--------
+Geometry exists only at read time.  Exact address keys are compared through
+visible tape co-counts (positive normalized lift plus exact-key agreement).
+High-df glue contributes at most one address atom (519 allow=1).  Geometry
+never glues or rewrites addresses.
+
+TEACHER AND TRAINING
+--------------------
+Teacher reward is the real hidden tape record:
+
+    correct selected address  +1
+    wrong READ                -0.05
+    REFUSE                     0
+
+Training receives full feedback for every constraint action.  This is loss
+over search constraints, not vocabulary CE and not answer text in weights.
+DIRECT completion is outside the context loss.
+
+HONESTY
+-------
+* two hidden fillers are two removed records: hide_two, n_fr-2
+* held never constructs W, features, constraints, candidates, or ties
+* split corpus before building train/test tapes
+* no token IDs, address IDs, candidate indices, or literals enter the model
+* train/test addresses are local and independently rebuilt
+* same QUERY/CURRENT test swaps only matched VIA pointers
+* same-place majority filler, fixed constraints, count, random, and shuffled
+  full-feedback policy are rivals
+* frequency rival must lose pairwise
+
+GATE
+----
+On held-out same-CURRENT pairs:
+
+    learned(TRUE W) - strongest rival > 0.05
+    learned(TRUE W) - learned(SWAP W) > 0.05
+    TRUE/SWAP selected address changes on >= 0.10
+    paired bootstrap low95(learned - strongest) > 0
+    learned priced net > strongest priced net
+
+VOID if test pairs < 40 or the fixed constraint-action oracle has <= 0.05
+room over the strongest rival.
+
+INTERPRETATION
+--------------
+GO licenses the constraint policy on fresh tapes.  It does not license words
+in weights.  STOP means this tape-visible geometry does not carry context;
+do not enlarge or recur the network.  Change the relation exposed by T.

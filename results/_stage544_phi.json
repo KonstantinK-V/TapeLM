@@ -1,0 +1,102 @@
+{
+ "1337": {
+  "seed": 1337,
+  "corpus": "data\\_tinystories_raw_scale.txt",
+  "arms": {
+   "A_table": {
+    "train_hit": 0.7424,
+    "n_train": 2500,
+    "n_touch": 21061,
+    "n_keys": 67,
+    "n_eval": 1500,
+    "eval_unique": 0.6493333333333333,
+    "eval_rand": 0.09266666666666666,
+    "lift": 0.5566666666666666
+   },
+   "B_phi": {
+    "train_hit": 0.58,
+    "n_train": 2500,
+    "n_touch": 26986,
+    "n_keys": 145,
+    "n_eval": 1500,
+    "eval_unique": 0.43266666666666664,
+    "eval_rand": 0.09266666666666666,
+    "lift": 0.34
+   },
+   "C_phinull": {
+    "train_hit": 0.0448,
+    "n_train": 2500,
+    "n_touch": 39152,
+    "n_keys": 145,
+    "n_eval": 1500,
+    "eval_unique": 0.0,
+    "eval_rand": 0.09266666666666666,
+    "lift": -0.09266666666666666
+   }
+  },
+  "probe": {
+   "probe_n": 1324,
+   "probe_phi": 0.04078549848942598,
+   "probe_table": 0.022658610271903322,
+   "probe_rand": 0.021148036253776436
+  },
+  "paired_rand": true,
+  "lift_A": 0.5566666666666666,
+  "lift_B": 0.34,
+  "lift_C": -0.09266666666666666,
+  "d_probe": 0.019637462235649546,
+  "elapsed_s": 11613.0,
+  "void": false,
+  "gate": false
+ },
+ "8642": {
+  "seed": 8642,
+  "corpus": "data\\_tinystories_raw_scale.txt",
+  "arms": {
+   "A_table": {
+    "train_hit": 0.734,
+    "n_train": 2500,
+    "n_touch": 20946,
+    "n_keys": 65,
+    "n_eval": 1500,
+    "eval_unique": 0.608,
+    "eval_rand": 0.11,
+    "lift": 0.498
+   },
+   "B_phi": {
+    "train_hit": 0.5992,
+    "n_train": 2500,
+    "n_touch": 25363,
+    "n_keys": 145,
+    "n_eval": 1500,
+    "eval_unique": 0.462,
+    "eval_rand": 0.11,
+    "lift": 0.352
+   },
+   "C_phinull": {
+    "train_hit": 0.18,
+    "n_train": 2500,
+    "n_touch": 36182,
+    "n_keys": 145,
+    "n_eval": 1500,
+    "eval_unique": 0.05533333333333333,
+    "eval_rand": 0.11,
+    "lift": -0.05466666666666667
+   }
+  },
+  "probe": {
+   "probe_n": 1440,
+   "probe_phi": 0.09236111111111112,
+   "probe_table": 0.022916666666666665,
+   "probe_rand": 0.015277777777777777
+  },
+  "paired_rand": true,
+  "lift_A": 0.498,
+  "lift_B": 0.352,
+  "lift_C": -0.05466666666666667,
+  "d_probe": 0.07708333333333334,
+  "elapsed_s": 12006.1,
+  "void": false,
+  "gate": false
+ }
+}

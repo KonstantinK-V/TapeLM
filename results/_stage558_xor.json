@@ -1,0 +1,74 @@
+{
+ "1337": {
+  "seed": 1337,
+  "corpus": "given",
+  "n": 4,
+  "n_hit": 2,
+  "n_miss": 2,
+  "n_mid": 842,
+  "skip": {
+   "read_hit": 253,
+   "frame": 4501,
+   "env": 124,
+   "not_multi": 147,
+   "rec": 14,
+   "no_extra": 9,
+   "keep": 4
+  },
+  "hit_p": 0.5,
+  "hit_s": 0.0,
+  "same": 0.0,
+  "d": 0.5,
+  "elapsed_s": 0.3,
+  "void": true,
+  "gate": false
+ },
+ "8642": {
+  "seed": 8642,
+  "corpus": "given",
+  "n": 4,
+  "n_hit": 3,
+  "n_miss": 1,
+  "n_mid": 895,
+  "skip": {
+   "read_hit": 259,
+   "frame": 4782,
+   "not_multi": 181,
+   "env": 108,
+   "rec": 27,
+   "no_extra": 9,
+   "keep": 4
+  },
+  "hit_p": 1.0,
+  "hit_s": 0.0,
+  "same": 0.0,
+  "d": 1.0,
+  "elapsed_s": 0.3,
+  "void": true,
+  "gate": false
+ },
+ "2890": {
+  "seed": 2890,
+  "corpus": "given",
+  "n": 3,
+  "n_hit": 1,
+  "n_miss": 2,
+  "n_mid": 875,
+  "skip": {
+   "env": 122,
+   "read_hit": 235,
+   "frame": 4681,
+   "not_multi": 167,
+   "rec": 26,
+   "keep": 3,
+   "no_extra": 16
+  },
+  "hit_p": 1.0,
+  "hit_s": 0.0,
+  "same": 0.0,
+  "d": 1.0,
+  "elapsed_s": 0.3,
+  "void": true,
+  "gate": false
+ }
+}

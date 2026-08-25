@@ -4,22 +4,22 @@
   "corpus": "data\\_tinystories_raw_scale.txt",
   "steps": 3000,
   "n_windows": 3000,
-  "elapsed_s": 559.9,
+  "elapsed_s": 452.8,
   "partial": false,
-  "find_h": 0.13866666666666666,
-  "find_r": 0.09866666666666667,
-  "soft_h": 0.036333333333333336,
+  "find_h": 0.127,
+  "find_r": 0.10166666666666667,
+  "soft_h": 0.03233333333333333,
   "soft_r": 0.025333333333333333,
-  "chain_h": 0.011,
-  "chain_r": 0.003,
-  "lift_find": 0.04,
-  "lift_soft": 0.011,
-  "lift_chain": 0.008,
+  "chain_h": 0.007333333333333333,
+  "chain_r": 0.005333333333333333,
+  "lift_find": 0.025333333333333333,
+  "lift_soft": 0.007,
+  "lift_chain": 0.002,
   "q_mark": {
-   "DEAD": -0.0705,
-   "LIVE": 0.1576
+   "DEAD": -0.07,
+   "LIVE": 0.1363
   },
-  "n_pre_keys": 111,
+  "n_pre_keys": 104,
   "note": "unique->soft land->2nd hop; night freestyle"
  },
  "2024": {
@@ -88,6 +88,29 @@
    "LIVE": 0.1442,
    "DEAD": -0.0661,
    "SOFT": 0.5
+  },
+  "n_pre_keys": 104,
+  "note": "unique->soft land->2nd hop; night freestyle"
+ },
+ "2890": {
+  "seed": 2890,
+  "corpus": "data\\_tinystories_raw_scale.txt",
+  "steps": 3000,
+  "n_windows": 3000,
+  "elapsed_s": 437.6,
+  "partial": false,
+  "find_h": 0.185,
+  "find_r": 0.09233333333333334,
+  "soft_h": 0.05333333333333334,
+  "soft_r": 0.023333333333333334,
+  "chain_h": 0.008,
+  "chain_r": 0.005,
+  "lift_find": 0.09266666666666666,
+  "lift_soft": 0.03,
+  "lift_chain": 0.003,
+  "q_mark": {
+   "DEAD": -0.0618,
+   "LIVE": 0.1034
   },
   "n_pre_keys": 104,
   "note": "unique->soft land->2nd hop; night freestyle"

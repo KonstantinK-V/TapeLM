@@ -1,0 +1,68 @@
+{
+ "1337": {
+  "seed": 1337,
+  "corpus": "given",
+  "n_pin": 79,
+  "n_hop3": 12,
+  "from_w": 1.0,
+  "from_w3": 1.0,
+  "hit2": 0.5316455696202531,
+  "hit3": 0.0,
+  "skip": {
+   "frame": 4491,
+   "keep": 139,
+   "refuse": 60,
+   "read_hit": 297,
+   "pin": 79,
+   "env": 125,
+   "hop3": 12
+  },
+  "elapsed_s": 0.4,
+  "void": true,
+  "gate": false
+ },
+ "8642": {
+  "seed": 8642,
+  "corpus": "given",
+  "n_pin": 77,
+  "n_hop3": 5,
+  "from_w": 1.0,
+  "from_w3": 1.0,
+  "hit2": 0.6103896103896104,
+  "hit3": 0.2,
+  "skip": {
+   "frame": 4787,
+   "keep": 143,
+   "refuse": 66,
+   "read_hit": 334,
+   "env": 106,
+   "pin": 77,
+   "hop3": 5
+  },
+  "elapsed_s": 0.4,
+  "void": true,
+  "gate": false
+ },
+ "2890": {
+  "seed": 2890,
+  "corpus": "given",
+  "n_pin": 73,
+  "n_hop3": 10,
+  "from_w": 1.0,
+  "from_w3": 1.0,
+  "hit2": 0.5205479452054794,
+  "hit3": 0.0,
+  "skip": {
+   "frame": 4629,
+   "read_hit": 334,
+   "keep": 151,
+   "pin": 73,
+   "refuse": 78,
+   "env": 136,
+   "hop3": 10
+  },
+  "elapsed_s": 0.4,
+  "void": true,
+  "gate": false
+ }
+}

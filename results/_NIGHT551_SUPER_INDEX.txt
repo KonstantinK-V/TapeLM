@@ -1,0 +1,16 @@
+# 551 super night done 2026-08-24T01:49:19 (0.9m)
+
+## Baselines
+- 550 filter   results/_stage550_bundle.json
+- 551 rerank   results/_stage551_rerank.json
+
+## Sweep (15 modes x any/anchor/allenv mate defs)
+- results/_stage551_sweep.json
+- wide         results/_stage551_sweep_wide.json
+- mini         results/_stage551_sweep_mini.json
+
+## Related
+- 549 depth    results/_stage549_depth.json
+- 536 rnd      results/_stage536_rnd.json
+
+Morning: grep gate.*true in sweep JSON; best d_gl per seed.

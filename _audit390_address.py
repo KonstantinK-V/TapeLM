@@ -96,7 +96,7 @@ OUT = Path("results/_stage390_address.json")
 
 # ---------------------------------------------------------------------------------- the tape
 
-def build_tape(lines, frame_max=3, min_fillers=1):
+def build_tape(lines, frame_max=3, min_fillers=2):
     """The frame tape as counts: places, profiles, and the two half indices the address needs."""
     keep, toks, owner = tframes.frame_keep(lines, frame_max, min_fillers)
     addrs = [a for a, _ps in keep]
@@ -421,7 +421,7 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--bytes", type=int, default=30_000_000)
     ap.add_argument("--frame-max", type=int, default=3)
-    ap.add_argument("--min-fillers", type=int, default=1)
+    ap.add_argument("--min-fillers", type=int, default=2)
     ap.add_argument("--lines", type=int, default=25000)
     ap.add_argument("--window-lines", type=int, default=400)
     ap.add_argument("--places", type=int, default=8)      # the stage's REACH_K

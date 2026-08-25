@@ -67,6 +67,10 @@ def frame_keep(lines, frame_max: int = 12, min_fillers: int = 2):
         for i in alive:
             if i - w < 0 or i + 1 + w > n:
                 continue
+            # A text line is a record boundary. Flattening is only storage; a
+            # counted address may not borrow glue from the previous/next row.
+            if owner[i - w] != owner[i] or owner[i + w] != owner[i]:
+                continue
             pos_of[(tuple(toks[i - w:i]), tuple(toks[i + 1:i + 1 + w]))].append(i)
         nxt = []
         for (left, right), ps in pos_of.items():

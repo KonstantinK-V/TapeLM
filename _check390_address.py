@@ -85,6 +85,11 @@ def designed():
 def props():
     """Every property as a number read off the designed question. Returns the failures."""
     f = []
+    src = SRC.read_text(encoding="utf-8")
+    if "def build_tape(lines, frame_max=3, min_fillers=2):" not in src:
+        f.append("0. build_tape default differs from production min_fillers=2")
+    if 'ap.add_argument("--min-fillers", type=int, default=2)' not in src:
+        f.append("0. CLI default differs from production min_fillers=2")
     T, q, slot = designed()
     if len(T["places"]) != 6:
         return [f"0. the designed tape is not the designed tape: {len(T['places'])} places"]

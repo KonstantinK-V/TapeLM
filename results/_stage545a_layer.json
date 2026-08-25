@@ -1,0 +1,66 @@
+{
+ "1337": {
+  "seed": 1337,
+  "corpus": "data\\_tinystories_raw_scale.txt",
+  "arms": {
+   "B_layer": {
+    "n_train": 3000,
+    "pairs_d1": 2908,
+    "pairs_d2": 2622,
+    "n_upd": 2679,
+    "both_rate": 0.008976639107863872,
+    "n_keys": 161,
+    "lift_hop1": 0.32266666666666666,
+    "lift_chain": 0.3426666666666667,
+    "eval_hop1": 0.41533333333333333,
+    "eval_chain": 0.43533333333333335,
+    "eval_rand": 0.09266666666666666,
+    "n_eval": 1500,
+    "n_second": 414
+   },
+   "C_null": {
+    "n_train": 3000,
+    "pairs_d1": 0,
+    "pairs_d2": 0,
+    "n_upd": 0,
+    "both_rate": 0.0,
+    "n_keys": 161,
+    "lift_hop1": -0.09266666666666666,
+    "lift_chain": -0.09266666666666666,
+    "eval_hop1": 0.0,
+    "eval_chain": 0.0,
+    "eval_rand": 0.09266666666666666,
+    "n_eval": 1500,
+    "n_second": 0
+   },
+   "D_rule": {
+    "n_train": 0,
+    "pairs_d1": 0,
+    "pairs_d2": 0,
+    "n_upd": 0,
+    "both_rate": 0.0,
+    "n_keys": 0,
+    "lift_hop1": 0.302,
+    "lift_chain": 0.32133333333333336,
+    "eval_hop1": 0.39466666666666667,
+    "eval_chain": 0.414,
+    "eval_rand": 0.09266666666666666,
+    "n_eval": 1500,
+    "n_second": 323
+   }
+  },
+  "paired_rand": true,
+  "lift_B": 0.3426666666666667,
+  "lift_C": -0.09266666666666666,
+  "lift_D": 0.32133333333333336,
+  "d_null": 0.43533333333333335,
+  "d_rule": 0.021333333333333315,
+  "hop1_B": 0.32266666666666666,
+  "hop1_D": 0.302,
+  "d_rank": 0.020666666666666667,
+  "both_rate": 0.008976639107863872,
+  "elapsed_s": 2877.7,
+  "void": false,
+  "gate": false
+ }
+}

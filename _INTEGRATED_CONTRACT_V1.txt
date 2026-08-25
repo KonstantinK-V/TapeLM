@@ -1,0 +1,94 @@
+SOTE INTEGRATED EXECUTOR v1 — frozen 618, learned REFUSE branch
+================================================================
+
+BASELINE (NOT A MIND ACTION)
+----------------------------
+618 is frozen:
+
+    peak of Petya's exact cards -> pin -> one 614 PMI hop
+    no peak                    -> REFUSE
+
+Peak is an already solved tape rule.  PEAK_STEP is not in the learned action
+alphabet.  The learned branch is entered only when 618 has no pin.
+
+LEARNED ACTION ALPHABET
+-----------------------
+The mind has exactly three operations:
+
+    SEARCH_ONE       open the next held-blind leftover door in tape scan order
+    COMMIT_RESOLVED  commit the tape's current held-blind peak
+    REFUSE           stop with zero further reward
+
+It never emits a word, candidate index, door number, or address ID.
+
+WORKING TAPE W
+--------------
+SEARCH_ONE appends exact pointers, never merged:
+
+    DOOR_SUPPORT  Petya-card address which exposed this door
+    HOP_SOURCE    exact card address read under that door
+    HOP_RESULT    tape literal resolved at HOP_SOURCE
+
+Repeated HOP_RESULT literals count as votes.  Content remains on T/W and is
+never supplied as a model feature.
+
+COMMIT RULE (FROZEN BEFORE THE TEACHER)
+---------------------------------------
+COMMIT_RESOLVED does not inspect held.  Across all HOP_RESULT observations:
+
+* one distinct result -> commit it
+* otherwise top count must be >= 2 and strictly exceed second count
+* tie / no result -> COMMIT unavailable
+
+The committed result is emitted by the tape from one exact supporting address.
+This is the same peaked-count law as 618, applied to opened hop1 observations.
+
+SEARCH AND PRICE
+----------------
+Doors are opened in frozen, name-free tape scan order.  One SEARCH_ONE opens
+one door and costs 0.05.  It never stops because the teacher says "hit".
+Maximum search budget is six doors.  High-df glue remains capped at allow=1 in
+read-time address geometry.
+
+TEACHER
+-------
+At each W state, full-feedback Q targets are computed for all three operations:
+
+    REFUSE              0
+    COMMIT_RESOLVED     +1 correct record, -0.05 wrong commit
+    SEARCH_ONE          -0.05 + optimal future operation value
+
+Held appears only in these targets and final evaluation.  It never constructs
+doors, W, state features, the commit peak, action validity, or stopping.
+
+HONESTY
+-------
+* hide_two and n_fr-2
+* corpus split before independent train/test tapes
+* train only on the 618 no-pin branch
+* direct/PIN outcomes are diagnostics and frozen baseline, not train samples
+* no token/address/candidate IDs or literals enter policy features
+* output width is always three, independent of tape/candidate width
+* same-place majority, fixed search schedules, random policy, shuffled-Q
+  policy, and always-REFUSE are rivals
+
+KILL SWITCH
+-----------
+The REFUSE branch is enabled only if held-out priced return beats
+always-REFUSE:
+
+    mean(policy priced return) > 0
+    bootstrap low95(policy priced return - 0) > 0
+
+If this fails, deployment is exactly:
+
+    618 -> REFUSE
+
+No trained branch may degrade the frozen baseline.
+
+MIND CLAIM
+----------
+Kill-switch survival is only usefulness.  A learned-mind claim additionally
+requires >0.05 priced return over the strongest fixed/null/frequency rival
+with paired bootstrap low95 > 0.  Otherwise report useful fixed behavior or
+STOP honestly; never call it understanding.

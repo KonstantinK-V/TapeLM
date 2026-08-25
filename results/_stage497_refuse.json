@@ -10,7 +10,7 @@
   "uniq_base": 0.007208333333333333,
   "lift_go_acc": 0.0008650611620795107,
   "n_q": 153,
-  "elapsed_s": 210.5,
+  "elapsed_s": 214.3,
   "note": "GO/REFUSE vs unique teacher; lift_go_acc vs always-GO"
  },
  "2024": {
@@ -39,6 +39,34 @@
   "lift_go_acc": -0.0013344140249759847,
   "n_q": 149,
   "elapsed_s": 209.2,
+  "note": "GO/REFUSE vs unique teacher; lift_go_acc vs always-GO"
+ },
+ "8642": {
+  "seed": 8642,
+  "corpus": "data\\_tinystories_raw_scale.txt",
+  "n_windows": 3000,
+  "go_rate": 0.11370833333333333,
+  "go_acc": 0.00622938805423232,
+  "refuse_rate": 0.8862916666666667,
+  "refuse_ok": 0.9928071082694748,
+  "uniq_base": 0.007083333333333333,
+  "lift_go_acc": -0.0008539452791010132,
+  "n_q": 163,
+  "elapsed_s": 214.3,
+  "note": "GO/REFUSE vs unique teacher; lift_go_acc vs always-GO"
+ },
+ "2890": {
+  "seed": 2890,
+  "corpus": "data\\_tinystories_raw_scale.txt",
+  "n_windows": 3000,
+  "go_rate": 0.11175,
+  "go_acc": 0.008575689783743476,
+  "refuse_rate": 0.88825,
+  "refuse_ok": 0.9939956843981612,
+  "uniq_base": 0.006291666666666667,
+  "lift_go_acc": 0.002284023117076809,
+  "n_q": 153,
+  "elapsed_s": 216.1,
   "note": "GO/REFUSE vs unique teacher; lift_go_acc vs always-GO"
  }
 }

@@ -1,0 +1,62 @@
+{
+ "1337": {
+  "seed": 1337,
+  "corpus": "given",
+  "n_pin": 79,
+  "n_reuse": 12,
+  "agree": 0.75,
+  "hit_m": 0.4166666666666667,
+  "hit_f": 0.5833333333333334,
+  "n_addr": 1.25,
+  "skip": {
+   "frame": 4491,
+   "keep": 139,
+   "refuse": 60,
+   "read_hit": 297,
+   "env": 125
+  },
+  "elapsed_s": 0.4,
+  "void": true,
+  "gate": false
+ },
+ "8642": {
+  "seed": 8642,
+  "corpus": "given",
+  "n_pin": 77,
+  "n_reuse": 19,
+  "agree": 0.8947368421052632,
+  "hit_m": 0.6842105263157895,
+  "hit_f": 0.631578947368421,
+  "n_addr": 1.1578947368421053,
+  "skip": {
+   "frame": 4787,
+   "keep": 143,
+   "refuse": 66,
+   "read_hit": 334,
+   "env": 106
+  },
+  "elapsed_s": 0.4,
+  "void": true,
+  "gate": false
+ },
+ "2890": {
+  "seed": 2890,
+  "corpus": "given",
+  "n_pin": 73,
+  "n_reuse": 15,
+  "agree": 0.8,
+  "hit_m": 0.7333333333333333,
+  "hit_f": 0.6,
+  "n_addr": 1.2,
+  "skip": {
+   "frame": 4629,
+   "read_hit": 334,
+   "keep": 151,
+   "refuse": 78,
+   "env": 136
+  },
+  "elapsed_s": 0.4,
+  "void": true,
+  "gate": false
+ }
+}

@@ -1,0 +1,62 @@
+{
+ "1337": {
+  "seed": 1337,
+  "corpus": "given",
+  "n_pin": 79,
+  "n_ref": 60,
+  "from_w": 1.0,
+  "refuse_wrote": 0.0,
+  "hit": 0.5316455696202531,
+  "skip": {
+   "frame": 4491,
+   "keep": 139,
+   "refuse": 60,
+   "read_hit": 297,
+   "pin": 79,
+   "env": 125
+  },
+  "elapsed_s": 0.4,
+  "void": false,
+  "gate": true
+ },
+ "8642": {
+  "seed": 8642,
+  "corpus": "given",
+  "n_pin": 77,
+  "n_ref": 66,
+  "from_w": 1.0,
+  "refuse_wrote": 0.0,
+  "hit": 0.6103896103896104,
+  "skip": {
+   "frame": 4787,
+   "keep": 143,
+   "refuse": 66,
+   "read_hit": 334,
+   "env": 106,
+   "pin": 77
+  },
+  "elapsed_s": 0.4,
+  "void": false,
+  "gate": true
+ },
+ "2890": {
+  "seed": 2890,
+  "corpus": "given",
+  "n_pin": 73,
+  "n_ref": 78,
+  "from_w": 1.0,
+  "refuse_wrote": 0.0,
+  "hit": 0.5205479452054794,
+  "skip": {
+   "frame": 4629,
+   "read_hit": 334,
+   "keep": 151,
+   "pin": 73,
+   "refuse": 78,
+   "env": 136
+  },
+  "elapsed_s": 0.4,
+  "void": false,
+  "gate": true
+ }
+}

@@ -4,7 +4,7 @@
   "corpus": "data\\_tinystories_raw_scale.txt",
   "steps": 2000,
   "n_windows": 2000,
-  "elapsed_s": 590.1,
+  "elapsed_s": 599.0,
   "partial": false,
   "hunt_u": 0.255,
   "rand_u": 0.071,

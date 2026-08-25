@@ -1,0 +1,22 @@
+# 542 ladder + freestyle night (~5h). Morning: skim lifts.
+
+## Ladder (first)
+- 542 curriculum  results/_stage542_curric.json   paired + null + touches
+  Log: results/_stage542_freestyle_night.log
+
+## Freestyle (after 542)
+- 491 shuffle     results/_stage491_shuffle.json
+- 494 rarity      results/_stage494_rarity.json
+- 496 const       results/_stage496_const.json
+- 497 refuse      results/_stage497_refuse.json
+- 498 budget      results/_stage498_budget.json
+- 493 wiki        results/_stage493_wiki.json
+- 489 transfer    results/_stage489_transfer.json
+- 486 unique      results/_stage486_unique_only.json
+- 487 arrive      results/_stage487_arrive.json
+- 488 chain       results/_stage488_chain.json
+- 499 free-swim   results/_stage499_free_swim.json
+- 500 max-loose   results/_stage500_maxloose.json
+
+Launch:
+  python -u _night542_freestyle.py

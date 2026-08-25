@@ -1,0 +1,53 @@
+{
+ "1337__tinystories_train": {
+  "seed": 1337,
+  "corpus": "given",
+  "path": "data\\_tinystories_train.txt",
+  "n_win": 80,
+  "n_eps": 1798,
+  "elapsed_s": 5.5,
+  "void": false,
+  "gate": true,
+  "n": 1798,
+  "n_res": 269,
+  "mass": 0.1496106785317019,
+  "fill_u": 0.0,
+  "fill_bag": 0.4052044609665427,
+  "fill_rnd": 0.20446096654275092,
+  "prize": 0.4052044609665427
+ },
+ "8642__tinystories_train": {
+  "seed": 8642,
+  "corpus": "given",
+  "path": "data\\_tinystories_train.txt",
+  "n_win": 80,
+  "n_eps": 1825,
+  "elapsed_s": 5.8,
+  "void": false,
+  "gate": true,
+  "n": 1825,
+  "n_res": 283,
+  "mass": 0.15506849315068494,
+  "fill_u": 0.0,
+  "fill_bag": 0.4876325088339223,
+  "fill_rnd": 0.15901060070671377,
+  "prize": 0.4876325088339223
+ },
+ "2890__tinystories_train": {
+  "seed": 2890,
+  "corpus": "given",
+  "path": "data\\_tinystories_train.txt",
+  "n_win": 80,
+  "n_eps": 1735,
+  "elapsed_s": 5.3,
+  "void": false,
+  "gate": true,
+  "n": 1735,
+  "n_res": 236,
+  "mass": 0.13602305475504323,
+  "fill_u": 0.0,
+  "fill_bag": 0.4830508474576271,
+  "fill_rnd": 0.17796610169491525,
+  "prize": 0.4830508474576271
+ }
+}

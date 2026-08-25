@@ -1,0 +1,56 @@
+{
+ "1337": {
+  "seed": 1337,
+  "corpus": "data\\_tinystories_raw_scale.txt",
+  "arms": {
+   "B_wave": {
+    "n_train": 800,
+    "n_upd": 800,
+    "n_row": 1526447,
+    "batch": 1908.05875,
+    "mean_value": -0.0680563616851451,
+    "frac_pos": 0.011779642529350839,
+    "n_keys": 193,
+    "n_eval": 1500,
+    "eval_unique": 0.07333333333333333,
+    "eval_rand": 0.09266666666666666,
+    "lift": -0.019333333333333334
+   },
+   "C_null": {
+    "n_train": 800,
+    "n_upd": 800,
+    "n_row": 1526447,
+    "batch": 1908.05875,
+    "mean_value": -0.06789751430613168,
+    "frac_pos": 0.011779642529350839,
+    "n_keys": 193,
+    "n_eval": 1500,
+    "eval_unique": 0.0,
+    "eval_rand": 0.09266666666666666,
+    "lift": -0.09266666666666666
+   },
+   "D_rule": {
+    "n_train": 0,
+    "n_upd": 0,
+    "n_row": 0,
+    "batch": 0.0,
+    "mean_value": 0.0,
+    "frac_pos": 0.0,
+    "n_keys": 0,
+    "n_eval": 1500,
+    "eval_unique": 0.39466666666666667,
+    "eval_rand": 0.09266666666666666,
+    "lift": 0.302
+   }
+  },
+  "paired_rand": true,
+  "lift_B": -0.019333333333333334,
+  "lift_C": -0.09266666666666666,
+  "lift_D": 0.302,
+  "d_null": 0.07333333333333333,
+  "d_rule": -0.3213333333333333,
+  "elapsed_s": 1839.8,
+  "void": false,
+  "gate": false
+ }
+}

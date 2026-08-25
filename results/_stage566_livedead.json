@@ -1,0 +1,68 @@
+{
+ "1337": {
+  "seed": 1337,
+  "corpus": "given",
+  "n_pin": 24,
+  "n_live": 4,
+  "agree_l": 1.0,
+  "n_dead_follow": 0,
+  "walked_d": 0.0,
+  "same_addr": 0.0,
+  "n_first_dead": 6,
+  "hit": 0.75,
+  "skip": {
+   "frame": 4491,
+   "read_hit": 396,
+   "keep": 24,
+   "env": 125,
+   "refuse": 16
+  },
+  "elapsed_s": 0.3,
+  "void": true,
+  "gate": false
+ },
+ "8642": {
+  "seed": 8642,
+  "corpus": "given",
+  "n_pin": 17,
+  "n_live": 3,
+  "agree_l": 1.0,
+  "n_dead_follow": 0,
+  "walked_d": 0.0,
+  "same_addr": 0.0,
+  "n_first_dead": 5,
+  "hit": 0.7058823529411765,
+  "skip": {
+   "frame": 4787,
+   "read_hit": 446,
+   "env": 106,
+   "keep": 17,
+   "refuse": 14
+  },
+  "elapsed_s": 0.5,
+  "void": true,
+  "gate": false
+ },
+ "2890": {
+  "seed": 2890,
+  "corpus": "given",
+  "n_pin": 18,
+  "n_live": 2,
+  "agree_l": 1.0,
+  "n_dead_follow": 0,
+  "walked_d": 0.0,
+  "same_addr": 0.0,
+  "n_first_dead": 6,
+  "hit": 0.6666666666666666,
+  "skip": {
+   "frame": 4629,
+   "read_hit": 449,
+   "env": 136,
+   "keep": 18,
+   "refuse": 18
+  },
+  "elapsed_s": 0.4,
+  "void": true,
+  "gate": false
+ }
+}

@@ -1,0 +1,152 @@
+{
+ "1337": {
+  "seed": 1337,
+  "corpus": "data\\_tinystories_train.txt",
+  "arms": {
+   "A_curric": {
+    "train_hit": 0.8084,
+    "n_train": 2500,
+    "n_touch": 17573,
+    "n_keys": 68,
+    "n_eval": 1500,
+    "eval_unique": 0.636,
+    "eval_rand": 0.13133333333333333,
+    "eval_maj": 0.4826666666666667,
+    "lift": 0.5046666666666667
+   },
+   "B_scratch": {
+    "train_hit": 0.228,
+    "n_train": 2500,
+    "n_touch": 33691,
+    "n_keys": 100,
+    "n_eval": 1500,
+    "eval_unique": 0.2753333333333333,
+    "eval_rand": 0.13133333333333333,
+    "eval_maj": 0.4826666666666667,
+    "lift": 0.144
+   },
+   "C_null": {
+    "train_hit": 0.8084,
+    "n_train": 2500,
+    "n_touch": 17573,
+    "n_keys": 68,
+    "n_eval": 1500,
+    "eval_unique": 0.0,
+    "eval_rand": 0.13133333333333333,
+    "eval_maj": 0.4826666666666667,
+    "lift": -0.13133333333333333
+   }
+  },
+  "n_train_tapes": 80,
+  "n_test_tapes": 40,
+  "paired_rand": true,
+  "null_touches_equal": true,
+  "address_overlap": 0.5726640926640927,
+  "d_scratch": 0.3606666666666667,
+  "d_null": 0.636,
+  "d_maj": 0.15333333333333332,
+  "elapsed_s": 789.8,
+  "void": false,
+  "gate": true
+ },
+ "8642": {
+  "seed": 8642,
+  "corpus": "data\\_tinystories_train.txt",
+  "arms": {
+   "A_curric": {
+    "train_hit": 0.8032,
+    "n_train": 2500,
+    "n_touch": 19261,
+    "n_keys": 69,
+    "n_eval": 1500,
+    "eval_unique": 0.712,
+    "eval_rand": 0.11466666666666667,
+    "eval_maj": 0.48133333333333334,
+    "lift": 0.5973333333333334
+   },
+   "B_scratch": {
+    "train_hit": 0.6212,
+    "n_train": 2500,
+    "n_touch": 26056,
+    "n_keys": 72,
+    "n_eval": 1500,
+    "eval_unique": 0.628,
+    "eval_rand": 0.11466666666666667,
+    "eval_maj": 0.48133333333333334,
+    "lift": 0.5133333333333333
+   },
+   "C_null": {
+    "train_hit": 0.8032,
+    "n_train": 2500,
+    "n_touch": 19261,
+    "n_keys": 69,
+    "n_eval": 1500,
+    "eval_unique": 0.068,
+    "eval_rand": 0.11466666666666667,
+    "eval_maj": 0.48133333333333334,
+    "lift": -0.04666666666666667
+   }
+  },
+  "n_train_tapes": 80,
+  "n_test_tapes": 40,
+  "paired_rand": true,
+  "null_touches_equal": true,
+  "address_overlap": 0.5736744759556104,
+  "d_scratch": 0.08400000000000007,
+  "d_null": 0.644,
+  "d_maj": 0.23066666666666663,
+  "elapsed_s": 613.5,
+  "void": false,
+  "gate": true
+ },
+ "2890": {
+  "seed": 2890,
+  "corpus": "data\\_tinystories_train.txt",
+  "arms": {
+   "A_curric": {
+    "train_hit": 0.8116,
+    "n_train": 2500,
+    "n_touch": 18893,
+    "n_keys": 67,
+    "n_eval": 1500,
+    "eval_unique": 0.6086666666666667,
+    "eval_rand": 0.11266666666666666,
+    "eval_maj": 0.47333333333333333,
+    "lift": 0.496
+   },
+   "B_scratch": {
+    "train_hit": 0.252,
+    "n_train": 2500,
+    "n_touch": 32664,
+    "n_keys": 102,
+    "n_eval": 1500,
+    "eval_unique": 0.19733333333333333,
+    "eval_rand": 0.11266666666666666,
+    "eval_maj": 0.47333333333333333,
+    "lift": 0.08466666666666667
+   },
+   "C_null": {
+    "train_hit": 0.8116,
+    "n_train": 2500,
+    "n_touch": 18893,
+    "n_keys": 67,
+    "n_eval": 1500,
+    "eval_unique": 0.04533333333333334,
+    "eval_rand": 0.11266666666666666,
+    "eval_maj": 0.47333333333333333,
+    "lift": -0.06733333333333333
+   }
+  },
+  "n_train_tapes": 80,
+  "n_test_tapes": 40,
+  "paired_rand": true,
+  "null_touches_equal": true,
+  "address_overlap": 0.5764826175869121,
+  "d_scratch": 0.41133333333333333,
+  "d_null": 0.5633333333333334,
+  "d_maj": 0.13533333333333336,
+  "elapsed_s": 687.7,
+  "void": false,
+  "gate": true
+ }
+}

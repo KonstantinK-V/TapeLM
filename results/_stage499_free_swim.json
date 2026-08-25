@@ -7,52 +7,52 @@
    "hard": {
     "mode": "hard",
     "start_h": 1.0,
-    "start_r": 0.8704,
-    "len_h": 1.3772,
-    "len_r": 0.1836,
-    "uniq_h": 0.1484,
+    "start_r": 0.872,
+    "len_h": 1.5904,
+    "len_r": 0.1792,
+    "uniq_h": 0.1044,
     "uniq_r": 0.04,
-    "lift_len": 1.1936,
-    "lift_uniq": 0.1084,
+    "lift_len": 1.4112,
+    "lift_uniq": 0.0644,
     "q_mark": {
-     "HARD": 0.2659,
-     "MISS": -0.1343
+     "HARD": 0.2728,
+     "MISS": -0.1355
     },
     "n_windows": 2500,
-    "elapsed_s": 202.4
+    "elapsed_s": 197.8
    },
    "soft05": {
     "mode": "soft05",
     "start_h": 1.0,
     "start_r": 1.0,
-    "len_h": 2.6876,
+    "len_h": 2.0,
     "len_r": 1.2364,
-    "uniq_h": 0.1428,
-    "uniq_r": 0.0236,
-    "lift_len": 1.4512,
-    "lift_uniq": 0.1192,
+    "uniq_h": 0.0496,
+    "uniq_r": 0.0188,
+    "lift_len": 0.7636,
+    "lift_uniq": 0.0308,
     "q_mark": {
-     "SOFT": 0.2958,
-     "MISS": -0.1342
+     "SOFT": 0.2833,
+     "MISS": -0.1326
     },
     "n_windows": 2500,
-    "elapsed_s": 193.3
+    "elapsed_s": 192.2
    },
    "any_slot": {
     "mode": "any_slot",
     "start_h": 1.0,
     "start_r": 1.0,
-    "len_h": 2.4452,
-    "len_r": 2.058,
-    "uniq_h": 0.132,
-    "uniq_r": 0.0204,
-    "lift_len": 0.3872,
-    "lift_uniq": 0.1116,
+    "len_h": 2.0992,
+    "len_r": 2.0,
+    "uniq_h": 0.0652,
+    "uniq_r": 0.022,
+    "lift_len": 0.0992,
+    "lift_uniq": 0.0432,
     "q_mark": {
-     "ANY": 0.2919
+     "ANY": 0.2855
     },
     "n_windows": 2500,
-    "elapsed_s": 190.5
+    "elapsed_s": 191.6
    }
   },
   "note": "free swim: hard vs soft05 vs any_slot pin; no unique gate"
@@ -169,6 +169,122 @@
     },
     "n_windows": 2000,
     "elapsed_s": 143.1
+   }
+  },
+  "note": "free swim: hard vs soft05 vs any_slot pin; no unique gate"
+ },
+ "8642": {
+  "seed": 8642,
+  "corpus": "data\\_tinystories_raw_scale.txt",
+  "max_hops": 8,
+  "arms": {
+   "hard": {
+    "mode": "hard",
+    "start_h": 1.0,
+    "start_r": 0.864,
+    "len_h": 1.3048,
+    "len_r": 0.166,
+    "uniq_h": 0.2144,
+    "uniq_r": 0.0448,
+    "lift_len": 1.1388,
+    "lift_uniq": 0.1696,
+    "q_mark": {
+     "MISS": -0.1356,
+     "HARD": 0.2632
+    },
+    "n_windows": 2500,
+    "elapsed_s": 199.1
+   },
+   "soft05": {
+    "mode": "soft05",
+    "start_h": 1.0,
+    "start_r": 1.0,
+    "len_h": 3.2,
+    "len_r": 1.3124,
+    "uniq_h": 0.1396,
+    "uniq_r": 0.0268,
+    "lift_len": 1.8876,
+    "lift_uniq": 0.1128,
+    "q_mark": {
+     "SOFT": 0.3024,
+     "MISS": -0.1376
+    },
+    "n_windows": 2500,
+    "elapsed_s": 196.0
+   },
+   "any_slot": {
+    "mode": "any_slot",
+    "start_h": 1.0,
+    "start_r": 1.0,
+    "len_h": 2.0664,
+    "len_r": 2.322,
+    "uniq_h": 0.0508,
+    "uniq_r": 0.0196,
+    "lift_len": -0.2556,
+    "lift_uniq": 0.0312,
+    "q_mark": {
+     "ANY": 0.2848
+    },
+    "n_windows": 2500,
+    "elapsed_s": 195.1
+   }
+  },
+  "note": "free swim: hard vs soft05 vs any_slot pin; no unique gate"
+ },
+ "2890": {
+  "seed": 2890,
+  "corpus": "data\\_tinystories_raw_scale.txt",
+  "max_hops": 8,
+  "arms": {
+   "hard": {
+    "mode": "hard",
+    "start_h": 1.0,
+    "start_r": 0.848,
+    "len_h": 1.6456,
+    "len_r": 0.1764,
+    "uniq_h": 0.1308,
+    "uniq_r": 0.0424,
+    "lift_len": 1.4692,
+    "lift_uniq": 0.0884,
+    "q_mark": {
+     "MISS": -0.1356,
+     "HARD": 0.2744
+    },
+    "n_windows": 2500,
+    "elapsed_s": 198.7
+   },
+   "soft05": {
+    "mode": "soft05",
+    "start_h": 1.0,
+    "start_r": 1.0,
+    "len_h": 3.5936,
+    "len_r": 1.3692,
+    "uniq_h": 0.1776,
+    "uniq_r": 0.022,
+    "lift_len": 2.2244,
+    "lift_uniq": 0.1556,
+    "q_mark": {
+     "SOFT": 0.3065,
+     "MISS": -0.1382
+    },
+    "n_windows": 2500,
+    "elapsed_s": 195.7
+   },
+   "any_slot": {
+    "mode": "any_slot",
+    "start_h": 1.0,
+    "start_r": 1.0,
+    "len_h": 3.6948,
+    "len_r": 2.338,
+    "uniq_h": 0.114,
+    "uniq_r": 0.0228,
+    "lift_len": 1.3568,
+    "lift_uniq": 0.0912,
+    "q_mark": {
+     "ANY": 0.3074
+    },
+    "n_windows": 2500,
+    "elapsed_s": 195.3
    }
   },
   "note": "free swim: hard vs soft05 vs any_slot pin; no unique gate"

@@ -8,28 +8,28 @@
     "rand": 0.026,
     "lift": 0.0315,
     "n_windows": 2000,
-    "elapsed_s": 184.3
+    "elapsed_s": 186.8
    },
    "8": {
     "hunt": 0.1135,
     "rand": 0.055,
     "lift": 0.0585,
     "n_windows": 2000,
-    "elapsed_s": 212.7
+    "elapsed_s": 223.2
    },
    "16": {
     "hunt": 0.141,
     "rand": 0.0995,
     "lift": 0.0415,
     "n_windows": 2000,
-    "elapsed_s": 295.0
+    "elapsed_s": 301.8
    },
    "32": {
     "hunt": 0.329,
     "rand": 0.1915,
     "lift": 0.1375,
     "n_windows": 2000,
-    "elapsed_s": 402.1
+    "elapsed_s": 403.0
    }
   },
   "note": "lift vs budget size"
@@ -65,6 +65,41 @@
     "lift": 0.164,
     "n_windows": 2000,
     "elapsed_s": 390.2
+   }
+  },
+  "note": "lift vs budget size"
+ },
+ "2890": {
+  "seed": 2890,
+  "corpus": "data\\_tinystories_raw_scale.txt",
+  "by_budget": {
+   "4": {
+    "hunt": 0.051,
+    "rand": 0.02,
+    "lift": 0.031,
+    "n_windows": 2000,
+    "elapsed_s": 188.9
+   },
+   "8": {
+    "hunt": 0.1395,
+    "rand": 0.038,
+    "lift": 0.1015,
+    "n_windows": 2000,
+    "elapsed_s": 222.6
+   },
+   "16": {
+    "hunt": 0.175,
+    "rand": 0.092,
+    "lift": 0.083,
+    "n_windows": 2000,
+    "elapsed_s": 320.6
+   },
+   "32": {
+    "hunt": 0.252,
+    "rand": 0.1735,
+    "lift": 0.0785,
+    "n_windows": 2000,
+    "elapsed_s": 430.3
    }
   },
   "note": "lift vs budget size"
